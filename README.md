@@ -1,5 +1,7 @@
 # Example-making in mathematics research talks — data release
 
+Pre-release version for peer-review only; not to be circulated publicly.
+
 This release contains the coded data for **1,025 research seminars** from the School of
 Mathematics at the Institute for Advanced Study (IAS), together with the transcripts they
 were coded from and the figures and prompts used to produce them. Each talk has been
@@ -66,10 +68,11 @@ talks whose date could not be recovered), `field_msc` (primary MSC subject), `du
 | `passes[]` | the 12 individual Stage-C passes, each with `pass`, `axis_first`, `struct_order`, the `flags` it assigned, and its free-text `reason` |
 
 > **Terminology — `countercase`.** This field is called `counterexample` inside the raw
-> Stage-C prompt (`scripts/prompts/stage_c_structure_countercase.md`) and in the `flags`
-> wording of some `passes` reasons. In the released data and in the paper it is named
-> **`countercase`**, to avoid implying the example is a *logically necessary* component of
-> a proof. The code is identical; only the label differs.
+> Stage-C prompt (`scripts/prompts/stage_c_structure_countercase.md`) and in the verbatim
+> free-text `reason` of some `passes`. Everywhere in the released data — the `countercase`
+> field, the `votes` keys, and the `passes` `flags` — it is renamed **`countercase`** (to
+> avoid implying the example is a *logically necessary* component of a proof); only the
+> model's quoted prose is left unedited. The code is identical; only the label differs.
 
 ---
 
@@ -88,8 +91,9 @@ One row per example (6,359), joinable to the JSON on `(key, code)`:
   measured duration).
 - `depth`, `natt_talk` — as defined above.
 
-The regression sample reported in the paper (Tables 3–4, n ≈ 6,169) is the subset of rows
-with a non-blank `gen` and defined `logtime` and `depth`.
+The regression sample reported in the paper (Tables 3–4, n = 6,169) is the subset of rows
+with a non-blank `gen` and defined `logtime` and `depth`; filtering this file that way
+yields 6,166 (a ±3 difference from listwise-NA handling in the original regression build).
 
 ---
 
