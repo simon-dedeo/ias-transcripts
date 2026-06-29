@@ -1,0 +1,830 @@
+{
+ "key": "a7222b8fcb86b1a1eb6acfd949d8c412",
+ "title": "Estimating the mean of a real valued distribution",
+ "speaker": "Paul Valiant",
+ "affiliation": "Brown University; von Neumann Fellow, School of Mathematics",
+ "date": "2021-03-15T12:00:00Z",
+ "field_msc": "62 Statistics",
+ "duration_sec": 3962.0,
+ "abstract": "I revisit the basic statistical problem of estimating the mean of a real-valued distribution. I will introduce an estimator with the guarantee that \"our estimator, on *any* distribution, is as accurate as the sample mean is for the Gaussian distribution of matching variance.\" Crucially, in contrast to prior works, our estimator does not require prior knowledge of the variance, and works across the entire gamut of distributions with finite variance, including those without any higher moments.",
+ "youtube_url": "https://youtu.be/biAlpcTOi_4",
+ "page_url": "https://www.ias.edu/video/estimating-mean-real-valued-distribution",
+ "tags": [
+  "Members Seminar",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "finite-sample robustness benchmark",
+   "summary": "The talk formulates mean estimation from n samples with additive error epsilon and failure probability delta, and takes the optimal Gaussian sample-mean bound, proportional to sigma sqrt(2 log(1/delta)/n), as the benchmark to match for arbitrary finite-variance distributions.",
+   "spans": [
+    {
+     "start_sec": 76,
+     "end_sec": 747
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "classical estimators and the constant gap",
+   "summary": "The sample mean is shown to have poor delta-dependence on rare-outlier distributions, while median-of-means restores logarithmic robustness but loses a constant factor, leaving the central constant-improvement problem.",
+   "spans": [
+    {
+     "start_sec": 747,
+     "end_sec": 1305
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Catoni known-variance psi estimator",
+   "summary": "Catoni's influence-function estimator is presented as a way to blend mean-like behavior near the center with median-like clipping in the tails, achieving the Gaussian constant when a scale or variance estimate is known.",
+   "spans": [
+    {
+     "start_sec": 1320,
+     "end_sec": 2012
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "unknown-scale weighted trimming estimator",
+   "summary": "The new estimator obtains a rough center, chooses a data-dependent alpha so that a total weight one-third log(1/delta) is removed in proportion to squared distance from the center, and returns the reweighted mean, thereby avoiding prior knowledge of the variance.",
+   "spans": [
+    {
+     "start_sec": 2012,
+     "end_sec": 2718
+    },
+    {
+     "start_sec": 3708,
+     "end_sec": 3870
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "two-parameter psi-estimator reformulation",
+   "summary": "The weighted-trimming rule is rewritten as a simultaneous implicit estimator in the parameters u and alpha, turning the complicated algorithmic output into a pair of equations involving sums of iid terms.",
+   "spans": [
+    {
+     "start_sec": 2718,
+     "end_sec": 2946
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "uniform tail proof by nets and duality",
+   "summary": "The proof seeks a direction certifying nonzero error for every bad pair (alpha,u), discretizes the parameter space with an epsilon-net and Lipschitz/monotonicity controls, then uses Chernoff bounds, minimax duality, and linear-programming duality to reduce all distributions to a finite low-dimensional optimization problem.",
+   "spans": [
+    {
+     "start_sec": 2946,
+     "end_sec": 3284
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "optimal theorem and extensions",
+   "summary": "The conclusion is that arbitrary real-valued finite-variance distributions can be estimated as well as the matching Gaussian, making Gaussians worst-case rather than best-case, and the talk ends with directions involving intermediate moments, instance-optimality, high-dimensional covariance matching, and adversarial contamination models.",
+   "spans": [
+    {
+     "start_sec": 3308,
+     "end_sec": 3425
+    },
+    {
+     "start_sec": 3465,
+     "end_sec": 3708
+    },
+    {
+     "start_sec": 3870,
+     "end_sec": 3945
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s4",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Poisson outlier-count significance calculation",
+   "note": "The Poisson calculation for seeing ten outliers when one is expected, together with the physics five-sigma threshold, makes the robustness parameter delta concrete rather than deriving any proof step.",
+   "first_introduced_sec": 244,
+   "spans": [
+    {
+     "start_sec": 244,
+     "end_sec": 301
+    }
+   ],
+   "total_seconds": 57,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he models an outlier count as Poisson with mean one and computes the chance of seeing ten outliers, comparing it to a significance threshold",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 7,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Poisson(1) tail-count calculation is an ordinary family member used to illustrate robustness/significance rather than refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a Poisson(1) count of ten is used as a rare high-tail significance-threshold illustration, not to refute a claim"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary Poisson(1) tail calculation used to calibrate robustness rather than refute a claim"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A Poisson(1) tail calculation is used only to illustrate robustness/significance thresholds, not to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A Poisson(1) tail-count calculation is an ordinary family member used to motivate robustness thresholds, not to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard Poisson(1) tail calculation calibrates the robustness threshold rather than refuting a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a Poisson(1) count of 10 is used only to illustrate tail-significance/robustness, and is structurally an extreme rare-tail observation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Poisson model is ordinary, but the observed count of 10 when the mean is 1 is a far-tail significance-threshold event used to motivate robustness."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "used only to motivate robustness/significance, with 10 under Pois(1) a far upper-tail outlier event"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a far-tail Poisson(1) count is used to calibrate the robustness threshold, not to refute a claim"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A far-tail Poisson(1) count near a significance threshold is used only to motivate robustness."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a standard Poisson(1) upper-tail count is used only to calibrate the robustness/significance cutoff"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "rare-outlier two-point distribution",
+   "note": "A distribution that is usually zero but very rarely huge shows that the sample mean has polynomial rather than logarithmic dependence on delta, forcing the move to robust finite-sample estimators.",
+   "first_introduced_sec": 783,
+   "spans": [
+    {
+     "start_sec": 783,
+     "end_sec": 915
+    }
+   ],
+   "total_seconds": 132,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he defines the rare two-point distribution and analyzes what the sample mean does on it, including the chance of seeing an outlier and the resulting error scaling",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A nearly collapsed two-atom law with a rare huge atom tuned to the δ sampling threshold is used to show the sample mean has bad δ-dependence."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the two-atom distribution with tiny outlier mass is a near-boundary finite-support construction used to show the sample mean has bad delta-dependence"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "near-point-mass two-point law with a δ-level huge outlier is a boundary case showing the sample mean lacks Gaussian robustness"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The nearly point-mass two-point law with a rare huge atom is a minimal/limiting tail case used to show the sample mean has bad delta dependence."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The two-point law with a vanishingly rare huge atom is a boundary-like rare-outlier construction used as an adversarial case showing the sample mean has bad delta-dependence."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A near-point-mass two-point law with a rare huge atom at the failure-probability boundary shows the sample mean lacks Gaussian robustness."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the near-point-mass two-point law with a vanishing rare huge atom is used to show the sample mean has much worse delta-dependence than desired."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "It is a nearly point-mass two-atom law with a rare huge atom calibrated to the failure scale, used to show the sample mean has bad delta-dependence."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a near-point-mass two-atom rare-outlier law is used as an adversarial boundary case showing the sample mean has poor delta robustness"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a near-point-mass two-point law at the robustness threshold is used to show the sample mean has bad delta dependence"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A two-atom rare-outlier law calibrated at the δ boundary is used to show the sample mean has bad δ-dependence."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the near-point-mass two-point law with a rare huge atom is used to show the sample mean has bad δ-dependence"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "biased Bernoulli/Poisson tail gap",
+   "note": "The Bernoulli large-deviation picture reveals the one-third log(1/delta) correction and motivates the weighted-trimming estimator, although the final proof is not simply a proof for this example alone.",
+   "first_introduced_sec": 2027,
+   "spans": [
+    {
+     "start_sec": 2027,
+     "end_sec": 2242
+    },
+    {
+     "start_sec": 2400,
+     "end_sec": 2479
+    },
+    {
+     "start_sec": 3778,
+     "end_sec": 3870
+    }
+   ],
+   "total_seconds": 386,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he analyzes biased Bernoulli/Poisson counts via their log-tail shape, computes the one-third log-delta gap from the Gaussian approximation, and uses it to motivate the trimming rule",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 9,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The biased two-point/Poisson-limit tail is a boundary hard case whose third-order gap forces the 1/3 log δ correction and rules out other constants."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the highly biased Bernoulli/Poisson tail is a minimal two-point boundary case whose third-log-delta gap rules out the naive Gaussian/quadratic constants"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "biased Bernoulli/Poisson rare-event law is a near-boundary minimal-support case whose tail gap forces the exact one-third correction"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The biased Bernoulli/Poisson case is a minimal two-point rare-event regime that tightly exposes the third-order tail gap and rules out naive Gaussian-style constants."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The biased Bernoulli/Poisson tail is a critical large-deviation case whose one-third log-delta gap obstructs the naive Gaussian/quadratic approximation and fixes the correction constant."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A highly biased Bernoulli/Poisson rare-count tail is a limiting worst case forcing the one-third log-delta correction and ruling out other constants."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the biased Bernoulli/Poisson rare-event edge case is used as the obstruction fixing the one-third log-delta correction and ruling out other constants."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The biased Bernoulli/Poisson tail is a tight boundary case revealing the one-third log-delta correction, used to guide the optimal algorithm."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the rare biased Bernoulli/Poisson tail is a limiting two-point case used to show the Gaussian/quadratic tail approximation or wrong trimming constants fail"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a highly biased Bernoulli/Poisson tail case forces the sharp one-third log-delta correction and rules out other constants"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A skew Bernoulli/Poisson rare-event case gives the tight one-third log δ tail gap and rules out naive Gaussian-tail corrections."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the biased Bernoulli/Poisson large-deviation tail is the critical asymmetric case exposing the third-order gap from a Gaussian quadratic approximation"
+    }
+   ]
+  }
+ ]
+}

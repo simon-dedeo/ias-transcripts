@@ -1,0 +1,1580 @@
+{
+ "key": "7d3a4068c31f8f6add2e2191289f4896",
+ "title": "Applications of monotone constraint satisfaction",
+ "speaker": "Robert Robere",
+ "affiliation": "University of Toronto",
+ "date": "2017-03-28T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3926.0,
+ "abstract": "Recently, a certain \"monotone\" version of the constraint satisfaction problem has proved an extremely useful tool for attacking problems in circuit, communication, and proof complexity theory. In this talk we discuss this version of the constraint satisfaction problem and touch on its connection to fundamental lower-bounds problems in these areas. We also consider a recent and interesting application: the first exponential lower bounds on the length of cutting planes refutations of random CNF formulas.",
+ "youtube_url": "https://www.youtube.com/watch?v=aLj68cA--Xw",
+ "page_url": "https://www.ias.edu/video/csdm/2017/0328-RobertRobere",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Proof-complexity lower-bound program",
+   "summary": "The talk frames propositional proof complexity as the study of proof length for tautologies, recalls the NP versus coNP motivation, surveys proof systems, and identifies known lower-bound techniques and their reach.",
+   "spans": [
+    {
+     "start_sec": 23,
+     "end_sec": 562
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Feasible interpolation bottleneck",
+   "summary": "Feasible interpolation is described as converting refutations of split formulas into comparable-size circuits for an interpolating Boolean function, explaining why existing cutting-planes lower bounds only handled formulas of this special split form.",
+   "spans": [
+    {
+     "start_sec": 562,
+     "end_sec": 769
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Random-CNF cutting-planes goal and monotone-circuit strategy",
+   "summary": "The main result is stated as exponential lower bounds for cutting-planes refutations of random SAT instances, with the strategy of passing through an RCC proof system equivalent to real monotone circuits computing an associated monotone CSP function.",
+   "spans": [
+    {
+     "start_sec": 769,
+     "end_sec": 988
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Communication proofs and proof-to-search conversion",
+   "summary": "The speaker defines CC/RCC-style semantic proofs whose lines have low communication complexity and shows how such a proof yields a DAG-like protocol for the canonical search problem of finding a falsified clause.",
+   "spans": [
+    {
+     "start_sec": 988,
+     "end_sec": 1235
+    },
+    {
+     "start_sec": 1588,
+     "end_sec": 1746
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Monotone CSP and the Raz--McKenzie/Karchmer--Wigderson bridge",
+   "summary": "A monotone CSP function is constructed by fixing the constraint topology and taking truth tables as inputs, and the Karchmer--Wigderson theorem together with the Raz--McKenzie reduction identifies its monotone circuit size with the communication search problem arising from the CNF.",
+   "spans": [
+    {
+     "start_sec": 1235,
+     "end_sec": 1588
+    },
+    {
+     "start_sec": 1746,
+     "end_sec": 3128
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Real-protocol lift and cutting-planes simulation",
+   "summary": "The bit-communication equivalence is lifted to real communication protocols and real monotone circuits, using known results and the fact that the corresponding RCC system simulates cutting planes.",
+   "spans": [
+    {
+     "start_sec": 3128,
+     "end_sec": 3267
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Random-CNF monotone lower bound via symmetric approximations",
+   "summary": "To complete the lower bound, the talk invokes the symmetric method of approximations for monotone circuits and explains that, for random CNFs, the required scattering parameters are controlled by expansion properties.",
+   "spans": [
+    {
+     "start_sec": 3267,
+     "end_sec": 3723
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Consequences, limitations, and open directions",
+   "summary": "The conclusion emphasizes the first exponential cutting-planes lower bounds beyond split interpolation formulas, then discusses obstacles for nonmonotone circuits, size lifting, other formula families, and the need for more direct cutting-planes techniques.",
+   "spans": [
+    {
+     "start_sec": 3723,
+     "end_sec": 3922
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Landscape of Boolean, algebraic, and semialgebraic proof systems",
+   "note": "The speaker lists familiar Boolean systems, algebraic systems such as Nullstellensatz-style systems, and semialgebraic systems to illustrate the range of proof systems in which lower bounds are studied.",
+   "first_introduced_sec": 298,
+   "spans": [
+    {
+     "start_sec": 298,
+     "end_sec": 362
+    }
+   ],
+   "total_seconds": 64,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker surveys the proof-system landscape and states where lower bounds/interpolation apply, but does not compute or run an argument on the landscape itself",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Survey taxonomy of standard proof-system families, used to orient the talk rather than as a hard or obstructing instance."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The proof-system landscape is a survey collection used only to orient the talk."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is a broad survey taxonomy of proof systems used only to orient the landscape."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A broad taxonomy of standard proof-system families is used as background, not as a special or adversarial object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a broad taxonomy of standard proof-system families used for context rather than as a structurally special object"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard survey taxonomy of proof-system families is used only to set context."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The proof-system landscape is used as contextual taxonomy rather than as a special or adversarial object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The proof-system landscape is used as a contextual taxonomy rather than as a special or adversarial object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The proof-system landscape is used as contextual taxonomy, not as an adversarial example, and has no singled-out intrinsic extreme or sporadic structure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A broad taxonomy of standard proof-system families is used for orientation, not as an obstruction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A contextual taxonomy of proof-system families, not an adversarial object and with no intrinsic special structure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A contextual taxonomy of standard proof-system families, not used to refute a claim."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Ideal Proof System",
+   "note": "In response to a question about 'IPS,' the speaker identifies the Ideal Proof System as a recent algebraic proof system, serving only to clarify the landscape slide.",
+   "first_introduced_sec": 362,
+   "spans": [
+    {
+     "start_sec": 362,
+     "end_sec": 394
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "IPS is only identified as the Ideal Proof System introduced by Grochow and Pitassi, with no concrete analysis of it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "IPS is a standard algebraic proof system mentioned as a named item in the landscape, not a structural exception or adversarial witness."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Ideal Proof System is a systematic algebraic proof system mentioned as part of the landscape."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "IPS is introduced as a standard algebraic proof system rather than as a structurally special or adversarial object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Ideal Proof System is a systematic algebraic proof system mentioned in the landscape rather than a sporadic, boundary, or refuting example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "IPS is a systematic algebraic proof system cited as a named item in the landscape"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "IPS is a systematic algebraic proof system mentioned as one entry in the landscape."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Ideal Proof System is mentioned as a standard algebraic proof system in the landscape, not as a counterexample or structural exception."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "IPS is cited as a standard algebraic proof system in the survey, with no special structural role invoked."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Ideal Proof System is cited as a standard algebraic proof system in the landscape rather than to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Ideal Proof System is a systematic algebraic proof system cited as one item in the landscape."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "IPS is mentioned as a named algebraic proof system in the landscape, not as a failure case or structurally sporadic object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard algebraic proof system introduced as part of the landscape, not as a failure case."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "AC0 proof system as an interpolation outlier",
+   "note": "The AC0 proof system, whose lines are restricted low-depth formulas, is used to illustrate that lower bounds can exist even where feasible interpolation is unavailable.",
+   "first_introduced_sec": 495,
+   "spans": [
+    {
+     "start_sec": 495,
+     "end_sec": 528
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "AC0 is described as an outlier where interpolation cannot apply despite lower bounds, but no property is derived or checked in detail",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The AC0 proof system is a standard weak bounded-depth system, used as the outlier showing feasible interpolation need not apply."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "AC0 proofs are cited as an outlier showing feasible interpolation cannot explain all known lower bounds."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The AC0 proof system is used to show that feasible interpolation can fail even where lower bounds exist."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "AC0 proofs are used as an outlier showing feasible interpolation cannot apply universally, though AC0 is a systematic restricted proof system rather than a structural exception."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "AC0 proofs are used as an outlier showing feasible interpolation need not accompany known lower bounds"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "AC0-Frege is used as an outlier showing feasible interpolation need not apply even where lower bounds exist."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "AC0 proofs are presented as an outlier showing feasible interpolation need not apply even where lower bounds exist."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The AC0 proof system is presented as an outlier showing feasible interpolation cannot explain all known proof lower bounds."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "AC0 proof systems are presented as an outlier showing feasible interpolation need not apply even when lower bounds are known."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "AC0 proofs are used to show feasible interpolation can fail to apply even where lower bounds exist."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "AC0 proofs are used as an outlier showing feasible interpolation need not apply even where lower bounds exist."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an outlier showing feasible interpolation cannot explain all known lower bounds."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Two-player gadget version of the reduction",
+   "note": "When asked whether the reduction depends on clauses, the speaker mentions the standard lifting-theorem variant using a small two-player gadget, illustrating the generality of the Raz--McKenzie construction.",
+   "first_introduced_sec": 2777,
+   "spans": [
+    {
+     "start_sec": 2777,
+     "end_sec": 2807
+    },
+    {
+     "start_sec": 3059,
+     "end_sec": 3085
+    }
+   ],
+   "total_seconds": 56,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly constructs the two-player reduction by mapping Alice’s and Bob’s inputs to CSP truth tables and verifies how KV-game outputs correspond to falsified clauses",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-player gadget reduction is a standard lifted version of the construction, introduced as a generalization rather than a failure case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-player gadgetized reduction is a standard lifting-style construction used as a generalization."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-player gadget version is a standard lifting-style variant illustrating that the reduction works more generally."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The two-player gadget construction is a standard lifting-style variant of the reduction, used explanatorily rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the two-player gadget composition is a standard lifting-style variant of the reduction"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-player gadgetized reduction is a standard lifting-style variant used to generalize the construction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-player gadgetized reduction is a standard lifting-style construction schema used to generalize the argument."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-player gadget construction is a systematic variant of the reduction, not a structurally exceptional case or obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-player gadget version is a standard constructive variant of the reduction used for lifting, not a failure case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The two-player gadget construction is a standard generalized reduction rather than an adversarial or structurally special object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The two-player gadget version is a standard lifting-style variant of the reduction, used constructively rather than adversarially."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard gadget-composition variant of the reduction used to explain generality."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Clique-function comparison",
+   "note": "An audience member compares the new CSP target with the classical clique-function setting, and the speaker uses it to clarify that the present reduction always goes to the monotone CSP function rather than to clique itself.",
+   "first_introduced_sec": 3170,
+   "spans": [
+    {
+     "start_sec": 3170,
+     "end_sec": 3199
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the clique comparison arises only in a question-answer aside contrasting clique-style lower bounds with the CSP reduction, without working through a clique instance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clique monotone function is highly invariant under vertex relabeling and appears only as a comparison to known clique lower bounds."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clique function is highly invariant under vertex relabeling and is used only as a comparison point."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clique/CLIQUE object is highly vertex-permutation-symmetric and is invoked only as a comparison with known monotone lower bounds."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The CLIQUE monotone graph function is highly invariant under vertex relabeling and is invoked only as a comparison with the present CSP reduction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the clique function is a highly permutation-regular monotone graph predicate used only as a comparison point"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The clique monotone function is invoked only as a comparison point for the CSP-function reduction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clique function is invoked only for comparison with familiar monotone lower-bound settings, and it is highly invariant under vertex relabeling."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clique function is invoked only for comparison and is a highly vertex-permutation-regular monotone graph function."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clique-function example is used only as a comparison point, and the clique property is highly invariant under vertex relabeling."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clique function is a vertex-label symmetric monotone graph property used only as a comparison point."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clique function is invoked only as a comparison point, and it is a highly vertex-symmetric monotone graph property."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clique function is a familiar highly vertex-symmetric monotone function used only for comparison."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Weak bit pigeonhole principle",
+   "note": "The weak bit pigeonhole principle is cited as another formula family for which related cutting-planes lower bounds can be obtained, contrasting with the ordinary pigeonhole principle's small cutting-planes proofs.",
+   "first_introduced_sec": 3815,
+   "spans": [
+    {
+     "start_sec": 3815,
+     "end_sec": 3837
+    }
+   ],
+   "total_seconds": 22,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "weak bit PHP is cited at the end as another lower-bound application, with only a brief description and no derivation",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Weak bit PHP is a standard encoded pigeonhole tautology used as a hard instance giving cutting-planes lower bounds."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The weak bit pigeonhole principle is a highly regular pigeonhole tautology cited as a cutting-planes lower-bound instance."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Weak bit PHP is a standard counting tautology family cited as another lower-bound application."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The weak bit pigeonhole principle is a highly regular counting tautology used as another hard lower-bound instance for cutting planes."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "weak bit PHP is an indirect pigeonhole-principle family cited as another lower-bound application"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Weak bit PHP is cited as another hard tautology family giving cutting-planes lower bounds."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The weak bit pigeonhole principle is cited as a hard lower-bound target for cutting planes, with a regular pigeonhole-type counting structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The weak bit pigeonhole principle is a regular pigeonhole tautology used as a hard lower-bound target for cutting planes."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Weak bit PHP is mentioned as another tautology family admitting lower bounds by the method, not as an obstruction or sporadic object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Weak bit PHP is a highly regular counting-principle tautology cited as a hard family giving cutting-planes lower bounds."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Weak bit PHP is cited as a hard lower-bound family for cutting planes and encodes the extremal counting obstruction to injecting more pigeons than holes."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A systematic PHP-style tautology family cited as another lower-bound application."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Tseitin tautologies as a limitation",
+   "note": "Tseitin tautologies are mentioned as a desired target for cutting-planes lower bounds where the RCC-to-monotone-circuit method fails because the stronger RCC system solves them in linear size.",
+   "first_introduced_sec": 3837,
+   "spans": [
+    {
+     "start_sec": 3837,
+     "end_sec": 3903
+    }
+   ],
+   "total_seconds": 66,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Tseitin is cited as a desired lower bound that this technique cannot handle because RCC is too powerful, but the claimed linear-size solution is not worked out",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Tseitin parity tautologies are standard XOR-on-graph contradictions used to show the RCC/monotone-CSP technique cannot handle this desired lower bound."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Tseitin tautologies are used to show the RCC/monotone-CSP method cannot handle this desired lower-bound target."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Tseitin tautologies are used as an obstruction because the RCC system solves them in linear size, so this technique cannot prove their lower bounds."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Tseitin tautologies are cited to show a limitation of the RCC/monotone-CSP technique, since that stronger system solves them in linear size."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Tseitin tautologies are used as an obstruction showing the RCC-based technique cannot handle all desired cutting-planes lower bounds"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Tseitin tautologies are used to show a limitation of the RCC/monotone-CSP method, since RCC solves them in linear size."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Tseitin tautologies are raised as an obstruction to the technique since RCC refutes their critical parity contradictions in linear size."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Tseitin tautologies are used as a limitation case, since the RCC system can solve their F2-linear contradictions in linear size."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Tseitin tautologies are used to show a limitation of the RCC/monotone-CSP technique because RCC solves them in linear size."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Tseitin tautologies are critical parity contradictions used here as an obstruction showing the method cannot handle that desired target."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Tseitin tautologies are used as an obstruction to the technique’s generality because the stronger RCC system solves them in linear size."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an obstruction showing the RCC/monotone-CSP method cannot prove the desired cutting-planes lower bounds."
+    }
+   ]
+  }
+ ]
+}

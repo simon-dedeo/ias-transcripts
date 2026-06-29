@@ -1,0 +1,1538 @@
+{
+ "key": "e94e440f44f7a0396ffcc58c9bcdd99c",
+ "title": "Polynomial Identity Testing of Read-Once Oblivious Algebraic Branching Progress",
+ "speaker": "Michael Forbes",
+ "affiliation": "Massachusetts Institute of Technology",
+ "date": "2012-11-26T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3981.0,
+ "abstract": "Polynomial Identity Testing (PIT) is the problem of identifying whether a given algebraic circuit computes the identically zero polynomial. It is well-known that this problem can be solved with small error probability by testing whether the circuit evaluates to zero on random evaluation points.",
+ "youtube_url": "https://www.youtube.com/watch?v=K6Q9ZqvR-f4",
+ "page_url": "https://www.ias.edu/video/csdm/forbes",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "The PIT target and ROABP setting",
+   "summary": "The talk states the quasi-polynomial explicit hitting-set theorem for known-order read-once oblivious algebraic branching programs and situates it within black-box PIT, lower bounds, white-box PIT, and related restricted algebraic models.",
+   "spans": [
+    {
+     "start_sec": 21,
+     "end_sec": 1124
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Partial-derivative rank blueprint",
+   "summary": "Nisan's partial-derivative/rank measure and the Forbes-Shpilka white-box basis-reduction algorithm are recast as the rank-based method that the black-box construction will have to simulate.",
+   "spans": [
+    {
+     "start_sec": 1124,
+     "end_sec": 1399
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Parallel halving via local mergers",
+   "summary": "The theorem is reformulated as a small-seed polynomial generator, and the construction is reduced to merging adjacent variable pairs with few bad seed values so that all pairs can be merged in parallel for logarithmically many rounds.",
+   "spans": [
+    {
+     "start_sec": 1399,
+     "end_sec": 1641
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Matrix-span invariant",
+   "summary": "After explaining why Kronecker substitution and mere nonzeroness preservation are inadequate, the proof introduces the matrix span of coefficient/evaluation matrices and proves the bilinear span-preservation lemma that lets left and right blocks be recursively merged independently.",
+   "spans": [
+    {
+     "start_sec": 1641,
+     "end_sec": 2409
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Span-preserving curves suffice",
+   "summary": "The desired local merger is formalized as seed-dependent curves (p_alpha(z),q_alpha(z)) that preserve the matrix span of A(x)B(y) for all but polynomially many seeds, and such curves are shown to imply a recursive generator, up to a degree-growth problem.",
+   "spans": [
+    {
+     "start_sec": 2409,
+     "end_sec": 2782
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Vandermonde rank extraction builds the curves",
+   "summary": "A Vandermonde-style seeded rank extractor compresses the coefficient span of a matrix polynomial to r^2 evaluations, and interpolating through the resulting r^4 product evaluation points produces the span-preserving curves.",
+   "spans": [
+    {
+     "start_sec": 2782,
+     "end_sec": 3197
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Low-degree recomposition",
+   "summary": "To avoid quasi-polynomial degree from naive composition, the proof opens the curves at each level, re-evaluates them at extractor points, and interpolates fresh degree-r^4 curves, preserving span while keeping the generator degree small.",
+   "spans": [
+    {
+     "start_sec": 3197,
+     "end_sec": 3388
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Consequences and limitations",
+   "summary": "The conclusion records black-box reductions for diagonal circuits and noncommutative ABPs, frames the result as a black-box analogue of the partial-derivative method and Boolean small-space generators, and lists fixed-order and seed-length open problems.",
+   "spans": [
+    {
+     "start_sec": 3388,
+     "end_sec": 3967
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Difference-of-squares arithmetic formula",
+   "note": "The formula computing x^2-y^2 is used only to make concrete what it means for a polynomial to be given by a small arithmetic device, with no new proof idea extracted from it.",
+   "first_introduced_sec": 150,
+   "spans": [
+    {
+     "start_sec": 150,
+     "end_sec": 179
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the formula computing x^2-y^2 is only cited as an example of an arithmetic formula/PIT input, with no computation carried out on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard small arithmetic formula used only to introduce PIT models"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a standard small arithmetic formula used only to illustrate PIT input"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary arithmetic formula for the polynomial x^2-y^2 is used only to illustrate the PIT input model."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative arithmetic formula for PIT, not used to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative nonzero arithmetic formula for introducing PIT"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The formula for x^2-y^2 is a standard illustrative arithmetic formula, not used to refute anything."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The formula computing x^2-y^2 is just an introductory PIT example, not used to refute a claim and not structurally extremal, degenerate, maximally symmetric, or sporadic."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary small arithmetic formula used only to illustrate PIT, not to refute a claim"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used only as a standard illustrative arithmetic formula for PIT."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used only to illustrate arithmetic formulas/PIT, and x^2-y^2 is not structurally exceptional or extremal"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary arithmetic formula used only to illustrate the PIT input model"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used only as a simple illustrative arithmetic formula for PIT, with no sporadic, limiting, optimal, or maximal-symmetry structure."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Sparse polynomials as a contained PIT class",
+   "note": "Sparse polynomials are cited as an easy restricted PIT model and later as a class captured by ROABPs, illustrating why the ROABP model is broad enough to matter.",
+   "first_introduced_sec": 442,
+   "spans": [
+    {
+     "start_sec": 442,
+     "end_sec": 466
+    },
+    {
+     "start_sec": 596,
+     "end_sec": 618
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "sparse polynomials are described as a depth-two/PIT subclass captured by ROABPs, but the containment is only stated, not derived on an instance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 5,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a systematic restricted PIT class cited as being captured by ROABPs, not as a sporadic or boundary object"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "sparse polynomials have collapsed monomial support relative to general dense polynomials and are cited as an easy contained class"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Sparse polynomials are a standard infinite restricted PIT class captured by ROABPs, not a sporadic or adversarial object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard restricted class captured by ROABPs, cited as containment rather than a failure case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard infinite restricted PIT class cited as being captured by ROABPs"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Sparse polynomials form a low-support/depth-two restricted base class captured by ROABPs, not a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Sparse polynomials are cited as a standard restricted PIT class captured by ROABPs, not as an obstruction or a classification exception."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "sparse polynomials are the low-support depth-two base restricted class contained in ROABPs, used as motivation"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cited as an ordinary restricted PIT class captured by ROABPs, not as a failure case or structural extreme."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "cited as a standard systematic restricted PIT class captured by ROABPs, not as a failure case"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "low-support polynomial class cited as an easy subclass captured by ROABPs"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Sparse polynomials form a low-support restricted family with many absent monomial coefficients, used as an included subclass rather than a refutation."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Boolean small-space read-once branching programs",
+   "note": "The Boolean ROBP/PRG setting and the RL versus L analogy motivate the algebraic model and later parameter questions, but the algebraic construction is not derived from a particular Boolean example in the talk.",
+   "first_introduced_sec": 808,
+   "spans": [
+    {
+     "start_sec": 808,
+     "end_sec": 831
+    },
+    {
+     "start_sec": 1472,
+     "end_sec": 1501
+    },
+    {
+     "start_sec": 3607,
+     "end_sec": 3803
+    }
+   ],
+   "total_seconds": 248,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Boolean small-space read-once branching programs are used as motivational analogy to RL versus L and PRGs, without running the algebraic construction on them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary small-space read-once Boolean branching programs are used as an analogy for the algebraic model"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Boolean small-space read-once branching programs are used as a standard analogue rather than as a special boundary case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Boolean small-space read-once branching programs are cited as a standard analogue motivating the algebraic model."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard Boolean small-space/ROBP model used as an analogy, not a sporadic or boundary object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard Boolean small-space/read-once branching-program model used as an analogy"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Boolean small-space read-once branching programs are a standard systematic model used as an analogy for the algebraic setting."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Boolean small-space read-once branching programs are invoked as the standard pseudorandomness analogue, a systematic model rather than an extreme or exceptional object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard infinite model of bounded-space Boolean computation used as an analogy for ROABPs"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a motivating Boolean analogue of the algebraic model rather than a special or adversarial object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as the standard Boolean small-space analogue motivating algebraic ROBPs"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard restricted Boolean branching-program model used as an analogy for the algebraic setting"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Boolean small-space read-once branching programs are invoked as a standard systematic analogue, not as a failure case or classification-special object."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Two-matrix bivariate ROABP/path-sum graph",
+   "note": "A two-variable product of polynomial matrices is redrawn as a layered graph whose s-t path weights sum to the polynomial, making the read-once ABP definition concrete.",
+   "first_introduced_sec": 873,
+   "spans": [
+    {
+     "start_sec": 873,
+     "end_sec": 927
+    }
+   ],
+   "total_seconds": 54,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker concretely explains the two-matrix bivariate ROABP as a layered path-sum graph, tracing ST paths and their edge-weight products",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a representative two-layer ROABP/path-sum illustration of the model rather than a special classification case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the two-matrix bivariate ROABP/path-sum graph is a basic illustrative instance with no claimed structural extremality"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-matrix bivariate ROABP/path-sum graph is a small but ordinary illustrative instance of the ABP definition."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "small bivariate ROABP/path-sum instance illustrating the definition, with no intrinsic extremal or exceptional feature."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "small illustrative bivariate ROABP/path-sum instance, not structurally sporadic or extremal"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-matrix bivariate ROABP/path-sum graph is just a small concrete representative of the model."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-matrix bivariate ROABP/path-sum graph is a concrete representative used to explain the definition of an algebraic branching program."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the two-matrix bivariate ROABP is the smallest nontrivial layered path-sum instance used to explain the model"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A basic two-layer ROABP/path-sum illustration of the definition, with no exceptional structural role."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "serves as a concrete bivariate ROABP/path-sum illustration with otherwise ordinary structure"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "small but ordinary bivariate ROABP/path-sum instance used to explain the model"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-matrix bivariate path-sum graph is a concrete ordinary ROABP illustration, not a counterexample or structurally exceptional case."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Two-player algebraic communication-game picture",
+   "note": "Splitting the variables between two players gives a heuristic analogy for why a partial-derivative rank bound is natural, but it is not used to generate the construction.",
+   "first_introduced_sec": 1268,
+   "spans": [
+    {
+     "start_sec": 1268,
+     "end_sec": 1295
+    }
+   ],
+   "total_seconds": 27,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the two-player algebraic communication game is introduced only as a way to think about the rank/partial-derivative picture",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the two-player communication view is a standard interpretive picture for a left/right variable split"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the two-player algebraic communication view is an explanatory rank analogy, not a special mathematical object"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-player algebraic communication-game picture is a conceptual analogy for the rank/partial-derivative view, not a failure case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "communication-game viewpoint is an explanatory analogy for rank, not an adversarial example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "conceptual two-player communication analogy for the rank viewpoint"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-player algebraic communication picture is an ordinary interpretive framework for the left/right variable split."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-player algebraic communication-game picture is an explanatory analogy for the rank split, not a counterexample or a structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard left/right variable-partition communication-complexity picture used heuristically for the rank argument"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Presented as an intuition-building communication-complexity analogy for rank, not as an obstruction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "introduced as an explanatory communication-complexity analogy for the rank split"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "heuristic two-party communication-complexity viewpoint used to motivate the rank intuition"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-player algebraic communication-game picture is a heuristic interpretation of the rank argument, with no special intrinsic structure asserted."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Counterexample to preserving only nonzeroness",
+   "note": "The speaker exhibits polynomial matrices A(x) and B(y) for which separately preserving nonzeroness can fail after an inappropriate merge, visibly forcing the stronger matrix-span invariant.",
+   "first_introduced_sec": 1713,
+   "spans": [
+    {
+     "start_sec": 1713,
+     "end_sec": 1737
+    },
+    {
+     "start_sec": 2044,
+     "end_sec": 2409
+    }
+   ],
+   "total_seconds": 389,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses the matrix counterexample to check that preserving nonzeroness alone fails under substitution and multiplication",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 1
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a deliberately collapsing matrix-product example is used to show that preserving only nonzeroness can fail"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "the explicit matrices are not transcribed, but the example is explicitly used to refute preserving only separate nonzeroness"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The polynomial-matrix example is explicitly used to show that merely preserving nonzeroness of separate factors is insufficient after merging variables."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "explicitly deployed to show that preserving only separate nonzeroness can fail after merging variables."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "collapsed cancellation/zero-product instance used to show preserving only factor nonzeroness fails"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The matrix example collapses to a zero product under the proposed merge, showing that preserving only nonzeroness is insufficient."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The matrix example is explicitly used to show that preserving only nonzeroness can fail, and it relies on a singular zero-product collapse."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "rank-deficient polynomial matrices under a naive variable merge keep the factors nonzero while killing the product, refuting preservation of mere nonzeroness"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The nonzero matrix factors collapse to a zero product after variable identification, showing nonzeroness alone is insufficient."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the low-rank cancelling matrix pair is used to show that preserving only individual nonzeroness can make the product vanish after merging"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "matrix-polynomial example refutes the idea that preserving only individual nonzeroness suffices under merging"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It is explicitly used to show that merely preserving factor nonzeroness can fail after merging variables, while the polynomial-matrix example itself is not sporadic or extremal."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Four-variable pairwise merge toy case",
+   "note": "The A,B,C,D case walks through applying one seed to two adjacent pairs and a second seed to their merge, illustrating the general parallel halving recursion.",
+   "first_introduced_sec": 2638,
+   "spans": [
+    {
+     "start_sec": 2638,
+     "end_sec": 2726
+    }
+   ],
+   "total_seconds": 88,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the four-variable case is explicitly run through the pairwise curve-merging procedure, union-bound seed choice, second merge, and interpolation",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a small balanced four-variable instance illustrates the general pairwise merge recursion"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the four-variable pairwise merge is a small toy instance illustrating the general recursive construction"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The four-variable pairwise merge case is an ordinary toy instance illustrating the general recursive span-preserving construction."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "representative four-variable toy induction step for pairwise merging, not used to disprove anything."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary toy four-variable balanced merge illustrating the recursive construction"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The four-variable pairwise merge is a toy instance of the general recursive construction, not a structurally exceptional case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The four-variable pairwise merge is a minimal toy instance of the general recursive merging construction, not an adversarial example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the four-variable pairwise merge is a minimal toy instance of the recursive merging construction"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A small four-variable illustration of the recursive pairwise merge construction, not a structural extreme."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a representative four-variable toy instance illustrating recursive adjacent-pair merging"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "minimal four-variable toy instance of the recursive pairwise-merge construction"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The four-variable pairwise merge is a toy demonstration of the recursive construction, not an adversarial, optimal, sporadic, or maximally symmetric object."
+    }
+   ]
+  }
+ ]
+}

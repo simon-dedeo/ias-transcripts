@@ -1,0 +1,1178 @@
+{
+ "key": "48419e3fa44caec0d6c4e63a0e3dd891",
+ "title": "Rounding Large Independent Sets on Expanders",
+ "speaker": "Tim Hsieh",
+ "affiliation": "Carnegie Mellon University",
+ "date": "2024-05-06T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3975.0,
+ "abstract": "In this talk, we will present a new approach for approximating large independent sets when the input graph is a one-sided expander—that is, the uniform random walk matrix of the graph has second eigenvalue bounded away from 1. Specifically, we show a polynomial time algorithm that can find linear-sized independent sets in one-sided expanders that are almost 3-colorable or promised to contain a 0.499n-sized independent set.",
+ "youtube_url": "https://youtu.be/lKs0JLeCco4",
+ "page_url": "https://www.ias.edu/video/rounding-large-independent-sets-expanders",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Independent-set approximation landscape",
+   "summary": "The talk motivates the problem by reviewing hardness and algorithmic barriers for finding large independent sets, especially in the high-completeness regime and through the connection to coloring 3-colorable graphs.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 505
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "One-sided expander setting and main theorems",
+   "summary": "After contrasting random or two-sided expander planted-coloring methods with one-sided spectral expansion, the speaker states a hardness result for almost-4-colorable expanders and the main positive results for almost-3-colorable expanders, half-minus-epsilon independent sets, and certified vertex expanders.",
+   "spans": [
+    {
+     "start_sec": 505,
+     "end_sec": 1212
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Approximate packing for half-minus-epsilon independent sets",
+   "summary": "For graphs with spectral gap Omega(epsilon), the speaker proves that among any three independent sets of size half minus epsilon, some pair must intersect in more than one fourth of the vertices by combining a two-set counting inequality with edge expansion and a three-set covering contradiction.",
+   "spans": [
+    {
+     "start_sec": 1212,
+     "end_sec": 2184
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Rounding from almost-unique independent sets",
+   "summary": "The packing lemma is converted into an algorithmic rounding principle: two samples from a distribution or pseudo-distribution over large independent sets have large overlap, so many vertex marginals exceed one half, and thresholding those marginals yields an independent set.",
+   "spans": [
+    {
+     "start_sec": 2184,
+     "end_sec": 2578
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Approximate packing for 3-colorings",
+   "summary": "For 3-colorable one-sided expanders, the speaker defines agreement of colorings modulo permutation, applies expansion to the six permutation triangles in the nine-cluster product picture, and sketches the case analysis showing that either a color class is already large or two of three colorings agree on more than half the vertices.",
+   "spans": [
+    {
+     "start_sec": 2578,
+     "end_sec": 3265
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Rounding from coloring agreement to an independent set",
+   "summary": "The coloring-packing conclusion is rounded analogously to the independent-set case: large expected permutation agreement forces a positive fraction of vertices to have some color marginal above one half, and one such marginal class is an independent set.",
+   "spans": [
+    {
+     "start_sec": 3265,
+     "end_sec": 3401
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Certified vertex expansion and decomposition program",
+   "summary": "The talk extends the viewpoint to certified small-set vertex expansion and proposes vertex-expander decomposition as a route toward arbitrary graphs, emphasizing the need to remove neighbors rather than only edges so recursively found independent sets can be unioned.",
+   "spans": [
+    {
+     "start_sec": 1185,
+     "end_sec": 1212
+    },
+    {
+     "start_sec": 3401,
+     "end_sec": 3973
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3",
+    "s4"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Planted k-coloring on random and two-sided expander graphs",
+   "note": "The speaker recalls the model obtained by sampling a random graph, partitioning vertices into k clusters, and deleting within-cluster edges, to illustrate why spectral bottom-eigenspace methods can recover planted color classes under stronger two-sided expansion assumptions.",
+   "first_introduced_sec": 505,
+   "spans": [
+    {
+     "start_sec": 505,
+     "end_sec": 695
+    }
+   ],
+   "total_seconds": 190,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the planted k-coloring models on random and two-sided expander graphs are described as prior settings where bottom eigenspace methods recover color classes, without carrying out a concrete instance",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "planted k-colorings on random or two-sided expander graphs are systematic structured families used as positive algorithmic cases"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A planted k-coloring on random or two-sided expander graphs is used as a standard positive model where spectral recovery works, not as a limiting or adversarial object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as a prior positive planted-model setting, with no maximal symmetry, degeneracy, extremality, or sporadic exceptionality."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard infinite-family planted-coloring/expander model used as a prior algorithmic setting, not to refute a claim"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard planted-coloring model on random or expander graphs used as a positive algorithmic setting"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A planted coloring on random or two-sided expander graphs is a systematic model family used as prior positive algorithmic context."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as a positive planted/random expander setting where spectral methods recover colors, not as a sporadic or extremal object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as a standard positive planted-coloring/expander model where spectral recovery works, not as a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard planted-coloring/expander model is used as a prior positive setting for spectral recovery"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard planted-coloring random/expander model used as a positive setting for spectral recovery."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary planted-coloring random/expander input model used as a positive algorithmic setting"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A systematic planted-coloring expander/random-graph model used as positive background for eigenspace recovery."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Random-looking pair of large independent sets",
+   "note": "A pair of half-minus-epsilon independent sets is pictured as splitting vertices into four roughly equal clusters, making the expected one-fourth intersection threshold concrete.",
+   "first_introduced_sec": 1413,
+   "spans": [
+    {
+     "start_sec": 1413,
+     "end_sec": 1473
+    }
+   ],
+   "total_seconds": 60,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker partitions two large independent sets into four clusters and derives intersection and expansion inequalities for that pair/triple setup",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a random-looking pair of large independent sets with roughly quarter overlap is presented as the generic benchmark"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The pair is explicitly treated as random-looking with product-size overlap, so it is a typical heuristic configuration rather than a special obstruction."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A random-like pair with roughly product-size overlap is a typical baseline for defining distinct independent sets."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a random-like representative pair with typical quarter-overlap behavior used to motivate the definition of distinctness"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a heuristically typical random-like pair with roughly quarter intersection used to motivate the distinctness threshold"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A random-like pair with overlap about one fourth is used as the ordinary benchmark for defining distinctness."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A random-like pair with roughly the expected one-quarter overlap is a representative baseline for defining distinctness."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A generic random-overlap pair motivates the definition of distinct large independent sets."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the pair is meant as a random/representative benchmark with roughly one-quarter overlap"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A generic random-position pair with the expected quarter overlap, used only to motivate the distinctness threshold."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a typical random-like pair with roughly product-overlap one fourth used to motivate the notion of distinctness"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A generic pair of large independent sets with random-like overlap used to motivate the one-fourth distinctness threshold."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Two triangle colorings equal up to color permutation",
+   "note": "A triangle with two differently named 3-colorings illustrates why coloring agreement must be measured after optimizing over permutations of the color labels.",
+   "first_introduced_sec": 2601,
+   "spans": [
+    {
+     "start_sec": 2601,
+     "end_sec": 2620
+    }
+   ],
+   "total_seconds": 19,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker checks the two triangle colorings are the same by applying a permutation of the color classes",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 7,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the two triangle colorings have maximal possible agreement after quotienting by color permutations"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The two triangle colorings have perfect agreement after a color permutation, and the triangle/color-permutation setup carries maximal symmetry."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The underlying triangle is maximally symmetric and the two colorings have maximal agreement after an S3 color relabeling, used only to illustrate color-equivalence."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "proper colorings of the triangle are identified through the natural S3 color-permutation symmetry"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the two proper colorings of the highly symmetric triangle have maximal agreement after permuting colors"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The two proper colorings of a triangle are used only to illustrate quotienting by color permutation, with the triangle giving a maximally symmetric toy instance."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The two proper triangle colorings become identical after an S3 color relabeling, giving maximal agreement in a highly symmetric triangle."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The two colorings illustrate equivalence under the natural color-permutation symmetry of the triangle."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the triangle colorings illustrate the color-permutation symmetry of proper 3-colorings"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The highly symmetric triangle colorings have maximal agreement after a color permutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "a pair of triangle colorings with maximal agreement after relabeling on the highly symmetric triangle"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Two proper colorings of the highly symmetric triangle are used only to illustrate quotienting by color permutations."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Pair of colorings with agreement one half",
+   "note": "The displayed pair of colorings shows how the maximum permutation agreement can be exactly one half, clarifying the distinctness threshold used in the packing theorem.",
+   "first_introduced_sec": 2641,
+   "spans": [
+    {
+     "start_sec": 2641,
+     "end_sec": 2683
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker computes the agreement of the displayed pair of colorings as one half by considering how many vertices can be matched on each side",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the pair is constructed at the critical half-agreement threshold used to define distinct colorings"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Agreement exactly one half is the critical boundary used for the later notion of distinct colorings, not a refutation of a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Agreement exactly one half is the critical boundary used for the distinct-coloring threshold, not a refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the pair is placed exactly at the half-agreement threshold used as the boundary for distinct colorings"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the pair is chosen to lie exactly at the critical agreement-one-half threshold"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The pair has agreement exactly at the one-half threshold used as the boundary for distinct colorings."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The pair has agreement exactly one half, the critical boundary used for the talk’s distinct-coloring threshold."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The pair realizes the boundary agreement value one half used as the distinctness threshold."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "agreement exactly one half is the critical boundary used for the notion of distinct colorings"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The pair lies exactly at the critical agreement threshold of one half."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a pair of colorings lying exactly at the critical agreement threshold one half"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The pair of colorings has agreement exactly at the one-half boundary used to define distinct colorings."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Extremal six-triangle weight pattern",
+   "note": "Inspecting the pattern with four permutation triangles of weight one half and two near zero reveals why the low-agreement, high-expansion case forces an almost-bipartite structure.",
+   "first_introduced_sec": 3035,
+   "spans": [
+    {
+     "start_sec": 3035,
+     "end_sec": 3162
+    }
+   ],
+   "total_seconds": 127,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes the six triangle weights, verifies the four-halves extremal pattern satisfies the sum and square constraints, and uses it to infer an almost-bipartite structure",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 10,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the six-triangle weights saturate the inequality pattern with two zero-weight triangles, collapsing to the bipartite boundary case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The six-triangle pattern with four weights one half and two weights zero is a boundary/equality optimizer with collapsed zero components."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The six-triangle weights attain the tight equality pattern with two zero triangles, collapsing to the bipartite alternative rather than serving as a counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the six-triangle weights form a tight equality-case pattern with two zero weights collapsing the support to an almost-bipartite case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the six triangle weights saturate the inequality with two zero weights, collapsing to the almost-bipartite boundary case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The six-triangle weights with four one-halves and two zeros attain the tight boundary case of the inequality and collapse two triangles to zero."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The six-triangle weights saturate the packing inequalities with zero-weight triangles, collapsing to the almost-bipartite boundary case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The six-triangle weights saturate the inequality with two zero-weight triangles, a boundary collapsed pattern rather than a counterexample."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the six-triangle weights attain the tight equality pattern and collapse by zeroing two triangles to an almost bipartite limiting case"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The six-triangle weights saturate the quadratic bound with two zero weights, collapsing to a boundary bipartite-like case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the six-permutation triangle weights saturate the sum-of-squares constraints with four halves and two zeros"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The six-triangle weights give the equality/tight pattern for the sum-of-squares constraints in the packing argument."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1190 @@
+{
+ "key": "fd270f2c8f21cee32b9713b3beef7602",
+ "title": "Improved Fault-Tolerant Non-Clifford Gates (or: How to Multiply Quantumly)",
+ "speaker": "Louis Golowich",
+ "affiliation": "University of California, Berkeley",
+ "date": "2025-03-03T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 4363.0,
+ "abstract": "A principal challenge in realizing the potential of quantum computing lies in our ability to perform computations fault-tolerantly, in the presence of the noise inherent to quantum devices. Non-Clifford quantum gates, which are analogous to the classical multiplication (i.e. AND) gate, are particularly difficult to implement fault-tolerantly. We show how to perform such gates with significantly lower asymptotic overhead than was achievable with prior techniques.\nFor this purpose, we present new constructions of quantum error-correcting codes supporting transversal non-Clifford gates, meaning that the desired logical gates can be executed by applying a constant-depth physical circuit to the code state. In particular, we present the first asymptotically good such codes, as well as the first such codes with low-weight parity-checks that have almost linear dimension and polynomial distance. Our constructions are based on algebraic codes and expander graphs, which we combine using topological techniques.\nNo prior knowledge of quantum computing will be assumed.\nBased on joint works with Venkatesan Guruswami and Ting-Chun Lin.",
+ "youtube_url": "https://youtu.be/0laX71DNUrg",
+ "page_url": "https://www.ias.edu/video/improved-fault-tolerant-non-clifford-gates-or-how-multiply-quantumly",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Fault-tolerance target and transversal-gate paradigm",
+   "summary": "The talk frames the problem as reducing physical error rates by encoded, layer-by-layer computation, where transversal implementations keep errors from spreading too far before correction.",
+   "spans": [
+    {
+     "start_sec": 97,
+     "end_sec": 176
+    },
+    {
+     "start_sec": 312,
+     "end_sec": 647
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "CSS-code and CCZ/multiplication dictionary",
+   "summary": "Classical linear codes, CSS coset quantum codes, transversal classical multiplication, and the CCZ phase gate are set up so that non-Clifford fault-tolerant gates can be studied via multiplicative code structure.",
+   "spans": [
+    {
+     "start_sec": 647,
+     "end_sec": 1531
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Asymptotically good non-LDPC construction",
+   "summary": "A classical code family whose code, dual, and triple-product code are asymptotically good yields asymptotically good CSS codes with transversal CCZ, and algebraic-geometry codes give the desired constant-alphabet family and low magic-state-distillation overhead.",
+   "spans": [
+    {
+     "start_sec": 1531,
+     "end_sec": 1851
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Local-check requirement and LDPC target theorem",
+   "summary": "Because the error-correction procedure itself must tolerate faults, the speaker motivates quantum LDPC or nearly LDPC codes, explains the CSS degeneracy obstruction to proving distance, and states the improved nearly LDPC transversal-CCZ parameters.",
+   "spans": [
+    {
+     "start_sec": 1851,
+     "end_sec": 2290
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Sparse classical multiplicative LDPC input",
+   "summary": "Starting from Reed-Muller multiplication, the proof constructs a sparse affine-line expander and a Tanner code with punctured Reed-Solomon local constraints so that the global classical code and its transpose have good distance while retaining embedded multiplicative Reed-Muller codewords.",
+   "spans": [
+    {
+     "start_sec": 2290,
+     "end_sec": 3677
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Three-dimensional quantum product code",
+   "summary": "A three-dimensional hypergraph/topological product of the classical LDPC input gives the nearly LDPC quantum code, with roughly preserved rate, distance about n^{1/3}, and a product dimension matched to the cubic nature of CCZ.",
+   "spans": [
+    {
+     "start_sec": 3677,
+     "end_sec": 3785
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Transversal CCZ on the product code",
+   "summary": "The product code is interpreted as a cubical complex whose local multiplication-compatible pieces glue together so that physical transversal CCZ induces disjoint logical CCZ gates on the encoded qubits.",
+   "spans": [
+    {
+     "start_sec": 3785,
+     "end_sec": 3877
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Grassmannian-expander reformulation and future route",
+   "summary": "The final stage relates multiplicative code constructions to line-based Grassmannian-type expanders and high-dimensional expanders, suggesting that better such expanders would improve both classical and quantum LDPC transversal-gate codes.",
+   "spans": [
+    {
+     "start_sec": 3896,
+     "end_sec": 4226
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "RSA-scale target computation",
+   "note": "The mention of running about 10^10--10^15 gates to attack RSA illustrates the size of the reliability gap rather than producing a proof idea.",
+   "first_introduced_sec": 97,
+   "spans": [
+    {
+     "start_sec": 97,
+     "end_sec": 138
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "RSA is only cited as a target application requiring about 10^10–10^15 gates, with no computation carried out on an RSA instance.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An RSA-scale/Shor-style computation is used as an ordinary large target workload motivating fault tolerance, not as a structural exception or refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An RSA-scale quantum computation is used as an ordinary target benchmark for required error rates, not as a structurally special object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An RSA/Shor-scale circuit is used as an ordinary target workload illustrating required error rates."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a large but otherwise ordinary target workload used to motivate the fault-tolerance error-rate gap"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A large Shor/RSA-style target circuit is used only to illustrate the practical scale gap, not as a structurally special computation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a large but ordinary RSA/Shor-scale workload used only to motivate target error rates"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as a motivating large target workload, not as a structurally special computation or a refutation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A representative large target quantum computation motivating the needed logical error rate, not an adversarial or structurally special circuit."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a motivating large target application for fault-tolerance overhead, but RSA-scale factoring is a benchmark computation rather than a structural exception or refutation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary large benchmark computation used to motivate required logical error rates, not to refute a claim"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A large Shor/RSA-style computation is used only as an ordinary target-scale benchmark for required gate counts."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "RSA-scale factoring is used as a motivating large target workload, not as a structural exception or failure case."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Quantum repetition-code benchmark",
+   "note": "The quantum analogue of a classical repetition code is used as a removable benchmark for previous transversal-CCZ LDPC constructions, not as a component of the new proof.",
+   "first_introduced_sec": 237,
+   "spans": [
+    {
+     "start_sec": 237,
+     "end_sec": 312
+    },
+    {
+     "start_sec": 2249,
+     "end_sec": 2290
+    }
+   ],
+   "total_seconds": 116,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The quantum repetition-code benchmark is used as prior-state-of-the-art comparison with stated parameters, but no construction or calculation is performed on it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 8,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The quantum repetition-code analogue has essentially constant logical dimension/zero asymptotic rate and serves only as the prior benchmark baseline."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The quantum repetition-code benchmark has collapsed constant logical dimension and the highly regular repeated-code structure, serving only as a baseline."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The repetition-code analogue is a rate-zero constant-message, maximally redundant boundary benchmark rather than a counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the repetition-code baseline is a minimal-rate repetition-style code sitting at an extreme simple benchmark rather than an adversarial example"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A repetition-code benchmark is the highly low-rate/minimal-message baseline, with the classical repetition code attaining the maximal-distance endpoint for its one-dimensional code family."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "a repetition-type benchmark is a rate-zero constant-logical boundary code family rather than a refutation"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The repetition-code benchmark is a boundary low-rate repetition-type construction, essentially maximal-distance/minimal-information in spirit."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The repetition-code benchmark is the highly redundant zero-rate baseline, extremal in the repetition-code sense of trading essentially all rate for distance."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as the prior baseline to beat; a repetition-type quantum code is a maximally redundant, constant-rate-zero boundary case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the repetition-type quantum code is a highly regular low-rate baseline used as the prior benchmark"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A repetition-code-type quantum benchmark is a highly low-rate boundary construction, analogous to the distance-extremal classical repetition code."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The quantum repetition-code benchmark is a zero-rate baseline encoding only constant-size logical data into length n."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Two-error pattern under transversal gates",
+   "note": "A small visual pattern of errors in two physical qubits shows concretely why transversal gates keep errors confined to columns.",
+   "first_introduced_sec": 417,
+   "spans": [
+    {
+     "start_sec": 417,
+     "end_sec": 490
+    }
+   ],
+   "total_seconds": 73,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker traces a concrete two-error pattern through transversal gates, arguing the errors remain within the same columns and do not spread between code blocks.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 4,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-error pattern is only a small illustrative low-weight noise instance showing limited propagation under transversal gates."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A two-error configuration is a sparse low-weight error pattern used to illustrate bounded propagation under transversal gates."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-qubit error pattern is a sparse low-weight pattern used to illustrate limited propagation under transversal gates."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a low-weight error pattern used to illustrate limited propagation under transversal gates"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-error pattern is an ordinary low-weight error configuration used to illustrate limited propagation under transversal gates."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a small illustrative error support under transversal gates, not a structural exception or adversarial example"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A small low-weight error pattern illustrates bounded propagation under transversality without serving as an adversarial disproof."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A simple illustrative low-weight error pattern used to show transversal gates limit propagation, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used to illustrate that transversal gates confine a sparse error pattern to columns, not to show a claim fails."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a sparse two-qubit error pattern with mostly identity support is used to illustrate confined propagation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The two-qubit error pattern is an adversarial noise case used to illustrate how transversal gates limit error propagation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-error pattern is a sparse low-weight illustrative case showing limited propagation under transversal gates."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Decoherence as low-weight random noise",
+   "note": "In response to a question, decoherence is compared to independent random errors whose expansion is dominated by low-weight terms with high probability, clarifying the error model.",
+   "first_introduced_sec": 840,
+   "spans": [
+    {
+     "start_sec": 840,
+     "end_sec": 909
+    }
+   ],
+   "total_seconds": 69,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "In response to a question, the speaker analyzes decoherence by expanding it as independent small-probability errors and reasoning that with high probability it gives low-weight noise.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Decoherence is modeled as standard independent low-probability local noise that is low-weight with high probability, used to justify the error model."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Decoherence is modeled as small-probability, hence typically low-weight, random noise supporting the standard error model."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Decoherence is modeled as a distribution concentrated on sparse low-weight error terms, not as an adversarial failure case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard stochastic low-weight noise interpretation invoked to justify the local-error model"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Decoherence is modeled as standard stochastic local noise whose expansion is likely low-weight, with no sporadic or optimal structure."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard stochastic low-probability noise used to justify the localized low-weight error model"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Decoherence is modeled as ordinary stochastic low-rate noise to justify the error model, not as a special or failing case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Decoherence is modeled as ordinary stochastic low-probability local noise with high-probability low weight, supporting the error model rather than challenging it."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used to justify modeling decoherence as stochastic low-weight noise, a standard noise picture rather than a structurally special obstruction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "decoherence is modeled as noise whose likely expansion terms are sparse low-weight errors, supporting the noise model"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Decoherence is treated as the enemy noise process that the error-correction model must tolerate, modeled by typical low-weight stochastic errors."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Decoherence is modeled as ordinary small-probability product noise that is typically low weight, used to justify the error model."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Controlled-Z/CNOT as the two-input case",
+   "note": "The two-input controlled phase is explained as a Clifford operation equivalent to CNOT after a Hadamard change of basis, illustrating why the talk focuses on the three-input CCZ gate.",
+   "first_introduced_sec": 1264,
+   "spans": [
+    {
+     "start_sec": 1264,
+     "end_sec": 1336
+    }
+   ],
+   "total_seconds": 72,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The two-input case is examined by relating CZ via a Hadamard basis change to CNOT and describing its action as mapping (a,b) to (a,a+b).",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-input controlled-phase case collapses to a Clifford gate, locally equivalent to CNOT, making it a lower-degree base case rather than the hard non-Clifford case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-input controlled-Z case collapses to a Clifford/CNOT-type gate, a lower-complexity base case of the non-Clifford CCZ discussion."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "CZ/CNOT is the lower-arity Clifford base case of the controlled-phase hierarchy, used to contrast with genuinely non-Clifford CCZ."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the two-input controlled-phase case collapses to a Clifford/CNOT addition-type gate rather than the genuine non-Clifford CCZ case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-input CZ/CNOT case is a lower-arity/base case that collapses to a Clifford/addition-type gate rather than the non-Clifford CCZ behavior."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the two-input controlled-phase case collapses to the easier Clifford/CNOT boundary case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-input CZ/CNOT case is a collapsed lower-arity case where the non-Clifford difficulty disappears into a Clifford gate."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-input controlled-phase/CNOT case is a lower-arity collapsed case of CCZ that becomes Clifford and easy."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Used as the easy lower-arity contrast to CCZ; the two-input controlled phase collapses via basis change to the Clifford CNOT case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the two-input controlled phase is a lower-arity Clifford/CNOT boundary case used as contrast with CCZ"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-input controlled-phase case collapses to the simpler Clifford/CNOT-addition case rather than the genuinely non-Clifford CCZ case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-input controlled-phase case collapses to a Clifford/CNOT gate rather than the genuinely non-Clifford CCZ case."
+    }
+   ]
+  }
+ ]
+}

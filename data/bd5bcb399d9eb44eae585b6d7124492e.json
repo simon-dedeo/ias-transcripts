@@ -1,0 +1,1386 @@
+{
+ "key": "bd5bcb399d9eb44eae585b6d7124492e",
+ "title": "Sorting Using Partial Information",
+ "speaker": "Robert Tarjan",
+ "affiliation": "Princeton University",
+ "date": "2024-09-30T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3740.0,
+ "abstract": "We consider the problem of sorting a set of items having an unknown total order by doing binary comparisons of the items, given the outcomes of some pre-existing comparisons. We present a simple new algorithm with a running time of O(m + n + log T), where n, m, and T are the number of items, the number of pre-existing comparisons, and the number of total orders consistent with the outcomes of the pre-existing comparisons, respectively. The algorithm does O(log T) comparisons. Both our time and comparison bounds are best possible up to constant factors, thus resolving a problem that has been open since 1978. Our algorithm combines two classic algorithms: topological sort and heapsort with the right kind of heap.\nThis is joint work with Bernhard Haeupler, Richard Hladík, John lacono, Vaclay Rozhoi, and Jakub Tětek.",
+ "youtube_url": "https://youtu.be/Vkf13dgMBi0",
+ "page_url": "https://www.ias.edu/video/sorting-using-partial-information",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Partial-information sorting as DAG linear extensions",
+   "summary": "After recalling the comparison-sorting lower bound, the talk models known comparisons as a DAG/poset whose feasible sorted orders are topological orders, giving the lower bound log T and setting the goal of matching it with near-linear overhead.",
+   "spans": [
+    {
+     "start_sec": 312,
+     "end_sec": 1114
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Topological heapsort reduction",
+   "summary": "Kahn's source-removal algorithm for topological ordering is converted into a sorting algorithm by keeping current sources in a priority queue and repeatedly deleting the true minimum source.",
+   "spans": [
+    {
+     "start_sec": 1114,
+     "end_sec": 1538
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Working-set heaps as the adaptive ingredient",
+   "summary": "The inadequacy of ordinary heap bounds motivates a working-set, then strict working-set, cost measure for delete-min operations, and known self-adjusting heap/search-tree implementations provide these amortized guarantees.",
+   "spans": [
+    {
+     "start_sec": 1538,
+     "end_sec": 2410
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Interval-graph lower bound for heap work",
+   "summary": "For a fixed run, vertices are indexed by heap-insertion time and mapped to intervals whose lengths are their working-set sizes; an interval-order lemma lower-bounds the relevant number of topological orders by the product of these lengths, bounding total heap work by the information-theoretic optimum up to an additive n.",
+   "spans": [
+    {
+     "start_sec": 2410,
+     "end_sec": 2852
+    },
+    {
+     "start_sec": 3556,
+     "end_sec": 3689
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Bottleneck-layer refinement removing additive n",
+   "summary": "When log T is small the DAG must contain a long path and many singleton layers, so the algorithm identifies comparison-free bottleneck vertices, sorts only the remaining vertices, and merges the two streams to remove the additive n in the comparison bound.",
+   "spans": [
+    {
+     "start_sec": 2852,
+     "end_sec": 3065
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Top-k extension via strict working sets",
+   "summary": "By generating bottlenecks and merge output incrementally and using heaps whose strict working-set cost ignores items never deleted, the method reports the first k elements within a constant factor of the appropriate top-k lower bound.",
+   "spans": [
+    {
+     "start_sec": 3065,
+     "end_sec": 3221
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Scope, limitations, and related adaptive optimality",
+   "summary": "The speaker summarizes the sorting and top-k theorems, notes that the guarantee is amortized rather than a solution to the one-third/two-third comparison-split conjecture, and discusses input-size dependence, applications, randomization, and related instance-optimal shortest-path questions.",
+   "spans": [
+    {
+     "start_sec": 3221,
+     "end_sec": 3461
+    },
+    {
+     "start_sec": 3473,
+     "end_sec": 3556
+    },
+    {
+     "start_sec": 3689,
+     "end_sec": 3738
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Lettered DAG with redundant and implied arcs",
+   "note": "A concrete DAG whose hidden sorted order is alphabetical is used to display redundant transitive arcs, possible topological orders, Kahn-source choices, and heap deletions, making the poset model concrete without driving the proof.",
+   "first_introduced_sec": 488,
+   "spans": [
+    {
+     "start_sec": 488,
+     "end_sec": 575
+    },
+    {
+     "start_sec": 674,
+     "end_sec": 723
+    },
+    {
+     "start_sec": 1289,
+     "end_sec": 1363
+    },
+    {
+     "start_sec": 1497,
+     "end_sec": 1538
+    }
+   ],
+   "total_seconds": 251,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker checks redundant and implied arcs in the lettered DAG and later runs source/topological-sort and heap steps on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 7,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary DAG is used to show the input need not be transitively reduced or transitively closed."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The lettered DAG is an ordinary DAG used to show the input need not be transitively reduced or transitively closed."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary finite DAG used to show the input need be neither transitively reduced nor transitively closed"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary DAG representation, used to show the input need not be transitively reduced or transitively closed."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "small ordinary DAG used to show the input need not be transitively reduced or transitively closed"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An otherwise ordinary DAG is used to show the input need not be transitively reduced or transitively closed."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary DAG illustrating partial-order information with redundant and implied transitive arcs, not used to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An ordinary illustrative DAG showing redundant and implied transitive arcs, not used to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative DAG showing that input arcs may be redundant or omit implied transitive arcs"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "it witnesses that an input DAG need not be transitively reduced or transitively closed"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an ordinary illustrative DAG showing redundant and implied transitive arcs, not used to refute a claim"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An ordinary illustrative DAG that is neither transitively closed nor reduced, used only to explain the model."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Long path plus incomparable singletons",
+   "note": "A long chain together with k isolated incomparable vertices shows why an ordinary heap can waste n log k comparisons while only newly inserted path vertices matter, visibly motivating the working-set bound and later the bottleneck refinement.",
+   "first_introduced_sec": 1538,
+   "spans": [
+    {
+     "start_sec": 1538,
+     "end_sec": 1761
+    },
+    {
+     "start_sec": 2852,
+     "end_sec": 2925
+    }
+   ],
+   "total_seconds": 296,
+   "attaches_to": [
+    "s3",
+    "s5"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes the long path plus singletons example, deriving heap contents and comparison costs such as n log k versus n+k log k",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 3,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A chain plus isolated incomparable vertices has trivial components and serves as a bad case for the standard heap approach."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The chain plus isolated incomparable vertices is a sparse limiting poset used as a bad case for standard-heap topological heapsort."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "sparse disjoint union of one long chain and isolated vertices used as an adversarial case for standard heaps"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A sparse disjoint union of one chain and isolated vertices, used as an adversarial case where a standard heap can be inefficient."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "sparse chain-plus-isolates poset used as an enemy case where a standard heap pays too much"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A sparse disjoint union of one chain with isolated singleton vertices is used as an adversarial case for a standard heap implementation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The long chain plus isolated incomparable vertices is a sparse decomposed poset used as an adversarial case where a standard heap gives too many comparisons."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A sparse path-plus-isolated-vertices DAG used as an adversarial case where a standard heap gives too many comparisons."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "sparse near-chain with isolated vertices used as an enemy case for standard-heap topological sorting"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a sparse near-chain poset with isolated vertices used as an enemy case for standard heaps"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a sparse disjoint union of one chain and isolated incomparable vertices used as an adversarial case for standard heaps"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A sparse disjoint union of one long chain and isolated vertices, used as an adversarial instance where a standard heap is suboptimal."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Preference lists with expensive human comparisons",
+   "note": "In response to a clarification about stopping early, the speaker mentions preference/ranking settings where only the first k choices are needed and each comparison may require a human judgment.",
+   "first_introduced_sec": 2166,
+   "spans": [
+    {
+     "start_sec": 2166,
+     "end_sec": 2187
+    }
+   ],
+   "total_seconds": 21,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "preference lists with expensive human comparisons are only cited as a motivating application for top-k sorting",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Preference-list comparison is presented as a typical application with costly comparisons."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Preference-list elicitation with costly human comparisons is a typical application scenario, not used to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary preference-ranking application used to motivate top-k sorting when comparisons are costly"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A typical application setting for partial-information sorting with costly comparisons."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary preference-ranking/top-k application motivating costly comparisons"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Preference-list ranking with costly human comparisons is an ordinary motivating application, not a structurally special object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Preference-list sorting with costly human comparisons is a typical application setting, not a structural exception or refutation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A typical application setting for top-k preference sorting with costly comparisons, not a structural exception or counterexample."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "motivating preference-ranking application with no special mathematical structure specified"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an ordinary application setting motivating why comparisons may be costly"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a practical preference-ranking/top-k setting with costly human comparisons, not a structurally special object"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A typical motivating ranking/preference application where comparisons are costly, not a structural special case."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Dijkstra shortest-path ordering problem",
+   "note": "The speaker says the work originated from trying to prove an instance-optimal version of Dijkstra's algorithm for reporting vertices by distance, which forced adaptive heaps with efficient decrease-key operations and suggested the sorting application.",
+   "first_introduced_sec": 3247,
+   "spans": [
+    {
+     "start_sec": 3247,
+     "end_sec": 3461
+    }
+   ],
+   "total_seconds": 214,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the Dijkstra shortest-path ordering problem is described as a related application, but no concrete graph instance or computation is worked through",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Dijkstra ordering task is a general application of the same adaptive-heap technique."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Dijkstra distance-ordering task is a standard shortest-path ordering problem used as an application of the method."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "general shortest-path ordering problem used as an application of the technique, not as a special object or refutation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard shortest-path ordering problem used as an extension of the method, not as a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "generic weighted-digraph shortest-distance ordering problem used as an application of the method"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The shortest-path distance ordering problem is a general algorithmic setting used as an application of the technique."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Dijkstra distance-ordering problem is presented as a related application of the techniques on ordinary directed graphs."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The shortest-path distance ordering problem is presented as an application/extension of the method, with no special instance structure specified."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "general shortest-path distance-ordering problem used as an application and extension"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a general shortest-path ordering problem used as a motivating extension"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a generic weighted directed-graph shortest-distance ordering problem used as an application of the method"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The standard shortest-path ordering setup is cited as an application of the technique, not as a special or failing instance."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Merging multiple sorted sequences",
+   "note": "During Q&A, merging several sequences is cited as a sparse partial-information input class where the general algorithm gives optimal merging up to constant factors.",
+   "first_introduced_sec": 3511,
+   "spans": [
+    {
+     "start_sec": 3511,
+     "end_sec": 3538
+    }
+   ],
+   "total_seconds": 27,
+   "attaches_to": [
+    "s5",
+    "s7"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "merging multiple sorted sequences is only named as a class of examples handled optimally by the general algorithm",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Merging sorted sequences is cited as a standard special case of sorting with partial information."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Merging sorted sequences corresponds to a decomposed partial order made of independent chains, cited as a structured sparse case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "disjoint union of sorted chains is a sparse decomposable partial order used as an application case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard structured input class of disjoint sorted chains used as an application of the algorithm."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "partial order is just a disjoint union of sorted chains with no cross-comparisons"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A union of already sorted sequences is a standard structured partial-order family used as a positive application."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Merging sorted sequences corresponds to a disjoint union of chains, a sparse special poset used as an application rather than a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Merging sorted sequences is a standard structured instance of partial-order sorting, cited as an application rather than an obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard disjoint-union-of-chains merging instance cited as an application"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the merging poset is a decomposed union of chains with no cross-comparisons"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the partial order is a decomposable disjoint union of sorted chains with no cross-chain relations, used as a positive special case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Multiple sorted sequences form a decomposed partial order, essentially a disjoint union of chains with no cross-comparabilities."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Tree partial order",
+   "note": "Also during Q&A, a tree-structured partial order is mentioned as another sparse case in which the general sorting method applies optimally.",
+   "first_introduced_sec": 3538,
+   "spans": [
+    {
+     "start_sec": 3538,
+     "end_sec": 3556
+    }
+   ],
+   "total_seconds": 18,
+   "attaches_to": [
+    "s5",
+    "s7"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "a tree partial order is only cited as another case where the method gives an optimal sort",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 6,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A tree partial order has a minimally connected tree-shaped cover structure and is cited as an optimally handled case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A tree partial order has a sparse tree-shaped cover structure and is cited as another structured case where the algorithm is optimal."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "tree-shaped partial order has sparse hierarchical cover structure and is used as another application case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A tree-shaped partial order is a systematic sparse family used as another positive application."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "tree partial order has a minimally connected acyclic Hasse-diagram structure"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A tree-shaped partial order is a standard sparse family cited as another positive application."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A tree partial order has a minimally connected tree-shaped cover structure and is cited as an optimally handled special case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A tree partial order is cited as another ordinary sparse input class on which the algorithm is optimal, not as a counterexample."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard tree-poset instance cited as a sparse application case"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a tree order has a minimally connected sparse cover graph"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a tree-shaped partial order has a minimally connected acyclic cover structure and is cited as a positive special case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A tree partial order has a minimally connected sparse cover structure, used as an optimally handled special case."
+    }
+   ]
+  }
+ ]
+}

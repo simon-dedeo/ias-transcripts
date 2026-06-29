@@ -1,0 +1,2255 @@
+{
+ "key": "125880bc47566263a3f032147005a3be",
+ "title": "Deep Generative Models for Bayesian Inference in Astrophysics",
+ "speaker": "Biwei Dai",
+ "affiliation": "Institute for Advanced Study",
+ "date": "2025-04-03T12:00:00Z",
+ "field_msc": "62 Statistics",
+ "duration_sec": 3690.0,
+ "abstract": "Deep generative models offer powerful tools for solving astrophysical inference problems by enabling flexible representations of prior knowledge and likelihood functions. \nIn the first part of the talk, I will discuss how generative models can be employed to construct likelihood functions for cosmological inference at the field level, enabling more effective extraction of information compared to traditional summary statistics like two-point statistics. This simulation-based inference framework facilitates anomaly detection of model misspecification, and enhances interpretability through sample generation. I will present applications to weak gravitational lensing analysis, particularly our ongoing work on applying this approach to the field-level analysis of the Hyper Suprime-Cam (HSC) survey.\nIn the second part, I will demonstrate how generative models can be used to construct physically informed priors for Bayesian inverse problems. As an application, I will show how this approach enables image reconstruction of AGN accretion disks from intensity interferometry, where only the amplitudes of Fourier modes are measured while phase information is lost. By sampling from the resulting posterior distribution, we achieve high-fidelity reconstructions with uncertainty quantification, outperforming traditional iterative methods across varying noise levels and UV-plane coverage.",
+ "youtube_url": "https://youtu.be/rIH99Sg_IGE",
+ "page_url": "https://www.ias.edu/video/deep-generative-models-bayesian-inference-astrophysics",
+ "tags": [
+  "Institute for Advanced Study Astrophysics Seminar",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Bayesian inverse-problem formulation",
+   "summary": "The talk frames many astrophysical observations as indirect inverse problems and argues that Bayesian inference is natural but often lacks tractable analytic priors or likelihoods.",
+   "spans": [
+    {
+     "start_sec": 38,
+     "end_sec": 329
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Generative models as learned probability laws",
+   "summary": "Generative models, especially normalizing flows and diffusion models, are introduced as high-dimensional probability distributions that can learn priors or likelihoods from simulations and then be inserted into Bayes' theorem.",
+   "spans": [
+    {
+     "start_sec": 329,
+     "end_sec": 617
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Field-level weak-lensing likelihood learning",
+   "summary": "For weak-lensing cosmology, simulations at given cosmological parameters are used to train a conditional likelihood for full map pixels, yielding tighter field-level parameter constraints than power spectra or other compressed summaries.",
+   "spans": [
+    {
+     "start_sec": 617,
+     "end_sec": 1015
+    },
+    {
+     "start_sec": 1116,
+     "end_sec": 1329
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Likelihood-based reliability diagnostics",
+   "summary": "Because the generative model provides likelihood values, the speaker develops goodness-of-fit, out-of-distribution, ROC-based, and prospective Bayes-factor diagnostics to detect simulation-observation mismatch and systematic errors.",
+   "spans": [
+    {
+     "start_sec": 1015,
+     "end_sec": 1116
+    },
+    {
+     "start_sec": 1329,
+     "end_sec": 1954
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Scale diagnostics and map-level interpretability",
+   "summary": "Wavelet decompositions compare posteriors from different scales to identify contaminated scales, while sampling and latent-code manipulations in the flow visualize which structures drive cosmological exclusions.",
+   "spans": [
+    {
+     "start_sec": 1954,
+     "end_sec": 2276
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "HSC weak-lensing deployment",
+   "summary": "The weak-lensing framework is being applied to HSC data using high-resolution ray-tracing simulations, systematic modeling, scale cuts, baryonic marginalization, and preliminary likelihood checks that reveal possible low-redshift/small-scale mismatch.",
+   "spans": [
+    {
+     "start_sec": 2276,
+     "end_sec": 2908
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Bayesian phase retrieval with learned image priors",
+   "summary": "For intensity interferometry, where only Fourier-amplitude information is observed, the reconstruction problem is recast as Bayesian phase retrieval with a measurement-noise likelihood and a generative prior learned from simulated images.",
+   "spans": [
+    {
+     "start_sec": 2908,
+     "end_sec": 3401
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Misspecified-prior robustness for image reconstruction",
+   "summary": "The image-reconstruction method is stress-tested under mismatched priors, showing how high signal-to-noise data can overcome prior structure while weak data revert toward the prior, and noting that the same likelihood diagnostics can test prior-data agreement.",
+   "spans": [
+    {
+     "start_sec": 3401,
+     "end_sec": 3678
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Gaussian mean-and-covariance fit",
+   "note": "The speaker uses an ordinary Gaussian fit, with mean and covariance as parameters, to make concrete the general idea of learning a parameterized probability distribution.",
+   "first_introduced_sec": 329,
+   "spans": [
+    {
+     "start_sec": 329,
+     "end_sec": 368
+    }
+   ],
+   "total_seconds": 39,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The Gaussian case is only used as a simplest-case analogy where the parameters would be mean and covariance, with no actual fit or calculation carried out.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 4,
+    "extremal": 1,
+    "symmetric": 8,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary Gaussian parametric baseline used to illustrate fitting a generative distribution"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A Gaussian fit is a minimal moment-based, elliptically symmetric baseline distribution used only illustratively."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A Gaussian mean/covariance model is an elliptically symmetric, two-moment baseline used only to illustrate the simplest generative fit."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A Gaussian fitted by mean and covariance is the ellipsoidally symmetric maximum-entropy distribution for those moments, used as a simple baseline."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Minimal Gaussian base case determined only by mean and covariance, used as a baseline density fit."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a Gaussian fit is a highly regular elliptically symmetric baseline used only illustratively"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "It is presented as the simplest low-expressivity generative-model case, determined only by mean and covariance rather than rich non-Gaussian structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An ordinary Gaussian parametric density is used only as the baseline illustration of fitting a generative model."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as the simple Gaussian generative-model baseline, and a full Gaussian is an elliptically symmetric regular family."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A Gaussian fit is an ellipsoidally symmetric baseline example, not used to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A Gaussian mean-and-covariance fit is an elliptically symmetric baseline used only to illustrate simple generative modeling."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a Gaussian mean-and-covariance fit is used as a simple baseline generative model, not as a failure case"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Realistic images from diffusion models",
+   "note": "Generated high-resolution images illustrate the expressive power of modern generative models before the astrophysical inference applications begin.",
+   "first_introduced_sec": 467,
+   "spans": [
+    {
+     "start_sec": 467,
+     "end_sec": 522
+    }
+   ],
+   "total_seconds": 55,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The diffusion-model images are shown and described as realistic high-resolution generations, but the speaker does not analyze or compute anything on them.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary generated image samples used to show diffusion-model realism"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The diffusion-model images are ordinary generated samples used to demonstrate realism."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The diffusion-model outputs are ordinary realistic image samples illustrating capability, not a special structural case or failure case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The diffusion-model images are ordinary realistic samples used to illustrate generative-model power."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary generated natural images illustrating diffusion-model realism."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the diffusion-generated natural images are presented as ordinary realistic samples from a learned distribution"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The diffusion-model images are ordinary realistic samples used to illustrate modern generative-model capability."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The diffusion-generated images are cited as typical evidence of generative-model capability, not as a special or adversarial case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used only to illustrate diffusion-model samples, which are ordinary generated images."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The diffusion-model images are ordinary generated samples used to demonstrate capability."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The diffusion-model images are ordinary realistic samples used to demonstrate generative-model capability."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "realistic diffusion-generated images illustrate model capability and are structurally ordinary natural-image samples"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Cross-simulation bias in cosmological inference",
+   "note": "A model trained on one simulation but applied to another gives displaced constraints, visibly motivating the need for reliability and goodness-of-fit tests.",
+   "first_introduced_sec": 1057,
+   "spans": [
+    {
+     "start_sec": 1057,
+     "end_sec": 1116
+    }
+   ],
+   "total_seconds": 59,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The cross-simulation bias example is cited as a collaboration result where applying a model to a different simulation gives biased constraints, without working through the comparison.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "simulation mismatch is used as a failure case where cross-simulation application biases inference"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cross-simulation case is a distribution-shift failure showing biased cosmological constraints."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cross-simulation application is used as a distribution-shift failure showing biased cosmological inference."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cross-simulation shift is used as a failure case showing biased inference under simulation mismatch."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A simulation-distribution shift is used to show cosmological inference can become biased."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the cross-simulation case is used to show inference can become biased under distribution shift"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cross-simulation case is used to show that inference trained on one simulation can fail badly under distribution shift."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The train-on-one-simulation/apply-to-another case is used to show that cosmological inference can become biased under simulation mismatch."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show simulation-based inference can give biased constraints under cross-simulation distribution shift."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cross-simulation application gives biased constraints and is used as a distribution-shift failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Training on one simulation and applying to another is presented as a mismatch case that produces biased cosmological constraints."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the cross-simulation example is used to show inference can become biased under simulation mismatch"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Gaussian linear-density-field special case",
+   "note": "In response to a question, the speaker notes that in Gaussian cases the field-level method converges to the power-spectrum result, illustrating the expected sufficiency of two-point information for Gaussian fields.",
+   "first_introduced_sec": 1201,
+   "spans": [
+    {
+     "start_sec": 1201,
+     "end_sec": 1303
+    }
+   ],
+   "total_seconds": 102,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker says they verified that in Gaussian cases the generative-model result converges to the power-spectrum result, i.e. they check the method on this special case.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 2,
+    "symmetric": 9,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the Gaussian linear field has collapsed higher-order/nonlinear structure and serves as a sanity special case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The Gaussian linear field is a limiting symmetric case with no higher-order non-Gaussian information."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A Gaussian linear density field lacks higher-order nonlinear structure and serves as the special case where power-spectrum information is complete."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A Gaussian linear density field is a maximally regular maximum-entropy field for a given power spectrum and serves as a sanity-check special case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Linear Gaussian field is the limiting case with no higher-order non-Gaussian information beyond the power spectrum."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the Gaussian linear field is the simplified no-higher-cumulant case where the power spectrum is sufficient"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A Gaussian linear density field is a limiting case with all higher-order non-Gaussian structure absent, used as a sanity-check special case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Gaussian linear field is a limiting control with no higher-order non-Gaussian structure, where the power spectrum suffices."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Used as a sanity-check limit where the power spectrum is sufficient; the linear Gaussian field is symmetric and lacks higher-order nonlinear structure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A Gaussian linear density field is a maximally regular limiting case with no higher-order correlations, used as a benchmark where the power spectrum is sufficient."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The Gaussian linear density field is the zero-nonlinearity Gaussian limit where the power spectrum contains all the information."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the Gaussian linear density field is a limiting simplified case where nonlinear non-Gaussian structure is absent"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Two-dimensional likelihood cloud with an outlying observation",
+   "note": "A toy density plot of simulated points and a low-density observation explains why the learned likelihood can act as a generalized chi-square goodness-of-fit statistic.",
+   "first_introduced_sec": 1468,
+   "spans": [
+    {
+     "start_sec": 1468,
+     "end_sec": 1493
+    }
+   ],
+   "total_seconds": 25,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reasons through a concrete two-dimensional likelihood cloud, comparing an observation’s likelihood to the training distribution to diagnose poor fit.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the low-likelihood outlying point is an extreme tail case used to flag failure of model fit"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The outlying observation is a low-likelihood tail case used to signal poor model fit."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The low-likelihood outlying observation lies in the tail of the fitted cloud and is used to signal poor model fit."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The outlying observation is a low-likelihood tail case used to show poor model fit."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The low-likelihood outlying observation is a tail case used to illustrate poor model fit."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the low-likelihood outlying observation is a tail case illustrating poor model fit"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The outlying observation is a low-likelihood edge case used to demonstrate failure of model fit or out-of-distribution behavior."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The observation is a low-likelihood outlier outside the simulated two-dimensional cloud, used as a model-misfit case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used as a model-mismatch case, and the observation is an outlying low-likelihood tail point."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The outlying observation lies in a low-likelihood tail and is used to illustrate poor model fit."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The outlying observation is a low-likelihood tail case used to show failure of model fit or out-of-distribution behavior."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the low-likelihood outlying observation is used to exhibit poor model fit or out-of-distribution failure"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Blue-red ROC-threshold demo",
+   "note": "Two overlapping one-dimensional distributions and a moving decision boundary are used only to explain how to read the ROC curves for distribution-shift detection.",
+   "first_introduced_sec": 1554,
+   "spans": [
+    {
+     "start_sec": 1554,
+     "end_sec": 1627
+    }
+   ],
+   "total_seconds": 73,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The ROC demo is explicitly worked through by moving a threshold between blue and red distributions and explaining the resulting false- and true-positive rates.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary two-class threshold setup used only to explain ROC construction"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The blue-red ROC setup is a generic threshold-classification illustration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The blue-red threshold construction is a standard ROC illustration with no intrinsically special object or refuting role."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The blue-red ROC threshold picture is a standard explanatory classification demo."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Toy blue-red distributions and moving thresholds merely explain ROC construction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the blue-red ROC threshold picture is a standard explanatory binary-classification setup"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The blue-red ROC threshold picture is a standard illustrative classification setup with no special intrinsic structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The blue-red threshold picture is a generic binary-classification illustration of how an ROC curve is traced."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used only to explain ROC thresholds for two ordinary overlapping classes."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The blue-red threshold picture is a generic ROC toy example for explanation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The blue-red threshold picture is a generic ROC illustration rather than a structurally special object or failure case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the blue-red ROC threshold picture is just an explanatory binary-classification demo"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "White-noise small-scale miscalibration",
+   "note": "A synthetic scale-dependent noise error shows how the multiscale posterior comparison flags biased small-scale information and recovers unbiased constraints after removing it.",
+   "first_introduced_sec": 2047,
+   "spans": [
+    {
+     "start_sec": 2047,
+     "end_sec": 2077
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The white-noise miscalibration is applied to the multiscale weak-lensing analysis, producing a biased small-scale posterior and showing that removing that scale recovers unbiased constraints.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 5,
+    "extremal": 0,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the injected white-noise miscalibration is a systematic enemy case that biases small-scale posteriors"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "White noise is an uncorrelated limiting noise model used as a systematic that biases small scales."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Flat white noise is a highly regular correlation-free noise model, used here as a miscalibration that biases small-scale inference."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The flat white-noise miscalibration is a maximally featureless perturbation used as a systematic-error adversary."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "White-noise miscalibration is an adversarial systematic that biases small-scale constraints."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the white-noise miscalibration is an adversarial systematic causing biased small-scale constraints"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The white-noise miscalibration is an adversarial systematic causing small-scale bias, and white noise has collapsed correlation structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The flat-spectrum white-noise systematic is an uncorrelated limiting noise model used to induce detectable small-scale bias."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as a systematic that biases the smallest-scale posterior, and white noise has a flat statistically homogeneous spectrum."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Flat uncorrelated white noise is structurally featureless and is used as a small-scale systematic-bias stress case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The white-noise miscalibration is used as a systematic contamination that biases the small-scale posterior."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the white-noise miscalibration is an adversarial systematic that biases the small-scale inference"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Coherent diffraction imaging precedent",
+   "note": "The phase-retrieval problem is connected to coherent diffraction imaging, where Fourier amplitudes are used to infer sample structure, as historical context for the interferometry task.",
+   "first_introduced_sec": 3040,
+   "spans": [
+    {
+     "start_sec": 3040,
+     "end_sec": 3077
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Coherent diffraction imaging is invoked as historical precedent for phase retrieval, with no concrete reconstruction or calculation performed on it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard historical phase-retrieval application cited as precedent"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Coherent diffraction imaging is cited as a standard historical precedent for phase retrieval."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Coherent diffraction imaging is cited as a historical precedent for phase retrieval, not as a structurally sporadic or adversarial example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Coherent diffraction imaging is cited as an ordinary historical precedent for phase retrieval."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Coherent diffraction imaging is cited as a standard historical precedent for phase retrieval."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "coherent diffraction imaging is cited as a historical precedent for phase retrieval"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Coherent diffraction imaging is cited as a historical precedent for phase retrieval rather than as a special or failing case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Coherent diffraction imaging is cited as an established phase-retrieval precedent, not as a structural exception or failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a historical positive precedent for phase retrieval, not a structurally special object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Coherent diffraction imaging is cited as a historical analogous phase-retrieval setting."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Coherent diffraction imaging is cited as a standard precedent for phase retrieval, not as an obstruction or sporadic object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "coherent diffraction imaging is cited as a historical precedent for phase retrieval, not as a pathological object"
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Ideal noiseless iterative phase retrieval",
+   "note": "A classical iterative reconstruction from random initialization works in a fully sampled, noiseless setting, illustrating why the realistic sparse/noisy problem needs a Bayesian prior.",
+   "first_introduced_sec": 3109,
+   "spans": [
+    {
+     "start_sec": 3109,
+     "end_sec": 3156
+    }
+   ],
+   "total_seconds": 47,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The ideal noiseless phase-retrieval case is run through at the level of starting from random initialization, iterating, and obtaining an image close to the truth.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the zero-noise fully sampled setup is a limiting boundary ideal used as a successful baseline"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless fully sampled phase-retrieval setup is an ideal zero-noise boundary case where iteration succeeds."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless, fully sampled iterative phase-retrieval setup is an ideal boundary case with maximal data and zero noise, used as a successful baseline."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless fully sampled phase-retrieval setup is an ideal boundary case with a collapsed zero-noise likelihood."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless fully sampled phase-retrieval setup is a zero-noise, maximal-information ideal limit."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the noiseless fully sampled phase-retrieval setting is a zero-noise ideal boundary case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless fully sampled phase-retrieval setup is an ideal boundary case with the noise distribution collapsed to zero."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The zero-noise fully sampled phase-retrieval setup is an ideal boundary case in which the iterative algorithm succeeds."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Used as an ideal positive baseline; noiseless fully sampled phase retrieval is a zero-noise boundary case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless fully sampled phase-retrieval setup is a zero-noise ideal boundary case where the old iteration succeeds."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless fully sampled phase-retrieval setup is the zero-noise/maximal-data limiting case where the iterative method succeeds."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the noiseless fully sampled phase-retrieval setup is an ideal boundary case in which the iterative algorithm succeeds"
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Faces, cars, and cats as image priors",
+   "note": "An external example of using very different learned priors for image reconstruction is mentioned to illustrate how priors can impose recognizable structure under weak data.",
+   "first_introduced_sec": 3566,
+   "spans": [
+    {
+     "start_sec": 3566,
+     "end_sec": 3597
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Faces, cars, and cats are only cited as examples of alternative priors used in another reconstruction example, which the speaker skips rather than works through.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary learned natural-image priors cited as examples of generative reconstruction priors"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Faces, cars, and cats are ordinary natural-image priors used as deliberately mismatched stress-test priors."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Faces, cars, and cats are ordinary natural-image prior classes used illustratively rather than as classification exceptions or refutations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Faces, cars, and cats are ordinary natural-image priors mentioned as alternative priors rather than as a disproof case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Faces, cars, and cats are ordinary natural-image prior classes used as illustrative priors."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "faces, cars, and cats are ordinary natural-image prior classes used as a comparison"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Faces, cars, and cats are used as ordinary natural-image generative priors illustrating prior-based reconstruction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Faces, cars, and cats are ordinary natural-image classes cited as learned priors rather than special mathematical objects."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a fun illustration of learned image priors from ordinary natural-image classes."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Faces, cars, and cats are ordinary learned image-prior classes used as an illustrative prior experiment."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Faces, cars, and cats are ordinary learned natural-image prior classes used to illustrate prior-based reconstruction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "faces, cars, and cats are used as ordinary learned image priors rather than as structural exceptions or refutations"
+    }
+   ]
+  }
+ ]
+}

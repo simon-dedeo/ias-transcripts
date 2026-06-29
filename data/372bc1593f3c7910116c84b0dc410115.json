@@ -1,0 +1,1974 @@
+{
+ "key": "372bc1593f3c7910116c84b0dc410115",
+ "title": "Improving Algorithmic Efficiency Using Cryptography",
+ "speaker": "Or Zamir",
+ "affiliation": "Tel Aviv University",
+ "date": "2026-01-20T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3094.0,
+ "abstract": "Cryptographic primitives have been used for various non-cryptographic objectives, such as eliminating or reducing randomness and interaction. We show how to use cryptography to improve the time complexity of solving computational problems. Specifically, we show that under standard cryptographic assumptions, we can design algorithms that are asymptotically faster than existing ones while maintaining correctness.\nWe introduce and construct \"Trapdoor Matrix Distributions\", using which, we present the first uniform reduction from worst-case to approximate and average-case matrix multiplication with optimal parameters (improving on HS2025, albeit under computational assumptions), the first WC to average-case reductions for matrix inversion and other linear operations, fast general-purpose dimension reductions, as well as a speedup of inference time in classification models.\nBased on joint work with Vinod Vaikuntanathan.",
+ "youtube_url": "https://youtu.be/-Ef7lFaXwD8",
+ "page_url": "https://www.ias.edu/video/improving-algorithmic-efficiency-using-cryptography",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar II",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Computational indistinguishability as the primitive",
+   "summary": "The talk frames the goal as using cryptographic indistinguishability, rather than privacy or security per se, to affect basic algorithmic running times.",
+   "spans": [
+    {
+     "start_sec": 28,
+     "end_sec": 239
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Trapdoor matrix families and efficiency curves",
+   "summary": "A trapdoor distribution over a matrix and a circuit is introduced: the matrix marginal is computationally indistinguishable from random, while the hidden circuit computes matrix-vector and related operations much faster than generic multiplication.",
+   "spans": [
+    {
+     "start_sec": 239,
+     "end_sec": 490
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Generic substitution recipe for speedups",
+   "summary": "Any polynomial-time algorithm that samples and later uses a random matrix can replace it by a trapdoor sample without changing observable behavior, and then replace matrix multiplications by the exact fast circuit to reduce running time.",
+   "spans": [
+    {
+     "start_sec": 490,
+     "end_sec": 674
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Application template: random linear dimension reduction",
+   "summary": "Random-projection algorithms, including Johnson-Lindenstrauss-type reductions and neural-network first layers, fit the template because their correctness proofs only require the projection to look random to the surrounding algorithm.",
+   "spans": [
+    {
+     "start_sec": 674,
+     "end_sec": 929
+    },
+    {
+     "start_sec": 1806,
+     "end_sec": 1846
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Application template: linear-algebra self-reductions",
+   "summary": "Worst-case-to-average-case reductions for matrix multiplication and related linear-algebraic tasks are accelerated and strengthened by choosing the randomizing matrices from the trapdoor distribution, so that auxiliary products are computed cheaply while the oracle sees pseudorandom inputs.",
+   "spans": [
+    {
+     "start_sec": 929,
+     "end_sec": 1806
+    },
+    {
+     "start_sec": 3021,
+     "end_sec": 3086
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "LPN construction via hidden fast decompositions",
+   "summary": "Trapdoor matrices are constructed by hiding decompositions into fast-multiplication pieces, with a simple LPN-based low-rank-plus-sparse construction giving an n^{1.5} matvec circuit and a slightly more elaborate product/sum decomposition giving nearly linear time.",
+   "spans": [
+    {
+     "start_sec": 1934,
+     "end_sec": 2562
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "General constructibility and pseudoaverage-case viewpoint",
+   "summary": "The speaker argues that hiding small circuit size should be broadly possible under many hardness assumptions, and that reducing worst-case instances to computationally indistinguishable pseudoaverage distributions can evade known barriers to exact average-case reductions.",
+   "spans": [
+    {
+     "start_sec": 2562,
+     "end_sec": 2820
+    },
+    {
+     "start_sec": 2820,
+     "end_sec": 3021
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Encryption/PRG secret-key intuition",
+   "note": "Encryption and pseudorandom generation illustrate that computational indistinguishability typically holds only without a secret key, motivating the new idea that a key could instead enable fast evaluation.",
+   "first_introduced_sec": 178,
+   "spans": [
+    {
+     "start_sec": 178,
+     "end_sec": 239
+    }
+   ],
+   "total_seconds": 61,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The speaker uses encryption and PRGs only as intuition for secret-key indistinguishability, noting that the key enables decryption or generation but doing no concrete analysis of either example.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard cryptographic primitives used only to motivate secret-key indistinguishability"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Standard keyed encryption/PRG primitives are used only as intuition for indistinguishability with a secret key."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Standard encryption/PRG secret-key behavior is used only as intuition for indistinguishability with a trapdoor."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Standard secret-key encryption and PRG behavior is used only as intuition for indistinguishability with a key."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Standard encryption/PRG primitives are used only as intuition for secret-key indistinguishability."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard cryptographic primitives used only as intuition for secret-key indistinguishability"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as the standard secret-key intuition for key-gated indistinguishability rather than as a structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "With the secret key, encryption/PRG indistinguishability fails, giving the caveat to the naive indistinguishability claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard encryption/PRG primitives are used as motivating intuition for keyed indistinguishability"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Standard encryption/PRG primitives are used only to illustrate indistinguishability with and without a secret key."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard encryption/PRG key intuition is used only to motivate computational indistinguishability"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Standard encryption and PRG secrecy are used only to motivate keyed indistinguishability."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Johnson-Lindenstrauss dimension reduction and variants",
+   "note": "JL projections, sparse JL transforms, and manifold/cluster/cut/MST-preserving variants show a familiar class of algorithms that sample a random linear map and can therefore use the trapdoor substitution template.",
+   "first_introduced_sec": 674,
+   "spans": [
+    {
+     "start_sec": 674,
+     "end_sec": 929
+    }
+   ],
+   "total_seconds": 255,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker applies the trapdoor-matrix recipe to Johnson-Lindenstrauss-type random projections, discussing the target dimension, variants, failure of sparse JL in some settings, and how replacing the random matrix gives faster dimension reduction.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard random-projection dimension reduction used as an application of trapdoor matrices"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "JL embeddings give essentially optimal low-dimensional distance preservation and are used as a positive application of trapdoor matrices."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "JL embeddings are used at the near-optimal low-dimensional threshold for preserving geometric structure."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "JL embeddings are essentially optimal low-dimensional distance-preserving projections used as a positive speedup application."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "JL dimension reduction is near-optimal in its logarithmic target dimension and is used as a positive speedup application."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "JL embeddings target near-minimal dimension for preserving distances and are used as an application of trapdoor matrices"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "JL embeddings are near-optimal dimension reductions preserving distances or related structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "JL dimension reduction is used positively and achieves the near-minimal target dimension for distance preservation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "JL reduction is an essentially optimal low-dimensional near-isometry used as a positive application"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "JL uses highly regular random projections achieving the near-optimal dimension-preserving regime."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "JL reduction is presented as a near-optimal dimension-reduction paradigm sped up by trapdoor matrices"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Classic JL projections are near-optimal low-dimensional embeddings used as a speedup application."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "BLR matrix-multiplication self-correction",
+   "note": "The classical four-query worst-case-to-average-case reduction exposes why trapdoor randomizers are useful: three dependent random multiplications become cheaply computable, leaving only one oracle call and allowing success probability epsilon.",
+   "first_introduced_sec": 929,
+   "spans": [
+    {
+     "start_sec": 929,
+     "end_sec": 1318
+    }
+   ],
+   "total_seconds": 389,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker works through the BLR self-correction identity for matrix multiplication, expands the four terms, analyzes marginal randomness and failure probabilities, and then modifies the reduction using trapdoor matrices.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "classical matrix-multiplication self-correction used as a template reduction"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The BLR self-correction is a standard average-to-worst reduction with a non-tight success threshold."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The BLR matrix-multiplication self-correction is a standard positive reduction using random shifts and bilinearity."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "BLR self-correction is a standard random-shift reduction for matrix multiplication used as a positive application."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The BLR self-correction is a standard random self-reduction for matrix multiplication used constructively."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the BLR self-correction is a standard algebraic reduction illustrating the random-matrix recipe"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The BLR self-correction is a standard random self-reduction for matrix multiplication."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The BLR self-correction is a standard positive worst-case-to-average-case reduction for matrix multiplication."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the BLR self-correction identity is a standard bilinear reduction used illustratively"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "BLR matrix-multiplication self-correction is a standard bilinear reduction used as an illustrative application."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the BLR self-correction reduction is a standard illustrative average-to-worst-case construction, not a refutation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The BLR self-corrector is a standard algebraic reduction used to illustrate the trapdoor trick."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Noisy matrix-multiplication error correction",
+   "note": "A matrix-multiplication algorithm whose output only slightly correlates with the truth motivates the symmetrization trick by random scalars and permutations, after which coordinatewise plurality removes the noise.",
+   "first_introduced_sec": 1318,
+   "spans": [
+    {
+     "start_sec": 1318,
+     "end_sec": 1770
+    }
+   ],
+   "total_seconds": 452,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker develops the noisy matrix-multiplication correction in detail, defining the noise matrix, explaining repeated samples, enforcing nicer noise structure via random scalars and permutations, and recovering by coordinatewise plurality.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the noisy setting is at the boundary of nontrivial correlation, only slightly better than random output"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The noisy oracle is treated at the barely-above-random correlation boundary and then positively error-corrected."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The noisy multiplication setting is pushed to the boundary of nontrivial information, with only epsilon advantage over random output."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The noisy setting assumes only barely-better-than-random Hamming correlation, a boundary signal condition used positively for correction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The noisy oracle is assumed only epsilon better than random guessing, a boundary-strength correlation condition."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the noisy setting assumes only barely nonrandom correlation, a boundary/minimal useful signal regime"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The noisy setting uses only a barely-better-than-random correlation threshold."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The noisy matrix-multiplication setting is the boundary case of only an epsilon advantage over random output."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the noisy multiplication setting works at the barely-better-than-random correlation threshold"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The noisy setting is the barely-better-than-random correlation boundary for exact recovery."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the noisy oracle is assumed only barely better than random, a boundary-level correlation condition"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The noisy oracle is treated at the boundary of nontrivial correlation with random matrix multiplication."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Determinant, inverse, and linear-system reductions",
+   "note": "These linear-algebraic tasks are cited as further applications where the same trapdoor-matrix method gives worst-case-to-average-case reductions not previously available by the older tools.",
+   "first_introduced_sec": 1770,
+   "spans": [
+    {
+     "start_sec": 1770,
+     "end_sec": 1806
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Determinant, inverse, and linear-system reductions are stated as further applications with similar worst-case-to-average-case consequences, but no reduction is worked through.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard linear-algebraic tasks used as further applications of the reduction method"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Determinant, inverse, and linear-system solving are ordinary linear-algebra tasks serving as further applications."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Determinant, inverse, and linear-system reductions are ordinary linear-algebraic target tasks used as further positive applications."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Determinant, inverse, and linear-system problems are standard linear-algebra tasks used as additional positive reductions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Determinant, inverse, and linear-system tasks are standard linear-algebraic problems used as further positive reductions."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "determinant, inverse, and linear-system tasks are presented as ordinary further linear-algebra applications"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Determinant, inverse, and linear-system tasks are used as ordinary further linear-algebraic applications."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Determinant, inverse, and linear-system problems are standard linear-algebraic tasks used as further positive reductions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "determinant, inverse, and linear-system reductions are ordinary linear-algebraic applications of the method"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Determinant, inverse, and linear solving are canonical GL-equivariant linear-algebra operations used as further applications."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "determinant, inverse, and linear-system reductions are used as further canonical linear-algebraic applications"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Determinant, inverse, and linear-system problems are ordinary linear-algebra targets for analogous reductions."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Neural networks with an untrained random first layer",
+   "note": "Networks whose first layer is essentially a random dimension-reduction matrix illustrate how the speedup can translate into faster inference and training.",
+   "first_introduced_sec": 1806,
+   "spans": [
+    {
+     "start_sec": 1806,
+     "end_sec": 1846
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Neural networks with an untrained random first layer are cited as an application where the first matrix acts like dimension reduction and can yield faster inference or training, without further derivation.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "random-feature neural networks are a standard restricted architecture used as an application"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A network with a fixed random first layer is a standard random-feature-style architecture application, not a limiting or sporadic object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Networks with a frozen random first layer are a standard architectural/application case rather than a structurally singular object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A random-feature network with a frozen first layer is a standard restricted model used for faster inference and training."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Random-first-layer neural networks are used as an application of fast random projection, not as a structurally exceptional case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "random-first-layer networks are a standard random-features-style architecture used as an application"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A network with a fixed untrained random first layer has fewer trainable degrees of freedom than a generic neural network."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Neural networks with a random first layer are cited as a standard random-feature application of the method."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "random-first-layer networks are a systematic random-feature architecture used as an application"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A frozen random first layer is a reduced random-feature specialization of a usual trainable neural network."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a network with a fixed random first layer is an ordinary random-features-style architecture used as an application"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Random-feature networks with a fixed first layer are used as an ML application of faster projection."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Private inference compared with FHE",
+   "note": "Follow-up work on hiding matrices from a server during inference illustrates that the same trapdoor-matrix phenomenon can yield more practical cryptographic protocols than fully homomorphic encryption in this setting.",
+   "first_introduced_sec": 1846,
+   "spans": [
+    {
+     "start_sec": 1846,
+     "end_sec": 1934
+    }
+   ],
+   "total_seconds": 88,
+   "attaches_to": [
+    "s2",
+    "s7"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker sketches how the trapdoor construction is used for private inference by masking a matrix so it looks random to the server and then peeling off the mask afterward, contrasting this mechanism with FHE.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 7,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "private inference and FHE are used as a practical comparison rather than a refutation"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "FHE is the fully general endpoint of homomorphic encryption and is used here only as a comparison baseline for private inference."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Private inference is presented as a practical application and FHE as a baseline comparison, not as a mathematical counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Private inference with trapdoor matrices is contrasted with FHE as a practicality comparison rather than a mathematical refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Private inference is presented as a practical application benchmarked against FHE rather than as a refuting example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "FHE is maximal in allowing arbitrary homomorphic computation, but here it is only a practical comparison point"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "FHE is an extremal homomorphic-encryption primitive supporting arbitrary computation, used here as an impractical baseline."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "FHE is the universal homomorphic-encryption endpoint and is invoked as the impractical baseline for private inference."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "private inference versus FHE is presented as a practical cryptographic comparison rather than a structural special case"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "FHE is the maximally homomorphic baseline contrasted with the more practical private-inference construction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "FHE is the maximally homomorphic encryption primitive, but here it is only a practicality baseline"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "FHE is the maximal homomorphic-encryption baseline used only for comparison with practical private inference."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Tensors and polynomials as non-matrix trapdoor targets",
+   "note": "In response to a question, the speaker mentions tensors and random polynomials to illustrate that the trapdoor-family idea is not restricted to matrices.",
+   "first_introduced_sec": 2833,
+   "spans": [
+    {
+     "start_sec": 2820,
+     "end_sec": 2871
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s2",
+    "s7"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Tensors and polynomials are named as other possible trapdoor-family targets, but the speaker gives no concrete construction or calculation for them.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "tensors and polynomials are generic non-matrix function families for possible trapdoors"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Random tensors and polynomials are generic non-matrix trapdoor targets rather than exceptional or boundary cases."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Trapdoor tensors and polynomials are atypically low-circuit-complexity targets among generic random tensors or polynomials."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Tensors and polynomials are ordinary non-matrix function families mentioned as further trapdoor domains."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Tensors and polynomials are ordinary non-matrix function classes proposed as possible trapdoor targets."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "tensors and polynomials are generic non-matrix function families mentioned as possible trapdoor targets"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The trapdoor tensor and polynomial instances are constrained to hidden low-complexity small-circuit structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Tensors and polynomials are cited as ordinary non-matrix targets for analogous trapdoor constructions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "trapdoor tensors and polynomials are random-looking objects conditioned to have unusually small circuits"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Tensors and polynomials are systematic non-matrix targets for the same trapdoor idea."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "tensors and polynomials are mentioned as ordinary non-matrix domains for analogous trapdoor families"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Random tensors and polynomials are cited as ordinary nonmatrix settings where trapdoor families can be built."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Permanent as a hard target problem",
+   "note": "An audience question about improving exact algorithms for the permanent illustrates the limitation that super-polynomial-time targets would require correspondingly stronger pseudorandomness assumptions.",
+   "first_introduced_sec": 2932,
+   "spans": [
+    {
+     "start_sec": 2932,
+     "end_sec": 3021
+    }
+   ],
+   "total_seconds": 89,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "The permanent is discussed only in the Q&A as a possible hard target with issues around exponential-time algorithms and stronger conjectures, without carrying out a reduction or computation.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 9,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the permanent is a #P/VNP-complete hard problem raised as a challenging target"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The permanent is a #P/VNP-complete hard target raised as an enemy case where extending the recipe would need stronger assumptions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The permanent is a complete hard counting/algebraic-complexity target and is raised as an enemy case where the method needs stronger assumptions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The permanent is a #P/VNP-complete hard problem raised as an obstructive target for extending the method to exact exponential-time algorithms."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The permanent is a #P/VNP-complete hard problem raised as an enemy case for extending the method to exact exponential-time settings."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the permanent is a canonical #P/VNP-complete hard target at the high-complexity end of such problems"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The permanent is raised as an adversarial hard target, and it is extremal in complexity as a #P/VNP-complete problem."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The permanent is a #P-complete high-symmetry polynomial family raised as a hard obstruction to extending the method."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the permanent is raised as a maximally hard target that obstructs straightforward extension to exponential-time problems"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The permanent is a highly symmetric #P/VNP-complete polynomial raised as an enemy case for exact speedups."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the permanent is a #P/VNP-hard complete target raised as a difficult case where the framework does not straightforwardly apply"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The permanent is a highly symmetric #P/VNP-complete polynomial raised as a difficult target."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1621 @@
+{
+ "key": "c282987da40f43074599f2a3f85445dc",
+ "title": "Fooling polytopes",
+ "speaker": "Li-Yang Tan",
+ "affiliation": "Stanford University",
+ "date": "2019-04-01T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4053.0,
+ "abstract": "We give a pseudorandom generator that fools $m$-facet polytopes over $\\{0,1\\}^n$ with seed length $\\mathrm{polylog}(m) \\cdot \\mathrm{log}(n)$. The previous best seed length had superlinear dependence on $m$. An immediate consequence is a deterministic quasipolynomial time algorithm for approximating the number of solutions to any $\\{0,1\\}$-integer program. Joint work with Ryan O'Donnell and Rocco Servedio.",
+ "youtube_url": "https://www.youtube.com/watch?v=vHXsOBEFSIU",
+ "page_url": "https://www.ias.edu/video/csdm/2019/0401-Li-YangTan",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Boolean-polytope PRG problem and theorem",
+   "summary": "The talk defines m-facet polytopes over the Boolean hypercube, equates discrepancy sets with PRGs, states an explicit PRG with seed length polylog(m)·poly(1/epsilon)·log n, and compares this with prior linear-in-m bounds and desired lower-bound behavior.",
+   "spans": [
+    {
+     "start_sec": 47,
+     "end_sec": 1134
+    },
+    {
+     "start_sec": 3948,
+     "end_sec": 4046
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "CLT route for a single regular halfspace",
+   "summary": "For a regular linear form, Berry-Esseen gives CDF closeness to a Gaussian, and the Meka-Zuckerman bucket generator derandomizes this CLT so that a triangle-inequality argument fools all thresholds of the halfspace.",
+   "spans": [
+    {
+     "start_sec": 1134,
+     "end_sec": 1906
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Multidimensional CLT route for regular intersections",
+   "summary": "The regular-intersection result of Harsha, Klivans, and Meka is presented as a multidimensional analogue: regular rows of a matrix satisfy a CDF CLT, its pseudorandom version holds for the same bucketed generator, and hence regular polytopes are fooled.",
+   "spans": [
+    {
+     "start_sec": 1906,
+     "end_sec": 2164
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "General-halfspace reformulation beyond Gaussian limits",
+   "summary": "Since nonregular halfspaces need not approach any Gaussian, the new result is reformulated as directly constructing a pseudorandom y such that Ax and Ay are close in multidimensional CDF distance, using a Lindeberg/hybrid strategy plus CNF-PRG and Littlewood-Offord ingredients.",
+   "spans": [
+    {
+     "start_sec": 2164,
+     "end_sec": 2490
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Head-tail decomposition of arbitrary facets",
+   "summary": "A regularity lemma for halfspaces decomposes each row into a small sparse head and a regular tail, but because the heads of many facets may cover all variables, the proof must exploit sparse heads rather than simply restrict them all.",
+   "spans": [
+    {
+     "start_sec": 2490,
+     "end_sec": 2787
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Gaussian-smoothed orthant test functions",
+   "summary": "The discontinuous orthant indicator defining CDF distance is replaced by a Gaussian-smoothed modifier that approximates the orthant outside a thin shell and has polylogarithmic bounds on sums of higher partial derivatives.",
+   "spans": [
+    {
+     "start_sec": 2787,
+     "end_sec": 3099
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Hybrid replacement and Taylor/CNF control of the smooth test",
+   "summary": "The smooth version is proved by swapping one bucket of uniform bits for limited-independent bits at a time, writing the bucket matrix as H+T, Taylor-expanding in the regular tail T, fooling sparse-head terms via CNF generators, and bounding Taylor remainders by the derivative estimates.",
+   "spans": [
+    {
+     "start_sec": 3099,
+     "end_sec": 3844
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Littlewood-Offord anti-concentration transfer",
+   "summary": "A high-dimensional Littlewood-Offord or surface-area bound shows that Ax and Ay put little mass in the smoothing shell near the polytope boundary, allowing the smooth orthant-fooling statement to imply the actual PRG/CDF statement.",
+   "spans": [
+    {
+     "start_sec": 3844,
+     "end_sec": 3948
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "0-1 integer programs",
+   "note": "The speaker notes that Boolean polytopes are exactly 0-1 integer programs, giving an optimization-theoretic interpretation of the objects being fooled.",
+   "first_introduced_sec": 77,
+   "spans": [
+    {
+     "start_sec": 77,
+     "end_sec": 95
+    }
+   ],
+   "total_seconds": 18,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "0-1 integer programs are only identified as the optimization interpretation of Boolean polytopes.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "0-1 integer programs are cited as the standard optimization interpretation of Boolean polytopes, not as a structurally special object or failure case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "General 0–1 integer programs are the standard optimization counterpart of cube polytopes and are only mentioned as motivation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Zero-one integer programs are cited as a standard equivalent class of Boolean polytopes."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "0-1 integer programs are cited as a standard equivalent formulation of Boolean polytopes."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cited as the standard optimization interpretation of Boolean polytopes, not as a structurally special object or failure case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "0-1 integer programs are cited as the standard optimization incarnation of Boolean polytopes, not as a structurally special or refuting case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "0-1 integer programs are cited as the standard equivalent optimization formulation of Boolean polytopes, not as a structurally special or adversarial case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used only as the standard optimization interpretation of Boolean polytopes, an ordinary class."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cited as the standard optimization interpretation of Boolean polytopes, not as a structurally special object or obstruction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "0-1 integer programs are cited as a standard equivalent setting for hypercube polytopes, not as a failure case or structurally special object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "0-1 integer programs are cited as the standard optimization interpretation of Boolean polytopes."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary equivalent formulation of Boolean polytopes as 0-1 integer programs"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Polynomially many facets, e.g. m = n^10",
+   "note": "The regime m=n^10 is used as a concrete scale for the many-facet setting where polylogarithmic dependence on m is meaningful.",
+   "first_introduced_sec": 134,
+   "spans": [
+    {
+     "start_sec": 134,
+     "end_sec": 155
+    },
+    {
+     "start_sec": 367,
+     "end_sec": 397
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the case m = n^10 is used only as a parameter regime for having polynomially many facets.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The regime m = n^10 is used as a representative polynomial number of facets, not a boundary or optimal case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The choice m=n^10 is an arbitrary polynomial facet regime used for scale, not a boundary case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The regime m=n^10 is used as an ordinary polynomial-size parameter example, not a boundary case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "m=n^10 is used as a representative polynomial-facet parameter regime, not a boundary case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The choice m=n^10 is an illustrative ordinary polynomial-facet regime, not an optimal or boundary case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The regime m=n^10 is an ordinary illustrative polynomial-size facet count, not a minimum, maximum, sporadic, or adversarial example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The regime m=n^10 is presented as a natural polynomial-facet parameter setting rather than an optimal, limiting, symmetric, or sporadic object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The choice m = n^10 is just an illustrative polynomial facet regime, not a boundary case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a representative polynomial-facet parameter regime rather than an optimal, limiting, or adversarial case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The regime m=n^10 is used as a representative polynomial-size facet count rather than an optimal or boundary case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "m=n^10 is just a representative polynomial-facet parameter regime, not a boundary case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a natural polynomial-facet parameter regime used for illustration, not a boundary case"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Gaussian-space PRG variant",
+   "note": "In response to a question about non-Boolean outputs, the speaker mentions Gaussian measure on R^n as a continuous-domain version obtainable by black-box reductions from Boolean PRGs.",
+   "first_introduced_sec": 461,
+   "spans": [
+    {
+     "start_sec": 461,
+     "end_sec": 484
+    },
+    {
+     "start_sec": 533,
+     "end_sec": 547
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Gaussian-space PRGs are only cited as obtainable by a standard black-box reduction from the Boolean case.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 9,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Gaussian-space PRG is mentioned as a standard domain variant obtained by reduction, with no special intrinsic structure or adversarial role."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Gaussian-space version uses the rotationally symmetric Gaussian measure and is mentioned only as a reducible variant."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Gaussian-space variant refers to the highly rotationally symmetric Gaussian measure as another domain for PRGs."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the Gaussian-space variant uses the rotationally invariant Gaussian measure as an alternative PRG domain."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Gaussian-domain PRG variant is mentioned as a standard reducible domain, with the underlying Gaussian space being highly rotationally symmetric."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Gaussian-space variant is mentioned as a standard symmetric-measure domain obtainable by reduction, not as a failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Gaussian-space variant is mentioned as another domain obtained by reduction, with the standard Gaussian measure being rotationally symmetric but not used to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Invoked as another domain obtainable by reduction, with Gaussian space carrying its usual rotational symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Mentioned as a reducible variant over Gaussian measure, whose underlying space is highly rotationally symmetric."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Gaussian-space PRGs are mentioned as a routine domain variant obtainable by reduction from the Boolean case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the Gaussian-space PRG is mentioned as an ordinary domain variant obtainable by reduction from the Boolean case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a standard domain variant obtained by reduction, with the underlying Gaussian space rotationally symmetric"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Polytope inside the unit cube",
+   "note": "An audience question about a polytope contained inside the continuous unit cube illustrates why continuous-domain discrepancy sets would use real-valued rather than Boolean points.",
+   "first_introduced_sec": 490,
+   "spans": [
+    {
+     "start_sec": 490,
+     "end_sec": 509
+    }
+   ],
+   "total_seconds": 19,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "a polytope inside the unit cube is discussed only to note the measure issue and that Boolean points may miss it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A polytope lying inside the unit cube is used to show Boolean output points would miss it under a continuous-cube formulation, an obstruction to that naive approach."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A full-dimensional polytope lying strictly inside the cube is used as an obstruction to Boolean output for continuous-cube volume, since it may contain no Boolean point."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A polytope strictly inside the unit cube is raised as an obstruction because Boolean output points would miss it under continuous volume."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a polytope lying inside the unit cube is raised as an obstruction to approximating continuous volume using only Boolean points."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A polytope lying strictly inside the unit cube is raised to show Boolean output points would miss it under the continuous-cube setting."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A polytope lying inside the solid cube and missing Boolean vertices is raised as an obstruction to using Boolean output points for the continuous-uniform setting."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A polytope strictly inside the unit cube is raised as an obstruction to Boolean output points approximating continuous-cube volume, since no Boolean vertex hits it."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Raised to show that Boolean-output points would miss an interior continuous polytope under uniform cube measure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show Boolean output points can fail for continuous cube volume because an interior polytope may contain no Boolean vertices."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A polytope lying inside the unit cube is used to show Boolean output points may miss a continuous-domain polytope entirely."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a polytope lying strictly inside the unit cube is used to show Boolean output points may all miss it, making it empty on the Boolean domain."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show Boolean output points would miss a continuous-cube polytope entirely"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Degree-10 polynomial threshold functions",
+   "note": "The sign of a degree-10 polynomial is mentioned as another natural geometric/Boolean generalization of a halfspace, situating the work within broader PRG questions.",
+   "first_introduced_sec": 994,
+   "spans": [
+    {
+     "start_sec": 994,
+     "end_sec": 1024
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "degree-10 polynomial threshold functions are named as another possible generalization of halfspaces.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Degree-10 polynomial threshold functions are presented as an ordinary higher-degree generalization of halfspaces."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Degree-10 polynomial threshold functions are an ordinary fixed-degree generalization of halfspaces mentioned as another direction."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Degree-10 polynomial threshold functions are mentioned as a standard higher-degree generalization of halfspaces."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "degree-10 polynomial threshold functions are mentioned as an ordinary fixed-degree generalization of halfspaces."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Degree-10 polynomial threshold functions are used as a routine higher-degree generalization of halfspaces."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Degree-10 polynomial threshold functions are used as a representative higher-degree generalization of halfspaces, with no special structural extremality invoked."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Degree-10 polynomial threshold functions are given as an ordinary higher-degree generalization of halfspaces, not as a special boundary or counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Mentioned only as a representative low-degree generalization of halfspaces."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Given as an ordinary higher-degree generalization of halfspaces in the PRG-for-geometric-sets program."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Degree-10 polynomial threshold functions are offered as a standard higher-degree generalization of halfspaces."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "degree-10 polynomial threshold functions are given as a routine higher-degree generalization of halfspaces."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an ordinary fixed-degree PTF generalization of halfspaces"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Majority halfspace",
+   "note": "Majority, with all weights equal, is used as the canonical regular halfspace where no coordinate dominates and the Berry-Esseen picture is easiest to visualize.",
+   "first_introduced_sec": 1353,
+   "spans": [
+    {
+     "start_sec": 1353,
+     "end_sec": 1376
+    },
+    {
+     "start_sec": 1469,
+     "end_sec": 1513
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "majority is used as the canonical regular halfspace with equal weights, without a concrete computation on it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The majority halfspace has all equal weights and is used as the canonical maximally regular/symmetric halfspace, not as a failure case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "All weights are equal, so the majority halfspace is permutation-symmetric and maximally regular."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The majority halfspace has all equal weights and is presented as the canonical maximally regular halfspace."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the majority halfspace has all weights equal and is the canonical maximally regular permutation-symmetric halfspace."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority has all weights equal and is presented as the canonical maximally regular, coordinate-symmetric halfspace."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The majority halfspace has all weights equal, giving maximal permutation symmetry and the most regular/minimum-dominance weight profile."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Majority has all weights equal, making it permutation-symmetric and described as the most regular halfspace."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "All weights are equal, making majority the canonical maximally permutation-symmetric regular halfspace."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The all-equal-weight majority halfspace is permutation-invariant and maximally regular among halfspaces."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The majority halfspace has all weights equal, making it maximally permutation-symmetric and regular, and it is used as a canonical example rather than a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the majority halfspace has all weights equal and is used as the maximally regular canonical halfspace."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the all-equal-weight majority halfspace is maximally regular and permutation-symmetric"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Dominant-coordinate or spiky halfspace",
+   "note": "The halfspace with one overwhelmingly large weight shows why ordinary CLT convergence fails without regularity and motivates isolating sparse head variables before treating the regular tail.",
+   "first_introduced_sec": 1420,
+   "spans": [
+    {
+     "start_sec": 1420,
+     "end_sec": 1452
+    },
+    {
+     "start_sec": 2500,
+     "end_sec": 2559
+    }
+   ],
+   "total_seconds": 91,
+   "attaches_to": [
+    "s2",
+    "s5"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the dominant/spiky halfspace is analyzed to show CLT failure and to illustrate restricting the large-weight variables until a regular tail remains.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-dominant-coordinate spiky halfspace collapses essentially to a dictator and is the most non-regular extreme, used to show the CLT-style Gaussian approximation fails without regularity."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The dictator-like spiky halfspace with one dominant weight is a collapsed one-coordinate boundary case used to show CLT-style convergence can fail."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-dominant-coordinate halfspace collapses essentially to a dictator and is used to show CLT-style Gaussian convergence fails without regularity."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the dictator-like spiky halfspace is the maximally nonregular collapsed case used to show Gaussian CLT convergence can fail."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-dominant-coordinate/dictator halfspace is a collapsed, maximally nonregular case used to show Gaussian CLT convergence can fail."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The dominant-coordinate halfspace, especially the one-coordinate dictator case, is a collapsed and maximally non-regular extreme used to show CLT-based convergence can fail."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-dominant-coordinate halfspace is a dictator-like collapsed case and the most non-regular extreme, used to show the Gaussian CLT fails without regularity."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used to show the CLT/regularity framework fails without regularity, and the dictator-like weight vector is collapsed and maximally irregular."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-dominant-coordinate halfspace is used to refute CLT-style Gaussian convergence without regularity and is a collapsed, maximally irregular dictator-type case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A dominant-coordinate halfspace is the most nonregular/dictator-like case and is used to show Gaussian CLT convergence can fail without regularity."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the dictator-like spiky halfspace is the most non-regular case and is used to show CLT-style Gaussian convergence can fail."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the one-dominant-coordinate halfspace is the extreme nonregular/dictator case used to show CLT convergence can fail"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1918 @@
+{
+ "key": "8c3e0441d08165523d4ffb226ba2f35b",
+ "title": "Topological filters: a toolbox for processing dynamic signals",
+ "speaker": "Michael Robinson",
+ "affiliation": "American University",
+ "date": "2018-04-07T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 3160.0,
+ "abstract": "Using the geometry of sheaves as the common language, this talk will bridge three separate areas: dynamical systems, signal processing, and data fusion. Because sheaves model consistency relationships between local data, they are easily assembled from detailed models of systems. Being topological in nature, sheaves mediate local-to-global inference. By incorporating local geometry from the start, the global \"fit\" between local data and models can be quantified, which supports robust inferences about missing or inaccurate data.",
+ "youtube_url": "https://www.youtube.com/watch?v=3kCheAC5eZ8",
+ "page_url": "https://www.ias.edu/video/TopologyWS/2018/0407-MichaelRobinson",
+ "tags": [
+  "School of Mathematics",
+  "Workshop on Topology: Identifying Order in Complex Systems"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Sheaf-theoretic signal-processing thesis",
+   "summary": "The talk frames sheaf theory as a practical way to encode physical data-acquisition systems, compare data with a model via a consistency radius, and regard data fusion and filtering as optimization and morphism-like operations.",
+   "spans": [
+    {
+     "start_sec": 16,
+     "end_sec": 187
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Finite-space sheaf models for sensor systems",
+   "summary": "The speaker restricts attention to computable finite Alexandrov spaces arising from preorders or partial orders, assigns local data spaces as stalks, and uses commuting restriction maps to express consistency of local data.",
+   "spans": [
+    {
+     "start_sec": 187,
+     "end_sec": 723
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Assignments, global sections, and consistency radius",
+   "summary": "Observed data are formalized as assignments to stalks; global sections are perfectly consistent assignments, and the consistency radius measures all restriction-map discrepancies and bounds distance to the nearest global section.",
+   "spans": [
+    {
+     "start_sec": 723,
+     "end_sec": 1039
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Data fusion as consistency-radius minimization",
+   "summary": "Minimizing consistency radius is presented as a practical data-fusion procedure that can improve estimates, quantify data/model mismatch, and identify which sensors or restriction maps are responsible for large inconsistency.",
+   "spans": [
+    {
+     "start_sec": 1039,
+     "end_sec": 1745
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Classical filters as sheaf morphisms",
+   "summary": "Discrete linear translation-invariant filters are recast using input, output, and internal-state sheaves, where the internal sheaf encodes a shift register and the wiring maps reproduce the usual hardware/filter implementation.",
+   "spans": [
+    {
+     "start_sec": 1745,
+     "end_sec": 2031
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Quasi-periodic topological low-pass filter construction",
+   "summary": "The new filter is built in two stages: first a learning or factorization step estimates a quasi-periodic base topology for the signal, and then sheaf morphisms average data over that learned topology rather than over ordinary contiguous windows.",
+   "spans": [
+    {
+     "start_sec": 2031,
+     "end_sec": 2281
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Performance and application evidence for topological filters",
+   "summary": "The quasi-periodic low-pass filter is compared with standard filters and applied to chirps, radar imagery, and musical time series to show amplitude stability, denoising, and anomaly-detection capabilities.",
+   "spans": [
+    {
+     "start_sec": 2281,
+     "end_sec": 3053
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Implementation agenda and limitations",
+   "summary": "The talk closes by emphasizing prototype software, the need for probabilistic/statistical analysis, and computational bottlenecks where advances from topological data analysis may help.",
+   "spans": [
+    {
+     "start_sec": 3053,
+     "end_sec": 3144
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Camera overlaps and the Čech complex",
+   "note": "Overlapping camera views are used to make concrete how a sensor deployment can be converted into a finite topological space, with or without a hole depending on common overlap.",
+   "first_introduced_sec": 241,
+   "spans": [
+    {
+     "start_sec": 241,
+     "end_sec": 311
+    }
+   ],
+   "total_seconds": 70,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he applies the Čech-complex idea to camera/image overlaps, distinguishing no triple overlap giving a hole from common overlap giving a simply connected space",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary Čech-nerve construction from overlapping cameras used to illustrate topology from sensor comparability"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary sensor-overlap Čech nerve illustrating how topology is built from cameras"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an ordinary Čech-complex construction from sensor overlaps, used to illustrate topology from cameras"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary Čech nerve of camera overlaps used to illustrate topology from shared fields of view."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary nerve/Čech-complex construction for overlapping camera fields, used illustratively."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary finite Čech complex of sensor overlaps is used to illustrate topology from data sources, not to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A Čech complex built from camera overlaps is a standard nerve construction used illustratively, not to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An ordinary Čech/nerve construction from camera overlaps is used to illustrate building a sensor topology, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary Čech nerve from overlapping camera views is used to illustrate topology from sensor overlaps."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard Čech nerve of overlapping camera views is used to illustrate topology from sensor overlaps"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary camera-overlap nerves/Čech complexes are used to illustrate building a topology, not to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An ordinary finite Čech/nerve construction from camera overlaps, used illustratively rather than to refute a claim."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Image mosaics and coin counts",
+   "note": "Two overlapping pictures, then pictures compared with semantic coin counts or currency values, illustrate sheaf consistency and heterogeneous data gluing.",
+   "first_introduced_sec": 358,
+   "spans": [
+    {
+     "start_sec": 358,
+     "end_sec": 463
+    }
+   ],
+   "total_seconds": 105,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he checks consistency of overlapping pictures by cropping and gluing, then describes transforming image data and coin counts into a common space to form a hybrid mosaic",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary sheaf-consistency example for mosaicking and semantic counts rather than a refuting case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary sheaf-gluing and heterogeneous data-fusion example using pictures and counts"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a standard sheaf-style data-fusion example comparing overlapping images and heterogeneous coin-count data"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Routine sheaf-consistency example gluing overlapping images and transformed coin-count data."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard consistency-and-gluing example with image and semantic data, not a structural outlier."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The image/count sheaf example is a typical heterogeneous consistency model used constructively for gluing/fusion."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The image/coin-count mosaics are ordinary consistency-and-gluing examples for heterogeneous sensor data."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The image-mosaic and coin-count data are standard local observations used to illustrate sheaf consistency and gluing."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The picture-and-coin-count sheaf is a representative data-fusion/mosaic example rather than a structurally special object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary image and semantic-count data are used as a positive sheaf-gluing example"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Image mosaics and coin-count data are representative sheaf-consistency examples for gluing heterogeneous observations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard overlapping-data sheaf/gluing example for images and counts, used to explain consistency and fusion."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Toy vector-space sheaf on a finite poset",
+   "note": "A finite poset with vector-space stalks, linear restriction maps, and chosen vectors makes the definitions of stalks, assignments, global sections, and inconsistency computations visible.",
+   "first_introduced_sec": 575,
+   "spans": [
+    {
+     "start_sec": 575,
+     "end_sec": 893
+    },
+    {
+     "start_sec": 926,
+     "end_sec": 1002
+    }
+   ],
+   "total_seconds": 394,
+   "attaches_to": [
+    "s2",
+    "s3"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he constructs the finite-poset sheaf with open sets, stalks and restriction maps, checks commutativity and assignments, and computes/compares consistency via restriction-map errors",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "small finite-poset vector-space sheaf is a representative toy model, not a classification exception or limit case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "small finite-poset vector-space sheaf used pedagogically, with smallness not making it structurally degenerate"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an ordinary finite-poset sheaf with vector-space stalks and linear restriction maps, used pedagogically"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Generic finite-poset vector-space sheaf used as a toy model for assignments and consistency."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A small but otherwise ordinary sheaf of vector spaces on a finite poset, used pedagogically."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The finite-poset vector-space sheaf is a small but ordinary illustrative sheaf, not a genuine degenerate or adversarial object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The vector-space sheaf on a finite poset is a small but otherwise generic toy model for defining stalks, restrictions, assignments, and sections."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The finite-poset vector-space sheaf is a small illustrative diagram, but structurally an ordinary computable sheaf model."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The finite-poset vector-space sheaf is a generic toy model for sections and consistency."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an arbitrary finite-poset vector-space sheaf is used as a toy model for consistency"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The finite-poset vector-space sheaf is a small illustrative model rather than a structurally exceptional or limiting object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A representative finite-poset sheaf of vector spaces used as a toy model for assignments and consistency."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Noisy sinusoid parameter estimation",
+   "note": "Estimating amplitudes, phases, and frequencies of a sum of sinusoids demonstrates how minimizing consistency radius can outperform standard signal-processing algorithms at low signal-to-noise ratio, albeit more slowly.",
+   "first_introduced_sec": 1039,
+   "spans": [
+    {
+     "start_sec": 1039,
+     "end_sec": 1248
+    }
+   ],
+   "total_seconds": 209,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he encodes noisy sinusoid parameter estimation as a sheaf optimization, minimizes RMS consistency radius, and compares algorithmic errors versus signal-to-noise ratio",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard noisy sum-of-sinusoids parameter-estimation benchmark used to demonstrate optimization performance"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard noisy parametric sinusoid benchmark for estimating amplitudes and frequencies"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a standard noisy sinusoid parameter-estimation benchmark rather than a structurally special object"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Standard noisy sum-of-sinusoids parameter-estimation benchmark for the optimization method."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The underlying finite-sinusoid model is a highly regular periodic/quasiperiodic signal used as a benchmark."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Noisy sinusoid estimation is a standard benchmark signal model used to demonstrate the optimization method."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Noisy sinusoid parameter estimation is a standard signal-processing benchmark used to demonstrate the sheaf optimization method."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Noisy sums of sinusoids form a standard signal-processing estimation model used as a positive benchmark for the method."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The underlying sinusoidal signal model is a highly regular harmonic family used as a positive benchmark."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the underlying sinusoidal signal model has strong periodic regularity and is used as a benchmark"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Noisy sinusoid fitting is presented as a standard signal-estimation benchmark for the method."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard noisy sinusoid parameter-estimation benchmark, used to demonstrate optimization performance."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Aircraft crash localization by sensor fusion",
+   "note": "A simulated crash search with radar, radio-direction-finding bearings, and satellite imagery shows how a sheaf model fuses multi-sensor data and localizes model/data disagreements to particular restriction maps.",
+   "first_introduced_sec": 1261,
+   "spans": [
+    {
+     "start_sec": 1261,
+     "end_sec": 1745
+    }
+   ],
+   "total_seconds": 484,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he builds a sheaf model for radar, direction-finding, and satellite crash data, defines stalks/restrictions, runs fusion, and analyzes consistency radii and crash-site errors under noise and bias",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "simulated sensor-fusion crash-search scenario is deployed as a constructive application of consistency-radius minimization"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "simulated sensor-fusion localization scenario used to demonstrate consistency-radius diagnostics"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a simulated sensor-fusion localization problem, with corrupted data used diagnostically rather than as a disproof"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary simulated multisensor localization scenario used to demonstrate fusion and diagnostics."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A representative sensor-fusion sheaf model for localization, used to demonstrate the method."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The aircraft localization setup is a realistic sensor-fusion model used as a positive application, even with corrupted-sensor stress tests."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The aircraft-crash localization scenario is an ordinary sensor-fusion test case, including biased data, rather than a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The aircraft-crash sensor-fusion setup is a simulated applied data-fusion example rather than a structural exception or counterexample."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The aircraft-localization sensor sheaf is an applied fusion scenario, even with biased sensors, not a refutation case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the simulated crash-localization sensor network is an application and stress test rather than a disproof"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The aircraft-crash sensor-fusion scenario is an applied test case showing consistency-radius optimization and fault localization."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A simulated but ordinary sensor-fusion localization scenario, including noisy or biased data as diagnostics rather than refutations."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Linear FM chirp denoising",
+   "note": "A frequency-modulated sinusoidal chirp is used as a standard radar/sonar-style test signal to compare the quasi-periodic low-pass filter against ordinary sliding-window and adaptive filters.",
+   "first_introduced_sec": 2281,
+   "spans": [
+    {
+     "start_sec": 2281,
+     "end_sec": 2432
+    }
+   ],
+   "total_seconds": 151,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he runs the quasi-periodic low-pass filter on a linear FM chirp, examines amplitude stability and distortion, and compares its error curves with standard filters",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard linear-FM chirp benchmark is used to exhibit denoising by the topological filter"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard linear-FM chirp denoising benchmark rather than a structurally special object"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a standard linear-frequency-modulated chirp signal used as a denoising test case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Standard linear-FM chirp denoising benchmark rather than a structurally special signal."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A linear FM chirp has an exact affine frequency sweep, making it a highly regular waveform example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A linear FM chirp is a standard radar/sonar test signal used for denoising performance comparison."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A linear FM chirp is a standard radar/sonar waveform used as a denoising benchmark, not an exceptional or extremal object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A linear FM chirp is a standard radar/sonar test signal used to demonstrate denoising performance."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The linear FM chirp has a rigid linear time-frequency sweep and is used as a denoising benchmark."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a linear-FM chirp is a constant-rate highly regular waveform used to test denoising"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A linear FM chirp is a standard structured radar/sonar waveform used as a denoising benchmark, not an extremal or sporadic object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard linear-FM chirp denoising benchmark, used to show the topological filter’s behavior."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Radar image of ocean waves",
+   "note": "A radar image of the ocean surface illustrates that the same topological filtering idea can remove speckle and improve wave-structure estimation beyond one-dimensional time series.",
+   "first_introduced_sec": 2432,
+   "spans": [
+    {
+     "start_sec": 2432,
+     "end_sec": 2496
+    }
+   ],
+   "total_seconds": 64,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he applies the filter to a radar ocean-wave image and discusses the resulting speckle/contrast improvement and wave-direction estimation",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary noisy radar ocean-surface image is used as an applied filtering example"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary radar ocean-wave image used as an application of the filter"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an ordinary noisy radar image used to demonstrate speckle reduction and wave-structure extraction"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Typical speckled radar image of ocean waves used to show image-filtering performance."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A radar image with ocean-wave texture and speckle is an ordinary applied image-processing case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The ocean-wave radar image is an ordinary noisy applied image used to show filtering and contrast improvement."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The radar ocean-wave image is a typical noisy image example for showing speckle reduction and wave-structure recovery."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The radar ocean-wave image is a typical noisy imaging example used to show that the filter extends beyond time series."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The ocean-wave radar image is a realistic noisy image example for filtering, not structurally exceptional."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the ocean-wave radar image is ordinary noisy application data with wave structure"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The radar ocean-wave image is ordinary noisy image data used to demonstrate speckle reduction and wave-structure recovery."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A typical noisy radar image with ocean-wave structure, used as an applied filtering demonstration."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Afro-Cuban clave timekeeper pattern",
+   "note": "Annotated percussion recordings show a rigid five-note timekeeping pattern whose sliding-window PCA and filtered form make the quasi-periodic structure visually explicit.",
+   "first_introduced_sec": 2516,
+   "spans": [
+    {
+     "start_sec": 2516,
+     "end_sec": 2744
+    }
+   ],
+   "total_seconds": 228,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he analyzes the clave timekeeper data using inter-onset intervals, sliding-window arrays, PCA structure, and filtering to identify the five-note rhythmic pattern",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "repeated five-note clave ostinato is singled out by rigid cyclic timekeeping regularity"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "clave is singled out as a rigid five-note repeating timekeeper pattern"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the clave is a rigid repeated five-note timekeeper pattern with clear cyclic regularity"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clave is singled out as a rigid repeated five-note timekeeping pattern, hence structurally regular."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clave player supplies a rigid cyclic five-note timekeeping pattern with strong regular structure."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clave example is a rigid repeating five-note timekeeper pattern with strong cyclic regularity, used as a positive structure test."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clave example is a highly regular repeated timekeeper rhythm used positively to reveal quasi-periodic structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clave timekeeper is singled out by its rigid repeating five-note regularity, serving as a positive structured test case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clave produces a rigid repeated five-position timekeeper pattern with cyclic regularity."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the clave example is a rigid recurring five-note timekeeper pattern"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clave part is used as a positive test case and is structurally distinguished by a rigid repeating timekeeper pattern."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clave part is a highly regular five-note timekeeping rhythm, used as a positive structured test case."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Segundo missing and extra drum hits",
+   "note": "Abrupt shifts in an eleven-note percussion pattern motivate using the quasi-periodic low-pass output as a baseline and subtracting it to build a high-pass anomaly detector for missing or duplicated notes.",
+   "first_introduced_sec": 2770,
+   "spans": [
+    {
+     "start_sec": 2770,
+     "end_sec": 3031
+    }
+   ],
+   "total_seconds": 261,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he processes the Segundo rhythm with the quasi-periodic filter and a high-pass residual, thresholds anomalies, and distinguishes missing from duplicated drum hits via the ringing pattern",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 4,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 10,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "missing or duplicated hits are anomaly cases showing the observed Segundo sequence fails the expected 11-note pattern"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "missing and duplicate hits are anomalous deviations from the expected eleven-note rhythm that the filter flags"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "missing or duplicated Segundo hits are absent/collapsed onset events that violate the expected eleven-note rhythmic baseline"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Missing and duplicated Segundo hits are anomalous cases showing the regular eleven-note transcription model fails locally."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The missing and duplicated hits are anomalous failures of the regular 11-note alignment that the filter detects."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The missing and extra Segundo hits are anomalous deviations from the expected eleven-note pattern, used to show where the regular model fails."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The missing and extra Segundo hits are anomalous deviations from the expected eleven-note pattern, used to show where the baseline transcription/model fails locally."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Segundo missing-hit cases are omissions of the expected rhythm, with extra hits treated as local defects to detect rather than as a refutation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The omitted and duplicated Segundo hits are anomalies showing the strict eleven-note baseline fails locally."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the missing and extra hits are anomalous deviations from the expected eleven-note Segundo pattern"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Segundo missing and extra hits are anomalous absences/duplications relative to the regular 11-note rhythm, used for detection rather than disproof."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The missing and duplicated Segundo hits are corrupted deviations from the expected eleven-note pattern, used as anomaly cases against the baseline model."
+    }
+   ]
+  }
+ ]
+}

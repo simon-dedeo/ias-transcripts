@@ -1,0 +1,2275 @@
+{
+ "key": "eed982b23e01b6989587191d75e5d536",
+ "title": "The matching polytope has exponential extension complexity",
+ "speaker": "Thomas Rothvoss",
+ "affiliation": "University of Washington, Seattle",
+ "date": "2014-03-17T12:00:00Z",
+ "field_msc": "90 Operations research, mathematical programming",
+ "duration_sec": 4272.0,
+ "abstract": "A popular method in combinatorial optimization is to express polytopes \\(P\\), which may potentially have exponentially many facets, as solutions of linear programs that use few extra variables to reduce the number of constraints down to a polynomial. After two decades of standstill, recent years have brought amazing progress in showing lower bounds for the so called extension complexity. However, the central question in this field remained wide open: can the perfect matching polytope be written as an LP with polynomially many constraints?",
+ "youtube_url": "https://www.youtube.com/watch?v=6wjA6oIZ-nQ",
+ "page_url": "https://www.ias.edu/video/csdm/2014/0317-ThomasRothvoss",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Extension-complexity framework and matching-polytope target",
+   "summary": "The speaker defines linear extensions and extension complexity, surveys why lower bounds are significant, recalls Edmonds's odd-cut description of the complete-graph perfect matching polytope, and states the main theorem that its extension complexity is exponential.",
+   "spans": [
+    {
+     "start_sec": 20,
+     "end_sec": 797
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Slack matrices and Yannakakis factorization theorem",
+   "summary": "Slack matrices and nonnegative rank are introduced, and Yannakakis's theorem is outlined to reduce lower-bounding extension complexity to lower-bounding the nonnegative rank of a slack matrix.",
+   "spans": [
+    {
+     "start_sec": 797,
+     "end_sec": 1241
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Failure of ordinary rectangle-covering bounds",
+   "summary": "The usual communication-complexity rectangle-covering lower bound is applied to the matching slack matrix but shown to be too weak because the positive entries are coverable by only polynomially many nonincident-edge rectangles, suggesting that large-slack entries are overcovered.",
+   "spans": [
+    {
+     "start_sec": 1258,
+     "end_sec": 1662
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Hyperplane-separation witness and rectangle lemma",
+   "summary": "A hyperplane-separation lower-bound method is introduced, a signed weight matrix is designed from the matching slack levels, and the proof is reduced to showing that every rectangle has exponentially small value under this linear functional.",
+   "spans": [
+    {
+     "start_sec": 1662,
+     "end_sec": 2421
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Razborov-style partition sampling and entropy regularity",
+   "summary": "Special partition rectangles for cuts and matchings are defined, the slack-level measures are re-expressed by random partitions, and an entropy/density lemma is introduced to justify conditioning on local events for most coordinates.",
+   "spans": [
+    {
+     "start_sec": 2476,
+     "end_sec": 3516
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Good-partition comparison and slack-zero contradiction",
+   "summary": "For good partition/triple pairs, the speaker compares the three-edge and k-edge measures and proves that two good triples must intersect in two edges, since otherwise a matching and cut in the rectangle would form a forbidden slack-zero entry.",
+   "spans": [
+    {
+     "start_sec": 3516,
+     "end_sec": 4067
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Bad-partition error control and conclusion",
+   "summary": "The entropy regularity argument is used to bound the probability of bad matching and cut partitions, completing the rectangle lemma and hence the exponential nonnegative-rank and extension-complexity lower bound, followed by an SDP-extension open problem.",
+   "spans": [
+    {
+     "start_sec": 4067,
+     "end_sec": 4243
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Spanning-tree polytope with flow variables",
+   "note": "The spanning-tree polytope is used to illustrate how exponentially many cut inequalities in an original formulation can sometimes be replaced by a polynomial-size extended formulation using auxiliary flow variables.",
+   "first_introduced_sec": 153,
+   "spans": [
+    {
+     "start_sec": 153,
+     "end_sec": 220
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The spanning-tree polytope with flow variables is cited as an example where auxiliary variables give an n^3-size formulation, without constructing or analyzing it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard spanning-tree polytope with flow variables is cited as a positive compact extended formulation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary flow-extended spanning-tree formulation offered as a positive compact-extension example"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard spanning-tree extended formulation with flow variables is used as a positive example of polynomial-size extensions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary spanning-tree polytope is cited as a positive case where flow variables give a polynomial-size extension."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary spanning-tree extended formulation used as a positive example of flow-variable efficiency."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard spanning-tree extended formulation is cited as a positive small-extension example"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is cited as a standard positive compact extended formulation via flow variables, not as a structurally special obstruction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as a positive example where flow variables give a compact extension of a standard spanning-tree polytope."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard flow extended formulation is used as a positive compact-extension example for an otherwise ordinary spanning-tree polytope."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard positive example where flow variables give a compact extended formulation for spanning-tree polytopes"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as a standard positive case where flow variables give a polynomial-size extended formulation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is a standard flow extended formulation showing compactness for spanning trees, not an obstruction."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Perfect matching polytopes in planar or bounded-genus graphs",
+   "note": "These graph classes are mentioned as cases where perfect-matching polytopes do admit efficient extended formulations, contrasting with the complete-graph lower bound proved in the talk.",
+   "first_introduced_sec": 184,
+   "spans": [
+    {
+     "start_sec": 184,
+     "end_sec": 220
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Perfect matching polytopes in planar or bounded-genus graphs are only listed among examples with efficient extensions.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 4,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Planar or bounded-genus perfect-matching polytopes are standard restricted families used as positive compact-EF examples."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "planar or bounded-genus matching polytopes form a structured but non-sporadic positive small-extension family"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Planar or bounded-genus perfect-matching polytopes are a systematic restricted family cited for efficient extensions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Planar or bounded-genus perfect-matching polytopes are standard restricted graph polytopes used as positive efficient-extension examples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Planar/bounded-genus perfect-matching polytopes are presented as tractable extended-formulation cases, not as obstructions."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "planar/bounded-genus matching polytopes lie in a low-genus boundary regime and are cited positively"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "These are positive examples of low extension complexity for a restricted graph family, with no intrinsic extremal, degenerate, maximal-symmetry, or sporadic status."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as positive compact-extension examples for a systematic restricted graph family, not as an obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "These are positive compact-extension examples on low-genus, topologically boundary graph classes."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "used as a positive compact-extension example for the low-genus, planar boundary regime of graph matching polytopes"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "cited as another positive low-extension-complexity family rather than as an obstruction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "These are low-genus matching-polytope families, with planar graphs at the genus-zero boundary, used as positive compact-extension examples."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Permutahedron efficient extension",
+   "note": "The permutahedron is cited as another polytope whose description becomes efficient after adding extra variables, serving only as motivation for extension complexity.",
+   "first_introduced_sec": 184,
+   "spans": [
+    {
+     "start_sec": 184,
+     "end_sec": 220
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The permutahedron is only said to have a nice efficient extended representation with extra variables.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permutahedron is highly relabeling-symmetric and is mentioned for its efficient extension."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the permutahedron is a highly vertex-permutation-symmetric polytope used as a positive efficient-extension example"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permutahedron is highly symmetric under coordinate permutations and is cited as having an efficient extension."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permutahedron is a highly symmetric S_n-regular polytope cited as having an efficient extension."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permutahedron is a highly symmetric permutation-orbit polytope used as a positive efficient-extension example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the permutahedron is a highly regular symmetric-group orbit polytope used as a positive efficient-extension example"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permutahedron is a highly regular symmetric-group orbit polytope and is used as a positive efficient-extension example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a positive efficient-extension example, and the permutahedron is distinguished by its permutation symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permutahedron is used as a positive efficient-extension example and is highly invariant under coordinate permutations."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the permutahedron is highly regular under coordinate permutations and is cited as an efficient-extension example"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the permutahedron is highly symmetric under coordinate permutations and is cited as an efficient-extension example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permutahedron is a highly symmetric polytope used as a positive efficient-extension example."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Traveling-salesman polytope lower bounds",
+   "note": "The traveling-salesman problem is used as a familiar NP-hard benchmark where symmetric and later unrestricted LP extension lower bounds were known before the matching-polytope result.",
+   "first_introduced_sec": 232,
+   "spans": [
+    {
+     "start_sec": 232,
+     "end_sec": 327
+    },
+    {
+     "start_sec": 391,
+     "end_sec": 436
+    },
+    {
+     "start_sec": 614,
+     "end_sec": 638
+    }
+   ],
+   "total_seconds": 164,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Traveling-salesman polytope lower bounds are discussed historically and by known theorems, but no lower-bound argument is worked out on TSP itself.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The TSP polytope is relabeling-symmetric and is invoked to show polynomial-size LP formulations fail."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the complete-graph TSP polytope has strong relabeling symmetry and is cited to rule out polynomial-size LP formulations"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The complete-graph TSP polytope is highly relabeling-symmetric and is used as a lower-bound obstruction to small LPs."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The complete-graph TSP polytope is S_n-symmetric and is invoked to rule out polynomial-size LP extensions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The symmetric TSP polytope is used to show polynomial-size LP formulations cannot exist."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the complete-graph TSP polytope is label-symmetric and is used to rule out polynomial-size LPs"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The complete-graph TSP polytope is highly label-symmetric and is invoked as an obstruction to polynomial-size LP formulations."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The TSP polytope is cited as an exponential LP/extension-complexity lower-bound obstruction, and the complete-graph version is relabeling-symmetric."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The TSP polytope is cited as an obstruction to polynomial-size LP extensions and has the natural full vertex-relabeling symmetry of the complete graph."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the complete-graph TSP polytope is relabeling-symmetric and is invoked to rule out polynomial-size LP formulations"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the complete-graph TSP polytope is permutation-symmetric and is invoked to rule out polynomial-size LP formulations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The complete-graph TSP polytope is symmetric under vertex relabeling and is cited to rule out polynomial-size LP formulations."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Random 0/1 polytope from a counting argument",
+   "note": "A random subset of the hypercube and its convex hull illustrate that high extension complexity can be proved nonconstructively, though this does not give a concrete hard polytope.",
+   "first_introduced_sec": 354,
+   "spans": [
+    {
+     "start_sec": 354,
+     "end_sec": 391
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The random 0/1 polytope is described as arising from a counting argument, but the counting argument is not carried out for it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A generic random 0/1 polytope has no special listed structure and is used to refute universal small extension complexity."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a generic random 0/1 polytope is used as an existence witness against universal small extension complexity"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random 0/1 polytope is a generic counting-argument hard case against universal small extension complexity."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A generic random 0/1 polytope is used by counting to show that small extensions cannot exist universally."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A generic random 0/1 polytope from counting is used to refute universal small extension complexity."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a random 0/1 polytope is a generic counting-construction enemy to universal small extension complexity"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random 0/1 polytope from counting refutes any universal small-extension-complexity hope while being structurally generic."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The random 0/1 polytope is used nonconstructively to show that universal small extension complexity fails, while being otherwise typical."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random 0/1 polytope is used existentially to refute universal small extension complexity, while being structurally generic."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a random 0/1 polytope is structurally generic but is used by counting as a hard enemy to universal small extension formulations"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a random cube-subset polytope is a typical counting witness against universal small extension complexity."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random 0/1 polytope is a typical member used nonconstructively to refute universal small extension complexity."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Clique-polytope approximation lower bound",
+   "note": "A variant of the clique polytope is mentioned to show that extension-complexity lower-bound techniques also apply to approximate formulations.",
+   "first_introduced_sec": 436,
+   "spans": [
+    {
+     "start_sec": 436,
+     "end_sec": 468
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The clique-polytope approximation lower bound is only cited as an application of the technique to approximability.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The clique-polytope variant is used as an obstruction to small approximate extended formulations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the clique-polytope variant is invoked as an approximation lower-bound obstruction to small LP extensions"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The clique-polytope variant is used to show that even approximate small extended formulations can fail."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The clique-polytope variant is a standard NP-hard optimization polytope used to rule out small approximate extensions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The clique-polytope variant is used as an obstruction to small approximate extended formulations."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the clique/correlation-type polytope is label-symmetric and is used to rule out small approximate extensions"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The clique-polytope variant is used for an approximation lower bound against small extensions, with no special intrinsic structure specified."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The clique-polytope variant is used to show impossibility of small approximate extensions for that NP-hard model."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The clique-polytope variant is cited as an approximation obstruction to small LP extensions and carries the standard relabeling symmetry of the clique/correlation construction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the clique/correlation-polytope family is permutation-symmetric and is used to rule out small approximating LPs"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the clique-polytope variant is used as an approximation lower-bound obstruction to small extended formulations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The clique-polytope variant is a standard NP-hard lower-bound family used to rule out small approximate extensions."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "MaxCut LP versus SDP approximation separation",
+   "note": "MaxCut is used to illustrate that polynomial-size LPs can be provably weaker than SDPs for approximation, motivating lower bounds beyond exact NP-hard polytopes.",
+   "first_introduced_sec": 468,
+   "spans": [
+    {
+     "start_sec": 468,
+     "end_sec": 520
+    },
+    {
+     "start_sec": 614,
+     "end_sec": 638
+    }
+   ],
+   "total_seconds": 76,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The MaxCut LP-versus-SDP separation is stated as a known approximation separation, with no concrete instance or proof worked through.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 9,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The MaxCut setting has natural cut/relabeling symmetries and is used to separate LP from SDP approximation power."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the MaxCut cut-polytope setting is highly symmetric and is used to separate LP approximation power from SDP power"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The MaxCut/cut-polytope setting has strong relabeling and switching symmetry and is used to separate LP from SDP approximation power."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "MaxCut is used to separate LP approximation power from SDP power rather than as a structurally special object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The MaxCut/cut-polytope setting is highly symmetric and is used to separate polynomial LPs from SDP approximations."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "MaxCut is used as an obstruction showing polynomial LPs cannot match SDP approximation power"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The MaxCut LP-versus-SDP result is used as a separation showing LP approximations cannot match the SDP, not as a structurally exceptional object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "MaxCut is used to separate LP and SDP approximation power, and the cut feasible set is highly symmetric under relabelings and bit flips."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "MaxCut is used to separate LP from SDP approximation power, and the cut polytope/relaxation has strong permutation and switching symmetries."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the MaxCut cut-polytope setting has natural relabeling and cut-complement symmetries and witnesses LPs failing to match SDP approximation power"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the MaxCut/cut-polytope setting is highly invariant under relabeling and bit flips and is used to separate LP from SDP approximation power."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The MaxCut cut-polytope setting has strong relabeling and side-switching symmetries and is used to separate LP approximation from SDP power."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Spectrahedral SDP-to-LP separation",
+   "note": "In response to a question, the speaker mentions a small spectrahedron for which any good LP approximation is much larger, as another illustration of SDP/LP separation phenomena.",
+   "first_introduced_sec": 520,
+   "spans": [
+    {
+     "start_sec": 520,
+     "end_sec": 614
+    }
+   ],
+   "total_seconds": 94,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "The spectrahedral separation is mentioned by size and lower-bound order in response to a question, without deriving the separation.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 9
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "The specific spectrahedron is not identified, but it is invoked as an SDP object admitting no comparable small LP approximation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "the transcript leaves the particular spectrahedron unspecified while using it as an SDP-versus-LP separation witness"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The spectrahedral example is used as an SDP-versus-LP size separation showing no comparable small LP approximation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "The particular spectrahedron is only alluded to, but it is cited as an SDP feasible set that LPs cannot approximate compactly."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "The particular spectrahedron is not identified, but it is invoked as an SDP object that no comparable small LP can approximate."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "the transcript names only an unspecified spectrahedron used as an SDP-versus-LP size-separation example"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The spectrahedral example serves as an SDP-to-LP separation obstructing small LP approximations, with no listed intrinsic special structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "The transcript mentions only an unspecified spectrahedron used as an SDP-to-LP separation object requiring large LP approximations."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The spectrahedron is cited as a small-SDP object that no comparable LP can approximate, in an elliptope-type symmetric setting."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "the specific spectrahedron is not named, but it is invoked as an obstruction to replacing a small SDP by a small LP"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "an unnamed spectrahedron is cited as a small-SDP versus large-LP separation, but its exact intrinsic structure is not specified."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "Only an unspecified spectrahedron is mentioned, but it functions as an obstruction to efficient LP approximation of SDP sets."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Half-integral odd-cycle solution",
+   "note": "The odd cycle with edge values one half shows why the degree equations alone do not describe the perfect matching polytope and forces the introduction of odd-cut inequalities.",
+   "first_introduced_sec": 680,
+   "spans": [
+    {
+     "start_sec": 680,
+     "end_sec": 715
+    }
+   ],
+   "total_seconds": 35,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The half-integral odd-cycle solution is invoked as an example showing degree constraints are insufficient, but its properties are only stated, not checked in detail.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 7,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The half-integral odd-cycle point is an extreme fractional relaxation point showing the degree constraints are insufficient."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the half-integral odd-cycle vector is an extreme point of the degree relaxation and blocks the degree-only description"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The half-integral odd-cycle point is an extreme fractional solution showing the degree constraints alone are insufficient."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-1/2 odd-cycle solution is a regular extreme fractional point showing that degree constraints are insufficient."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The uniform half-integral odd-cycle point is a symmetric fractional extreme point showing the degree constraints alone fail."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the half-integral odd-cycle point is a fractional extreme point showing the degree constraints are insufficient"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The uniform half-integral odd-cycle point is a symmetric fractional extreme point of the degree relaxation and shows those constraints are insufficient."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The half-integral odd-cycle point is a fractional extreme obstruction to the degree constraints describing the perfect-matching polytope."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The half-integral odd-cycle point is an extreme fractional solution showing the degree constraints alone fail."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the uniform half-integral odd cycle is a regular fractional extreme point showing the degree constraints alone fail"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the all-half odd-cycle point is a regular fractional extreme point used to show the degree constraints alone fail."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The uniform half-integral odd-cycle point is a symmetric fractional extreme point refuting sufficiency of the degree constraints."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Biased coin entropy calculation",
+   "note": "A coin with probabilities p and 1-p illustrates why entropy drops when a coordinate distribution is bounded away from uniform, supporting the density-conditioning lemma.",
+   "first_introduced_sec": 3314,
+   "spans": [
+    {
+     "start_sec": 3314,
+     "end_sec": 3378
+    }
+   ],
+   "total_seconds": 64,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The biased coin is used concretely in the entropy argument, comparing the fair case with a biased distribution to explain the entropy loss.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A biased Bernoulli coin is a typical nonuniform distribution used only to illustrate the entropy calculation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a biased coin is a standard nonuniform Bernoulli example used only to illustrate entropy drop"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The biased coin is an ordinary two-outcome distribution used to illustrate entropy loss away from uniformity."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A mildly biased Bernoulli variable is an ordinary distribution used only to illustrate entropy loss from nonuniformity."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A nonuniform coin distribution merely illustrates entropy loss away from the fair maximum."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a nondegenerate biased Bernoulli variable merely illustrates entropy loss away from uniformity"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The biased Bernoulli calculation merely illustrates entropy loss away from uniform and is a generic nondegenerate distribution."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The biased coin is only an illustrative entropy calculation for nonuniform Bernoulli variables."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The biased coin is only an illustrative entropy calculation away from the uniform maximum, not an obstruction object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an ordinary biased Bernoulli variable is used only to illustrate entropy loss away from the fair maximum"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the biased Bernoulli variable merely illustrates entropy loss away from the uniform fair coin."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The biased coin is an ordinary nonuniform Bernoulli example used only to illustrate the entropy calculation."
+    }
+   ]
+  }
+ ]
+}

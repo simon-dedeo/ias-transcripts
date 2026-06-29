@@ -1,0 +1,1869 @@
+{
+ "key": "0abea67c44b160aba1cb91f5462f1c34",
+ "title": "New Approach to Matrix Perturbation: Beyond the Worst-Case Analysis",
+ "speaker": "Van H. Vu",
+ "affiliation": "Yale University",
+ "date": "2025-11-03T12:00:00Z",
+ "field_msc": "15 Linear and multilinear algebra; matrix theory",
+ "duration_sec": 3837.0,
+ "abstract": "Matrix-perturbation bounds quantify how the spectral characteristics of a baseline matrix A change under additive noise E. Classical results, including Weyl’s inequality for eigenvalues and the Davis–Kahan theorem for eigenvectors and eigenspaces, have long played a foundational role in mathematics. These bounds are known to be sharp in worst-case analyses.\nIn the past decade, we have developed a perturbation framework that leverages the interaction between E and the eigenvectors of A. This perspective yields quantitative improvements over classical bounds, particularly when E is random, a common scenario in real-world applications.\nThis talk surveys these developments and main ideas, focusing on recent results concerning eigenspace perturbation.  If time allows, we will discuss extensions to other spectral functionals and applications in different areas.",
+ "youtube_url": "https://youtu.be/LIOX5PO_Cjc",
+ "page_url": "https://www.ias.edu/video/new-approach-matrix-perturbation-beyond-worst-case-analysis",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Worst-case perturbation setting and gap obstruction",
+   "summary": "The talk sets up a symmetric ground-truth matrix A, noisy observation A+E, and spectral functionals of interest, then recalls Weyl- and Davis-Kahan-type operator-norm bounds and explains why eigenvalue gaps enter worst-case eigenspace perturbation.",
+   "spans": [
+    {
+     "start_sec": 42,
+     "end_sec": 454
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Relative spectral interaction framework",
+   "summary": "A relative strength of the noise is introduced by testing E against the relevant eigenvectors of A, and this is placed in a general truncated spectral-functional framework F_{f,S}(A), with the talk specializing to f=1 projection perturbations.",
+   "spans": [
+    {
+     "start_sec": 454,
+     "end_sec": 812
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Low-rank relative eigenspace theorem",
+   "summary": "For low-rank ground truth, the new deterministic theorem bounds projection error by terms involving the reduced interaction parameters x and y, plus a signal-to-noise term ||E||/lambda_p, under assumptions comparing noise to the signal rather than only to the eigengap.",
+   "spans": [
+    {
+     "start_sec": 812,
+     "end_sec": 1655
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Effective-rank general theorem and sharpness",
+   "summary": "For full-rank A, a safe spectral distance defines a problem-dependent effective rank, yielding the same x,y form of the bound with lambda_bar and with claimed sharpness of the assumptions and terms, as well as extensions to rectangular matrices, arbitrary index sets, general functions, and eigenvalue perturbations.",
+   "spans": [
+    {
+     "start_sec": 1726,
+     "end_sec": 2059
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Application mechanism through structured noise",
+   "summary": "Because many data matrices are low-rank or effectively low-rank and many noises are random or problem-generated, the theory applies to matrix completion, privacy-preserving low-rank approximation, spiked covariance models, and related spectral algorithms.",
+   "spans": [
+    {
+     "start_sec": 2059,
+     "end_sec": 2650
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Contour-resolvent proof scaffold",
+   "summary": "Cauchy's formula represents truncated spectral functionals as contour integrals of resolvents, and the resolvent identity expands the perturbation into a series whose crude norm estimates recover Davis-Kahan while a bootstrap refinement still leaves a strong gap condition and suboptimal rank dependence.",
+   "spans": [
+    {
+     "start_sec": 2650,
+     "end_sec": 3300
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Combinatorial contour expansion",
+   "summary": "The proof splits each resolvent into important and remainder spectral pieces, expands products into P/Q words, discards the all-remainder word by contour integration, extracts x and y from the first two interaction orders, and groups higher-order terms by graphs to show they are negligible.",
+   "spans": [
+    {
+     "start_sec": 3300,
+     "end_sec": 3835
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Two-coordinate adversarial eigenvalue swap",
+   "note": "A diagonal matrix with nearly tied top eigenvalues is perturbed only in the first two coordinates, causing the top eigenvector to switch and thereby motivating both the gap condition and the later non-adversarial relative-noise viewpoint.",
+   "first_introduced_sec": 317,
+   "spans": [
+    {
+     "start_sec": 317,
+     "end_sec": 421
+    },
+    {
+     "start_sec": 1842,
+     "end_sec": 1874
+    }
+   ],
+   "total_seconds": 136,
+   "attaches_to": [
+    "s1",
+    "s4"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker writes a concrete diagonal matrix and perturbation, computes the noise norm and changed eigenvalues, and explains the resulting eigenvector swap.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Rank-two diagonal perturbation at a tiny spectral gap swaps the top eigenvector, a worst-case obstruction to gap-free bounds."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A rank-two/sparse diagonal perturbation is a minimal worst-case construction that forces an eigenvalue swap and shows the gap condition is necessary."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a minimal two-coordinate diagonal perturbation at the eigenvalue-crossing threshold shows worst-case eigenspace instability and sharpness of the gap requirement"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A rank-two diagonal perturbation collapses the problem to the minimal two-eigenvalue gap case and is used as an adversarial sharp obstruction to gap-free eigenvector bounds."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A two-coordinate diagonal near-crossing with aligned rank-two noise is a minimal tight adversarial obstruction to gap-free eigenvector stability."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a collapsed two-coordinate diagonal perturbation sharply forces an eigenvalue/eigenvector swap, showing gap-free eigenvector control fails."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used as an adversarial near-crossing obstruction, collapsed to a sharp two-coordinate boundary case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A minimal two-coordinate diagonal construction at the eigenvalue-swap threshold is used as an adversarial obstruction to any no-gap eigenvector bound."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A two-dimensional diagonal toy perturbation concentrated on the two leading coordinates is an adversarial tight eigenvector-swap obstruction to gap-free bounds."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a minimal two-coordinate diagonal adversarial pair realizes a sharp eigenvector swap showing gap dependence is necessary"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "an adversarial two-eigenvalue construction at the eigenvalue-crossing boundary shows a small perturbation can swap leading eigenvectors, making the gap dependence necessary."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A two-coordinate diagonal rank-two perturbation is an adversarial minimal construction that realizes a tight eigenvalue/eigenvector swap, obstructing gap-free bounds."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Independent-entry and GOE noise cancellation",
+   "note": "For Gaussian or sub-Gaussian independent-entry noise, the operator norm is of order sqrt(n) while fixed-eigenvector bilinear forms and cross inner products are much smaller, illustrating why the relative parameters x and y improve over worst-case norm bounds.",
+   "first_introduced_sec": 495,
+   "spans": [
+    {
+     "start_sec": 495,
+     "end_sec": 525
+    },
+    {
+     "start_sec": 1221,
+     "end_sec": 1318
+    },
+    {
+     "start_sec": 1655,
+     "end_sec": 1709
+    }
+   ],
+   "total_seconds": 181,
+   "attaches_to": [
+    "s2",
+    "s3"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker estimates the GOE/independent-entry noise sizes, explaining cancellation and deriving orders such as operator norm about square-root n, x order one, and y smaller after normalization.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "GOE and i.i.d. white-noise models have high distributional symmetry and illustrate relative-norm cancellation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Independent-entry noise is used as a standard random model illustrating cancellation, with the GOE case having orthogonal-invariance symmetry."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "independent-entry and especially GOE noise are random-noise models used to exhibit cancellation rather than to refute a claim"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Independent-entry noise is a standard random-noise model, with the GOE subcase orthogonally invariant, used positively to show cancellation rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "GOE/independent-entry noise is a standard random ensemble, with the GOE component orthogonally invariant, used to exhibit bilinear-form cancellation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "independent-entry noise and especially GOE noise are regular random ensembles used to show cancellation rather than failure of a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Independent-entry noise illustrates cancellation, with the GOE case orthogonally invariant rather than adversarial."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Independent-entry/GOE noise is used positively to illustrate cancellation and smaller relative perturbation, with GOE contributing orthogonal-invariance symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Independent-entry noise and the GOE are used to illustrate random cancellation rather than to refute a claim, with GOE providing an orthogonally invariant Gaussian model."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "iid-entry and GOE noise are used as standard random models where cancellations make the relative norms small"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "independent-entry/GOE noise is used as a positive model where random-direction cancellation makes the relative norm small, with GOE having orthogonal-invariance symmetry."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Independent-entry noise is used as a benign random example of cancellation, with the GOE instance having orthogonal invariance."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Other choices of the spectral function f",
+   "note": "Choices such as f=z, quadratic functions, and exponential functions are mentioned to show how the abstract truncated matrix-functional framework covers low-rank approximations and other matrix functions beyond the projection case emphasized in the talk.",
+   "first_introduced_sec": 678,
+   "spans": [
+    {
+     "start_sec": 678,
+     "end_sec": 744
+    }
+   ],
+   "total_seconds": 66,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "other functions such as f=1, f=z, quadratic, and exponential are identified with projections or matrix functions, but no concrete calculation is carried out for those choices beyond description.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Standard choices such as identity, polynomial, or exponential f demonstrate the scope of the spectral functional calculus."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The various spectral functions such as linear, polynomial, or exponential choices are ordinary functional-calculus examples used to show generality."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary spectral-calculus choices such as f=1, f=z, polynomials, or exponentials are used only to illustrate the framework's scope"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The alternative spectral functions such as identity, polynomial, or exponential functions are ordinary functional-calculus choices used to illustrate generality."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary choices of spectral functions are listed to illustrate the functional-calculus framework."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "varying the spectral function f is an ordinary functional-calculus family used to illustrate generality."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The alternative spectral functions are ordinary functional-calculus choices illustrating the framework’s scope."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The choices such as f=1, f=z, polynomial, or exponential functions are standard spectral-function instances illustrating the framework."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The alternate spectral functions such as linear, quadratic, or exponential f are ordinary functional-calculus choices used to show scope."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary choices such as constant, identity, polynomial, or exponential spectral functions illustrate the framework rather than refute a claim"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the alternate spectral functions are ordinary functional-calculus choices used to illustrate the framework’s generality."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Alternative choices such as f=z, polynomial, or exponential spectral functions are ordinary illustrative instances of the functional calculus."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "BBP signal-to-noise transition",
+   "note": "The BBP phenomenon is invoked to show that when noise intensity exceeds the signal, leading eigenvectors become essentially random, making the theorem's signal-size assumption unavoidable.",
+   "first_introduced_sec": 989,
+   "spans": [
+    {
+     "start_sec": 967,
+     "end_sec": 1018
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the BBP phenomenon is invoked as a known signal-to-noise threshold where noise overwhelms the signal, without deriving or applying it concretely.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The BBP critical threshold is the boundary where noise overwhelms the spike, obstructing recovery below that SNR."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The BBP transition is a critical signal-to-noise boundary used as an obstruction showing recovery fails below threshold."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the BBP threshold is a critical signal-to-noise boundary showing that below it eigenvectors lose correlation, obstructing stronger perturbation guarantees"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The BBP phenomenon is a critical signal-to-noise threshold and is invoked as an obstruction showing that recovery assumptions cannot be substantially weakened."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The BBP threshold is the critical boundary where subthreshold spikes lose eigenvector information, cited as an unavoidable obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the BBP threshold is a critical boundary where below-threshold signal recovery/eigenvector correlation fails."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The BBP transition is a critical threshold showing recovery cannot hold below the signal-to-noise boundary."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The BBP threshold is a critical signal-to-noise boundary showing that below it eigenvector recovery cannot retain signal information."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The BBP transition is invoked as the critical signal-to-noise threshold obstructing recovery when noise overwhelms the spike."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the BBP threshold is a critical boundary showing that below sufficient signal-to-noise the eigenvector information is lost"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the BBP transition is a critical signal-to-noise threshold used as an obstruction showing the signal-strength assumption cannot be removed."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The BBP transition is cited as the critical signal-to-noise threshold showing that below it the spike information is lost."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Matrix completion and Netflix ratings",
+   "note": "A low-rank matrix with randomly missing entries, motivated by the Netflix ratings problem and accompanied by an incoherence obstruction, is rescaled into an unbiased A+E observation to demonstrate an application of the relative perturbation theorem.",
+   "first_introduced_sec": 2156,
+   "spans": [
+    {
+     "start_sec": 2156,
+     "end_sec": 2525
+    }
+   ],
+   "total_seconds": 369,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the matrix completion/Netflix setting is formulated in detail, with random observation, rescaling to an unbiased matrix, writing the model as A plus E, and applying the perturbation framework to a spectral approximation algorithm.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Netflix-style matrix completion model assumes a low-rank rating matrix and is used as an application."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Matrix completion assumes an incomplete/low-rank ratings matrix, a structurally lower-dimensional matrix class, and is presented as an application."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the Netflix-style matrix-completion model relies on a rank-deficient low-rank ratings matrix as an application case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Netflix/matrix-completion instance is modeled by a low-rank partially observed ratings matrix and is presented as an application, not an adversarial failure case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Netflix-style completion model assumes a low-rank ratings matrix with random observations as an application case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "matrix completion is illustrated by a low-rank/rank-deficient ratings matrix as an application, not an obstruction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Netflix matrix-completion model is a low-rank, sparsely observed matrix application rather than an obstruction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Netflix matrix-completion model is an application built on a low-rank, sparsely observed data matrix rather than an obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Matrix completion and Netflix ratings are a standard low-rank data application used to fit the perturbation framework."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "low-rank matrix completion in the Netflix setting is an application built on rank-deficient structure, not an obstruction"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "matrix completion is a positive application built on a rank-deficient partially observed ratings matrix rather than a generic full matrix."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Matrix completion/Netflix uses a low-rank and sparsely observed rating matrix as an application rather than an obstruction."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Privacy via additive Gaussian noise",
+   "note": "Adding large Gaussian noise to a data matrix for privacy is presented as an application where the new perturbation bound can control the accuracy of low-rank approximations despite the deliberately introduced noise.",
+   "first_introduced_sec": 2533,
+   "spans": [
+    {
+     "start_sec": 2533,
+     "end_sec": 2613
+    }
+   ],
+   "total_seconds": 80,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "privacy by adding Gaussian noise is described as an application area and compared to prior work, but the speaker does not compute or run the method on this case.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Entrywise Gaussian white noise is a rotationally invariant regular perturbation used for privacy."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Additive iid Gaussian noise is an isotropic highly regular noise mechanism used constructively for privacy, not to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "additive Gaussian noise is a highly regular isotropic noise model used for a privacy application, not as an obstruction"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Additive white Gaussian noise is a standard highly isotropic noise ensemble used for the privacy application."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Isotropic additive Gaussian entry noise is a maximally regular privacy perturbation used as an application."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "additive iid Gaussian noise is a standard isotropic noise mechanism used as an application to privacy."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "I.i.d. Gaussian additive noise is an isotropic mechanism used constructively for privacy."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Additive Gaussian noise is a standard privacy mechanism used as an application, and the Gaussian ensemble is rotationally regular."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Additive Gaussian privacy noise is an application of the perturbation bounds, with an isotropic Gaussian noise mechanism."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "additive Gaussian noise is used as a privacy mechanism/application and has the usual isotropic Gaussian symmetry"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "additive Gaussian noise is a standard privacy mechanism used as an application, and the Gaussian noise distribution is isotropic."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Additive i.i.d. Gaussian privacy noise is a standard orthogonally invariant perturbation mechanism."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Spiked covariance model",
+   "note": "A covariance matrix with low-rank spikes is cited as a statistical model where the theorem can efficiently control spectral estimation from noisy observations.",
+   "first_introduced_sec": 2613,
+   "spans": [
+    {
+     "start_sec": 2613,
+     "end_sec": 2636
+    }
+   ],
+   "total_seconds": 23,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the spiked covariance model is named and briefly described as a possible application, with no worked perturbation calculation for it in the transcript.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A spiked covariance has only a few low-dimensional signal directions on an otherwise flat bulk and is used as an application."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The spiked covariance model has a finite-rank low-dimensional signal deformation and is cited as an application."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a spiked covariance model is a low-rank finite-spike deformation of an otherwise bulk covariance structure used as an application"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A spiked covariance model is a finite-rank or low-effective-rank signal deformation used as a standard statistical application."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The spiked covariance family is a standard structured statistical model used as an application rather than an obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the spiked covariance model is a standard structured statistical model used as an application case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The spiked covariance model is an identity-plus-low-rank signal model used as an application."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The spiked covariance model is an application with a finite-rank spike/low-dimensional signal added to an otherwise bulk covariance."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The spiked covariance model is a standard systematic statistical model used as an application, not as an obstruction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the spiked covariance model is an application with a finite-rank spike on an otherwise bulk covariance structure"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the spiked covariance model is cited as a standard structured application, not as a failure case or classification exception."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The spiked covariance model has a finite-rank signal/effective-rank structure and is used as an application."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "GOE-only proof special case",
+   "note": "In Q&A an audience member asks whether the proof would be much simpler for GOE or GUE noise, and the speaker explains that some algebra simplifies but the contour-integration difficulty remains.",
+   "first_introduced_sec": 3790,
+   "spans": [
+    {
+     "start_sec": 3790,
+     "end_sec": 3835
+    }
+   ],
+   "total_seconds": 45,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the GOE-only proof case arises only as a hypothetical question, and the speaker comments that it may simplify some steps without actually giving such a proof.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The GOE special case is orthogonally invariant Gaussian noise considered only to simplify the proof."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The GOE-only case is a highly symmetric Gaussian ensemble considered as a simplifying special case, not as a failure example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the GOE-only proof case is an orthogonally invariant random-matrix special case considered for possible simplification"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The GOE-only case is the orthogonally invariant Gaussian ensemble considered as a simplifying special case, not as a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The GOE-only case is an orthogonally invariant Gaussian special case raised only to ask whether the proof simplifies."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the GOE-only case is a highly invariant random-matrix special case mentioned for proof simplification."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The GOE-only case is an orthogonally invariant Gaussian special case considered for proof simplification."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The GOE-only case is mentioned as a simplifying special case because of the ensemble’s orthogonal-invariance symmetry, not as a counterexample."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The GOE-only proof case is a simplifying special case based on the orthogonally invariant Gaussian ensemble."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the GOE-only case is mentioned as a simplifying special case because GOE noise is orthogonally invariant"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the GOE-only case is discussed merely as a potentially simpler proof special case, with the GOE ensemble distinguished by orthogonal invariance."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The GOE-only proof case is a simplifying special case based on the maximally orthogonally invariant Gaussian ensemble."
+    }
+   ]
+  }
+ ]
+}

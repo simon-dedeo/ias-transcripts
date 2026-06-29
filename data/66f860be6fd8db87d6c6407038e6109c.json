@@ -1,0 +1,3331 @@
+{
+ "key": "66f860be6fd8db87d6c6407038e6109c",
+ "title": "Raytracing and raymarching simulations of non-euclidean geometries",
+ "speaker": "Henry Segerman",
+ "affiliation": "Oklahoma State University",
+ "date": "2020-12-04T12:00:00Z",
+ "field_msc": "57 Manifolds and cell complexes",
+ "duration_sec": 4139.0,
+ "abstract": "I'll talk about two related projects, with two different groups, both aiming to see three-dimensional manifolds \"from the inside\". That is, we generate images assuming that light travels along geodesics in the geometry of the manifold. The first project, with Rémi Coulon, Sabetta Matsumoto, and Steve Trettel, uses ray-marching to generate the inside-view in all eight Thurston geometries. I'll explain the ray-marching technique, and some aspects of our implementation.",
+ "youtube_url": "https://youtu.be/S5FyJjwQT4c",
+ "page_url": "https://www.ias.edu/video/raytracing-and-raymarching-simulations-non-euclidean-geometries",
+ "tags": [
+  "School of Mathematics",
+  "Workshop on Topology: Identifying Order in Complex Systems"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Internal viewpoint on Thurston geometries",
+   "summary": "The talk sets the goal of viewing 3-manifolds from the inside, recalls Thurston’s eight model geometries via the (G,X)-geometry framework, and surveys the visual phenomena that simulations must reproduce.",
+   "spans": [
+    {
+     "start_sec": 52,
+     "end_sec": 551
+    },
+    {
+     "start_sec": 1461,
+     "end_sec": 1886
+    },
+    {
+     "start_sec": 3443,
+     "end_sec": 3548
+    },
+    {
+     "start_sec": 3800,
+     "end_sec": 3977
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Ray tracing and ray marching as exponential-map rendering",
+   "summary": "The speaker contrasts polygon rasterization with screen-to-world ray tracing/ray marching, emphasizing that following geodesic rays uses the exponential map and avoids inverse-exponential-map ambiguities caused by lensing and multiple geodesics.",
+   "spans": [
+    {
+     "start_sec": 551,
+     "end_sec": 983
+    },
+    {
+     "start_sec": 3679,
+     "end_sec": 3779
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Geometry plug-in data for simulations",
+   "summary": "A geometry can be rendered once one supplies a computer-friendly model and isometry group, arc-length geodesics, signed distance functions, quotient fundamental domains and face pairings, lighting geodesics, and parallel transport/head-frame data.",
+   "spans": [
+    {
+     "start_sec": 983,
+     "end_sec": 1461
+    },
+    {
+     "start_sec": 4024,
+     "end_sec": 4085
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Cohomology fractals from signed intersection counts",
+   "summary": "The second project defines a cohomology fractal by shooting geodesics in the universal cover and counting signed intersections with a cycle or surface dual to a cohomology class up to radius r.",
+   "spans": [
+    {
+     "start_sec": 1898,
+     "end_sec": 2251
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Boundary interpretation and Cannon–Thurston comparison",
+   "summary": "The visual boundary patterns of cohomology fractals are related to Cannon–Thurston maps, with cusp and closed hyperbolic 3-manifold images used to compare the two kinds of objects and reveal geometric features.",
+   "spans": [
+    {
+     "start_sec": 2251,
+     "end_sec": 2590
+    },
+    {
+     "start_sec": 3227,
+     "end_sec": 3428
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Radius dependence and the sampling obstruction",
+   "summary": "Increasing the radius first clarifies the fractal but then produces noise under one-sample rendering because nearby pixel rays decorrelate, motivating supersampling and averaging over pixels.",
+   "spans": [
+    {
+     "start_sec": 2590,
+     "end_sec": 2954
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Limiting theorems for cohomology fractals",
+   "summary": "The main theorems state that pointwise limits as r tends to infinity fail, normalized values within a pixel satisfy a central limit theorem, and pixel averages converge to a canonical distribution on the boundary.",
+   "spans": [
+    {
+     "start_sec": 2954,
+     "end_sec": 3163
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "S^2 x E product views and pole-light ring",
+   "note": "Views along the Euclidean and spherical directions, especially the globe pattern with a bright repeated pole, illustrate geodesic wrapping and reconvergence in a product geometry.",
+   "first_introduced_sec": 320,
+   "spans": [
+    {
+     "start_sec": 320,
+     "end_sec": 363
+    },
+    {
+     "start_sec": 1543,
+     "end_sec": 1605
+    }
+   ],
+   "total_seconds": 105,
+   "attaches_to": [
+    "s1",
+    "s3"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he analyzes S^2 x E views by following light rays around the sphere to the South and North poles and explaining the bright ring",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^2 x E is a product of round/Euclidean symmetric factors, and the pole ring is an illustrative focusing effect."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^2 x E uses a round sphere factor in a homogeneous symmetric product to illustrate geodesic convergence."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The product S^2 x E has a round-sphere factor with strong symmetry, and the pole-light ring is an illustrative focusing phenomenon."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The S^2 x E scene uses the symmetric round-sphere factor and antipodal pole focusing at maximal spherical distance."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^2 x E is a highly regular product geometry whose pole ring illustrates geodesic reconvergence"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The S^2 x E example uses the round spherical factor and its antipodal focusing to produce the light ring."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The S^2 x E product with a polar light setup is highly regular and illustrates geodesic reconvergence rather than refuting a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The standard round-product geometry S^2×E is used to illustrate geodesic wrapping and light focusing."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The S^2 x E product and pole focusing exploit the high regularity of the spherical factor, as an illustration."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the S^2×E scene exploits the symmetric spherical factor and axial pole-light setup"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The standard product geometry S^2 x E is a locally symmetric Thurston model used to illustrate geodesic focusing."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the product geometry S^2×E has a highly symmetric round-sphere factor and is used illustratively for geodesic reconvergence"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Nil Earth mirages and spiraling geodesics",
+   "note": "The Earth-in-Nil scene, together with the spiral geodesic sketch, is used to explain why multiple geodesics create mirages and why lighting must account for more than the shortest path.",
+   "first_introduced_sec": 396,
+   "spans": [
+    {
+     "start_sec": 396,
+     "end_sec": 456
+    },
+    {
+     "start_sec": 1643,
+     "end_sec": 1806
+    }
+   ],
+   "total_seconds": 223,
+   "attaches_to": [
+    "s1",
+    "s3"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he draws and reasons through Nil geodesics spiraling around an axis to explain Earth mirages, rings, and multiple-geodesic lighting",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nil is a systematic Thurston geometry, but its spiraling geodesics are used to show Euclidean single-geodesic and distance-appearance intuition fails."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Nil is a standard non-isotropic Thurston geometry whose spiraling geodesics illustrate mirages rather than refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Nil with spiraling geodesics is an ordinary Thurston model geometry being used to display its visual behavior."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Nil with spiraling geodesics is a standard Thurston-geometry scene illustrating lensing effects."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Nil is a systematic Thurston geometry used to illustrate mirages and spiraling geodesics"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Nil mirages and spiraling geodesics are ordinary features of that Thurston geometry used to illustrate its visualization behavior."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Nil with spiraling geodesics is a standard Thurston geometry example used to display mirage behavior, not a sporadic or extremal object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Nil geometry with spiraling geodesics is an ordinary Thurston model used to display non-Euclidean mirages."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Nil mirages and spiraling geodesics are characteristic behavior of the Nil geometry, used descriptively."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Nil mirages illustrate ordinary Nil geodesic behavior rather than refuting a claim"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Nil with spiraling geodesics is a standard nonisotropic Thurston geometry used to display mirage phenomena."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Nil’s spiraling geodesics give a representative non-isotropic Thurston-geometry visual effect rather than a disproof"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Circle/sphere signed-distance ray march",
+   "note": "The circle with signed distance ||x||−r makes the signed-distance-function rule and safe ray-marching steps concrete without being needed for the general construction.",
+   "first_introduced_sec": 846,
+   "spans": [
+    {
+     "start_sec": 846,
+     "end_sec": 961
+    }
+   ],
+   "total_seconds": 115,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he computes the signed distance for a circle/ball as |x|-r and traces the ray-marching step-by-step until an epsilon hit",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A round circle/sphere is the maximally regular signed-distance primitive used only to explain raymarching."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A round circle/sphere is a maximally regular object used only to explain signed-distance ray marching."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A round circle/sphere has maximal rotational symmetry and is used only to explain signed-distance ray marching."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A circle or sphere is a maximally rotationally symmetric signed-distance test object used illustratively."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a round circle or sphere is the maximally symmetric basic signed-distance object used illustratively"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The round circle/sphere is a maximally regular object used as a standard signed-distance ray-marching illustration."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A round circle or sphere is maximally rotationally symmetric and is used only to explain signed-distance ray marching."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The round circle/sphere is a maximally regular signed-distance primitive used to explain ray marching."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A circle or sphere is a maximally regular signed-distance test object used illustratively, not to refute anything."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used as a basic raymarching illustration, with the ball/sphere itself maximally symmetric"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A circle or sphere is a maximally regular signed-distance test object used only to explain ray marching."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a circle or sphere is a maximally regular object used only to illustrate signed-distance ray marching"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Square fundamental domain for a torus",
+   "note": "The torus fundamental domain illustrates how a ray crossing a face is teleported by a face-pairing isometry in a quotient manifold.",
+   "first_introduced_sec": 1077,
+   "spans": [
+    {
+     "start_sec": 1077,
+     "end_sec": 1147
+    }
+   ],
+   "total_seconds": 70,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he uses the square torus fundamental domain to explain walls, face pairings, and teleporting a ray across the quotient",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The square flat-torus fundamental domain is a regular symmetric choice for illustrating quotient gluing."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The square fundamental polygon is a regular symmetric torus domain, not an adversarial case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The square fundamental domain is the maximally regular parallelogram model for a flat torus, not a refuting example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The square is the regular highly symmetric fundamental polygon for the displayed flat torus."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the square torus fundamental domain is a regular symmetric quotient model used to explain face pairings"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A square fundamental domain gives a highly regular flat torus quotient and is used illustratively."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The square lattice fundamental domain is a regular symmetric choice for a flat torus, used illustratively for face pairings."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The square torus domain is a regular fundamental polygon used illustratively for quotient gluing."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The square torus fundamental domain is a regular quotient-domain example for face pairings."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a regular square fundamental domain is used illustratively for the flat torus"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The square flat-torus fundamental domain is a highly regular quotient cell used illustratively."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the square flat-torus fundamental domain is a regular symmetric choice used to explain quotient ray tracing"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Sol pillars squeezing and expanding",
+   "note": "The Sol pillar scene illustrates the characteristic anisotropic expansion and contraction that helps sanity-check the visualization.",
+   "first_introduced_sec": 1840,
+   "spans": [
+    {
+     "start_sec": 1840,
+     "end_sec": 1886
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he checks the Sol visualization against the geometry by explaining how pillars squeeze in one direction and expand in the other as z changes",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Sol is a standard Thurston geometry, with the pillars simply illustrating its anisotropic squeeze-and-expand behavior."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Sol is a standard anisotropic Thurston geometry shown for its squeeze-expand behavior."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Sol pillars illustrate the typical anisotropic squeeze-expand behavior of Sol geometry rather than any sporadic or limiting object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Sol pillars show the ordinary anisotropic squeezing and expanding behavior of Sol geometry."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Sol is a systematic anisotropic Thurston geometry used to display its known squeezing and expansion"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Sol pillars illustrate the standard anisotropic squeezing and expanding of Sol rather than a special or adversarial object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Sol pillars visualize the ordinary anisotropic expansion and contraction of Sol geometry without serving as a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Sol is a standard Thurston geometry used to show its anisotropic squeezing and expansion."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Sol pillars show ordinary anisotropic squeezing and expansion in Sol, not an extremal or refuting case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Sol pillars illustrate the standard anisotropic expansion and contraction in Sol"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Sol’s anisotropic squeezing and expansion are characteristic of that standard Thurston geometry, not a sporadic or limiting case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Sol’s squeezing-and-expanding pillars illustrate its ordinary anisotropic solvable geometry"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Two-dimensional torus intersection-count toy model",
+   "note": "The flat torus and a dual circle make the cohomology-fractal rule visible as signed counting of intersections by geodesic rays.",
+   "first_introduced_sec": 1982,
+   "spans": [
+    {
+     "start_sec": 1982,
+     "end_sec": 2150
+    }
+   ],
+   "total_seconds": 168,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he builds the two-dimensional torus toy model and computes the color by shooting geodesics and counting signed intersections with the blue curve",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-dimensional torus intersection count is an ordinary toy model for the cohomology-fractal construction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The flat square torus is a regular low-dimensional model for the intersection-count definition."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-dimensional torus intersection-count setup is a standard toy model for the later cohomology-fractal construction."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The two-dimensional torus intersection count is a simple representative toy model for the cohomology-fractal construction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the flat two-torus intersection count is an ordinary toy model for the cohomology-fractal construction"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-dimensional torus intersection count is a deliberately minimal flat base case for the later three-dimensional construction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-dimensional torus intersection-count model is a representative toy model for cohomology classes."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The flat two-torus intersection count is a simple representative toy model for the later construction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The square flat torus with a coordinate intersection count is a regular toy model for the later construction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the flat square torus toy model is a regular homogeneous setting for the intersection count"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The flat square two-torus with a primitive cohomology curve is a regular toy model for the intersection count."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the square-tiled flat torus toy model is a regular symmetric setup for explaining intersection-count cohomology images"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Figure-eight knot complement fiber surface",
+   "note": "The figure-eight knot complement, triangulated by ideal tetrahedra, supplies a concrete hyperbolic 3-manifold in which the dual surface, color changes, Cannon–Thurston comparison, and 3D print can be visualized.",
+   "first_introduced_sec": 2150,
+   "spans": [
+    {
+     "start_sec": 2150,
+     "end_sec": 2307
+    },
+    {
+     "start_sec": 3276,
+     "end_sec": 3428
+    }
+   ],
+   "total_seconds": 309,
+   "attaches_to": [
+    "s4",
+    "s5"
+   ],
+   "primary_stage": "s4",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he applies the construction to the figure-eight knot complement surface, describes its lift, crossings, fractal colors, 3D print, and pleating",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 9,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The figure-eight knot complement is extremal as the minimal-volume hyperbolic knot complement, here used as a base example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The figure-eight complement is the simplest/minimal-volume cusped hyperbolic knot complement with a regular-tetrahedral structure."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The figure-eight knot complement is the highly regular two-ideal-tetrahedra, minimal-volume cusped hyperbolic example carrying the fiber surface."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The figure-eight knot complement is a minimal-volume highly regular two-ideal-tetrahedron cusped hyperbolic knot complement."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the figure-eight complement is built from regular ideal tetrahedra and is minimal-volume among orientable cusped hyperbolic 3-manifolds"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The figure-eight knot complement is a minimal-volume highly regular cusped hyperbolic example used as the main model, not as a refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The figure-eight knot complement is a minimal-volume cusped hyperbolic 3-manifold with a very regular two-ideal-tetrahedra structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The figure-eight knot complement is the minimal-volume orientable cusped hyperbolic 3-manifold used as the main model."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The figure-eight knot complement is highly regular and minimal-volume among hyperbolic knot complements, used as the main example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the figure-eight complement is a highly regular two-ideal-tetrahedra minimal-volume cusped hyperbolic example"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The figure-eight knot complement is a highly regular two-ideal-tetrahedron, minimal-volume cusped hyperbolic example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the figure-eight knot complement is a minimal-volume cusped hyperbolic 3-manifold used as the main illustrative example"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Apollonian circle packing from totally geodesic lifts",
+   "note": "A cohomology-fractal image whose boundary circles form an Apollonian-like packing illustrates how totally geodesic planes can be read off visually.",
+   "first_introduced_sec": 2454,
+   "spans": [
+    {
+     "start_sec": 2454,
+     "end_sec": 2494
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he explains the Apollonian packing by tracing totally geodesic lifted planes to their boundary circles in H^3",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 10,
+    "symmetric": 8,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Apollonian packing from totally geodesic lifts is a saturated highly regular round-circle packing, not a refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The totally geodesic lifts have round-circle ideal boundaries forming a highly regular Apollonian packing."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "An Apollonian circle packing is a highly regular saturated limit packing by round circles coming from totally geodesic planes."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Totally geodesic H^2 lifts are maximally regular and their boundary circles form a limiting maximal Apollonian packing."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the totally geodesic lifts have round-circle boundaries forming a highly regular Apollonian packing"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "An Apollonian circle packing is a maximal recursively tangent circle packing arising here from totally geodesic boundary circles."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "An Apollonian circle packing is a highly regular maximal tangent-circle packing arising here from totally geodesic lifts."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Apollonian packing is a limiting maximal tangent circle packing arising from totally geodesic boundary circles."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Totally geodesic lifts give round circles in a tight Apollonian-style packing, illustrating a geometric feature."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the Apollonian packing is a highly regular recursively maximal tangent circle packing"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Apollonian packing is a maximal limiting circle packing arising here from totally geodesic lifts."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "an Apollonian circle packing is a maximal recursive tangent-circle packing arising here from totally geodesic lifts"
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Closed Dehn-filled figure-eight comparison with McMullen",
+   "note": "The Dehn-filled closed-manifold image is used as an illustrative comparison with McMullen’s older Cannon–Thurston-map picture and shows the closed case has analogous visual structure.",
+   "first_introduced_sec": 2494,
+   "spans": [
+    {
+     "start_sec": 2494,
+     "end_sec": 2590
+    }
+   ],
+   "total_seconds": 96,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he compares the Dehn-filled figure-eight example with McMullen’s image by aligning their Cannon-Thurston approximations and noting matching structure",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The closed Dehn-filled figure-eight example lies in a systematic filling family and is used for comparison with McMullen."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A closed Dehn filling of the figure-eight complement is used as an ordinary comparison with McMullen's image."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The closed Dehn-filled figure-eight example is treated as a member of a Dehn-surgery family for comparison with McMullen."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The closed Dehn-filled figure-eight example is treated as an ordinary member of a Dehn-filling family for comparison with McMullen."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the closed Dehn-filled figure-eight example is a member of a standard Dehn-filling family used for comparison with McMullen"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The closed Dehn-filled figure-eight case is one member of a systematic Dehn-filling family used for comparison with McMullen."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The closed Dehn-filled figure-eight example is used for comparison with McMullen’s picture and is not structurally sporadic or extremal as stated."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The closed Dehn-filled figure-eight example is part of a systematic filling family and is used for comparison with McMullen."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The closed Dehn-filled figure-eight example is a member of a systematic surgery family used for comparison with McMullen."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a particular member of the infinite Dehn-filling family is used for comparison with McMullen"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The closed Dehn-filled figure-eight example is used as a comparison and belongs to a systematic hyperbolic Dehn-filling family."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the closed Dehn filling of the figure-eight complement is used for comparison with McMullen’s prior image, not as a structural exception"
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Finite-radius panels degenerating into noise",
+   "note": "The sequence of images as r increases visibly forces the sampling problem: the fractal first sharpens, then one-sample-per-pixel rendering loses the structure to noise.",
+   "first_introduced_sec": 2590,
+   "spans": [
+    {
+     "start_sec": 2590,
+     "end_sec": 2788
+    }
+   ],
+   "total_seconds": 198,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he varies the radius through concrete panels and explains how tetrahedron intersections sharpen and then degenerate into noise",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The large-radius one-sample panels collapse into noise, showing naive pointwise or undersampled convergence fails."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The large-radius finite panels lose the intended fractal structure into noise, showing the failure of naive pointwise/one-sample limiting."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The large-radius one-sample panels lose coherent fractal structure into noise, illustrating failure of the naive pointwise picture."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The undersampled large-radius panels collapse into noise, showing naive pointwise finite-radius rendering fails."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the large-radius panels collapse into incoherent noise and are used to show pointwise limiting fails"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The large-radius one-sample panels collapse into noise and serve as the limiting failure of naive pointwise convergence."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The large finite-radius panels collapse into undersampled noise, showing the naive pointwise limiting picture fails."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The large-radius single-sampled panels collapse into noise to show the naive visual limit fails."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The large-radius panels collapse into noise and serve to show the naive finite-radius/function limit fails."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the large finite-radius panels are used to show the naive pointwise rendering collapses into noise"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The large-radius one-sample panels collapse into noise, showing failure of naive pointwise visual convergence."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the large-radius one-sample panels collapse into noise to show the naive pointwise limiting picture fails"
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "One-sample versus supersampled pixels",
+   "note": "Comparing one, four, and 128^2 samples per pixel shows why averaging over pixels, rather than pointwise limiting, is the right limiting operation.",
+   "first_introduced_sec": 2837,
+   "spans": [
+    {
+     "start_sec": 2837,
+     "end_sec": 2932
+    }
+   ],
+   "total_seconds": 95,
+   "attaches_to": [
+    "s6",
+    "s7"
+   ],
+   "primary_stage": "s6",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he compares one-sample, four-sample, and heavily supersampled pixels across radii and explains aliasing and noise averaging",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 6,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One sample per pixel is the minimal degenerate sampling scheme, and the comparison shows it fails without averaging."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-sample pixel is the minimal undersampled extreme and is used to show why naive rendering fails against supersampling."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The one-sample pixel is the minimal under-resolved sampling case and is contrasted to show that unsupersampled rendering fails."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The one-sample-per-pixel case is the minimal undersampling regime and exposes the noise failure relative to supersampling."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "one sample per pixel is the minimal undersampled case used to show aliasing failure against supersampling"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-sample pixel is the minimal sampling case and is contrasted with supersampling to show undersampling fails."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The one-sample pixel case is the minimal undersampled case and is contrasted with supersampling as the failure mode."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The one-sample pixel case is the minimal undersampled rendering shown to fail against supersampling."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-sample pixel case is the minimal undersampled case used to show single-ray rendering fails compared with supersampling."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the one-sample minimal-pixel case is shown to fail against supersampled averaging"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-sample pixel case is the minimal undersampled rendering that fails against the supersampled averages."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the one-sample pixel case is the minimal undersampled rendering used to show why naive sampling breaks down compared with supersampling"
+    }
+   ]
+  },
+  {
+   "code": "E12",
+   "name": "Single-pixel Gaussian value distribution",
+   "note": "Zooming into one pixel illustrates the central-limit-theorem statement by showing a normal-looking distribution of normalized cohomology-fractal values.",
+   "first_introduced_sec": 2986,
+   "spans": [
+    {
+     "start_sec": 2986,
+     "end_sec": 3072
+    }
+   ],
+   "total_seconds": 86,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he zooms into one pixel’s values and describes the normalized distribution converging to a Gaussian by a central limit theorem",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 1,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Gaussian single-pixel value law is the standard CLT description of fluctuations, not an adversarial example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The single-pixel values converge to a centered Gaussian, a symmetric law supporting the CLT description."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The centered Gaussian value law is reflection-symmetric and appears as the CLT limiting distribution within a pixel."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The centered Gaussian value distribution in a pixel is reflection-symmetric and supports the central-limit description."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the within-pixel limiting values form a centered Gaussian distribution, symmetric about its mean"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The single-pixel value law is a centered Gaussian distribution, structurally symmetric and used to state the CLT behavior."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The single-pixel value law is Gaussian, hence symmetric about its mean, and is used as a positive central-limit phenomenon."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The normalized single-pixel values approach a zero-mean Gaussian, a symmetric CLT limiting law."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The single-pixel value distribution is a symmetric Gaussian limit used positively in the central-limit theorem."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the normalized single-pixel values are presented as a centered Gaussian distribution"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The within-pixel value law is a centered Gaussian distribution used to state the central-limit behavior."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the single-pixel value distribution is Gaussian, a symmetric maximum-entropy limiting distribution rather than a counterexample"
+    }
+   ]
+  },
+  {
+   "code": "E13",
+   "name": "Pixel-average convergence plots",
+   "note": "The plotted averages for three pixels illustrate distributional convergence even though individual pointwise values do not converge.",
+   "first_introduced_sec": 3072,
+   "spans": [
+    {
+     "start_sec": 3072,
+     "end_sec": 3163
+    }
+   ],
+   "total_seconds": 91,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he interprets pixel-average convergence plots by tracking jumps, smoothing, standard deviation growth, and eventual convergence",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 1,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The pixel-average plots are ordinary convergence diagnostics supporting the distributional-limit theorem."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The average-over-a-pixel plots are ordinary convergence evidence for the distributional limit."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The pixel-average plots are ordinary numerical convergence evidence for the averaged/distributional limit."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The pixel-average plots are ordinary numerical evidence for convergence of the averaged distributional limit."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the pixel-average plots are ordinary convergence evidence for the distributional limit"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The pixel-average plots track the r-to-infinity averaged limiting object rather than disproving a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The pixel-average plots are ordinary convergence diagnostics supporting distributional convergence."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The pixel-average plots are ordinary convergence diagnostics supporting the distributional limit."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The pixel-average plots are ordinary convergence evidence for distributional convergence, not a structurally special object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the pixel-average plots support convergence of averaged cohomology fractals"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The pixel-average plots are ordinary numerical evidence for distributional convergence rather than a special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the pixel-average plots are ordinary convergence evidence for the distributional limit"
+    }
+   ]
+  },
+  {
+   "code": "E14",
+   "name": "Bodies moving in S^3 or H^3 under apparent forces",
+   "note": "In response to a question, the speaker uses bodies in positively and negatively curved spaces to illustrate how a physical observer might experience geodesic convergence or divergence.",
+   "first_introduced_sec": 3851,
+   "spans": [
+    {
+     "start_sec": 3851,
+     "end_sec": 3977
+    }
+   ],
+   "total_seconds": 126,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he reasons through bodies moving in S^3 and H^3 by following converging or diverging geodesics and the resulting apparent forces",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are maximally symmetric constant-curvature model spaces used for physical intuition."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are maximally symmetric constant-curvature spaces used to explain apparent internal forces."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are complete constant-curvature model spaces with maximal isometry symmetry, used to discuss apparent forces."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are maximally symmetric constant-curvature model spaces used in a physical thought experiment."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are maximally symmetric constant-curvature model spaces used to discuss apparent forces"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are maximally symmetric constant-curvature spaces used to explain apparent forces on bodies."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are maximally symmetric constant-curvature model spaces used to discuss apparent forces on bodies."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are maximally symmetric constant-curvature spaces used to explain apparent forces on bodies."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are maximally symmetric constant-curvature model spaces used to explain apparent forces."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are maximally symmetric constant-curvature model spaces used in a thought example"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are maximally symmetric constant-curvature spaces used in a physical thought experiment."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "S^3 and H^3 are maximally symmetric constant-curvature model spaces used to explain apparent forces"
+    }
+   ]
+  },
+  {
+   "code": "E15",
+   "name": "Hypothetical Ricci-flow walkthrough",
+   "note": "A Q&A remark about watching a manifold deform under Ricci flow illustrates how the same rendering architecture could in principle be extended beyond closed-form Thurston geometries if numerical data were supplied.",
+   "first_introduced_sec": 4050,
+   "spans": [
+    {
+     "start_sec": 4050,
+     "end_sec": 4085
+    }
+   ],
+   "total_seconds": 35,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he only proposes a Ricci-flow walkthrough as something he would like to visualize, without carrying it out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 8
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No specific manifold, metric, or Ricci-flow solution is specified, only a hypothetical future visualization."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No particular manifold, metric, or Ricci flow is specified, only a desired future visualization."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No particular manifold or metric evolution is specified, only a hypothetical Ricci-flow visualization."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Ricci-flow walkthrough is only a generic proposed visualization of an arbitrary evolving manifold."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the Ricci-flow walkthrough is only a proposed generic visualization of a metric evolution"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No particular manifold or Ricci-flow solution is specified, so the structural status of the hypothetical walkthrough is underdetermined."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No particular manifold or Ricci-flow solution is specified beyond a hypothetical visualization goal."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Ricci-flow walkthrough is a hypothetical generic evolving-metric visualization rather than a special object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No particular Ricci-flow solution or manifold is specified, only a hypothetical visualization goal."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "no particular manifold or Ricci-flow solution is specified"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The Ricci-flow walkthrough is only a hypothetical unspecified flowing manifold, so its structural type cannot be determined."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the Ricci-flow walkthrough is a hypothetical generic numerical visualization rather than a special object or obstruction"
+    }
+   ]
+  }
+ ]
+}

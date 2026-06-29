@@ -1,0 +1,1899 @@
+{
+ "key": "001b6681f468454ad78ebc3e8bbe506c",
+ "title": "How Low Can We Go? Exploring Minimal Assumptions in Quantum Cryptography",
+ "speaker": "Dakshita Khurana",
+ "affiliation": "University of Illinois Urbana-Champaign",
+ "date": "2025-12-01T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4261.0,
+ "abstract": "In this talk, I will explore the fascinating landscape of assumptions in quantum cryptography—especially, how little we need to assume to build secure quantum protocols. We will cover key cryptographic primitives including quantum encryption, signatures, and money, and show how these primitives imply the existence of one-way puzzles, a quantum analogue of classical one-way functions. I will also highlight the utility of one-way puzzles and discuss concrete assumptions that enable their realization, revealing intriguing connections to quantum advantage.\nNo prior quantum background will be assumed. This talk is based on joint works with Kabir Tomer.",
+ "youtube_url": "https://youtu.be/x8zdRMwVMrI",
+ "page_url": "https://www.ias.edu/video/how-low-can-we-go-exploring-minimal-assumptions-quantum-cryptography",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Minimal-assumption question for quantum cryptography",
+   "summary": "The talk contrasts classical cryptography’s reliance on one-way functions with unconditional quantum key distribution, then asks what complexity assumptions are necessary and sufficient for quantum cryptographic primitives beyond QKD.",
+   "spans": [
+    {
+     "start_sec": 60,
+     "end_sec": 357
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Distilling public-secret hardness into one-way puzzles",
+   "summary": "Public-key encryption and signatures are used to isolate a minimal public-data/secret-key recovery hardness, formalized first as one-way state generators and then as one-way puzzles sampled by a quantum algorithm with classical outputs.",
+   "spans": [
+    {
+     "start_sec": 395,
+     "end_sec": 995
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Classicalizing one-way states by shadow tomography",
+   "summary": "Efficient shadow tomography converts many copies of a one-way state into a classical shadow string whose overlap-estimation property lets inversion hardness transfer from the quantum state to the classical puzzle output.",
+   "spans": [
+    {
+     "start_sec": 995,
+     "end_sec": 1934
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Lower bound from #P-oracle inversion of puzzles",
+   "summary": "Because a P^#P machine can invert efficiently quantum-sampled one-way puzzles, any primitive that implies such puzzles requires the separation P^#P != BQP, while commitments and secure computation remain notable exceptions.",
+   "spans": [
+    {
+     "start_sec": 1945,
+     "end_sec": 2051
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Commitments and secure computation as positive targets",
+   "summary": "Oracle evidence for quantum pseudorandom states motivates weaker assumptions, and one-way puzzles are positioned as a bridge yielding commitments and, via quantum information techniques, secure computation.",
+   "spans": [
+    {
+     "start_sec": 2071,
+     "end_sec": 2807
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Quantum-advantage probability hardness as a source",
+   "summary": "#P-complete permanent computation and sampling-based quantum-advantage experiments suggest hard output-probability approximation problems, but directly sampling a hard value together with its public instance fails because the value itself is not efficiently obtainable.",
+   "spans": [
+    {
+     "start_sec": 2807,
+     "end_sec": 3199
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Distributional puzzle via next-bit sampling",
+   "summary": "A distributional version of one-way puzzles is built by truncating a quantum-sampled output and asking for the next bit; any successful reverse sampler would approximate output probabilities, so average-case probability-approximation hardness from quantum-advantage conjectures yields one-way puzzles and hence commitments and secure computation.",
+   "spans": [
+    {
+     "start_sec": 3199,
+     "end_sec": 4047
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Assumption comparison and open directions",
+   "summary": "The talk summarizes that the construction draws hardness from the larger quantum/#P region rather than classical NP-style assumptions, notes limitations of the puzzle-based route, and poses open problems on worst-case hardness, stronger quantum primitives, and physical hardness sources.",
+   "spans": [
+    {
+     "start_sec": 4047,
+     "end_sec": 4224
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Bennett--Brassard quantum key distribution",
+   "note": "QKD is used as the established unconditional quantum-cryptographic primitive that motivates asking what can be done beyond key distribution.",
+   "first_introduced_sec": 156,
+   "spans": [
+    {
+     "start_sec": 156,
+     "end_sec": 330
+    }
+   ],
+   "total_seconds": 174,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Bennett--Brassard QKD is cited as an assumption-free 1984 achievement, without explaining or running the protocol.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 10,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "BB84 is cited as the assumption-free QKD protocol, at the zero-computational-assumption end of cryptographic constructions."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "BB84 is used as the no-unproven-computational-assumption QKD baseline, a minimal-assumption boundary case for cryptographic protocols."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "BB84 is used as a positive benchmark for assumption-free quantum key distribution, not as a refuting example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "BB84 is presented as reaching the minimal-assumption boundary by achieving QKD without unproven computational assumptions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "BB84 quantum key distribution is a foundational but structurally standard protocol used as a positive unconditional construction, not to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "BB84 is used as a positive QKD protocol achieving the minimal level of no unproven computational assumptions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "BB84 is used as a positive QKD construction achieving the minimal no-computational-assumption regime."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "BB84 is used as an unconditional QKD construction, and its zero unproven computational assumptions put it at the minimal-assumption extreme."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "BB84 is cited as a positive unconditional-QKD construction achieving the minimal level of no unproven computational assumptions."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "BB84/QKD is used as a positive baseline and is extremal in using no unproven computational assumptions."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "BB84 is cited as an assumption-free QKD achievement, attaining the minimal computational-assumption regime rather than refuting a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "BB84 is used as a positive baseline for QKD with minimal computational assumptions, not to refute a claim."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Public-key encryption with quantum keys",
+   "note": "The public/secret-key encryption setup makes concrete the kind of public data versus hidden quantum or classical secret data from which one-way hardness is abstracted.",
+   "first_introduced_sec": 395,
+   "spans": [
+    {
+     "start_sec": 395,
+     "end_sec": 556
+    }
+   ],
+   "total_seconds": 161,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "She spells out the quantum-key public-key-encryption setting and reasons from it to the necessary hardness of producing the secret key from the public key.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Public-key encryption with quantum key material is presented as an ordinary target primitive beyond QKD."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Public-key encryption with quantum keys is presented as a standard quantum-cryptographic primitive whose existence would require hardness."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "public-key encryption with quantum secret or public keys is presented as a natural cryptographic primitive motivating hardness requirements."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Public-key encryption with quantum keys is used as a generic quantum cryptographic primitive needing hardness assumptions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Public-key encryption with quantum keys is an ordinary cryptographic primitive variant used to motivate needed hardness assumptions."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "public-key encryption with quantum keys is treated as a standard quantum-cryptographic primitive needing hardness assumptions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Public-key encryption with quantum keys is presented as a standard target primitive rather than an adversarial or structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Public-key encryption with quantum keys is used as a target primitive motivating hardness requirements, not as a refutation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Public-key encryption with quantum keys is a standard target primitive used to motivate needed hardness, not to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Quantum-key public-key encryption is discussed as a natural primitive motivating hardness requirements, not as a failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Public-key encryption with quantum keys is used as a representative quantum cryptographic primitive motivating hardness requirements."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Public-key encryption with quantum keys is presented as a representative quantum cryptographic primitive requiring hardness assumptions."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Digital signature schemes",
+   "note": "Signatures provide another public-verification/secret-signing situation illustrating why recovering the secret key must be computationally hard.",
+   "first_introduced_sec": 556,
+   "spans": [
+    {
+     "start_sec": 556,
+     "end_sec": 638
+    }
+   ],
+   "total_seconds": 82,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "She describes the verification/signing-key structure and uses it to extract the same public-to-secret-key hardness needed for signatures.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Digital signatures are used as a standard cryptographic primitive requiring suitable hardness."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Digital signatures are cited as an ordinary cryptographic primitive needing public/secret-key hardness."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "digital signatures are used as another standard primitive from which one-way-style hardness is extracted."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Digital signatures are cited as a standard cryptographic primitive with public/secret key structure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Digital signature schemes are a standard primitive used as another case requiring public/secret-key hardness."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "digital signatures are presented as an ordinary cryptographic primitive in the lower-bound discussion."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Digital signatures are used as an ordinary cryptographic primitive motivating hardness requirements."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Digital signatures are cited as another ordinary cryptographic primitive whose existence would imply key-recovery hardness."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Digital signatures are presented as an ordinary cryptographic primitive requiring hidden signing keys."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Digital signatures are a standard cryptographic primitive used to motivate one-way-state/puzzle hardness."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Digital signatures are presented as a standard primitive with public/secret key structure, not as an adversarial failure case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Digital signatures are used as a standard cryptographic primitive illustrating public/secret-key hardness."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Lockbox analogy for commitments",
+   "note": "A locked box containing a message illustrates the hiding and binding properties of a cryptographic commitment before the formal protocol description.",
+   "first_introduced_sec": 2554,
+   "spans": [
+    {
+     "start_sec": 2554,
+     "end_sec": 2608
+    }
+   ],
+   "total_seconds": 54,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "She walks through the lockbox commitment process—locking, sending, later opening, and the hiding/binding guarantees—as the concrete model for commitments.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The lockbox is an ordinary analogy for the hiding and binding behavior of commitments."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The lockbox is only an explanatory model for commitments, not a structurally special mathematical object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the lockbox is only an ordinary explanatory analogy for commitments, with no special mathematical structure invoked."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The lockbox is only an ordinary analogy illustrating hiding and binding in commitments."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The lockbox analogy is a typical illustrative model of commitments, with no intrinsic extremal or exceptional structure."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the lockbox is only a typical explanatory analogy for hiding and binding in commitments."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The lockbox is only a typical explanatory analogy for commitments, not a counterexample or special structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The lockbox is only an explanatory model for commitments and has no special mathematical structure here."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The lockbox is only an ordinary illustrative analogy for commitment hiding and binding."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The lockbox is an ordinary analogy illustrating hiding and binding for commitments."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The lockbox is an ordinary explanatory analogy for commitments and has no special mathematical structure in the argument."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The lockbox is an ordinary explanatory model for commitments rather than an adversarial or structurally special case."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Collaborative private-data computation",
+   "note": "Jointly computing or training on private data illustrates the practical meaning of secure computation once commitments are available.",
+   "first_introduced_sec": 2697,
+   "spans": [
+    {
+     "start_sec": 2697,
+     "end_sec": 2724
+    }
+   ],
+   "total_seconds": 27,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Collaborative private-data computation is described as the motivation/application of secure computation, but no particular joint function or protocol is worked through.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Collaborative private-data computation is a typical motivating application of secure computation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Collaborative private-data computation is the standard secure-computation primitive rather than a special member of its class."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "collaborative private-data computation is the standard secure-computation primitive used as a target application of commitments."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Collaborative private-data computation is the standard secure-computation task, used as an application of commitments."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Collaborative private-data computation is standard secure computation, presented as a positive application of commitments."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "collaborative private-data computation is the usual secure-computation functionality, used as a positive application."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Collaborative private-data computation is the usual secure-computation primitive used as a positive application."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Collaborative private-data computation is presented as an application of commitments, not as an adversarial example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Collaborative private-data computation is a standard secure-computation application of commitments, not an adversarial example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Collaborative private-data computation is the standard secure-computation functionality presented as an application."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Collaborative private-data computation illustrates the usual secure-computation functionality enabled by commitments."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Collaborative private-data computation is the standard secure-computation functionality used as an application of commitments."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Counting satisfying assignments",
+   "note": "The problem of counting satisfying assignments to a Boolean formula is used as a standard concrete instance of a #P counting problem.",
+   "first_introduced_sec": 2807,
+   "spans": [
+    {
+     "start_sec": 2807,
+     "end_sec": 2833
+    }
+   ],
+   "total_seconds": 26,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Counting satisfying assignments is only given as a standard example of a #P task.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Counting satisfying assignments is the canonical #P-complete counting problem, maximal in #P under standard reductions."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Counting satisfying assignments is #SAT, a #P-complete and hence maximally hard counting problem under reductions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "counting satisfying assignments is the canonical #SAT problem, complete and hence extremal within #P under reductions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Counting satisfying assignments is #SAT, a #P-complete counting problem at maximal hardness for its class."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Counting satisfying assignments is the canonical #SAT problem, complete and hence hardest/extremal for #P under standard reductions."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "counting satisfying assignments is #SAT, a #P-complete counting problem at the hard end of #P."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Counting satisfying assignments is #SAT, a #P-complete problem at the hard end of its counting class."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Counting satisfying assignments is the canonical #SAT problem, a #P-complete problem at the hard extreme of the class."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Counting satisfying assignments is the #SAT problem, a #P-complete hardest counting problem, used illustratively."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Counting satisfying assignments is the canonical #P-complete counting problem, hence maximally hard within #P under reductions."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Counting satisfying assignments is the canonical #SAT problem, complete and hence hardest-in-class for #P under standard reductions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Counting satisfying assignments is the canonical #SAT counting problem, a hardest/#P-complete representative of #P."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Reconstructing the probability of the string 0100",
+   "note": "The specific bit string demonstrates how a next-bit sampler would let one multiply conditional probabilities to approximate an output probability.",
+   "first_introduced_sec": 3333,
+   "spans": [
+    {
+     "start_sec": 3333,
+     "end_sec": 3423
+    }
+   ],
+   "total_seconds": 90,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "She explicitly reconstructs the probability of 0100 by estimating successive prefix probabilities for 0, 01, 010, and 0100.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The string 0100 is an arbitrary illustrative bit string for probability reconstruction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The string 0100 is an arbitrary illustrative instance for the probability-reconstruction argument."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the string 0100 is an arbitrary illustrative output whose probability is reconstructed in the next-bit sampling argument."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The string 0100 is an arbitrary representative output used to illustrate probability reconstruction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The string 0100 is just a representative sample string used to illustrate probability reconstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the string 0100 is an arbitrary illustrative output used to show probability reconstruction by prefixes."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The string 0100 is a small illustrative instance for probability reconstruction with no special intrinsic structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The string 0100 is an ordinary illustrative target string for the probability-reconstruction argument."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The string 0100 is an arbitrary representative bit string in the probability-reconstruction argument."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The string 0100 is just a representative bitstring used to illustrate probability reconstruction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The string 0100 is an arbitrary sample string used to demonstrate reconstructing an output probability by next-bit sampling."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The string 0100 is an arbitrary sample string used to illustrate probability reconstruction."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Decoding black-hole radiation",
+   "note": "Black-hole radiation is mentioned as a possible physical source of hardness for future quantum-cryptographic assumptions.",
+   "first_introduced_sec": 4194,
+   "spans": [
+    {
+     "start_sec": 4194,
+     "end_sec": 4224
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Decoding black-hole radiation is only named as a possible future physical source of hardness.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Decoding black-hole radiation is mentioned only as a possible physical source of computational hardness."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Decoding black-hole radiation is mentioned only as a possible physical hardness source, not as an extremal or sporadic object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "decoding black-hole radiation is mentioned only as a possible physical hardness source for cryptography."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Decoding black-hole radiation is mentioned as a possible physical source of computational hardness, not as a special classified object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Decoding black-hole radiation is invoked as a possible physical hardness source, not as a sporadic or extremal mathematical object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "decoding black-hole radiation is mentioned only as a candidate physical hardness source, not as a special or refuting example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Decoding black-hole radiation is mentioned as a possible hard physical task, not as a counterexample or classification exception."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Decoding black-hole radiation is mentioned as a possible physical hardness source, not as a counterexample or special classified object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Decoding black-hole radiation is floated as a possible physical hardness source, not as a counterexample."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Decoding black-hole radiation is cited as a possible physical hardness source, not as a counterexample or classified exceptional object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Decoding black-hole radiation is mentioned only as a possible physics-based source of computational hardness."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Decoding black-hole radiation is mentioned as a possible physical hardness source, not as a counterexample or classified exception."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Recognizing phases of matter",
+   "note": "Recognition of phases of matter is mentioned as another possible nonstandard physical hardness source for cryptography.",
+   "first_introduced_sec": 4194,
+   "spans": [
+    {
+     "start_sec": 4194,
+     "end_sec": 4224
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Recognizing phases of matter is only named alongside black-hole radiation as a possible future hardness source.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Recognizing phases of matter is mentioned only as a possible hard physical classification task."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Recognizing phases of matter is cited as a candidate hard physical/computational task without any special structural status asserted."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "recognizing phases of matter is cited only as a possible physical hardness source, not as a structurally special object or counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Recognizing phases of matter is cited as another possible hardness source rather than an extremal or exceptional example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Recognizing phases of matter is listed as a possible hard physical/computational task, with no special structural classification used here."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "recognizing phases of matter is mentioned broadly as a possible hardness source without a special structural role."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Recognizing phases of matter is cited as a possible source of hardness, with no specific extremal or exceptional object identified."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Recognizing phases of matter is cited as another possible hardness source without any sporadic, extremal, or degenerate structure being used."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Recognizing phases of matter is a broad computational-physics hardness source proposed for future cryptography."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Recognizing phases of matter is cited broadly as a possible hardness source without a specific extremal or exceptional instance."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Recognizing phases of matter is listed as another possible physical hardness source rather than a structurally special object or counterexample."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Recognizing phases of matter is cited as another possible physical hardness source without a special structural role."
+    }
+   ]
+  }
+ ]
+}

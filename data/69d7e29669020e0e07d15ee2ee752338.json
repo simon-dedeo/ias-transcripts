@@ -1,0 +1,3938 @@
+{
+ "key": "69d7e29669020e0e07d15ee2ee752338",
+ "title": "Deep Generative models and Inverse Problems",
+ "speaker": "Alexandros Dimakis",
+ "affiliation": "University of Texas at Austin",
+ "date": "2020-04-23T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3973.0,
+ "abstract": "Modern deep generative models like GANs, VAEs and invertible flows are showing amazing results on modeling high-dimensional distributions, especially for images. We will show how they can be used to solve inverse problems by generalizing compressed sensing beyond sparsity. We will present the general framework, new results and open problems in this space.",
+ "youtube_url": "https://www.youtube.com/watch?v=vivXNCMmA9I",
+ "page_url": "https://www.ias.edu/video/machinelearning/2020/0423-AlexandrosDimakis",
+ "tags": [
+  "School of Mathematics",
+  "Theoretical Machine Learning"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "High-dimensional distribution models and generative priors",
+   "summary": "The talk motivates unsupervised distribution modeling, reviews Gaussian, graphical-model, and sparsity priors, and introduces deep generative models as differentiable pushforwards of simple randomness capable of representing realistic data.",
+   "spans": [
+    {
+     "start_sec": 71,
+     "end_sec": 643
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Classical linear inverse problems and sparse compressed sensing",
+   "summary": "A linear inverse problem y=Ax+noise is ill-posed without structure, and classical compressed sensing supplies that structure through sparsity, l0/l1 recovery, and RIP-type guarantees for random measurement matrices.",
+   "spans": [
+    {
+     "start_sec": 643,
+     "end_sec": 1068
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Replacing sparsity by membership in a generator range",
+   "summary": "The central algorithmic proposal is to assume x lies in the range of a trained generator and recover it by optimizing over the latent variable z so that AG(z) matches the measurements, using backpropagation through the fixed generator.",
+   "spans": [
+    {
+     "start_sec": 1068,
+     "end_sec": 1504
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Recovery guarantees and the generator-restricted embedding condition",
+   "summary": "For Gaussian measurements, m on the order of k d log n for ReLU generators, or k log L for general Lipschitz generators, suffices so that optimizing in latent space gives pixel error controlled by model approximation error and noise, with the key condition that differences of generated images avoid the nullspace of A.",
+   "spans": [
+    {
+     "start_sec": 1504,
+     "end_sec": 1786
+    },
+    {
+     "start_sec": 3774,
+     "end_sec": 3945
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Invertible flows and tractable likelihoods",
+   "summary": "The second part turns to invertible generative models, where z and x have the same dimension, inversion and likelihood evaluation are tractable, and coupling layers provide trainable invertible volume-preserving building blocks.",
+   "spans": [
+    {
+     "start_sec": 1786,
+     "end_sec": 2103
+    },
+    {
+     "start_sec": 3199,
+     "end_sec": 3371
+    },
+    {
+     "start_sec": 3575,
+     "end_sec": 3767
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Hardness of conditional sampling for invertible generators",
+   "summary": "Even though invertible models can be inverted unconditionally, exact or even coarse approximate conditional sampling for an additive coupling layer would solve NP-hard satisfiability problems, so conditional inverse problems remain computationally hard.",
+   "spans": [
+    {
+     "start_sec": 2103,
+     "end_sec": 2353
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Composed-model variational inference for conditional sampling",
+   "summary": "To get practical conditional samples, a new pregenerator is trained before a fixed pretrained invertible generator so that its latent outputs look Gaussian while the generated images satisfy the measurements, yielding diverse completions and uncertainty estimates.",
+   "spans": [
+    {
+     "start_sec": 2353,
+     "end_sec": 2989
+    },
+    {
+     "start_sec": 3371,
+     "end_sec": 3566
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Research program and open problems for generative-model inference",
+   "summary": "The conclusion frames deep generative models as a third major family of high-dimensional priors alongside sparsity and conditional independence, emphasizing open problems in inversion, training, evaluation, robustness, marginalization, testing, and conditional sampling.",
+   "spans": [
+    {
+     "start_sec": 2989,
+     "end_sec": 3185
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "LDPC codes as graphical models",
+   "note": "LDPC error-correcting codes illustrate that conditional-independence graphical models can represent useful high-dimensional distributions and support inference by belief propagation.",
+   "first_introduced_sec": 272,
+   "spans": [
+    {
+     "start_sec": 272,
+     "end_sec": 348
+    }
+   ],
+   "total_seconds": 76,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "LDPC codes are described as graphical models used with belief propagation for error correction, but no specific code is analyzed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are used as a standard successful family of sparse graphical models, not as a structural exception or failure case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are a standard sparse graphical-model code family used as a successful illustration of conditional-independence modeling."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are a systematic family of sparse graphical-model codes used as a successful illustration, not a failure case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are an infinite sparse graphical-model code family used as a successful illustration, not a sporadic or adversarial case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are a systematic sparse graphical-model family used as a successful example of conditional-independence modeling."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard LDPC code families are used as a positive illustration of graphical models"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are used as a standard successful instance of graphical-model inference, not as a failure case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard successful graphical-model coding example with no sporadic or extremal structure"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are used as a positive standard family showing graphical-model inference succeeds in coding."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are cited as a successful graphical-model family for error correction, not as a failure or sporadic/extreme object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are used as a successful infinite family of sparse graphical-model codes."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are used as a successful systematic family of graphical models."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "JPEG, MP3, and MPEG as sparsity-based compression",
+   "note": "The standard compression formats illustrate the practical success of sparsity in transform bases before the talk replaces sparsity by generative priors.",
+   "first_introduced_sec": 304,
+   "spans": [
+    {
+     "start_sec": 304,
+     "end_sec": 348
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "JPEG, MP3, and MPEG are cited as technologies built on sparsity, without working through any compression example.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "JPEG, MP3, and MPEG are cited as ordinary practical successes of transform sparsity for compression."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "JPEG, MP3, and MPEG are ordinary transform-compression standards cited as positive examples of sparsity-based modeling."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "JPEG, MP3, and MPEG are ordinary practical compression standards cited to illustrate sparsity-based modeling."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "JPEG, MP3, and MPEG are standard transform/sparsity compression schemes cited as successes."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "JPEG, MP3, and MPEG are standard sparsity-exploiting compression schemes cited as successful applications."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard transform-compression formats illustrate sparsity-based modeling"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "JPEG, MP3, and MPEG are cited as ordinary successful technologies exploiting transform sparsity."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard transform-sparsity compression technologies used to illustrate usefulness"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "JPEG, MP3, and MPEG are standard compression examples illustrating the usefulness of sparsity."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "JPEG, MP3, and MPEG are used as standard successful sparsity-based compression examples with no intrinsic exceptional/extremal structure asserted."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "JPEG/MP3/MPEG are standard transform-compression technologies illustrating sparsity."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "JPEG, MP3, and MPEG are cited as standard sparsity-based compression successes."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Compressed-sensing MRI from sparse bases",
+   "note": "MRI reconstruction is used as an applied illustration of how sparsity in a known basis improves an inverse problem.",
+   "first_introduced_sec": 348,
+   "spans": [
+    {
+     "start_sec": 348,
+     "end_sec": 371
+    },
+    {
+     "start_sec": 1000,
+     "end_sec": 1068
+    }
+   ],
+   "total_seconds": 91,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Compressed-sensing MRI is named as a practical use of sparse-basis reconstruction, but no MRI instance is computed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Compressed-sensing MRI is presented as a typical application of sparsity in a known basis."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Compressed-sensing MRI is a standard application of sparse-basis reconstruction, not used to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Compressed-sensing MRI is a standard application of sparse-basis reconstruction, used positively as motivation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Compressed-sensing MRI is a representative sparse-basis inverse-problem application."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Compressed-sensing MRI from sparse bases is presented as a practical success of sparsity priors."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "compressed-sensing MRI is presented as a typical successful sparse-basis inverse problem"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Compressed-sensing MRI is presented as a standard application of sparse-basis reconstruction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary practical application of sparse-basis compressed sensing in MRI"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "compressed-sensing MRI is presented as a practical positive application of sparse-basis reconstruction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Compressed-sensing MRI is presented as a practical success of sparse-basis modeling, not as an obstruction or structurally special object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Compressed-sensing MRI is presented as a standard successful sparse-basis application."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Compressed-sensing MRI is used as a representative application of sparse-basis recovery."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "GAN-generated faces and latent interpolation",
+   "note": "The striking face samples and smooth interpolation in latent space are presented as the observation that motivates asking whether generative models can do useful inverse-problem work, not just synthesize pictures.",
+   "first_introduced_sec": 474,
+   "spans": [
+    {
+     "start_sec": 474,
+     "end_sec": 643
+    }
+   ],
+   "total_seconds": 169,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker describes feeding two latent vectors through a GAN and linearly interpolating in latent space to observe smooth face changes.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "GAN face samples and latent interpolations illustrate the usual behavior of a learned generator rather than a special obstruction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "GAN face samples and latent interpolations are typical outputs of a generative model used as a sanity-check demonstration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "GAN face samples and latent interpolations are typical demonstrations of a learned generative model."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The generated faces and latent interpolations are ordinary GAN samples used as a smoothness sanity check."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "GAN face samples and latent interpolations are ordinary demonstrations of a learned generative manifold."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "GAN face samples and latent interpolation are used as a sanity-check illustration, not a failure case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The GAN faces and interpolations are typical generated samples used to illustrate latent-space smoothness."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary GAN face samples and interpolations used as a sanity-check illustration"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "GAN face samples and latent interpolation are used as a sanity-check illustration of learned generative structure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "GAN face samples and latent interpolations are sanity-check demonstrations of smooth generation rather than counterexamples or intrinsically extreme objects."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The GAN face samples and interpolations are ordinary demonstrations of a learned generative manifold."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "GAN face samples and latent interpolation illustrate ordinary generative-model behavior."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Gallery of inverse-problem tasks",
+   "note": "Denoising, inpainting, compressed sensing, outlier detection, source separation, MRI, and phase retrieval are listed to show the breadth of inverse problems to which the framework is meant to apply.",
+   "first_introduced_sec": 643,
+   "spans": [
+    {
+     "start_sec": 643,
+     "end_sec": 700
+    }
+   ],
+   "total_seconds": 57,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The inverse-problem gallery is presented as a list of tasks and applications rather than worked through as one example.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The list of denoising, inpainting, compressed sensing, and related tasks is a representative gallery of inverse problems."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The gallery lists standard inverse-problem tasks as motivating applications rather than pathological cases."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The listed inverse-problem tasks form a standard motivating gallery rather than a structurally special object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The inverse-problem gallery is a heterogeneous list of standard tasks used to indicate scope."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The inverse-problem gallery is a representative list of tasks motivating the framework."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the inverse-problem gallery is a representative list of tasks and applications"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The gallery lists standard inverse-problem tasks to motivate the framework."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "representative gallery of inverse problems used for motivation"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the inverse-problem gallery is a representative list used to motivate the scope of the framework."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The inverse-problem gallery is a representative list of tasks used for motivation, with no single structurally special object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The inverse-problem gallery is a motivating list of standard tasks rather than a special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The inverse-problem gallery is a broad illustrative list rather than a failure case."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Brain tomography as linear projection measurements",
+   "note": "Imaging a brain without opening it explains why one naturally observes linear sums of unknown pixel values rather than the pixels themselves.",
+   "first_introduced_sec": 974,
+   "spans": [
+    {
+     "start_sec": 974,
+     "end_sec": 1040
+    }
+   ],
+   "total_seconds": 66,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "Brain tomography is unpacked as a concrete linear measurement process by shining a probe and observing sums over unknown pixels.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Brain tomography is used as a standard linear-projection inverse problem motivating compressed sensing."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Brain tomography is a standard linear-projection inverse problem used to motivate the measurement model."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Brain tomography is presented as a typical linear inverse-problem application of projection measurements."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Brain tomography via projection measurements is a standard linear inverse-problem model."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Brain tomography is used as a standard example of linear projection measurements in an inverse problem."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "brain tomography is used as a standard motivating example for linear projection measurements"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Brain tomography is used as a representative example of linear projection measurements."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "typical tomography example of linear projection measurements"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "brain tomography is used as a standard motivating example of linear projection measurements."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Brain tomography is used as a standard motivating instance of linear projection measurements, not as a failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Brain tomography is used as a typical linear inverse-problem application."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Brain tomography is presented as a standard linear-projection inverse problem."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Projecting a target face onto a GAN range",
+   "note": "A target face is reconstructed by optimizing over the latent vector, making concrete the loss minimization over z while keeping generator weights fixed.",
+   "first_introduced_sec": 1166,
+   "spans": [
+    {
+     "start_sec": 1166,
+     "end_sec": 1286
+    }
+   ],
+   "total_seconds": 120,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The target-face projection is worked by defining the loss between the target and g(z), then optimizing z by gradient descent.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Projecting a face onto a GAN range is the basic positive reconstruction procedure for the model."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Projecting a target face onto a GAN range is an ordinary latent-optimization use of the generator."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The GAN projection is the nearest or best-fit generated face in the model range under the chosen loss."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The GAN projection is the closest or best-fit generated face to a target under the chosen loss."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Projecting a target face onto a GAN range is an ordinary latent-optimization demonstration, not an obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "projection of a target face onto a GAN range illustrates the latent-optimization method"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The GAN-range projection is an illustrative reconstruction procedure rather than an obstruction or special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary target-face fitting example illustrating projection onto a GAN range"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the projected face is the nearest GAN-range fit to a target image and is used positively to illustrate latent optimization."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The GAN projection is defined as the closest point in the generator range minimizing pixel loss to the target face."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The projected face is by definition a nearest-point or best-fit element of the GAN range."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Projecting a face onto a GAN range demonstrates the latent-optimization method."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Face inpainting by latent optimization",
+   "note": "Completing missing pixels in a face demonstrates the same latent-space measurement-consistency loss for a masking linear operator.",
+   "first_introduced_sec": 1286,
+   "spans": [
+    {
+     "start_sec": 1286,
+     "end_sec": 1336
+    }
+   ],
+   "total_seconds": 50,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "Face inpainting is worked by applying the measurement mask to g(z), optimizing latent z, and discussing the resulting reconstruction.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Face inpainting by latent optimization is presented as a normal instance of using measurements to constrain a generator."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Face inpainting by latent optimization is presented as a mostly successful reconstruction example, with only incidental model limitations noted."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The inpainting example is a representative latent-space reconstruction showing the method working."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The inpainted face is chosen by minimizing the observed-pixel residual in latent space."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Face inpainting by latent optimization is presented as a mostly successful reconstruction example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "face inpainting by latent optimization is presented as a successful application of the framework"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The face-inpainting example is a standard positive demonstration of latent optimization."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard inpainting demonstration of latent optimization with a face prior"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "face inpainting is presented as a normal positive use case for latent-space measurement matching."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The inpainted face is produced by latent optimization minimizing measurement-consistency loss over the generator range."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The inpainted face is a routine constructive latent-optimization reconstruction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Face inpainting by latent optimization is shown as a normal successful reconstruction task."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Super-resolution with a known blur operator",
+   "note": "Super-resolution is used as another linear inverse problem where backpropagation through the generator enforces agreement after a known blurring operator.",
+   "first_introduced_sec": 1336,
+   "spans": [
+    {
+     "start_sec": 1336,
+     "end_sec": 1394
+    }
+   ],
+   "total_seconds": 58,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "Super-resolution is worked by treating known blur as a linear convolution operator and optimizing z against blurred measurements.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Super-resolution with a known blur operator is a standard linear inverse-problem example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Super-resolution with a known blur operator is a standard linear inverse-problem demonstration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Super-resolution with a known blur operator is a standard linear inverse-problem demonstration."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The super-resolution reconstruction is a best-fit latent solution for a known linear blur operator."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Super-resolution with a known blur operator is a standard linear inverse-problem instance solved by the proposed method."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "known-blur super-resolution is a standard linear inverse-problem instance"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The super-resolution example uses an ordinary known linear blur model to demonstrate the method."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard super-resolution demonstration with a known linear blur operator"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "known-blur super-resolution is a standard inverse problem used to demonstrate the same reconstruction method."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The super-resolution reconstruction is obtained by optimizing the latent code to minimize mismatch under the known blur operator."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The super-resolution example is a standard reconstruction with a known linear blur operator."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Super-resolution with a known blur operator is a standard linear inverse-problem example."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Five-hundred-measurement face reconstruction comparison",
+   "note": "The empirical comparison with DCT and wavelet sparse compressed sensing illustrates how a learned face prior can require fewer measurements but eventually becomes limited by generator expressiveness.",
+   "first_introduced_sec": 1394,
+   "spans": [
+    {
+     "start_sec": 1394,
+     "end_sec": 1464
+    }
+   ],
+   "total_seconds": 70,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The 500-measurement face reconstruction is used in an empirical comparison between sparsity-based methods and the DCGAN prior.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The 500-measurement comparison is a benchmark illustrating improved reconstructions, not a formal obstruction or extremal case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The 500-measurement reconstruction is a comparative performance illustration, not an extremal or refuting instance."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The 500-measurement face reconstruction is a benchmark comparison illustrating improved performance, not a structural extreme."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The 500-measurement reconstructions are a benchmark comparison rather than a structurally special object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The 500-measurement reconstruction comparison illustrates improved empirical performance rather than disproving a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the 500-measurement comparison is an empirical benchmark showing improved reconstruction"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The 500-measurement comparison is empirical evidence for the generative prior, not a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "benchmark comparison showing the generative prior’s advantage in a usual low-measurement regime"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the 500-measurement experiment is a benchmark comparison showing the generative prior performs well."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The 500-measurement comparison supports the benefit of the GAN prior rather than refuting a claim by a pathological object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The 500-measurement comparison is an empirical performance illustration at a chosen sample count."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The 500-measurement comparison illustrates empirical performance rather than a tight bound or obstruction."
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "Samples from an invertible flow face model",
+   "note": "The slightly ghostly but plausible face samples illustrate the tradeoff that invertible models give likelihoods and stable training while lagging GAN image quality.",
+   "first_introduced_sec": 1965,
+   "spans": [
+    {
+     "start_sec": 1965,
+     "end_sec": 1987
+    }
+   ],
+   "total_seconds": 22,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Invertible-flow face samples are shown and qualitatively described, but no specific sample is analyzed or computed with.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Samples from an invertible flow face model are used as ordinary illustrations of the model class and its likelihood capability."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Samples from an invertible flow face model are ordinary model outputs used to illustrate flows and likelihoods."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Samples from an invertible flow face model are ordinary model outputs used to illustrate flow likelihood models."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The face images are ordinary samples from a systematic invertible-flow model family."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Samples from an invertible flow face model are ordinary outputs used to introduce likelihood-based generators."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "flow-generated face samples illustrate an ordinary invertible generative model"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The flow-model faces are typical samples used to introduce invertible generators."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary samples from an invertible flow model used to introduce flows"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "flow-model face samples are ordinary model outputs used to introduce invertible generative models."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The flow-model face samples illustrate ordinary outputs of an invertible generative model with likelihoods, despite being somewhat ghostly."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The flow-model faces are ordinary samples used to introduce invertible generators."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Flow-model face samples are ordinary outputs of an invertible generative model."
+    }
+   ]
+  },
+  {
+   "code": "E12",
+   "name": "Naive variational inference for missing-center face completion",
+   "note": "The slow, mediocre RealNVP variational-inference completion experiment is used as the failure case that motivates the composed-model pregenerator idea.",
+   "first_introduced_sec": 2386,
+   "spans": [
+    {
+     "start_sec": 2386,
+     "end_sec": 2417
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "Naive variational inference is run on missing-center face completion and its training time and reconstruction quality are discussed.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive variational inference for missing-center completion is shown as a slow, poor baseline that does not work well."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive variational inference for missing-center completion is shown as a slow, poor-quality baseline that motivates the composed-model method."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive variational inference is shown as a poor baseline that fails to give good missing-center completions efficiently."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The naive variational-inference completion is shown as a standard baseline that works poorly."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive variational inference for missing-center completion is shown to train slowly and perform poorly."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "naive variational inference is shown to train slowly and produce poor missing-center completions"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive variational inference is shown as a slow, poor baseline for missing-center completion."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show naive variational inference gives poor missing-center completions"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "naive variational inference is shown as a slow poor-performing baseline for missing-center completion."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive variational inference is shown as a slow, poor baseline for missing-center completion, so it functions as a failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive variational inference is shown as a slow, poor baseline for missing-center completion."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive variational inference is used as a baseline that trains slowly and gives poor missing-center completions."
+    }
+   ]
+  },
+  {
+   "code": "E13",
+   "name": "Diverse missing-center face completions from composed models",
+   "note": "Multiple plausible completions of the same occluded face demonstrate that the pregenerator method samples a conditional distribution rather than returning only one reconstruction.",
+   "first_introduced_sec": 2864,
+   "spans": [
+    {
+     "start_sec": 2864,
+     "end_sec": 2906
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The composed-model method is applied to missing-center faces to generate multiple distinct completions satisfying the observed pixels.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Diverse missing-center completions are positive samples demonstrating the composed-generator method."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Diverse missing-center completions from composed models are positive samples demonstrating conditional diversity."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The diverse missing-center completions are positive samples from the proposed composed-model method."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The missing-center completions are ordinary conditional samples used to demonstrate diversity."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Diverse missing-center completions from composed models are used as positive evidence for the conditional sampler."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "diverse missing-center completions are positive evidence for the composed-model sampler"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The diverse completions are a positive illustration of composed conditional generative models."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "positive demonstration of diverse conditional completions from composed models"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "diverse missing-center completions are positive samples demonstrating the composed-model sampler."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The diverse missing-center completions are positive conditional samples from the composed model, not a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The diverse completions are ordinary conditional samples demonstrating the composed-model method."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Diverse missing-center completions are used to show the composed-model sampler working."
+    }
+   ]
+  },
+  {
+   "code": "E14",
+   "name": "Pixel-wise uncertainty map for a completed face",
+   "note": "Computing variance over many conditional samples illustrates uncertainty quantification, with high variance in unobserved hair regions and low variance near constrained pixels.",
+   "first_introduced_sec": 2906,
+   "spans": [
+    {
+     "start_sec": 2906,
+     "end_sec": 2949
+    }
+   ],
+   "total_seconds": 43,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The uncertainty map is obtained by taking many conditional samples and computing pixel-wise variance.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The pixel-wise uncertainty map is a normal uncertainty-quantification output enabled by conditional sampling."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The pixel-wise uncertainty map is a standard variance/uncertainty visualization from conditional samples."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The pixel-wise uncertainty map is a standard variance visualization derived from conditional samples."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The variance image is a standard pixelwise uncertainty summary from conditional samples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The pixel-wise uncertainty map is an ordinary variance visualization enabled by conditional sampling."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the pixel-wise variance map illustrates uncertainty quantification for a completion"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The uncertainty map is used as a standard visualization of posterior pixel variance."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary variance-map output used to illustrate uncertainty quantification"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the pixel-wise variance map is used positively to illustrate uncertainty quantification."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The pixel-wise uncertainty map is a derived variance visualization for the completion, with no intrinsic sporadic or extremal structure."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The pixel-wise variance map is a standard uncertainty visualization from conditional samples."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The pixel-wise uncertainty map illustrates ordinary variance-based uncertainty quantification."
+    }
+   ]
+  },
+  {
+   "code": "E15",
+   "name": "Diverse deblurring samples",
+   "note": "Blurring is used as a general linear forward operator for which the conditional sampler produces multiple plausible deblurred images and associated uncertainty.",
+   "first_introduced_sec": 2949,
+   "spans": [
+    {
+     "start_sec": 2949,
+     "end_sec": 2966
+    }
+   ],
+   "total_seconds": 17,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The method is applied to a blur forward operator to produce multiple deblurred samples and associated uncertainty.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Diverse deblurring samples are presented as successful conditional samples for a linear forward operator."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Diverse deblurring samples are presented as successful conditional reconstructions under a linear blur operator."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The diverse deblurring samples are routine conditional reconstructions used to show uncertainty and diversity."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The deblurring outputs are ordinary conditional samples under a linear forward model."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Diverse deblurring samples are presented as successful conditional samples for a general linear operator."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "diverse deblurring samples are presented as another successful linear-operator application"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The deblurring samples are ordinary conditional samples showing diversity under a linear inverse problem."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "positive deblurring demonstration showing diverse conditional samples"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "diverse deblurring samples are a standard positive demonstration for a linear forward operator."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The diverse deblurring samples demonstrate conditional sampling under a linear forward operator, not a failure or special object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The deblurring outputs are ordinary diverse samples for a linear inverse problem."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Diverse deblurring samples demonstrate the conditional sampler on another standard forward operator."
+    }
+   ]
+  },
+  {
+   "code": "E16",
+   "name": "Tilted speaker face completion",
+   "note": "The speaker's tilted face gives a humorous and diagnostic illustration of pose/out-of-distribution effects in generative completion, later revisited in Q&A.",
+   "first_introduced_sec": 2966,
+   "spans": [
+    {
+     "start_sec": 2966,
+     "end_sec": 2989
+    },
+    {
+     "start_sec": 3371,
+     "end_sec": 3516
+    }
+   ],
+   "total_seconds": 168,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The tilted speaker face is used as a concrete completion input, producing and discussing failed-looking completions.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tilted speaker face is used to display unfortunate completions and hence a robustness failure mode."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tilted speaker face is used as an out-of-distribution case producing unfortunate completions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tilted speaker face is used as an out-of-distribution case producing unfortunate completions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tilted face is an ordinary but distribution-shifted input shown to yield bad completions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tilted speaker face produces unfortunate completions, serving as a failure case for the completion procedure."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the tilted face is used as a failure-prone out-of-distribution completion example"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tilted speaker face is used as an out-of-distribution stress case producing unfortunate completions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "tilted face input is used to display unfortunate completion behavior"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the tilted face is used as an out-of-distribution case producing visibly unfortunate completions."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tilted speaker face is used to exhibit unfortunate out-of-distribution completions and hence a limitation of the method."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tilted face is an out-of-distribution stress case producing unfortunate completions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tilted face is shown because the completion produces visibly unfortunate failure cases."
+    }
+   ]
+  },
+  {
+   "code": "E17",
+   "name": "Black images, noisy faces, and likelihood pathologies",
+   "note": "In response to a question, black images and noisy faces are discussed to illustrate why an available likelihood does not by itself certify that an invertible model has learned the intended distribution.",
+   "first_introduced_sec": 3199,
+   "spans": [
+    {
+     "start_sec": 3199,
+     "end_sec": 3337
+    }
+   ],
+   "total_seconds": 138,
+   "attaches_to": [
+    "s5",
+    "s8"
+   ],
+   "primary_stage": "s5",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Black images and noisy faces are discussed as likelihood pathologies or diagnostics, but only at the level of stated behavior.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 10,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "All-black boundary images and noisy faces are used to expose likelihood pathologies in flow models."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "All-black images are trivial boundary images, and their high likelihood illustrates a pathology of likelihood-based flow models."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-black zero image is a collapsed boundary case, and the black/noisy examples expose likelihood pathologies."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-black image is a boundary, constant, maximally regular image used with noisy faces to expose likelihood pathologies."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "All-black images are zero boundary images cited as high-likelihood pathologies of flow models."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the all-black member is a collapsed constant image used to expose likelihood pathologies"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "All-black images are degenerate constant images, and together with noisy faces they expose likelihood pathologies."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "likelihood-pathology counterexample involving an all-black zero-boundary maximally regular image"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "all-black and noisy images expose likelihood pathologies, with the all-black image a degenerate maximally uniform boundary signal."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Black/noisy images expose likelihood pathologies, and an all-black image is a constant zero boundary case of maximal regularity."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "All-black and noisy images are likelihood-pathology cases, with the all-black image a maximally regular zero boundary case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "All-black images and noisy faces are likelihood pathologies, with the black image a collapsed boundary signal."
+    }
+   ]
+  },
+  {
+   "code": "E18",
+   "name": "Cartoon characters as out-of-distribution inverse-problem inputs",
+   "note": "The Q&A mention of cartoon-character completions illustrates empirical robustness tests for invertible models outside the human-face training distribution.",
+   "first_introduced_sec": 3412,
+   "spans": [
+    {
+     "start_sec": 3412,
+     "end_sec": 3442
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s7",
+    "s8"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Cartoon characters are cited as out-of-distribution inputs tried by another group, without working through an example.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 3,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Cartoon characters are out-of-distribution stress tests but are reported as cases where invertible models remain robust."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cartoon characters are out-of-distribution enemy inputs for a face prior, used as a robustness stress case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cartoon characters are out-of-distribution test inputs, but here they are cited to show robustness rather than failure."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cartoon inputs are out-of-distribution stress tests reported as handled robustly, not as a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cartoon characters are out-of-distribution inputs used to report surprising robustness of invertible models."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "cartoon inputs are out-of-distribution stress tests reported as robustly handled rather than as failures"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cartoon characters are used as out-of-distribution enemy cases for testing inverse-problem robustness."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "out-of-distribution cartoon inputs are cited as robustness tests rather than failures"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "cartoon characters are stylized out-of-distribution inputs used to report robustness rather than failure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cartoon characters are out-of-distribution stress-test inputs on which robustness is reported, not a demonstrated failure."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cartoon characters are used as out-of-distribution enemy inputs for face inverse-problem models."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Cartoon characters are used as out-of-distribution robustness tests that the invertible models reportedly handle."
+    }
+   ]
+  },
+  {
+   "code": "E19",
+   "name": "Bearded face failure for DCGAN inversion",
+   "note": "The speaker's beard is cited in Q&A as a concrete out-of-distribution feature on which a DCGAN completion can fail badly, contrasting with more robust invertible models.",
+   "first_introduced_sec": 3476,
+   "spans": [
+    {
+     "start_sec": 3476,
+     "end_sec": 3516
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reports applying DCGAN inversion to his own bearded face and observing a bad completion failure.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bearded face is explicitly cited as a case where DCGAN inversion fails badly."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bearded face is an ordinary input used to show DCGAN inversion can fail badly under distribution shift."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bearded face is an ordinary face image used to demonstrate a DCGAN inversion failure."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bearded face is an ordinary face used to exhibit DCGAN inversion failure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A bearded face is cited as causing DCGAN inversion to fail badly."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the bearded face is explicitly cited as a DCGAN inversion failure case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bearded face is presented as a failure case for DCGAN inversion."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "bearded face is used to show DCGAN inversion can fail badly"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the bearded face is cited as a DCGAN inversion failure case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bearded face is used to show DCGAN inversion producing a bad completion, so it is a failure example for that model."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bearded face is cited as a DCGAN inversion failure case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bearded face is cited as a DCGAN inversion failure case."
+    }
+   ]
+  }
+ ]
+}

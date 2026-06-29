@@ -1,0 +1,1391 @@
+{
+ "key": "02c1d847e344111af6d183d0e30edb58",
+ "title": "Persistent matchmaking",
+ "speaker": "Uli Bauer",
+ "affiliation": "Technical University of Munich",
+ "date": "2021-03-05T12:00:00Z",
+ "field_msc": "55 Algebraic topology",
+ "duration_sec": 3871.0,
+ "abstract": "In this talk, I will give an overview of some recent results motivated by the computation and applications of persistent homology, a theory that creates a bridge between the continuous world of topology and the discrete world of data, and assigns stable and structurally simple invariants to geometric point sets, parametrized over geometric scale. In particular, I will explore why cohomology is so much more efficient in such computations and how it can also be employed to efficiently compute the induced matchings that exhibit the stability of persistence diagrams.",
+ "youtube_url": "https://youtu.be/Z0AlvqIqkqI",
+ "page_url": "https://www.ias.edu/video/persistent-matchmaking",
+ "tags": [
+  "School of Mathematics",
+  "Workshop on Topology: Identifying Order in Complex Systems"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Persistent-homology and barcode-as-matching setup",
+   "summary": "The talk motivates Ripsa and persistent homology, recalls filtrations, persistence modules and barcodes, and interprets a barcode as a diagram of partial matchings over the filtration parameter.",
+   "spans": [
+    {
+     "start_sec": 41,
+     "end_sec": 509
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Interleaving-induced barcode matchings",
+   "summary": "Interleavings are introduced as natural transformations between filtrations or persistence modules, and the image of an interleaving morphism is used to induce a partial matching of barcodes, giving a constructive route to algebraic stability.",
+   "spans": [
+    {
+     "start_sec": 509,
+     "end_sec": 973
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Boundary-matrix reduction as persistence pairing",
+   "summary": "For Rips filtrations refined to simplexwise order, filtered Gaussian elimination of the boundary matrix produces a compatible basis that pairs birth cycles with the chains that kill them.",
+   "spans": [
+    {
+     "start_sec": 973,
+     "end_sec": 1559
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Clearing and cohomological dual computation",
+   "summary": "The clearing optimization avoids reductions of columns known not to be needed, and dualizing to persistent cohomology makes clearing efficient by moving the unavailable dimension from the top to dimension zero.",
+   "spans": [
+    {
+     "start_sec": 1559,
+     "end_sec": 1901
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Relative cohomology and absolute-relative correspondence",
+   "summary": "Coboundary reduction is identified with persistent relative cohomology, and the short exact sequence of a filtered pair plus its long exact homology sequence relates relative and absolute barcodes via finite and infinite parts.",
+   "spans": [
+    {
+     "start_sec": 1901,
+     "end_sec": 2415
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Functorial lifespan decompositions",
+   "summary": "To handle morphisms rather than just objects, the noncanonical barcode splittings are replaced by functorial lifespan constructions such as finite, infinite, nascent, ancient, and complementary parts.",
+   "spans": [
+    {
+     "start_sec": 2415,
+     "end_sec": 2978
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Image persistence from relative cohomology",
+   "summary": "For an inclusion of filtrations, the desired image-persistence pieces are connected to efficiently computable relative cohomology images by lifespan functors and by monomorphism/epimorphism conditions on the induced limit and colimit maps.",
+   "spans": [
+    {
+     "start_sec": 2978,
+     "end_sec": 3156
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Concrete reductions, implicit storage, and computational payoff",
+   "summary": "The functorial description is translated into matrix reductions, showing that cohomological image persistence with clearing needs fewer reductions, and then into Ripsa implementation shortcuts such as implicit boundary computation and apparent-pair detection.",
+   "spans": [
+    {
+     "start_sec": 3156,
+     "end_sec": 3787
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "SARS-CoV-2 genome dataset",
+   "note": "The dataset of distinct COVID genomes illustrates the computational scale and structured, nearly tree-like data for which the improved Ripsa implementation is useful.",
+   "first_introduced_sec": 102,
+   "spans": [
+    {
+     "start_sec": 102,
+     "end_sec": 300
+    },
+    {
+     "start_sec": 3641,
+     "end_sec": 3787
+    }
+   ],
+   "total_seconds": 344,
+   "attaches_to": [
+    "s1",
+    "s8"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies Rips/RIPSA computations to the SARS-CoV-2 genome dataset, estimating skeleton size and discussing the computed H1-features and feasibility",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 9,
+    "extremal": 4,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The SARS-CoV-2 genome data are described as almost tree-like, giving near-collapsible Rips complexes with very little homology."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The genome point cloud is described as nearly tree-like, hence with very little nontrivial Rips homology."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The genome point cloud is nearly tree-like and homologically sparse, enabling computation rather than refuting a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The SARS-CoV-2 genome collection is a large structured empirical dataset, but not a sporadic, extremal, symmetric, or collapsed mathematical object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The SARS-CoV-2 genome collection is an empirical finite metric dataset, albeit large and tree-like, not a true mathematical extremizer or exception."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the genome metric data are nearly tree-like, so the associated Rips filtrations have very little homology"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the full SARS-CoV-2 genome metric dataset is at the computational-size boundary and is nearly tree-like with very little homology."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "All available genomes form a computational-boundary dataset described as nearly tree-like with very little Rips homology."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The SARS-CoV-2 genome metric dataset is nearly tree-like with very little homology and is presented as a boundary-of-feasibility large computation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the genome metric data are described as almost tree-like with very little nontrivial homology."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the complete then-current COVID-genome metric dataset is a boundary-scale application and nearly tree-like/acyclic"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The SARS-CoV-2 genomes are a structured empirical metric dataset used as an application, not a sporadic or extremal object."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Sampled torus barcode",
+   "note": "A torus-like barcode, with two one-dimensional features and one two-dimensional feature, makes the barcode interpretation of persistent homology concrete without contributing to the later argument.",
+   "first_introduced_sec": 389,
+   "spans": [
+    {
+     "start_sec": 389,
+     "end_sec": 413
+    }
+   ],
+   "total_seconds": 24,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only describes what a sampled-torus barcode would look like, with two H1 bars and one H2 bar",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An ordinary sampled-torus persistence barcode is used illustratively, with the expected two H1 bars and one H2 bar."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary illustrative barcode for a sampled torus with the expected two H1 bars and one H2 bar."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary illustrative barcode for a sampled torus, used to explain persistence rather than refute anything."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A sampled torus barcode is used as a standard illustrative persistence output, not as a structurally special object or refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A sampled torus barcode is a standard illustrative persistent-homology pattern, not a sporadic, limiting, extremal, or adversarial object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard illustrative barcode for a sampled torus, not used to refute a claim"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a sampled torus barcode is used as a standard illustrative persistent-homology output, not as a failing case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ordinary illustrative barcode for a sampled torus, not used to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A sampled-torus barcode is used as a standard illustrative persistence output rather than to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative barcode for a sampled torus with the expected homology features."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an ordinary illustrative barcode for a point cloud sampled from a torus, used to explain persistence"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An ordinary illustrative barcode for a sampled torus, used to explain persistence rather than refute a claim."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Triangle boundary-matrix reduction",
+   "note": "The three-vertex triangle gives a small matrix over a field to illustrate what the reduced boundary matrix and change-of-basis matrix look like.",
+   "first_introduced_sec": 1329,
+   "spans": [
+    {
+     "start_sec": 1329,
+     "end_sec": 1369
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker presents the triangle boundary matrix and its reduced form over mod 2 coefficients",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 2,
+    "symmetric": 9,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The triangle boundary matrix is a standard toy simplicial-complex example for showing reduction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A minimal toy triangle complex/boundary matrix used to demonstrate the reduction algorithm."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The triangle is a fully symmetric minimal nontrivial simplicial example for boundary reduction."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The triangle boundary matrix is a small pedagogical reduction example, with smallness alone not making it degenerate or extremal."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The single triangle is a minimal toy complex for boundary-matrix reduction, with no role as a disproof or obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard toy triangle boundary-matrix reduction, with no special structural role beyond illustration"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the triangle complex is a maximally regular toy complex for displaying boundary-matrix reduction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The triangle is the smallest simplicial 1-cycle and has full vertex symmetry, used only to demonstrate reduction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The underlying triangle has full dihedral combinatorial symmetry and is used only to illustrate boundary-matrix reduction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the triangle is used only to demonstrate matrix reduction and is a highly regular simplex-like example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the triangle/simplex has full vertex-permutation regularity and is used only as a toy matrix-reduction example"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The triangle is a regular highly symmetric toy simplicial complex for demonstrating boundary-matrix reduction."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Three-by-four rectangle apparent-pair filtration",
+   "note": "A simple Rips filtration from a rectangular point configuration illustrates how apparent persistence pairs can be detected directly from boundary-matrix pivots and even before enumerating a whole column.",
+   "first_introduced_sec": 3492,
+   "spans": [
+    {
+     "start_sec": 3492,
+     "end_sec": 3641
+    }
+   ],
+   "total_seconds": 149,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker runs through the 3-by-4 rectangle Rips boundary ordering, identifies apparent pairs, and traces a specific simplex column to its pivot",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The regular rectangular grid filtration is used to exhibit apparent pairs, which are mutual row/column-pivot extreme cancellations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A regular rectangular grid filtration used to illustrate apparent pairs, not to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A regular rectangular point configuration is used only to illustrate apparent pairs."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The 3-by-4 rectangular grid is a regular point configuration used to illustrate apparent pairs, not to disprove a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The three-by-four rectangle point set is a regular grid/rectangle used illustratively for apparent pairs, not as a counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the apparent pairs are mutual row and column pivots, a local extremal matching in the filtration order"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the three-by-four rectangular grid is a deliberately regular finite metric example illustrating apparent pairs."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Regular rectangular grid example used to illustrate apparent pairs, not a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The 3-by-4 rectangular point configuration is a regular grid-like example for apparent pairs, not an obstruction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the three-by-four rectangular grid is a regular structured point configuration used to illustrate apparent pairs."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the 3-by-4 point configuration is a regular rectangular grid used to illustrate apparent pairs"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The three-by-four rectangle is a regular grid-like point configuration used to illustrate apparent pairs."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Recombination and homoplasy as H1-producing events",
+   "note": "The viral-evolution scenarios explain why one should look for degree-one persistent cycles in otherwise tree-like phylogenetic data, producing the application’s guiding idea.",
+   "first_introduced_sec": 3641,
+   "spans": [
+    {
+     "start_sec": 3641,
+     "end_sec": 3714
+    }
+   ],
+   "total_seconds": 73,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explains how recombination and homoplasy events in a tree-like viral evolution scenario generate H1 features in the Rips filtration",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 10,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Recombination and homoplasy are presented as deviations from purely tree-like acyclic evolution that generate H1."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Recombination and homoplasy are presented as mechanisms that obstruct the purely tree-like acyclic model by producing H1 cycles."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Recombination and homoplasy are presented as ordinary mechanisms that create H1 signals, not as sporadic exceptions or refutations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Recombination and homoplasy are cited as departures from tree-like evolution that create H1 and obstruct acyclicity."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Recombination and homoplasy are presented as non-tree-like events that obstruct the acyclic tree-like Rips picture by producing H1 features."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "these events are invoked as deviations from the tree-like acyclic model that produce H1"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "recombination and homoplasy are invoked as non-tree-like mechanisms that obstruct acyclicity by producing H1 features."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Recombination and homoplasy are presented as ordinary mechanisms producing H1 features rather than as refutations."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Recombination and homoplasy are invoked as non-tree-like mechanisms that obstruct acyclicity by producing H1 features."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "recombination and homoplasy are presented as deviations from tree-like evolution that obstruct acyclic Rips homology by creating H1."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "recombination and homoplasy are cited as deviations from tree-like evolution that obstruct acyclicity by creating H1"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Recombination and homoplasy are presented as mechanisms that obstruct purely tree-like acyclicity by producing H1 features."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Rare mutation seen in persistent cycles",
+   "note": "A particular SARS-CoV-2 mutation discussed in the press illustrates the hope that persistent cycles can flag biologically interesting mutations before they become prevalent.",
+   "first_introduced_sec": 3714,
+   "spans": [
+    {
+     "start_sec": 3714,
+     "end_sec": 3787
+    }
+   ],
+   "total_seconds": 73,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only reports that a rare press-discussed mutation appeared in observed persistent cycles, without analyzing the mutation or cycles in detail",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 5,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The low-prevalence mutation is used as an application signal detected by persistent cycles, not as a structural exception or refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The rare mutation is used as an adversarial case for prevalence-based detection, since persistent cycles reveal it before it is common."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The rare mutation is an empirical signal found in cycles, with rarity alone not making it structurally exceptional or extremal."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The rare mutation is used to show that prevalence-based detection can miss topologically salient mutations early."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The rare mutation is a dataset feature detected in persistent cycles, not a structurally exceptional mathematical object or a refutation example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the rare mutation is used as an enemy case for prevalence-only methods, since persistent cycles detect it earlier"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the rare mutation is an empirical signal found in persistent cycles, not a structural classification exception or adversarial example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The rare mutation is an application signal in persistent cycles, with rarity alone not a structural exception."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The rare mutation appearing in persistent cycles is an adversarial case for prevalence-based detection, while not structurally exceptional in the strict sense."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the rare mutation is used as an application signal found by persistent cycles rather than as a structural exception."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the rare mutation is used as an enemy case for prevalence-based detection, while rarity is not a structural exception"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The rare mutation is cited as an application signal found in persistent cycles, not as a structural exception or refutation."
+    }
+   ]
+  }
+ ]
+}

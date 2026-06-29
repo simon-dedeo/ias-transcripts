@@ -1,0 +1,1003 @@
+{
+ "key": "97529c5552c5e630d69162a53cc177a8",
+ "title": "Information Complexity and Exact Communication Bounds",
+ "speaker": "Mark Braverman",
+ "affiliation": "Princeton University",
+ "date": "2012-12-03T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4148.0,
+ "abstract": "In this talk we will discuss information complexity -- a measure of the amount of information Alice and Bob need to exchange to solve a problem over distributed inputs. We will present an information-theoretically optimal protocol for computing the AND of two bits distributed between Alice and Bob. We prove that the information complexity of AND is ~1.4923 bits. We use the optimal protocol and its properties to obtain tight bounds for the Disjointness problem, showing that the randomized communication complexity of Disjointness on n bits is ~0.4827n ± o(n).",
+ "youtube_url": "https://www.youtube.com/watch?v=eC79jtofboM",
+ "page_url": "https://www.ias.edu/video/1213/csdm/MarkBraverman-1203",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Randomized communication framework and motivating disjointness problem",
+   "summary": "The talk introduces set disjointness as the motivating communication puzzle, then sets up randomized two-party protocols, worst-case and distributional communication complexity, private randomness, and Yao's minimax principle.",
+   "spans": [
+    {
+     "start_sec": 24,
+     "end_sec": 148
+    },
+    {
+     "start_sec": 185,
+     "end_sec": 731
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Information cost as learned mutual information",
+   "summary": "Communication length is replaced by the mutual information each party learns about the other's input, yielding an input-distribution-dependent information cost and an information complexity defined as an infimum over correct protocols, with a zero-error limiting reduction.",
+   "spans": [
+    {
+     "start_sec": 777,
+     "end_sec": 2007
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Amortization and reduction to the two-bit AND",
+   "summary": "The exact equality between information complexity and amortized communication, together with an OR-of-copies variant, reduces sharp asymptotic bounds for disjointness and set intersection to understanding the information complexity of the two-bit AND function over priors.",
+   "spans": [
+    {
+     "start_sec": 2007,
+     "end_sec": 2452
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Functional lower-bound certificate for IC of AND",
+   "summary": "The information complexity of AND is viewed as a functional on the four-point input-distribution simplex, and boundary conditions plus one-message recursive/Bellman inequalities are formulated as sufficient certificates for lower bounds and optimality.",
+   "spans": [
+    {
+     "start_sec": 2452,
+     "end_sec": 2963
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Infinite-round optimal protocol for AND",
+   "summary": "For symmetric priors the proposed optimal protocol uses private continuous random stopping times on a clock, and for asymmetric priors the infinitesimal random-walk intuition determines which party should speak until a zero is certified or the state returns to the diagonal.",
+   "spans": [
+    {
+     "start_sec": 2963,
+     "end_sec": 3388
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Verification, finite-round loss, and the AND constant",
+   "summary": "The protocol is certified by checking the functional inequalities, discretized to approximate the infimum, shown to lose Θ(1/r²) with r rounds, and maximized to obtain the zero-error information complexity constant for AND, about 1.4922 bits.",
+   "spans": [
+    {
+     "start_sec": 3388,
+     "end_sec": 3501
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Exact communication consequences and remaining problems",
+   "summary": "Plugging the computed AND information costs into compression/amortization gives exact asymptotic constants for set intersection, disjointness, and small-set variants, implies round-complexity losses, and leaves open computability, depth-two composition, and fixed-error constants.",
+   "spans": [
+    {
+     "start_sec": 3501,
+     "end_sec": 4124
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Private one-time-pad message RA XOR X",
+   "note": "Alice sends a privately masked bit RA XOR X, illustrating that a transmitted bit can carry zero mutual information about X and hence why private randomness is crucial in information cost.",
+   "first_introduced_sec": 1014,
+   "spans": [
+    {
+     "start_sec": 1014,
+     "end_sec": 1051
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he uses the message m=RA XOR x to evaluate the information revealed about x, concluding it is zero because the private pad masks x",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 12,
+    "symmetric": 9,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The one-time-pad message is a perfectly masking construction with zero mutual information about X, the minimum possible leakage."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Uniform XOR with a private pad is a perfectly symmetric zero-leakage/minimum-information channel, used to show private coins cannot be ignored in information accounting."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Uniform XOR masking is a collapsed zero-information/minimal-leakage channel, used to show private randomness cannot be ignored."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The uniform private XOR mask makes the message independent of X, a zero-leakage boundary case, used illustratively rather than as a formal counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A uniform private XOR mask is translation-symmetric and has zero/minimal leakage, used to show that private randomness can hide information despite communication."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Uniform private XOR padding collapses the X-to-M channel to a perfectly secret zero-information channel, refuting the intuition that an X-dependent message must reveal X."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Uniform XOR masking is a maximally private zero-information channel used to show private coins cannot be treated as public information."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the uniform private XOR mask collapses the channel from X to the transcript to zero leakage, attaining the minimum possible mutual information."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A uniform private XOR mask is a highly symmetric one-time pad achieving minimal zero mutual information, used illustratively."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the uniform XOR mask is a perfectly secret zero-leakage message used to show private randomness can hide all information"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to show private randomness can make a transmitted XOR mask reveal zero information, a perfectly hiding symmetric boundary channel."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "It is used to refute the naive idea that a sent message necessarily reveals input information; as a uniform XOR mask it is a collapsed zero-information, perfectly private and highly symmetric channel."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Equality via hashing of long files",
+   "note": "For the equality function under a half-equal, half-random distribution, the hash protocol concretely shows how to compute information cost and contrasts communication length with learned information.",
+   "first_introduced_sec": 1266,
+   "spans": [
+    {
+     "start_sec": 1266,
+     "end_sec": 1297
+    },
+    {
+     "start_sec": 1393,
+     "end_sec": 1736
+    }
+   ],
+   "total_seconds": 374,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he specifies the hashing protocol and prior for equality, then computes the two mutual-information contributions, getting about 1 bit for Alice and about 50.5 bits for Bob",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 4,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The hashing protocol for equality is a standard illustrative randomized protocol, not structurally sporadic, collapsed, optimal, or maximally regular here."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The equality/fingerprinting setup is a highly regular symmetric predicate used only to illustrate an information-cost calculation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The equality problem/prior is highly invariant under swapping and relabeling inputs, but the hash protocol is used only as an illustrative information-cost calculation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The hashing protocol for equality is a standard randomized fingerprinting example used to compute information cost, not a structurally special object or a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The long-file hashing protocol is an ordinary nonoptimal fingerprinting example used to compute information cost."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The one-way random-hash equality protocol is a standard illustrative, nonoptimal fingerprinting protocol for computing information cost."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The equality/fingerprinting instance is a highly invariant equality example used illustratively to compute information cost."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the hashing protocol for equality is used as a standard illustrative protocol for computing information cost, not as a structural edge case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The hash-based equality protocol is a standard illustrative fingerprinting protocol, not deployed to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the equality task has the usual swap/permutation symmetry and is used as an illustrative information-cost calculation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard randomized hashing protocol for equality is used illustratively to compute information cost, not as a structural special case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is a standard randomized fingerprinting protocol for equality used as a calculation example, not as an adversarial or structurally special object."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Singleton and diagonal priors",
+   "note": "Degenerate input distributions, such as a singleton prior or a diagonal prior with X determined by Y, illustrate that information cost is meaningless without a specified prior and can be zero despite communication.",
+   "first_introduced_sec": 1342,
+   "spans": [
+    {
+     "start_sec": 1342,
+     "end_sec": 1377
+    }
+   ],
+   "total_seconds": 35,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he evaluates these priors under the information-cost definition, saying singleton and diagonal priors give zero information cost since the inputs are already determined",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Singleton and diagonal priors collapse conditional uncertainty so that inputs are already determined, giving the boundary case of zero information cost."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Point-mass and diagonal priors collapse conditional uncertainty and lie on the boundary of the prior simplex, illustrating prior dependence."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Singleton and diagonal priors are zero-conditional-entropy boundary cases of the distribution simplex, used to illustrate dependence on the prior."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Singleton or deterministic-diagonal priors have collapsed conditional uncertainty and zero information cost for any protocol, showing that prior-free information cost cannot work."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Singleton and diagonal priors are collapsed boundary distributions with zero conditional uncertainty, used to show that information cost is meaningless without a prior."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Singleton and diagonal supports are collapsed priors with zero conditional uncertainty, making every transcript have zero information and obstructing a prior-free notion."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Point-mass or deterministic diagonal priors collapse conditional uncertainty to zero, showing prior-free information cost would fail."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "singleton or diagonal priors collapse the conditional uncertainty and show that a prior-free information measure would be vacuous."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Singleton and diagonal priors collapse conditional uncertainty to zero and sit on the boundary of the distribution simplex."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "singleton and diagonal priors have collapsed conditional uncertainty and zero information cost, showing priors cannot be ignored"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Singleton or diagonal priors collapse conditional uncertainty to zero, showing that prior-free/nontrivial information cost cannot be assumed."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "These priors collapse conditional uncertainty to zero and serve as boundary cases showing that a distribution-free information-cost notion would fail."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Asymmetric AND prior with probabilities 0.01, 0.01, 0.48, 0.4",
+   "note": "The concrete asymmetric distribution makes it visible that Alice should speak first, leading to the rule that the party more likely to hold a zero drives the next infinitesimal step.",
+   "first_introduced_sec": 3201,
+   "spans": [
+    {
+     "start_sec": 3201,
+     "end_sec": 3388
+    }
+   ],
+   "total_seconds": 187,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he plugs in the asymmetric AND probabilities and reasons through which party should speak, the random-walk update, and the stopping/diagonal conditions",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The skewed AND prior is an ordinary nondegenerate distribution used to illustrate which party should speak first."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "This is an ordinary full-support but skewed AND prior used to illustrate which party should speak next."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "This is just a full-support skew AND prior used to illustrate which party should speak."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The full-support asymmetric AND distribution is an ordinary prior chosen to illustrate which party should speak, not a boundary case or counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "This is a full-support but skewed AND input distribution used only to illustrate which party should speak."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary asymmetric two-bit AND prior used to illustrate which party should speak, not to disprove a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary skewed AND prior, up to an apparent normalization slip, used only to illustrate which party should speak."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the positive asymmetric distribution on the four AND inputs is an interior illustrative prior used to decide which party should speak."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The specified AND prior is an ordinary positive asymmetric distribution used to illustrate which party should speak."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the full-support skewed AND distribution is an ordinary asymmetric prior used to illustrate which party should speak"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The skewed AND prior is an ordinary asymmetric positive distribution used to illustrate which party should speak."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is a full-support but skew AND prior used to illustrate which party should speak, not to disprove a claim or mark an extreme classification case."
+    }
+   ]
+  }
+ ]
+}

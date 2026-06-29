@@ -1,0 +1,1834 @@
+{
+ "key": "558421665a5af3c98104e05ef9732e36",
+ "title": "Upper and Lower Bounds for the Linear Ordering Principle",
+ "speaker": "Ilya Volkovich",
+ "affiliation": "Boston College",
+ "date": "2026-02-09T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4270.0,
+ "abstract": "The Linear Ordering Principle (LOP) is a total search problem that generalizes the task of finding the minimum element of a given order to settings in which the order need not be total. Building on this, Korten and Pitassi (FOCS 2024) introduced the complexity class L2P as the polynomial-time Turing closure of LOP. They also showed that L2P  lies between MA (Merlin–Arthur protocols) and S2P (the second symmetric level of the polynomial hierarchy).\nIn this work, we establish tighter upper and lower bounds for L2P by sandwiching it between PprMA and PprSBP. Here, the oracles are promise problems, and SBP is the only currently known natural complexity class that lies between MA and AM. The containment L2P⊆PprSBP is obtained via an iterative procedure that uses a prSBP oracle to estimate the average order rank of a subset and to identify the minimum element of a linear order. This technique may be of independent interest.\nThese containment results yield several consequences: \nWe answer affirmatively an open question posed by Chakaravarthy and Roy (Computational Complexity, 2011) on whether PprMA⊆S2P, thereby settling the relative standing of previously existing Karp–Lipton–style collapse results.\nWe resolve an open question of Korten and Pitassi whether a Karp–Lipton–style collapse can be established for L2P.\nBased on a joint work with Edward Hirsch.",
+ "youtube_url": "https://youtu.be/j9RrKJpVwkM",
+ "page_url": "https://www.ias.edu/video/upper-and-lower-bounds-linear-ordering-principle",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "TFNP, LOP, and the class L2P",
+   "summary": "The talk sets up total polynomially verifiable search problems, defines the linear ordering principle as the task of finding either a minimum or a violation of a purported strict linear order, and defines L2P via reductions to LOP, including closure properties and NP containment.",
+   "spans": [
+    {
+     "start_sec": 139,
+     "end_sec": 824
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Range avoidance and known upper bounds",
+   "summary": "The range-avoidance problem AVOID is introduced as another total search problem, its importance for explicit pseudorandom constructions is explained, and the known progression of upper bounds from randomized oracle bounds through S2P to L2P is reviewed.",
+   "spans": [
+    {
+     "start_sec": 824,
+     "end_sec": 1181
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "MA inside L2P via PRGs and AVOID",
+   "summary": "Using hardness-versus-randomness, MA verification is decoupled into nondeterminism plus pseudorandomness, then PRGs are reduced to AVOID and AVOID is implemented in L2P, yielding MA contained in L2P.",
+   "spans": [
+    {
+     "start_sec": 1181,
+     "end_sec": 1475
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "S2P benchmark and Karp-Lipton motivation",
+   "summary": "S2P is defined through the irrefutable-certificate complete problem, compared with L2P in terms of closure, containment, upper and lower bounds, and then the Karp-Lipton collapse question is identified as the apparent remaining distinction between S2P and L2P.",
+   "spans": [
+    {
+     "start_sec": 1475,
+     "end_sec": 2219
+    },
+    {
+     "start_sec": 2530,
+     "end_sec": 2708
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Main L2P sandwich theorem",
+   "summary": "The main results are stated: L2P contains P with a PromiseMA oracle and is contained in P with a PromiseSBP oracle, placing L2P between known MA/SBP/AM-style bounds and giving immediate consequences such as resolving a Chakaravarthy-Roy open problem and producing exponential lower bounds for E with a PromiseSBP oracle.",
+   "spans": [
+    {
+     "start_sec": 2219,
+     "end_sec": 2530
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Promise-MA lower-bound argument and Karp-Lipton alignment",
+   "summary": "The proof of MA contained in L2P is observed to be promise-robust, so together with L2P's Turing-closure it gives P^PromiseMA contained in L2P and thereby extends and linearly organizes the known Karp-Lipton collapse classes through L2P.",
+   "spans": [
+    {
+     "start_sec": 2708,
+     "end_sec": 2957
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Promise-SBP upper bound via approximate rank descent",
+   "summary": "SBP is recast through the set-size-estimation complete problem, PromiseSBP oracles are used for approximate counting and approximate order-rank estimation, and an iterative bit-restriction argument repeatedly lowers average rank until a minimum element of the linear order is found.",
+   "spans": [
+    {
+     "start_sec": 2957,
+     "end_sec": 3898
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s5"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Limits, open comparisons, and Q&A",
+   "summary": "The talk concludes with open problems about making the PromiseSBP queries nonadaptive, comparing L2P with S2P and PromiseSBP with S2P, relating this upper bound to UEOPL-style TFNP bounds, and interpreting assumptions about NP machines with subexponentially many accepting paths.",
+   "spans": [
+    {
+     "start_sec": 3898,
+     "end_sec": 4263
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Integer factorization as a TFNP problem",
+   "note": "Integer factorization illustrates a total search problem whose solutions are guaranteed by the fundamental theorem of arithmetic but may be hard to find efficiently.",
+   "first_introduced_sec": 197,
+   "spans": [
+    {
+     "start_sec": 197,
+     "end_sec": 228
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Integer factorization is cited as a natural TFNP problem with the fundamental-theorem guarantee, but no algorithm or computation is carried out on it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "integer factorization is a standard natural TFNP search problem used illustratively, not as a refutation"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Integer factorization is cited as a standard total NP-verifiable search problem, not as a failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Integer factorization is used as an ordinary natural TFNP search problem with guaranteed witnesses."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard total search problem whose totality follows from unique factorization, used as a natural TFNP example"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Natural total search problem illustrating TFNP, with no special structural feature used."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Integer factorization is cited as a standard natural total search problem in TFNP, not as a failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "used as a standard natural TFNP search problem whose solutions are guaranteed by unique factorization"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as a standard natural TFNP example guaranteed total by unique factorization, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Integer factorization is used as a natural representative total search problem in TFNP, not to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Integer factorization is used as a standard natural TFNP search problem, not as a structurally special object or refutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard natural total search problem used only to illustrate TFNP"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "integer factorization is used as a standard natural total NP search problem guaranteed by unique factorization"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Constant-zero comparison circuit",
+   "note": "The audience's constant-zero circuit example makes concrete how a purported comparison relation can fail linearity by leaving elements incomparable.",
+   "first_introduced_sec": 504,
+   "spans": [
+    {
+     "start_sec": 489,
+     "end_sec": 581
+    }
+   ],
+   "total_seconds": 92,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The constant-zero comparison circuit is evaluated as making all pairs incomparable, hence producing an LOP violation.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 7,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the constant-zero comparison circuit is the empty/trivial relation, invariant under all inputs, and is used to show a purported comparison circuit may fail to be a linear order"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-zero comparator is the empty minimal comparison relation and is used to show comparability or linearity can fail."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-zero comparison circuit is a trivial empty relation used to refute the suggestion that circuit-given comparisons cannot have incomparability violations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the all-zero comparator is a trivial maximally uniform no-comparison relation used to exhibit an LOP violation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-zero comparator is the collapsed empty relation, maximally invariant, and used to refute that circuit inputs cannot yield incomparability."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-zero comparison relation is empty/minimal and maximally regular, and is used to show that circuit-given comparisons can have incomparable elements."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the all-zero comparator is an empty/minimal relation used to refute the claim that incomparability cannot occur"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-zero comparison is an empty/collapsed and maximally invariant relation, used to show that a circuit can fail to define a linear order."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-zero comparison circuit is a trivial empty/incomparable relation used to show that circuit-given comparisons can violate linear order."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-zero comparison circuit is an empty/minimal relation used to show that a circuit can fail to define a linear order."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "all-zero relation is an empty boundary comparison circuit used to refute that incomparability cannot occur"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the all-zero comparison circuit refutes the idea that incomparability cannot occur and is the empty/minimal relation"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Hard truth tables from range avoidance",
+   "note": "Hard truth tables are mentioned as one kind of pseudorandom object whose explicit construction can be reduced to AVOID, motivating the importance of the avoidance problem.",
+   "first_introduced_sec": 895,
+   "spans": [
+    {
+     "start_sec": 895,
+     "end_sec": 928
+    },
+    {
+     "start_sec": 1442,
+     "end_sec": 1475
+    }
+   ],
+   "total_seconds": 66,
+   "attaches_to": [
+    "s2",
+    "s3"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Hard truth tables are listed as objects obtainable via range avoidance, without constructing or analyzing one.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 9,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "hard truth tables are cited generically as range-avoidance construction targets, with no optimal boundary case singled out"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A hard truth table lies at the high circuit-complexity end and is listed as a range-avoidance construction target."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Hard truth tables are presented as standard pseudorandom/hard objects constructible via range avoidance, not as a sporadic or adversarial case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a hard truth table has high circuit complexity at the hard end of truth tables and is used as a construction target"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A hard truth table is chosen at the high-complexity side of the small-circuit boundary and is listed as a construction target."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Hard truth tables are high-circuit-complexity objects constructed via range avoidance, not used to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "hard truth tables are high-circuit-complexity objects used as construction targets from range avoidance"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A hard truth table is a high-complexity boundary object produced by avoidance, here used constructively rather than adversarially."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Hard truth tables are cited as ordinary construction targets reducible to range avoidance rather than as an adversarial refutation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Hard truth tables are cited as high-complexity objects obtainable via range avoidance, not as a counterexample in the argument."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "high-circuit-complexity truth tables lie at the hard end of truth tables and are construction targets"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "hard truth tables are cited as constructible outputs and have high-end circuit-complexity hardness"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Ramsey graphs from range avoidance",
+   "note": "Ramsey graphs are listed as an optional example of combinatorial pseudorandom objects obtainable through the AVOID framework.",
+   "first_introduced_sec": 895,
+   "spans": [
+    {
+     "start_sec": 895,
+     "end_sec": 928
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Ramsey graphs are only named among pseudorandom objects reducible to range avoidance.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ramsey graphs are listed as standard pseudorandom objects obtainable from range avoidance, not as a refuting example"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A Ramsey graph is selected for extremally small homogeneous subgraphs and is listed as a construction target."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Ramsey graphs are extremal combinatorial objects avoiding large cliques and independent sets, here used as outputs of range avoidance."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Ramsey graphs avoid large cliques and independent sets near extremal Ramsey bounds and are cited as range-avoidance outputs"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A Ramsey graph has extremally small homogeneous sets and is listed as a construction target from range avoidance."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Ramsey graphs are extremal graphs avoiding large cliques and independent sets, here serving as constructions from range avoidance."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Ramsey graphs avoid large homogeneous sets and serve as extremal combinatorial construction targets"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A Ramsey graph is an extremal pseudorandom graph avoiding large homogeneous sets, mentioned as a constructible object from range avoidance."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Ramsey graphs are extremal graphs with unusually small cliques and independent sets, here cited as constructible via range avoidance."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Ramsey graphs are invoked as pseudorandom extremal graphs avoiding large homogeneous subgraphs, not to refute a claim here."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Ramsey graphs minimize large homogeneous substructures and are cited as construction targets"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Ramsey graphs are cited as constructible pseudorandom objects and are extremal for avoiding large homogeneous subgraphs"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Rigid matrices from range avoidance",
+   "note": "Rigid matrices illustrate another non-PRG object whose explicit construction is captured by range avoidance.",
+   "first_introduced_sec": 895,
+   "spans": [
+    {
+     "start_sec": 895,
+     "end_sec": 928
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Rigid matrices are only listed as another object obtainable from range avoidance.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "rigid matrices are mentioned as another range-avoidance construction target, not as a failure case or special classification exception"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A rigid matrix is selected for high distance from low-rank matrices and is listed as a construction target."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Rigid matrices are extremal high-rigidity matrices far from low rank, here used as constructible pseudorandom objects."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "rigid matrices have unusually high resistance to rank reduction and are mentioned as another construction obtainable from avoidance"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A rigid matrix has extremally high resistance to low-rank alteration and is listed as a construction target from range avoidance."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Rigid matrices are defined by extremally high resistance to low-rank perturbation, here as another construction from range avoidance."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "rigid matrices are far from low-rank matrices, a high-distance extremal property, and are cited as constructible objects"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A rigid matrix has extremally high resistance to rank reduction by entry changes, and is cited as an output of range avoidance."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Rigid matrices are high-rigidity extremal matrices, here used as another construction target from range avoidance."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Rigid matrices are cited as high-rigidity extremal objects constructible from range avoidance."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "rigid matrices have unusually high distance from low-rank matrices and are cited as construction targets"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "rigid matrices are cited as constructible objects with high rank-distance rigidity"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "BPP threshold analogy for SBP",
+   "note": "The speaker compares SBP's small acceptance thresholds with the familiar BPP thresholds such as one-quarter and three-quarters to make the definition concrete.",
+   "first_introduced_sec": 3000,
+   "spans": [
+    {
+     "start_sec": 3000,
+     "end_sec": 3060
+    }
+   ],
+   "total_seconds": 60,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker compares SBP to BPP by altering the probability thresholds and explaining which threshold condition is dropped.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the BPP threshold comparison is a routine analogy for explaining SBP probabilities, not a structurally special object"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "BPP’s constant probability thresholds are used only as an ordinary analogy for defining SBP."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The BPP threshold comparison is a conventional analogy for explaining SBP’s probability gap, not a structurally special object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "BPP’s constant acceptance-gap thresholds are ordinary and are used only as an analogy for SBP"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The BPP threshold comparison is only a standard analogy for explaining SBP's acceptance gap."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The BPP threshold comparison is a typical bounded-error analogy used to explain SBP, not a structural exception or counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "BPP is used only as a familiar bounded-error threshold comparison for defining SBP"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "BPP’s constant acceptance thresholds are used only as a familiar analogy for SBP, with no special structural role."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The BPP threshold constants are used only as an explanatory analogy for SBP’s probability definition."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The BPP threshold is only a standard analogy for the SBP definition, with no special structural role."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary bounded-error BPP thresholds are used only as an analogy for SBP"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the BPP threshold constants are used only as an ordinary analogy for the SBP definition"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "UP as an extreme accepting-path case",
+   "note": "UP, with at most one accepting path, illustrates the stronger end of the hypothesis that NP might have nondeterministic machines with subexponentially many accepting paths.",
+   "first_introduced_sec": 3365,
+   "spans": [
+    {
+     "start_sec": 3365,
+     "end_sec": 3383
+    },
+    {
+     "start_sec": 4142,
+     "end_sec": 4177
+    }
+   ],
+   "total_seconds": 53,
+   "attaches_to": [
+    "s7",
+    "s8"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "UP is invoked as the extreme case of one accepting path, but no concrete construction or proof is run on it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "UP is explicitly used as the one-accepting-path limiting case of nondeterministic accepting-path counts"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "UP is the minimal one-accepting-path boundary case among nondeterministic accepting-path counts."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "UP is explicitly used as the limiting one-accepting-path case among nondeterministic computations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "UP is the one-accepting-path boundary case of nondeterminism and is cited as an extreme illustrative case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "UP is the minimal one-accepting-path case cited as the extreme of the accepting-path spectrum."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "UP is explicitly presented as the minimal accepting-path extreme of nondeterministic computation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "UP is explicitly cited as the one-accepting-path extreme among nondeterministic accepting-path bounds"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "UP restricts NP machines to the minimal nonzero accepting-path case, and is used illustratively as an extreme case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "UP is explicitly presented as the one-accepting-path extreme of nondeterministic accepting-path counts."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "UP is explicitly presented as the one-accepting-path boundary case among nondeterministic computations."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "UP is explicitly the one-accepting-path endpoint of nondeterministic accepting-path counts"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "UP is explicitly used as the boundary case of nondeterminism with one accepting path"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "BPP with postselection as a neighboring class",
+   "note": "BPP with postselection is mentioned as a neighboring class that admits a similar characterization by approximate counting queries, giving broader context for the SBP upper-bound method.",
+   "first_introduced_sec": 3518,
+   "spans": [
+    {
+     "start_sec": 3518,
+     "end_sec": 3560
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "BPP with postselection is named as a neighboring class with a similar characterization, without developing the characterization.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "BPP with postselection is presented as a neighboring complexity class in the landscape, not as an obstruction or extremal case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "BPP with postselection is mentioned as a neighboring complexity class rather than as a structurally exceptional or adversarial object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "BPP with postselection is mentioned as a nearby complexity class in the upper-bound landscape, without a special structural or counterexample role."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "BPP with postselection is a standard neighboring probabilistic class mentioned for comparison"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Postselected BPP is just a neighboring complexity class in the approximate-counting landscape."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "BPP with postselection is mentioned as a neighboring complexity class in the upper-bound landscape, not as a special structural object or counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "BPP with postselection is mentioned as a neighboring complexity class in the taxonomy, not as a structurally special object"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "BPP with postselection is introduced as a neighboring complexity class in the landscape, not as a structurally exceptional object or refutation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "BPP with postselection is mentioned as a neighboring complexity class with a related characterization, not as structurally exceptional or refutational."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "BPP with postselection is mentioned as a neighboring complexity class, not as exceptional, extremal, degenerate, or a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "BPP with postselection is a neighboring complexity class used for comparison"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "BPP with postselection is mentioned as a nearby standard complexity class rather than a structurally special example"
+    }
+   ]
+  }
+ ]
+}

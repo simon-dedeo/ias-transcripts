@@ -1,0 +1,990 @@
+{
+ "key": "41824e9b37d158b576f004492c75ce8a",
+ "title": "Natural algorithms for flow problems",
+ "speaker": "Nisheeth Vishnoi",
+ "affiliation": "École polytechnique fédérale de Lausanne",
+ "date": "2015-04-06T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3884.0,
+ "abstract": "In the last few years, there has been a significant interest in the computational abilities of Physarum Polycephalum (a slime mold). This drew from a remarkable experiment which showed that this organism can compute shortest paths in a maze. Subsequently, the workings of Physarum were mathematically modeled as a dynamical system and algorithms inspired by this model were proposed to solve several graph problems.",
+ "youtube_url": "https://www.youtube.com/watch?v=uO1jNeFBP54",
+ "page_url": "https://www.ias.edu/video/csdm/2015/0406-NisheethVishnoi",
+ "tags": [
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Physarum dynamics as flow algorithms",
+   "summary": "The talk motivates Physarum dynamics from slime-mold behavior, formulates shortest path and undirected/directed min-cost flow problems, and recalls prior convergence results and the unresolved issues of rates and positivity.",
+   "spans": [
+    {
+     "start_sec": 30,
+     "end_sec": 795
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Pseudopolynomial convergence theorems",
+   "summary": "The speaker defines the relevant efficiency notion, introduces Euler-discretized Physarum dynamics, and states the main results: convergence bounds for undirected and directed min-cost flow plus global existence for the continuous directed system.",
+   "spans": [
+    {
+     "start_sec": 795,
+     "end_sec": 1601
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Undirected electrical-flow setup and invariants",
+   "summary": "For the undirected discrete dynamics, the proof fixes an optimal flow, expresses each step through Laplacians, voltages, currents, and energy, then proves positivity, uniform upper bounds, cut lower bounds, and existence of an x-capacitated proxy flow at every time.",
+   "spans": [
+    {
+     "start_sec": 1601,
+     "end_sec": 2085
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Cost, energy, and logarithmic barrier progress",
+   "summary": "The proof compares the weighted conductance cost with the optimum and the electrical energy, then introduces a log barrier weighted by an optimal flow to show that either cost decreases or the barrier increases whenever the current cost is still above optimum.",
+   "spans": [
+    {
+     "start_sec": 2085,
+     "end_sec": 2654
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Voltage bound and completion of the undirected proof",
+   "summary": "The remaining step bounds all potential differences by sorting vertices by voltage and applying a cut argument, allowing a step size of order 1/(nC) and completing the convergence-to-optimal-cost bound without requiring uniqueness of the optimal flow.",
+   "spans": [
+    {
+     "start_sec": 2654,
+     "end_sec": 3004
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Directed dynamics via preconditioning and exclusion barriers",
+   "summary": "For directed min-cost flow, the proof adds high-cost demand-pair edges, uses an induction linking positivity, capacitated flows, and bounded voltages, interprets iterates as approaching a geometrically weighted average of electrical flows, and applies barriers against nonoptimal basic flows.",
+   "spans": [
+    {
+     "start_sec": 3004,
+     "end_sec": 3428
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Global existence for continuous directed dynamics",
+   "summary": "The continuous-time proof reduces global existence to preventing any conductance from reaching zero in finite time, then uses a logarithmic barrier and bounded energy/voltage estimates to rule out such boundary hitting.",
+   "spans": [
+    {
+     "start_sec": 3428,
+     "end_sec": 3816
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Consequences and open algorithmic directions",
+   "summary": "The talk concludes that Physarum-type dynamics can solve undirected and directed flow problems and highlights open questions about sharper bounds, whether directed preconditioning is intrinsic, and better discretizations for truly efficient algorithms.",
+   "spans": [
+    {
+     "start_sec": 3816,
+     "end_sec": 3851
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Slime mold solving a maze",
+   "note": "The maze experiment shows a slime mold retracting to the shortest route between two food sources, motivating the mathematical shortest-path/Physarum-dynamics model rather than proving any convergence theorem.",
+   "first_introduced_sec": 66,
+   "spans": [
+    {
+     "start_sec": 66,
+     "end_sec": 225
+    }
+   ],
+   "total_seconds": 159,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker walks through the maze experiment over time, explaining how the slime mold reorganizes and leaves the shortest path between the food sources",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A motivating ordinary Physarum-in-a-maze instance illustrating shortest-path behavior, not refuting a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the showcased output is the maze’s shortest source–sink path, an optimum among paths, used only as motivation"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the Physarum maze behavior is used as an ordinary positive motivation for shortest-path dynamics, not as a refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as a motivating natural process for shortest-path dynamics, not as a structurally special mathematical object or failure case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the final slime-mold configuration is presented as a shortest/minimum path through the maze, used only as motivation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Physarum maze experiment is used illustratively as a natural shortest-path solver, not as a structurally special mathematical object or refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "used as a motivating positive instance whose final maze network is the shortest, hence minimum-cost, path."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The slime-mold maze experiment is used as motivation, with the final configuration being an optimal shortest path."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the slime-mold maze experiment is used as motivating evidence/illustration of shortest-path behavior, with no intrinsic maximal symmetry, sporadic status, degeneration, or extremality"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Motivating instance of a natural process producing a shortest path, with no intrinsic extremal or exceptional structure specified"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The slime mold is presented as a motivating natural process whose final configuration is the shortest path, a minimum-length solution, not as a disproof."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is used as a motivating natural instance of shortest-path behavior, not as an adversarial or structurally special mathematical object."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Two parallel edges with costs C and C-1",
+   "note": "This tiny directed graph shows that Physarum dynamics may take time proportional to the numerical magnitude C to distinguish nearly equal costs, motivating the pseudopolynomial convergence notion.",
+   "first_introduced_sec": 827,
+   "spans": [
+    {
+     "start_sec": 827,
+     "end_sec": 905
+    }
+   ],
+   "total_seconds": 78,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses the two-edge graph as a concrete lower-bound instance, describing the Physarum trajectory and that its convergence time is proportional to C",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A collapsed two-vertex parallel-edge network with a minimal unit cost gap, used to show convergence can scale like C rather than log C."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a minimal two-parallel-edge near-tie with integer cost gap 1 is used to refute convergence polynomial in the bitlength of C"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the minimal two-parallel-edge near-tie instance is a critical slow-convergence case used against input-size-polynomial convergence."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a minimal two-edge near-tie instance showing Physarum convergence cannot be polynomial in log C"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a minimal two-parallel-edge network with an almost tied cost gap is used to show convergence need not be logarithmic in C"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The two-vertex two-parallel-edge instance is minimal and has adjacent costs forming a near-tie, and is used to show convergence need not be polynomial in log C."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the two-edge near-tie instance is used to refute logarithmic-in-C convergence and is a minimal boundary bad case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The two-edge network with costs C and C-1 is a minimal near-tie instance used to refute logarithmic-in-C convergence expectations."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the two-vertex two-parallel-edge instance with costs C and C-1 is used to refute logarithmic-in-C efficient convergence, and is a minimal near-tie instance with the smallest nonzero cost gap"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used as an obstruction to logarithmic-in-C efficiency, and it is a minimal two-edge near-tie instance with the smallest integer cost gap"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "This minimal two-arc network with adjacent costs C and C-1 is used to show logarithmic-in-C convergence cannot be guaranteed."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The minimal two-edge network with costs differing by the smallest integer gap is used to refute logarithmic-in-C convergence efficiency."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Two parallel edges with costs C/2 and C",
+   "note": "An audience-suggested variant contrasts the near-tie example by indicating that convergence is fast when the cost gap is large, illustrating sensitivity to numerical separation.",
+   "first_introduced_sec": 905,
+   "spans": [
+    {
+     "start_sec": 905,
+     "end_sec": 926
+    }
+   ],
+   "total_seconds": 21,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the variant with costs C/2 and C is only raised in a question and answered qualitatively as being fast, with no analysis shown",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The same minimal two-parallel-edge network with a large cost gap, used only as a fast-convergence contrast."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the same minimal nontrivial two-parallel-edge network with well-separated costs is used as a contrast case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the same minimal two-parallel-edge graph with well-separated costs is used only as a fast contrasting case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a minimal two-parallel-edge comparison instance with well-separated costs, used only to contrast the slow near-tie case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a minimal two-parallel-edge network with well-separated costs is used as a contrasting fast case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "This is the same minimal two-parallel-edge graph but with well-separated costs, used only as a fast contrasting case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the two-parallel-edge graph is a minimal toy comparison case, but it is used to illustrate fast rather than failing behavior."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The costs C/2 and C are just a minimal two-parallel-edge comparison case where convergence is said to be fast."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the two-parallel-edge instance with costs C/2 and C is only a contrasting fast-convergence toy case, structurally minimal but not a near-boundary hard case"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Used only as a contrasting fast case, and the graph is a minimal two-parallel-edge flow instance"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "This same minimal two-arc network with costs C/2 and C is only a contrasting easy case with a large cost gap."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "It is the same minimal two-parallel-edge network but with a clear cost separation, used only as a fast contrasting case."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Transportation problem inside undirected min-cost flow",
+   "note": "The transportation problem is mentioned as a familiar optimization problem subsumed by the undirected min-cost flow setting, illustrating the algorithmic scope of the theorem.",
+   "first_introduced_sec": 1382,
+   "spans": [
+    {
+     "start_sec": 1382,
+     "end_sec": 1414
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the transportation problem is only cited as a subcase of undirected min-cost flow, without working through an instance or reduction",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The transportation problem is a standard structured special case of undirected min-cost flow, cited for relevance rather than refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the transportation problem is a standard rich special family within undirected min-cost flow, cited to illustrate scope rather than failure"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the transportation problem is a standard special case of undirected min-cost flow cited to show scope and nontriviality."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the transportation problem is a standard structured subfamily of min-cost flow invoked to show relevance, not a sporadic or adversarial example"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the transportation problem is a standard structured subfamily of min-cost flow, cited as an included application rather than a refutation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The transportation problem is a standard structured subcase of undirected min-cost flow, cited to indicate scope rather than to disprove a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the transportation problem is cited as an ordinary systematic subcase of undirected min-cost flow to indicate scope and difficulty."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The transportation problem is cited as a standard systematic subcase of undirected min-cost flow, not as an obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the transportation problem is cited as a standard subclass contained in undirected min-cost flow rather than as an obstruction or structurally exceptional object"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cited as a standard subclass contained in undirected min-cost flow rather than as an obstruction or structurally special object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The transportation problem is cited as a standard systematic subfamily of undirected min-cost flow to show scope, not as an obstruction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The transportation problem is cited as a standard included special case of undirected min-cost flow, not as a refutation or exceptional structure."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1420 @@
+{
+ "key": "94ede0e1bf1d601cb9962568fc7f2da8",
+ "title": "Breaking the n‾√ Barrier: New Parallel Algorithms for Finding a Matroid Basis",
+ "speaker": "Aaron (Louie) Putterman",
+ "affiliation": "Harvard University",
+ "date": "2025-11-17T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3941.0,
+ "abstract": "Over 40 years ago, Karp, Upfal, and Wigderson posed a central open question in parallel computation: how many adaptive rounds are needed to find a basis of a matroid using only independence queries? Their pioneering work gave an upper bound of O(n‾√) rounds and a lower bound of roughly Ω(n1/3) rounds---bounds that have stood unchanged ever since.\nIn this talk, I will present recent progress on this classic problem. We give a new parallel algorithm that, with high probability, finds a matroid basis in O(n3/7) rounds, breaking the long-standing O(n‾√) barrier. For the important special case of partition matroids, we obtain an optimal O(n1/3)\n-round algorithm, settling their complexity. Our approach introduces a new matroid decomposition technique which may be of independent interest, and also yields faster parallel algorithms for the classic matroid intersection problem, among others. \nBased on joint work with Sanjeev Khanna and Junkai Song (Penn).",
+ "youtube_url": "https://youtu.be/jWt9EHV1Awk",
+ "page_url": "https://www.ias.edu/video/breaking-n-barrier-new-parallel-algorithms-finding-matroid-basis",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Matroid basis problem and oracle baseline",
+   "summary": "The talk defines matroids via hereditary and exchange axioms, introduces circuits, bases and rank, formulates basis finding with independence-oracle access, and recalls the sequential greedy algorithm.",
+   "spans": [
+    {
+     "start_sec": 61,
+     "end_sec": 792
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Parallel adaptive query model and sqrt(n) algorithm",
+   "summary": "The speaker defines the adaptive-round model with polynomially many parallel oracle queries per round and presents the Karp-Upfal-Wigderson block-prefix algorithm that processes or deletes about sqrt(n) elements per round.",
+   "spans": [
+    {
+     "start_sec": 792,
+     "end_sec": 1357
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Prior gap and new randomized upper bound",
+   "summary": "The known randomized lower bound of roughly n^{1/3} rounds and the new randomized n^{3/7}-round upper bound are stated, with the plan to first understand partition matroids and then generalize to arbitrary matroids.",
+   "spans": [
+    {
+     "start_sec": 1357,
+     "end_sec": 1641
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Partition-matroid lower bound and variance obstruction",
+   "summary": "The Karp-Upfal-Wigderson staircase partition-matroid lower-bound intuition is reviewed, and the speaker explains why a naive sqrt(n)-level version fails because standard deviations let queries distinguish many adjacent budget levels at once.",
+   "spans": [
+    {
+     "start_sec": 1641,
+     "end_sec": 2333
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Partition-matroid recovery algorithm and circuit-trigger growth",
+   "summary": "A random-permutation procedure recovers parts causing first dependence, the circuit-trigger parameter alpha is introduced as the median first-dependence time, and a growth-rate lemma shows that peeled sets of comparable size have quadratically increasing alpha values, yielding about n^{1/3} rounds.",
+   "spans": [
+    {
+     "start_sec": 2333,
+     "end_sec": 3152
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "General-matroid parts and decomposition",
+   "summary": "For arbitrary matroids, a part is defined using high first-circuit containment probability plus nontrivial element marginals, and these parts can be found and peeled to obtain an analogous decomposition with the same alpha-growth behavior.",
+   "spans": [
+    {
+     "start_sec": 3152,
+     "end_sec": 3519
+    },
+    {
+     "start_sec": 3850,
+     "end_sec": 3932
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Independent-set and deletion progress subroutines",
+   "summary": "The final algorithm processes each recovered part by a case analysis: large alpha yields a large independent set, small alpha yields many deletable redundant elements, and iterating these subroutines gives the improved parallel basis-finding bound.",
+   "spans": [
+    {
+     "start_sec": 3519,
+     "end_sec": 3850
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Graphic matroid: forests and cycles",
+   "note": "A graph's edge sets are independent when acyclic, so bases become spanning forests and circuits become simple cycles, making the abstract matroid notions concrete.",
+   "first_introduced_sec": 186,
+   "spans": [
+    {
+     "start_sec": 186,
+     "end_sec": 221
+    },
+    {
+     "start_sec": 424,
+     "end_sec": 469
+    }
+   ],
+   "total_seconds": 80,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker derives what bases and circuits become in the graphic matroid, identifying bases as spanning forests and arguing that circuits are single simple cycles rather than unions of cycles by minimality.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A graphic matroid is a canonical infinite family used illustratively to model acyclic edge sets and cycles."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A graphic matroid from an arbitrary graph is a standard systematic family used to identify forests as independent sets and cycles as circuits."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An unspecified graphic matroid is used as a standard motivating example via forests and cycles."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A graphic matroid is a standard infinite family used canonically to illustrate matroid independence, not as a boundary or refuting case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A graphic matroid is a standard infinite-family example used to interpret bases as spanning forests and circuits as cycles."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Standard infinite-family matroid illustrating acyclicity, spanning forests, and simple-cycle circuits."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used only as the standard graphic-matroid illustration for forests and simple-cycle circuits over an arbitrary graph."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Canonical graphic matroids are used as a motivating representative example, with bases as spanning forests and circuits as cycles."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "canonical graphic-matroid family used only to identify bases and circuits as forests and cycles"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "canonical graphic matroid example used to explain forests as bases and cycles as circuits, with no special graph specified"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a canonical graphic-matroid family used for intuition, with no special graph assumed"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Canonical graphic-matroid example relating independence to acyclicity, used only for intuition."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Linear matroid: vector-space independence",
+   "note": "Vectors with linear independence give the familiar case where bases are linear-algebra bases, and the span picture explains why the first dependent prefix contains a redundant element.",
+   "first_introduced_sec": 221,
+   "spans": [
+    {
+     "start_sec": 221,
+     "end_sec": 254
+    },
+    {
+     "start_sec": 470,
+     "end_sec": 495
+    },
+    {
+     "start_sec": 1172,
+     "end_sec": 1206
+    }
+   ],
+   "total_seconds": 92,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker works through the linear-matroid analogy, deriving that a newly dependent prefix means the new vector lies in the span of the previous ones and identifying bases/circuits in vector-space terms.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A linear matroid is a standard representative family of matroids encoding vector-space independence."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An arbitrary linear matroid is a standard representable matroid used as an analogy for vector-space independence."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A general linear matroid of vector-space independence is presented as a canonical illustrative family."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A linear matroid from vector-space independence is a standard representable family used as a motivating example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A linear matroid is a standard representable-matroid example illustrating ordinary vector-space independence."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Standard representable matroid illustrating ordinary vector-space independence."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as the standard representable-matroid illustration from arbitrary vectors, not as an obstruction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Linear matroids are introduced as an ordinary systematic class modeling vector-space independence."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "canonical linear-matroid family used only to illustrate matroid independence by vector-space independence"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard representable matroid example used to motivate matroid independence via linear independence"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard representable-matroid example used illustratively, with no special vector configuration specified"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ordinary representable matroid example of vector-space independence, used only for intuition."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Uniform matroid with budget b",
+   "note": "The rule that every set of size at most b is independent illustrates bases and circuits, and later shows that the circuit-trigger parameter is simply b+1.",
+   "first_introduced_sec": 254,
+   "spans": [
+    {
+     "start_sec": 254,
+     "end_sec": 286
+    },
+    {
+     "start_sec": 495,
+     "end_sec": 522
+    },
+    {
+     "start_sec": 2726,
+     "end_sec": 2748
+    }
+   ],
+   "total_seconds": 81,
+   "attaches_to": [
+    "s1",
+    "s5"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the definitions to the uniform matroid, deriving bases as size-b sets, circuits as size b+1 sets, and later computing the circuit-trigger parameter as b+1.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 9,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A uniform matroid is the maximally symmetric rank-budget matroid where independence depends only on cardinality."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The uniform matroid U_{b,n} is the maximally free rank-b matroid, with independence depending only on cardinality and all elements interchangeable."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The uniform matroid treats all elements identically and is the free-as-possible rank-b matroid, but is only used illustratively."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform matroid treats all ground-set elements interchangeably under the full symmetric group, and is introduced as a simple example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The uniform matroid U_{b,n} treats all elements identically and is the free rank-b matroid maximizing independence among rank-b matroids."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Uniform U_{b,n} has full permutation symmetry among elements and is used as a simple model."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The rank-b uniform matroid is maximally free for its rank and invariant under all ground-set permutations."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The rank-b uniform matroid is the maximally independent rank-b matroid on n elements and is invariant under all element permutations."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the uniform matroid treats all elements identically and maximizes independent sets for rank b, but is used illustratively"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "uniform matroid is used illustratively and is structurally maximally free of rank b with all elements interchangeable"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the uniform matroid is fully permutation-invariant and maximal among rank-b matroids, used as a simple example"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Uniform rank-b matroid is the maximally free and fully element-symmetric rank-b matroid."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Hypothetical square-root staircase partition matroid",
+   "note": "The attempted sqrt(n)-part staircase lower-bound instance reveals that sampling variance lets one learn about a window of roughly sqrt(i) parts at once, producing the key quadratic-growth intuition.",
+   "first_introduced_sec": 2048,
+   "spans": [
+    {
+     "start_sec": 2048,
+     "end_sec": 2333
+    },
+    {
+     "start_sec": 2788,
+     "end_sec": 2816
+    }
+   ],
+   "total_seconds": 313,
+   "attaches_to": [
+    "s4",
+    "s5"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes the square-root staircase partition instance, computing expected samples per part, the standard deviation, and explaining how this lets one learn blocks beyond the next part.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 10,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The square-root staircase partition matroid is used to show the naive one-part-per-round square-root lower-bound argument fails."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The sqrt(n)-by-sqrt(n) staircase is a boundary-parameter partition matroid used to refute the naive one-part-per-round square-root lower-bound intuition."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The square-root staircase partition matroid is used to show the naive one-part-per-round lower-bound intuition fails."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The square-root staircase partition matroid is a deliberately critical barrier instance used to show the naive square-root lower-bound intuition fails."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The square-root equal-block staircase is a highly regular critical-scale partition matroid used to show the naive sqrt-n lower-bound extrapolation fails."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Boundary square-root-by-square-root staircase partition construction used to refute the naive square-root lower-bound extrapolation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Introduced to refute the naive square-root lower-bound extrapolation, with budgets at a square-root staircase boundary."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The square-root staircase partition matroid is a boundary construction used to show the naive one-part-per-round lower-bound intuition fails."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the boundary sqrt-n staircase construction is used to refute the tempting one-part-per-round sqrt-n lower-bound intuition"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "square-root staircase partition matroid is a critical foil showing the naive sqrt(n)-round lower-bound extension fails"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the sqrt-n staircase is a critical boundary construction used to refute the naive one-part-per-round lower-bound extrapolation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used to show the naive square-root lower-bound extension fails, with a critical square-root staircase structure."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Six-element two-part partition toy model",
+   "note": "A tiny partition matroid with two three-element parts and unit budgets visualizes the random-permutation prefix procedure that identifies the first part causing dependence.",
+   "first_introduced_sec": 2364,
+   "spans": [
+    {
+     "start_sec": 2364,
+     "end_sec": 2472
+    }
+   ],
+   "total_seconds": 108,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker runs the prefix-query construction on the six-element two-part partition toy model, tracing how the first dependent query reveals the offending part and then the whole part.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 0,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The six-element two-block budget-one partition matroid is a minimal rank-one-block toy model used only to illustrate the recovery step."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "It is the toy matroid U_{1,3} direct-sum U_{1,3}, with rank-one parallel classes that are collapsed but highly interchangeable."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The six-element two-block partition matroid is a small toy illustration of the recovery procedure, not an adversarial instance."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The six-element two-block partition matroid is a balanced, highly regular toy model used only to illustrate the recovery procedure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The six-element model has two identical three-element parts with equal budgets, serving only as a symmetric toy illustration of part recovery."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Small nontrivial partition-matroid toy model for the prefix-query recovery step."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A balanced direct sum U_{1,3}⊕U_{1,3} used only as a toy illustration, symmetric within and between the two identical parts."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The six-element two-block model is just an illustrative partition matroid, though its equal blocks and equal budgets give strong block symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the equal two-block budget-one partition matroid is a highly regular toy model for the recovery procedure"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "six-element two-block budget-one partition matroid is a tiny rank-one-block toy model used only to illustrate circuit recovery"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the two identical rank-one partition blocks give high block symmetry, but the model is only a toy illustration"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Small equal-block partition toy model used only to illustrate the prefix-query recovery procedure."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Graphic-matroid part as shortest cycles",
+   "note": "In response to a question, the speaker explains that the general-matroid notion of a part would correspond in a graphic matroid to the union of the shortest simple cycles, analogously to first circuits under random permutations.",
+   "first_introduced_sec": 3864,
+   "spans": [
+    {
+     "start_sec": 3864,
+     "end_sec": 3932
+    }
+   ],
+   "total_seconds": 68,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only describes the graphic-matroid part informally as the union of shortest cycles and compares it to a Karger-style bound, without carrying out a concrete computation or construction on a graph.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "In a graphic matroid the proposed part is the union of shortest simple cycles, which are minimum-length circuits."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "In a graphic matroid the proposed part is the union of girth cycles, i.e. cycles of minimum length."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "In a graphic matroid the relevant part is described as the union of shortest cycles, which are minimum-length circuits."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "In a graphic matroid the proposed part is the union of shortest cycles, i.e. cycles extremal by minimum length, used as intuition rather than refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Shortest cycles in a graphic matroid are girth-attaining minimal circuits used illustratively to describe what a part would look like."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Shortest cycles are girth circuits, minimal-length circuits in the graphic matroid, used only explanatorily."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as an explanatory specialization, and shortest cycles are girth-minimizing graphic-matroid circuits."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "In a graphic matroid the proposed part is the union of shortest cycles, i.e. minimum-length circuits, used to interpret the decomposition rather than refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the graphic-matroid part is identified with the union of shortest/girth cycles, an extremal cycle class, only as an illustration"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "graphic-matroid part is described as the union of shortest simple cycles, an extremal minimum-length cycle structure used illustratively"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "shortest graphic cycles are minimum-length circuits, used to explain what a matroid part might look like"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The graphic-matroid part is identified with shortest cycles, which are minimum-length circuits."
+    }
+   ]
+  }
+ ]
+}

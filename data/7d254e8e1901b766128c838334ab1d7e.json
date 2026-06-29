@@ -1,0 +1,1168 @@
+{
+ "key": "7d254e8e1901b766128c838334ab1d7e",
+ "title": "Approximating large frequency moments with pick-and-drop sampling",
+ "speaker": "Vladimir Braverman",
+ "affiliation": "Johns Hopkins University",
+ "date": "2013-11-04T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3370.0,
+ "abstract": "Given data stream \\(D = \\{p_1,p_2,...,p_m\\}\\) of size \\(m\\) of numbers from \\(\\{1,..., n\\}\\), the frequency of \\(i\\) is defined as \\(f_i = |\\{j: p_j = i\\}|\\). The \\(k\\)-th frequency moment of \\(D\\) is defined as \\(F_k = \\sum_{i=1}^n f_i^k\\). We consider the problem of approximating frequency moments for \\(k\\ge 3\\). For any constant \\(c\\) we show an \\(O(n^{1-2/k}\\log(n)\\log^{(c)}(n))\\) upper bound on the space complexity of the problem. Here \\(\\log^{(c)}(n)\\) is the iterative \\(\\log\\) function.",
+ "youtube_url": "https://www.youtube.com/watch?v=JfxomhYgPJo",
+ "page_url": "https://www.ias.edu/video/csdm/2013/1104-VladimirBraverman",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Streaming frequency-moment problem and target bound",
+   "summary": "The talk defines the insertion-stream frequency vector, the moment F_k=sum_i f_i^k, the one-pass sublinear-space approximation goal, and states the improved large-k space bound under standard size assumptions.",
+   "spans": [
+    {
+     "start_sec": 59,
+     "end_sec": 369
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Heavy-hitter strategy and underestimation principle",
+   "summary": "The central plan is to find and approximate sufficiently heavy coordinates and then use them to approximate F_k, with the new advantage that pick-and-drop estimates are always underestimates and so avoid a costly union-bound loss.",
+   "spans": [
+    {
+     "start_sec": 397,
+     "end_sec": 648
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Matrix promise case for pick-and-drop sampling",
+   "summary": "The stream is reshaped into rows of a matrix, and in an idealized one-heavy-element promise case the algorithm samples one item per row, keeps it only when it repeats soon enough, and thereby finds the heavy item using about n^{1-2/k} parallel samples.",
+   "spans": [
+    {
+     "start_sec": 648,
+     "end_sec": 1197
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "General single-matrix pick-and-drop algorithm",
+   "summary": "For arbitrary row distributions the speaker defines tail counts, row frequencies, parameters r and lambda, local row samples and counters, and a deterministic winner/liveness rule that replaces or drops samples so noisy elements cannot persist too long.",
+   "spans": [
+    {
+     "start_sec": 1197,
+     "end_sec": 1811
+    },
+    {
+     "start_sec": 2018,
+     "end_sec": 2095
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Matrix heavy-element theorem and noise analysis",
+   "summary": "Under appropriate inequalities relating the true heavy frequency to residual second and third moments, the single-matrix process samples the heavy element with probability essentially governed only by its frequency and the number of columns; the proof intuition bounds the damage a noisy sampled element can do using its sampling probability, liveness time, and a residual third-moment sum.",
+   "spans": [
+    {
+     "start_sec": 1811,
+     "end_sec": 1999
+    },
+    {
+     "start_sec": 2095,
+     "end_sec": 2248
+    },
+    {
+     "start_sec": 2959,
+     "end_sec": 3322
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Amplification and parameter guessing",
+   "summary": "Choosing lambda correctly would give the desired heavy-element probability, so the algorithm runs many independent samples and parallel guesses for the unknown ratio delta and matrix parameters, then selects the largest reported underestimating counter to obtain the n^{1-2/k} log n space scale.",
+   "spans": [
+    {
+     "start_sec": 2248,
+     "end_sec": 2560
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Recursive reduction from heavy hitters to F_k",
+   "summary": "A pairwise-independent halving recursion reduces moment estimation to finding heavy elements at each sampled level, hashing separates multiple heavy elements into substreams, and iterating this reduction with the improved subroutine yields the advertised iterated-log improvement.",
+   "spans": [
+    {
+     "start_sec": 2576,
+     "end_sec": 2959
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Stream of colored marbles",
+   "note": "The colored-marbles stream makes the frequency vector and the operation of summing powers of color-counts concrete before the formal definition of frequency moments.",
+   "first_introduced_sec": 59,
+   "spans": [
+    {
+     "start_sec": 59,
+     "end_sec": 136
+    }
+   ],
+   "total_seconds": 77,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The colored-marble stream is used as an introductory analogy for forming a frequency vector and moment, without doing a concrete computation on a particular stream.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative data stream for defining frequency moments"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative data stream for the frequency-moment problem"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An arbitrary colored-marble stream is the generic motivating model for a data stream."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A colored-marble stream is just the generic representative model for a data stream/frequency vector."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary data stream model used illustratively."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An arbitrary stream of colored marbles is a representative frequency-stream instance used as motivation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary illustrative data stream used to define frequency vectors and moments."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a generic marble stream is just an illustrative representative data stream for defining frequency moments"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An arbitrary marble stream is just the motivating model for a frequency vector."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative data stream used to introduce frequency moments, with no special intrinsic structure"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An arbitrary colored-marble stream is just a representative data-stream illustration."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an ordinary illustrative data stream used to define frequency moments"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "All frequencies are zero or one",
+   "note": "The all-unit-frequency case illustrates why, when no heavy element is present, subsampling or dimension reduction should lose little information.",
+   "first_introduced_sec": 619,
+   "spans": [
+    {
+     "start_sec": 619,
+     "end_sec": 648
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The case where frequencies are zero or one is invoked as an easy intuition for having no heavy elements, but no calculation or construction is carried out on that specific case.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 7,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "binary frequency vector is a collapsed/no-repetition special case of general frequencies"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "0/1 frequencies form the collision-free minimal-multiplicity boundary case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A 0/1 frequency vector is a collapsed no-duplicate case at the minimum positive-frequency boundary."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A 0/1 frequency vector is the collision-free case where multiplicities collapse to mere support indicators."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A binary frequency vector has no multiplicities, making it a minimal boundary case used for intuition."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A 0/1 frequency vector is a set-like no-duplicate boundary case with all positive counts minimal."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A 0-1 frequency vector is the no-duplicate minimal boundary case where higher moments collapse to the support size."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a 0/1 frequency vector is a set-like minimal-multiplicity case with no repeated items"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A 0/1 frequency vector has no repeated items, making it a minimal no-collision case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a 0/1 frequency vector has no repeated items, a collapsed/no-collision boundary case used for intuition rather than to refute a claim"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A 0/1 frequency vector is the no-repetition boundary case with minimal higher moments."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a binary frequency vector with no multiplicities, a minimal/no-duplicate boundary case rather than an obstruction"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Too-short rows with no nearby duplicate",
+   "note": "In response to a question, the speaker notes that if rows are made too short, a sampled heavy item may not repeat in the next few rows, forcing the algorithm to retain many samples and lose the space gain.",
+   "first_introduced_sec": 1044,
+   "spans": [
+    {
+     "start_sec": 1044,
+     "end_sec": 1111
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reasons through what happens with too-short rows: a duplicate may not appear nearby, so samples must be kept across many rows, increasing space.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as an adversarial obstruction to choosing shorter rows in the sampling scheme"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as an adversarial obstruction showing shorter rows may fail to find a duplicate soon enough"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The no-nearby-duplicate arrangement is used to show that choosing rows too short would break the sampling trick."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Rows with no nearby duplicate are used as an obstruction to choosing rows too short in the sampling scheme, but are not structurally exceptional."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The separated-duplicate arrangement is used as an obstruction to choosing shorter rows."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The short-row/no-near-duplicate arrangement is used as an obstruction to making rows shorter, not as a structurally special object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an obstruction to choosing shorter rows, since a sample may have no duplicate soon enough to keep it."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "it is used as an obstruction showing that choosing rows too short can fail because duplicates need not appear nearby"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It is used as an obstruction showing shorter rows may fail because a sampled item has no nearby duplicate."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as an obstruction to choosing shorter rows, since a sample may have no nearby duplicate and would need to be stored too long"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The no-nearby-duplicate arrangement is used as an obstruction to choosing rows too short."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as an adversarial obstruction showing shorter rows may fail because duplicates need not appear soon enough"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "False-positive noisy row",
+   "note": "A row filled with moderately frequent but non-heavy elements motivates the liveness parameter: such samples must be dropped unless their counters keep growing roughly linearly.",
+   "first_introduced_sec": 1590,
+   "spans": [
+    {
+     "start_sec": 1590,
+     "end_sec": 1693
+    }
+   ],
+   "total_seconds": 103,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The false-positive noisy row is analyzed quantitatively, with frequencies like n^alpha/n^epsilon, survival time, killed good elements, sampling probability, and an expectation bound.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a false-positive noise case that the liveness parameter must defeat"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a noisy false-positive case that would defeat a simpler keep-the-largest-sample rule"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The noisy false-positive row is an adversarial case motivating the sample-liveness/drop rule."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The noisy row of false positives is an adversarial case motivating the liveness/drop rule, not a special classified object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The noisy row is an adversarial false-positive case the algorithm must handle."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The noisy false-positive row is an adversarial pattern showing why the liveness rule is needed, while structurally it is an ordinary stream pattern."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Introduced as an adversarial noise case that can create misleading local samples unless the liveness threshold is used."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the noisy false-positive row is an adversarial case motivating the liveness threshold against misleading samples"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The noisy row is an adversarial false-positive case motivating the sample-dropping rule."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a noisy row of false positives is an adversarial case motivating the liveness/drop rule, not a structurally exceptional object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The noisy row is an adversarial false-positive case locally collapsed into repeated spurious items."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a noisy adversarial case that would create false positives without the liveness parameter"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Three-by-four matrix with samples 2, 3, and 1",
+   "note": "This small matrix illustrates how the deterministic winner rule depends on lambda, with one value allowing the sample 2 to win and a much larger value causing no earlier sample to survive.",
+   "first_introduced_sec": 2018,
+   "spans": [
+    {
+     "start_sec": 2018,
+     "end_sec": 2095
+    }
+   ],
+   "total_seconds": 77,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The three-by-four matrix is run through the sample-selection rule for samples 2, 3, and 1, comparing outcomes for lambda=1 and lambda=100.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary small toy matrix illustrating how the deterministic sample game depends on lambda"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "small toy matrix illustrating the sample-selection rule for different lambda values"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The 3-by-4 matrix with samples 2, 3, and 1 is just a small illustrative run of the algorithm."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The 3-by-4 matrix with samples 2, 3, and 1 is a small ordinary toy instance illustrating the algorithm’s winner rule."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A small ordinary matrix is used only to demonstrate the sample-selection rule."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The three-by-four matrix with samples 2, 3, and 1 is a small toy run of the algorithm, and smallness alone is not structurally atypical."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A small toy matrix used only to illustrate how the pick-and-drop rule depends on lambda."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the 3-by-4 sampled matrix is only a small illustrative run of the algorithm, not structurally special"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The small matrix is only a toy illustration of the update rule and parameter dependence."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "small concrete matrix used only to illustrate the pick-and-drop game for different lambda values"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The 3-by-4 matrix is a small worked illustration of the sampling rule, not a structurally special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a small concrete matrix used only to illustrate how the sampling game depends on parameters"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1035 @@
+{
+ "key": "3068276612d77bb8c917f3d60bce089b",
+ "title": "New Locally Decodable Codes from Lifting",
+ "speaker": "Madhu Sudan",
+ "affiliation": "Microsoft Research",
+ "date": "2013-03-25T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 4143.0,
+ "abstract": "Locally decodable codes (LDCs) are error-correcting codes that allow for highly-efficient recovery of \"pieces\" of information even after arbitrary corruption of a codeword. Locally testable codes (LTCs) are those that allow for highly-efficient testing to see if some given word is close to a codeword. Codes derived from evaluations of low-degree multivariate polynomials give the simplest",
+ "youtube_url": "https://www.youtube.com/watch?v=hE4bR-n3R_A",
+ "page_url": "https://www.ias.edu/video/csdm/1213/0325-MadhuSudan",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Local-code objectives and parameters",
+   "summary": "The talk fixes finite-field linear-code notation, rate and distance, and formalizes local testing and local correction as sublinear oracle algorithms with locality L and error parameter epsilon.",
+   "spans": [
+    {
+     "start_sec": 40,
+     "end_sec": 626
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Reed--Muller line-locality baseline",
+   "summary": "Reed--Muller codes are reviewed as evaluations of low-degree multivariate polynomials whose restrictions to random affine lines give q-query local correction and testing, but with a rate barrier such as at most one half in the first nontrivial case.",
+   "spans": [
+    {
+     "start_sec": 626,
+     "end_sec": 1043
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Known projection dimensions for Reed--Muller decoding and testing",
+   "summary": "The speaker surveys prior Reed--Muller decoding and low-degree-testing results, explaining how projection dimension is dictated by the first dimension where nontrivial degree constraints appear.",
+   "spans": [
+    {
+     "start_sec": 1043,
+     "end_sec": 1888
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Characteristic-driven testing obstruction",
+   "summary": "A finite-field Frobenius degree drop shows that over non-prime fields line restrictions can hide high total degree, making the classical testing dimension larger and motivating the later reversal from testing polynomials to defining codes by the test itself.",
+   "spans": [
+    {
+     "start_sec": 1888,
+     "end_sec": 2174
+    },
+    {
+     "start_sec": 2701,
+     "end_sec": 2788
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Landscape and lifted-code target theorem",
+   "summary": "Existing local-testable and local-decodable code constructions, including multiplicity codes and weak lower bounds, are used to isolate the new goal: lifted codes of rate tending to one and locality n^epsilon that are both locally correctable and locally testable.",
+   "spans": [
+    {
+     "start_sec": 2174,
+     "end_sec": 2646
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Affine-invariant lifting and inherited locality",
+   "summary": "The lifted code is defined by requiring every affine t-dimensional restriction to lie in an affine-invariant base code, after which distance, local correction, and local testing are inherited essentially generically from the base code, leaving rate as the main quantity to analyze.",
+   "spans": [
+    {
+     "start_sec": 2646,
+     "end_sec": 3230
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "High-rate monomial and carry analysis",
+   "summary": "For line-lifts of high-degree univariate codes over small-characteristic fields, Lucas-theorem bit conditions and a carry-avoidance probability argument show that almost all monomial exponent vectors are admitted, so the lifted code has rate tending to one while retaining n^epsilon locality.",
+   "spans": [
+    {
+     "start_sec": 3230,
+     "end_sec": 3660
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Nikodym-set application and affine-invariant program",
+   "summary": "The large dimension and low-degree line restrictions of lifted codes replace ordinary low-degree polynomials in a polynomial-method proof for finite-field Nikodym sets, and the talk closes by positioning affine-invariant codes as a broader source of local-code constructions.",
+   "spans": [
+    {
+     "start_sec": 3660,
+     "end_sec": 4128
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Frobenius degree-drop monomial over a non-prime field",
+   "note": "The monomial x^{q/2}y^{q/2} over characteristic two restricts to degree q/2 on every line, exposing why non-prime-field low-degree tests need larger testing dimension and suggesting the flipped viewpoint behind lifted codes.",
+   "first_introduced_sec": 1910,
+   "spans": [
+    {
+     "start_sec": 1888,
+     "end_sec": 2054
+    },
+    {
+     "start_sec": 2701,
+     "end_sec": 2788
+    }
+   ],
+   "total_seconds": 253,
+   "attaches_to": [
+    "s4",
+    "s6"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly computes the restriction of x^{q/2}y^{q/2} to a line y=ax+b and uses Frobenius and x^q=x to show the degree drops from q to q/2",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 4,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The Frobenius-power monomial realizes the worst line-restriction degree drop in non-prime fields and is used as the obstruction to smaller line-based testing dimension."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The Frobenius-power monomial has a collapsed binomial expansion and gives the critical worst-case line-degree drop obstructing lower-dimensional line testing over non-prime fields."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The Frobenius p-power monomial is a critical degree-drop case used to show line tests over non-prime fields cannot see the true degree."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A critical Frobenius-exponent monomial of total degree q whose restriction to every line drops to degree q/2, obstructing the naive line-test threshold."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the monomial exploits Frobenius to attain the critical line-degree drop, obstructing naive line-based low-degree detection over non-prime fields"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Frobenius exponents make the binomial expansion collapse to unusually low line degree, giving the worst-case obstruction to smaller-dimension line testing."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "it is a boundary Frobenius monomial whose degree-q term drops to degree q/2 on every line, obstructing naive line-based low-degree testing over non-prime fields"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Frobenius powers collapse the binomial expansion and attain the worst line-degree drop, obstructing the naive line-testing dimension."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used as the Frobenius obstruction to naive line testing over non-prime fields, with p-power exponents causing a collapsed and tight degree drop on every line."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used as the adversarial monomial showing line restrictions over non-prime fields can miss high degree, with Frobenius giving the threshold degree drop."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "It is used to obstruct the hope that line restrictions reveal the full degree, and the Frobenius exponent gives a critical degree-drop boundary case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "It is used as an obstruction to naive line low-degree testing, and its Frobenius exponents give a threshold degree drop on every line."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Raz--Safra two-dimensional low-degree test",
+   "note": "The two-dimensional projection test is cited as the rare known case where using more queries than the minimal line test gives a cleaner or stronger analysis, illustrating the discussion of testing dimension.",
+   "first_introduced_sec": 2132,
+   "spans": [
+    {
+     "start_sec": 2132,
+     "end_sec": 2174
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the Raz--Safra two-dimensional test is cited as a useful historical case of projecting to surfaces, but no analysis or concrete run of the test is carried out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 6,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Raz--Safra plane test is a standard affine low-degree testing method cited as a useful positive prior technique, not as a refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The Raz--Safra plane test is a standard low-degree test cited as the lone exception to the heuristic that extra projection dimension is not useful."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Raz--Safra plane test is cited as a useful prior low-degree testing method rather than as an obstruction or disproof."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as the lone positive exception to the heuristic that testing on higher-dimensional projections has not really helped."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the Raz--Safra plane test is cited as standard prior positive methodology rather than a structural outlier or refutation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The affine-plane low-degree test is a standard systematic test, cited as the lone case where using extra-dimensional projections helps."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "it is cited as a positive prior affine-plane low-degree test, not as an adversarial example or refutation"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It is cited as the lone case where testing on extra two-dimensional surfaces helps, refuting the informal heuristic that extra projection dimension never pays."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Cited as a useful prior affine-plane low-degree test rather than as an adversarial failure example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Cited as the sole exception to the heuristic that testing on higher-dimensional subspaces has not really helped; the plane test is affine-invariant but not sporadic or extremal."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "It is cited as a positive testing method using random affine planes, whose structure is highly affine-invariant rather than adversarial."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It is cited as the lone exception to the heuristic that extra-dimensional tests have not helped, but the plane test is otherwise a standard systematic construction."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Multiplicity codes as prior high-rate local codes",
+   "note": "Multiplicity codes are used as a benchmark showing that rate approaching one with n^epsilon locality was known for local correction/decoding, while natural testability was not known.",
+   "first_introduced_sec": 2311,
+   "spans": [
+    {
+     "start_sec": 2311,
+     "end_sec": 2365
+    },
+    {
+     "start_sec": 2572,
+     "end_sec": 2614
+    }
+   ],
+   "total_seconds": 96,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "multiplicity codes are named as prior high-rate local codes with stated parameters, and the speaker says he will not describe them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Multiplicity codes form a systematic high-rate local-code family with rate tending to the optimal limit one, used here as prior art."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Multiplicity codes form a systematic family reaching the rate-one boundary for local codes and are used as prior positive benchmarks rather than as an obstruction."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Multiplicity codes are prior local codes with rate tending to the maximal value one, used as positive comparison."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Multiplicity codes are rate-approaching-one local codes, lying near the maximal-rate boundary, and are cited as prior benchmarks."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "multiplicity codes are a systematic family with asymptotically maximal rate approaching one, used as a prior benchmark rather than an adversarial example"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Multiplicity codes form an infinite high-rate local-code family with rate tending to the maximal value one, used here as prior art."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "multiplicity codes are used as prior positive constructions with rate tending to the maximal value 1 while retaining sublinear locality"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Multiplicity codes are cited as prior systematic local codes whose rate approaches the maximal value one, not as a failure example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as prior high-rate local codes, and structurally they are systematic affine-invariant algebraic codes with rate tending to the maximum possible value one."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as prior benchmark high-rate local codes, structurally sitting at the asymptotic maximum-rate boundary with rate tending to one."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Multiplicity codes are prior positive constructions with rate tending to the maximal possible value one."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "It is cited as prior high-rate local-code construction, structurally extremal because its rate tends to the maximum possible value 1."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Finite-field Kakeya sets as comparison to Nikodym sets",
+   "note": "Kakeya sets are introduced only as an analogous finite-field incidence notion, contrasting lines in every direction with almost-lines through every point and clarifying the Nikodym application.",
+   "first_introduced_sec": 3720,
+   "spans": [
+    {
+     "start_sec": 3720,
+     "end_sec": 3792
+    },
+    {
+     "start_sec": 4001,
+     "end_sec": 4035
+    }
+   ],
+   "total_seconds": 106,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Kakeya sets are defined and compared with Nikodym sets, but the concrete polynomial argument is worked for Nikodym sets rather than for Kakeya sets",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Finite-field Kakeya sets are invoked through the tight extremal size comparison with Nikodym sets, not as a counterexample in the argument."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Finite-field Kakeya sets are invoked through the tight minimal-size line-in-every-direction extremal problem as a comparison class for Nikodym sets."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Finite-field Kakeya sets are invoked through the tight minimum-size line-in-every-direction extremal problem as a comparison to Nikodym sets."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The comparison invokes sharp small Kakeya sets of size about (q/2)^m, which obstruct transferring the near-full Nikodym lower bound."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "finite-field Kakeya sets are extremal incidence objects covering all directions and serve as a comparison class for Nikodym bounds"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Finite-field Kakeya sets are the standard line-in-every-direction comparison class for Nikodym sets, not a sporadic or maximally symmetric object here."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "small finite-field Kakeya sets give the extremal comparison showing the near-full-size Nikodym lower bound cannot simply extend to Kakeya sets"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Finite-field Kakeya sets serve as the extremal all-directions incidence benchmark for comparison with Nikodym sets."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used for comparison with Nikodym sets, while Kakeya sets are extremal incidence objects containing a line in every direction and studied at tight small-size thresholds."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used only for comparison with Nikodym sets, and Kakeya sets are extremal incidence objects studied in the minimal-size regime while containing a line in every direction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kakeya sets are used as a size comparison, with the discussion invoking tight minimal-size line-in-every-direction configurations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "It serves as a comparison class for Nikodym sets, with the relevant Kakeya examples extremal for the minimum-size line-in-every-direction problem."
+    }
+   ]
+  }
+ ]
+}

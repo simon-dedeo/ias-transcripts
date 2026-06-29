@@ -1,0 +1,1642 @@
+{
+ "key": "29652fb5681e03e991fdabe1505b8f98",
+ "title": "List decoding with double samplers",
+ "speaker": "Inbal Livni-Navon",
+ "affiliation": "Weizmann Institute",
+ "date": "2021-12-06T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 3288.0,
+ "abstract": "The ABNNR encoding is a classical encoding scheme that amplifies the distance of an error correcting code. The encoding takes an error correcting code with a small distance and constructs an error correcting code with distance approaching one, by using a bipartite expander graph.   The ABNNR encoding has an efficient decoding algorithm, which can correct a codeword with not too many corrupted coordinates. However, if half or more of the coordinates are corrupted, the decoding algorithm does not work.",
+ "youtube_url": "https://youtu.be/OYKTEJaDopM",
+ "page_url": "https://www.ias.edu/video/list-decoding-double-samplers",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "List-decoding target for ABNNR amplification",
+   "summary": "The talk sets the goal: starting from a constant-distance error-correcting code C with only ordinary decoding up to δ/2, list decode its ABNNR distance-amplified code C′ up to radius approaching one.",
+   "spans": [
+    {
+     "start_sec": 16,
+     "end_sec": 111
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "ABNNR neighbor-bundling encoding and distance amplification",
+   "summary": "The ABNNR encoding is defined using a constant-degree bipartite graph from coordinates V0 to positions V1, with each V1-position storing its neighbors' bits as one alphabet symbol; distance is amplified when every δ-sized discrepancy set in V0 has neighbors covering almost all of V1.",
+   "spans": [
+    {
+     "start_sec": 111,
+     "end_sec": 401
+    },
+    {
+     "start_sec": 2887,
+     "end_sec": 2934
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Sampler condition for majority unique decoding",
+   "summary": "A sampler graph is introduced and used to justify the standard majority decoder: fewer than half corrupted V1-symbols cannot force wrong majorities on more than δ/2 of V0, so the base decoder recovers the original word.",
+   "spans": [
+    {
+     "start_sec": 401,
+     "end_sec": 815
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Double-sampler strengthening",
+   "summary": "Because majority decoding breaks down near half the positions while list decoding must work near distance one, the graph is required to sit inside a three-layer inclusion structure V0,V1,V2 with global sampling between adjacent layers and local sampling inside every T in V2.",
+   "spans": [
+    {
+     "start_sec": 815,
+     "end_sec": 1226
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Construction barriers and high-dimensional-expander source",
+   "summary": "The speaker explains that natural random and expander-walk attempts do not satisfy the local requirements, and that the known way to obtain the needed linear-size constant-degree double samplers is to take appropriate layers/faces of high-dimensional expanders.",
+   "spans": [
+    {
+     "start_sec": 1226,
+     "end_sec": 1880
+    },
+    {
+     "start_sec": 2740,
+     "end_sec": 2852
+    },
+    {
+     "start_sec": 2934,
+     "end_sec": 3282
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Main theorem and local list formation",
+   "summary": "The main theorem asserts a polynomial-time list-decoding algorithm for ABNNR encodings built from double samplers, and the algorithm begins by enumerating for each constant-size T in V2 a bounded local list of candidate restrictions x|T whose local encoding is close to the received word.",
+   "spans": [
+    {
+     "start_sec": 1880,
+     "end_sec": 2071
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Consistency matchings and unique-games instance",
+   "summary": "The local lists are patched by matching candidates on intersecting T's, with a dynamically chosen separation radius ensuring uniqueness, thereby producing a unique-constraint graph whose vertices are the V2-sets and whose alphabets are the corresponding local lists.",
+   "spans": [
+    {
+     "start_sec": 2071,
+     "end_sec": 2494
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Expander unique-games solution and reconstruction",
+   "summary": "Since the V1–V2 sampler supplies an expander and the true codeword induces a high-value assignment, an expander unique-games solver is used as a black box to recover globally consistent local choices, reconstruct an x close to the target, and output the corresponding encoded codeword/list.",
+   "spans": [
+    {
+     "start_sec": 2494,
+     "end_sec": 2719
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Two-neighbor bit-bundling toy coordinate",
+   "note": "A small displayed word with vertices reading symbols such as 01 and 10 makes concrete that each right vertex outputs one larger-alphabet letter formed from its neighbors' bits.",
+   "first_introduced_sec": 154,
+   "spans": [
+    {
+     "start_sec": 154,
+     "end_sec": 222
+    }
+   ],
+   "total_seconds": 68,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker runs the encoding on a toy two-neighbor coordinate, bundling neighbor bits into letters such as 01 and 10",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is just an illustrative ordinary bundled coordinate of the ABNNR encoding."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A nonadversarial toy instance of a local ABNNR coordinate bundling neighbor bits into one alphabet symbol."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary local ABNNR encoding coordinate bundles its two neighbor bits as one alphabet symbol just to illustrate the construction."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary illustrative ABNNR coordinate bundling neighbor bits into one alphabet symbol."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative local ABNNR coordinate bundling two neighbor bits"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary local ABNNR symbol bundling two neighboring bits, used only to illustrate the encoding"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is just a local illustrative ABNNR coordinate bundling two neighbor bits into one alphabet symbol."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is a representative local ABNNR coordinate used only to illustrate bit bundling."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary toy ABNNR coordinate bundling two neighbor bits into one alphabet symbol"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard toy ABNNR coordinate illustrating bundling two neighbor bits into one alphabet symbol, not used to refute anything."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an ordinary two-bit bundled coordinate used only to illustrate the ABNNR encoding"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A small two-neighbor bundled coordinate is used only to illustrate the ABNNR encoding mechanism."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Binary/direct-output variant",
+   "note": "In response to a rate/alphabet question, the speaker contrasts bundling neighbor bits into one symbol with outputting them as binary bits, illustrating the alphabet-size versus near-one-distance tradeoff.",
+   "first_introduced_sec": 285,
+   "spans": [
+    {
+     "start_sec": 285,
+     "end_sec": 320
+    }
+   ],
+   "total_seconds": 35,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the binary/direct variant is described as an alternative and later related work, but no construction or decoding is worked through on it",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 6,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The binary/direct-output variant is used to show that avoiding alphabet bundling loses the near-one distance property."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The binary/direct-output variant is cited as avoiding alphabet blowup but failing to give distance approaching one."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The direct-output variant is a minimum-alphabet binary version used for comparison rather than to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The binary/direct-output variant is cited to show that this unbundled approach does not give near-one distance."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "binary direct-output alternative is cited as failing to achieve distance near one"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "minimal-alphabet direct-output variant used to show that keeping outputs binary loses distance approaching one"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It is cited as the binary alternative that avoids alphabet blowup but fails to achieve distance approaching one in this setting."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The direct-output binary variant is invoked as a minimal-alphabet alternative that fails to get distance approaching one."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "minimum-alphabet direct-output variant is invoked to show the binary/no-bundling approach fails to reach distance near one"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The binary/direct-output variant is cited as an alternative that avoids alphabet growth but fails to achieve distance approaching one."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the minimal-alphabet direct-output alternative is invoked to show that avoiding bundling loses distance approaching one"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The direct binary-output variant has the minimum nontrivial alphabet and is cited as failing to give distance approaching one in this setting."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Half-density subset in a sampler",
+   "note": "Taking a subset of half of V0 illustrates the sampler condition by saying that almost every right vertex should see about half of its incident edges inside that subset.",
+   "first_introduced_sec": 498,
+   "spans": [
+    {
+     "start_sec": 498,
+     "end_sec": 547
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker instantiates the sampler definition on a half-size subset and explains via the indicator function why typical vertices see half their edges there",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A half-size subset is used as a representative sampler-density illustration, not as a structural exception or obstruction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A half-size subset is used as an ordinary illustration of the sampler averaging property."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A half-density subset is a standard illustrative sampler test set, not a boundary or sporadic object here."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A density-one-half subset is used as a representative sampler test set illustrating proportional neighborhoods."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "arbitrary density-one-half subset merely illustrates sampler averaging"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "balanced but arbitrary subset used to illustrate that a sampler preserves densities"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A half-size subset is used only to illustrate the sampler averaging property and is structurally ordinary."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An arbitrary half-size subset is used as a standard illustration of the sampler averaging property."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "balanced half-size subset is used only as a representative illustration of the sampler property"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A half-size subset is just a representative sampler test case showing proportional neighbor averages."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a generic half-size subset is used just to illustrate the sampler averaging property"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The half-density subset is an ordinary sampler test case used to explain proportional neighborhood sampling."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Naive random subset constructions for S and T",
+   "note": "Randomly chosen subsets fail to give enough inclusions or intersections, a failure used to motivate the need for more structured high-dimensional-expander sources.",
+   "first_introduced_sec": 1226,
+   "spans": [
+    {
+     "start_sec": 1226,
+     "end_sec": 1316
+    },
+    {
+     "start_sec": 1724,
+     "end_sec": 1880
+    }
+   ],
+   "total_seconds": 246,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes naive random choices of S and T and explains concretely why containment is unlikely or local graphs become disjoint",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The naive random choices of S and T are presented as natural constructions that fail the required incidence/local-sampling properties."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive random choices of S and T are presented as natural candidates that fail the needed inclusion/local-sampling properties."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive random choices of S and T are typical random subset constructions, but are used to show that natural attempts fail to give the required double sampler."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Generic random choices of S and T are presented as natural constructions that fail to supply the needed containments or local expansion."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "naive random choices of S and T are presented as failing the inclusion and local-sampling requirements"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "random constant-size S,T give nearly empty or disconnected inclusion graphs, serving as failed double-sampler constructions"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "These naive random set-system candidates are presented as failing because their inclusion/local graphs are nearly edge-free or disconnected."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The naive random choices of S and T are presented to show that natural random subset constructions do not satisfy the needed double-sampler conditions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "generic random S,T subset families are proposed and rejected because incidences or local links fail"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive random choices of S and T are presented as natural constructions that fail the needed inclusion/local-sampling properties."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary random set-system attempts are presented as failed candidates because containment or local expansion is missing"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Naive independent random set choices are ordinary random constructions cited as not yielding the needed inclusion/local-sampler properties."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Random-walk subsets on an expander",
+   "note": "Using long and short random walks on an expander has good global features but fails the required local sampling because local pieces can see mostly one side, clarifying why the double-sampler condition is stronger.",
+   "first_introduced_sec": 1316,
+   "spans": [
+    {
+     "start_sec": 1316,
+     "end_sec": 1409
+    },
+    {
+     "start_sec": 2740,
+     "end_sec": 2794
+    }
+   ],
+   "total_seconds": 147,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker traces the random-walk-on-expander construction and checks a local obstruction using a zero-one function on the walk",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Random-walk subsets on an expander are used as a plausible construction that is still not strong enough for the algorithm."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Random-walk subsets on an expander are proposed as a construction but rejected because their local graphs do not sample both sides well enough."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Random-walk subsets on an expander are standard constructions, but are presented as not locally sampling strongly enough for the algorithm."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Random-walk subsets on an expander are a systematic candidate shown not to have strong enough local sampling for the algorithm."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "random-walk subsets on an expander are offered as a candidate construction that is not locally sampling enough"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "expander-walk set system is an ordinary path-based construction used to exhibit insufficient local sampling"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Random-walk subsets on an expander are given as a plausible construction that is still not strong enough for the required local sampling."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Random-walk subsets on an expander are offered as a plausible construction but rejected because their local graphs are not sampling strongly enough."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "random-walk layers on an expander are rejected because the local walk construction does not sample both sides well enough"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Random-walk subsets on an expander are offered as a plausible construction that is not strong enough for the local sampler requirement."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "random-walk subsets on an expander are used as a natural construction that still fails the required strong local sampling"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Random-walk subsets on an expander are a systematic standard construction used here as a failed attempt for the stronger local sampling needed."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "One-coordinate difference without the base-code promise",
+   "note": "The speaker notes that if x is not required to lie in the base code, two strings differing in one coordinate may have encodings differing in only constantly many positions, which explains why the no-promise version can only yield an approximate-list statement.",
+   "first_introduced_sec": 2646,
+   "spans": [
+    {
+     "start_sec": 2646,
+     "end_sec": 2708
+    }
+   ],
+   "total_seconds": 62,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker examines two strings differing in one coordinate without the base-code promise and derives that their encodings differ only on constantly many positions",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A one-coordinate difference is the minimum nonzero Hamming-distance case and is used to show failure without the base-code promise."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A pair differing in one coordinate is the minimal-distance case and is used to show the encoding is not a genuine code without the base-code promise."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A singleton coordinate difference is the minimal nonzero Hamming-distance case and is used to show the encoding is not a genuine code without the base-code promise."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A one-coordinate difference is the minimum nonzero Hamming-separation case and exposes the collapsed distance without the base-code promise."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "one-coordinate difference is the minimal nonzero Hamming separation and shows failure without the base-code promise"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a pair at Hamming distance one is the minimal nonzero-distance case and obstructs list decoding without the code promise"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A pair differing in one coordinate is the minimum nonzero Hamming-distance case and is used to show the encoding is not a code without the base-code promise."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Two ambient strings differing in one coordinate form the minimum-distance obstruction when the base-code promise is removed."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "minimum-support one-coordinate pair in the no-promise full space collapses relative distance and blocks true list decoding"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Two strings differing in one coordinate give the minimum nonzero Hamming separation and show failure without the base-code promise."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a one-coordinate difference is the minimum nonzero Hamming separation and shows the unpromised map is not a genuine list-decodable code"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A pair differing in one coordinate has minimum positive Hamming distance and is used to show the no-base-code-promise encoding is not genuinely list-decodable."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Five-neighborhoods of an expander",
+   "note": "An audience-proposed construction using constant-radius neighborhoods in an expander is used to illustrate the local-boundary obstruction and the strength of the required local expansion.",
+   "first_introduced_sec": 3000,
+   "spans": [
+    {
+     "start_sec": 3000,
+     "end_sec": 3072
+    }
+   ],
+   "total_seconds": 72,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker discusses five-neighborhoods in an expander and reasons through why boundary structure/local expansion is insufficient",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Five-neighborhoods of an expander are raised as a candidate construction and then explained not to meet the needed local expansion strength."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Five-neighborhoods in an expander are raised as a candidate construction and then explained to lack the required strong local expansion."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Fixed-radius neighborhoods in an expander are ordinary candidate sets, but the discussion uses them as a failed construction for the needed local expansion."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Five-neighborhoods of an expander are raised as a candidate and rejected because their boundary/path structure gives insufficient local expansion."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "radius-five expander neighborhoods are proposed but rejected for lacking the needed local expansion"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "constant-radius expander neighborhoods are proposed as an ordinary combinatorial construction and rejected for inadequate local expansion"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Five-neighborhoods in an expander are discussed as a tempting construction that fails to give the needed strong local expansion constants."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Five-neighborhoods in a constant-degree expander are considered and dismissed because their boundary-dominated local structure cannot provide the required local expansion."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "constant-radius expander neighborhoods are rejected because their boundary-heavy links lack the needed local expansion"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Five-neighborhoods in an expander are proposed as a candidate construction but rejected because their local boundary structure lacks the required expansion."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "fixed-radius neighborhoods in an expander are proposed and rejected because their local links are too boundary-dominated for the needed expansion"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Five-neighborhoods in an expander are proposed as a natural construction but rejected because their local expansion is too weak."
+    }
+   ]
+  }
+ ]
+}

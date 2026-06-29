@@ -1,0 +1,1118 @@
+{
+ "key": "5aa2491ca875be21405d16cbf769efcd",
+ "title": "Polynomial Capacity and its Applications: To TSP and Beyond",
+ "speaker": "Jonathan Leake",
+ "affiliation": "University of Waterloo",
+ "date": "2024-04-08T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 4038.0,
+ "abstract": "About 20 years ago, Gurvits developed the notion of polynomial capacity to give a simple proof of the famous van der Waerden lower bound on the permanent of a doubly stochastic matrix. Since then, similar techniques have led to various other applications; for example: approximate counting of the lattice points of certain polytopes, an efficient algorithm for the non-commutative version of the polynomial identity testing problem, and most recently, an improved approximation factor for the traveling salesperson problem (TSP) via the max-entropy algorithm.",
+ "youtube_url": "https://youtu.be/DIV39qg6RjY",
+ "page_url": "https://www.ias.edu/video/polynomial-capacity-and-its-applications-tsp-and-beyond",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Coefficient-and-capacity setup for the permanent",
+   "summary": "The talk introduces the general strategy of encoding a hard quantity as a coefficient of an efficiently evaluable polynomial, then applies it to the permanent via Gurvits’s capacity bound for the all-ones coefficient.",
+   "spans": [
+    {
+     "start_sec": 42,
+     "end_sec": 502
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Real stability and normalized capacity",
+   "summary": "Real stability is presented as the multivariate analogue of real-rootedness with closure properties, capacity is shown to become a convex optimization problem, and doubly stochastic normalization yields the van der Waerden permanent bounds.",
+   "spans": [
+    {
+     "start_sec": 502,
+     "end_sec": 1053
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Matrix scaling to doubly stochastic form",
+   "summary": "Matrix scaling is introduced as the way to reduce a general nonnegative matrix to the doubly stochastic case, with Sinkhorn scaling giving approximate row and column normalization in polynomially many iterations.",
+   "spans": [
+    {
+     "start_sec": 1120,
+     "end_sec": 1538
+    },
+    {
+     "start_sec": 3915,
+     "end_sec": 3956
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Robust capacity bounds under approximate marginals",
+   "summary": "A Gurvits--Nick robust theorem bounds capacity when the gradient at the all-ones vector is close to the desired vector, allowing approximate matrix scaling to still give controlled permanent approximations.",
+   "spans": [
+    {
+     "start_sec": 1538,
+     "end_sec": 1875
+    },
+    {
+     "start_sec": 3781,
+     "end_sec": 3822
+    },
+    {
+     "start_sec": 3915,
+     "end_sec": 4027
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Distributional and entropy dictionary for capacity",
+   "summary": "Stable generating polynomials of probability distributions on subsets are reinterpreted as strongly Rayleigh distributions, with coefficients as probabilities, gradients as marginals, closure operations as conditioning or marginalization, and capacity as a KL-divergence/entropy dual.",
+   "spans": [
+    {
+     "start_sec": 1983,
+     "end_sec": 2374
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Max-entropy spanning trees for metric TSP parity",
+   "summary": "After recalling Christofides’s 3/2-approximation and the max-entropy spanning-tree variant, the speaker explains that TSP improvement requires lower bounds on parity events for random tree degrees, first treating the one-vertex case via a univariate real-rooted polynomial and Hoeffding’s theorem.",
+   "spans": [
+    {
+     "start_sec": 2514,
+     "end_sec": 3146
+    },
+    {
+     "start_sec": 3822,
+     "end_sec": 3871
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Multivertex parity from generalized coefficient bounds",
+   "summary": "For several vertices the parity information becomes a multivariate coefficient problem, and a recent Gurvits--Oveis Gharan--Nick theorem gives lower bounds for general coefficients of real stable polynomials, yielding constant-size multivertex parity bounds needed for the TSP application while exposing remaining limitations.",
+   "spans": [
+    {
+     "start_sec": 3146,
+     "end_sec": 3781
+    },
+    {
+     "start_sec": 3781,
+     "end_sec": 3822
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "0-1 permanent as perfect-matchings count",
+   "note": "The 0-1 case of the permanent is identified with counting perfect matchings in a bipartite graph, illustrating the computational hardness that motivates approximation.",
+   "first_introduced_sec": 170,
+   "spans": [
+    {
+     "start_sec": 170,
+     "end_sec": 186
+    }
+   ],
+   "total_seconds": 16,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker defines the permanent, constructs the polynomial p_M, identifies the permanent as a specific coefficient, and applies capacity and matrix-scaling bounds to approximate it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 4,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary 0-1 matrices/bipartite perfect-matching counts are used as a standard hard counting formulation, not as a structural exception or counterexample"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Perfect matchings saturate all vertices, while the 0-1 permanent is used as a hardness motivation rather than a counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "0-1 matrices/bipartite graphs are ordinary instances used to motivate permanent approximation via perfect-matching counts."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "perfect matchings are saturating maximum matchings, and the 0-1 case is used as the hard obstruction to exact permanent computation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "0-1 permanent/perfect-matchings counting is a standard restricted instance used to illustrate hardness, not a structural exception or counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "0-1 matrices/bipartite perfect-matching counts are a standard restricted permanent setting used to illustrate hardness, not to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used to illustrate permanent hardness, and the counted objects are perfect matchings, i.e. saturating maximum-cardinality matchings."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as a motivating hard counting application, with perfect matchings structurally spanning/maximal matchings."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard 0-1 matrix/bipartite-graph counting interpretation used to motivate hardness and approximation, not as a structural exception"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The 0-1 permanent/perfect-matching formulation is used as a hard restricted case obstructing easy exact computation, but the objects are ordinary bipartite-graph/matrix instances."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The 0-1 permanent/perfect-matching count is used as a standard hard counting interpretation, not to refute a claim, and represents an ordinary bipartite-graph counting problem."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A 0-1 matrix/bipartite graph is used as a standard hard instance of permanent counting, not as a structural exception or counterexample."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Mixed-volume applications of capacity",
+   "note": "Mixed volumes, mentioned alongside mixed discriminants, are cited as another setting where Gurvits-type capacity bounds apply, showing the method’s breadth rather than contributing to the TSP argument.",
+   "first_introduced_sec": 1053,
+   "spans": [
+    {
+     "start_sec": 1053,
+     "end_sec": 1078
+    }
+   ],
+   "total_seconds": 25,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "mixed discriminants and mixed volumes are only cited as other places where Gurvits-style capacity bounds apply",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "mixed volumes are cited as a typical application domain for capacity bounds, with no exceptional or adversarial role"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Mixed volume is a standard convex-geometric quantity cited as another capacity application."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Mixed volumes are a standard convex-geometric quantity cited as a positive application of capacity methods."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "mixed volume is cited as a standard application target for capacity bounds, with no special extremal or exceptional object singled out"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Mixed-volume/mixed-discriminant capacity bounds are cited as a standard application area, with no special object structure singled out."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "mixed volume is cited as an ordinary further application of capacity bounds."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cited as a further capacity application to ordinary mixed-volume/mixed-discriminant quantities, not to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Mixed volume is cited as another ordinary application of capacity bounds, not as a failure case or special sporadic object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "mixed volumes are cited as a general application area for capacity bounds, with no special sporadic or extremal object singled out"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Mixed volume is mentioned as a standard application domain for capacity bounds, not as a structurally special object or a failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Mixed volume is mentioned as another ordinary target quantity for capacity bounds, not as an adversarial or structurally sporadic object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Mixed volumes are cited as ordinary applications of the capacity method rather than as sporadic, limiting, optimal, or highly symmetric objects."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Approximate lattice-point counting in polytopes",
+   "note": "Generating series for lattice points of polytopes are described as easy to evaluate while their coefficients are hard to count, exemplifying the general coefficient-versus-capacity paradigm.",
+   "first_introduced_sec": 1053,
+   "spans": [
+    {
+     "start_sec": 1053,
+     "end_sec": 1102
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "lattice-point counting in polytopes is described only as another application with hard counts and easy generating-series evaluation",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "lattice-point counting in polytopes is presented as another ordinary application of generating-series/capacity methods"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Lattice-point counting in polytopes is cited as a general application with no special polytope singled out."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Lattice-point counting in polytopes is a typical enumerative problem cited as another application, not as a disproof."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "lattice-point counting in polytopes is presented as a generic hard counting application, not as a structurally special or refuting example"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Lattice-point counting in polytopes is mentioned as another ordinary application of generating-series capacity methods."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "lattice-point counting in polytopes is mentioned as a typical application area for generating-series/capacity methods."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cited as another application where generating series count lattice points of general polytopes, with no special structural extremality or degeneration."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Lattice-point counting in polytopes is presented as a typical application where generating series help approximate a hard count."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "lattice-point counting in polytopes is presented as another ordinary application of generating-series/capacity methods"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Lattice-point counting in polytopes is cited as another ordinary application of generating-series/capacity methods."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Lattice-point counting in polytopes is cited as a typical application of generating-series/capacity methods, with no extremal or exceptional polytope singled out."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Lattice-point counting in polytopes is presented as a standard computational application with no special structural extremality or degeneracy."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Matroid counting and basis optimization",
+   "note": "Matroid intersection and optimization over matroid bases are mentioned as further combinatorial uses of related stable-polynomial and capacity techniques.",
+   "first_introduced_sec": 1078,
+   "spans": [
+    {
+     "start_sec": 1078,
+     "end_sec": 1120
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "matroid counting, matroid intersection, and basis optimization are listed with references but no construction or calculation is carried out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 4,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "matroid counting and basis optimization are mentioned as broad standard combinatorial applications rather than special objects or counterexamples"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Matroid bases are maximal independent sets, and the topic is cited as a counting/optimization application."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Matroid counting and basis optimization refer to ordinary matroid problems used as positive examples of the technique."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "matroid bases are maximal independent sets, but the application is not used as a counterexample"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Matroid counting and basis optimization are invoked as typical further uses of the technique, not as exceptional or adversarial cases."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "matroid counting and basis optimization are cited as general applications over matroids, with no structurally special object singled out."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Cited as an application to matroids, where bases are maximal independent sets used for counting or optimization rather than as counterexamples."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The matroid examples are applications, while matroid bases are structurally maximal independent sets."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "matroid counting and basis optimization are cited as broad typical combinatorial uses of the technique"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Matroid counting and basis optimization are presented as general application settings, with no sporadic, extremal, symmetric, or degenerate object singled out."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Matroid counting and basis optimization are listed as standard applications over general matroids, not as counterexamples or special classification exceptions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Matroid counting and basis optimization are mentioned as typical domains for related techniques, not as exceptional or adversarial examples."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Operator scaling and noncommutative PIT",
+   "note": "Operator scaling is cited as a generalization where capacity serves as a progress measure and leads to applications such as noncommutative polynomial identity testing.",
+   "first_introduced_sec": 1924,
+   "spans": [
+    {
+     "start_sec": 1924,
+     "end_sec": 1983
+    }
+   ],
+   "total_seconds": 59,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "operator scaling and noncommutative PIT are briefly described as a generalization using capacity as progress, without working through the scaling or PIT instance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "operator scaling and noncommutative PIT are given as a generalization/application of scaling ideas, not as a sporadic, degenerate, extremal, symmetric, or counterexample case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Operator scaling for noncommutative PIT is presented as a general algorithmic application, not a structurally special object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Operator scaling and noncommutative PIT are standard algorithmic applications of capacity-like progress measures."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "operator scaling and noncommutative PIT are cited as general applications of capacity-style scaling, not as sporadic or adversarial objects"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Operator scaling and noncommutative PIT are described as a broad generalization/application of scaling ideas rather than a structurally special object or counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "operator scaling and noncommutative PIT are presented as systematic generalizations/applications of scaling, not as exceptional or adversarial cases."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cited as a scaling/PIT application for general linear operators, with no sporadic, symmetric, degenerate, or extremal object singled out."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Operator scaling and noncommutative PIT are cited as further applications/generalizations, with no intrinsic degeneracy, extremality, exceptionality, or maximal symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "operator scaling and noncommutative PIT are described as systematic generalizations and applications, not as counterexamples or sporadic structures"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Operator scaling and noncommutative PIT are cited as generalizations/applications of capacity, not as counterexamples or intrinsically special objects."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Operator scaling and noncommutative PIT are presented as a generalization/application of capacity methods, with no maximally symmetric, extremal, degenerate, or sporadic object singled out."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Operator scaling for noncommutative PIT is a general framework/application of capacity, with no intrinsic sporadic, degenerate, extremal, or maximal-symmetry feature indicated."
+    }
+   ]
+  }
+ ]
+}

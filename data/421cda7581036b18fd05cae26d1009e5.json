@@ -1,0 +1,1653 @@
+{
+ "key": "421cda7581036b18fd05cae26d1009e5",
+ "title": "On the effect of randomness on planted 3-coloring models",
+ "speaker": "Uri Feige",
+ "affiliation": "Weizmann Institute of Science",
+ "date": "2016-11-21T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3449.0,
+ "abstract": "The random planted 3-coloring model generates a 3-colorable graph $G$ by first generating a random host graph $H$ of average degree $d$, and then planting in it a random 3-coloring (by giving each vertex a random color and dropping the monochromatic edges). For a sufficiently large constant $c$, Alon and Kahale [SICOMP 1997] presented a spectral algorithm that finds (with high probability) the planted 3-coloring of such graphs whenever $d > c\\log n$.",
+ "youtube_url": "https://www.youtube.com/watch?v=23phAJxC_L4",
+ "page_url": "https://www.ias.edu/video/csdm/2016/1121-UriFeige",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Hosted planted three-coloring framework",
+   "summary": "The talk defines the model by choosing a host graph H, planting a vertex coloring P, deleting monochromatic edges, and asking an algorithm that sees only the resulting graph to output any legal three-coloring, with random and adversarial choices of H and P as special cases.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 364
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Baseline Alon–Kahale algorithm in the random-random model",
+   "summary": "The speaker reviews the known random-host/random-planting results, including high-density intuition, approximate and safe partial colorings, good and bad vertices, and the spectral-clustering/local-improvement/uncoloring/dynamic-programming pipeline.",
+   "spans": [
+    {
+     "start_sec": 364,
+     "end_sec": 737
+    },
+    {
+     "start_sec": 852,
+     "end_sec": 1409
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Randomness-dependence questions and spectral-expander criteria",
+   "summary": "The central questions are posed by isolating which parts of Alon–Kahale use host randomness versus planting randomness, leading to spectral conditions on the host graph and the case of an arbitrary expander with a random planted coloring.",
+   "spans": [
+    {
+     "start_sec": 737,
+     "end_sec": 852
+    },
+    {
+     "start_sec": 1409,
+     "end_sec": 1526
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Expander-host algorithm with random planting",
+   "summary": "For an arbitrary spectral expander host and random planted coloring, essentially the same algorithm still works after replacing random-graph arguments by expansion analysis, safe recoloring, and a connected-subgraph counting lemma to complete the partial coloring in polynomial time.",
+   "spans": [
+    {
+     "start_sec": 1526,
+     "end_sec": 2043
+    },
+    {
+     "start_sec": 2069,
+     "end_sec": 2133
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Effect of adversarial planting on partial recovery",
+   "summary": "When the planted coloring is adversarial but balanced, the good/bad-vertex estimates deteriorate, so the same spectral and local steps still yield approximate and safe partial colorings but leave a larger uncolored set whose completion becomes the key obstacle.",
+   "spans": [
+    {
+     "start_sec": 2133,
+     "end_sec": 2349
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "NP-hardness via a hidden sparse hard subgraph",
+   "summary": "The hardness theorem shows that even a random G(n,d) host can be made NP-hard to three-color by an adversarial balanced planting for d=n^δ with 0.4<δ<0.5, using a reduction that hides a fixed sparse NP-hard graph q inside the random host and proves the adversarially generated distribution indistinguishable from a simulated disjoint union.",
+   "spans": [
+    {
+     "start_sec": 2349,
+     "end_sec": 3122
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Phase diagram and open problems",
+   "summary": "The talk synthesizes which combinations of random/adversarial host and planting admit spectral recovery, safe partial recovery, or legal completion, and highlights open regimes for low-degree random hosts with adversarial planting and arbitrary hosts with random planting.",
+   "spans": [
+    {
+     "start_sec": 3122,
+     "end_sec": 3430
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Planted clique comparison",
+   "note": "An audience member compares the task to planted clique, and the speaker uses it to clarify that coloring only asks for any legal solution unless the planted solution is unique.",
+   "first_introduced_sec": 176,
+   "spans": [
+    {
+     "start_sec": 176,
+     "end_sec": 219
+    }
+   ],
+   "total_seconds": 43,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "The speaker only compares the planted-coloring goal with planted clique and states that the planted clique is typically the unique optimum.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A planted clique is a complete subgraph and in the cited regime the unique maximum clique, used only as a comparison."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A planted clique is a complete, hence maximally dense and highly symmetric, subgraph used only as a comparison model."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the planted clique is a complete subgraph, hence maximally symmetric and densest, used only as a comparison"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The planted clique is a complete subgraph and, in the regime discussed, the unique maximum clique used only for comparison."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the planted clique is a complete, highly symmetric subgraph that is typically the unique maximum clique in the comparison model"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the planted object is a complete clique that is discussed as the unique maximum clique, used only for comparison"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The planted clique is discussed as a unique maximum complete subgraph, hence extremal and highly symmetric rather than adversarial here."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used only to contrast recovery goals; the planted clique is a complete, usually unique maximum subgraph."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "used only as a comparison, with the planted clique a complete unique maximum clique"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used only for comparison; the planted object is a complete maximum clique, hence edge-extreme and highly regular."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the planted clique is a complete, uniquely maximum clique used only as a comparison"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the planted clique is used only as a comparison, while a clique is a complete, optimal highly regular subgraph"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "High-density common-neighbor clustering",
+   "note": "For very large average degree, common-neighbor counts separate same-color from different-color vertex pairs, illustrating why random planted colorings become algorithmically easy in dense regimes.",
+   "first_introduced_sec": 364,
+   "spans": [
+    {
+     "start_sec": 364,
+     "end_sec": 530
+    }
+   ],
+   "total_seconds": 166,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reasons through the high-density case by comparing common-neighbor counts for same-color versus different-color vertex pairs and deriving the clustering idea and threshold.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 9,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The example is the very high-degree planted-coloring regime where common-neighbor counts recover the coloring, an extreme dense case rather than a refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The common-neighbor method is discussed in the very high-density regime above the relevant threshold, not as a failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the example is the high-density end of the planted model where common-neighbor counts separate color classes"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The common-neighbor method is illustrated in the very high-density threshold regime where such counts separate the color classes."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the dense planted-coloring regime is used as a straightforward success case for common-neighbor clustering, not as a sporadic or adversarial object"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "this is a standard high-density planted-random regime used positively to motivate recovery by common-neighbor counts"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The high-density planted-coloring graph is used as a positive regime where common-neighbor clustering works, with no special intrinsic structure beyond the model."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Serves as an easy-regime illustration; the instance is in the high-density, above-common-neighbor-threshold end of the model."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "used as a positive high-density regime where common-neighbor counts cross the useful threshold"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "It illustrates the easy very-dense regime where common-neighbor counts cross the sqrt(n) threshold."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the very high-density planted-coloring regime is a threshold case where common-neighbor counts separate colors"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the very high-density planted instance is a dense-end regime where common-neighbor counts separate the color classes"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Isolated vertices at constant degree",
+   "note": "Isolated vertices in sparse planted instances show concretely why a legal coloring need not coincide with the planted coloring once uniqueness is lost.",
+   "first_introduced_sec": 563,
+   "spans": [
+    {
+     "start_sec": 563,
+     "end_sec": 611
+    }
+   ],
+   "total_seconds": 48,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Isolated vertices at constant degree are only cited as a reason the planted coloring need not be unique.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 9,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Isolated vertices have minimal graph structure and minimal degree, and are used to show the planted coloring need not be unique."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Isolated vertices are structureless degree-zero components and are used to show the planted coloring need not be unique."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "isolated vertices have degree zero and show the planted coloring need not be unique"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An isolated vertex is a degree-zero minimal component whose arbitrary recoloring witnesses non-uniqueness of the planted coloring."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "isolated vertices are degree-zero degenerate/minimum components used to show the planted coloring need not be unique"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "degree-zero vertices are minimal edge-free cases used to show the planted coloring need not be unique"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Isolated degree-zero vertices are degenerate components invoked to show the planted coloring need not be unique."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Degree-zero isolated vertices are minimal degenerate components used to show the planted coloring need not be unique."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "isolated degree-zero vertices can be recolored arbitrarily, so uniqueness of the planted coloring fails"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Isolated vertices show planted color uniqueness fails, and they are constraint-free zero-degree degeneracies."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "zero-degree vertices are minimal/degenerate and show the planted coloring need not be unique"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "isolated vertices have minimum possible degree and no coloring constraints, showing the planted coloring need not be unique"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Random regular host variant",
+   "note": "In response to a question, random regular graphs are mentioned as a variant where analogous planted-coloring results hold and constants may improve.",
+   "first_introduced_sec": 636,
+   "spans": [
+    {
+     "start_sec": 636,
+     "end_sec": 685
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s2",
+    "s3"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "The random regular variant is only addressed in a question response saying the result remains true and constants may improve.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 6,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A random regular host is structurally distinguished by exact degree regularity but is mentioned as a variant where the result still works."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A random regular host is a standard model variant with uniform degrees, invoked as a case where the result still holds."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a random regular host is a standard model variant rather than a maximally symmetric object or obstruction"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A random regular host has exact degree-regularity and is raised as a variant rather than as a failure case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a random regular host is a standard random-graph variant with uniform degrees but no maximal symmetry or exceptional status"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a random regular host is a standard model variant whose regularity is not maximal symmetry and is not used to refute a claim"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A random regular host is mentioned as a standard variant where the results still hold, not as an obstruction or structurally exceptional object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Mentioned as a variant where the result still holds; exact equal degree gives the host the salient regularity."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "random regular hosts are invoked as an exact-degree-regular variant rather than as a refutation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "It is a benign variant of the host distribution, with exact degree-regularity but no sporadic or limiting feature."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a random regular host is a standard model variant used for comparison, not a sporadic or boundary object"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the random regular host is a regular variant used for comparison rather than to refute a claim"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Bipartite expander pieces",
+   "note": "The speaker answers a question about three-colorable expanders by pointing to constructions with color groups connected by bipartite expanders, illustrating that expansion alone must be specified carefully.",
+   "first_introduced_sec": 784,
+   "spans": [
+    {
+     "start_sec": 784,
+     "end_sec": 852
+    }
+   ],
+   "total_seconds": 68,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Bipartite expander pieces are only named as possible components of a colorable expander construction.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 6,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Bipartite expander pieces are ordinary systematic expander constructions, invoked to show that expander-like graphs can still be colorable depending on the definition."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Bipartite expander pieces are a systematic construction illustrating possible colorable expander-like hosts, not a sporadic or adversarial exception."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "bipartite expanders have minimal nontrivial chromatic number and show expansion notions can still allow colorable graphs"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Bipartite expander pieces are ordinary infinite-family expander constructions mentioned as possible colorable expander structure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "bipartite expander pieces are ordinary infinite-family constructions invoked to show expansion notions can still allow colorable examples"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "bipartite expander pieces are ordinary colorable expander constructions mentioned to illustrate possible definitions"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Bipartite expander pieces serve to show that expander-like graphs can still be colorable, blocking a blanket claim that expansion precludes 3-colorability."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as a possible colorable-expander construction rather than a failure case, and generic bipartite expander pieces are not sporadic or extremal here."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "bipartite expander pieces show that expansion alone need not preclude low chromaticity"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Bipartite expander pieces refute any blanket idea that expansion precludes low colorability, and bipartiteness is the chromatic-number-2 boundary case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "bipartite expander pieces are a systematic colorable-expander construction mentioned illustratively"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "bipartite expander pieces are an ordinary systematic construction illustrating colorable expanders"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Iterative decoding analogy",
+   "note": "The local-improvement step is compared to iterative decoding, serving only as an analogy for repeatedly correcting locally suspicious colors.",
+   "first_introduced_sec": 1231,
+   "spans": [
+    {
+     "start_sec": 1231,
+     "end_sec": 1272
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Iterative decoding is only invoked as an analogy for the parallel local-improvement step.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Iterative decoding is only an analogy for the local improvement process and has no special structural role here."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Iterative decoding is only an analogy for the parallel local-improvement procedure."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "iterative decoding is only a positive analogy for the local-improvement procedure"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Iterative decoding is only a standard local-update analogy for the improvement step."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "iterative decoding is only an algorithmic analogy for repeated local updates, with no special structural object at issue"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "iterative decoding is a standard parallel local-update analogy rather than a special object or failure case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The iterative-decoding analogy is only a standard procedural comparison for the local-improvement step, not a special or adversarial object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Only an analogy for the parallel local-improvement update, with no special structural object or refutation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "iterative decoding is only an analogy for the parallel local-improvement process"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "It is only an analogy for repeated local correction, with no structurally special object invoked."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "iterative decoding is only an algorithmic analogy for the local improvement step"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "iterative decoding is invoked only as an analogy for the local-improvement procedure"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Clique-size threshold analogy",
+   "note": "The nonappearance of a fixed clique in too-sparse random graphs is used as an analogy for why the hard graph q must have the right density to be hidden in the random host.",
+   "first_introduced_sec": 2909,
+   "spans": [
+    {
+     "start_sec": 2909,
+     "end_sec": 2979
+    }
+   ],
+   "total_seconds": 70,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The clique-size threshold is only used as an analogy for why a fixed subgraph would not appear below a density threshold.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The clique-threshold analogy uses a complete clique, an extremal dense subgraph, as an obstruction to appearing in the relevant sparse random graph."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A fixed clique such as K5 is complete and threshold-critical for appearance below average degree sqrt(n), illustrating an obstruction to embedding too-dense q."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "a five-clique is a complete maximally symmetric graph and serves as a too-dense obstruction below the threshold"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A five-clique is a complete maximally dense graph used to illustrate the subgraph-occurrence obstruction below the square-root threshold."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the size-five clique is a complete symmetric extremal subgraph used as a too-dense obstruction to the random-host indistinguishability argument"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "a five-clique is a maximally dense symmetric graph used as an absent-subgraph obstruction below the random-graph threshold"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The K5 clique is a complete, maximally symmetric graph used as a threshold obstruction to embedding too-dense Q in the sparse random host."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The K5-type clique threshold is invoked as a sparse-random-graph obstruction, and a clique is complete, edge-maximal, and highly symmetric."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "a fixed clique such as K5 is a complete edge-maximal graph used as a threshold obstruction to subgraph appearance"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The K5 clique is used as a threshold analogy, and as a complete graph it is maximally regular and edge-maximal on five vertices."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "a fixed clique such as K5 is a complete max-density graph used as an obstruction to appearing below the random-graph threshold"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "a K5 is a complete extremal symmetric subgraph used as an obstruction that would not appear below the relevant random-graph threshold"
+    }
+   ]
+  }
+ ]
+}

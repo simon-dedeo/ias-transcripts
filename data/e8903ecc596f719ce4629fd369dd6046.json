@@ -1,0 +1,992 @@
+{
+ "key": "e8903ecc596f719ce4629fd369dd6046",
+ "title": "Adaptive Robustness of Hypergrid Johnson-Lindenstrauss",
+ "speaker": "Andrej Bogdanov",
+ "affiliation": "University of Ottawa",
+ "date": "2025-10-13T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3806.0,
+ "abstract": "In 1984 W. B. Johnson and J. Lindenstrauss showed that a random projection of an arbitrary point set S into low-dimensional space is approximately distance-preserving, as long as S is of size at most exponential in the target dimension. The resulting embedding has found many uses in data science.\nIf S is larger than exponential, however, its points can contract arbitrarily under the projection.\nWe give evidence that when S is the n-dimensional hypergrid of integral points with bounded  infinity-norm, the task of finding a contracting pair of points exhibits a computational-statistical gap. In a certain parameter range, contracting pairs are abundant, but finding such a pair is computationally infeasible.\nAs a cryptographic application, we show that the rounded Johnson-Lindenstrauss embedding is a robust property-preserving hash function. Such hash functions h compress data while preserving distances between inputs up to some distortion factor, with the guarantee that even knowing h, no computationally bounded adversary can find a pair of points that violates the distortion bound.\nThe talk is based on joint work with Alon Rosen, Neekon Vafa, and Vinod Vaikutanathan.",
+ "youtube_url": "https://youtu.be/xdkNd-gcqqQ",
+ "page_url": "https://www.ias.edu/video/adaptive-robustness-hypergrid-johnson-lindenstrauss",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Gaussian Johnson-Lindenstrauss motivation",
+   "summary": "The talk recalls the Gaussian-matrix version of the Johnson-Lindenstrauss lemma and motivates robustness questions through low-dimensional image hashing and sensitivity versus invariance attacks.",
+   "spans": [
+    {
+     "start_sec": 95,
+     "end_sec": 551
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Hypergrid contraction formulation",
+   "summary": "Because a real linear map has a kernel, the invariance attack becomes meaningful only after restricting inputs to a bounded integer grid, leading to the problem of finding a nonzero grid vector whose Gaussian image is unusually short.",
+   "spans": [
+    {
+     "start_sec": 564,
+     "end_sec": 1006
+    },
+    {
+     "start_sec": 3202,
+     "end_sec": 3209
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Statistical and computational phase landscape",
+   "summary": "The parameters alpha, grid bound b, and contraction kappa are organized into no-solution, existence-but-hard, and algorithmic regimes, with a rounded-output version giving a discrete shrinking map whose collisions exist but may be hard to find.",
+   "spans": [
+    {
+     "start_sec": 1006,
+     "end_sec": 1610
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Kernel-sampling rounding algorithm",
+   "summary": "The first natural algorithm samples a vector in the continuous kernel of the Gaussian matrix and snaps it to the nearest grid point, yielding contraction on the order of 1/b but not exploiting small alpha.",
+   "spans": [
+    {
+     "start_sec": 1610,
+     "end_sec": 1725
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Online vector balancing and cooling algorithm",
+   "summary": "Viewing the matrix columns as a stream, a greedy sign-balancing dynamics has limiting output norm about sqrt(pi/8)m for plus-minus-one entries, and a multiscale cooling variant on the b-grid achieves contraction about sqrt(alpha)/b.",
+   "spans": [
+    {
+     "start_sec": 1725,
+     "end_sec": 2276
+    },
+    {
+     "start_sec": 3209,
+     "end_sec": 3235
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Lattice and CLWE hardness in flat regimes",
+   "summary": "For very flat matrices, an algorithm beating the sqrt(alpha)/b contraction scale would imply an algorithm for standard lattice short-basis-type problems via continuous-LWE-related reductions.",
+   "spans": [
+    {
+     "start_sec": 2284,
+     "end_sec": 2401
+    },
+    {
+     "start_sec": 3235,
+     "end_sec": 3248
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Overlap-gap umbrella obstruction",
+   "summary": "In the constant-parameter regime, the speaker invokes overlap-gap heuristics and proves nonexistence of certain umbrella configurations, which rules out better norm-concentrated online algorithms by a correlated-instances branching argument.",
+   "spans": [
+    {
+     "start_sec": 2401,
+     "end_sec": 3202
+    },
+    {
+     "start_sec": 3235,
+     "end_sec": 3248
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Planted hidden-collision application",
+   "summary": "The computational/statistical gap is used in follow-up work to sample a matrix statistically close to Gaussian together with a hidden short vector, enabling a planted near-collision or backdoor that ordinary algorithms should not find.",
+   "spans": [
+    {
+     "start_sec": 3405,
+     "end_sec": 3801
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Near-neighbor image search after dimension reduction",
+   "note": "The speaker uses image near-neighbor search to illustrate why a Johnson-Lindenstrauss embedding is algorithmically useful before any robustness issue is introduced.",
+   "first_introduced_sec": 244,
+   "spans": [
+    {
+     "start_sec": 244,
+     "end_sec": 280
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he cites near-neighbor image search as a motivating application of embedding images into lower dimension, without carrying out a concrete search or calculation",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard application of JL dimension reduction to speed near-neighbor search, used as positive motivation rather than a failure case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as a standard motivating JL application, not as a structurally special object or failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard near-neighbor workflow used as a representative JL application"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary use-case illustrating JL-style dimension reduction for nearest-neighbor search, not a failure case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary JL-motivated algorithmic application illustrating usefulness, not a structurally special object or refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary metric-search application illustrating JL's usefulness, not a structurally special object or a negative case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Routine motivating application of JL dimension reduction for faster near-neighbor search, not a failure case or structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard data-analysis use of JL dimension reduction for near-neighbor search, used as motivation rather than a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a standard motivating application of JL dimension reduction for faster nearest-neighbor search, not to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary data-science application of Johnson–Lindenstrauss dimension reduction, used positively rather than to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard algorithmic use-case for JL-style dimension reduction, not a failure example or structurally special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as a routine motivating application of Johnson--Lindenstrauss dimension reduction for nearest-neighbor search; the image-search task is structurally ordinary."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Apple NeuralHash attacks",
+   "note": "Apple's approximately linear image hash and reported near-collision attacks motivate the move from ordinary JL embeddings to contraction attacks on discretized linear maps.",
+   "first_introduced_sec": 280,
+   "spans": [
+    {
+     "start_sec": 280,
+     "end_sec": 551
+    },
+    {
+     "start_sec": 1499,
+     "end_sec": 1558
+    }
+   ],
+   "total_seconds": 330,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he describes Apple NeuralHash and reported sensitivity/invariance attacks as motivation, but does not analyze that implementation concretely",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The NeuralHash attacks are presented as adversarial near-collision/sensitivity attacks showing a deployed hashing approach can be broken."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Presented as adversarial near-collision/sensitivity attacks showing NeuralHash-style approximate linear hashing can fail robustness."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "adversarial NeuralHash attacks exhibit robustness failures via sensitivity or near-collision behavior"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary adversarial attacks used to show NeuralHash-style embeddings can be broken by sensitivity or near-collision failures"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The NeuralHash attacks are used as adversarial cases showing a robustness/security failure via near-collisions, but are not structurally exceptional mathematical objects."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The NeuralHash attacks are adversarial near-collision/sensitivity cases used to show a robustness failure, with no intrinsic exceptional structure."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Presented as adversarial sensitivity/invariance attacks producing near-collisions that show NeuralHash-style robustness can fail."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The NeuralHash attacks are adversarial near-collision/sensitivity cases showing the hash’s robustness can fail, but they are structurally ordinary attacks."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as adversarial near-collision/sensitivity attacks showing that NeuralHash-style robustness can fail, while not being structurally exceptional."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The NeuralHash attacks are adversarial near-collision examples showing a robustness failure of an approximately linear image hash."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as adversarial attacks demonstrating NeuralHash robustness/collision resistance can fail, with no intrinsic special structure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Presented as successful sensitivity/invariance attacks producing near-collisions and hence demonstrating a robustness failure of NeuralHash-style embeddings."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "SHA-style collision-resistant hashes",
+   "note": "In response to a question, standard engineered cryptographic hash functions are contrasted with distance-preserving embeddings, illustrating why ordinary collision resistance is not the goal here.",
+   "first_introduced_sec": 820,
+   "spans": [
+    {
+     "start_sec": 820,
+     "end_sec": 873
+    }
+   ],
+   "total_seconds": 53,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "SHA-style collision-resistant hashes are only invoked in response to a question as engineered hashes that would not preserve distances",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 7,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "SHA-style hashes are invoked as an engineered collision-resistant alternative that does not solve the geometric distance-preservation/isometry goal."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a non-solution to the proposed construction: SHA-style collision resistance does not give the needed JL-like distance preservation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard engineered hash family mentioned as a contrast to distance-preserving embeddings"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard engineered cryptographic hash family mentioned as a contrast to distance-preserving embeddings rather than as a structural special case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "SHA-style hashes are cited as standard engineered collision-resistant alternatives, not as a counterexample and not as a special classification exception."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "SHA-style hashes are invoked as engineered collision-resistant maps that nevertheless do not provide the desired distance-preserving JL-like embedding."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a negative comparison showing standard collision-resistant hashes like SHA do not provide the desired distance-preserving embedding."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "SHA-style hashes are cited to show that generic collision resistance does not solve the desired distance-preserving embedding problem."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cited to rebut the idea that ordinary collision-resistant hashes like SHA solve the distance-preserving embedding problem, since they likely fail isometry."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "SHA-style hashes are cited as ordinary engineered collision-resistant hashes, mainly for contrast rather than as a failure example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cited as ordinary engineered cryptographic hashes contrasting with JL embeddings, not as a structural exception or direct counterexample."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cited to show that standard collision-resistant hashes such as SHA do not solve the desired metric-preserving embedding problem, obstructing the naive workaround."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Fashion-MNIST backdoor demonstration",
+   "note": "A neural network with a planted Gaussian first-layer collision is illustrated on clothing/shoe images to show how a visually large perturbation can be made close in the learned representation.",
+   "first_introduced_sec": 3493,
+   "spans": [
+    {
+     "start_sec": 3493,
+     "end_sec": 3650
+    },
+    {
+     "start_sec": 3717,
+     "end_sec": 3794
+    }
+   ],
+   "total_seconds": 234,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he describes running the planted-collision/backdoor construction in a Fashion-MNIST-style neural-network demo and reasons through how modified images remain close in the embedding output",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The Fashion-MNIST construction demonstrates a planted backdoor/near-collision that makes a classifier treat visually altered inputs as close."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an adversarial proof-of-concept backdoor where a planted near-collision makes a large input change look close to the classifier."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "planted backdoor example is an adversarial case showing a hidden near-collision can fool the classifier"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "standard benchmark backdoor demo used to exhibit a planted near-collision/adversarial vulnerability"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The Fashion-MNIST backdoor is an adversarial demonstration of a planted near-collision vulnerability, while the dataset/example itself is structurally ordinary."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The Fashion-MNIST backdoor is a planted adversarial near-collision demonstration showing a classifier/embedding robustness failure, not a structurally special benchmark."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A planted backdoor/near-collision in a Fashion-MNIST classifier is used adversarially to demonstrate hidden contractions can fool the model."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The Fashion-MNIST backdoor is an adversarial planted-collision demonstration showing a learned system can be made non-robust, with no special intrinsic structure of the listed types."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a backdoor/adversarial demonstration where a planted near-collision makes visually different Fashion-MNIST inputs appear close to the network."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The Fashion-MNIST backdoor is an adversarial planted-collision demonstration showing the classifier can be made insensitive to a large input change."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A planted-backdoor/adversarial demonstration showing near-collision robustness failure in the learned system, not structurally special."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an adversarial backdoor demonstration where a planted near-collision makes a visibly changed Fashion-MNIST input map close to the original representation."
+    }
+   ]
+  }
+ ]
+}

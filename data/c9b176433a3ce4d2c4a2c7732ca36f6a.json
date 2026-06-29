@@ -1,0 +1,1234 @@
+{
+ "key": "c9b176433a3ce4d2c4a2c7732ca36f6a",
+ "title": "Hardness of Randomized Truthful Mechanisms for Combinatorial Auctions",
+ "speaker": "Jan Vondrák",
+ "affiliation": "IBM Almaden",
+ "date": "2012-03-26T12:00:00Z",
+ "field_msc": "91 Game theory, economics, social sciences",
+ "duration_sec": 4204.0,
+ "abstract": "The problem of combinatorial auctions is one of the basic questions in algorithmic mechanism design: how can we allocate/sell m items to n agents with private valuations of different combinations of items, so that the agents are motivated to reveal their true valuations and the outcome is (at least approximately) optimal in terms of total utility? While approximation algorithms exist for several non-trivial classes of valuations, they typically do not motivate agents to report truthfully.",
+ "youtube_url": "https://www.youtube.com/watch?v=tKBaStwHESA",
+ "page_url": "https://www.ias.edu/video/csdm/vondrak",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Combinatorial-auction model and truthfulness notions",
+   "summary": "The talk sets up agents, items, allocations, payments, social welfare, computational efficiency, and the deterministic, universally truthful, and truthful-in-expectation incentive constraints.",
+   "spans": [
+    {
+     "start_sec": 53,
+     "end_sec": 835
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Baselines, valuation classes, and prior landscape",
+   "summary": "VCG is identified as the exact truthful benchmark, approximation becomes necessary because welfare maximization is hard, monotone submodular and related valuation classes are introduced, and prior positive and negative results are reviewed.",
+   "spans": [
+    {
+     "start_sec": 835,
+     "end_sec": 1801
+    },
+    {
+     "start_sec": 1893,
+     "end_sec": 2084
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Main lower-bound statements and proof roadmap",
+   "summary": "The speaker states the new oracle lower bound for truthful-in-expectation mechanisms for submodular valuations and its conversion to succinct computational hardness, then outlines the tools: symmetry gaps, distributional range arguments, taxation, and list-decodable codes.",
+   "spans": [
+    {
+     "start_sec": 1801,
+     "end_sec": 1893
+    },
+    {
+     "start_sec": 2084,
+     "end_sec": 2239
+    },
+    {
+     "start_sec": 3889,
+     "end_sec": 3940
+    },
+    {
+     "start_sec": 4088,
+     "end_sec": 4122
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Coverage-valuations positive mechanism via concave relaxation",
+   "summary": "The Dugmi–Roughgarden–Yan mechanism for coverage valuations is explained by replacing discrete allocations with distributions/fractional allocations, optimizing a specially chosen concave extension, and applying VCG payments to obtain truthfulness in expectation.",
+   "spans": [
+    {
+     "start_sec": 2239,
+     "end_sec": 2569
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Symmetry-gap obstruction for submodular extensions",
+   "summary": "The coverage relaxation fails for general submodular valuations because analogous extensions need not be concave, and a hidden two-sided symmetric construction makes oracle queries see only the inferior balanced region rather than the asymmetric optima.",
+   "spans": [
+    {
+     "start_sec": 2569,
+     "end_sec": 2802
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Inductive range blow-up for VCG-based mechanisms",
+   "summary": "For mechanisms optimizing over a fixed range of distributions, the symmetry-gap construction is iterated over a hierarchy of partitions, forcing any sufficiently approximating range to contain distributions allocating more and more items until it exceeds the instance size.",
+   "spans": [
+    {
+     "start_sec": 2802,
+     "end_sec": 3154
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Taxation-principle reduction to arbitrary truthful mechanisms",
+   "summary": "Using Dobzinski’s taxation-principle framework, fixing other players turns a truthful mechanism into a single-player menu/pricing maximization problem, and the prior hardness machinery is adapted to handle arbitrary price menus via scaling/Farkas-type arguments.",
+   "spans": [
+    {
+     "start_sec": 3154,
+     "end_sec": 3400
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "List-decodable-code translation to computational hardness",
+   "summary": "The hidden partition that drives the oracle lower bound is encoded as a codeword of a unique satisfying assignment, with list decoding allowing valuation evaluation while preserving hardness, thereby yielding succinctly represented submodular valuations hard for truthful mechanisms unless NP is contained in P/poly.",
+   "spans": [
+    {
+     "start_sec": 3400,
+     "end_sec": 3889
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Single-item second-price auction",
+   "note": "The familiar one-item auction illustrates the three desiderata—truthfulness, efficient computation, and welfare optimality—before the multi-item setting is introduced.",
+   "first_introduced_sec": 71,
+   "spans": [
+    {
+     "start_sec": 71,
+     "end_sec": 244
+    }
+   ],
+   "total_seconds": 173,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker runs through the single-item second-price auction, describing bids, allocation to the highest bidder, charging the second price, and checking truthfulness, efficiency, and social optimality.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 9,
+    "symmetric": 6,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The one-item Vickrey auction is the minimal boundary case of combinatorial auctions and is used as a positive benchmark, not a failure case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "minimal one-item auction case where the second-price rule exactly implements the welfare-optimal truthful outcome"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "An anonymous one-item base case that exactly maximizes welfare, used as the positive truthful benchmark."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The Vickrey auction is the minimal one-item base case and is welfare-optimal/truthful in that setting, used only illustratively rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the Vickrey auction is the anonymous, fully regular mechanism for the minimal one-item base case, used as a positive illustration"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is the minimal one-item auction case and the Vickrey rule gives the welfare-maximizing allocation rather than refuting a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The one-item Vickrey auction is a minimal auction setting that exactly attains truthful, efficient, welfare-optimal allocation rather than refuting a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Used as the solvable baseline; the one-item case is a minimal combinatorial-auction case and the mechanism exactly attains truthful welfare maximization."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the one-item Vickrey auction is the minimal combinatorial-auction base case and exactly attains welfare optimality"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the one-item second-price auction is an anonymous minimal auction case that exactly attains truthful welfare-optimal allocation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Used as the positive one-item base case of truthful efficient auctions, not to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "it is the minimal one-item base case used as a positive illustration of truthful efficient auctions"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "AdWords and FCC spectrum auctions",
+   "note": "These applications motivate why the abstract combinatorial-auction model can represent virtual items such as ad keywords or spectrum licenses.",
+   "first_introduced_sec": 244,
+   "spans": [
+    {
+     "start_sec": 244,
+     "end_sec": 288
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "AdWords and FCC spectrum auctions are cited only as motivating applications with brief descriptions of virtual items such as keywords and spectrum licenses.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "AdWords and FCC spectrum auctions are motivating real-world application domains rather than structurally special or adversarial mathematical cases."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "motivating real-world auction settings rather than structurally special mathematical objects"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Real motivating application settings for combinatorial auctions, not structurally special or adversarial here."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "AdWords and FCC spectrum auctions are ordinary motivating real-world instances of combinatorial-auction settings, not deployed as obstructions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "AdWords and spectrum auctions are motivating real-world instances of the framework, not structurally special or adversarial"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "These are ordinary motivating real-world multi-item auction applications, not structurally special or used adversarially."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "AdWords and FCC spectrum auctions are motivating real-world instances of combinatorial auctions, not structurally extreme or used as obstructions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Mentioned only as motivating application domains for combinatorial auctions, not as structurally special or as a disproof case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "AdWords and FCC spectrum auctions are motivating application domains rather than refuting or structurally special examples"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "AdWords and spectrum auctions are cited as motivating real-world instances of the general combinatorial-auction framework"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "They are motivating real-world auction applications rather than adversarial or structurally special mathematical cases."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "these are motivating real-world auction applications rather than adversarial or structurally special mathematical objects"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Budget-additive valuations",
+   "note": "The valuation min of an additive value and a budget cap gives a concrete subclass of monotone submodular valuations used to situate known positive and negative results.",
+   "first_introduced_sec": 1215,
+   "spans": [
+    {
+     "start_sec": 1215,
+     "end_sec": 1270
+    }
+   ],
+   "total_seconds": 55,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Budget-additive valuations are defined as additive values capped by a budget and noted to be submodular, but no concrete construction or calculation is performed on them.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 3,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Budget-additive valuations are a natural capped-additive subclass, used in part as a restricted setting where VCG-based mechanisms still face strong lower bounds."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a systematic subclass of monotone submodular valuations of the form min(budget, additive value), introduced as a representative restricted valuation class"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A natural submodular valuation subclass also cited as a simple domain where VCG-based mechanisms still face hardness."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Budget-additive valuations are a systematic subclass of submodular valuations with arbitrary weights and a cap, introduced as a representative valuation class rather than a counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "budget-additive valuations are a standard restricted subclass of monotone submodular valuations, introduced as a model class"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Budget-additive valuations are a collapsed capped-additive subclass of submodular valuations, introduced as a natural restricted class rather than a refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Budget-additive valuations are presented as a natural simple subclass of submodular valuations used in ad-auction models, not as a sporadic or limiting object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A natural subclass of monotone submodular valuations used as a restricted hard setting where VCG-based mechanisms still fail to get good approximation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "budget-additive valuations are cited as a simple monotone-submodular subclass used in ad-auction models"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "budget-additive valuations are used as a natural succinct subclass of monotone submodular valuations, not as an obstruction"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Budget-additive valuations are presented as a simple representative subclass of submodular valuations, not as a sporadic or limiting object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "budget-additive valuations are presented as an ordinary useful subclass of submodular valuations"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Maximum coverage over k sets and the 1-1/e barrier",
+   "note": "In response to a question, the speaker compares the coverage-valuation mechanism’s optimal factor with Feige’s hardness threshold for maximum coverage.",
+   "first_introduced_sec": 2356,
+   "spans": [
+    {
+     "start_sec": 2356,
+     "end_sec": 2421
+    }
+   ],
+   "total_seconds": 65,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Maximum coverage over k sets and the 1-1/e barrier are invoked as the source of an analogous optimality/hardness threshold, without deriving or working through the example.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Maximum coverage is invoked through Feige's tight 1-1/e approximation barrier, obstructing any better general approximation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the maximum-coverage 1-1/e threshold is a tight approximation boundary used as an obstruction to better guarantees"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The max-coverage problem is cited via Feige’s tight 1-1/e hardness barrier against better approximation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The maximum-coverage 1−1/e threshold is a tight optimal approximability boundary and is cited as the hardness barrier to doing better."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "maximum k-coverage supplies the tight 1-1/e approximability boundary obstructing better guarantees"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The maximum-coverage 1-1/e threshold is cited as a tight optimal approximation barrier obstructing better guarantees."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Maximum coverage supplies the tight 1-1/e approximability threshold and is invoked as a hardness barrier to better approximation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Invoked as the tight 1-1/e approximability barrier for maximum coverage, obstructing any better general approximation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "maximum coverage is invoked through Feige's tight 1-1/e hardness barrier against better approximation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "maximum coverage is invoked via Feige's tight 1−1/e inapproximability barrier to rule out better approximation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The maximum-coverage 1-1/e threshold is cited as the tight optimal barrier obstructing better approximation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "maximum coverage is invoked through Feige's tight 1-1/e hardness barrier against better approximation"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Nonmonotone submodular maximization generalizing Max Cut",
+   "note": "As a Q&A application of the code-based translation, the speaker mentions matching computational hardness for a standard nontruthful submodular-optimization problem.",
+   "first_introduced_sec": 3940,
+   "spans": [
+    {
+     "start_sec": 3940,
+     "end_sec": 4017
+    }
+   ],
+   "total_seconds": 77,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Nonmonotone submodular maximization generalizing Max Cut is only named at the end as an application of the hardness framework, with no worked instance or proof.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The nonmonotone submodular maximization examples are used as tight hard instances showing that better than a 1/2 approximation cannot be guaranteed."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "nonmonotone submodular maximization is cited through matching 1/2-hard instances generalizing Max Cut, obstructing better approximation"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "It is used as a tight 1/2 hardness application for nonmonotone submodular maximization generalizing Max Cut."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nonmonotone submodular maximization is a systematic problem class, used here as a hardness application showing better-than-1/2 approximation cannot generally be achieved."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the cited nonmonotone submodular hard instances give the tight 1/2 barrier, ruling out better approximation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The nonmonotone submodular/Max-Cut generalization is used via tight 1/2-hard instances to rule out better approximation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Nonmonotone submodular maximization is cited as an application giving tight 1/2 hardness instances, obstructing better approximation algorithms."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Cited as a matching-hardness application where specific instances make the 1/2 approximation threshold tight for nonmonotone submodular maximization."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "nonmonotone submodular maximization is used to exhibit tight one-half hardness instances generalizing Max Cut"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the nonmonotone submodular Max-Cut generalization is cited through hard instances giving a tight 1/2 approximation barrier"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Nonmonotone submodular maximization is invoked via hard instances giving the tight 1/2 impossibility barrier generalizing Max Cut."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the nonmonotone submodular hard instances are used to rule out approximation better than the tight 1/2 threshold"
+    }
+   ]
+  }
+ ]
+}

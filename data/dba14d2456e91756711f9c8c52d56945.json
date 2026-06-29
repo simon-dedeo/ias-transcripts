@@ -1,0 +1,2048 @@
+{
+ "key": "dba14d2456e91756711f9c8c52d56945",
+ "title": "On learning in the presence of biased data and strategic behavior",
+ "speaker": "Avrim Blum",
+ "affiliation": "Toyota Technological Institute at Chicago",
+ "date": "2020-06-16T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4231.0,
+ "abstract": "In this talk I will discuss two lines of work involving learning in the presence of biased data and strategic behavior. In the first, we ask whether fairness constraints on learning algorithms can actually improve the accuracy of the classifier produced, when training data is unrepresentative or corrupted due to bias. Typically, fairness constraints are analyzed as a tradeoff with classical objectives such as accuracy. Our results here show there are natural scenarios where they can be a win-win, helping to improve overall accuracy.",
+ "youtube_url": "https://www.youtube.com/watch?v=rSQbfqzCTKc",
+ "page_url": "https://www.ias.edu/video/tml/2020/0616-AvrimBlum",
+ "tags": [
+  "School of Mathematics",
+  "Seminar on Theoretical Machine Learning"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Fairness criteria as accuracy constraints under bias",
+   "summary": "The talk motivates the question of whether fairness constraints, normally viewed as trading off with accuracy, can improve accuracy when the training distribution is biased, and reviews equality of opportunity, equalized odds, calibration, and demographic parity.",
+   "spans": [
+    {
+     "start_sec": 144,
+     "end_sec": 755
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Stylized biased-data and ground-truth model",
+   "summary": "The first model fixes two observable groups, ERM in a large-sample limit, underrepresentation and labeling bias mechanisms for the disadvantaged group, and Bayes-optimal group classifiers whose random-classification-noise structure makes them satisfy the fairness notions on the unbiased distribution.",
+   "spans": [
+    {
+     "start_sec": 755,
+     "end_sec": 1561
+    },
+    {
+     "start_sec": 3933,
+     "end_sec": 3985
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Underrepresentation-bias analysis",
+   "summary": "When group-B positives are underrepresented, unconstrained ERM may eventually classify all of group B as negative, calibration and demographic parity move boundaries in harmful or accuracy-reducing ways, while equality of opportunity/equalized odds keep the Bayes-optimal classifiers feasible and effectively lock them in.",
+   "spans": [
+    {
+     "start_sec": 1561,
+     "end_sec": 1968
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Labeling-bias and combined-bias comparison",
+   "summary": "For mislabeled group-B positives, equality of opportunity still protects the Bayes-optimal classifier, demographic parity can also work in the pure labeling case, equalized odds fails because the apparent negative distribution is distorted, and calibration again compensates in the wrong direction; with both biases, equality of opportunity remains the robust notion in the stylized model.",
+   "spans": [
+    {
+     "start_sec": 1968,
+     "end_sec": 2273
+    },
+    {
+     "start_sec": 3565,
+     "end_sec": 3758
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Strategic online classification model and naive-algorithm failure",
+   "summary": "The second part sets up online binary classification with agents who know the current rule and can pay movement costs to be labeled positive, relates this to strategic measurement and prior work, and shows by a perceptron cycling example that standard online linear-classification algorithms can fail.",
+   "spans": [
+    {
+     "start_sec": 2273,
+     "end_sec": 3002
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Manipulation-aware perceptron for known Euclidean costs",
+   "summary": "Assuming a known manipulation radius and an underlying perfect linear separator, the algorithm shifts the current hyperplane by the manipulation radius and updates only with reconstructed vectors whose dot product is positive with the true separator and nonpositive with the current hypothesis.",
+   "spans": [
+    {
+     "start_sec": 3002,
+     "end_sec": 3465
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Extensions, limitations, and open strategic variants",
+   "summary": "The speaker explains how the approach extends to known weighted l1 costs, notes that unknown costs currently lead to exponential grid searches, and discusses in Q&A partial observability, heterogeneous manipulation, probabilistic rules, and related uncertain-agent models.",
+   "spans": [
+    {
+     "start_sec": 3465,
+     "end_sec": 3565
+    },
+    {
+     "start_sec": 3774,
+     "end_sec": 3927
+    },
+    {
+     "start_sec": 3996,
+     "end_sec": 4226
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "COMPAS recidivism audit",
+   "note": "The ProPublica/COMPAS recidivism-risk study illustrates why calibration, false-positive/false-negative rates, and group fairness constraints can conflict in real predictive systems.",
+   "first_introduced_sec": 233,
+   "spans": [
+    {
+     "start_sec": 233,
+     "end_sec": 433
+    }
+   ],
+   "total_seconds": 200,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker translates the COMPAS audit into binary prediction terms and checks false-negative, false-positive, and calibration properties on it",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The COMPAS audit is used as a real failure case for equalized-error fairness despite calibration."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show a calibrated risk tool can still have unequal error rates across groups."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show a calibrated risk tool can still have unequal false-positive and false-negative rates across groups"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an empirical case where calibrated COMPAS scores still had unequal error rates across racial groups."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to exhibit failure of equal-error fairness in a deployed recidivism classifier"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "calibrated-but-unequal-error empirical case showing calibration need not deliver equalized error rates"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Empirical COMPAS case motivates fairness disparities rather than serving as a formal counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show that calibration can coexist with unequal false-positive/false-negative rates across groups"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to exhibit a real fairness failure where calibration coexists with unequal error rates, while the audit case is structurally ordinary."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The audit is used to exhibit a real classifier that is calibrated yet has disparate error rates across groups."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a real-world fairness failure where COMPAS calibration coexists with unequal error rates across groups"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The COMPAS audit is used to exhibit a fairness failure, namely calibration coexisting with disparate error rates."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Loans, college admissions, and hiring decisions",
+   "note": "These recurring decision settings make the binary positive/negative classification and the human stakes of fairness or manipulation concrete without being part of any proof.",
+   "first_introduced_sec": 233,
+   "spans": [
+    {
+     "start_sec": 233,
+     "end_sec": 282
+    },
+    {
+     "start_sec": 461,
+     "end_sec": 522
+    },
+    {
+     "start_sec": 642,
+     "end_sec": 667
+    },
+    {
+     "start_sec": 2315,
+     "end_sec": 2367
+    }
+   ],
+   "total_seconds": 187,
+   "attaches_to": [
+    "s1",
+    "s5"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "loans, college admissions, and hiring are used as motivating decision settings without analyzing any one concretely",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Loans, admissions, and hiring are ordinary motivating binary-decision domains."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary application domains for binary classification decisions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary application domains motivating binary classification decisions"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary application domains for binary classification decisions, used only as motivating examples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary binary decision domains used as motivating applications"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary motivating binary-decision domains, not used to refute a claim"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Ordinary application domains for binary classification are used as representative motivation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary application domains for binary classification and fairness notions"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Generic application domains for binary classification, not deployed to refute a claim and structurally typical."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "These are ordinary application domains for binary classification, used only as motivating examples."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary consequential binary-classification settings used as motivating representatives"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Loans, admissions, and hiring are ordinary motivating binary-classification settings."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Trivial equalized-odds classifiers",
+   "note": "Classifying everyone positive, everyone negative, randomly, or perfectly is used only to show concretely that equalized odds is achievable but may be uninformative.",
+   "first_introduced_sec": 544,
+   "spans": [
+    {
+     "start_sec": 544,
+     "end_sec": 603
+    }
+   ],
+   "total_seconds": 59,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker verifies that always-positive, always-negative, random, and perfectly correct classifiers satisfy equalized odds by computing the relevant probabilities",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 11,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The all-accept/all-reject/random rules collapse the classifier, treat inputs uniformly, and include boundary acceptance-rate cases."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "constant or random group-blind predictors collapse feature structure and include boundary all-positive/all-negative cases."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "constant or feature-ignoring classifiers are trivial, with accept-all and reject-all at endpoint prediction rates"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Constant or feature-blind classifiers satisfy equalized odds vacuously by ignoring essentially all structure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "constant all-accept/all-reject style classifiers are featureless, maximally invariant, and sit at acceptance-rate extremes"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "constant or feature-ignoring rules treat all inputs identically, with all-positive/all-negative cases at acceptance-rate boundaries"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Trivial constant or random rules are collapsed group-invariant classifiers, with constant rules at boundary selection rates."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "feature-ignoring all-positive/all-negative/random classifiers witness feasibility, with constant rules as degenerate boundary cases"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Constant all-accept/all-reject or feature-free random classifiers witness feasibility of equalized odds and are collapsed, maximally invariant boundary cases."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The all-positive/all-negative or input-independent random classifiers are collapsed, maximally coarse rules, with the constant cases at boundary acceptance rates."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "constant or input-ignoring classifiers witness feasibility of equalized odds and include 0% or 100% prediction-rate boundary cases"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The all-positive, all-negative, and feature-ignoring classifiers satisfy equalized odds only in trivial boundary ways."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Underrepresentation from discouraged applicants",
+   "note": "A company with a poor past record of hiring group B is used to illustrate why qualified group-B applicants might apply at lower rates than unqualified ones.",
+   "first_introduced_sec": 981,
+   "spans": [
+    {
+     "start_sec": 981,
+     "end_sec": 1039
+    }
+   ],
+   "total_seconds": 58,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker formalizes the discouraged-applicant underrepresentation model and analyzes how ERM and fairness constraints behave as beta-plus changes",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 6,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Underrepresentation is used as a biased-sampling enemy case where unconstrained ERM or calibration can mislead."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a standard biased-sampling mechanism used as an analysis setting."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a biased-data scenario where unconstrained ERM or some fairness constraints can move in the wrong direction"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an adverse biased-data case where unconstrained ERM or some fairness notions can fail despite fair Bayes rules."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard selection-bias mechanism used as a model of biased data"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary sampling-bias model with group-B thinning, introduced as a natural source of biased data"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Discouraged-applicant underrepresentation is a standard biased-sampling scenario used to motivate the model."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an adverse selection-bias model used to show naive ERM and some fairness constraints can mislearn"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a biased-sampling failure mode for naive empirical learning or some fairness notions, but the sampling model is otherwise ordinary."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "This is a standard sampling-bias scenario used to define the underrepresentation model rather than to refute a specific claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a typical biased-sampling mechanism introduced as a model of underrepresentation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The discouraged-applicant underrepresentation model is used as an enemy case where naive ERM or calibration can go wrong."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Biased resume labels by past hiring managers",
+   "note": "Past hiring managers labeling some qualified group-B candidates as negative illustrates the labeling-bias model.",
+   "first_introduced_sec": 1071,
+   "spans": [
+    {
+     "start_sec": 1071,
+     "end_sec": 1113
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker turns biased past resume labels into a labeling-bias model and works through its effect on classifiers and fairness constraints",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 6,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Biased resume labels are used as a label-noise enemy case where naive learning and some fairness notions fail."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a one-sided label-noise scenario used as a bias model."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a label-bias scenario showing calibration, equalized odds, or plain ERM can fail under mislabeling"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an adverse labeling-bias case where past biased labels can make standard learning and some fairness constraints fail."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a typical label-bias mechanism from biased human annotators"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard one-sided label-bias scenario for group-B positives, used as a modeling example"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Biased resume labels are an ordinary label-noise mechanism used as a motivating data-bias example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an adverse label-bias model used to show ERM, calibration, or equalized odds can go wrong"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a label-bias failure mode caused by past decisions, with no special intrinsic structure beyond a standard one-sided noise model."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "This is a typical one-sided label-bias mechanism used as a modeling example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard label-bias scenario used to motivate the corrupted-label model"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The biased-resume-label model is used to show failures of unconstrained ERM and some fairness constraints under one-sided label noise."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Joining a club to look more admissible or creditworthy",
+   "note": "An agent changing a résumé-like feature, such as joining a club, illustrates strategic feature manipulation at a cost.",
+   "first_introduced_sec": 2334,
+   "spans": [
+    {
+     "start_sec": 2334,
+     "end_sec": 2367
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "joining a club is only cited as an example of a feature manipulation an applicant might make",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Joining a club is used as an adversarial feature-gaming case obstructing static classification."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an ordinary feature-gaming action motivating strategic classification."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary example of strategic feature manipulation in admissions or lending"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A typical strategic feature-change example illustrating the model rather than refuting a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a routine strategic feature-manipulation scenario motivating the model"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary strategic feature-manipulation behavior, used to motivate the setting rather than refute a theorem"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Joining a club is a typical feature-manipulation illustration for strategic classification."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a typical strategic feature manipulation used to motivate the classification model"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an adversarial strategic-manipulation case for proxy features, while the behavior itself is structurally typical."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Joining a club is an ordinary illustrative instance of strategic feature manipulation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a representative strategic feature manipulation used to motivate the model"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Joining a club is an ordinary illustration of strategic feature manipulation rather than a proof of failure by itself."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Measure management and Goodhart/Campbell effects",
+   "note": "Employee performance metrics and the 'what counts versus what gets counted' analogy illustrate strategic responses to observable measurements.",
+   "first_introduced_sec": 2442,
+   "spans": [
+    {
+     "start_sec": 2442,
+     "end_sec": 2495
+    },
+    {
+     "start_sec": 3859,
+     "end_sec": 3927
+    }
+   ],
+   "total_seconds": 121,
+   "attaches_to": [
+    "s5",
+    "s7"
+   ],
+   "primary_stage": "s5",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "measure management and Goodhart/Campbell effects are invoked as background analogies without a concrete calculation or construction",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Goodhart/Campbell effects are used to show that proxy measures can fail once optimized."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "cited as proxy metrics failing once agents optimize them."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "invoked as the standard failure mode where optimizing a proxy measure undermines what it was meant to measure"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cited as a failure mode where optimizing a proxy measure undermines the intended objective."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a failure mode where optimizing the proxy measure defeats the intended objective"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "classic proxy-measure failure showing optimized metrics can cease to measure the intended objective"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Goodhart and Campbell effects are general motivating phenomena for metric manipulation, not structurally special objects."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Goodhart/Campbell effects are invoked as failures of proxy measures under optimization"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Goodhart/Campbell effects are invoked as obstructions to proxy measurement, not as structurally exceptional objects."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Goodhart/Campbell effects are invoked as failure cases where optimizing a proxy measure stops measuring the intended target."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a proxy-measure failure mode in which optimizing the metric defeats the intended objective"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Goodhart and Campbell effects are invoked as proxy-measure gaming that defeats the intended measurement."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Perceptron cycling under manipulation",
+   "note": "A two-point/two-feature linear-separability example shows the standard perceptron can oscillate once negative and positive agents manipulate differently, motivating a manipulation-aware update rule.",
+   "first_introduced_sec": 2756,
+   "spans": [
+    {
+     "start_sec": 2756,
+     "end_sec": 3002
+    }
+   ],
+   "total_seconds": 246,
+   "attaches_to": [
+    "s5",
+    "s6"
+   ],
+   "primary_stage": "s5",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly runs perceptron updates under manipulation and shows the resulting cycle and an alternative perfect separator",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The minimal strategic dataset produces a degenerate 2-cycle that refutes standard perceptron robustness."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "constructed to make the standard perceptron cycle despite a perfect manipulation-aware separator."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "explicit adversarial instance showing perceptron can cycle forever despite an existing perfect strategic classifier"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The two-point manipulation instance makes standard perceptron cycle even though a perfect classifier exists."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "constructed to show the standard perceptron can cycle forever under manipulation despite a perfect classifier"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "adversarial manipulable separable instance where standard perceptron cycles despite a perfect classifier"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The constructed strategic sequence shows perceptron can cycle despite the existence of a perfect classifier."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a minimal two-dimensional manipulable dataset makes perceptron cycle despite a perfect classifier existing"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Explicitly gives a manipulated-data construction where standard perceptron cycles despite a perfect separator, while the configuration is not intrinsically special."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The constructed manipulation example shows the standard perceptron can cycle forever despite a perfect strategic linear classifier existing."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "constructed to show standard perceptron can cycle forever under manipulation despite a perfect separator"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A minimal two-point separable instance with manipulation makes the standard perceptron cycle despite a perfect classifier."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Study-or-not-study testing model",
+   "note": "In Q&A, the speaker cites a zero-dimensional model in which students choose whether to study before receiving a random test score as an illustration of partial self-knowledge or uncertainty.",
+   "first_introduced_sec": 3827,
+   "spans": [
+    {
+     "start_sec": 3827,
+     "end_sec": 3859
+    },
+    {
+     "start_sec": 4201,
+     "end_sec": 4226
+    }
+   ],
+   "total_seconds": 57,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the study-or-not-study testing model is briefly described in Q&A as related work without being worked through",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The study-or-not-study setup is a zero-dimensional binary-action toy model cited as related work."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a zero-dimensional two-action reduction with much less structure than general strategic classification."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "described as a zero-dimensional binary action testing model used as related work rather than a refutation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The zero-dimensional study-or-not-study testing setup is a minimal toy model for strategic uncertainty."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the study-or-not-study testing setup is explicitly a zero-dimensional simplified model"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "zero-dimensional binary-action testing model is a collapsed toy model for partial observability"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The study-or-not-study testing setup is explicitly a zero-dimensional simplified model."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a zero-dimensional binary study-or-not-study model is a collapsed toy model for partial observability"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Mentioned as related work with a collapsed zero-dimensional binary action model, not as a refutation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The study-or-not-study model is a zero-dimensional binary-action simplification of strategic testing."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a zero-dimensional two-action testing model cited as a simplified related setting"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The study-or-not-study testing setup is a collapsed zero-dimensional binary-action model cited as simplified prior work."
+    }
+   ]
+  }
+ ]
+}

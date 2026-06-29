@@ -1,0 +1,2476 @@
+{
+ "key": "27b7a7f196408ae5d2b8feeee94ad7c8",
+ "title": "Machine learning-based design (of proteins, small molecules and beyond)",
+ "speaker": "Jennifer Listgarten",
+ "affiliation": "University of California, Berkeley",
+ "date": "2020-07-07T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4064.0,
+ "abstract": "Data-driven design is making headway into a number of application areas, including protein, small-molecule, and materials engineering. The design goal is to construct an object with desired properties, such as a protein that binds to a target more tightly than previously observed. To that end, costly experimental measurements are being replaced with calls to a high-capacity regression model trained on labeled data, which can be leveraged in an in silico search for promising design candidates.",
+ "youtube_url": "https://www.youtube.com/watch?v=mkCyu6-N93k",
+ "page_url": "https://www.ias.edu/video/machinelearning/2020/0707-JenniferListgarten",
+ "tags": [
+  "School of Mathematics",
+  "Seminar on Theoretical Machine Learning"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Protein design as enormous discrete extrapolation",
+   "summary": "The talk frames protein and molecular design as searching a nearly infinite combinatorial sequence space, where nature's evolved structure and available measurements suggest that machine learning may guide useful extrapolation.",
+   "spans": [
+    {
+     "start_sec": 93,
+     "end_sec": 530
+    },
+    {
+     "start_sec": 550,
+     "end_sec": 654
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Directed evolution as the wet-lab baseline",
+   "summary": "Directed evolution is reviewed as a parent-diversification-screen-selection loop that works like random greedy search and motivates replacing or augmenting parts of the loop computationally.",
+   "spans": [
+    {
+     "start_sec": 654,
+     "end_sec": 852
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Black-box oracle design formulation",
+   "summary": "The computational design task is posed as using a trained predictive oracle, ideally with calibrated uncertainty, to return a set of high-property sequences while respecting domain-specific constraints.",
+   "spans": [
+    {
+     "start_sec": 852,
+     "end_sec": 1240
+    },
+    {
+     "start_sec": 2094,
+     "end_sec": 2133
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Model-based optimization over search distributions",
+   "summary": "Instead of optimizing directly over sequences, the method optimizes a parameterized distribution over sequences, yielding an uncertainty-aware generative update related to estimation-of-distribution algorithms, rare-event methods, and EM.",
+   "spans": [
+    {
+     "start_sec": 1240,
+     "end_sec": 1804
+    },
+    {
+     "start_sec": 1944,
+     "end_sec": 2049
+    },
+    {
+     "start_sec": 2133,
+     "end_sec": 2211
+    },
+    {
+     "start_sec": 2233,
+     "end_sec": 2361
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Robustness to extrapolative oracle pathologies",
+   "summary": "Because oracle uncertainty can become unreliable away from training data, the method adds a density-based probabilistic trust region so that search is modulated by how far proposed designs move from credible regions.",
+   "spans": [
+    {
+     "start_sec": 2361,
+     "end_sec": 2867
+    },
+    {
+     "start_sec": 3914,
+     "end_sec": 4045
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "In silico evaluation under synthetic ground truth",
+   "summary": "Since ordinary held-out validation cannot test designs in unseen regions, the speaker describes constructing simulated ground truths from real data and comparing optimization methods in these controlled settings.",
+   "spans": [
+    {
+     "start_sec": 2867,
+     "end_sec": 3060
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Autofocused oracle adaptation",
+   "summary": "The autofocus extension introduces an oracle gap between the true and proxy design objectives, alternately updates the search distribution and oracle parameters, and naturally yields a covariate-shift correction focused on the current search region.",
+   "spans": [
+    {
+     "start_sec": 3060,
+     "end_sec": 3416
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Domain-specific deployment and open modeling choices",
+   "summary": "The final discussion emphasizes that data generation, search-model family choice, and application targets such as gene delivery, GFP, and materials design must be instantiated differently across domains.",
+   "spans": [
+    {
+     "start_sec": 3416,
+     "end_sec": 3532
+    },
+    {
+     "start_sec": 3544,
+     "end_sec": 3914
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Needle in a haystack performance",
+   "note": "The Paris needle-search story is used as an analogy for searching an enormous discrete molecular design space, not as a source of the method.",
+   "first_introduced_sec": 127,
+   "spans": [
+    {
+     "start_sec": 127,
+     "end_sec": 188
+    }
+   ],
+   "total_seconds": 61,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "used only as an analogy for searching a vast design space, with no computation on the haystack example",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a single-target, otherwise unstructured search landscape is an extreme sparse case used as an analogy for design difficulty"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A needle-in-a-haystack search landscape is essentially flat with a vanishingly sparse target, an extreme hard-search case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A needle-in-a-haystack search is an essentially unstructured one-target landscape at the sparse worst-case extreme."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the needle-in-a-haystack landscape is a worst-case single-target search, flat and uninformative except at the needle"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A needle-in-a-haystack search has an almost flat uninformative landscape with a single rare target, making it a worst-case sparse search analogy."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a needle-in-a-haystack search landscape has almost no exploitable structure and an extremely sparse target."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A single needle hidden in a huge haystack is an extremally sparse, degenerate search instance used only as a motivating analogy."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a needle-in-haystack search is an extremely sparse target case used to motivate difficulty rather than refute a claim"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a needle-in-a-haystack search is an extremely sparse-target search used only as a motivating analogy for protein-space difficulty"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "It is the archetypal extremely sparse search problem used as motivation rather than to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a singleton-like rare target in an enormous search space used as an obstruction to naive search"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Needle-in-a-haystack search is used as a motivating analogy and is structurally an extreme sparse-search case."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Rubisco carbon-fixation enzyme",
+   "note": "Rubisco illustrates the societal importance of protein engineering by pointing to a protein whose improved catalytic behavior could affect climate and agriculture.",
+   "first_introduced_sec": 188,
+   "spans": [
+    {
+     "start_sec": 188,
+     "end_sec": 233
+    }
+   ],
+   "total_seconds": 45,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "described Rubisco’s role and possible desired improvements, but did not analyze or run a method on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Rubisco is a motivating enzyme target, not a sporadic or boundary mathematical object despite its biological importance"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Rubisco is used as a high-impact natural enzyme example, not as a structural boundary case despite its abundance."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Rubisco is used as a motivating natural enzyme rather than as a structural exception or counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Rubisco is cited as an important protein-engineering target, not as a structural exception or failure case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Rubisco is used as an important protein-engineering target rather than as a structurally exceptional enzyme or refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Rubisco is used as an important but structurally ordinary enzyme-engineering target."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Rubisco is cited as the world's most common enzyme and a rate-limiting carbon-fixation bottleneck, not as a failure case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Rubisco is presented as an important natural enzyme-design target, not as a structural exception or failure case"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Rubisco is cited as an important natural enzyme-design target, not as a sporadic or extremal structural object"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Rubisco is presented as an important ordinary enzyme target for design, not as a structural exception or obstruction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Rubisco is presented as the world's most abundant enzyme and a carbon-fixation bottleneck"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Rubisco is presented as an important protein-engineering target rather than as a failure case, with no intrinsic sporadic or boundary structure invoked."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "CRISPR-Cas9 as an engineerable protein",
+   "note": "Cas9 is cited as a familiar protein whose cutting behavior can be optimized for different genome-editing purposes.",
+   "first_introduced_sec": 233,
+   "spans": [
+    {
+     "start_sec": 233,
+     "end_sec": 276
+    }
+   ],
+   "total_seconds": 43,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "cited CRISPR-Cas9 as a protein people optimize, without working through its engineering",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Cas9 is presented as an ordinary engineerable protein application"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cas9 is presented as an ordinary engineerable nuclease/protein target."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cas9 is presented as a standard engineerable nuclease protein in an existing family."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cas9 is used as a representative engineerable nuclease protein rather than an extreme or obstruction"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "CRISPR-Cas9 is presented as a natural protein that can be optimized for uses, with no listed special structural status."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cas9 is presented as a standard engineerable nuclease protein rather than a structural outlier."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cas9 is used as a standard important engineerable protein example, with no structural extremality or exceptionality invoked."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Cas9 is used as an ordinary engineerable protein example for optimization"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cas9 is used as a representative engineerable protein for gene editing rather than to refute a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cas9 is used as a representative engineerable protein for genome editing, with no counterexample role."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cas9 is cited as an ordinary engineerable protein target rather than a structural edge case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "CRISPR-Cas9 is cited as a familiar engineerable protein, not as a counterexample or structurally exceptional object."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Viral gene-delivery vector",
+   "note": "The gene-delivery virus collaboration illustrates a real protein-engineering application where the method might reduce wet-lab directed-evolution rounds.",
+   "first_introduced_sec": 276,
+   "spans": [
+    {
+     "start_sec": 276,
+     "end_sec": 331
+    },
+    {
+     "start_sec": 3512,
+     "end_sec": 3532
+    },
+    {
+     "start_sec": 3544,
+     "end_sec": 3613
+    }
+   ],
+   "total_seconds": 144,
+   "attaches_to": [
+    "s1",
+    "s8"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "described a viral vector collaboration and delivery goal, but gave no concrete calculation or construction on the vector",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 7,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the viral vector is used as a motivating delivery-engineering target rather than as a structurally special case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The viral delivery vector is an application target; its capsid is typically highly regular but not used as a mathematical extremal or exception here."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The viral vector is a motivating delivery platform with no special structural property specified."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the viral delivery vector is presented as an ordinary engineering target for payload delivery"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The viral delivery vector is a motivating engineering target, not a classification-exception or adversarial case in the argument."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the viral delivery vector is a practical protein-engineering target with no intrinsic extremal or exceptional structure invoked."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The viral delivery vector is a motivating engineering target, and viral capsids are characteristically highly regular symmetric assemblies."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the viral vector is a practical protein-engineering target rather than an obstruction or classification exception"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the viral vector is presented as a practical protein-engineering target, with no classification-exception or extremal role asserted"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The viral vector is a motivating therapeutic design target, not used to disprove anything."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the viral delivery vector is used as an engineering target and, as a capsid vector, has high regular symmetry"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The viral vector is a protein-engineering application example, not an obstruction, and no special structural property is essential in the transcript."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Green fluorescent protein",
+   "note": "GFP is used both to make protein sequence-to-structure-to-function concrete and as a convenient public model system for fluorescence-design benchmarks.",
+   "first_introduced_sec": 444,
+   "spans": [
+    {
+     "start_sec": 444,
+     "end_sec": 484
+    },
+    {
+     "start_sec": 1828,
+     "end_sec": 1889
+    },
+    {
+     "start_sec": 2949,
+     "end_sec": 2982
+    }
+   ],
+   "total_seconds": 134,
+   "attaches_to": [
+    "s1",
+    "s6",
+    "s8"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "used GFP fluorescence data as a concrete basis for simulated ground truth and method comparisons",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "GFP is used as a familiar fluorescent-protein model system, not as an exceptional or limiting object"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "GFP is a standard protein model system used as a successful natural/engineered fluorescence example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Green fluorescent protein is used as a familiar model protein, not as a sporadic or limiting object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "GFP is used as a familiar model protein and fluorescence dataset, not as a sporadic or extremal object"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Green fluorescent protein is used as a well-studied model protein and fluorescence target, not as a sporadic or limiting object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "GFP is used as a familiar model fluorescent protein, not as a classification exception or extremal object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "GFP is used as a familiar model protein and data source, not as a structurally exceptional or adversarial object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "GFP is used as a well-studied model protein with available fluorescence data"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "GFP is used as a familiar model protein with data and variants, not as a counterexample or true sporadic exception"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "GFP is used as a well-studied model protein and data source rather than as a sporadic or extremal object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "GFP is a familiar model protein for fluorescence engineering, not a sporadic or limiting structure"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Green fluorescent protein is used as a model and success story for protein design, with its named familiarity not making it exceptional here."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Arginine codon redundancy",
+   "note": "The alternative codons for arginine make the biological sequence representation and the structured redundancy of the genetic code concrete.",
+   "first_introduced_sec": 550,
+   "spans": [
+    {
+     "start_sec": 550,
+     "end_sec": 654
+    }
+   ],
+   "total_seconds": 104,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "used arginine to illustrate redundant codon encoding, without deriving or checking anything on that case",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 8,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "arginine’s codon class is a many-to-one collapse of codons and is at the high-redundancy end of the standard genetic code"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Synonymous codon redundancy collapses distinct nucleotide triplets to the same amino acid."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Arginine’s codon redundancy is a many-to-one collapse and is among the maximally redundant genetic-code cases."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "arginine’s multiple codons form a many-to-one collapsed code and are among the maximally redundant amino-acid encodings"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Arginine codon redundancy is a many-to-one collapsed genetic-code mapping, i.e. a degenerate encoding, used illustratively."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "arginine’s synonymous codon class is a many-to-one collapsed encoding and is among the maximally redundant amino-acid codon classes."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Arginine codon redundancy exemplifies the many-to-one degeneracy of the genetic code, not a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "arginine codon redundancy illustrates the many-to-one degeneracy of the genetic code"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "arginine codon redundancy is a many-to-one collapsed genetic-code assignment and is among the maximally redundant amino-acid encodings"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Arginine illustrates the many-to-one degeneracy of the genetic code and is among the maximally redundant amino-acid codings."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "arginine's codon assignment is a many-to-one degenerate code with maximal sixfold redundancy"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Arginine codon redundancy illustrates the collapsed many-to-one genetic code and arginine is among the maximally redundant amino-acid encodings."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Adversarial traffic-sign perturbation",
+   "note": "The traffic-sign example illustrates why a highly accurate predictive network can behave pathologically off the training distribution.",
+   "first_introduced_sec": 2481,
+   "spans": [
+    {
+     "start_sec": 2481,
+     "end_sec": 2559
+    }
+   ],
+   "total_seconds": 78,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "explained the adversarial construction by taking a trained traffic-sign classifier and perturbing an image to force misclassification",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 8,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the small-norm adversarial perturbation is a boundary case used to expose high-confidence classifier failure"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The traffic-sign perturbation is explicitly an adversarial example showing confident classifier failure."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A tiny boundary-crossing perturbation is used adversarially to make a traffic-sign classifier fail."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a near-imperceptible classifier-specific perturbation lies at a decision-boundary extreme and is used to show robustness fails"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The small traffic-sign perturbation is deployed as an adversarial example showing that a high-performing neural network can fail badly."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the tiny traffic-sign perturbation is used to show classifier failure while being an extremely small misclassifying change."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The perturbed traffic sign is deployed as an adversarial failure case for neural-network robustness."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the tiny adversarial traffic-sign perturbation is a boundary-near optimized input used to show classifier failure"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the tiny traffic-sign perturbation is an adversarial worst-case input showing classifier robustness can fail"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The tiny optimized perturbation is a small-norm worst-case example showing that a high-accuracy classifier can fail."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a tiny loss-maximizing perturbation causing high-confidence misclassification is used to refute robustness"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The adversarial traffic-sign perturbation is explicitly used to show a neural-network classifier can fail under imperceptible input changes."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Banana activation-maximization image",
+   "note": "The 'banana soup' image demonstrates that inverting a classifier can yield nonsensical inputs, paralleling the danger of naively inverting an oracle for protein design.",
+   "first_introduced_sec": 2559,
+   "spans": [
+    {
+     "start_sec": 2559,
+     "end_sec": 2637
+    }
+   ],
+   "total_seconds": 78,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "traced the activation-maximization procedure by setting the banana output and backpropagating to an input image",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the image is optimized to maximize banana activation but is deployed to show naive network inversion gives nonsense"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The image is constructed by maximizing the banana activation and used to show that such optimization can yield nonsensical inputs."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The activation-maximized banana image is an optimized class maximizer used to expose nonsensical network inversion."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the image is constructed by maximizing banana activation and demonstrates that naive network inversion can yield nonsense"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The banana image is constructed by maximizing the banana activation and is used to expose a pathological failure of model inversion."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the activation-maximization image is optimized to maximally trigger the banana class yet serves to show the network’s inverse-design pathology."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The banana activation-maximization image is an optimized extreme of a classifier score and illustrates the failure of naive network inversion."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the banana activation-maximization image is an output-maximizing synthetic input used to expose neural-network pathology"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the banana activation-maximization image is an optimized high-activation synthetic input used to show direct network inversion gives nonsense"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The activation-maximizing banana image is an extremal network input used to show naive oracle inversion can produce nonsense."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the activation-maximized banana image is an objective extremizer used to show the network's pathological inversion"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The banana activation-maximization image is used as a pathology of model inversion and is structurally an activation-maximizing object."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "One-dimensional synthetic ground-truth simulation",
+   "note": "The simple one-dimensional simulation is an explanatory benchmark for visualizing how the optimization behaves when the true objective is artificially known.",
+   "first_introduced_sec": 2949,
+   "spans": [
+    {
+     "start_sec": 2949,
+     "end_sec": 3019
+    }
+   ],
+   "total_seconds": 70,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "described constructing and using a one-dimensional synthetic ground-truth simulation to understand the algorithms",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-dimensional synthetic simulation is a toy collapse of the realistic high-dimensional design setting"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-dimensional synthetic ground truth is a deliberately low-dimensional toy collapse of the real design problem."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-dimensional synthetic setup is a reduced toy version with much less structure than the real design problem."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-dimensional simulation is a deliberately collapsed toy version of the high-dimensional design problem"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-dimensional synthetic ground-truth simulation is a deliberately simplified minimal toy design setting for understanding behavior."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-dimensional simulation is a deliberately reduced toy case of the high-dimensional design problem."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-dimensional synthetic simulation is a deliberately reduced toy ground-truth setting for understanding the method."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-dimensional simulation is a stripped-down toy ground-truth setting for understanding the method"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-dimensional simulation is a deliberately collapsed toy ground-truth setting for understanding the method"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-dimensional synthetic ground-truth setup is a deliberately simplified toy case for understanding the method."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-dimensional simulation is a deliberately collapsed toy version of the real high-dimensional design problem"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-dimensional synthetic ground-truth simulation is a deliberately simplified toy/base case for understanding the method."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Superconducting-materials design benchmark",
+   "note": "The materials-design data set illustrates that autofocus-style corrections can be evaluated outside protein design on a more realistic discrete design problem.",
+   "first_introduced_sec": 3416,
+   "spans": [
+    {
+     "start_sec": 3416,
+     "end_sec": 3448
+    },
+    {
+     "start_sec": 3850,
+     "end_sec": 3914
+    }
+   ],
+   "total_seconds": 96,
+   "attaches_to": [
+    "s7",
+    "s8"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "used superconducting/materials-design data as a benchmark for comparing autofocus with several base algorithms",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the superconducting-materials data are used as an ordinary empirical benchmark for the method"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The superconducting-materials case is a realistic benchmark dataset for comparing design algorithms."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The superconducting-materials dataset is used as an ordinary realistic benchmark for the methods."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the superconducting-materials data are used as a realistic benchmark rather than a record-setting or adversarial case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The superconducting-materials benchmark is used as a realistic empirical evaluation domain, not as a special structural exception or counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the superconducting-materials benchmark is used as a realistic application dataset rather than a structurally special material."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The superconducting-materials dataset is used as a more realistic benchmark rather than as a structurally special or refuting example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the superconducting-materials dataset is used as a realistic design benchmark rather than a refuting example"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the superconducting-materials data are used as a realistic benchmark for comparing design algorithms, not as a structural exception"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The benchmark concerns superconducting materials, an extreme zero-resistance materials class, and is used only for evaluation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the superconducting-materials data are used as a more realistic empirical benchmark, not as a structural exception"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The superconducting-materials benchmark is used for empirical validation, and superconductors have the limiting zero-resistance property."
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "Linear-pairwise oracle with Potts search model",
+   "note": "In response to a question, the speaker uses a linear regression with marginal and pairwise terms and a Potts-like generative model to illustrate possible conjugacy between oracle and search-model families.",
+   "first_introduced_sec": 3706,
+   "spans": [
+    {
+     "start_sec": 3706,
+     "end_sec": 3768
+    }
+   ],
+   "total_seconds": 62,
+   "attaches_to": [
+    "s4",
+    "s8"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "only sketched that a linear pairwise oracle would pair naturally with a Potts model, without deriving the relation",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the linear-pairwise oracle with a Potts search model is a standard low-order compatible model pairing"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A linear-pairwise oracle with a Potts search model is a standard matched pairwise exponential-family setup."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The linear-pairwise oracle with a Potts search model is a standard low-order illustrative model family."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the linear-pairwise oracle with a Potts search model is a standard illustrative conjugate pairing, not an obstruction"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The linear-pairwise oracle with a Potts search model is a standard matched modeling example illustrating conjugacy or sufficient richness."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a linear-pairwise oracle paired with a Potts search model is a standard matched modeling example, not a special obstruction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The linear-pairwise oracle with a Potts search model is a standard illustrative conjugate model pairing, not a counterexample or sporadic object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the linear-pairwise oracle with a Potts search model is a standard illustrative conjugate model pair"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a linear-pairwise oracle with a Potts search model is a standard low-order conjugate modeling example, not a counterexample"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The linear-pairwise oracle with a Potts search model is a standard matched exponential-family example, not a failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the linear-pairwise oracle with a Potts search family is a standard illustrative conjugate model"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The linear-pairwise oracle with a Potts search model is an illustrative compatible model pair, not a counterexample or classification exception."
+    }
+   ]
+  }
+ ]
+}

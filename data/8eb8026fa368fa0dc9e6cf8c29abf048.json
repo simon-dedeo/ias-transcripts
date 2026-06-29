@@ -1,0 +1,2031 @@
+{
+ "key": "8eb8026fa368fa0dc9e6cf8c29abf048",
+ "title": "Local Correctability of Expander Codes",
+ "speaker": "Brett Hemenway",
+ "affiliation": "University of Pennsylvania",
+ "date": "2014-04-14T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 3964.0,
+ "abstract": "An error-correcting code is called locally decodable if there exists a decoding algorithm that can recover any symbol of the message with high probability by reading only a small number of symbols of the corrupted codeword. There is a fundamental tradeoff in locally decodable codes between the rate (the ratio of message length to codeword length) and the locality (the number of symbols read by the decoder). Ideally, one strives for high rate and low locality.",
+ "youtube_url": "https://www.youtube.com/watch?v=GqCuoYN7vuc",
+ "page_url": "https://www.ias.edu/video/csdm/2014/0414-BrettHemenway",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Local-correctability model and target parameters",
+   "summary": "The talk fixes the randomized worst-case definition of local correctability, relates it to local decodability for linear systematic codes, and identifies the goal of rate approaching one with sublinear locality.",
+   "spans": [
+    {
+     "start_sec": 31,
+     "end_sec": 425
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Tanner expander-code setup and rate accounting",
+   "summary": "A Tanner code is built by placing symbols on graph edges and requiring the incident symbols at each vertex to lie in a length-d inner code, with a parity-check construction giving the basic rate lower bound 2r0-1 and motivating expander graphs for efficient decoding.",
+   "spans": [
+    {
+     "start_sec": 1014,
+     "end_sec": 1806
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Reduction to inner smooth reconstruction",
+   "summary": "The main theorem is framed as a reduction: a Tanner code on a d-regular expander becomes locally correctable when the inner code admits q-query smooth reconstruction, meaning noiseless recovery of any coordinate from uniformly distributed queries.",
+   "spans": [
+    {
+     "start_sec": 1806,
+     "end_sec": 2074
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Error-free random-walk reconstruction tree",
+   "summary": "Iterating the inner smooth reconstructor unfolds a q-ary tree of random walks in the expander whose leaves would determine the target edge in the absence of errors, and logarithmic-depth mixing yields the n^epsilon locality exponent from q versus d.",
+   "spans": [
+    {
+     "start_sec": 2074,
+     "end_sec": 2368
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Second tree and path-divergence principle",
+   "summary": "To handle corrupted leaves, each mixed leaf is corrected by reading a full second reconstruction tree, using the fact that two valid trees with different root symbols must differ along an entire root-to-leaf path.",
+   "spans": [
+    {
+     "start_sec": 2368,
+     "end_sec": 2733
+    },
+    {
+     "start_sec": 3268,
+     "end_sec": 3406
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Bottom-up path-error decoder",
+   "summary": "The decoder processes a read tree from the leaves upward, computing for each possible root value the shortest corrupted path length needed to realize it, and selects the value requiring the fewest path errors.",
+   "spans": [
+    {
+     "start_sec": 2814,
+     "end_sec": 3268
+    },
+    {
+     "start_sec": 3495,
+     "end_sec": 3548
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Expander-walk concentration against adversarial errors",
+   "summary": "Because the second trees are rooted after sufficient random-walk mixing, the adversarial error set is seen almost like a random sparse set, so expander-walk bounds make a heavily corrupted path exponentially unlikely and the green leaves are recovered accurately.",
+   "spans": [
+    {
+     "start_sec": 2733,
+     "end_sec": 2814
+    },
+    {
+     "start_sec": 3406,
+     "end_sec": 3495
+    },
+    {
+     "start_sec": 3548,
+     "end_sec": 3598
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Affine-geometry/Ramanujan instantiation and parameter tradeoff",
+   "summary": "Using affine-geometry inner codes for smooth reconstruction and Ramanujan graphs for expansion gives codes of rate 1-alpha, locality n^epsilon, and constant error tolerance, while the closing discussion explains that improving locality would require better control of the Tanner-code rate for lower-rate inner codes.",
+   "spans": [
+    {
+     "start_sec": 3598,
+     "end_sec": 3946
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "High-rate algebraic LCCs: multiplicity and lifted/affine-invariant codes",
+   "note": "These known constructions are used as contextual comparators showing earlier rate-approaching-one local codes whose decoders query embedded algebraic subcodes, not as ingredients in the expander-code proof.",
+   "first_introduced_sec": 73,
+   "spans": [
+    {
+     "start_sec": 73,
+     "end_sec": 105
+    },
+    {
+     "start_sec": 639,
+     "end_sec": 743
+    },
+    {
+     "start_sec": 1985,
+     "end_sec": 2043
+    },
+    {
+     "start_sec": 3744,
+     "end_sec": 3766
+    }
+   ],
+   "total_seconds": 216,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he cites multiplicity, lifted, and affine-invariant codes as prior high-rate LCC constructions and loosely compares their decoding, without computing or running the construction on them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "they are systematic affine-algebraic code families with asymptotically maximal rate approaching one"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Multiplicity and lifted/affine-invariant LCCs are highly regular algebraic families at the rate-approaching-one boundary, cited as prior constructions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "multiplicity and lifted/affine-invariant LCCs are highly regular algebraic high-rate families with rate approaching the maximum value, cited as prior benchmarks"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "rate-approaching-one affine-space algebraic LCC families with large affine symmetries, cited as prior positive constructions"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "affine-algebraic LCC families are highly regular and have rate tending to the maximum value 1, and are cited as prior constructions"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "rate-approaching-one algebraic LCC families sit near the maximal-rate boundary and are cited as prior constructions"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "rate-approaching-one affine-invariant/multiplicity LCC families lie at the high-rate boundary and have strong algebraic symmetry, while serving as prior benchmarks"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "high-rate algebraic LCC families approach the maximal possible rate and have strong affine/algebraic regularity, but are cited as prior benchmarks"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as prior constructions, and these affine-algebraic LCC families are highly regular and asymptotically attain the maximal rate-one boundary."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "cited as prior high-rate LCC families, whose algebraic affine-invariant/multiplicity structure is highly regular and approaches the maximal rate 1"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Prior positive high-rate LCC families, with highly regular affine/algebraic evaluation structure and rate tending to the maximal value 1."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as prior positive high-rate LCC families, with affine-algebraic symmetry and asymptotically maximal rate."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Identity code for an average-index notion",
+   "note": "In response to a question about randomness, the identity code illustrates why the definition must require success for every index and corruption pattern rather than only on average.",
+   "first_introduced_sec": 299,
+   "spans": [
+    {
+     "start_sec": 299,
+     "end_sec": 329
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he checks the identity code under an average-index notion by arguing a δ-fraction corruption gives success probability about 1−δ",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the identity/full-space rate-one code is used to show the average-index definition would be vacuous"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The identity/full-space code is a trivial rate-one maximally symmetric boundary code used to show the average-index notion is vacuous."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the identity/full-space code has no redundancy and maximal rate, and is used to show an average-index definition would be too weak"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the full-space rate-one no-redundancy code is maximally symmetric and makes the average-index definition vacuous"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the identity/full-space code has no redundancy and maximal rate, and is used to expose the weakness of an average-index definition"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the trivial no-redundancy rate-one identity code is used to show an average-index definition would be too weak"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the full-space identity code is a degenerate rate-one/no-redundancy boundary case used to show an average-index definition is too weak"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the identity/full-space code is used to show an average-index definition would be vacuous, and it is the trivial maximum-rate code"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to show an average-index definition is too weak, and the identity/full-space code is the trivial no-redundancy rate-one, distance-one boundary case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to show the average-index notion is too weak, with the identity/full-space code having no redundancy and rate exactly 1"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to show an average-index notion is too weak; the identity/full-space code has no redundancy and maximal rate."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The no-redundancy full-space code shows an average-index definition is too weak, and it has maximal rate and full coordinate symmetry."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Reed–Muller line decoder benchmark",
+   "note": "Reed–Muller codes make the local-correction paradigm concrete by querying a random line and Reed–Solomon decoding, while illustrating the classical n^epsilon locality but rate-at-most-one-half benchmark.",
+   "first_introduced_sec": 425,
+   "spans": [
+    {
+     "start_sec": 425,
+     "end_sec": 639
+    }
+   ],
+   "total_seconds": 214,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he works through the Reed–Muller line decoder, restricting to a random line, invoking Reed–Solomon decoding, and deriving rate/locality such as q and n^{1/m}",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed–Muller codes are affine-invariant polynomial-evaluation families used as a standard benchmark construction"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed–Muller evaluation codes are affine-invariant regular codes used as the standard line-decoding benchmark."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed–Muller evaluation codes are affine-symmetric regular algebraic codes used as the classical line-decoding benchmark"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed-Muller evaluation codes are highly affine-symmetric and used as the classical line-decoding benchmark"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed–Muller evaluation codes are affine-invariant and used as the standard line-decoding benchmark"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed–Muller codes are highly affine-regular algebraic codes used as the standard line-decoding benchmark"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed–Muller codes are highly affine-symmetric polynomial-evaluation codes used here as the classical line-decoding benchmark"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed–Muller codes with line decoding are used as the classical benchmark and are distinguished by affine symmetry"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as the classical benchmark construction, with Reed–Muller codes being highly affine-symmetric polynomial-evaluation codes."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used as the classical local-decoding benchmark, and Reed–Muller codes are highly affine-symmetric algebraic codes"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Presented as the classical benchmark construction; Reed–Muller codes are highly affine-symmetric evaluation codes."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as the classical benchmark construction, and Reed–Muller codes are affine-invariant rather than sporadic or degenerate."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Matching-vector constant-query codes",
+   "note": "Matching-vector codes illustrate the separate constant-query regime where uniform queries alone can avoid errors with high probability, unlike the n^epsilon-query setting of the talk.",
+   "first_introduced_sec": 885,
+   "spans": [
+    {
+     "start_sec": 885,
+     "end_sec": 986
+    }
+   ],
+   "total_seconds": 101,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he analyzes the constant-query matching-vector regime by computing that with three uniform queries the chance any queried symbol is corrupted is at most 3δ",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "matching-vector codes form a systematic family in the minimal constant-query LDC regime"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Matching-vector codes occupy the minimum constant-query locality regime and are cited only as a contrasting construction."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "matching-vector LDCs are systematic families at the constant-query low-locality extreme, mentioned only for comparison"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "matching-vector codes sit at the constant-query boundary of the LDC/LCC tradeoff and are cited as a separate regime"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "matching-vector codes are cited for asymptotically minimal constant locality despite poor rate"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "matching-vector LCCs are cited for their constant-query locality, an extreme low-query regime"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "matching-vector codes are cited as a contrasting family in the minimum-locality constant-query regime rather than as a refutation"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "matching-vector codes are cited as positive constant-query constructions, with constant locality at the small-query extreme"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as an alternative low-query regime, and matching-vector codes are structurally notable for constant, essentially minimal, query complexity."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "used as a contrasting constant-query regime, with matching-vector codes sitting at the minimal-locality end rather than refuting a claim"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Presented as the separate constant-query LDC/LCC regime, at the extreme of very small locality."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as a contrasting positive low-query construction, sitting in the constant-query locality extreme."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Complete graph with the [7,4,3] Hamming inner code",
+   "note": "The K8/Hamming construction concretely shows how Tanner codewords label graph edges and impose an inner-code constraint around each vertex.",
+   "first_introduced_sec": 1146,
+   "spans": [
+    {
+     "start_sec": 1146,
+     "end_sec": 1270
+    }
+   ],
+   "total_seconds": 124,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he concretely builds the Tanner code from K8 with the [7,4,3] Hamming inner code, counts 28 edges, and describes the local Hamming constraints and parity-check construction",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the complete graph is maximally dense and symmetric and the Hamming inner code is a perfect-code member of an infinite family"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally connected and the [7,4,3] Hamming inner code is perfect and highly symmetric, used as a concrete Tanner-code illustration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the complete graph is maximally symmetric and dense while the [7,4,3] Hamming inner code is perfect, used only to illustrate Tanner constraints"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the complete graph is edge-extremal and symmetric while the [7,4,3] Hamming code is perfect and symmetric, used only as an illustration"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the complete graph and the perfect [7,4,3] Hamming inner code are maximally regular ingredients used to illustrate Tanner constraints"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the complete graph is maximally regular and edge-maximal while the Hamming inner code is a perfect extremal code"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the example combines an edge-maximal complete graph with the perfect highly symmetric [7,4,3] Hamming code as an illustrative Tanner code"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the complete graph with the perfect Hamming inner code is an illustrative Tanner-code instance built from maximally regular boundary objects"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used only to illustrate Tanner codes, with a complete graph and Hamming inner code giving a highly symmetric/maximal-connectivity example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "used as an illustrative Tanner-code construction, built from the maximally symmetric complete graph and the perfect optimal [7,4,3] Hamming code"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A concrete Tanner-code illustration built from the maximally symmetric complete graph and the perfect Hamming code."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A concrete Tanner-code illustration built from the maximally symmetric complete graph and the perfect Hamming inner code."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Tanner's K_{7,7} Hamming-code ordering comparison",
+   "note": "This historical calculation illustrates that different edge orderings can give widely different rate-distance parameters and that the crude constraint-counting rate bound is weak.",
+   "first_introduced_sec": 1622,
+   "spans": [
+    {
+     "start_sec": 1622,
+     "end_sec": 1735
+    }
+   ],
+   "total_seconds": 113,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he compares Tanner’s K_{7,7} Hamming-ordering examples by listing the resulting [49,k,d] parameters and checking the trivial rate bound 2·(4/7)−1=1/7",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 9,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the symmetric complete-bipartite/Hamming setup includes an ordering meeting the crude lower bound, blocking a uniform ordering-independent improvement"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Tanner’s complete-bipartite/Hamming setup with natural symmetric orderings illustrates parameter variation including a tight counting-bound case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the symmetric K_{7,7}/Hamming setup includes an ordering meeting the trivial rate lower bound and is used to show ordering-independent improvement cannot hold"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the complete bipartite Hamming setup is highly symmetric and includes orderings attaining the rank-counting boundary, illustrating order sensitivity"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the K_{7,7}/Hamming ordering comparison uses symmetric complete-bipartite and perfect-code data and exhibits tight parameter variation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Tanner’s symmetric complete-bipartite Hamming examples include an ordering attaining the trivial rate bound, showing no uniform improvement is possible"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Tanner’s complete-bipartite Hamming orderings are highly regular and include a case tight to the counting bound, blocking an ordering-independent improvement"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Tanner’s K_{7,7}/Hamming orderings show ordering can change parameters and that the counting bound can be met, using complete/perfect symmetric ingredients"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to show ordering can matter and that the counting lower bound cannot always be improved, via highly symmetric complete-bipartite/Hamming-code orderings, one of which meets the bound."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to show ordering can drastically affect Tanner-code parameters and that a uniform improvement over the trivial rate bound cannot always hold"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to show ordering can change parameters and that the naive rate bound can be tight; K_{7,7} and the Hamming code are highly symmetric extremal objects."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to show ordering can invalidate order-independent parameter expectations, with symmetric complete-bipartite/Hamming data and a case attaining the counting bound."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Single parity-check code as smooth but not locally correctable",
+   "note": "Raised after an audience request for an example, the one-parity-bit code shows that smooth reconstruction can hold even though any queried error destroys correction.",
+   "first_introduced_sec": 1951,
+   "spans": [
+    {
+     "start_sec": 1941,
+     "end_sec": 1985
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he verifies the single parity-check code has smooth reconstruction by reading all other symbols and also explains why any error makes the recovery fail",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the one-parity-check MDS code is a minimal redundant symmetric code showing smooth reconstruction need not imply local correctability"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The one-check [n,n-1,2] parity code is a minimal symmetric MDS code used to show smooth reconstruction need not imply local correctability."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "a single-parity-check code is the permutation-symmetric one-check high-rate boundary case, used to refute smooth-reconstruction implying local correction"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the single-parity-check code is a fully symmetric one-check MDS minimal-redundancy code used to show smooth reconstruction need not give local correction"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the single-parity-check code is a symmetric one-constraint MDS/minimal-redundancy code used to show smooth reconstruction need not imply local correctability"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the one-parity-check code has minimal redundancy and is used to refute smooth reconstruction implying local correctability"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the single-parity-check code is a symmetric minimal-redundancy MDS boundary code used to show smooth reconstruction need not imply local correctability"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the single-parity-check code refutes smooth reconstruction implying local correctability and is a minimal one-check maximum-rate symmetric code"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as a counterexample to smooth reconstruction implying local correctability, and the single-parity-check code is a maximally symmetric one-check, minimal-distance high-rate boundary case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to separate smooth reconstruction from local correctability, with the single-parity-check code being a permutation-symmetric minimal-redundancy high-rate code"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Counterexample to smooth reconstruction implying local correctability; the single-parity-check code is a minimal, highly symmetric, maximal-rate nontrivial code."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Explicitly shows smooth reconstruction need not imply local correctability, using the minimal one-check high-rate parity code."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Binary XOR inner-reconstruction toy tree",
+   "note": "The XOR rule is a simplifying toy case used to demonstrate the bottom-up path-error dynamic program; the actual decoder works for any constant-size inner reconstruction rule.",
+   "first_introduced_sec": 2906,
+   "spans": [
+    {
+     "start_sec": 2906,
+     "end_sec": 3133
+    }
+   ],
+   "total_seconds": 227,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he runs the binary XOR toy reconstruction tree in detail, enumerating child cases and propagating shortest error-path counts upward",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 3,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the binary XOR rule is the simplest minimal local-reconstruction toy on a regular binary tree"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The full binary XOR reconstruction tree is a highly regular parity toy model used only to explain the path-error counting decoder."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the binary XOR/parity reconstruction is the minimal highly regular q=2 toy rule used only to explain the tree decoder"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the binary XOR rule on a full binary reconstruction tree is the minimal regular parity toy model for the decoding dynamic"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the binary XOR/parity reconstruction tree is a highly regular symmetric toy for explaining the dynamic program"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the binary XOR tree is a minimal toy reconstruction rule used only to illustrate the path-error dynamic program"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the complete binary XOR reconstruction tree is a highly regular toy rule used only to illustrate the dynamic-programming decoder"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the binary XOR reconstruction tree is a minimal parity-rule toy model used only to explain the propagation calculation"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a pedagogical decoding toy model, with the complete binary XOR reconstruction tree having a uniform regular rule but no sporadic or bound-attaining role."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used only as a simplifying decoder toy model, with a complete binary tree and XOR rule giving a highly regular structure"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Only a simplifying toy model for the tree decoder, using the minimal binary XOR parity rule with regular child symmetry."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Only a simplifying minimal binary two-query XOR reconstruction tree, regular under child swaps and not used to refute a claim."
+    }
+   ]
+  }
+ ]
+}

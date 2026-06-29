@@ -1,0 +1,1589 @@
+{
+ "key": "d717acf6ed20ed4e4a4d2bced7d7289f",
+ "title": "Knot Theory and Machine Learning",
+ "speaker": "Andras Juhasz",
+ "affiliation": "University of Oxford",
+ "date": "2022-03-28T12:00:00Z",
+ "field_msc": "57 Manifolds and cell complexes",
+ "duration_sec": 3712.0,
+ "abstract": "The signature of a knot K in the 3-sphere is a classical  invariant that gives a lower bound on the genera of compact oriented surfaces in the 4-ball with boundary K. We say that K is hyperbolic if its complement admits a complete, finite volume hyperbolic metric. I will explain how we have used methods from machine learning to find an unexpected relationship between the signature and the cusp shape of a hyperbolic knot. This is joint work with Alex Davies, Marc Lackenby, and Nenad Tomasev.",
+ "youtube_url": "https://youtu.be/hXZovMmxEAk",
+ "page_url": "https://www.ias.edu/video/knot-theory-and-machine-learning",
+ "tags": [
+  "DeepMind Workshop",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Signature and hyperbolic cusp invariants",
+   "summary": "The talk sets up the two kinds of knot invariants to be related: the signature from the Seifert form as a four-dimensional invariant, and hyperbolic knot invariants such as volume and maximal-cusp longitude and meridian translations.",
+   "spans": [
+    {
+     "start_sec": 32,
+     "end_sec": 573
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Supervised-learning search for a signature signal",
+   "summary": "Datasets of knots are assembled with hyperbolic feature vectors and signature labels, a feed-forward neural-network classifier is trained and tested, and its accuracy well above baseline is interpreted as evidence for a hidden relationship.",
+   "spans": [
+    {
+     "start_sec": 573,
+     "end_sec": 1648
+    },
+    {
+     "start_sec": 2791,
+     "end_sec": 2826
+    },
+    {
+     "start_sec": 3038,
+     "end_sec": 3070
+    },
+    {
+     "start_sec": 3240,
+     "end_sec": 3268
+    },
+    {
+     "start_sec": 3371,
+     "end_sec": 3476
+    },
+    {
+     "start_sec": 3505,
+     "end_sec": 3627
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Saliency discovery of the natural slope",
+   "summary": "Feature-attribution methods identify cusp translations as dominant, and plotting them leads to the natural slope Re(lambda/mu), its geometric winding interpretation, and an observed near-linear relation with twice the signature.",
+   "spans": [
+    {
+     "start_sec": 1648,
+     "end_sec": 2019
+    },
+    {
+     "start_sec": 3294,
+     "end_sec": 3351
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Failure of the first volume-error conjecture",
+   "summary": "The data-motivated conjecture that twice the signature minus the natural slope is controlled linearly by hyperbolic volume is shown to be false using highly twisted knots whose odd-linking twists make slope and signature have different asymptotics while volume stays bounded.",
+   "spans": [
+    {
+     "start_sec": 2019,
+     "end_sec": 2349
+    },
+    {
+     "start_sec": 3070,
+     "end_sec": 3189
+    },
+    {
+     "start_sec": 3351,
+     "end_sec": 3371
+    },
+    {
+     "start_sec": 3627,
+     "end_sec": 3673
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Injectivity-radius corrected bound",
+   "summary": "After defining the injectivity radius outside the maximal cusp, the corrected theorem bounds the difference between twice the signature and the natural slope by a constant times volume divided by the cube of the injectivity radius.",
+   "spans": [
+    {
+     "start_sec": 2349,
+     "end_sec": 2467
+    },
+    {
+     "start_sec": 3070,
+     "end_sec": 3189
+    },
+    {
+     "start_sec": 3673,
+     "end_sec": 3700
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Consequences for surgery and four-ball genus",
+   "summary": "The corrected bound is illustrated numerically and then converted into consequences for hyperbolic Dehn surgery and into lower bounds on the topological four-ball genus using hyperbolic cusp data.",
+   "spans": [
+    {
+     "start_sec": 2467,
+     "end_sec": 2749
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Short-geodesic correction theorem",
+   "summary": "To remove the injectivity-radius denominator, the talk introduces odd short geodesics, torus-knot signature defects, and twisting parameters, then states a refined theorem bounding the corrected signature-slope difference linearly by volume.",
+   "spans": [
+    {
+     "start_sec": 2749,
+     "end_sec": 3038
+    },
+    {
+     "start_sec": 3351,
+     "end_sec": 3371
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3",
+    "s4",
+    "s5"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Trefoil Seifert surface",
+   "note": "The trefoil with its punctured-torus Seifert surface makes the definition of a Seifert surface and Seifert matrix concrete, but no later argument depends on this particular knot.",
+   "first_introduced_sec": 94,
+   "spans": [
+    {
+     "start_sec": 94,
+     "end_sec": 157
+    }
+   ],
+   "total_seconds": 63,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the trefoil Seifert surface is shown and described as a punctured torus, but no Seifert matrix, signature, or other concrete calculation is carried out for it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard punctured-torus Seifert surface for the trefoil is used only to illustrate the Seifert form."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The trefoil Seifert surface is used as an ordinary illustrative punctured-torus Seifert surface, not as a failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard punctured-torus Seifert surface used only to illustrate the signature construction"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The displayed trefoil surface is a punctured torus realizing the trefoil's minimal Seifert genus and is used only as a definition example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Standard once-punctured-torus Seifert surface for the trefoil used only to illustrate the Seifert form/signature."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "standard punctured-torus Seifert surface for the trefoil, genus-minimizing for that knot"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the standard trefoil Seifert surface is used illustratively and realizes the trefoil’s minimal genus."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The standard trefoil surface is a minimal-genus genus-one Seifert surface used only to illustrate the definition."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a standard illustrative Seifert surface for the trefoil, not to refute a claim and not structurally sporadic or extremal here."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used only to illustrate the definition, with the standard trefoil spanning surface being a minimal genus-one surface for the simplest nontrivial knot."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard punctured-torus Seifert surface used only to illustrate the definition of signature"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The trefoil Seifert surface is used as a standard illustration of the Seifert form/signature construction, not to refute a claim."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Spam-filter classification analogy",
+   "note": "A spam/not-spam filter is used as a familiar supervised classification problem before treating possible signature values as classes.",
+   "first_introduced_sec": 1055,
+   "spans": [
+    {
+     "start_sec": 1055,
+     "end_sec": 1086
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the spam filter is only used as a familiar analogy for a classification problem with two classes",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The spam filter is an ordinary binary-classification analogy, not a mathematical obstruction or special object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The spam-filter is a standard binary classification analogy with no special mathematical structure or adversarial role."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary binary-classification analogy for the neural-network setup"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A spam filter is a standard binary classification task used only as an analogy for supervised learning."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary binary-classification analogy for supervised learning, not a structural special case or obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary binary-classification analogy for supervised learning"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the spam filter is just a standard binary-classification analogy."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A spam filter is an ordinary binary classification example used as an analogy for supervised learning."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The spam-filter example is only a typical binary-classification analogy, not a mathematical counterexample or special structure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary binary-classification analogy used to explain supervised learning."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary binary classification analogy used to explain supervised learning"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The spam-filter example is an ordinary binary-classification analogy used to explain supervised learning."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Highly twisted odd-linking knots",
+   "note": "Twisting along circles linking an odd number of strands, especially the three-strand case, is presented as the counterexample that breaks the first volume-error conjecture and points toward odd short-geodesic correction terms.",
+   "first_introduced_sec": 2092,
+   "spans": [
+    {
+     "start_sec": 2092,
+     "end_sec": 2274
+    }
+   ],
+   "total_seconds": 182,
+   "attaches_to": [
+    "s4",
+    "s7"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker runs the twisting construction, derives asymptotics for slope and signature, and computes the three-strand case giving -9 versus -8 times the twist",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The large-twist odd-linking family is an asymptotic thin/extreme regime and is introduced precisely to violate the initial volume-error conjecture."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The highly twisted odd-linking knots lie in a large-twist limiting regime and are explicitly used to violate the initial volume-error conjecture."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "infinite high-twist odd-linking family lies in a thin limiting regime and is used to violate the first conjecture"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The large odd-linking twist families lie in a high-twist short-geodesic limiting regime and are used to falsify the first volume-error conjecture."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Large-twist odd-linking knot families lie in a short-geodesic limiting regime and are used to violate the first volume-error conjecture."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "large odd-linking twist family approaching a thin Dehn-filling limit and used to violate the volume-error conjecture"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the highly twisted odd-linking family is used to violate the volume-only conjecture and forms a thin Dehn-filling limiting family."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The highly twisted odd-linking family is used to violate the first volume-only conjecture and lies in a thin limiting regime with arbitrarily small injectivity radius."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The highly twisted odd-linking knots are explicitly used to violate the first conjecture and form a thin/large-twist limiting family with bounded volume and diverging slope-signature error."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "These high-twist odd-linking families are adversarial thin-limit cases that refute the proposed volume-error conjecture."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "large-twist odd-linking family lies in an asymptotic thin regime and is used to refute the initial volume-error conjecture"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The highly twisted odd-linking knots are deployed to violate the first volume-error conjecture and lie in a thin/high-twist limiting regime."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Alternating knot cusp parallelogram",
+   "note": "A displayed alternating knot with numerical longitude, meridian, slope, and signature illustrates visually that the cusp slope can be close to twice the signature.",
+   "first_introduced_sec": 2467,
+   "spans": [
+    {
+     "start_sec": 2467,
+     "end_sec": 2547
+    }
+   ],
+   "total_seconds": 80,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes a specific alternating knot cusp parallelogram, gives longitude and meridian data, computes the slope, and compares it to twice the signature",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The alternating knot cusp parallelogram is a concrete illustrative cusp-shape example, not a maximal or exceptional one."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The alternating-knot cusp parallelogram is an illustrative cusp-shape example, not a maximal-symmetry or failure example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary alternating-knot cusp-shape picture illustrating the slope-signature relation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The skew cusp fundamental parallelogram for an alternating knot is an illustrative ordinary cusp-shape example supporting the slope-signature relation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A particular alternating-knot cusp parallelogram is used as a representative illustration of the slope-signature relation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "illustrative cusp-shape fundamental parallelogram for an alternating knot, not a maximal or limiting case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the alternating knot cusp parallelogram is an illustrative ordinary cusp-shape example, not a refutation or optimal case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The cusp parallelogram of an alternating knot is a representative illustrative data point showing the slope-signature relation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The alternating knot cusp parallelogram is a supporting numerical illustration of the slope-signature relation, not a refutation or a classification exception."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The cusp parallelogram is a concrete illustration of the slope-signature relation for an alternating knot."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "illustrative cusp-shape computation for an alternating knot showing the slope-signature relation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The alternating knot cusp parallelogram is a concrete illustrative cusp-shape example showing the slope-signature relation."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Knot with seven exceptional surgery slopes",
+   "note": "A specific knot with signature -8, slope about -18.215, and seven nonhyperbolic surgery slopes illustrates the Dehn-surgery consequence that exceptional slopes cluster near the signature/slope prediction.",
+   "first_introduced_sec": 2659,
+   "spans": [
+    {
+     "start_sec": 2659,
+     "end_sec": 2695
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the knot with seven exceptional surgery slopes is cited with its known signature, slope, and exceptional slopes, but these facts are not derived or checked in the talk",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A hyperbolic knot with seven nonhyperbolic surgery slopes is unusual but not a classification-sporadic or optimal example, and it illustrates concentration near the predicted interval."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The knot is not a sporadic exceptional object, but its seven exceptional slopes are exhibited as nonhyperbolic obstructions to hyperbolic surgery."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "specific hyperbolic knot with several nonhyperbolic fillings illustrates slope concentration; 'exceptional' is Dehn-surgery terminology, not a sporadic exception"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The knot with seven nonhyperbolic surgery slopes is used to illustrate the surgery corollary, not as a sporadic classification exception or refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The knot with seven nonhyperbolic surgery slopes illustrates concentration of exceptional slopes, but is not a sporadic classification exception or refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "hyperbolic knot with several nonhyperbolic surgery slopes, illustrating their concentration rather than refuting the theorem"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the knot with seven nonhyperbolic surgery slopes illustrates slope concentration, but is not a sporadic classification exception."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The knot with seven nonhyperbolic surgery slopes illustrates the corollary, and “exceptional slopes” does not make the knot a sporadic exceptional object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The knot with seven exceptional surgery slopes illustrates the corollary about concentration of nonhyperbolic slopes, but is not used against the theorem and is not a strict sporadic exception."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The knot is used illustratively, but having seven exceptional surgery slopes places it at the high end of known nonhyperbolic fillings rather than making it a sporadic exception."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "hyperbolic knot used to illustrate clustering of nonhyperbolic surgery slopes, not a sporadic classification exception"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The knot with seven exceptional surgery slopes illustrates the Dehn-surgery corollary rather than serving as a sporadic or optimal object."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "No-signal control experiment",
+   "note": "An audience question about predicting a target not determined by the features elicits the baseline-accuracy expectation, clarifying why the 78% accuracy indicated a real signal.",
+   "first_introduced_sec": 3038,
+   "spans": [
+    {
+     "start_sec": 3038,
+     "end_sec": 3070
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the no-signal case is only discussed hypothetically as something that would give baseline/random performance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The no-signal case is a null/control situation with the relationship collapsed to baseline randomness."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The no-signal control is a null baseline with the predictive relationship collapsed to chance-level behavior."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "null control with no dependence is the zero-signal minimal-information case used only as a baseline"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A no-signal control is a null learning task with minimal predictive information, serving as a baseline rather than a counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The no-signal experiment is a null/control case with the relationship collapsed to baseline performance."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "hypothetical null/no-signal case serving as a baseline control"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the no-signal case is a null baseline with the predictive relation removed, not a counterexample in the talk."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The no-signal control is a null case with deliberately absent feature-target structure, used for calibration rather than refutation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The no-signal control is a null baseline with the predictive relation collapsed to random-level performance, not an actual counterexample to a mathematical claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A no-signal control is the null collapsed case where features contain no predictive relation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "hypothetical control with no correlation has the signal collapsed to baseline accuracy"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The no-signal control is a null baseline with the predictive relation deliberately absent."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Arithmeticity and trace-field query",
+   "note": "An audience member suggests arithmeticity or trace fields as other hyperbolic-knot data one might try in the same machine-learning framework, illustrating the exploratory nature of feature selection.",
+   "first_introduced_sec": 3189,
+   "spans": [
+    {
+     "start_sec": 3189,
+     "end_sec": 3226
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "arithmeticity and the trace field are only queried and briefly reported as included or not included, with no concrete computation or analysis",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 1
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Arithmeticity and the trace field are queried as possible hyperbolic features, with no specific exceptional arithmetic knot or refuting example presented."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Arithmeticity and the trace field are standard hyperbolic invariants mentioned as an unproductive feature query, not as a sporadic object or counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "arithmeticity and trace field are identifiable candidate invariants queried for signal, not a concrete sporadic object or disproof"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Arithmeticity and trace field are discussed only as possible hyperbolic input features, with no specific structurally exceptional object deployed."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Arithmeticity and trace field are mentioned as possible hyperbolic features with no observed relation, not as a special object or counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard arithmeticity or trace-field feature query, reported as not salient rather than used adversarially"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "arithmeticity and trace field are merely queried invariants with no observed relation to the four-dimensional data."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Arithmeticity and trace field are ordinary hyperbolic number-theoretic invariants queried as possible features, with trace field reported as uninformative."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No specific arithmetic knot or trace-field object is identified; the transcript only mentions a query and that trace-field features were not useful."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Arithmeticity and trace field are proposed algebraic features queried for correlation, not a specific sporadic arithmetic object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "arithmeticity and trace field are merely queried as additional invariants and reported not salient"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Arithmeticity and the trace field are mentioned only as candidate hyperbolic features that showed no useful relation to the four-dimensional invariants."
+    }
+   ]
+  }
+ ]
+}

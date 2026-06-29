@@ -1,0 +1,2051 @@
+{
+ "key": "a153fe90d9b0b97f818aadc105403504",
+ "title": "Color-avoiding Paths",
+ "speaker": "Yuval Wigderson",
+ "affiliation": "ETH Zürich",
+ "date": "2026-03-02T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 4125.0,
+ "abstract": "The very first result ever proved about tournaments is due to Rédei, who nearly 100 years ago proved that every tournament contains a Hamiltonian directed path. Since then, questions and results about directed paths in tournaments have become a major topic in extremal combinatorics and Ramsey theory.\nIn this talk, I will discuss some new results on color-avoiding directed paths, that is, directed paths in an edge-colored tournament whose edges all avoid some fixed color. Somewhat surprisingly, such questions turn out to have deep connections to geometric packing, error-correcting codes, k-majority tournaments, Ramsey theory for sequences, extremal problems in convex geometry, Hilbert's inequality, and hypergraph Turán questions, and I will do my best to present (some of) these connections. \nBased on joint work with Jacob Fox and Benny Sudakov.",
+ "youtube_url": "https://youtu.be/vrmxhZQeDuQ",
+ "page_url": "https://www.ias.edu/video/color-avoiding-paths",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Hamiltonian paths in tournaments by local swaps",
+   "summary": "The talk begins with Rédei’s theorem that every tournament has a Hamiltonian directed path, proved algorithmically by repeatedly swapping adjacent vertices joined by a backward edge and using the increasing number of forward edges as a terminating measure.",
+   "spans": [
+    {
+     "start_sec": 58,
+     "end_sec": 367
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Ordered two-color paths and the Erdős–Szekeres labeling proof",
+   "summary": "The Erdős–Szekeres monotone-subsequence theorem is reformulated as the existence of a long monotone monochromatic path in a red/blue ordered complete graph, and Seidenberg’s proof labels each vertex by the longest blue and red monotone paths ending there.",
+   "spans": [
+    {
+     "start_sec": 367,
+     "end_sec": 911
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Chromatic-number path theorem via a maximal acyclic subgraph",
+   "summary": "The Gallai–Hasse–Roy–Vitaver theorem is proved by replacing a false longest-path labeling on the whole orientation with the same labeling on a maximal acyclic subgraph, yielding a proper coloring of the original graph and hence a directed path of length at least the chromatic number.",
+   "spans": [
+    {
+     "start_sec": 911,
+     "end_sec": 1442
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Monochromatic paths in q-colored tournaments",
+   "summary": "Using submultiplicativity of chromatic number under graph union, one color class in any q-edge-coloring of an n-vertex tournament has chromatic number at least n^{1/q}, so the previous theorem gives a monochromatic directed path of that length; this subsumes the earlier warmups and is sharp already for transitive tournaments.",
+   "spans": [
+    {
+     "start_sec": 1442,
+     "end_sec": 1874
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Definition and motivations for color-avoiding paths",
+   "summary": "The main parameter g_q(n) is defined as the worst-case longest directed path in a q-colored n-vertex tournament that avoids at least one color, and the speaker motivates it through Ramsey theory, tripod packing, convex-geometric hypergraph problems, majority tournaments, and probabilistic/Fourier-analytic connections.",
+   "spans": [
+    {
+     "start_sec": 1874,
+     "end_sec": 3004
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Known bounds and the high-color lower theorem",
+   "summary": "After recalling the transitive upper bound g_q(n)≤n^{1-1/q}, the trivial √n lower bound, and better three-color upper constructions, the speaker states the new theorem g_q(n)≥n^{1-O(1/√log q)} and later sketches that its remaining proof uses an induction on two halves with an amortized balancing over colors.",
+   "spans": [
+    {
+     "start_sec": 3004,
+     "end_sec": 3349
+    },
+    {
+     "start_sec": 3939,
+     "end_sec": 4025
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Far-from-transitive sparse-color path lemma",
+   "summary": "A key lemma says that a tournament δ-far from transitive contains a linear-length directed path using at most three colors, so for q≥4 the far-from-transitive case immediately gives a color-avoiding path and the rest of the theorem can focus on tournaments close to transitive; the Q&A clarifies the required near-complete tournament structure and δ-dependence.",
+   "spans": [
+    {
+     "start_sec": 3349,
+     "end_sec": 3684
+    },
+    {
+     "start_sec": 4025,
+     "end_sec": 4109
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Cyclic-triangle proof of the far-from-transitive lemma",
+   "summary": "The lemma is proved by a robust tournament triangle-removal fact giving many cyclic triangles, pigeonholing to a single three-color pattern, pruning to edges lying in many such triangles, and then walking through successive triangles to build a long directed path using only those three colors.",
+   "spans": [
+    {
+     "start_sec": 3684,
+     "end_sec": 3909
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Bubble-sort interpretation for a transitive tournament",
+   "note": "The speaker compares the swap algorithm for a Hamiltonian path to bubble sort, and in the transitive-tournament special case the algorithm literally sorts the unique Hamiltonian order; this clarifies the algorithmic proof rather than generating it.",
+   "first_introduced_sec": 264,
+   "spans": [
+    {
+     "start_sec": 264,
+     "end_sec": 367
+    }
+   ],
+   "total_seconds": 103,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he traces the adjacent-swap Hamiltonian-path algorithm and its forward-edge progress invariant, then identifies the transitive-tournament case with literal bubble sort toward the unique order",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A transitive tournament is the acyclic/unique-Hamilton-path extreme of tournaments, used only to illustrate the sorting analogy."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A transitive tournament collapses to a total order and is an acyclic boundary case with a unique Hamiltonian path, used only as an illustration of bubble sort."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A transitive tournament is the acyclic total-order boundary case, with the minimum possible unique Hamiltonian path, used only to illustrate the algorithm."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A transitive tournament is the acyclic/zero-cyclic-triangle extreme of tournaments, used only to illustrate the bubble-sort analogy."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A transitive tournament is the acyclic/zero-cycle extreme with a unique Hamiltonian path, used only to explain the sorting analogy."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A transitive tournament is the acyclic/total-order extreme of tournaments and has the minimum possible one Hamiltonian path, used only as the bubble-sort special case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used only to explain the sorting analogy; a transitive tournament is the acyclic zero-cycle extremal tournament with a unique Hamiltonian path."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A transitive tournament is the acyclic boundary case with a unique Hamiltonian path, used only to interpret the algorithm as bubble sort."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the transitive tournament is used as the ordered/bubble-sort special case and is the acyclic tournament with a unique Hamiltonian path."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "used to explain the algorithm, and a transitive tournament is the acyclic zero-cycle boundary case among tournaments"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a transitive tournament is the acyclic zero-cycle boundary case used only to interpret the swap algorithm as bubble sort"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A transitive tournament is the acyclic total-order extreme with a unique Hamiltonian path, used only to explain the bubble-sort analogy."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Audience heights as a monotone subsequence",
+   "note": "The people entering the room in some order are used as a concrete sequence of real numbers whose heights must contain a monotone subsequence, making the Erdős–Szekeres statement tangible.",
+   "first_introduced_sec": 415,
+   "spans": [
+    {
+     "start_sec": 415,
+     "end_sec": 432
+    }
+   ],
+   "total_seconds": 17,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he only uses the audience’s heights as a quick illustrative instance of a monotone subsequence, without finding or analyzing an actual subsequence",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The audience-height sequence is just a relatable instance of the monotone-subsequence theorem, not a structurally special or adversarial object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The audience-height sequence is an ordinary instance illustrating the monotone subsequence theorem."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The audience-height sequence is an ordinary finite real sequence used to visualize a guaranteed monotone subsequence."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The audience-height sequence is just a concrete typical sequence illustrating the monotone-subsequence theorem."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The audience-height sequence is a generic illustration of finding a monotone subsequence, not a special or adversarial object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The audience-height monotone subsequence is a mundane illustrative instance of Erdős–Szekeres, not a structural exception or adversarial example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as an informal Erdős–Szekeres illustration, with no special tight or adversarial structure specified."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The audience-height sequence is just a concrete illustration of finding a guaranteed monotone subsequence."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the audience-height subsequence is just an illustrative monotone, hence highly ordered, pattern guaranteed by Erdős–Szekeres."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used only as an everyday instance of a real sequence containing a monotone subsequence"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the selected height subsequence is fully monotone, an all-ordered extreme among sequences, and serves only as an illustration"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The audience-height subsequence is a mundane illustrative monotone subsequence, not an adversarial or structurally special construction."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Cyclically oriented cycle breaking the naive labeling proof",
+   "note": "A directed cycle whose vertices all have the same longest-path label shows the first attempted proof cannot give a proper coloring, forcing the passage to a maximal acyclic subgraph.",
+   "first_introduced_sec": 1106,
+   "spans": [
+    {
+     "start_sec": 1106,
+     "end_sec": 1159
+    }
+   ],
+   "total_seconds": 53,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he uses the cyclically oriented cycle to test the naive labeling proof, explaining that all labels can coincide because the attempted path extension has already visited the target vertex",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cyclically oriented cycle is a highly regular directed cycle used to refute the naive claim that longest-path labels form a proper coloring."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cyclically oriented cycle is a highly regular directed cycle used to refute the naive labeling proof."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cyclically oriented cycle is a highly regular directed cycle deployed to refute the naive longest-path-labeling proof."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A consistently directed cycle is a regular symmetric digraph and is used to show the naive longest-path-labeling proof fails."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cyclically oriented cycle is a highly regular directed cycle and is used to refute the naive labeling/proper-coloring proof."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cyclically oriented cycle is a regular directed cycle used to show the naive longest-path labeling need not be a proper coloring."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Explicitly refutes the naive labeling proof; a cyclically oriented cycle is a regular edge-minimal obstruction to acyclicity."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cyclically oriented cycle is used to refute the naive claim that the longest-path labels give a proper coloring."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the cyclically oriented cycle is used to show the naive longest-path labeling proof fails, and the directed cycle is very regular."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to invalidate the naive labeling proof, and the cyclic orientation is vertex-transitive around the cycle"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the cyclically oriented cycle is a symmetric minimal directed-cycle obstruction used to refute the naive labeling argument"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The vertex-transitive directed cycle makes all longest-path labels coincide, directly refuting the naive proper-labeling proof."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Multicolor Erdős–Hajnal as color avoidance",
+   "note": "In response to a question, the speaker cites the multicolor Erdős–Hajnal problem as a Ramsey setting where avoiding a color pattern is the right generalization rather than asking for a monochromatic subobject.",
+   "first_introduced_sec": 2085,
+   "spans": [
+    {
+     "start_sec": 2085,
+     "end_sec": 2118
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he describes the multicolor Erdős–Hajnal conjecture as a context where color avoidance is the right formulation, but does not work through an instance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The multicolor Erdős–Hajnal formulation is cited as a typical motivation for color avoidance, not as a special object or counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The multicolor Erdős–Hajnal formulation is a general Ramsey-theoretic motivation for color avoidance, not a structurally special object or refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The multicolor Erdős–Hajnal formulation is used as a motivating color-avoidance setting, not as a structurally special object or refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The multicolor Erdős–Hajnal formulation is a motivating systematic color-avoidance setting, not a structurally sporadic or adversarial example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The multicolor Erdős–Hajnal formulation is cited as a general Ramsey-theoretic motivation for color avoidance, not as a special object or disproof."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The multicolor Erdős–Hajnal setup is a general color-avoidance motivation involving arbitrary colored complete graphs, not a special object or counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as motivation for color avoidance; it is a general multicolor Ramsey setting rather than a structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The multicolor Erdős–Hajnal formulation is cited as a motivating Ramsey-theoretic setting for color avoidance."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "multicolor Erdős–Hajnal is cited as motivation for color avoidance rather than as an adversarial object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "cited as a general Ramsey-theoretic motivation for color avoidance rather than as a refuting or structurally special object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "multicolor Erdős–Hajnal is cited as a standard motivating color-avoidance formulation, not as an adversarial object"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The multicolor Erdős-Hajnal formulation is a standard motivational family of color-avoidance problems."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Tripod packing in a box",
+   "note": "Packed three-legged polycubes are encoded by a three-colored tournament, where a color-avoiding directed path forces one coordinate of the apexes to increase, illustrating why the parameter has geometric consequences.",
+   "first_introduced_sec": 2135,
+   "spans": [
+    {
+     "start_sec": 2135,
+     "end_sec": 2749
+    }
+   ],
+   "total_seconds": 614,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he builds a colored tournament from packed tripods, analyzes nestling and stabbing, proves coordinate monotonicity along a color-avoiding path, and derives the bound connection",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The tripod packing is a motivating geometric construction with no indicated sporadic, degenerate, extremal, or maximally symmetric structure."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The tripod packing setup is a natural geometric packing instance used to motivate the tournament question."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The equal three-legged coordinate tripod has axis-permutation regularity and is used as a motivating packing model."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The tripod packing is a motivating family of packing configurations rather than a specified optimal, degenerate, or exceptional object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The tripod example is posed as a maximum-density packing problem in a box."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The tripod-in-a-box discussion concerns an optimal-density packing problem, so the relevant packing configurations are extremal, not counterexamples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a motivating application; the equal-leg coordinate tripod is a regular S3-symmetric shape, not an adversarial example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Tripod packings in a box are used as an application that converts to a three-colored tournament problem."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "tripod packings motivate the tournament question, with the equal three-legged tripod a regular coordinate-symmetric shape."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the equal-legged coordinate tripods give a regular symmetric shape in a maximum-density packing setting"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the equal-leg tripod-in-a-cube setup has coordinate regularity and is used as an application of the tournament question"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An arbitrary packing of axis-aligned tripods is used to translate the packing problem into tournaments, not as a special or adversarial object."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Convex-position triangle selection problem",
+   "note": "Selecting many triangles from points in convex position while forbidding certain intersection configurations is presented as another geometric extremal problem reducible to three-colored color-avoiding paths.",
+   "first_introduced_sec": 2749,
+   "spans": [
+    {
+     "start_sec": 2749,
+     "end_sec": 2923
+    }
+   ],
+   "total_seconds": 174,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he describes the convex-position triangle selection problem and says it converts to a three-colored tournament, but explicitly skips the conversion",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A point set in convex position is an extremal point configuration with all points on the convex hull, used as a motivation rather than a refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Putting all points in convex position is an extremal point-configuration condition, used as motivation for the color-avoiding path problem."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A convex-position point set is a boundary geometric configuration with all points on the hull, appearing in a maximum-size triangle-selection problem."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Putting all points in convex position is an extremal boundary case for point sets, used as a source of geometric extremal questions rather than as a counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The convex-position triangle problem asks for a maximum-size family avoiding specified geometric configurations."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Selecting as many triangles as possible in convex position subject to forbidden configurations is an extremal geometric hypergraph problem."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as a motivating geometric selection problem; convex-position point sets are boundary/extremal configurations with all points on the hull."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A point set in convex position has the maximum possible number of hull vertices and is used as a motivating extremal-geometric setup."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the convex-position triangle problem is presented as a geometric extremal selection problem maximizing triangles under forbidden configurations."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the object sought is a maximum-size triangle selection on convex-position points under forbidden configurations"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "points in convex position form a boundary geometric configuration for an extremal triangle-selection problem"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The all-on-the-hull convex-position setting is a boundary point-set configuration used as a motivation."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "k-majority tournaments",
+   "note": "A construction arising in the study of k-majority tournaments is mentioned as reducing to the same color-avoiding path question, giving a social-choice/tournament-theory motivation.",
+   "first_introduced_sec": 2935,
+   "spans": [
+    {
+     "start_sec": 2935,
+     "end_sec": 2965
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he only says k-majority tournaments motivated the question through an unanalyzed construction",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The k-majority tournaments are mentioned as a natural class motivating the problem, with no special structural role singled out."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "k-majority tournaments form a natural structured class of tournaments but are not presented as degenerate, extremal, symmetric, or exceptional."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "k-majority tournaments form a systematic family used as a source of the question, with no indicated sporadic, degenerate, symmetric, or extremal member."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "k-majority tournaments form a natural systematic class of tournaments used as motivation, with no specified extremal or obstructive instance."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "k-majority tournaments are a systematic motivating class of tournaments, not sporadic, degenerate, extremal, or adversarial here."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "k-majority tournaments form a systematic natural class of tournaments and are cited as a motivation, not as a special exception or obstruction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as another motivation for the question; k-majority tournaments form a systematic natural class with no listed special structural extreme."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The k-majority tournaments are a systematic class mentioned as another source of the same color-avoiding question."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "k-majority tournaments are cited as a natural motivating class whose construction reduces to the question."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a systematic class of majority-defined tournaments is used only as motivation, with no boundary or sporadic feature invoked"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "k-majority tournaments are a systematic motivating class rather than a sporadic, extremal, or adversarial instance"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "k-majority tournaments are a natural representable class cited as another motivation, not a sporadic or extremal object."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Correlated random-variable sequences on MathOverflow",
+   "note": "A question about correlated random variables, solved using Fourier analysis in the transitive-tournament case, is cited as an unexpected probabilistic avatar of the same problem.",
+   "first_introduced_sec": 2965,
+   "spans": [
+    {
+     "start_sec": 2965,
+     "end_sec": 3004
+    }
+   ],
+   "total_seconds": 39,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he only cites the MathOverflow correlated-random-variable problem and its Fourier-analytic solution as corresponding to the transitive case",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 11
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript does not specify the random-variable sequence property enough to identify a definite mathematical object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript does not specify the random-variable property enough to identify the object structurally."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript does not specify the MathOverflow random-variable construction or property enough to identify the object structurally."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript does not specify the random-variable property or object precisely enough to judge intrinsic structure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript does not specify the correlated-random-variable condition precisely enough to identify a definite object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript does not specify the correlated random-variable property well enough to identify the mathematical object structurally."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript gives only a vague MathOverflow probability formulation, so the exact random-variable object cannot be identified."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The correlated random-variable sequences are cited as a probabilistic reformulation of the transitive-tournament case, not as an obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "the transcript does not specify the random-variable property precisely enough to identify the object structurally."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "the transcript omits the actual random-variable property, so the object cannot be structurally identified"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "the transcript mentions only an unspecified MathOverflow random-variable formulation equivalent to the transitive case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript only names an unspecified MathOverflow random-variable formulation, so its precise structure is not identifiable."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Forward complete bipartite digraph obstruction",
+   "note": "In Q&A about extending the theorem beyond tournaments, the speaker notes that a directed complete bipartite graph with all edges going forward can have no long directed paths, illustrating why some near-completeness/density hypothesis is needed.",
+   "first_introduced_sec": 4070,
+   "spans": [
+    {
+     "start_sec": 4070,
+     "end_sec": 4086
+    }
+   ],
+   "total_seconds": 16,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he briefly names the forward complete bipartite digraph as an obstruction to extending the question to sparse directed graphs, without developing it",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 12,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-forward complete bipartite digraph is a two-layer acyclic, highly regular dense obstruction showing that a general directed-graph version can fail."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A forward complete bipartite digraph is a two-layer acyclic extremal obstruction with no long directed paths, used against a naive directed-graph generalization."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-forward complete bipartite digraph is a symmetric two-level acyclic boundary case with essentially no long directed paths, used as an obstruction to general directed-graph versions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-forward complete bipartite digraph is a highly ordered boundary case for dense directed graphs and is cited as an obstruction with no long directed paths."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The one-way complete bipartite digraph is a maximally dense two-layer DAG with no long directed paths, used as an obstruction to a naive directed-graph generalization."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A complete bipartite digraph with all edges forward is a two-layer acyclic, path-collapsed extremal obstruction to extending the question to general digraphs."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as an obstruction to extending the result to sparse digraphs; a one-way complete bipartite digraph is a collapsed two-level extremal construction with high part symmetry."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The forward complete bipartite digraph is a two-layer acyclic dense obstruction with no long directed paths, used against naive extensions to general digraphs."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the all-forward complete bipartite digraph is an obstruction to extending the theorem to general digraphs, with a two-level acyclic structure giving essentially no long directed paths."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to block a general digraph version, and the one-way complete bipartite blow-up is a symmetric height-two path-length-collapsed obstruction"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the two-layer forward complete bipartite digraph is a highly regular height-two extremal obstruction with no long directed paths"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two-layer one-way complete bipartite digraph has collapsed, highly regular structure with extremally short directed paths, giving the obstruction to a directed-graph extension."
+    }
+   ]
+  }
+ ]
+}

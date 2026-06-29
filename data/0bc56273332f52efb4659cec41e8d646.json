@@ -1,0 +1,1475 @@
+{
+ "key": "0bc56273332f52efb4659cec41e8d646",
+ "title": "Locally Decodable Codes and Representations of Finite Groups",
+ "speaker": "Zeev Dvir",
+ "affiliation": "Princeton University",
+ "date": "2026-04-27T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 4001.0,
+ "abstract": "Locally Decodable Codes (LDCs) are a special type of error correcting codes which are constructed from finite point sets that support many small linear dependencies (e.g. many collinear triples). Despite their importance, there are still huge gaps between the known LDC constructions and lower bounds. In 2008 , Efremenko showed a framework for constructing LDCs from representations of finite groups. We strengthen Efremenko's reduction and use this strengthening, together with known bounds on LDCs, to derive new results on representations. In particular we show that if rho is an n-dimensional irreducible representation of G and rho(g) is not the identity, then it must be n/log|G| far from the identity in rank metric (this bound is the best possible in general).",
+ "youtube_url": "https://youtu.be/vNBxTvt0WmM",
+ "page_url": "https://www.ias.edu/video/locally-decodable-codes-and-representations-finite-groups",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Matching formulation of locally decodable codes",
+   "summary": "The talk recasts a q-query LDC as a multiset of vectors in F^n with, for each message coordinate, many disjoint q-tuples whose spans contain the corresponding basis vector, and explains its equivalence to local decoding for linear codes.",
+   "spans": [
+    {
+     "start_sec": 65,
+     "end_sec": 603
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Length minimization problem and known LDC bounds",
+   "summary": "Fixing q and the field, one asks for the smallest block length m; q=2 has essentially exponential lower bounds, while q>2 has subexponential matching-vector constructions but only polynomial lower bounds, motivating a structural explanation.",
+   "spans": [
+    {
+     "start_sec": 649,
+     "end_sec": 1034
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Finite-group representation prerequisites",
+   "summary": "The speaker introduces finite-dimensional representations, irreducibility, the regular representation, and the key fact that any nonzero orbit in an irreducible representation spans the whole space.",
+   "spans": [
+    {
+     "start_sec": 1054,
+     "end_sec": 1395
+    },
+    {
+     "start_sec": 2050,
+     "end_sec": 2130
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Efremenko sparse low-rank criterion and rank-r extension",
+   "summary": "A q-term linear combination of representation matrices with rank one, or rank r in the extension, yields a q-query LDC of length |G| and dimension n or roughly n/r, provided the orbit of the image spans sufficiently many directions.",
+   "spans": [
+    {
+     "start_sec": 1395,
+     "end_sec": 1773
+    },
+    {
+     "start_sec": 2074,
+     "end_sec": 2130
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Representation-theoretic rank corollary from two-query LDC lower bounds",
+   "summary": "Applying the rank-r version to D=rho(h)-I and the sharp q=2 LDC lower bound forces rank(rho(h)-I) to be at least on the order of n/log|G|, after which the result is compared with existing eigenvalue-multiplicity bounds in representation theory.",
+   "spans": [
+    {
+     "start_sec": 2270,
+     "end_sec": 2589
+    },
+    {
+     "start_sec": 2602,
+     "end_sec": 2734
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Sparse group-algebra rank conjecture as an uncertainty principle",
+   "summary": "The conjectured nonexistence of polynomial-length constant-query LDCs is translated into a lower bound asserting that q-sparse group-algebra elements cannot act with very small rank in large irreducible representations, a viewpoint related to noncommutative uncertainty principles.",
+   "spans": [
+    {
+     "start_sec": 2734,
+     "end_sec": 3290
+    },
+    {
+     "start_sec": 3315,
+     "end_sec": 3347
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Orbit-code construction and matching proof",
+   "summary": "For the rank-one criterion, the proof factors D as yx^T, chooses a generic seed z, uses right translations to obtain many disjoint q-tuples spanning y and left translations to get such matchings for every vector in the orbit of y, then changes basis to match the LDC definition.",
+   "spans": [
+    {
+     "start_sec": 3382,
+     "end_sec": 3981
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Boolean hypercube two-query LDC",
+   "note": "The set of all 0-1 vectors is used to make the matching definition concrete: edges in each coordinate direction give disjoint pairs spanning the corresponding basis vector.",
+   "first_introduced_sec": 304,
+   "spans": [
+    {
+     "start_sec": 304,
+     "end_sec": 389
+    }
+   ],
+   "total_seconds": 85,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly constructs the hypercube code with all 0/1 vectors and matchings along coordinate directions, explaining the perfect matchings and how pairs span the basis vectors",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 10,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Boolean hypercube/Hadamard two-query LDC is highly cube-symmetric and has perfect coordinate matchings, giving the essentially tight q=2 construction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the Boolean/Hadamard cube has perfect coordinate matchings and asymptotically tight two-query behavior, and is highly regular under bit-flips and coordinate permutations"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The full Boolean hypercube code is used as the standard highly regular 2-query LDC construction, not to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The full Boolean hypercube gives the highly regular perfect-matching two-query LDC and is tight up to the known exponential scale."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The full Boolean hypercube code is the canonical highly regular two-query LDC used to illustrate the definition, not to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the full Boolean cube has maximal coordinate symmetry and perfect coordinate matchings, giving the standard tight two-query construction"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the full Boolean cube gives perfect two-query matchings and lies at the known tight exponential scale, with the cube's usual high symmetry"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as the basic construction, with the full Boolean cube giving perfect coordinate matchings and hypercube symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A hypercube/Hadamard 2-query LDC is a highly regular cube construction and essentially tight at the exponential two-query scale."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as a basic construction, the Boolean hypercube/Hadamard two-query LDC has full cube symmetry and perfect coordinate matchings at the optimal exponential two-query scale."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the full Boolean cube is used as a construction with maximal perfect coordinate matchings and large cube symmetry"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Boolean cube has maximally regular coordinate matchings and gives the essentially tight exponential two-query construction."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Regular representation of a finite group",
+   "note": "The regular representation by permutation matrices illustrates the definition of a representation and why reducibility corresponds to invariant subspaces such as the all-ones line.",
+   "first_introduced_sec": 1199,
+   "spans": [
+    {
+     "start_sec": 1199,
+     "end_sec": 1326
+    }
+   ],
+   "total_seconds": 127,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker constructs the regular representation as permutation matrices for the group action on itself and reasons through its invariant subspaces such as the all-ones line",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The regular representation is the canonical sharply transitive permutation action of a finite group on itself, used only as a basic representation example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the regular representation is the uniform left action of a group on itself, used here as a standard illustrative representation rather than to refute a claim"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The regular representation is the canonical free transitive action of a finite group on itself, used illustratively rather than adversarially."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The regular representation is the canonical free transitive action of a group on itself, used only to illustrate representations."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The regular representation is the canonical highly regular action of a group on itself, used as a basic example of a representation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the left-regular representation is a free transitive permutation action used only to illustrate representations"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "it is used only as the canonical regular free-transitive permutation representation of a group, not to refute a claim"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used only to illustrate representations, and the left-regular action is a canonical sharply transitive permutation action."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The regular representation is the canonical free transitive action of a finite group on itself, used only to illustrate representations."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used only to illustrate representations, the regular representation is the canonical sharply transitive permutation action of a group on itself."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the regular representation is an illustrative canonical action with the group acting freely and transitively on its own basis"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The regular representation is the canonical simply transitive action of a group on its own basis, not an obstruction."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Reed-Muller codes from the GL action on low-degree polynomials",
+   "note": "Reed-Muller codes are cited as a known LDC family fitting the representation framework, where scalings on low-degree polynomials recover the value at the origin as a rank-one projection.",
+   "first_introduced_sec": 1618,
+   "spans": [
+    {
+     "start_sec": 1618,
+     "end_sec": 1655
+    },
+    {
+     "start_sec": 2162,
+     "end_sec": 2233
+    }
+   ],
+   "total_seconds": 108,
+   "attaches_to": [
+    "s2",
+    "s4"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explains how the GL action on low-degree polynomials yields Reed-Muller-type LDCs by using scalings/lines to recover the value at zero as a rank-one projection",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed-Muller codes from low-degree polynomials are highly affine/GL-invariant and are used as a known family fitting the representation framework."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed-Muller codes from low-degree polynomials are highly invariant under the GL/affine action, and are cited as a known construction family"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed-Muller codes from the GL action are a systematic highly invariant family used as a positive example of the framework."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed-Muller codes from low-degree polynomials are a systematic GL/affine-invariant highly regular family, not a sporadic exception."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed-Muller codes from the GL action on low-degree polynomials form a standard highly invariant code family used as a known example in the framework."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed-Muller codes are homogeneous under the affine or GL action and are used as a standard constructive family"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the GL-invariant Reed-Muller construction uses scalings to produce a rank-one evaluation projection"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Cited as a known family fitting the framework, and Reed–Muller codes are highly affine/GL-invariant."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed-Muller codes from low-degree polynomials are GL/affine-invariant algebraic codes used as a standard construction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a known LDC family fitting the framework, Reed-Muller codes from low-degree polynomials carry large GL/affine symmetry but are not sporadic or extremal here."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed–Muller codes from low-degree polynomials are used constructively and have large GL/affine symmetry"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Reed-Muller codes form a systematic family whose polynomial evaluations carry a large GL or affine symmetry group."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Signed-diagonal reflection with cyclic shifts",
+   "note": "For q=2, a reflection whose difference from the identity has rank one is exhibited via signed diagonal matrices plus cyclic shifts, showing how the representation criterion can recover cube-like behavior.",
+   "first_introduced_sec": 1773,
+   "spans": [
+    {
+     "start_sec": 1773,
+     "end_sec": 2050
+    }
+   ],
+   "total_seconds": 277,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 1,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker builds the signed-diagonal reflection example, computes that subtracting it from the identity has rank one, adds cyclic shifts, and discusses irreducibility and group size",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 12,
+    "symmetric": 8,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The signed reflection differs from the identity in rank one, the minimal nonzero deviation, and cyclic shifts add coordinate regularity for the construction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "a signed reflection has rank-one deviation from the identity, while cyclic shifts make its coordinate copies occur regularly"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The signed reflection is chosen because its deviation from the identity has minimal rank, with cyclic shifts supplying the construction rather than a disproof."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The signed reflection has rho(h)-I of rank one, the minimal nonzero rank distance from the identity, and cyclic shifts make the construction work."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The signed reflection is chosen because it is a minimal nontrivial rank-one deviation from the identity, with cyclic shifts added to make the orbit representation work."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the chosen signed reflection fixes a hyperplane and differs from the identity in rank one, the minimal nontrivial defect"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the signed reflection is a rank-one perturbation of the identity, and cyclic shifts make a regular monomial construction"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as a construction example whose reflection has minimal nonzero rank distance from the identity and whose sign flips/cyclic shifts give regular monomial symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The signed monomial cyclic construction is highly regular and uses a reflection with minimal nonzero rank defect from the identity."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as a construction source, the signed monomial cyclic-shift setup is highly regular and the chosen reflection has minimal rank-one deviation from the identity."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the signed reflection is chosen because its difference from the identity has minimal nonzero rank, with cyclic shifts giving an irreducible construction"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The signed coordinate reflection is a rank-one, hence minimal nonzero, perturbation of the identity inside a regular cyclic monomial action."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Symmetric group element moving few coordinates",
+   "note": "An audience-suggested symmetric-group construction is acknowledged as another almost-identity source of low-rank combinations, though with factorial-sized groups.",
+   "first_introduced_sec": 2130,
+   "spans": [
+    {
+     "start_sec": 2130,
+     "end_sec": 2162
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 1,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the symmetric-group element moving few coordinates is only raised as a possible example and acknowledged as working, with no construction or verification carried out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 12,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A permutation moving only a few coordinates is an almost-identity/minimal-support element inside the maximally symmetric permutation group, offered as another construction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a permutation moving only few coordinates is a near-identity, low-support boundary case used as another low-rank construction source"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A permutation moving only few coordinates is a near-identity low-support boundary case, mentioned as another construction of low-rank behavior."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A permutation moving only few coordinates is an almost-identity, low-rank boundary case used as another construction source."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A symmetric-group element moving only a few coordinates is an almost-identity, low-support permutation, used as another construction rather than as a disproof."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a small-support permutation fixes almost all coordinates and at a transposition realizes the minimum nonidentity support/rank"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a permutation moving only a few coordinates is a near-identity, minimal-support low-rank case rather than a typical symmetric-group element"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Used as another construction example, with a small-support permutation fixing almost all coordinates and lying near the identity boundary."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A permutation moving only few coordinates in the maximally symmetric coordinate action is a near-identity, minimal-movement kind of case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as another source of low-rank matrices, the full symmetric group gives maximal permutation symmetry while a low-support element is an extreme near-identity case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a permutation moving only few coordinates is a near-identity small-support boundary case rather than a typical permutation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A permutation moving only few coordinates is a near-identity small-support element at the low-rank edge of the symmetric group action."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Abelian Fourier uncertainty analogy",
+   "note": "For abelian groups, the rank of the representation-side matrix is identified with Fourier support, illustrating the proposed sparse-support versus high-rank uncertainty-principle viewpoint.",
+   "first_introduced_sec": 2796,
+   "spans": [
+    {
+     "start_sec": 2734,
+     "end_sec": 2864
+    }
+   ],
+   "total_seconds": 130,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the abelian Fourier uncertainty principle is used as an analogy, with only general facts stated about Fourier support and rank rather than a concrete worked example",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 10,
+    "extremal": 0,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "In the abelian Fourier case all irreducibles are one-dimensional, so the noncommutative rank question collapses to ordinary support and serves only as an analogy."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the abelian Fourier case is the commutative collapsed base case where irreducible representations are one-dimensional and rank becomes Fourier support"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The finite-abelian Fourier uncertainty principle is invoked only as an analogy for rank/support tradeoffs, with no special sporadic or refuting object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The abelian Fourier case collapses the noncommutative Fourier blocks to one-dimensional characters and is used only as an analogy."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The abelian Fourier case is the commutative one-dimensional-irrep limiting case used only as an analogy for uncertainty principles."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "in the abelian Fourier base case all irreducible blocks are one-dimensional, so rank collapses to Fourier support and serves only as analogy"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "in the abelian Fourier case the noncommutative rank notion collapses to one-dimensional characters and ordinary Fourier support"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Used only as an analogy, with the abelian case collapsing representation blocks to one-dimensional Fourier characters."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The abelian Fourier case is the commutative one-dimensional-irrep specialization used only as an analogy."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Used only as an analogy, the abelian Fourier case is the commutative diagonal one-dimensional-irrep collapse of the noncommutative setting."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the abelian Fourier case is an analogy where the noncommutative rank question collapses to one-dimensional Fourier support"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The abelian Fourier case is used as a classical highly regular diagonal character-decomposition analogy, not as a failure case."
+    }
+   ]
+  }
+ ]
+}

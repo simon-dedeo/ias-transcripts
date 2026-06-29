@@ -1,0 +1,1647 @@
+{
+ "key": "58afe125641f15cfb7ef12e5aecf16cb",
+ "title": "Private Optimization and Statistical Physics: Low-Rank Matrix Approximation",
+ "speaker": "Nisheeth Vishnoi",
+ "affiliation": "Yale University",
+ "date": "2023-10-09T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4099.0,
+ "abstract": "In this talk, I will present the following two connections between private optimization and statistical physics, both via the problem of approximating a given covariance matrix with a low-rank matrix:   An efficient algorithm to privately compute a low-rank approximation to a given matrix and how it leads to an efficient way to sample from Harish-Chandra-Itzykson-Zuber densities studied in physics and mathematics. (Based on https://arxiv.org/abs/2011.05417)",
+ "youtube_url": "https://youtu.be/eicjT2XnhVQ",
+ "page_url": "https://www.ias.edu/video/private-optimization-and-statistical-physics-low-rank-matrix-approximation",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Low-rank approximation objectives and utilities",
+   "summary": "The talk formulates low-rank approximation of a covariance/data matrix, reviews the classical spectral optimum, and defines utility losses for inner-product and Frobenius-distance objectives once the exact optimum can no longer simply be released.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 635
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Differential privacy as randomized stability",
+   "summary": "After motivating why anonymization and covariance release are unsafe, the speaker recalls epsilon/delta differential privacy as stability under changing one user and explains why private optimization must output a distribution rather than a deterministic optimizer.",
+   "spans": [
+    {
+     "start_sec": 635,
+     "end_sec": 1139
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Exponential mechanism on unitary orbits",
+   "summary": "Pure differential privacy for the inner-product objective is reduced to sampling a Gibbs/log-linear density over the unitary orbit of the target spectrum, with Haar measure pushed forward to the orbit.",
+   "spans": [
+    {
+     "start_sec": 1139,
+     "end_sec": 1536
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "HCIZ orbit-sampling theorem",
+   "summary": "The orbit-density sampling problem is identified with Harish-Chandra–Itzykson–Zuber-type densities on the unitary group, and the speaker states a polynomial-time sampling theorem for these log-linear densities on unitary orbits.",
+   "spans": [
+    {
+     "start_sec": 1536,
+     "end_sec": 1941
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Gelfand-Tsetlin convexification of orbit sampling",
+   "summary": "The proof idea maps a nonconvex unitary orbit by the Rayleigh map to the Gelfand-Tsetlin polytope, where the relevant measure becomes an exponential density on a convex polytope, then samples there and lifts back along the fiber.",
+   "spans": [
+    {
+     "start_sec": 1941,
+     "end_sec": 2611
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Gaussian input perturbation mechanism and utility goal",
+   "summary": "For approximate differential privacy, the second mechanism perturbs the input matrix by Gaussian or complex Gaussian noise and returns the spectral optimum of the perturbed matrix, aiming to improve utility beyond worst-case Davis-Kahan perturbation bounds.",
+   "spans": [
+    {
+     "start_sec": 2611,
+     "end_sec": 3108
+    },
+    {
+     "start_sec": 3948,
+     "end_sec": 4038
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Dyson Brownian motion and eigenvalue-gap control",
+   "summary": "Viewing Gaussian perturbation as matrix Brownian motion gives Dyson SDEs for eigenvalues and eigenvectors, so the utility integral can be bounded when eigenvalue gaps do not become too small; new gap estimates and a reduction to the zero-start case address this bottleneck.",
+   "spans": [
+    {
+     "start_sec": 3108,
+     "end_sec": 3600
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Moving orbit and complex-noise repulsion refinement",
+   "summary": "The improved analysis lets the target orbit move with the evolving matrix and uses complex Brownian motion, whose stronger eigenvalue repulsion plus mean-field control yields the stated Frobenius-utility improvement and suggests further questions about the optimal noise geometry.",
+   "spans": [
+    {
+     "start_sec": 3600,
+     "end_sec": 3894
+    },
+    {
+     "start_sec": 4038,
+     "end_sec": 4093
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "PCA/subspace recovery special case",
+   "note": "The rank-k projection/PCA case, and especially k=1 as the largest-eigenvector problem, makes the general low-rank approximation formulation concrete without driving the proof.",
+   "first_introduced_sec": 326,
+   "spans": [
+    {
+     "start_sec": 326,
+     "end_sec": 365
+    },
+    {
+     "start_sec": 427,
+     "end_sec": 460
+    }
+   ],
+   "total_seconds": 72,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker specializes the general low-rank formulation to rank-k/PCA/subspace recovery, identifies the corresponding lambda choices, and describes the optimal eigenvector/truncated-spectrum solution",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard PCA/subspace recovery is used as a representative low-rank-approximation application"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The PCA/principal subspace is the top-variance eigenspace solving an extremal spectral optimization, used as a motivating case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the PCA/subspace case selects the top-k eigenspace or largest eigenvector optimizing captured variance."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "PCA/subspace recovery uses the leading eigenspace or top component, defined by maximizing variance/eigenvalue mass."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "PCA/subspace recovery uses the top-k projection/eigenspace, an optimal variance subspace in the symmetric Grassmannian."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "PCA/subspace recovery is the top-eigenspace, variance-maximizing rank-k projection special case used as motivation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "PCA/subspace recovery is used as a motivating special case, with the principal subspace defined by an extremal variance/Rayleigh-quotient optimization."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The PCA/subspace-recovery instance seeks the top-k eigenspace optimizing variance or inner product, and is used as a motivating special case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "PCA/subspace recovery is a motivating special case whose principal subspace is defined by a top-eigenvalue/variance-maximizing optimum."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "PCA/subspace recovery is used as a motivating special case, with the principal subspace given by top eigenvectors maximizing variance."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "PCA/subspace recovery is used as a motivating special case, and the 0/1 projection spectrum is a boundary case among target spectra."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "PCA/subspace recovery selects the top-k eigenspace optimizing variance or reconstruction error, and is introduced as a motivating special case rather than a failure."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Identifiable anonymized record",
+   "note": "The speaker's hypothetical record of awards, papers, and postdocs illustrates why removing names from a dataset does not ensure privacy.",
+   "first_introduced_sec": 672,
+   "spans": [
+    {
+     "start_sec": 672,
+     "end_sec": 724
+    }
+   ],
+   "total_seconds": 52,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the anonymized identifiable record is only illustrated by the Avi uniqueness anecdote, with no concrete reconstruction or calculation performed",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a unique high-dimensional anonymized record is used to show anonymization can fail"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A uniquely identifiable anonymized record is used to show that anonymization can fail."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the unique anonymized record is used to show anonymization can fail."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The identifiable anonymized record is used to show that naive anonymization can fail."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The uniquely identifiable anonymized row is used to show that removing names does not guarantee privacy."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The identifiable anonymized record is used to show anonymization can fail to protect privacy."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An identifiable anonymized record is invoked to show that anonymization can fail to protect privacy."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The identifiable anonymized record is used to show that name-stripping/anonymization can fail, without being a structural classification exception."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The identifiable anonymized record is used to show anonymization can fail, while such high-dimensional uniqueness is not a sporadic structural exception."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The identifiable anonymized record is used to show that anonymization can fail to protect privacy."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The identifiable anonymized record is used to show that anonymization can fail to protect privacy."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A uniquely identifiable anonymized high-dimensional record is used to show anonymization can fail, but uniqueness here is not a sporadic structural exception."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Genetic covariance leakage",
+   "note": "Small group genetic correlations are mentioned as an illustration that even releasing covariance information can reveal sensitive membership information.",
+   "first_introduced_sec": 724,
+   "spans": [
+    {
+     "start_sec": 724,
+     "end_sec": 761
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "genetic covariance leakage is cited as a warning that correlations can reveal profiles, but no specific covariance example is analyzed",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "small-group genetic covariances are cited to show covariance release can leak profiles"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Genetic covariance leakage is cited to show that releasing covariance information need not be private."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the genetic-covariance leakage example is used to show releasing covariances need not preserve privacy."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The genetic covariance leakage example is deployed to refute the idea that releasing only covariances is necessarily safe."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Genetic covariance leakage is presented as a simple example showing that releasing covariance statistics can still reveal private data."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Genetic covariance leakage is cited as an example showing released covariance matrices need not be safe."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Genetic covariance leakage is cited as a simple example showing that releasing covariance information need not be safe."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The genetic covariance leakage example is used to refute the idea that releasing covariances is automatically safe."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The small-cohort genetic covariance example is used to show aggregate covariances can leak membership, with too few contributors giving a degenerate aggregate."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The genetic covariance leakage example is cited as a simple failure case for releasing covariance information safely."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The genetic covariance leakage example is used to refute the idea that releasing only covariance information is necessarily safe."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The genetic-covariance leakage scenario is cited to refute the safety of releasing covariances, with no intrinsic exceptional, degenerate, extremal, or symmetric structure."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Grassmannian and rank-one sphere cases",
+   "note": "Rank-k projection matrices form a Grassmannian, and the rank-one case reduces to a sphere/simplex picture, serving as a concrete special case of the unitary-orbit sampler.",
+   "first_introduced_sec": 1483,
+   "spans": [
+    {
+     "start_sec": 1483,
+     "end_sec": 1519
+    },
+    {
+     "start_sec": 2431,
+     "end_sec": 2506
+    }
+   ],
+   "total_seconds": 111,
+   "attaches_to": [
+    "s3",
+    "s5"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker identifies the Grassmannian/rank-one sphere cases and later works through the rank-one case via the GT polytope simplex and an explicit fiber reconstruction using complex phases and square roots",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 11,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Grassmannians and rank-one spheres are unitary homogeneous symmetric spaces with rank one at the minimal-rank endpoint"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Grassmannians and spheres are highly symmetric projection orbits, with the rank-one sphere the minimal nonzero projection case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Grassmannians and spheres are highly symmetric homogeneous spaces, with the rank-one sphere the minimal nonzero-rank orbit."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Grassmannians and rank-one projective/sphere cases are homogeneous symmetric spaces, with rank one at the minimal nonzero rank boundary."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Grassmannians and spheres are highly homogeneous symmetric spaces, with the rank-one sphere the minimal nonzero projection case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Grassmannians and spheres are unitary-homogeneous symmetric spaces, with the rank-one sphere the minimum-rank boundary/base case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Grassmannian/sphere cases are highly homogeneous spaces, and the rank-one case is the minimal nonzero-rank boundary case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Grassmannians and rank-one projection spheres are highly homogeneous unitary spaces, with the rank-one case at the minimal-rank boundary."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Grassmannians and the rank-one sphere are homogeneous symmetric spaces, with rank one the minimal nonzero-rank boundary case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Grassmannians and rank-one sphere/projector cases are highly symmetric homogeneous spaces, with rank one being the minimal-rank extreme case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Grassmannians and the rank-one sphere are homogeneous symmetric spaces, with the rank-one case a minimal-rank boundary case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Grassmannians and the rank-one sphere are homogeneous symmetric spaces, with rank one the minimal-rank boundary case, and they are used as special cases not counterexamples."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Perfect matchings sampling-counting analogy",
+   "note": "Counting perfect matchings in a bipartite graph is used as an analogy for the relation between computing a partition function and sampling.",
+   "first_introduced_sec": 1753,
+   "spans": [
+    {
+     "start_sec": 1753,
+     "end_sec": 1785
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "perfect matchings are invoked only as an analogy for the sampling/counting relationship, without applying or deriving anything for matchings",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a perfect matching saturates all vertices and is used only as a sampling-counting analogy"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A perfect matching saturates all vertices and is therefore a maximum-size matching, used only as a sampling-counting analogy."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a perfect matching saturates all vertices and is maximum-size among matchings, used only as a sampling-counting analogy."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A perfect matching saturates all vertices, hence is a maximum-size matching, and is used only as a sampling-counting analogy."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A perfect matching is a maximum-size matching saturating all vertices, invoked only as a sampling-counting analogy."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A perfect matching saturates all vertices and is therefore a maximum-size matching, used only as a sampling-counting analogy."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Perfect matchings are used only as a sampling-counting analogy, and a perfect matching is maximum/saturating among matchings."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A perfect matching is structurally extremal among matchings because it saturates all vertices, here used only as a sampling-counting analogy."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Perfect matchings are used only as a sampling-counting analogy, and a perfect matching saturates all vertices/maximizes matching size."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A perfect matching saturates all vertices and is therefore a maximum-cardinality case among matchings."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Perfect matchings are invoked as a sampling-counting analogy, and a perfect matching is maximum/saturating among matchings."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Perfect matchings saturate all vertices and hence are maximum-size matchings, invoked only as the standard sampling-counting analogy."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Quantum density-matrix inference",
+   "note": "Representing a density matrix as a maximum-entropy distribution over rank-one projections is cited as another application leading to the same orbit-sampling problem.",
+   "first_introduced_sec": 1861,
+   "spans": [
+    {
+     "start_sec": 1861,
+     "end_sec": 1941
+    }
+   ],
+   "total_seconds": 80,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "quantum density-matrix inference is described as a motivating application leading to the same sampling problem, but the inference example itself is not worked through",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 6,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an arbitrary density-matrix inference task is used as an application of the orbit-sampling algorithm"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The quantum density-matrix inference task is presented as a standard application of the sampler, not as a structurally special object or failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the quantum inference application uses a maximum-entropy representation of a density matrix."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The quantum inference application seeks a maximum-entropy decomposition into rank-one pure-state projectors."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The quantum inference application represents density matrices by distributions on rank-one pure states, extreme points of the quantum state space."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The quantum inference example uses an entropy-maximizing distribution over pure-state rank-one projectors as an application."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Quantum density-matrix inference is presented as an application of the sampling problem, with no sporadic or obstructive object singled out."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The quantum density-matrix inference problem is cited as an application for arbitrary density matrices leading to the same sampling task."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The quantum inference application represents states using rank-one pure-state projectors, the extreme points of the density-matrix convex body."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The inference representation uses rank-one pure-state projectors, which are minimal-rank extreme points of the density-matrix convex set."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Quantum density-matrix inference is cited as an application, with a general density matrix being an ordinary PSD trace-one object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A general quantum density matrix is a standard trace-one positive semidefinite state used as an application for the sampling algorithm, not as a counterexample."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Spectral-sparsifier repulsion analogy",
+   "note": "The eigenvalue repulsion term in Dyson Brownian motion is compared with the repulsion/barrier intuition in spectral sparsification.",
+   "first_introduced_sec": 3251,
+   "spans": [
+    {
+     "start_sec": 3251,
+     "end_sec": 3293
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "spectral-sparsifier repulsion is only noted as an analogy to Dyson eigenvalue repulsion, without analyzing a sparsifier construction",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "spectral-sparsifier repulsion is invoked as a standard analogy rather than as a structurally exceptional object"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Spectral-sparsifier eigenvalue repulsion is invoked as an analogy to Dyson repulsion, not as an adversarial example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "spectral-sparsifier repulsion is invoked as an analogy for eigenvalue repulsion, not as a structurally special object or failure case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The spectral-sparsifier reference is an analogy for eigenvalue repulsion rather than a structurally special or adversarial object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Spectral-sparsifier repulsion is cited only as an analogy for eigenvalue barriers, not as a special or adversarial object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The spectral-sparsifier reference is only an analogy for eigenvalue repulsion, not a structurally exceptional object or counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Spectral sparsifiers are mentioned only by analogy to eigenvalue repulsion, not as a failing case or a specific optimal object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Spectral sparsifiers are invoked only as an analogy for eigenvalue-repulsion behavior, not as a specific exceptional or extremal object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Spectral-sparsifier repulsion is invoked as an analogy for eigenvalue-barrier behavior, not as a special adversarial or sporadic object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The spectral-sparsifier repulsion mention is an analogy for a mechanism, not a structurally special object or a failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Spectral-sparsifier repulsion is used only as an analogy for eigenvalue barriers, with no particular optimal or exceptional sparsifier singled out."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Spectral-sparsifier repulsion is cited only as an analogy to Dyson eigenvalue repulsion, not as a structurally special adversarial case."
+    }
+   ]
+  }
+ ]
+}

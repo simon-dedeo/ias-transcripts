@@ -1,0 +1,1868 @@
+{
+ "key": "f73def25cf4813d4304ad78e0fa763a1",
+ "title": "A Proof of the RM Code Capacity Conjecture",
+ "speaker": "Emmanuel Abbe",
+ "affiliation": "EPFL",
+ "date": "2023-10-23T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 3988.0,
+ "abstract": "In 1948, Shannon used a probabilistic argument to show the existence of codes achieving channel capacity. In 1954, Muller and Reed introduced a simple deterministic code construction, conjectured shortly after to achieve channel capacity. Major progress was made towards establishing this conjecture over the last decades, with the involvement of various areas of discrete mathematics. In particular, the special case of the erasure channel was settled in 2015 by Kudekar et al., relying on Bourgain-Kalai's sharp threshold theorem for symmetric monotone properties.",
+ "youtube_url": "https://youtu.be/5V4N352Mk9E",
+ "page_url": "https://www.ias.edu/video/proof-rm-code-capacity-conjecture",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Shannon capacity benchmark and explicit-code problem",
+   "summary": "The talk formulates worst-case and average-case binary channel coding on the Boolean hypercube, derives the random-code entropy rate 1-H(epsilon), and reframes the goal as finding an explicit linear construction attaining this benchmark.",
+   "spans": [
+    {
+     "start_sec": 35,
+     "end_sec": 481
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Reed-Muller codes and the capacity conjecture",
+   "summary": "Hadamard/simplex intuition leads to Reed-Muller codes as evaluations of bounded-degree Boolean polynomials, and the central conjecture is that sequences of these explicit codes achieve Shannon capacity for the binary error channel and, more generally, symmetric channels.",
+   "spans": [
+    {
+     "start_sec": 481,
+     "end_sec": 1023
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Weight-enumerator route and its barrier",
+   "summary": "Linearity lets the global decoding error be bounded by grouping competing codewords according to Hamming weight, but known Reed-Muller weight-enumerator and hypercontractive bounds approached yet stopped short of the Shannon capacity curve.",
+   "spans": [
+    {
+     "start_sec": 1023,
+     "end_sec": 1314
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Local-error reformulation and sharp-threshold evidence",
+   "summary": "The talk introduces local coordinate decoding, explains how sufficiently fast local-error decay would imply global decoding success, and reviews sharp-threshold proofs for erasures and the obstruction that bit-flip errors are intrinsically nonmonotone.",
+   "spans": [
+    {
+     "start_sec": 1314,
+     "end_sec": 1869
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Recursive polarization viewpoint and obstruction",
+   "summary": "The polar-code tensor recursion expresses conditional entropies through a polarization process, motivating an analogous heavy-row ordering for Reed-Muller codes, but proving that the good polarized rows coincide with Reed-Muller rows runs into hard additive-combinatorial estimates.",
+   "spans": [
+    {
+     "start_sec": 1869,
+     "end_sec": 2476
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Weak local-threshold base case",
+   "summary": "A symmetry-and-entropy argument shows that any symmetric code used below channel capacity has local coordinate error strictly less than 1/2, providing the weak initial advantage needed for boosting.",
+   "spans": [
+    {
+     "start_sec": 2476,
+     "end_sec": 2865
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Sunflower boosting of local decoding",
+   "summary": "Reed-Muller self-similarity under restriction to subspaces supplies many smaller local decoders, and arranging their supports as sunflower petals isolates overlaps in a common kernel so that, after conditioning, their weak biases can be amplified by voting.",
+   "spans": [
+    {
+     "start_sec": 2865,
+     "end_sec": 3230
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Fourier concentration, recursive amplification, and final assembly",
+   "summary": "Fourier/Chebyshev estimates and affine symmetry show that typical kernels preserve the weak bias; iterated higher-moment sunflower boosting yields strong local error decay, which is combined with refined weight-enumerator bounds to obtain exponential global error decay and hence Reed-Muller capacity for symmetric channels.",
+   "spans": [
+    {
+     "start_sec": 3230,
+     "end_sec": 3735
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Length-8 Hadamard/simplex code",
+   "note": "The speaker builds the first-order Hadamard code for m=3 by greedily adding balanced basis vectors, making the monomial-evaluation viewpoint behind Reed-Muller codes concrete.",
+   "first_introduced_sec": 481,
+   "spans": [
+    {
+     "start_sec": 481,
+     "end_sec": 589
+    }
+   ],
+   "total_seconds": 108,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly constructs the length-8 Hadamard/simplex code by choosing basis vectors, relating them to monomials, and reasoning about distances and parameters",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The length-8 Hadamard/RM(1,3) code is an affine-invariant equidistant code with optimal distance parameters."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The length-8 Hadamard/first-order Reed–Muller simplex code is highly regular and meets optimal distance parameters in the discussed regime."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The length-8 Hadamard/first-order RM code is highly regular and is stated to have optimal distance parameters at that dimension."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The length-8 Hadamard/RM(1,3) simplex code is a highly regular equidistant linear code attaining optimal distance for its dimension, used illustratively."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The length-8 Hadamard/simplex code is a highly affine-symmetric first-order RM code with optimal distance parameters in the example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The length-8 Hadamard/RM(1,3) code is a highly symmetric equidistant linear code with optimal n/2 distance for the stated basis size."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The length-8 Hadamard/RM(1,3) simplex code is used constructively, meets the optimal n/2 distance for log n+1 generators, and has strong affine/simplex regularity."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "used as an illustrative code, and the Hadamard/simplex RM(1,3) code has optimal distance parameters and strong affine/equidistant symmetry"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The length-8 Hadamard/RM(1,3) simplex code is highly regular/equidistant and is described as having optimal distance parameters, not as an obstruction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The length-8 Hadamard/first-order Reed–Muller code is used as a motivating construction and has highly regular equidistant, optimal [8,4,4]-type parameters."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the length-8 Hadamard/simplex code is used as the highly regular equidistant first-order example with optimal distance parameters, not to refute a claim"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the length-8 first-order Hadamard/simplex code is a highly regular optimal-distance example used as a building block, not to refute a claim"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Mars spacecraft coding application",
+   "note": "The mention that these early codes were used to transmit images from a Mars spacecraft provides historical motivation for why such explicit codes matter.",
+   "first_introduced_sec": 620,
+   "spans": [
+    {
+     "start_sec": 620,
+     "end_sec": 643
+    }
+   ],
+   "total_seconds": 23,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the Mars spacecraft use is only cited as a historical application of the code",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 5
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "Only a historical application is specified, not a definite mathematical object to classify."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Mars spacecraft case is an engineering use illustrating usefulness, not a structurally special mathematical object or a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Mars spacecraft example is a practical use case of the code rather than a structurally special mathematical object or a refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "A Mars spacecraft use case is a historical engineering application rather than a definite mathematical object, and it is not used to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "It is cited only as a historical engineering use of the code, not as a failure case or distinct structurally special object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The Mars spacecraft item is an application mention rather than a specified mathematical object to classify intrinsically."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "Only a real-world use of the preceding code is mentioned, with no separate mathematical object or parameters to classify."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "this is a historical engineering application rather than a distinct mathematical object to classify structurally"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Mars spacecraft reference is a practical application showing usefulness of the code, with no special mathematical structure being used."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Mars spacecraft example is cited only as a real-world coding application, not as a mathematical obstruction or special structure."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the Mars spacecraft mention is a historical application illustrating usefulness rather than a structurally special mathematical object or obstruction"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the Mars spacecraft use is an illustrative historical application rather than an adversarial example or structurally special mathematical object"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Erasure channel as the monotone case",
+   "note": "For erasures, the local decoding error is a monotone Boolean property of the erasure pattern, which visibly generates the sharp-threshold approach and contrasts with the nonmonotone bit-flip channel.",
+   "first_introduced_sec": 989,
+   "spans": [
+    {
+     "start_sec": 989,
+     "end_sec": 1023
+    },
+    {
+     "start_sec": 1460,
+     "end_sec": 1780
+    }
+   ],
+   "total_seconds": 354,
+   "attaches_to": [
+    "s2",
+    "s4"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes the erasure channel by formulating local decoding error as a monotone Boolean function of the erasure pattern and discussing its sharp threshold",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The erasure channel is an input-symmetric channel whose erasure pattern gives the positive monotone sharp-threshold case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The erasure channel is used as the positive monotone sharp-threshold case and is input-symmetric, not as a failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The erasure channel is an input-symmetric channel singled out because erasure patterns make local decoding monotone."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The binary erasure channel is a regular symmetric channel whose erasure pattern yields a monotone Boolean error event, used as the tractable positive case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The erasure channel is a symmetric, highly regular channel used as the tractable monotone case rather than as an obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The erasure channel is a symmetric channel family used here as the monotone sharp-threshold case, not to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The erasure channel is presented as the positive monotone sharp-threshold case, and it has the regular input symmetry of a symmetric channel."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the erasure channel is used as the positive monotone case for sharp-threshold methods and is input-output symmetric"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The erasure channel is a symmetric channel whose erasure-pattern decoding event is monotone, used as the tractable positive case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The erasure channel is used as the clean monotone sharp-threshold case and is a standard symmetric channel, not a refutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the erasure channel is used as the tractable symmetric channel whose decoding-error event becomes monotone, not as a failure case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the binary erasure channel is the symmetric monotone special case enabling sharp-threshold arguments, not a failure case"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Gaussian additive-noise channel",
+   "note": "The Gaussian additive-noise channel is listed as another standard symmetric-channel benchmark to which the Reed-Muller capacity conjecture was expected to apply.",
+   "first_introduced_sec": 989,
+   "spans": [
+    {
+     "start_sec": 989,
+     "end_sec": 1023
+    }
+   ],
+   "total_seconds": 34,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the Gaussian additive-noise channel is named as a common symmetric channel to which the conjecture should apply",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Gaussian additive-noise channel is a highly regular output-symmetric channel cited as an application-relevant target."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Gaussian additive-noise channel is a standard symmetric channel example for the conjecture, not an obstruction."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The additive Gaussian-noise channel has the usual additive/sign symmetry and is used as a standard target channel, not adversarially."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Gaussian additive-noise channel has additive symmetry in its noise law and is cited as a common symmetric-channel target, not as an obstruction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The additive Gaussian noise channel is a standard symmetric regular channel listed as a positive target of the conjecture."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The additive Gaussian-noise channel is a regular symmetric channel example included as a target of the capacity theorem."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Gaussian additive-noise channel is cited as an application-relevant symmetric channel with additive/reflection regularity, not as an obstruction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the Gaussian additive-noise channel is cited as a standard symmetric application channel, not as a failure case"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Gaussian additive-noise channel is a regular symmetric additive channel cited as another target for the conjecture."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Gaussian additive-noise channel is cited as an application-relevant symmetric channel rather than as an adversarial case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the Gaussian additive-noise channel is cited as a standard symmetric channel relevant to applications, not as an obstruction"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the additive Gaussian-noise channel is a standard symmetric noise model cited as an application-relevant channel"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Independent weak decoders and majority vote",
+   "note": "The elementary fact that many independent voters each beating probability 1/2 give exponentially small majority error motivates the boosting mechanism that sunflowers are designed to approximate.",
+   "first_introduced_sec": 2865,
+   "spans": [
+    {
+     "start_sec": 2865,
+     "end_sec": 2898
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses the weak-decoders majority-vote scenario to explain boosting and then traces how independent petals after conditioning yield error improvement",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority vote treats independent weak decoders exchangeably and is used to illustrate boosting."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Independent weak decoders combined by majority vote form a permutation-symmetric boosting model used constructively."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority vote over independent weak decoders is a permutation-symmetric boosting model used as a positive heuristic."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority vote over independent weak decoders is permutation-symmetric in the decoders and motivates boosting rather than disproving anything."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority vote over independent weak decoders is permutation-symmetric aggregation used to motivate boosting, not to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Independent weak decoders combined by majority vote form a permutation-symmetric boosting scheme used constructively."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Independent weak decoders combined by majority vote are the symmetric idealized boosting mechanism, used to explain improvement rather than failure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "independent weak decoders with majority vote are used as the boosting analogy, with majority being permutation-symmetric in the voters"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Independent weak decoders with majority vote form a permutation-invariant boosting toy model, used positively rather than adversarially."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Independent weak decoders combined by majority vote form a permutation-symmetric boosting model used as a positive analogy."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "independent weak decoders with majority vote serve as the permutation-symmetric boosting ideal, not as a counterexample"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "independent weak decoders with majority vote illustrate boosting, with majority being a permutation-symmetric aggregation rule"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Nonsymmetric channels and Gallager shaping",
+   "note": "In response to a question, the speaker explains that asymmetric channels require an extra shaping trick, aggregating binary coin flips to realize the capacity-achieving input distribution.",
+   "first_introduced_sec": 3836,
+   "spans": [
+    {
+     "start_sec": 3836,
+     "end_sec": 3891
+    }
+   ],
+   "total_seconds": 55,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 5,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "nonsymmetric channels and Gallager shaping are only discussed at a high level as a trick for matching nonuniform input distributions",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nonsymmetric channels are raised as an obstruction to unshaped linear-code capacity, with Gallager shaping as the remedy."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nonsymmetric channels are raised as an obstruction to unshaped linear/RM codes achieving capacity, with Gallager shaping as the workaround."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nonsymmetric channels are cited as a setting where unshaped linear codes do not directly achieve capacity because the optimal input distribution need not be uniform."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nonsymmetric channels are raised as an obstruction to unshaped linear/RM codes because uniform inputs need not be capacity-achieving, with Gallager shaping as the workaround."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nonsymmetric channels are raised as an obstruction to direct optimality of linear/RM codes without Gallager shaping."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nonsymmetric channels are invoked as the case where plain linear/RM codes need not be capacity-achieving without Gallager shaping."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nonsymmetric channels are raised as an obstruction to unshaped linear-code capacity, with Gallager shaping supplied as the workaround."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "nonsymmetric channels are raised as an obstruction to unshaped linear codes achieving capacity, with Gallager shaping as the workaround"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nonsymmetric channels are raised as an obstruction to unshaped linear codes achieving capacity, motivating Gallager shaping."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nonsymmetric channels are raised as an obstruction where unshaped linear codes need not be capacity-achieving, with Gallager shaping as the workaround."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "nonsymmetric channels are raised as the case where unshaped linear codes fail to maximize mutual information, with Gallager shaping as the repair"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "nonsymmetric channels are raised as an obstruction to plain linear-code capacity without Gallager shaping"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "q-ary symmetric channels over finite fields",
+   "note": "The speaker notes that the proof extends naturally to q-ary symmetric channels because the polynomial-evaluation structure of Reed-Muller codes still makes sense over finite fields.",
+   "first_introduced_sec": 3891,
+   "spans": [
+    {
+     "start_sec": 3891,
+     "end_sec": 3917
+    }
+   ],
+   "total_seconds": 26,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 5,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "q-ary symmetric channels are briefly cited as a setting where the proof extends because finite-field polynomials still make sense",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The q-ary symmetric channel treats all finite-field symbols uniformly and is a positive extension case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "q-ary symmetric channels are maximally regular under alphabet symmetries and are cited as a positive extension of the proof."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A q-ary symmetric channel is maximally permutation-symmetric over the finite-field alphabet and is presented as a positive extension."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "q-ary symmetric channels over finite fields are fully regular under symbol and field symmetries and are mentioned as a positive extension of the proof."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A q-ary symmetric channel over a finite field has full alphabet/field symmetry and is presented as another positive case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "q-ary symmetric channels have maximally regular transition probabilities over the finite-field alphabet and are covered by the theorem."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "q-ary symmetric channels over finite fields have full symbol/additive regularity and are cited as a covered positive case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "q-ary symmetric finite-field channels are a positive extension where all symbols and error alternatives are treated uniformly"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A q-ary symmetric channel treats all finite-field symbols uniformly and is presented as a positive extension of the proof."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "q-ary symmetric channels over finite fields are a highly symmetric positive extension of the theorem, not a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "q-ary symmetric channels over finite fields are given as a symmetric extension where the polynomial proof still applies"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "q-ary symmetric channels are maximally regular finite-field channels for which the argument extends"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "BCH, cyclic, and polynomial-evaluation codes as possible targets",
+   "note": "In the final Q&A, these code families are offered as plausible future settings where the boosting-and-petals strategy might apply beyond Reed-Muller codes.",
+   "first_introduced_sec": 3917,
+   "spans": [
+    {
+     "start_sec": 3917,
+     "end_sec": 3969
+    }
+   ],
+   "total_seconds": 52,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 5,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "BCH, cyclic, and polynomial-evaluation codes are listed as possible future targets without working through any of them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "These algebraic code families have cyclic or evaluation symmetries and are suggested as possible future targets."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "BCH, cyclic, and polynomial-evaluation codes are algebraically regular code families proposed as possible further targets, not counterexamples."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "BCH, cyclic, and polynomial-evaluation codes are algebraically regular code families suggested as possible future targets, not as obstructions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "These algebraic code families are considered because cyclic or evaluation symmetries might support petal/boosting structures, not as extremal or refuting examples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "BCH, cyclic, and polynomial-evaluation codes are systematic algebraic code families with cyclic/evaluation symmetries suggested as possible extensions."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "BCH, cyclic, and polynomial-evaluation codes are systematic algebraic code families with regular symmetry, proposed as future targets rather than failures."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "BCH, cyclic, and polynomial-evaluation codes are proposed as extension targets because of their algebraic cyclic/evaluation regularity, not as counterexamples."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "BCH, cyclic, and polynomial-evaluation codes are systematic algebraic families mentioned as possible future targets rather than sporadic or generally optimal cases"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "BCH, cyclic, and polynomial-evaluation code families have algebraic coordinate regularity and are suggested as possible future targets."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "BCH, cyclic, and polynomial-evaluation codes are proposed as further algebraically symmetric target families, not as failures of a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "BCH, cyclic, and polynomial-evaluation codes are mentioned as algebraically symmetric candidate families for extending the method, not as disproofs"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "BCH, cyclic, and polynomial-evaluation codes are proposed as structured symmetric code families for possible extension"
+    }
+   ]
+  }
+ ]
+}

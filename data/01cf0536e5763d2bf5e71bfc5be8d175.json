@@ -1,0 +1,1661 @@
+{
+ "key": "01cf0536e5763d2bf5e71bfc5be8d175",
+ "title": "Balancing Extensions in Posets of Large Width",
+ "speaker": "Maxwell Aires",
+ "affiliation": "Rutgers University",
+ "date": "2025-09-22T12:00:00Z",
+ "field_msc": "06 Order, lattices, ordered algebraic structures",
+ "duration_sec": 4114.0,
+ "abstract": "A linear extension of P is a linear ordering compatible with the poset relations. Let p(x less than y) be the probability that x\n precedes y in a uniformly random linear extension, and let δ(x,y)=min(p(x less than y),p(y less than x)) and δ(P) be the maximum value of δ(x,y)\n over all x,y in P. The following two conjectures about δ(P)\n are both well-known:\n(The \"1/3-2/3 Conjecture\") δ(P) greater than or equal to 13\n whenever P is not a chain.(The \"Kahn-Saks Conjecture\") δ(P)→12 as w(P)→∞ (where w(P) is the maximum size of an antichain in P).\nWhile still far from either of these, we prove a number of conditions for δ(P)→12 and δ(P) greater than or equal to 1e−o(1), using a mix of geometric and probabilistic techniques. Joint with Jeff Kahn.",
+ "youtube_url": "https://youtu.be/jxYA2EcbQtQ",
+ "page_url": "https://www.ias.edu/video/balancing-extensions-posets-large-width",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Linear-extension probabilities and sorting motivation",
+   "summary": "The talk defines posets, linear extensions, the number e(P), comparison probabilities, pairwise balancing constants delta(x,y) and delta(P), and motivates them through sorting under partial information.",
+   "spans": [
+    {
+     "start_sec": 81,
+     "end_sec": 639
+    },
+    {
+     "start_sec": 3827,
+     "end_sec": 4108
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Classical balancing conjectures and rank tools",
+   "summary": "The speaker states the 1/3--2/3 conjecture, recalls the Kahn--Saks 3/11 theorem and the later Felsner--Trotter improvement, and explains the expected rank h(x) of a random linear extension together with the log-concavity idea behind close-rank balancing.",
+   "spans": [
+    {
+     "start_sec": 639,
+     "end_sec": 1187
+    },
+    {
+     "start_sec": 1296,
+     "end_sec": 1389
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Large-width Kahn--Saks conjecture and earlier partial results",
+   "summary": "After defining width and height, the talk motivates the conjecture that delta(P) tends to 1/2 as width tends to infinity and reviews previous results requiring many minimal elements.",
+   "spans": [
+    {
+     "start_sec": 1187,
+     "end_sec": 1296
+    },
+    {
+     "start_sec": 1389,
+     "end_sec": 1626
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "New sufficient conditions for near-half and 1/e balance",
+   "summary": "The main results are stated: linear width, logarithmically many minimal elements, or large minimum expected rank imply delta(P)->1/2, while width omega(sqrt n), sublinear height, or superlinear log e(P) imply at least 1/e-o(1) balance, with local antichain and k-point variants.",
+   "spans": [
+    {
+     "start_sec": 1626,
+     "end_sec": 2546
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Incomparability, variance, and window parameters",
+   "summary": "The proof framework introduces pi(x), sigma(x), and window(x), records their implication hierarchy, and proves an antichain window-sum estimate that feeds the width and superlinear-window criteria.",
+   "spans": [
+    {
+     "start_sec": 2546,
+     "end_sec": 2981
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Strong Kahn--Saks reduction through variance",
+   "summary": "A stronger conjecture that large maximum incomparability pi(P) forces delta(P)->1/2 is formulated, and the speaker explains that the original width conjecture would imply it via a bounded-width large-variance balancing theorem and the nontrivial implication pi(P)->infinity implies sigma(P)->infinity.",
+   "spans": [
+    {
+     "start_sec": 2981,
+     "end_sec": 3444
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Order-polytope geometry for the 1/e bounds",
+   "summary": "The proof sketch identifies comparison probabilities with volumes in the order polytope, uses a centroid halfspace theorem to obtain the 1/e bound when expected ranks coincide, and then relaxes equality using the window parameter.",
+   "spans": [
+    {
+     "start_sec": 3444,
+     "end_sec": 3814
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s4",
+    "s5"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Four-element introductory poset",
+   "note": "A small poset with relations such as w<x, y<x, and y<z is used to list linear extensions, count e(P)=5, and compute a comparison probability of 3/5.",
+   "first_introduced_sec": 219,
+   "spans": [
+    {
+     "start_sec": 219,
+     "end_sec": 410
+    }
+   ],
+   "total_seconds": 191,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he explicitly enumerates linear extensions of the four-element poset, counts five, and computes a comparison probability of 3/5",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an ordinary four-element poset is used only to illustrate linear extensions and comparison probabilities"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Ordinary four-element poset used only to illustrate linear extensions and comparison probabilities."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary four-element poset used only to illustrate linear extensions and comparison probabilities"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary four-element poset used only to illustrate linear extensions and comparison probabilities"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary four-point poset used only to illustrate linear extensions and comparison probabilities"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary four-point poset used only to illustrate linear extensions and comparison probabilities"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary four-point poset used only to illustrate linear extensions and comparison probabilities."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is just an illustrative four-element poset used to compute linear extensions and comparison probabilities."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary four-element finite poset used only to illustrate linear extensions and comparison probabilities"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary four-element N-shaped poset used only to illustrate linear extensions and comparison probabilities"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an ordinary four-point poset used only to illustrate linear extensions and comparison probabilities"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An ordinary four-point poset is used only to illustrate linear extensions and comparison probabilities."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Total chain as degenerate balancing case",
+   "note": "A chain illustrates that when all comparisons are already forced, every pair has balancing constant zero.",
+   "first_introduced_sec": 566,
+   "spans": [
+    {
+     "start_sec": 566,
+     "end_sec": 612
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he checks the degenerate chain case by reasoning that all comparisons are forced and hence computes delta of a chain as 0",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a total chain has a single linear extension and \u001bδ=0, showing no positive balancing bound without excluding chains"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A total chain has no incomparable pair and delta zero, the boundary case showing a positive balancing bound needs a non-chain hypothesis."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a total chain has a unique linear extension and δ(P)=0, forcing the non-chain hypothesis"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a total chain is the width-one, unique-extension boundary with delta zero, showing positive balancing needs the non-chain hypothesis"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a total chain has a singleton extension space and minimal balancing constant zero, excluding universal positive balance bounds"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a total chain has a unique linear extension and delta zero, the boundary case excluding any positive balancing claim"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a total chain has width one, a single linear extension, and delta zero, obstructing any positive bound without excluding chains."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A total chain has a unique linear extension and δ=0, showing positive balancing bounds need to exclude chains."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a total chain has unique extension and delta zero, showing positive balancing needs a non-chain hypothesis"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a total chain has a unique linear extension and delta=0, forcing chains to be excluded from positive balancing claims"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a total chain has a unique linear extension and delta zero, the boundary case forcing the non-chain hypothesis"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A total chain has one linear extension and δ=0, showing why an unconditional positive balance bound must exclude chains."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "2+1 poset and stacked fixed-width obstructions",
+   "note": "The poset consisting of a two-element chain together with an incomparable element gives balance exactly 1/3, and stacked copies show why fixed-width families cannot force balance tending to 1/2.",
+   "first_introduced_sec": 639,
+   "spans": [
+    {
+     "start_sec": 639,
+     "end_sec": 762
+    },
+    {
+     "start_sec": 1218,
+     "end_sec": 1296
+    },
+    {
+     "start_sec": 2042,
+     "end_sec": 2070
+    }
+   ],
+   "total_seconds": 229,
+   "attaches_to": [
+    "s2",
+    "s3",
+    "s4"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he counts the three extensions of the 2+1 obstruction, derives delta = 1/3, and discusses stacking copies with the same obstruction",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 2+1 poset is the minimal non-chain tight example at \u001bδ=1/3, and its stacked width-two versions obstruct convergence to 1/2 without growing width"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The 2+1 poset and its fixed-width stacks attain the one-third barrier and obstruct any unqualified asymptotic one-half balancing statement."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the minimal 2+1 non-chain and its stacks attain the tight one-third behavior and obstruct stronger no-width conclusions"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 2+1 block and its ordinal stacks attain the tight one-third balance and obstruct any size-only route to balance near one-half"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 2+1 poset and its stacks attain the one-third barrier and obstruct stronger near-half bounds without width assumptions"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the minimal 2+1/width-two stacked family attains the tight one-third value and obstructs near-half balance without growing width"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 2+1 and stacked width-two family is the tight one-third boundary and blocks any approach to one-half without growing width."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The 2+1 poset and its stacks are minimal fixed-width tight examples obstructing any claim that δ must approach 1/2 without growing width."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 2+1 poset attains the one-third bound and stacked fixed-width versions obstruct convergence to one-half without width growth"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 2+1 poset and stacked copies attain delta=1/3 and give fixed-width obstructions to convergence toward 1/2"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 2+1 poset and its stacks attain the one-third barrier and obstruct near-half balance without a large-width condition"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The minimal non-chain 2+1 poset and its fixed-width stacks attain δ=1/3 and obstruct half-balancing without a large-width hypothesis."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Uniform random posets of height three",
+   "note": "The known fact that a uniformly random finite poset almost surely has height three is used to illustrate that the fixed-height corollary makes random posets asymptotically half-balanced.",
+   "first_introduced_sec": 1740,
+   "spans": [
+    {
+     "start_sec": 1740,
+     "end_sec": 1826
+    }
+   ],
+   "total_seconds": 86,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "uniform random height-three posets are cited as a known typical case to which the theorem applies, without working through a random instance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "uniform random height-three posets are presented as a typical asymptotic application of the large-width theorem"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Uniform random posets of height three are presented as the typical random-poset consequence of the fixed-height theorem, not as a failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "height-three uniform random posets are presented as typical random posets to which the theorem applies"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "uniform random height-three posets are invoked as typical beneficiaries of the fixed-height balancing theorem"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "uniform random height-three posets are presented as a typical positive application of the large-width theorem"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "height-three uniform random posets are used as a typical random-model application of the bounded-height theorem"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "uniform random height-three posets are cited as a typical application of the large-width result."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Uniform random height-three posets are invoked as generic objects to which the theorem applies asymptotically."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "uniform random height-three posets are cited as typical applications of the bounded-height balancing result"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "uniform random height-three posets are cited as a typical application of the bounded-height theorem"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "uniform random height-three posets are presented as a generic application of the theorem rather than as an obstruction"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Uniform random height-three posets are cited as a generic positive class covered by the fixed-height balancing result."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Logarithmically many minimal elements along a chain",
+   "note": "A chain x_1<...<x_n with minimal elements y_i placed below x_{2^i} shows that even many minimal elements need not contain a well-balanced pair among themselves, motivating the local antichain caveat and the square-root barrier.",
+   "first_introduced_sec": 2241,
+   "spans": [
+    {
+     "start_sec": 2241,
+     "end_sec": 2347
+    }
+   ],
+   "total_seconds": 106,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he constructs the chain with logarithmically many added minimal elements and reasons through why those minimal elements are poorly balanced while balance is found with the chain",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the logarithmically spaced minimal elements along a chain form a tight threshold construction defeating a local minimal-antichain balancing strategy"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The chain with logarithmically many minimal elements at exponentially spaced positions is a tight threshold example showing minimal elements need not contain a well-balanced pair."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the exponentially spaced minimal elements along a chain give a tight logarithmic-threshold obstruction to finding balance inside the minimal set"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the exponential-attachment chain sits at the logarithmic minimal-element threshold and defeats balanced pairs inside the minimal set"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the logarithmic-minimal-elements chain construction is a threshold example showing minimal elements need not contain balanced pairs"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the chain with logarithmically many attached minimal elements sits at a threshold and shows those minimal elements need not contain a balanced pair"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the near-chain with logarithmically many exponentially placed minimal elements is a tight obstruction to finding balanced pairs inside such a small minimal antichain."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The chain with exponentially placed minimal elements is a threshold sparse construction showing balanced pairs need not lie among the minimal elements."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the logarithmic-minimal-elements chain construction is a tight threshold example where the minimal antichain itself need not contain balanced pairs"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "minimal elements attached sparsely along a chain give a tight obstruction to finding balanced pairs within the minimal antichain"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the chain with logarithmically many exponentially placed minimal elements is a tight threshold construction showing minimal elements need not contain balanced pairs"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The chain with logarithmically many exponentially placed minimal elements is a threshold example showing minimal elements need not themselves contain a well-balanced pair."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Simple separation posets for window, variance, and incomparability",
+   "note": "A long chain with one extra element, two equal chains, and a bottom element with many incomparables separate the auxiliary parameters and motivate the nontrivial global implication from large pi(P) to large sigma(P).",
+   "first_introduced_sec": 3215,
+   "spans": [
+    {
+     "start_sec": 3215,
+     "end_sec": 3342
+    }
+   ],
+   "total_seconds": 127,
+   "attaches_to": [
+    "s5",
+    "s6"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he uses concrete separation posets, such as a long chain plus one element and two equal chains, to compute or estimate window, variance, width, and incomparability behavior",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the chain-plus-point and two-chain boundary constructions separate window, variance, and incomparability parameters and refute reverse implications"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The long-chain, two-chain, and related low-width constructions are boundary separation examples disproving reverse implications among window, variance, and incomparability parameters."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the near-chain and parallel-chain constructions are boundary separations disproving reverse implications among window, variance, width, and incomparability"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the simple separation posets keep one parameter bounded while making the next unbounded, refuting reverse implications among width, window, variance, and incomparability"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the simple low-width constructions are parameter-separating boundary cases refuting reverse implications among window, variance, incomparability, and width"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the chain-like and two-chain separation constructions have extreme parameter gaps and refute reverse implications among width, window, variance and incomparability"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the low-width chain-plus-isolate and two-chain constructions are boundary separation examples showing converses among window, variance, incomparability, and width fail."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The low-width chain-plus-point and two-chain constructions separate window, variance, and incomparability parameters, disproving reverse implications."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the chainlike and two-chain separation constructions witness failures of reverse implications between window, variance, incomparability, and width"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the chain-based separation posets refute reverse implications between width, window, variance, and incomparability parameters"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the low-width near-chain and two-chain separation constructions give extreme parameter separations and refute converse implications"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The chain-based low-width separation posets are chosen to make window, variance, or incomparability large while another parameter stays small."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Median-by-comparisons query problem",
+   "note": "In response to a question, finding the median of 101 elements is offered as an example of a related comparison-query task that seeks only enough order information to certify a target property.",
+   "first_introduced_sec": 4028,
+   "spans": [
+    {
+     "start_sec": 4028,
+     "end_sec": 4065
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the median query problem is only described in the Q&A as needing enough comparisons to certify one element is below and above 50 others, with no algorithm or derivation",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the median-by-comparisons problem is a standard selection-query example used illustratively rather than as an obstruction"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The median-by-comparisons task is a standard selection/query example mentioned illustratively, not a structural exception or counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the median selection task is a standard comparison-query example used illustratively rather than adversarially"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "median selection by comparisons is a standard query task used only as a related illustration"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "median finding by comparisons is cited only as a standard related query problem, not as a structural special case or refutation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "median selection by comparisons is mentioned as a standard analogous query task rather than as a special poset or obstruction"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "median selection by comparisons is used only as a standard illustrative query task rather than as an obstruction or special classification object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The median-by-comparisons task is a standard representative query problem mentioned for context, not an obstruction or special poset."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the median-by-comparisons task is only an illustrative query problem rather than an adversarial poset example"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the median-by-comparisons problem is only an illustrative selection/query problem rather than a structural obstruction"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the median-by-comparisons task is only an illustrative related query problem with a central reversal-symmetric target"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Median selection by comparison queries is mentioned only as a standard related query task rather than as an obstruction."
+    }
+   ]
+  }
+ ]
+}

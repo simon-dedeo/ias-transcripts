@@ -1,0 +1,1529 @@
+{
+ "key": "88eb18fa6595affdbb7ce306ad6d9095",
+ "title": "Collective Coin-Flipping Protocols and Influences of Coalitions",
+ "speaker": "Hamed Hatami",
+ "affiliation": "University of McGill",
+ "date": "2019-04-08T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4270.0,
+ "abstract": "The seminal result of Kahn, Kalai and Linial implies that a coalition of a small number of players can bias the outcome of a Boolean function with respect to the uniform measure. We extend this result to arbitrary product measures, by combining their argument with a completely different argument that handles very biased coordinates.",
+ "youtube_url": "https://www.youtube.com/watch?v=tZmHdLta79E",
+ "page_url": "https://www.ias.edu/video/csdm/2019/0408-HamedHatami",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Coalitional influence and resilience setup",
+   "summary": "The talk models a balanced Boolean function as a voting or coin-flipping protocol and defines the influence of a coalition as the probability that, after seeing the non-coalition votes, it can force a chosen output value.",
+   "spans": [
+    {
+     "start_sec": 70,
+     "end_sec": 378
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Uniform-measure KKL benchmark",
+   "summary": "The KKL theorem gives a single variable with influence of order log(n)/n, and iterating it yields o(n)-size coalitions that can drive a uniformly distributed Boolean protocol close to either output value, with classical examples illustrating the range of behavior.",
+   "spans": [
+    {
+     "start_sec": 378,
+     "end_sec": 1208
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Failure of the naive continuous generalization",
+   "summary": "The speaker explains that the KKL corollary does not extend verbatim to the continuous cube, leading to the Friedgut-Linial-style conjecture that some small coalition should be able to bias the outcome toward at least one of the two values.",
+   "spans": [
+    {
+     "start_sec": 1208,
+     "end_sec": 1827
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Product-measure main theorem and reductions",
+   "summary": "The main result is stated for arbitrary Bernoulli product measures on {0,1}^n: after flipping coordinates so p_i<=1/2 and delegating less-biased coordinates to KKL methods, a small coalition can influence the protocol toward 0 or toward 1.",
+   "spans": [
+    {
+     "start_sec": 1827,
+     "end_sec": 2292
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Boosted-distribution strengthening",
+   "summary": "The proof is reduced to a stronger theorem for an arbitrary measure, using boosted distributions obtained by taking coordinatewise unions of k independent samples, from which a random boosted set works with positive probability.",
+   "spans": [
+    {
+     "start_sec": 2292,
+     "end_sec": 2753
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Good/okay dichotomy proof",
+   "summary": "The boosted theorem is proved by a dichotomy: if many points are good for a value b then a boosted random coalition likely contains one and can force b, while otherwise most points are okay for the opposite value and a boosted coalition can force that opposite value with nontrivial probability.",
+   "spans": [
+    {
+     "start_sec": 2753,
+     "end_sec": 3759
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Finite-range and multiround extension",
+   "summary": "To generalize Impagliazzo-Saks-Zuckerman-style multiround coin-flipping results, the binary theorem is extended to constant-size ranges by replacing the failed binary dichotomy with a more robust boosted-influence formulation that remains valid after earlier coalition modifications.",
+   "spans": [
+    {
+     "start_sec": 3759,
+     "end_sec": 4254
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Parity voting rule",
+   "note": "The parity function shows a maximally non-resilient, non-monotone rule where one voter can set the final bit after seeing all other votes.",
+   "first_introduced_sec": 414,
+   "spans": [
+    {
+     "start_sec": 414,
+     "end_sec": 445
+    },
+    {
+     "start_sec": 1088,
+     "end_sec": 1139
+    }
+   ],
+   "total_seconds": 82,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "He analyzes parity by showing a single voter can observe the other votes and choose her bit to force either parity outcome.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity is a fully symmetric Boolean rule with maximal single-voter influence, used as the least-resilient example rather than to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity is a fully regular permutation-symmetric XOR rule with maximal single-voter manipulability, illustrating least resilience rather than refuting a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "parity is a fully permutation-symmetric Boolean rule with maximal single-bit influence, used only as the least-resilient example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity is permutation-invariant and maximally sensitive, making it the least-resilient warm-up example rather than a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity is a fully regular voter-symmetric rule with maximal individual influence, used as an illustrative least-resilient case rather than to refute a stated claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity is a highly symmetric affine voting rule that is least resilient, since one voter can force either outcome."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity is a fully symmetric affine voting rule in which one voter can force either outcome, making it a least-resilient extreme rather than a refutation here."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity is a permutation-symmetric linear rule with maximal one-voter control, used as the least-resilient example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "parity is used as a warm-up least-resilient rule where one voter can force either outcome, and it is a highly symmetric extremal Boolean rule"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity is a highly symmetric Boolean rule used as a warm-up least-resilient case where one voter can force either outcome."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity is a fully coordinate-symmetric Boolean rule and is extremal in being fixable by a single voter, but it is used only as a warm-up example of non-resilience."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity is used as an illustrative least-resilient rule where one voter can force either value, and it is a highly symmetric extremal Boolean function."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Majority function",
+   "note": "Majority illustrates the monotone case, where about sqrt(n) fixed voters can bias the outcome in either direction without adaptively looking at the other votes.",
+   "first_introduced_sec": 801,
+   "spans": [
+    {
+     "start_sec": 801,
+     "end_sec": 928
+    }
+   ],
+   "total_seconds": 127,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He computes for majority that a coalition of order sqrt(n) shifts the expected total enough to bias the outcome toward one or zero.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the standard permutation-symmetric threshold Boolean function, used illustratively for the CLT-scale coalition."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the standard balanced threshold rule, fully symmetric in the voters and used as a representative example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "majority is the standard fully symmetric threshold voting rule, used as a warm-up monotone example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the canonical fully permutation-symmetric balanced voting rule used illustratively."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the canonical permutation-symmetric threshold voting rule, used only as a warm-up example of a sqrt(n)-size coalition."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the standard permutation-symmetric balanced threshold voting rule used as an illustrative example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the fully permutation-symmetric central threshold rule, used as a standard illustrative example of sqrt-n coalition influence."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the canonical permutation-invariant balanced threshold rule, used as an illustrative monotone case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "majority is used illustratively as the standard balanced threshold voting rule with interchangeable voters"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the permutation-invariant central threshold rule used as an illustrative standard example, not to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the standard permutation-symmetric balanced threshold voting rule, used illustratively rather than to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is a standard balanced threshold voting rule used as a warm-up example, with full coordinate symmetry but no counterexample role."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Tribes function",
+   "note": "The tribes OR-of-ANDs function demonstrates the near-tight n/log n scale and the asymmetry between influencing toward 1 and toward 0.",
+   "first_introduced_sec": 928,
+   "spans": [
+    {
+     "start_sec": 928,
+     "end_sec": 1088
+    }
+   ],
+   "total_seconds": 160,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He defines the tribes OR-of-ANDs structure and derives that one full tribe of size log n forces one while one voter per tribe, about n/log n voters, forces zero.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Tribes is a highly regular equal-block OR-of-ANDs construction that gives the tight KKL order, not a counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Tribes is a highly regular block-symmetric OR-of-ANDs construction used to show the KKL bound is tight."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "tribes is a highly regular block-symmetric OR-of-ANDs construction tuned to make the KKL bound tight."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Tribes is a block-regular OR-of-ANDs construction used as the tight example for KKL bounds."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The equal-size tribes function is a highly regular block construction that attains the KKL bound tightly, but tightness is structural here rather than a counterexample role."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Tribes is a regular block-symmetric OR-of-ANDs construction that tightly realizes the KKL order."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Tribes is the balanced OR-of-ANDs construction that makes the KKL influence bound tight, so its role is extremal rather than counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Tribes is a regular transitive block construction used to show the KKL bound is tight."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "tribes is used to show the KKL bound is tight, with a regular block structure but not as a refutation of the theorem"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Tribes is the regular block OR-of-ANDs construction cited for tightness of the KKL bound rather than as a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Tribes is the regular block OR-of-ANDs construction used to show the KKL bound is tight, so its role is extremal rather than counterexample."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Tribes is used as the tight example for KKL-type bounds, with a regular equal-block structure rather than a refutation."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Continuous-cube threshold counterexample",
+   "note": "The function on [0,1]^n requiring every coordinate to be at least 1/n refutes the naive two-sided continuous generalization and motivates asking only for influence toward one of the two values.",
+   "first_introduced_sec": 1346,
+   "spans": [
+    {
+     "start_sec": 1346,
+     "end_sec": 1603
+    }
+   ],
+   "total_seconds": 257,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He works through the continuous-cube threshold example, computing its expectation about 1/e and the influence of a small coalition toward one versus a single voter forcing zero.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The condition xi≥1/n for all coordinates is a symmetric boundary-threshold construction used to disprove the claimed continuous-cube corollary."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The condition xi≥1/n for all coordinates is a coordinate-symmetric boundary-threshold construction used to disprove the claimed continuous-cube corollary."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the function 1_{all xi>=1/n} is a permutation-symmetric near-boundary threshold box used to refute the continuous-cube corollary."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The identical near-boundary coordinate-threshold box is used to disprove the continuous-cube KKL corollary."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The coordinate-symmetric near-boundary threshold box f=1 iff all xi≥1/n is the critical continuous-cube example refuting the claimed two-sided small-coalition corollary."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The continuous-cube rule with threshold near the boundary is used to refute the claimed continuous KKL corollary."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The coordinate-permutation-invariant threshold box with critical 1/n cutoff is explicitly used to refute the claimed continuous-cube KKL corollary."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The continuous-cube threshold event is a coordinate-symmetric boundary-threshold construction deployed to refute the claimed continuous KKL corollary."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the continuous-cube low-threshold AND is explicitly used to refute the claimed continuous KKL corollary, and lies at a symmetric near-boundary threshold regime"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The permutation-symmetric near-boundary threshold on the continuous cube is used to refute the claimed continuous-cube KKL corollary."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The coordinate-symmetric near-boundary threshold function on the continuous cube is explicitly used to disprove the claimed continuous-cube KKL corollary."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The continuous-cube condition xi≥1/n for all i is explicitly deployed to refute the claimed continuous KKL corollary, and is a symmetric critical-threshold construction."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Sparse Bernoulli all-zero counterexample",
+   "note": "Under p=1/n product measure, the indicator of the all-zero vector shows that the same obstruction survives in biased binary product spaces, forcing the theorem to be one-sided.",
+   "first_introduced_sec": 1876,
+   "spans": [
+    {
+     "start_sec": 1876,
+     "end_sec": 1993
+    }
+   ],
+   "total_seconds": 117,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He names the sparse Bernoulli p=1/n all-zero function as the surviving counterexample but does not carry out the analogous probability or influence calculation on it.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The sparse p=1/n all-zero event is a permutation-symmetric singleton/minimal-support boundary case used to show the two-sided small-coalition statement fails."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-zero event under p=1/n is a permutation-symmetric singleton corner/minimal case used as the sparse Bernoulli version of the counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the all-zero atom under p=1/n Bernoulli measure is a symmetric minimal boundary event used to refute the two-sided small-coalition claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The sparse p=1/n all-zero event is a symmetric singleton/minimal-support case used as the surviving product-measure counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The sparse p=1/n Bernoulli indicator of the all-zero atom is a permutation-symmetric minimal event at a critical sparse scale, used as the Bernoulli version of the counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The sparse Bernoulli indicator of the all-zero vertex is a collapsed boundary case used against the two-sided product-measure claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The p=1/n indicator of the single all-zero atom is a symmetric degenerate sparse critical case used as the Bernoulli version of the counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The sparse Bernoulli all-zero event is a singleton corner case, used to show the two-sided small-coalition conclusion fails in biased product spaces."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the sparse Bernoulli all-zero event is used as the product-measure version of the obstruction to two-sided influence, and is the minimal symmetric corner event"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The sparse p=1/n all-zero indicator is a symmetric singleton/minimal event used to show the two-sided small-coalition conclusion fails."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The sparse Bernoulli indicator of the all-zero corner is a symmetric minimal-corner case used as the surviving biased-product counterexample to two-sided influence."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The p=1/n all-zero event is used as the Bernoulli-product version of the obstruction, and as a singleton-support endpoint event it is degenerate and extremal."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Three-valued obstruction to the binary dichotomy",
+   "note": "A range {0,1,2} situation with thirds of the inputs okay for different pairs shows why the good/okay dichotomy is inherently binary and why a stronger boosted-influence formulation is needed.",
+   "first_introduced_sec": 3892,
+   "spans": [
+    {
+     "start_sec": 3892,
+     "end_sec": 4023
+    }
+   ],
+   "total_seconds": 131,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He constructs and reasons through the three-valued obstruction, splitting points into thirds okay for pairs of values to show the binary good/okay dichotomy fails.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 4,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The equal-thirds three-output pattern is a regular symmetric obstruction showing the binary good/okay dichotomy proof cannot extend directly."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-valued equal-pair configuration is the minimal nonbinary obstruction showing the binary good/okay dichotomy proof fails."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the balanced three-output pair pattern is symmetric among labels and is used as an obstruction to extending the binary dichotomy proof."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The balanced three-way pattern treats the three output labels symmetrically and obstructs the binary good/okay dichotomy."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The balanced three-output pattern of okay-pairs is the minimal nonbinary obstruction showing that the binary good/okay dichotomy proof cannot directly generalize."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The equal three-way pattern of okay value-pairs is a minimal symmetric obstruction to the binary dichotomy."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The balanced ternary pair-pattern is used as an obstruction to the binary good/okay dichotomy, with the three output labels treated symmetrically."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-valued equal-pair obstruction is a regular nonbinary configuration used to show the binary good/okay dichotomy cannot directly generalize."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the three-valued balanced pair pattern is used as an obstruction showing the binary good/okay dichotomy proof fails for larger range"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The balanced ternary pair-pattern is the minimal nonbinary obstruction showing the binary good/okay dichotomy does not directly generalize."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The evenly split three-valued configuration is a symmetric obstruction showing the binary good/okay dichotomy proof does not extend directly."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-valued one-third pairwise pattern is used to show the binary good/okay dichotomy proof cannot extend directly, with only output-label regularity as special structure."
+    }
+   ]
+  }
+ ]
+}

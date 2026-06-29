@@ -1,0 +1,1294 @@
+{
+ "key": "540e2f3c785071cecf7ffa5c5b89f309",
+ "title": "Interactive visualization of 2-D persistence modules",
+ "speaker": "Michael Lesnick",
+ "affiliation": "Columbia University",
+ "date": "2015-11-07T12:00:00Z",
+ "field_msc": "55 Algebraic topology",
+ "duration_sec": 3471.0,
+ "abstract": "In topological data analysis, we often study data by associating to the data a filtered topological space, whose structure we can then examine using persistent homology. However, in many settings, a single filtered space is not a rich enough invariant to encode the interesting structure of our data. This motivates the study of multidimensional persistence, which associates to the data a topological space simultaneously equipped with two or more filtrations.",
+ "youtube_url": "https://www.youtube.com/watch?v=2eYVPaajzt4",
+ "page_url": "https://www.ias.edu/video/wtiocs-Lesnick",
+ "tags": [
+  "School of Mathematics",
+  "Workshop on Topology: Identifying Order in Complex Systems"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Project goal and gap in multidimensional persistence tools",
+   "summary": "The talk frames multidimensional persistence as a natural multiparameter extension of barcode-based persistent homology and identifies the lack of practical two-dimensional visualization tools as the gap addressed by the joint work.",
+   "spans": [
+    {
+     "start_sec": 19,
+     "end_sec": 327
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "One-parameter persistence pipeline",
+   "summary": "The speaker reviews the standard route from data to a filtration, then to a persistence module via homology, and finally to a barcode through the interval-decomposition theorem.",
+   "spans": [
+    {
+     "start_sec": 649,
+     "end_sec": 1316
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Outlier failure and density-sensitive bifiltrations",
+   "summary": "After recalling ordinary stability and its failure under outliers, the talk introduces bifiltrations and two-dimensional persistence modules, especially the co-density Rips bifiltration that varies both scale and density threshold.",
+   "spans": [
+    {
+     "start_sec": 1316,
+     "end_sec": 2170
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Algebraic obstruction to a direct two-dimensional barcode",
+   "summary": "Krull-Schmidt decomposition still gives indecomposable summands for two-dimensional persistence modules, but quiver-theoretic complexity shows that these summands are far too complicated to serve as interval-like visual barcodes.",
+   "spans": [
+    {
+     "start_sec": 462,
+     "end_sec": 533
+    },
+    {
+     "start_sec": 2170,
+     "end_sec": 2460
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Replacement invariants for interactive visualization",
+   "summary": "Because a full two-dimensional barcode is not usable, the tool visualizes dimension functions, barcodes of affine one-dimensional slices, and multigraded Betti numbers, with stable diagonal slices supporting exploratory analysis.",
+   "spans": [
+    {
+     "start_sec": 327,
+     "end_sec": 462
+    },
+    {
+     "start_sec": 2460,
+     "end_sec": 3234
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Augmented-arrangement data structure for real-time slice queries",
+   "summary": "The algorithmic framework precomputes an augmented line arrangement and barcode templates so that the barcode of a queried slice is obtained quickly by pushing stored endpoint pairs onto the selected line, alongside fast computation of multigraded Betti numbers.",
+   "spans": [
+    {
+     "start_sec": 533,
+     "end_sec": 629
+    },
+    {
+     "start_sec": 3234,
+     "end_sec": 3436
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Planar point cloud with a barcode",
+   "note": "A point cloud in the plane and its first barcode make concrete the idea that a long interval records a persistent one-dimensional cycle.",
+   "first_introduced_sec": 43,
+   "spans": [
+    {
+     "start_sec": 43,
+     "end_sec": 112
+    },
+    {
+     "start_sec": 710,
+     "end_sec": 795
+    }
+   ],
+   "total_seconds": 154,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the planar point cloud and its first barcode are shown and interpreted as having a long interval, but no computation or construction is carried out on that specific cloud",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an ordinary planar point-cloud data set is used just to illustrate an associated persistence barcode"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary planar point cloud and its barcode are used as a representative illustration of persistent homology."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary planar point cloud and its barcode are used only to illustrate the persistence pipeline."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary finite planar point cloud is used just to illustrate its associated persistence barcode."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an ordinary finite planar point cloud used to illustrate its associated persistent barcode"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an ordinary planar point-cloud example used to illustrate the barcode construction"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Ordinary finite planar point cloud used to illustrate the barcode construction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary planar point cloud used as a representative illustration of barcode construction"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary planar point cloud/barcode is used to illustrate the persistent-homology pipeline."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary planar point-cloud/barcode illustration of persistent homology, not used to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary planar point-cloud/barcode example used to illustrate standard persistent homology, not to refute a claim"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary planar point cloud and barcode used illustratively to introduce persistent homology"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Small perturbations of a point cloud",
+   "note": "Moving points slightly, adding nearby points, or removing nearby duplicates illustrates the usual stability of persistent homology under Gromov-Hausdorff-type perturbations.",
+   "first_introduced_sec": 1357,
+   "spans": [
+    {
+     "start_sec": 1357,
+     "end_sec": 1420
+    }
+   ],
+   "total_seconds": 63,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "small perturbations are used only to state the stability intuition that nearby point clouds have similar barcodes",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary nearby point clouds are used to illustrate barcode stability under small metric perturbations"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Small perturbations of a point cloud are generic nearby datasets used to illustrate stability."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Small perturbations of a point cloud are typical data variations used to illustrate barcode stability."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A mildly perturbed finite metric point cloud is a typical object used to illustrate barcode stability, not failure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "nearby perturbed point clouds illustrate the positive stability property of barcodes under small metric changes"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary nearby point clouds are used to illustrate stability rather than failure"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Nearby perturbed point clouds are used positively to illustrate barcode stability."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary nearby point clouds used to illustrate stability under small perturbations"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Small perturbations are used as a positive illustration of barcode stability."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Small nearby perturbations are used to illustrate barcode stability rather than to show failure."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "small perturbations are used to illustrate stability of barcodes, and the perturbed point cloud is structurally ordinary"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "small nearby changes of a finite metric-space data set illustrate stability rather than a failure case"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Circle destroyed by low-density outliers",
+   "note": "Adding even a few outliers to a sampled circle can fill the Rips hole and erase the long bar, visibly forcing the move toward density-sensitive multiparameter persistence.",
+   "first_introduced_sec": 1420,
+   "spans": [
+    {
+     "start_sec": 1420,
+     "end_sec": 1516
+    }
+   ],
+   "total_seconds": 96,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker reasons through the outlier circle example, explaining how adding low-density points makes the Rips complex fill the hole at small scales and removes the long bar",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a circle point cloud with low-density outliers is used as the adversarial case where the long persistence class disappears"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The outlier-contaminated circle is used to show ordinary persistent homology can fail to be robust to outliers."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The circle with low-density outliers is used as an adversarial case showing ordinary persistent homology is not stable to outliers."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A circular point cloud with low-density outliers is used to show ordinary persistent homology can change drastically and miss the long cycle bar."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an outlier-contaminated sampled circle is used to show ordinary persistent homology can lose the long cycle bar"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the outlier-corrupted circle is used to show ordinary persistent homology is not robust to outliers"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Outlier-corrupted circle is used as the adversarial case showing ordinary persistence is not robust to outliers."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary circle point cloud with outliers used to show standard persistent homology is not stable to outliers"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The outlier-contaminated circle is deployed to show ordinary persistent homology is not robust to outliers."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The circle with low-density outliers is deployed as an adversarial case showing ordinary persistent homology is not outlier-stable."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the circle with low-density outliers is an adversarial case showing ordinary persistent homology is not robust to outliers"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "outlier-contaminated circle is used as an adversarial case where the long H1 bar disappears"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Natural-scene statistics with low-density noise",
+   "note": "The Carlsson-coauthors application is cited as context for thresholding away low-density points before computing persistent homology.",
+   "first_introduced_sec": 1788,
+   "spans": [
+    {
+     "start_sec": 1788,
+     "end_sec": 1863
+    }
+   ],
+   "total_seconds": 75,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the natural-scene statistics case is cited as prior work where low-density noise was thresholded away, without analyzing that dataset",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "natural-scene data with low-density noise is a typical motivating applied data set rather than a structural exception"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The natural-scene data with low-density noise is a motivating applied dataset rather than a structurally special object or direct disproof."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The natural-scene data with low-density noise is a motivating application for density filtering rather than a structural special case or formal disproof."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Natural-scene data with low-density noise is a typical motivating application for density filtering rather than a structural special case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a natural-image data setting with low-density noise motivates density filtering and multidimensional persistence"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the natural-scene data are a motivating applied instance of density noise, not a structural exception"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Natural-image data with low-density noise is a motivating application rather than a structural exception or disproof."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "real noisy data example used as motivation for density-sensitive persistence rather than as a refutation"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The natural-scene data are a motivating applied instance of density-sensitive topology rather than a structural exception."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The natural-scene data with low-density noise is a motivating application for density thresholding, with no sporadic or extremal structure."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "natural-scene data with low-density noise is presented as a corruption/obstruction motivating density-sensitive multidimensional persistence"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "natural-scene data with low-density noise is presented as a corruption/obstruction motivating density-sensitive persistence"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "k-nearest-neighbor co-density on a dense circle",
+   "note": "The distance to the fifth nearest neighbor is used to show concretely why dense points get low co-density values while an outlier gets a high one.",
+   "first_introduced_sec": 1911,
+   "spans": [
+    {
+     "start_sec": 1911,
+     "end_sec": 2020
+    }
+   ],
+   "total_seconds": 109,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the k-nearest-neighbor co-density definition to a drawn dense circle with an outlier, comparing fifth-neighbor distances for dense and outlier points",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the k-nearest-neighbor codensity on a dense circle sample is a standard illustrative density estimator example"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The k-nearest-neighbor co-density on a dense circle is a standard illustrative construction for detecting outliers."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The k-nearest-neighbor co-density on a dense circle is a standard illustrative construction for detecting outliers."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The k-nearest-neighbor co-density on a dense circular sample is a standard illustrative density estimator, with no extremal or exceptional structure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard k-nearest-neighbor codensity construction on a sampled circle illustrates how outliers receive large codensity"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the k-nearest-neighbor co-density on a sampled circle is a standard illustrative construction"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The k-nearest-neighbor co-density on a dense circle is a standard illustrative density function."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard k-nearest-neighbor co-density construction on a dense sample used illustratively"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The dense-circle codensity calculation is a standard illustrative example of the k-nearest-neighbor function."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The k-nearest-neighbor co-density on a dense circle is a standard illustrative construction for detecting outliers."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the k-nearest-neighbor co-density on a dense circle is a representative construction illustrating how the co-density function detects outliers"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "k-nearest-neighbor co-density on a sampled circle is a standard illustrative construction, not a sporadic or limiting object"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "240-point noisy-circle visualization demo",
+   "note": "A small noisy circle bifiltration demonstrates how the tool displays Betti dots, grayscale dimension, and slice barcodes to recover a feature persisting across scale and density.",
+   "first_introduced_sec": 3022,
+   "spans": [
+    {
+     "start_sec": 3022,
+     "end_sec": 3234
+    }
+   ],
+   "total_seconds": 212,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker runs the visualization on the 240-point noisy circle, toggles Betti-number displays, drags slices, and interprets the resulting long-lived interval",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the 240-point noisy circle is a routine synthetic demonstration of the visualization tool recovering a persistent cycle"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The 240-point noisy-circle computation is a small but ordinary visualization demo showing the tool in action."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The 240-point noisy circle is a representative visualization demo for recovering a persistent cycle across scale and density."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The 240-point noisy-circle bifiltration is a small ordinary visualization demo for recovering the circular feature."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a small noisy-circle point cloud is a routine test case demonstrating the visualization tool"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the 240-point noisy circle is a typical visualization demo for recovering a cycle"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The 240-point noisy circle is an ordinary demo data set used to show the visualization workflow."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary finite noisy-circle data set used to demonstrate the visualization tool"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The 240-point noisy circle is a representative demo case for the visualization tool recovering a persistent cycle."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The 240-point noisy circle is an ordinary synthetic demo dataset for the visualization tool, not a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the 240-point noisy circle is a toy visualization demo showing the tool recovering a long-lived feature, not a structural exception"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "240-point noisy-circle bifiltration is a routine visualization demo used to show the tool recovering a feature"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1398 @@
+{
+ "key": "eee7312dd21c394281f29d3bb5cfe7f2",
+ "title": "Analytic Insights into the Zig-Zag Product and Its Friends: Part I",
+ "speaker": "Gil Cohen",
+ "affiliation": "Tel Aviv University",
+ "date": "2024-10-14T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 4085.0,
+ "abstract": "The well-known Zig-Zag product and related graph operators, like derandomized squaring, are fundamentally combinatorial in nature. Classical bounds on their behavior often rely on a mix of combinatorics and linear algebra. However, these traditional bounds are not tight and frequently fail to align with experimental results.\nIn these talks, we will present a more refined analysis that utilizes the full spectrum of the graph, rather than relying solely on its spectral expansion. This approach produces results that both match experimental observations and, in a sense, are proved to be optimal. Our technique is analytic, diverging from classical methods: for the upper bound, we apply finite free probability, while for the lower bound, we draw on results from analytic combinatorics. \nBased on joint works with Itay Cohen, Gal Maor, and Yuval Peled.\nNo prior knowledge is required.\nRelevant papers:\nRandom Walks on Rotating Expanders (STOC 2023)\nTight Bounds for the Zig-Zag Product (FOCS 2024)\nDerandomized Squaring: An Analytic Insight into Its True Behavior (manuscript)",
+ "youtube_url": "https://youtu.be/nD17OzK4JPA",
+ "page_url": "https://www.ias.edu/video/analytic-insights-zig-zag-product-and-its-friends-part-i",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Spectral-expander and Ramanujan benchmark",
+   "summary": "The speaker reviews adjacency spectra of undirected regular graphs, defines the nontrivial normalized spectral expansion, explains why small nontrivial eigenvalues imply pseudorandomness, and recalls the Alon-Boppana/Ramanujan optimal benchmark.",
+   "spans": [
+    {
+     "start_sec": 45,
+     "end_sec": 606
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Landscape of expander constructions",
+   "summary": "The talk positions zig-zag among number-theoretic Ramanujan constructions, combinatorial or linear-algebraic constructions such as lifts, and newer analytic methods inspired by MSS and finite free probability.",
+   "spans": [
+    {
+     "start_sec": 606,
+     "end_sec": 899
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Zig-zag product and RW bound",
+   "summary": "The zig-zag product is defined by replacing each vertex of a large d-regular graph G with a copy of a c-regular graph h on d vertices and taking h-G-h paths, after which the Reingold-Vadhan-Wigderson universal spectral bound is stated and the fixed-h optimization question is formulated.",
+   "spans": [
+    {
+     "start_sec": 899,
+     "end_sec": 1596
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Empirical fixed-inner-graph behavior",
+   "summary": "Computational experiments for fixed inner graphs h and sampled large graphs G show stable spectral values far more specific than the general bounds, motivating the search for a function of the full spectrum of h that predicts the best-case zig-zag behavior.",
+   "spans": [
+    {
+     "start_sec": 1614,
+     "end_sec": 1953
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Variational theorem for zig-zag spectra",
+   "summary": "The main theorem states that for vertex-transitive c-regular h every zig-zag product G zz h has spectral expansion at least a variational quantity obtained by minimizing an explicit characteristic-polynomial/Cauchy-transform expression over x >= c^2, and that this is one-sided tight via suitable choices of G.",
+   "spans": [
+    {
+     "start_sec": 1953,
+     "end_sec": 2251
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Cauchy-transform evaluation and proof architecture",
+   "summary": "The variational formula is evaluated on the running examples, then the proof is described as combining analytic combinatorics for the lower bound and finite free probability for the tightness construction, with analogous formulas for replacement product and derandomized square.",
+   "spans": [
+    {
+     "start_sec": 2260,
+     "end_sec": 2626
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Rotating expanders from permuted walks",
+   "summary": "As a related construction, the speaker inserts deterministic permutations between steps of a random walk and proves the existence of permutations giving optimal nonbacktracking-like spectral decay, using finite-free-probability techniques and random orthogonal-matrix relaxations.",
+   "spans": [
+    {
+     "start_sec": 2626,
+     "end_sec": 3541
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Whole-spectrum analytic method and applications",
+   "summary": "The closing discussion contrasts group-theoretic, combinatorial, and analytic approaches, argues that entire-spectrum tools are useful for compositions, points to PRGs and coding applications, and proposes a speculative 'free method' for discovering the correct spectral constants before proving finite existence.",
+   "spans": [
+    {
+     "start_sec": 3541,
+     "end_sec": 4069
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Six-cycle C6",
+   "note": "The length-six cycle is used as a small fixed inner graph h whose spectrum, poor RW bound due to bipartiteness, and explicit minimization value make the zig-zag theorem concrete.",
+   "first_introduced_sec": 534,
+   "spans": [
+    {
+     "start_sec": 534,
+     "end_sec": 579
+    },
+    {
+     "start_sec": 1634,
+     "end_sec": 1716
+    },
+    {
+     "start_sec": 2278,
+     "end_sec": 2327
+    }
+   ],
+   "total_seconds": 176,
+   "attaches_to": [
+    "s1",
+    "s4",
+    "s6"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker computes/uses the C6 spectrum, forms the characteristic polynomial for H^2, plugs it into the zig-zag bound function, and minimizes it to recover the table value",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "C6 is a standard dihedrally symmetric cycle graph used as an illustrative small h in the zig-zag calculation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "C6 is dihedrally symmetric and, as a connected bipartite 2-regular graph, its spectrum hits the regular bipartite boundary; it is used only as a worked graph h."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "C6 is a dihedrally vertex- and edge-transitive cycle used only as a running spectral example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "C6 is a highly regular dihedrally symmetric cycle used as an illustrative test graph, not as an obstruction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "C6 is a dihedrally symmetric vertex-transitive cycle used as a running spectral example, not to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The six-cycle is an ordinary cycle graph used for spectral computations, with dihedral regularity but not as a refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "C6 is used as a running spectral/zig-zag calculation example, and structurally is a highly regular cycle with dihedral symmetry rather than an obstruction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "C6 is a dihedrally symmetric even cycle and, as a bipartite regular graph, sits at the spectral boundary with normalized absolute eigenvalue 1, but it is only used illustratively."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "C6 is a dihedrally symmetric even cycle with the extremal bipartite eigenvalue giving normalized two-sided expansion 1, used as a running computation example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "used as a worked test graph, and C6 is dihedrally symmetric with bipartite normalized spectral value 1, a boundary/worst expansion case"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "C6 is used as a worked spectral/zig-zag example, and as an even 2-regular cycle it is dihedrally symmetric and lies on a bipartite/minimal-degree spectral boundary."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "C6 is used as a concrete spectral/Zig-Zag computation example, and its dihedral vertex-edge transitivity makes it structurally symmetric."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Petersen graph",
+   "note": "The Petersen graph is the second running inner graph, illustrating a highly symmetric spectrum and giving a nontrivial numerical instance of the experimental and variational bounds.",
+   "first_introduced_sec": 579,
+   "spans": [
+    {
+     "start_sec": 579,
+     "end_sec": 606
+    },
+    {
+     "start_sec": 1684,
+     "end_sec": 1856
+    },
+    {
+     "start_sec": 2327,
+     "end_sec": 2344
+    }
+   ],
+   "total_seconds": 216,
+   "attaches_to": [
+    "s1",
+    "s4",
+    "s6"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker gives the Petersen graph spectrum/bounds and later applies the same minimization function to it, noting c^2=9 and discussing the resulting minimizer/value",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is a highly symmetric cubic Moore/cage graph, here used as an illustrative spectral example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is a highly symmetric cubic Moore/cage graph, used here only as an illustrative test graph."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is highly symmetric and also extremal as the unique (3,5)-cage/Moore graph, here used as a positive spectral example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is a highly symmetric Moore/cage-type extremal graph, used here as a benchmark example rather than a counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is highly symmetric and extremal as the cubic Moore graph/(3,5)-cage, but here it is only an illustrative spectral example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is a highly symmetric cubic graph and is also extremal as the (3,5)-cage/Moore graph, used here as a worked example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is used illustratively for spectra and bounds, while intrinsically it is a highly symmetric 3-regular graph and an extremal cage/Moore-type graph."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is highly symmetric and extremal as a Moore/Ramanujan-type small regular graph, here serving as a worked example rather than a refutation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is highly symmetric and is extremal as the cubic Moore graph/(3,5)-cage, but here serves as a benchmark example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "used as a worked test graph, and the Petersen graph is highly symmetric and extremal as the cubic Moore graph/(3,5)-cage"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is used as another worked example, and it is highly symmetric and extremal as the cubic Moore graph/(3,5)-cage."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is a highly symmetric cubic graph and is also extremal as a Moore/cage graph, but here it is only an illustrative spectral example."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Semidirect-product Cayley-graph analogy",
+   "note": "In response to a question about graphs coming from finite groups, the speaker notes that zig-zag can be viewed in some cases as a generalization of a semidirect product, giving structural intuition but not driving the proof.",
+   "first_introduced_sec": 1504,
+   "spans": [
+    {
+     "start_sec": 1504,
+     "end_sec": 1554
+    }
+   ],
+   "total_seconds": 50,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the semidirect-product Cayley-graph connection is only cited as an analogy/generalization of zig-zag, without carrying out any construction or calculation on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 8,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The semidirect-product Cayley-graph comparison refers to a systematic group/Cayley-graph construction, not an obstruction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The semidirect-product Cayley-graph viewpoint has the usual Cayley graph group-action symmetry and is used as motivation for zig-zag, not as a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The semidirect-product Cayley-graph comparison invokes the usual group-translation symmetry of Cayley graphs but not an extremal or sporadic object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The semidirect-product Cayley-graph analogy invokes a systematic group/Cayley construction with built-in transitive symmetry, only as motivation for zig-zag."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The semidirect-product/Cayley-graph comparison is a systematic group-product analogy explaining zig-zag, not a sporadic or adversarial object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The semidirect-product Cayley-graph comparison is a standard group-construction analogy for zig-zag, not a sporadic or adversarial example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The semidirect-product Cayley-graph analogy is invoked as motivation for the zig-zag product rather than to refute a claim, and denotes a systematic group-based construction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The semidirect-product Cayley-graph comparison is a systematic group-theoretic analogy for zig-zag products, not a sporadic or extremal object and not an obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A semidirect-product Cayley graph is a systematic vertex-transitive group-based construction used only as an explanatory analogy for zig-zag."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used only as a motivating analogy for zig-zag via group products, with Cayley graphs carrying vertex-transitive group symmetry but no sporadic or optimal status"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The semidirect-product Cayley-graph comparison is a motivating analogy, and Cayley graphs are algebraically regular and vertex-transitive rather than sporadic or extremal."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The semidirect-product Cayley-graph comparison is a systematic group-symmetric analogy for Zig-Zag rather than a refuting example."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Length-four rotating walk",
+   "note": "The displayed red-green-red permutation formula is a concrete special case of the rotating-expander operator, with identity permutations recovering the ordinary fourth power of the graph.",
+   "first_introduced_sec": 2965,
+   "spans": [
+    {
+     "start_sec": 2965,
+     "end_sec": 3034
+    }
+   ],
+   "total_seconds": 69,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly traces the length-four rotating-walk operator with four graph steps and intervening permutations and states the resulting spectral theorem for that construction",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The length-four rotating walk is a representative palindromic four-step walk/operator used to explain the construction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The length-four rotating walk is an ordinary fixed-length instance of the rotating-walk construction, not a limiting or adversarial case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The length-four rotating walk is presented as a representative palindromic walk construction rather than as a degenerate, sporadic, or adversarial case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The length-four rotating walk is a representative interleaved-walk construction, not a sporadic, limiting, or adversarial case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The length-four rotating walk is a typical palindromic walk-operator instance used to illustrate the construction, not a counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The length-four rotating walk is a representative instance of the rotating-walk construction, introduced to illustrate the operator form rather than to disprove a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The length-four rotating walk is presented as a concrete instance of the rotating-walk construction, not as a failing case or a structurally sporadic object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The length-four rotating-walk construction is presented as part of a family that can attain the tight nonbacktracking/Ramanujan-type spectral bound, not as a counterexample."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The length-four rotating walk is presented as a generic illustrative operator product with permutations, not as an adversarial or uniquely optimal instance."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used to illustrate the rotating-walk construction in a four-step palindromic case, not as a failure case or a specified optimal object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The length-four rotating walk is presented as a representative instance of the rotating-walk construction, not as a failure case or a structurally special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The length-four rotating walk illustrates the rotating-walk construction that, with suitable permutations, attains the tight nonbacktracking-type spectral bound."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "INW pseudorandom generator",
+   "note": "The INW generator is cited as an application target where log-many expander compositions are currently analyzed separately and might benefit from whole-spectrum analytic coordination.",
+   "first_introduced_sec": 3653,
+   "spans": [
+    {
+     "start_sec": 3653,
+     "end_sec": 3766
+    },
+    {
+     "start_sec": 3793,
+     "end_sec": 3819
+    }
+   ],
+   "total_seconds": 139,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "INW is raised only as a hoped-for application involving log n expanders and PRGs, with no concrete analysis of the generator itself",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The INW pseudorandom generator is a standard explicit PRG construction cited as an application target."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The INW pseudorandom generator is cited as a standard application target for better expander analysis, not as a counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The INW pseudorandom generator is cited as a standard application target for improved expander analysis, not as a structurally special counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The INW pseudorandom generator is cited as a standard derandomization construction to potentially improve, not as an extremal or failing example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The INW pseudorandom generator is a standard systematic PRG construction mentioned as a possible application target."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The INW pseudorandom generator is a standard systematic PRG construction cited as a possible application target, not as a structural exception or counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The INW pseudorandom generator is cited as a prospective application to improve, not as a counterexample, and is a standard systematic PRG construction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The INW pseudorandom generator is cited as a standard application target for improved expander analysis, with no special degenerate, extremal, exceptional, or symmetric role here."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The INW pseudorandom generator is a standard explicit PRG family raised as a possible application target rather than a structurally special counterexample."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as a possible application target for improved expander-composition analysis, while INW is a standard systematic PRG rather than a counterexample or structural extreme"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The INW pseudorandom generator is mentioned as a possible application target for improved analysis, not as a counterexample or an optimal/sporadic object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The INW pseudorandom generator is cited as a standard application target for possible improvement, not as a counterexample or structurally special object."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Relaxed locally testable codes",
+   "note": "Recent relaxed-LTC constructions are mentioned as another coding-theoretic setting involving many expander steps whose joint spectral analysis may improve results.",
+   "first_introduced_sec": 3766,
+   "spans": [
+    {
+     "start_sec": 3766,
+     "end_sec": 3793
+    }
+   ],
+   "total_seconds": 27,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "relaxed locally testable codes are cited as another application area with log n expanders, but no code construction or property is worked through",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Relaxed locally testable codes are a standard coding-theoretic family mentioned as an application area."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Relaxed locally testable codes are cited as an application/motivation involving many expanders, with no special intrinsic structure asserted here."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Relaxed locally testable codes are mentioned as another application area with composed expanders, not as an exceptional or failing instance."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Relaxed locally testable codes are mentioned as an application area using expander compositions, not as exceptional or counterexample objects."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Relaxed locally testable codes are invoked as an application area with expander compositions, not as a structurally special or refuting example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Relaxed locally testable codes are cited as an application area involving composed expanders, not as a degenerate or refuting instance."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Relaxed locally testable codes are mentioned as an application area using expanders, not as an obstruction, and form a systematic coding-theoretic class."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Relaxed locally testable codes are mentioned as an application area using many expanders, not as a structurally exceptional object or as a counterexample."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Relaxed locally testable codes are invoked as a systematic coding-theoretic application using expanders, with no sporadic, degenerate, or extremal role singled out."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as an application area involving log-many expanders, not to refute a claim and not as a sporadic, symmetric, degenerate, or extremal code object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Relaxed locally testable codes are cited as an application area using expanders, with no specific exceptional, extremal, degenerate, or symmetric code singled out."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Relaxed locally testable codes are mentioned as an application area using expander compositions, with no sporadic, degenerate, extremal, or maximal-symmetry structure singled out."
+    }
+   ]
+  }
+ ]
+}

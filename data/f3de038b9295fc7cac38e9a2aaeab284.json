@@ -1,0 +1,2856 @@
+{
+ "key": "f3de038b9295fc7cac38e9a2aaeab284",
+ "title": "Bounded Arithmetic Meets Probability, and Applications in Cryptography",
+ "speaker": "Jiatu Li",
+ "affiliation": "Massachusetts Institute of Technology",
+ "date": "2026-04-06T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4293.0,
+ "abstract": "The development of set theory in the 20th century was like the invention of a \"mathematical telescope\", through which we can observe all kinds of infinite sets and their interactions. In quite the opposite direction, bounded arithmetic serves as a \"mathematical microscope\", enabling us to understand and harness logical structures within elementary mathematics. \nThe starting point of this talk is the bounded arithmetic theory PV (Cook '75), which intuitively captures the mind of a (weird?) mathematician who only works with Boolean strings and deterministic polynomial-time algorithms -- nothing else is allowed in theorems and proofs. This theory is \"weak and strong\" -- it does not seem to prove the Pigeonhole Principle, yet it can naturally formalize the celebrated PCP theorem. \nInterestingly, since this mathematician only accepts polynomial-time algorithms, probability over an exponential-sized support is not available. In this talk, I will cover classical and new approaches to extending PV with probabilistic toolkits. I will also discuss a somewhat surprising application: cryptography from the unprovability of mathematical theorems in these theories. \n(This talk will focus on high-level ideas; no prior background in logic is needed.)",
+ "youtube_url": "https://youtu.be/wRMWJVcdWII",
+ "page_url": "https://www.ias.edu/video/bounded-arithmetic-meets-probability-and-applications-cryptography",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "PV as feasible bounded arithmetic",
+   "summary": "The speaker locates bounded arithmetic below Peano arithmetic and presents Cook's PV as mathematics over finite strings with only polynomial-time functions and polynomial-time induction.",
+   "spans": [
+    {
+     "start_sec": 76,
+     "end_sec": 831
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Approximate counting as the remedy for PV's probability gap",
+   "summary": "PV cannot directly express ordinary circuit acceptance probabilities, so Jeřábek's APC_1 extends PV with approximate counting via surjective comparisons and a weak pigeonhole/range-avoidance principle to recover standard probabilistic reasoning.",
+   "spans": [
+    {
+     "start_sec": 831,
+     "end_sec": 1923
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Cryptographic target and unprovability-based theorem",
+   "summary": "The talk defines nonadaptive succinct noninteractive arguments in the CRS model and states that standard cryptographic assumptions plus an APC_1 unprovability assumption for an NP-versus-coNP/EF lower-bound proxy yield such arguments for NP.",
+   "spans": [
+    {
+     "start_sec": 1943,
+     "end_sec": 2753
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Formalization-and-contradiction proof of the SNARK construction",
+   "summary": "The proof formalizes a recent construction that assumes EF p-boundedness together with crypto inside APC_1, so that any nonuniform adversary breaking the proposed argument system, together with the true crypto axioms, would give an APC_1 proof of the forbidden lower-bound statement.",
+   "spans": [
+    {
+     "start_sec": 2753,
+     "end_sec": 3482
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Weakening APC_1 while retaining probabilistic tools",
+   "summary": "Because APC_1's weak pigeonhole principle appears computationally stronger than needed for approximate probabilistic reasoning, the speaker introduces a weaker subtheory that still counts definable sets and formalizes many standard tools while avoiding exact-counting consequences.",
+   "spans": [
+    {
+     "start_sec": 3482,
+     "end_sec": 3906
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Proof-complexity reformulations and open program",
+   "summary": "The conclusion and Q&A frame the remaining program: formalize more cryptography in weak theories, separate PV from the new theory and APC_1, and express the assumptions as propositional proof-complexity lower bounds supported by known unprovability results.",
+   "spans": [
+    {
+     "start_sec": 3906,
+     "end_sec": 4266
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "A recursively defined polynomial-time function in PV",
+   "note": "The simple binary-recursive function illustrates what it means for PV to allow polynomial-time definitions and to use their defining equations in proofs.",
+   "first_introduced_sec": 540,
+   "spans": [
+    {
+     "start_sec": 540,
+     "end_sec": 620
+    }
+   ],
+   "total_seconds": 80,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker writes the recursive definition of the function and checks from its construction and binary encoding that it is polynomial-time and usable in PV",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An ordinary PV-definable polynomial-time function is used only to illustrate allowed recursion."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an ordinary PV-definable polynomial-time function used only to illustrate allowed recursion"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary PV-definable polynomial-time function used only to illustrate allowed definitions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary PV-definable polynomial-time recursive function used as a concrete illustration"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A routine PV-definable polynomial-time recursion is used only as an illustrative definable function."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary PV-definable polynomial-time function used to illustrate recursive definitions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard PV-definable polynomial-time function used illustratively."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary PV-definable polynomial-time function used illustratively."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "It is used as an ordinary PV-definable polynomial-time function."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "It is just a routine PV-definable polynomial-time recursive function used illustratively."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary PV-definable polynomial-time recursive function used only to illustrate allowed definitions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "used only as a routine PV-definable polynomial-time function with no special structural feature"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Infinitude and distribution of primes",
+   "note": "In response to a question, prime-number statements illustrate that provability in PV can depend on formulation and on whether a proof uses exponentially many objects.",
+   "first_introduced_sec": 620,
+   "spans": [
+    {
+     "start_sec": 620,
+     "end_sec": 649
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only cites infinitude/distribution of primes and says the standard prime-distribution proof uses exponentially many terms without carrying it out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prime-distribution statements are cited as standard number theory whose usual formulation is not available in PV."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary prime-distribution statements cited as limits on PV formalization because standard proofs require exponential expansions"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prime-distribution facts are cited as natural arithmetic statements whose standard proofs/formulations can fail in PV."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary prime-distribution statement cited to show a standard PV formalization can fail"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prime distribution is invoked as a standard arithmetical fact whose usual formulation/proof can fail to be available in PV."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prime-distribution lower bounds are cited as standard formulations that PV cannot prove."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prime-distribution statements are cited as hard or unavailable in standard PV formalizations."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prime-distribution statements are cited as standard formulations PV cannot prove."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prime distribution is cited as a natural theorem whose standard proof/formulation strains PV provability."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prime infinitude/distribution is invoked to illustrate statements whose standard formulations can fail to be provable in PV."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prime-distribution statements are cited as standard formulations whose usual proofs exceed PV, illustrating a limitation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "prime distribution is cited as a natural arithmetic statement whose standard formulation/proof can fail in PV"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Unprovability of exponentiation in PV",
+   "note": "The inability to prove that every binary number is the length of some string illustrates PV's deliberate weakness and why encodings matter.",
+   "first_introduced_sec": 649,
+   "spans": [
+    {
+     "start_sec": 649,
+     "end_sec": 729
+    },
+    {
+     "start_sec": 780,
+     "end_sec": 822
+    }
+   ],
+   "total_seconds": 122,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explains the exponentiation statement in PV terms and reasons why a binary input would require an exponentially long unary/string witness, so PV cannot prove it",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Exponentiation with binary input is the basic example of a PV-unprovable growth statement."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "exponentiation is cited as a PV-unprovable existence principle showing PV cannot prove every elementary construction"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Exponentiation is used to exhibit an elementary-looking statement that PV cannot prove."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "exponentiation is cited as a basic totality statement that PV cannot prove"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Exponentiation is used to demonstrate a basic operation whose existence PV cannot prove under binary encoding."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Exponentiation is used as a basic statement whose PV provability fails."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Exponentiation is used as a basic arithmetic fact PV cannot prove."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Exponentiation is used as the basic theorem whose PV-provability fails."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Binary-to-unary exponentiation is the exponential-output boundary example showing PV cannot prove such existence."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Exponentiation is used as a boundary growth example that PV cannot prove total in the binary-to-unary sense."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Exponentiation or binary-to-unary length existence is invoked precisely as a true statement PV cannot prove."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "exponentiation is used to show a basic-looking construction that PV cannot prove or even naturally express"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "PCP theorem formalizable in PV",
+   "note": "The PCP theorem is cited to show that PV, despite failing to prove exponentiation, can still formalize sophisticated polynomial-time complexity theory.",
+   "first_introduced_sec": 729,
+   "spans": [
+    {
+     "start_sec": 729,
+     "end_sec": 780
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the PCP theorem is cited as a complicated result known to be formalizable in PV, with no formalization or proof details worked through",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 6,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The PCP theorem is used as a positive formalizable result showing PV's strength."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a standard complexity theorem cited to refute the worry that PV is too weak to formalize sophisticated results"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The PCP theorem is a standard complexity theorem used as positive evidence of PV’s strength."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "PCP formalizability is invoked to refute the idea that PV proves only simple results"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The formalizability of PCP is used to refute the impression that PV is merely too weak for sophisticated complexity theory."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The PCP theorem is a sophisticated but systematic theorem cited as a positive PV formalization."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The PCP theorem is used as positive evidence of PV’s strength."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The PCP theorem is used to rebut the suggestion that PV is simply too weak."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The formalized PCP theorem is used to refute the claim that PV is too weak for deep complexity theory."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The PCP theorem is cited to rebut the claim that PV is too weak to formalize sophisticated complexity theory."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The PCP theorem is used positively to show PV can formalize sophisticated complexity results."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the PCP theorem is a positive example of PV's strength rather than an obstruction"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Brute-force probability when the input length is log-log encoded",
+   "note": "The log-log regime makes enumeration polynomial-time, illustrating why ordinary unary length is the real obstacle to expressing circuit acceptance probabilities in PV.",
+   "first_introduced_sec": 964,
+   "spans": [
+    {
+     "start_sec": 964,
+     "end_sec": 998
+    },
+    {
+     "start_sec": 1081,
+     "end_sec": 1108
+    }
+   ],
+   "total_seconds": 61,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly describes the log-log case by enumerating all inputs, counting acceptances, and obtaining the probability in polynomial time",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The log-log encoding collapses the random-input universe to polynomial size so brute-force enumeration works."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the log-log encoding collapses the sample space enough for brute-force enumeration to be polynomial"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The log-log encoding makes exhaustive probability computation a collapsed small-case enumeration."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "log-log encoding is a collapsed boundary case where exhaustive probability counting becomes polynomial"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The log-log input regime is a collapsed boundary case where exhaustive probability computation becomes feasible, used as a contrast."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Log-log encoding collapses exhaustive enumeration to a tiny feasible regime."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The log-log length regime is a tiny collapsed case where exhaustive enumeration becomes feasible."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The log-log encoding collapses the input regime to the boundary where exhaustive enumeration becomes feasible."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The log-log length regime is a tiny threshold case where exhaustive enumeration becomes polynomial."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The log-log input-length regime is a tiny boundary case where exhaustive enumeration becomes polynomial-time."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The log-log regime collapses exhaustive enumeration to polynomial time and is used as an easy tractable case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "brute-force enumeration works only in the collapsed log-log encoding regime where the sample space becomes feasibly small"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "SAT witness as an NP relation",
+   "note": "Satisfiability, with a formula as statement and an assignment as witness, makes the NP-relation input to a succinct argument concrete.",
+   "first_introduced_sec": 2062,
+   "spans": [
+    {
+     "start_sec": 2062,
+     "end_sec": 2113
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "SAT is only offered as an illustrative NP relation with a formula x and witness w, without checking or using a particular instance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The SAT witness relation is NP-complete, hence maximal-hard among NP relations, but is only illustrative here."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT witnesses form a canonical NP-complete relation, maximal among NP relations under reductions, used illustratively"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT witnessing is an NP-complete, hardest-end NP relation, used here as a canonical example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT-witness verification is a canonical NP-complete, hence hardest, NP relation used illustratively"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is the canonical NP-complete, hence maximal-under-reductions, NP relation used only as an illustration of witnesses."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The SAT witness relation is NP-complete, hence maximal among NP relations under reductions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT-as-witness relation is an NP-complete, hence hardest, NP relation used as a standard example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is an NP-complete relation, hence maximal-hard among NP relations under reductions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT witnesses form the canonical NP-complete relation used as a representative NP relation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT witnessing is a canonical NP-complete, hence maximal-hard, NP relation used as a representative example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The SAT relation is NP-complete, hence maximal among NP relations under reductions, and is only a running example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT-witness verification is used as a standard NP relation, and SAT is structurally maximal as an NP-complete problem"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Known SNARK sources: iO and random-oracle models",
+   "note": "Indistinguishability obfuscation and the random-oracle model illustrate the previously known, very strong or idealized routes to succinct noninteractive arguments.",
+   "first_introduced_sec": 2289,
+   "spans": [
+    {
+     "start_sec": 2289,
+     "end_sec": 2343
+    }
+   ],
+   "total_seconds": 54,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "iO and random-oracle models are named as known sources of SNARK constructions, with only high-level description",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "iO and random-oracle models are cited as known construction sources rather than structural exceptions or refutations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "iO and random-oracle models are mentioned as existing strong or idealized SNARK assumptions rather than as counterexamples"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "iO and random-oracle constructions are prior SNARK sources used for comparison, not as a failing instance."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "iO and random-oracle models are background strong-or-idealized SNARK sources rather than sporadic or refuting examples"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "iO and random-oracle constructions are cited as known strong or idealized SNARK sources, not as structural exceptions in the stipulated sense."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "iO and random-oracle models are strong or idealized sources, not sporadic structural exceptions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "iO and random-oracle models are cited as known strong or idealized SNARK sources."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "iO and random-oracle models are cited as existing construction sources rather than as structural exceptions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "iO and random-oracle SNARK constructions are cited as known nonstandard sources rather than structural exceptions."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "iO and random-oracle assumptions are cited as unusually strong or idealized sources for SNARKs."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "iO and random-oracle models are cited as existing strong or idealized sources for SNARKs, not as refutations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "iO and random-oracle models are cited as very strong or idealized sources for SNARKs rather than as refutations"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Leftover hash lemma as a formalization bottleneck",
+   "note": "When asked what is hard to formalize, the leftover hash lemma is used as a concrete obstacle that motivates the workaround via a secret-key homomorphic-encryption route and an added assumption.",
+   "first_introduced_sec": 2983,
+   "spans": [
+    {
+     "start_sec": 2952,
+     "end_sec": 3011
+    }
+   ],
+   "total_seconds": 59,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the leftover hash lemma is identified as something hard to formalize and avoided, but the lemma itself is not proved or applied",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The leftover hash lemma is mentioned as an obstacle to formalizing the cryptographic construction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the leftover hash lemma is a standard hashing theorem singled out as an obstruction to formalizing the cryptographic proof"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The leftover hash lemma is singled out as an obstruction to straightforward formalization."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the leftover hash lemma is a standard lemma cited as an obstacle to formalization"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The leftover hash lemma is presented as an obstruction or bottleneck to formalizing the standard cryptographic proof."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The leftover hash lemma is used as a formalization bottleneck obstructing the straightforward proof."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The leftover hash lemma is presented as an obstruction to straightforward formalization."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The leftover hash lemma is presented as a bottleneck obstructing formalization."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The leftover hash lemma is presented as an obstruction to formalizing the proof in the weak theory."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The leftover hash lemma is presented as an obstacle to straightforward formalization in the weak theory."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The leftover hash lemma is mentioned as a standard result that obstructed their APC1 formalization."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the leftover hash lemma is presented as a bottleneck obstructing straightforward formalization"
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Distinguisher-to-predictor conversion",
+   "note": "This standard pseudorandomness transformation illustrates that the weaker theory still proves useful probabilistic complexity arguments.",
+   "first_introduced_sec": 3693,
+   "spans": [
+    {
+     "start_sec": 3693,
+     "end_sec": 3727
+    }
+   ],
+   "total_seconds": 34,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the distinguisher-to-predictor conversion is stated as a standard pseudorandomness result, with no construction traced",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The distinguisher-to-predictor conversion is a standard pseudorandomness reduction cited as a formalizable tool."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a standard pseudorandomness reduction formalizable in the weaker theory, used positively"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The distinguisher-to-predictor conversion is a standard pseudorandomness reduction listed as formalizable."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard pseudorandomness reduction presented as a positive formalizable tool"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The distinguisher-to-predictor conversion is a standard pseudorandomness tool cited as something the weaker theory can formalize."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The distinguisher-to-predictor conversion is a standard positive formalizable pseudorandomness tool."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The distinguisher-to-predictor conversion is a standard positive formalizable reduction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The conversion is listed as a standard pseudorandomness tool formalizable in the weaker theory."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The conversion is a standard pseudorandomness tool used as a positive formalization example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The distinguisher-to-predictor conversion is a standard pseudorandomness reduction used as a positive formalization example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The conversion is a standard pseudorandomness reduction listed as formalizable in the weaker theory."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the distinguisher-to-predictor conversion is a standard positive formalization example in pseudorandomness"
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Switching lemma and parity not in AC0",
+   "note": "These circuit-complexity results are cited as further evidence that the weaker theory retains substantial formalizing power.",
+   "first_introduced_sec": 3727,
+   "spans": [
+    {
+     "start_sec": 3727,
+     "end_sec": 3756
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the switching lemma and parity not in AC0 are listed as results formalizable in the theory, without proof or application details",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 4,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a highly symmetric Boolean function used via the switching lemma as the standard AC0 lower-bound enemy."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "parity is a highly symmetric full-degree Boolean function used as a witness that AC0 cannot compute everything"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a symmetric Boolean function used as the hard function showing AC0 cannot compute everything."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "parity is a maximally symmetric high-sensitivity Boolean boundary case used to show AC0 cannot compute it"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a highly symmetric Boolean function used as the adversarial function showing AC0 circuit lower bounds."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a highly symmetric Boolean function used to witness the failure of AC0 to compute it."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is the symmetric Boolean enemy function witnessing the AC0 lower bound."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is the explicit hard function showing AC0 cannot compute everything, and parity is a highly symmetric Boolean function."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a permutation-symmetric Boolean function used as the hard case proving AC0 lower bounds."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is the highly symmetric maximal-degree Boolean function used via the switching lemma to show AC0 cannot compute it."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a fully symmetric, maximally high-degree Boolean function used as the AC0 lower-bound enemy case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "parity is the adversarial symmetric Boolean function used to show AC0 cannot compute everything"
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "RP testing formalization",
+   "note": "Property-testing style probabilistic reasoning illustrates another family of arguments that can still be formalized in the weaker setting.",
+   "first_introduced_sec": 3756,
+   "spans": [
+    {
+     "start_sec": 3756,
+     "end_sec": 3788
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "RP testing is only named as something the theory can formalize and as useful in property testing/PCP contexts",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 1
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "RP testing formalization is cited as another standard capability of the weaker theory."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary randomized-polynomial-time testing formalization cited as another positive capability"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "RP testing is presented as a standard formalizable probabilistic-testing tool."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard randomized testing formalization listed as a positive capability of the theory"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "RP testing formalization is mentioned as another ordinary probabilistic-testing result supported by the theory."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "RP testing formalization is presented as a standard positive capability of the weaker theory."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "RP testing is mentioned as another ordinary probabilistic tool formalizable in the theory."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "RP testing is mentioned as a routine formalization target of the new theory."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "RP testing is mentioned as another ordinary randomized-testing result formalizable in the theory."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "RP testing is mentioned as a standard randomized-testing formalization supported by the weaker theory."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "RP testing is a standard randomized-testing formalization listed as another positive capability."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "the transcript does not identify a specific RP-testing theorem beyond saying some testing result can be formalized"
+    }
+   ]
+  },
+  {
+   "code": "E12",
+   "name": "Exact epsilon-zero Chernoff-type bound",
+   "note": "The exact-counting version of a Chernoff-style bound exposes the excessive strength of the weak pigeonhole axiom and motivates trimming APC_1 to a more approximate theory.",
+   "first_introduced_sec": 3823,
+   "spans": [
+    {
+     "start_sec": 3823,
+     "end_sec": 3906
+    }
+   ],
+   "total_seconds": 83,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the epsilon-zero Chernoff-type bound is discussed only as a too-strong consequence of the pigeonhole principle, not derived",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 9,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The epsilon-zero Chernoff-style statement is the zero-error boundary case of approximate counting."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the epsilon-zero case is a zero-slack limiting exact-counting bound treated as an unwanted overstrong consequence to exclude"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The epsilon-zero Chernoff variant is the exact boundary case and is used as an over-strong consequence to exclude."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "epsilon zero is the exact zero-error boundary of approximate Chernoff reasoning and is cited as an unwanted overstrong consequence"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The epsilon-zero bound is a limiting exact-counting case used as the over-strong enemy case the weaker theory is meant to exclude."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The epsilon-zero case is the collapsed boundary of approximate Chernoff bounds and is cited as an overstrong exact-counting consequence to avoid."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The epsilon-zero Chernoff case is the exact zero-error boundary used to show APC1 is too strong."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The epsilon-zero Chernoff bound is the exact boundary case used to show the old theory has excessive strength."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The epsilon-zero case is the zero-slack endpoint collapsing approximate Chernoff counting to an exact bound."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The epsilon-zero Chernoff-style bound is the collapsed exact-counting boundary case used to show the stronger theory proves too much."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The epsilon-zero version is the exact boundary case of an approximate bound and is cited as an overstrong consequence to exclude."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the epsilon-zero Chernoff-style bound is an unwanted exact limiting case showing the older theory is too strong"
+    }
+   ]
+  },
+  {
+   "code": "E13",
+   "name": "Known PV unprovability results for circuit bounds",
+   "note": "In Q&A, existing unconditional unprovability results from PV are cited as evidence that the talk's unprovability assumptions are mathematically approachable rather than purely speculative.",
+   "first_introduced_sec": 4207,
+   "spans": [
+    {
+     "start_sec": 4207,
+     "end_sec": 4266
+    }
+   ],
+   "total_seconds": 59,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "known PV unprovability results for circuit/proof lower bounds are cited at the end without working through any proof",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Known PV unprovability results for circuit bounds are cited to show such bounds cannot be proved in PV."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "known PV unprovability theorems for circuit bounds are cited to show PV cannot prove certain upper or lower bound statements"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Known PV unprovability of circuit bounds is cited as failure of PV to prove such bounds."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "known unprovability of circuit-bound statements is cited to show PV proof strength fails there"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Known PV unprovability results for circuit bounds are cited to show failures of PV proof power for such lower-bound statements."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Known PV unprovability results for circuit bounds are cited as failures of PV proof strength."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Known PV unprovability results are cited as limitations on proving circuit bounds."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The PV unprovability results are cited to show provability of certain circuit-size boundary statements fails."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These unprovability theorems show PV cannot prove certain circuit-size bounds."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Known PV unprovability results for circuit or proof-size bounds are cited as limitations involving threshold lower-bound statements."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "These are threshold circuit or proof-size bound statements cited as true limitations of what PV can prove."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "known PV unprovability results are invoked to show failures of PV to prove certain circuit bounds"
+    }
+   ]
+  }
+ ]
+}

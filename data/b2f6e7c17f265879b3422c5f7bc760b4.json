@@ -1,0 +1,1229 @@
+{
+ "key": "b2f6e7c17f265879b3422c5f7bc760b4",
+ "title": "Fooling intersections of low-weight halfspaces",
+ "speaker": "Rocco Servedio",
+ "affiliation": "Columbia University",
+ "date": "2017-10-30T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3844.0,
+ "abstract": "A weight-$t$ halfspace is a Boolean function $f(x)=\\mathrm{sign}(w_1 x_1 + \\cdots + w_n x_n - \\theta)$ where each $w_i$ is an integer in $\\{-t,\\dots,t\\}.$ We give an explicit pseudorandom generator that $\\delta$-fools any intersection of $k$ weight-$t$ halfspaces with seed length poly$(\\log n, \\log k,t,1/\\delta)$. In particular, our result gives an explicit PRG that fools any intersection of any quasipoly$(n)$ number of halfspaces of any polylog$(n)$ weight to any $1/$polylog$(n)$ accuracy using seed length polylog$(n).$",
+ "youtube_url": "https://www.youtube.com/watch?v=g-HvugzEfts",
+ "page_url": "https://www.ias.edu/video/csdm/2017/1030-RoccoServedio",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Boolean halfspaces, weights, and PRG-fooling setup",
+   "summary": "The talk fixes the Boolean-cube setting, defines intersections of k integer-weight halfspaces with maximum coefficient weight t, and recalls the notion of an explicit PRG that fools a class by matching acceptance probabilities up to epsilon.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 578
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Main seed-length theorem and algorithmic meaning",
+   "summary": "The main result is stated as an explicit PRG for intersections of k weight-t halfspaces with seed length polynomial in log n, log k, t, and 1/epsilon, yielding new nontrivial cases and a deterministic approximate counting algorithm for bounded-coefficient 0-1 integer programs.",
+   "spans": [
+    {
+     "start_sec": 578,
+     "end_sec": 888
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Prior bounds and the regularity/weight comparison",
+   "summary": "Previous work is positioned as either fooling arbitrary functions of k halfspaces with linear dependence on k or fooling intersections of tau-regular halfspaces with polylogarithmic k-dependence, while low weight and regularity are shown to be incomparable as stated.",
+   "spans": [
+    {
+     "start_sec": 888,
+     "end_sec": 1089
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Central-limit/hybrid framework for halfspace PRGs",
+   "summary": "The speaker reviews how Berry-Esseen and Lindeberg replacement proofs for regular linear forms lead to PRGs via Meka-Zuckerman hashing into buckets, and how a regularity lemma extends the single-halfspace construction beyond the regular case.",
+   "spans": [
+    {
+     "start_sec": 1089,
+     "end_sec": 2398
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Extension to intersections and the k-regularity barrier",
+   "summary": "Applying the CLT-to-PRG program to k-tuples explains the prior split: CLTs and derandomization can have good polylog k dependence for regular intersections, but regularity-lemma reductions for arbitrary intersections inherently seem to incur polynomial or linear dependence on k.",
+   "spans": [
+    {
+     "start_sec": 2398,
+     "end_sec": 2734
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Low-weight regular-or-sparse reduction",
+   "summary": "The new approach uses the elementary dichotomy that a weight-t halfspace is either epsilon-regular or sparse, decomposing a low-weight intersection into an intersection of regular halfspaces AND a small-width CNF and thereby changing the pseudorandomness target.",
+   "spans": [
+    {
+     "start_sec": 2734,
+     "end_sec": 3033
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Coupled bucket hybrid for the regular-plus-CNF class",
+   "summary": "To analyze the same bucketed generator for the regular-halfspace part combined with the CNF part, the proof couples the truly random and pseudorandom fillings of each bucket using CNF-fooling, then controls the resulting loss of independence and exact moment matching via mixture decompositions and stronger parameters.",
+   "spans": [
+    {
+     "start_sec": 3033,
+     "end_sec": 3722
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Result recap and parameter-improvement goals",
+   "summary": "The talk concludes by restating the low-weight intersection PRG, emphasizing the coupled CLT-style hybrid proof, and identifying future goals such as replacing the polynomial t and 1/epsilon dependence by logarithmic or no weight dependence and polylogarithmic accuracy dependence.",
+   "spans": [
+    {
+     "start_sec": 3722,
+     "end_sec": 3840
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "0-1 integer-program feasible set/counting",
+   "note": "The feasible solutions of a 0-1 integer program are presented as a polytope/intersection of halfspaces, and later as an algorithmic interpretation of enumerating the PRG seeds to estimate the number of feasible Boolean points.",
+   "first_introduced_sec": 85,
+   "spans": [
+    {
+     "start_sec": 85,
+     "end_sec": 112
+    },
+    {
+     "start_sec": 818,
+     "end_sec": 888
+    }
+   ],
+   "total_seconds": 97,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the PRG result to 0-1 integer-program counting, explaining enumeration over seeds, the matrix constraints, running time, and the resulting deterministic estimate.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A 0-1 IP feasible set is an ordinary Boolean polytope/application of halfspace intersections, used illustratively rather than adversarially."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a Boolean feasible set of linear inequalities is a standard intersection-of-halfspaces application, used illustratively for counting rather than to refute a claim"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A 0-1 IP feasible set is presented as a generic intersection of halfspaces and application to counting."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A 0-1 integer-program feasible region is an ordinary Boolean polytope/intersection of halfspaces used as an application and counting motivation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary Boolean-polytope feasible sets are used as an application/interpretation of the PRG counting result"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A 0-1 IP feasible set is an ordinary intersection of linear constraints on the Boolean cube, used as an application/motivation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A 0-1 integer-program feasible set is used as a standard instance of an intersection of halfspaces, with no special intrinsic structure singled out."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An ordinary application of intersections of halfspaces to feasible 0-1 integer-program solutions and approximate counting."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A general 0-1 integer-program feasible set is used as a standard application of halfspace intersections, not to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A 0-1 IP feasible set is used as a generic application of intersections of halfspaces, not as a special or failing case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A 0-1 integer-program feasible set is used as a standard application/reformulation of intersections of halfspaces, with no special intrinsic structure specified."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is a standard feasible-set/counting application of halfspace intersections with no special intrinsic structure."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Hamming-distance avoidance from forbidden Boolean points",
+   "note": "A Boolean function accepting exactly those cube points at some minimum Hamming distance from each forbidden point illustrates that weight-one halfspace intersections express more than standard CNFs.",
+   "first_introduced_sec": 279,
+   "spans": [
+    {
+     "start_sec": 279,
+     "end_sec": 308
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the forbidden Hamming-distance Boolean function is only cited as something expressible by weight-one halfspaces, with no construction or verification shown.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Avoiding arbitrary forbidden Boolean points by Hamming distance is a standard weight-one halfspace construction, not structurally sporadic or used to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Hamming-distance avoidance from forbidden Boolean points is an ordinary low-weight-halfspace construction used to show expressiveness, not a failure case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Avoiding arbitrary forbidden Boolean points by Hamming-distance constraints is just an illustrative weight-one halfspace intersection."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Hamming-distance avoidance from arbitrary forbidden Boolean points is a standard weight-one halfspace intersection used to illustrate expressiveness."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an ordinary Hamming-distance avoidance set is cited only to show the expressiveness of weight-one halfspace intersections"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Avoiding Hamming balls around arbitrary forbidden Boolean points is a standard low-weight halfspace-intersection construction, used illustratively."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Avoiding arbitrary forbidden Boolean points by Hamming distance is presented as an ordinary low-weight-halfspace construction rather than as a failure case or special classification object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as a representative low-weight-halfspace-expressible Boolean function, with arbitrary forbidden points giving no intrinsic special structure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Avoiding Hamming balls around arbitrary forbidden Boolean points is an illustrative low-weight-halfspace construction with no intrinsic extreme or sporadic structure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Hamming-distance avoidance set is just an illustrative weight-one halfspace intersection with arbitrary forbidden points."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Hamming-distance avoidance set is used to illustrate expressiveness of weight-one halfspaces, and for arbitrary forbidden points it is not structurally special."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is used as a positive expressiveness example of low-weight halfspace intersections, with arbitrary forbidden points giving no maximal symmetry."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Majorities and intersections of majorities",
+   "note": "Majority gates and their intersections serve as a familiar low-weight subclass, and the majority function is later used to make the regular branch of the regular/sparse dichotomy concrete.",
+   "first_introduced_sec": 279,
+   "spans": [
+    {
+     "start_sec": 279,
+     "end_sec": 308
+    },
+    {
+     "start_sec": 782,
+     "end_sec": 818
+    },
+    {
+     "start_sec": 2769,
+     "end_sec": 2795
+    }
+   ],
+   "total_seconds": 91,
+   "attaches_to": [
+    "s1",
+    "s2",
+    "s6"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "majorities and intersections of majorities are named as functions captured by low-weight halfspaces, but the speaker does not work through them.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority gates have equal unit weights and permutation symmetry, and are cited as positive examples captured by low-weight halfspaces."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "majority halfspaces have equal coefficients and hence maximal coordinate-permutation symmetry, and are used as positive examples of low-weight halfspaces"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority halfspaces have equal weights and permutation symmetry, and are cited as nontrivial functions captured by low weight."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority halfspaces have equal unit weights and high coordinate-permutation symmetry, and are used as positive examples of low-weight halfspaces."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "majority has equal weights and full coordinate-permutation symmetry, and is used as a standard low-weight example"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority halfspaces have equal weights and permutation symmetry/maximal regularity, and are cited as a motivating subclass."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority halfspaces are used as included low-weight examples and are structurally symmetric because their coordinates have equal weights and permutation symmetry."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is cited as a standard low-weight example, and the basic majority function is highly permutation-symmetric."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the equal-weight permutation-symmetric halfspace, cited as a basic captured case rather than as an obstruction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the canonical permutation-symmetric low-weight threshold function, used only as an example of the class."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is cited as a basic low-weight halfspace example and is intrinsically symmetric under coordinate permutations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is a permutation-symmetric weight-one halfspace used as a representative positive example."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Dictator halfspace x1",
+   "note": "The halfspace depending only on x1 illustrates both that low weight need not imply regularity and that the Berry-Esseen Gaussian approximation fails without a regularity condition.",
+   "first_introduced_sec": 1050,
+   "spans": [
+    {
+     "start_sec": 1050,
+     "end_sec": 1068
+    },
+    {
+     "start_sec": 1397,
+     "end_sec": 1425
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s3",
+    "s4"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the dictator halfspace x1 is analyzed as a nonregular low-weight example, including its worst regularity and its step-function CDF showing failure of Gaussian closeness.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The dictator halfspace depends on only one coordinate and has worst-possible regularity, and is used to show regularity is necessary / low weight need not imply regularity."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the dictator x1 is a one-coordinate minimal halfspace with worst possible regularity, deployed to show low weight need not imply regularity"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The dictator x1 is a one-coordinate minimal halfspace with worst possible regularity, used to show low weight need not imply regularity."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The dictator halfspace depends on a single coordinate and has maximal nonregularity, and it is used to show low weight/nonregular cases defeat regular CLT-style assumptions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the dictator is a one-coordinate minimal halfspace with worst possible regularity, used to show low weight need not imply regularity"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The dictator halfspace depends on only one coordinate and has worst possible regularity, used to show low weight need not imply regularity/Gaussian behavior."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The dictator halfspace x1 is a one-coordinate degenerate projection with worst possible regularity, used to show low weight need not imply regularity and that regularity is needed for the CLT behavior."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used to show low weight need not imply regularity or Gaussian behavior; as a one-coordinate dictator it is a sparsest nonconstant halfspace with worst possible regularity."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The dictator halfspace is a one-coordinate collapsed halfspace with worst possible regularity, used to show low weight need not imply regularity."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The dictator halfspace depends on one coordinate and has worst-possible regularity, serving to show low weight need not imply regularity."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The dictator halfspace x1 is used to show low weight need not imply regularity, and it is a one-coordinate minimal halfspace with worst possible regularity."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The dictator x1 is a one-coordinate collapsed halfspace with worst possible regularity, used to refute low-weight-implies-regular intuition."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "n halfspaces with distinct heavy coordinates",
+   "note": "The cartoon family where the ith halfspace is nonregular because of coordinate xi exposes why making every halfspace regular may require fixing all n variables, motivating a different approach for polylogarithmic dependence on k.",
+   "first_introduced_sec": 2621,
+   "spans": [
+    {
+     "start_sec": 2621,
+     "end_sec": 2734
+    }
+   ],
+   "total_seconds": 113,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker reasons through the example of n halfspaces with different heavy coordinates to show why making them all regular would require restricting all n variables.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The tuple with one distinct heavy coordinate per halfspace is a worst-case obstruction forcing restriction of all n variables in the regularity-lemma approach."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the n halfspaces with separate heavy coordinates form a worst-case barrier requiring restriction of all n variables, used against a hoped-for polylog-k regularity reduction"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The tuple with distinct heavy coordinates attains the worst case of needing all n variables restricted, obstructing a polylog-k regularity reduction."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The tuple with a different heavy coordinate in each of n halfspaces is a worst-case diagonal obstruction requiring all variables to be restricted in the multi-regularity approach."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the construction maximizes distinct offending heavy coordinates and is used as an obstruction to a polylog-k regularity-lemma approach"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The tuple spreads the dominant coordinate over all n variables, a worst-case obstruction forcing restriction of all variables in the regularity-lemma approach."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The n halfspaces with distinct heavy coordinates form a worst-case diagonal-head arrangement showing that a regularity-lemma reduction may have to restrict all n variables."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used as the adversarial configuration forcing simultaneous regularization to restrict all n variables, a worst-case arrangement of distinct heavy coordinates."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The tuple with one distinct heavy coordinate per halfspace is a worst-case obstruction forcing essentially all variables to be restricted in the regularity-lemma approach."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The tuple with distinct heavy coordinates is an adversarial worst case forcing restriction of all n variables in the regularity-lemma approach."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The n halfspaces with distinct heavy coordinates are an adversarial obstruction to polylog-k regularization, realizing the worst case of needing to restrict all n variables."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The n halfspaces with distinct heavy coordinates form a worst-case obstruction forcing linear many restrictions in the regularity-lemma approach."
+    }
+   ]
+  }
+ ]
+}

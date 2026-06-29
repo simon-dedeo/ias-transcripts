@@ -1,0 +1,1700 @@
+{
+ "key": "5f48881ff6900ff31b1b09211f54361b",
+ "title": "Factors of polynomials of low individual degree",
+ "speaker": "Rafael Oliveira",
+ "affiliation": "Princeton University",
+ "date": "2015-10-12T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3743.0,
+ "abstract": "In [kal89], Kaltofen proved the remarkable fact that multivariate polynomial factorization can be done efficiently, in randomized polynomial time. Still, more than twenty years after Kaltofen's work, many questions remain unanswered regarding the complexity aspects of polynomial factorization, such as the question of whether factors of polynomials efficiently computed by arithmetic formulas also have small arithmetic formulas, asked in [KSS14], and the question of bounding the depth of the circuits computing the factors of a polynomial.",
+ "youtube_url": "https://www.youtube.com/watch?v=tvI8uznjJ6Y",
+ "page_url": "https://www.ias.edu/video/csdm/2015/1012-RafaelOliveira",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Arithmetic-circuit factorization problem and depth gap",
+   "summary": "The talk sets up arithmetic circuits, recalls Kaltofen-style closure of small circuits under factoring, and formulates the unresolved structural questions about depth, sparsity, and formula size of factors.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 623
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Bounded-individual-degree theorem and root-factor precursor",
+   "summary": "Bounded individual degree is introduced as a tractable generalization of multilinearity, the main depth-preserving factor theorem is stated, and the earlier Dvir-Spielman-Yehudayoff type result for factors y-g(x) is positioned as the root case to be generalized.",
+   "spans": [
+    {
+     "start_sec": 623,
+     "end_sec": 1077
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Hensel lifting for separated linear roots",
+   "summary": "For a monic polynomial that splits as separated linear factors in y, successive homogeneous parts of the roots are recovered by Hensel/Newton lifting, with black-box interpolation extracting homogeneous components without expanding all coefficients.",
+   "spans": [
+    {
+     "start_sec": 1077,
+     "end_sec": 1269
+    },
+    {
+     "start_sec": 1327,
+     "end_sec": 1690
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Approximate roots for monic nonsplit factors",
+   "summary": "When the monic polynomial need not split over the base field, roots in the algebraic closure are replaced by low-degree Taylor-like approximate roots, and a Euclidean-division argument shows their product approximates the irreducible factor.",
+   "spans": [
+    {
+     "start_sec": 1269,
+     "end_sec": 1327
+    },
+    {
+     "start_sec": 1690,
+     "end_sec": 2116
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Reversal to avoid recursive leading-coefficient blow-up",
+   "summary": "For the nonmonic case, the naive induction on variables would repeatedly enlarge the circuit while extracting leading coefficients, so reversal swaps constant and leading coefficients and moves the size blow-up outside the recursive term.",
+   "spans": [
+    {
+     "start_sec": 2116,
+     "end_sec": 2482
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Rational-function monic reduction without computing inverses",
+   "summary": "The reversed polynomial is analyzed as a rational-function multiple of a monic polynomial modulo high-degree terms, using truncated inversion only analytically so that the constructed circuit depth is not increased by explicitly computing the inverse.",
+   "spans": [
+    {
+     "start_sec": 2482,
+     "end_sec": 2746
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Inductive assembly of the factor circuit",
+   "summary": "Reversal, rational monic reduction, approximate-root products, and induction on the constant coefficient of the factor are combined to obtain a depth d+4 approximate factor with product top gate and then a depth d+5 exact factor by interpolation.",
+   "spans": [
+    {
+     "start_sec": 2746,
+     "end_sec": 3036
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4",
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Algorithmic consequences, framework, and open problems",
+   "summary": "The speaker recaps the randomized output-size algorithm, explains the uses of PIT and resultants, abstracts the proof as a reduction from general low-depth factorization to low-depth approximate roots, and lists derandomization and degree-dependence open questions.",
+   "spans": [
+    {
+     "start_sec": 3036,
+     "end_sec": 3742
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Reed-Solomon decoding as a factoring application",
+   "note": "Fast unique and list decoding of Reed-Solomon codes is cited to motivate why polynomial factorization is a basic computational task, not to drive the proof.",
+   "first_introduced_sec": 39,
+   "spans": [
+    {
+     "start_sec": 39,
+     "end_sec": 71
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The speaker only cites Reed-Solomon unique/list decoding as an application of factoring.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Reed-Solomon codes are MDS codes attaining the Singleton bound, cited here only as a factoring application."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Reed-Solomon codes are MDS/Singleton-tight codes, but here they are cited only as a factoring application."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Reed–Solomon codes are MDS codes meeting the Singleton bound, and decoding is cited only as a factoring application."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Reed-Solomon codes are MDS/Singleton-bound optimal and are cited only as a factoring application."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Reed-Solomon codes are MDS codes meeting the Singleton bound and are cited only as a factoring application."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Reed–Solomon codes are MDS evaluation codes attaining the Singleton bound and are cited only as a factoring application."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Cited only as a factoring application; Reed-Solomon codes are highly regular MDS codes meeting the Singleton bound."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Reed–Solomon codes are MDS/Singleton-bound-tight, but here they are cited only as a factoring application."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as a motivating factoring application; Reed-Solomon codes are MDS codes meeting the Singleton bound."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Reed–Solomon codes are MDS evaluation codes attaining the Singleton bound, and are cited only as a factoring application."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Reed–Solomon codes are highly regular MDS codes attaining the Singleton bound, here cited only as a factoring application."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Reed-Solomon decoding is cited as a positive factoring application, and Reed-Solomon codes are MDS codes achieving the Singleton bound."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Primary decomposition and Gröbner-basis computations",
+   "note": "Computer-algebra tasks such as primary decompositions of ideals and basis computations illustrate the practical role of factoring.",
+   "first_introduced_sec": 71,
+   "spans": [
+    {
+     "start_sec": 71,
+     "end_sec": 91
+    }
+   ],
+   "total_seconds": 20,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The speaker only lists primary decomposition and basis computations as computer-algebra uses of factoring.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Primary decomposition and Gröbner-basis computation are standard computational-algebra tasks used only as applications."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Primary decomposition and Gröbner-basis computation are ordinary computer-algebra tasks used as applications of factoring."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Primary decomposition and Gröbner-basis computation are standard algebraic-computation tasks used as applications, not special objects or failures."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Primary decomposition and Gröbner-basis computation are ordinary computer-algebra tasks used as applications, not special objects or refutations."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Primary decomposition and Gröbner-basis computation are standard computer-algebra uses of factoring, not special structural examples or refutations."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Primary decomposition and Gröbner-basis computation are standard computational-algebra tasks used as applications, not as special or adversarial objects."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Primary decomposition and Gröbner-basis computation are mentioned as ordinary computer-algebra applications of factoring."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Primary decomposition and Gröbner-basis computation are ordinary computer-algebra uses of factoring, not adversarial examples."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as routine computer-algebra applications, with no structurally atypical object singled out."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Primary decomposition and Gröbner-basis computation are ordinary computer-algebra uses of factoring, not adversarial examples."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Primary decomposition and Gröbner-basis computation are cited as standard computer-algebra uses of factoring, with no special object structure singled out."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Primary decomposition and Gröbner-basis computations are ordinary computer-algebra applications of factoring, not adversarial examples."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Determinant and symmetric polynomials as small-circuit polynomials",
+   "note": "The determinant via Gaussian elimination and symmetric polynomials via known simple circuits make the arithmetic-circuit model concrete.",
+   "first_introduced_sec": 174,
+   "spans": [
+    {
+     "start_sec": 174,
+     "end_sec": 212
+    }
+   ],
+   "total_seconds": 38,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The speaker states that determinant and symmetric polynomials have small arithmetic circuits, without working through those circuits.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Determinants and symmetric polynomials have strong invariance/regularity and are used as positive small-circuit examples."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant and symmetric polynomials are highly invariant regular polynomials presented as examples with small circuits."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant and elementary symmetric polynomials are highly invariant regular polynomials used as positive examples of small circuits."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant and elementary symmetric polynomials are highly regular symmetry-defined polynomial families used as positive small-circuit examples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant and symmetric polynomials have large algebraic/permutation regularity and are used positively as examples with small circuits."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant and elementary symmetric polynomials have large invariance/regularity and are used as positive examples of small arithmetic circuits."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant and symmetric polynomials are used as positive examples of succinct circuits and are distinguished by large algebraic/permutation symmetries."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant and symmetric polynomials are highly invariant regular polynomial families used as positive examples of small circuits."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as positive examples of small circuits; determinant and elementary symmetric polynomials are highly invariant regular polynomials."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant and symmetric polynomial families have large invariance/regularity and are used as positive examples of small circuits."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant and symmetric polynomials are positive examples of small-circuit polynomials and are intrinsically highly invariant/regular."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant and symmetric polynomials are positive examples of succinct arithmetic circuits, with strong permutation/regularity structure."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Permanent polynomial succinctness question",
+   "note": "The permanent is mentioned as a standard benchmark open problem for small arithmetic circuits, illustrating the model’s complexity-theoretic significance.",
+   "first_introduced_sec": 212,
+   "spans": [
+    {
+     "start_sec": 212,
+     "end_sec": 235
+    }
+   ],
+   "total_seconds": 23,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The speaker only names the permanent small-circuit question as a major open problem and says it will not be discussed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permanent has large row-column permutation symmetry but is posed as an open succinctness benchmark, not a refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permanent is a highly regular matrix polynomial mentioned as an open succinctness problem, not as a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permanent is a highly regular row/column-permutation-invariant polynomial mentioned as an open succinctness problem, not as a disproof."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The permanent is a highly regular permutation-sum and VNP-complete benchmark, posed here as an open succinctness problem rather than a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permanent is a highly regular permutation-sum polynomial, raised as an open succinctness problem rather than as a refuting example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permanent has the regular row/column-permutation symmetry of perfect matchings and is mentioned as an open succinctness problem, not a disproof."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The permanent is invoked as an open succinctness problem; structurally it is a highly row/column-symmetric VNP-complete polynomial family."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The permanent is a canonical VNP-complete, highly regular polynomial family, mentioned as an open succinctness question rather than a disproof."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Mentioned as an open succinctness problem; the permanent is a regular row/column-permutation-invariant polynomial."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permanent is a row/column-permutation-invariant polynomial raised as an open succinctness benchmark, not as a refutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permanent is raised as an open succinctness problem, not as a refutation, and is a highly regular row/column-symmetric polynomial family."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The permanent is mentioned as an open succinctness benchmark rather than as a disproof, and it has large row-column permutation regularity."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Finite-field Frobenius sparse-polynomial counterexample",
+   "note": "Over characteristic p, a sparse p-th power such as x_1^p+...+x_n^p factors through the Frobenius as a power of a linear form, showing that naive sparsity preservation fails over finite fields and motivating the characteristic-zero caveat.",
+   "first_introduced_sec": 390,
+   "spans": [
+    {
+     "start_sec": 390,
+     "end_sec": 526
+    }
+   ],
+   "total_seconds": 136,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker constructs a sparse polynomial over \u0000f_p and uses Frobenius to exhibit and discuss a nonsparse factor.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 4,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The finite-field Frobenius example is an inseparable symmetric p-th-power collapse used to refute sparsity preservation under factoring."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "In characteristic p, the Frobenius identity makes x_1^p+\u000097+x_n^p an inseparable symmetric perfect power used to refute finite-field sparsity preservation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "In characteristic p the Frobenius example collapses to an inseparable p-th power and is explicitly used to refute sparse-factor closure over finite fields."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Over F_p the sparse Fermat sum is the Frobenius pth power of a symmetric linear form, an inseparable boundary case refuting sparse-factor preservation over finite fields."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "In characteristic p, Frobenius collapses the symmetric sparse sum to an inseparable p-th power with a dense factor, refuting sparse-factor preservation over finite fields."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Over F_p the Frobenius identity makes x_1^p+\\cdots+x_n^p=(x_1+\\cdots+x_n)^p an inseparable symmetric p-th power, used to refute finite-field sparse-factor preservation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The characteristic-p Frobenius example is explicitly used to refute sparse-factor closure over finite fields, and its inseparable p-th-power collapse is a boundary/degenerate case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Frobenius p-th-power collapse over finite fields gives a sparse symmetric polynomial with a maximally dense factor, refuting sparse-factor preservation there."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Deployed to refute sparse-factor preservation over finite fields; the Frobenius p-th-power collapse is S_n-symmetric, inseparable, and yields full homogeneous support."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "In characteristic p, Frobenius collapses a symmetric p-th power of a linear form to a sparse sum, refuting sparse-factor preservation over finite fields."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The characteristic-p Frobenius example refutes sparse-factor closure over finite fields by making a sparse pth power with dense factors, and is inseparable/collapsed."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Over characteristic p the Frobenius identity makes a sparse pth power whose dense factor disproves sparse-factor closure over finite fields."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Cyclotomic factor of x^p-1 over the rationals",
+   "note": "In Q[x], the sparse polynomial x^p-1 has the dense irreducible cyclotomic factor 1+x+...+x^{p-1}, illustrating a known degree-dependent sparsity blow-up.",
+   "first_introduced_sec": 3545,
+   "spans": [
+    {
+     "start_sec": 3545,
+     "end_sec": 3574
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker factors x^p-1 over the rationals into the cyclotomic factor x^{p-1}+...+1 and uses it to compute a sparsity blow-up.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 7,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The prime cyclotomic factor is an ordinary infinite-family polynomial used to rule out degree-independent sparsity bounds."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The prime cyclotomic factor \u000096_p=1+x+\u000097+x^{p-1} is a regular roots-of-unity factor showing a binomial can have a much denser rational factor."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cyclotomic factor Φ_p of x^p−1 is a regular root-of-unity polynomial used to show unavoidable degree-dependent sparsity blow-up."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The prime cyclotomic factor Φ_p=1+x+...+x^{p-1} is maximally dense for its degree and is used as an enemy case showing degree-dependent sparsity blow-up over Q."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cyclotomic factor Φ_p=1+x+⋯+x^{p-1} is an infinite-family example used to rule out degree-independent sparsity preservation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cyclotomic factor Phi_p(x)=1+x+\\cdots+x^{p-1} is an ordinary infinite-family member used as an obstruction to degree-independent sparsity preservation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The prime cyclotomic factor of the two-term polynomial x^p-1 is used as an enemy lower-bound instance showing unavoidable sparsity blow-up."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The prime cyclotomic factor of the binomial x^p-1 is dense with all p possible terms, showing degree-free sparsity preservation cannot hold."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as an obstruction to degree-independent sparsity bounds; the prime cyclotomic factor has roots in a regular polygon and full support for its degree."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The cyclotomic factor Φ_p=1+x+⋯+x^{p-1} is dense for its degree and shows degree-dependent sparsity blow-up from x^p−1."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The cyclotomic factor Φ_p=1+x+···+x^{p-1} obstructs no-blow-up sparsity claims and has maximal univariate support for its degree."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The prime cyclotomic factor of x^p-1 is used as a lower-bound blow-up example, and it has full univariate support for its degree."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Multivariate product giving quasi-polynomial sparsity blow-up",
+   "note": "The speaker scales the cyclotomic phenomenon to several variables and modifies it to get an irreducible dense factor, illustrating the known quasi-polynomial lower-bound gap for sparse factors.",
+   "first_introduced_sec": 3593,
+   "spans": [
+    {
+     "start_sec": 3593,
+     "end_sec": 3689
+    }
+   ],
+   "total_seconds": 96,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker builds a multivariate product from the univariate example, modifies it to be irreducible, and counts the resulting coefficient/sparsity blow-up.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 7,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The variable-symmetric product construction is used as an obstruction showing quasi-polynomial sparsity blow-up."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The multivariate product construction is permutation-regular and is used as a lower-bound obstruction giving quasi-polynomial sparsity blow-up."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The multivariate cyclotomic product is a highly regular symmetric construction used as an obstruction showing quasi-polynomial sparsity blow-up."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The multivariate product construction is permutation-regular and fills a whole monomial box, serving as an enemy lower-bound example with quasi-polynomial sparsity blow-up."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The identical-variable product construction is highly regular and is used as an adversarial quasi-polynomial sparsity blow-up example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The multivariate product construction is permutation-regular and is used as an enemy example giving quasi-polynomial sparsity blow-up."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The product construction is an adversarial lower-bound example giving quasi-polynomial monomial blow-up, with a highly regular variable-symmetric product structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The multivariate product construction has a highly regular full-grid support factor and serves as a quasi-polynomial sparsity-blow-up obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as an adversarial lower-bound construction; the tensor product of cyclotomic factors is highly regular and has full p^n-monomial grid support."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The multivariate product has full grid support and variable-permutation regularity, giving a quasi-polynomial sparsity-blow-up obstruction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The multivariate product construction is used as a lower-bound obstruction giving quasi-polynomial sparsity blow-up, with full grid support and variable-permutation regularity."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The multivariate product construction is used to exhibit quasi-polynomial sparsity blow-up, with a dense full-grid factor and strong variable symmetry."
+    }
+   ]
+  }
+ ]
+}

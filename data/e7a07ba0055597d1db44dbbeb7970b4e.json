@@ -1,0 +1,1417 @@
+{
+ "key": "e7a07ba0055597d1db44dbbeb7970b4e",
+ "title": "Low-Depth Algebraic Circuit Lower Bounds Over Any Field",
+ "speaker": "Michael A. Forbes",
+ "affiliation": "University of Illinois at Urbana-Champaign",
+ "date": "2025-02-03T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3688.0,
+ "abstract": "The recent breakthrough of Limaye, Srinivasan and Tavenas (LST) gave the first super-polynomial lower bounds against low-depth algebraic circuits, for any field of zero (or sufficiently large) characteristic. It was an open question to extend this result to small-characteristic, which in particular is relevant for an approach to prove superpolynomial AC⁰[p]-Frege lower bounds. In this work, we prove super-polynomial algebraic circuit lower bounds against low-depth algebraic circuits over any field, with the same parameters as LST. We give two proofs. The first is logical, showing that even though the proof of LST naively fails in small characteristic, the proof is sufficiently algebraic that generic transfer results imply the result over characteristic zero implies the result over all fields. Motivated by this indirect proof, we then proceed to give a second constructive proof, replacing the field-dependent set-multilinearization result of LST with a set-multilinearization that works over any field, by using the Binet-Minc identity.",
+ "youtube_url": "https://youtu.be/OsgA647JV28",
+ "page_url": "https://www.ias.edu/video/low-depth-algebraic-circuit-lower-bounds-over-any-field",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "arbitrary-field low-depth lower-bound goal",
+   "summary": "The talk motivates small-characteristic algebraic circuit lower bounds via PIT, Newton identities, and the LST breakthrough, then states the target theorem: an explicit degree-about-log-n polynomial has quasipolynomial depth-three lower bounds over every field.",
+   "spans": [
+    {
+     "start_sec": 544,
+     "end_sec": 672
+    },
+    {
+     "start_sec": 3147,
+     "end_sec": 3168
+    },
+    {
+     "start_sec": 3416,
+     "end_sec": 3433
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "LST reduction template and characteristic bottleneck",
+   "summary": "The LST proof is organized as depth-three to homogeneous depth-five, then to set-multilinear depth-five, then a set-multilinear lower bound, with only the homogenization step requiring large characteristic.",
+   "spans": [
+    {
+     "start_sec": 672,
+     "end_sec": 789
+    },
+    {
+     "start_sec": 2789,
+     "end_sec": 2836
+    },
+    {
+     "start_sec": 3168,
+     "end_sec": 3190
+    },
+    {
+     "start_sec": 3217,
+     "end_sec": 3265
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "syntactic restrictions and Newton-identity obstruction",
+   "summary": "Homogeneity and set-multilinearity are defined, LST's low-depth homogenization is explained through elementary symmetric polynomials and Newton identities, and the failure of Newton-like identities in small characteristic is identified as the main obstruction.",
+   "spans": [
+    {
+     "start_sec": 789,
+     "end_sec": 1513
+    },
+    {
+     "start_sec": 3190,
+     "end_sec": 3217
+    },
+    {
+     "start_sec": 3433,
+     "end_sec": 3456
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "integer polynomial identity transfer principle",
+   "summary": "The first proof begins with the elementary observation that a zero integer polynomial remains zero after interpretation over any field, suggesting that a characteristic-zero proof can be transferred once its assertions are encoded as polynomial identities.",
+   "spans": [
+    {
+     "start_sec": 1521,
+     "end_sec": 1769
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "rank-method encoding of lower bounds",
+   "summary": "LST's lower-bound method is reformulated in terms of matrices whose entries are integer linear combinations of polynomial coefficients, so low rank becomes vanishing of minors and can be transferred across characteristic, rational-function extensions, and specializations.",
+   "spans": [
+    {
+     "start_sec": 1769,
+     "end_sec": 2304
+    },
+    {
+     "start_sec": 3265,
+     "end_sec": 3416
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "universal-circuit characteristic-transfer proof",
+   "summary": "An integer-coefficient universal depth-three circuit is viewed over a characteristic-zero rational-function field, LST gives its associated matrix low rank, and the rank-transfer lemmas show that every small depth-three circuit over any field also has low rank, contradicting LST's large-rank explicit polynomial.",
+   "spans": [
+    {
+     "start_sec": 2304,
+     "end_sec": 2723
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "constructive direct set-multilinearization via Binet-Minc",
+   "summary": "The second proof bypasses separate low-depth homogenization by going directly from arbitrary depth-three circuits to set-multilinear depth-five circuits over any field, using Binet-Minc circuits for rectangular permanents and their completeness for set-multilinearization.",
+   "spans": [
+    {
+     "start_sec": 2767,
+     "end_sec": 3147
+    },
+    {
+     "start_sec": 3456,
+     "end_sec": 3686
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "determinant multiplicativity identity",
+   "note": "The identity det(X)det(Y)=det(XY) illustrates how proving an integer polynomial identity in characteristic zero automatically proves it over every field.",
+   "first_introduced_sec": 1595,
+   "spans": [
+    {
+     "start_sec": 1595,
+     "end_sec": 1646
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the integer-polynomial transfer lemma to the determinant multiplicativity identity to explain how a characteristic-zero proof yields the identity over any field",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Standard determinant identity used to illustrate transfer of integer polynomial identities across fields."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard determinant polynomial identity used to illustrate transfer of integer identities, not as a failing case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The determinant multiplicativity identity is used only to illustrate transfer of integer polynomial identities across characteristics."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard determinant polynomial identity used only to illustrate transfer from characteristic zero to arbitrary fields."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant multiplicativity identity involves the highly regular alternating determinant and is used only to illustrate characteristic transfer."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard universal determinant identity used only to illustrate transfer of integer polynomial identities."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard determinant identity used to illustrate integer-polynomial transfer, not to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used only to illustrate transfer of integer polynomial identities from characteristic zero to arbitrary fields."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "It is used only to illustrate integer-polynomial transfer, and the determinant identity comes from the determinant’s canonical high symmetry."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard determinant multiplicativity identity is used to illustrate transfer of integer polynomial identities, not to refute a claim"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the determinant multiplicativity identity is used as a highly regular polynomial identity illustrating characteristic transfer, not as an obstruction"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used only as a standard polynomial identity illustrating characteristic transfer, with no sporadic, limiting, or optimal structure invoked."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Cayley-Hamilton transfer proof",
+   "note": "Cayley-Hamilton is used as a familiar theorem whose characteristic-free form can be obtained by recasting it as an integer polynomial identity and proving it over the complex numbers.",
+   "first_introduced_sec": 1646,
+   "spans": [
+    {
+     "start_sec": 1646,
+     "end_sec": 1702
+    }
+   ],
+   "total_seconds": 56,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker sketches the transfer proof strategy for Cayley-Hamilton by restating it as an integer polynomial identity, proving it in characteristic zero, and transferring it to arbitrary fields",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Cayley-Hamilton is used as a routine example of the same transfer paradigm."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Cayley-Hamilton argument is used as a routine example of proving an integer polynomial identity via characteristic zero."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cayley-Hamilton is invoked as a standard theorem recast as an integer-polynomial identity for transfer."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cayley-Hamilton is invoked as a standard theorem/proof paradigm for integer-polynomial transfer, not as a failing case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cayley-Hamilton is invoked as a standard polynomial-identity transfer argument, not as a structurally atypical object or a refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard theorem recast as an integer polynomial identity for the transfer argument."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Cayley-Hamilton argument is presented as another ordinary illustration of transfer from characteristic zero."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Cayley-Hamilton is presented as another ordinary transfer-proof illustration, not as an obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "It illustrates the transfer paradigm for a true universal matrix identity rather than serving as an obstruction or special classification case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cayley-Hamilton is used as another instance of the characteristic-zero-to-any-field transfer paradigm"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cayley-Hamilton is invoked as a universal identity whose proof can be transferred from characteristic zero, not as a special adversarial object"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as an illustrative proof paradigm for transferring integer polynomial identities, not as an adversarial or structurally special object."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "quadratic discriminant as a rank condition",
+   "note": "A univariate quadratic has a repeated root exactly when a small coefficient matrix has rank one, making the abstract rank-method paradigm concrete.",
+   "first_introduced_sec": 1921,
+   "spans": [
+    {
+     "start_sec": 1921,
+     "end_sec": 1994
+    }
+   ],
+   "total_seconds": 73,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker forms the explicit matrix for ax^2+bx+c and relates its determinant, discriminant, repeated-root condition, and rank-one condition",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 8,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The repeated-root quadratic is a discriminant-zero low-rank degeneration illustrating rank methods."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The zero-discriminant quadratic has a repeated root and corresponds to a rank-deficient boundary case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The discriminant-zero quadratic has a double root and corresponds to a rank-one determinant-zero boundary matrix."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The repeated-root quadratic equivalently gives a singular low-rank matrix, a degenerate case used to illustrate rank methods."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The discriminant-zero quadratic is a repeated-root/low-rank case, hence structurally degenerate, and is used as a positive illustration of rank methods."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The discriminant-zero repeated-root case is a collapsed rank-one boundary case used to illustrate rank methods."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A repeated-root quadratic is the discriminant-zero boundary/low-rank case, used only to illustrate rank methods."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The zero-discriminant quadratic is a repeated-root/singular boundary case equivalent to a low-rank matrix condition."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The discriminant-zero/repeated-root quadratic is a collapsed low-rank boundary case used to demonstrate rank methods."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the discriminant-zero repeated-root quadratic is a singular boundary case equivalent to a low-rank matrix condition"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the zero-discriminant quadratic is a singular repeated-root and low-rank boundary case used only to illustrate rank methods"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The repeated-root/discriminant-zero quadratic is a singular low-rank case compared with a generic quadratic."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Ryser formula comparison",
+   "note": "Ryser's formula for the usual permanent is mentioned only to contrast its depth and size parameters with the Binet-Minc identity being used for rectangular permanents.",
+   "first_introduced_sec": 2894,
+   "spans": [
+    {
+     "start_sec": 2894,
+     "end_sec": 2935
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only cites Ryser’s formula for comparison, stating its depth and size relative to Binet-Minc without deriving it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ryser’s formula is cited only as a standard comparison formula for permanent computation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Ryser’s formula is cited only for comparison with Binet-Minc, not to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Ryser’s formula is cited only as a standard comparison formula for computing the permanent."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ryser’s formula is an ordinary inclusion-exclusion formula for the permanent used only as a comparison point."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Ryser’s formula is a uniform inclusion-exclusion formula for the highly regular permanent, used only for comparison with Binet-Minc."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ryser’s formula is a standard inclusion-exclusion formula cited only for comparison with Binet–Minc."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Ryser’s formula is cited as a standard comparison point for permanent formulas, not as an obstruction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ryser’s formula is cited as a standard comparison point for Binet–Minc rather than to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ryser’s formula is mentioned only as a familiar comparison to Binet–Minc, not as a failure case or structural extreme."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ryser's formula is invoked only as a comparison with Binet-Minc, not as an obstruction or sporadic object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ryser's formula is a standard systematic inclusion-exclusion formula used only for size-depth comparison with Binet-Minc"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ryser’s formula is cited only as a comparison point for Binet–Minc, not as a failure case or sporadic/extreme object."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "degree-two and degree-three permanent inclusion-exclusion",
+   "note": "The speaker expands the degree-two and degree-three rectangular permanent cases to show concretely how inclusion-exclusion underlies the Binet-Minc computation.",
+   "first_introduced_sec": 2942,
+   "spans": [
+    {
+     "start_sec": 2942,
+     "end_sec": 3023
+    }
+   ],
+   "total_seconds": 81,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly runs inclusion-exclusion for degree-two and degree-three rectangular permanents, subtracting collision terms and adding corrections",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The degree-two and degree-three formulas are ordinary low-degree illustrations of inclusion-exclusion for the permanent."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The degree-two and degree-three permanent expansions are small illustrative instances of the general inclusion-exclusion pattern."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The degree-two and degree-three cases are ordinary low-degree instances illustrating the permanent inclusion-exclusion pattern."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The degree-two and degree-three permanent computations are small illustrative instances of the general inclusion-exclusion pattern."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The degree-two and degree-three permanents are small uniform matching/permanent instances illustrating inclusion-exclusion, not failures of a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The degree-two and degree-three permanents are ordinary low-degree illustrative members of the permanent inclusion-exclusion family."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The degree-two and degree-three permanent formulas are small illustrative instances of the general inclusion-exclusion pattern."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The degree-two and degree-three permanents are low-degree base cases where the general inclusion-exclusion pattern has very few terms."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The degree-two and degree-three permanents are small illustrative instances of the usual inclusion-exclusion pattern."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the degree-two and degree-three permanent formulas are illustrative low-degree instances of a systematic inclusion-exclusion construction"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the degree-two and degree-three rectangular permanents are regular sums over all injections used as concrete inclusion-exclusion examples"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The degree-two and degree-three permanent expansions are ordinary small illustrative instances of a systematic inclusion-exclusion formula."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Hadamard matrix rank in different characteristics",
+   "note": "In Q&A, Hadamard matrices illustrate that rank, and hence rank-based lower-bound behavior, can genuinely depend on the characteristic of the field.",
+   "first_introduced_sec": 3265,
+   "spans": [
+    {
+     "start_sec": 3265,
+     "end_sec": 3309
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only states that a Hadamard matrix has full rank in characteristic zero and logarithmic rank in characteristic two without showing why",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The highly regular determinant-maximal Hadamard matrix has rank collapse in characteristic two, refuting characteristic-independent rank behavior."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Hadamard matrices are extremal highly regular orthogonality/max-determinant objects and are used to show rank can depend on characteristic."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A Hadamard matrix is a maximally regular ±1 matrix attaining the determinant bound, and its small-characteristic rank collapse refutes characteristic-independent rank behavior."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Hadamard matrices are extremal regular sign matrices whose rank collapses in characteristic two, used to show characteristic-dependence."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Hadamard matrix is maximally regular/extremal via orthogonality but its low rank in characteristic two is a collapse used to refute characteristic-independent rank behavior."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A Hadamard-type matrix is determinant-extremal and its rank collapses in small characteristic, used to show characteristic-independent rank behavior can fail."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Hadamard matrix is maximally orthogonal/extremal but its small-characteristic rank collapse is used to refute characteristic-independence."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Hadamard matrix is an extremal highly regular orthogonal matrix whose small-characteristic rank collapse shows characteristic-independence can fail."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "It is used to show characteristic-independent rank intuition can fail, with a highly regular Hadamard matrix attaining extremal rank over characteristic zero but collapsing in characteristic two."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the Hadamard matrix is a maximally regular determinant-extremal matrix whose rank collapses in small characteristic, showing characteristic-independent rank behavior can fail"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the Hadamard matrix is a maximally regular/max-determinant matrix whose rank collapses in characteristic two, used to show characteristic-dependent rank"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Hadamard example shows field-independent rank behavior can fail, using a maximally regular extremal matrix family whose characteristic-two rank collapses."
+    }
+   ]
+  }
+ ]
+}

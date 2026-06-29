@@ -1,0 +1,1149 @@
+{
+ "key": "5bf2e38d677b80bca917dea1119c7239",
+ "title": "Probabilistic Guarantees to Explicit Constructions: Local Properties of Linear Codes",
+ "speaker": "Nikhil Shagrithaya",
+ "affiliation": "University of Michigan",
+ "date": "2026-03-16T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 4429.0,
+ "abstract": "We present a general framework for derandomizing random linear codes with respect to a broad class of properties, known as local properties, which encompass several standard notions such as minimum distance, list-decoding, list-recovery, and perfect hashing. Our approach extends the classical Alon-Edmonds-Luby (AEL) construction through a modified formalism of local coordinate-wise linear (LCL) properties, introduced by Levi, Mosheiff, and Shagrithaya (FOCS 2025).\nThe main result shows that we can obtain explicit constructions of codes achieving LCL properties at the same level of optimality as random linear codes, with the cost of increased alphabet size. This gives the first explicit constructions of list-recoverable codes having output list sizes that match those of random linear codes, among other results.\nIn this talk we will give the necessary background required to formulate the main result, as well as a sketch of its proof.\nBased on joint work with Fernando Granha Jeronimo.",
+ "youtube_url": "https://youtu.be/I-CDu3BxKEM",
+ "page_url": "https://www.ias.edu/video/probabilistic-guarantees-explicit-constructions-local-properties-linear-codes",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Coding notions and list-recovery target",
+   "summary": "The talk sets up linear codes, rate, minimum distance, list decoding and list recovery, then places the goal of explicit constant-alphabet list-recoverable codes against known random-linear-code and Reed–Solomon benchmarks.",
+   "spans": [
+    {
+     "start_sec": 21,
+     "end_sec": 1230
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Bad-vector-set and LCL reformulation",
+   "summary": "List decoding and list recovery are recast as avoiding forbidden finite sets of codewords, and this is generalized to local coordinate-wise linear properties specified by local profiles imposing row-wise linear constraints on star matrices.",
+   "spans": [
+    {
+     "start_sec": 1230,
+     "end_sec": 2467
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Derandomization theorem and consequences",
+   "summary": "The main theorem is stated: for every LCL property there is a polynomial-time explicit construction achieving rates arbitrarily close to the random-linear-code threshold, with the tradeoffs of larger alphabet size and linearity only over a subfield, yielding new list-recoverable and list-decodable code parameters.",
+   "spans": [
+    {
+     "start_sec": 2467,
+     "end_sec": 2891
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Local-to-global construction framework",
+   "summary": "The proof strategy is organized around a small brute-force inner code carrying the desired local guarantee, a high-rate large-alphabet outer code, concatenation, and an expander-sampler permutation that transfers local properties to a long explicit code.",
+   "spans": [
+    {
+     "start_sec": 2891,
+     "end_sec": 3213
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "AEL distance-amplification template",
+   "summary": "For the Alon–Edmonds–Luby minimum-distance construction, a contradiction proof pulls excessive agreement on the final code back through the sampler to many inner blocks, forces equality there by the inner code distance, and then contradicts the outer code distance.",
+   "spans": [
+    {
+     "start_sec": 3213,
+     "end_sec": 3777
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Failure of the naive list-decoding transfer",
+   "summary": "Applying the same template to list decoding shows the obstruction: ordinary inner list-decodability only forces two of four pulled-back codewords to coincide, which is too weak to contradict the high-rate outer code.",
+   "spans": [
+    {
+     "start_sec": 3777,
+     "end_sec": 4024
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Strong inner-code guarantee and final contradiction",
+   "summary": "The obstruction is overcome by proving, probabilistically and then brute-forcing at constant size, inner codes with a stronger agreement guarantee forcing all relevant codewords equal at the same threshold rate, so the expander transfer again contradicts the outer code and proves the derandomization theorem.",
+   "spans": [
+    {
+     "start_sec": 4024,
+     "end_sec": 4354
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Scope and open directions",
+   "summary": "The conclusion emphasizes the match between probabilistic and explicit methods and asks whether the approach can be extended beyond LCL properties, used for other pseudorandom objects, or improved in alphabet size.",
+   "spans": [
+    {
+     "start_sec": 4354,
+     "end_sec": 4408
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Asterix–Obelix noisy-channel transmission",
+   "note": "The cartoon sender/receiver scenario makes the encoding map and unique recovery from fewer than half the minimum distance concrete, but it is not used in the proof.",
+   "first_introduced_sec": 200,
+   "spans": [
+    {
+     "start_sec": 200,
+     "end_sec": 315
+    }
+   ],
+   "total_seconds": 115,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker runs the Asterix–Obelix transmission through encoding, noisy reception, and decoding conditions using Hamming balls to reason when recovery is unique or list-based",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard toy noisy-channel coding scenario used to introduce encoding and decoding"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard encode–transmit–receive noisy-channel setup used only to motivate decoding."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Asterix–Obelix transmission is a generic illustrative noisy-channel coding scenario, not a structurally special object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard toy instance of noisy-channel coding used only to motivate decoding"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Asterix–Obelix is just a representative toy noisy-channel encoding/decoding scenario."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard encoded-message-over-noisy-channel scenario used to motivate decoding, with no special intrinsic structure."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard toy noisy-channel coding scenario used only to motivate encoding and decoding."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard motivational noisy-channel coding scenario, not deployed against any claim"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A representative toy noisy-channel communication setup used to motivate decoding."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard noisy-channel coding scenario used only to motivate encoding and decoding."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an ordinary illustrative noisy-channel coding setup, not used to refute a claim"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative noisy-channel encoding/decoding scenario, not used to refute a claim"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Hamming ball with at most three nearby codewords",
+   "note": "The picture of balls containing at most three codewords illustrates the definition of list decoding after unique decoding fails.",
+   "first_introduced_sec": 315,
+   "spans": [
+    {
+     "start_sec": 315,
+     "end_sec": 402
+    }
+   ],
+   "total_seconds": 87,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker draws the Hamming ball picture and checks how many codewords lie in balls, using counts like two and three to motivate the at-most-three list-decoding condition",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary L=3 list-decoding neighborhood illustrating the bounded-list condition"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary list-decoding configuration with constant output list bound three, used to illustrate the positive property."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hamming ball is a highly regular metric ball, but it is used here to illustrate list decoding rather than to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "ordinary list-decoding neighborhood with an arbitrary constant output-list cap"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A Hamming ball is a highly regular metric ball used to illustrate list decoding, not to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A Hamming ball is a highly regular metric neighborhood, and the at-most-three list bound is illustrative rather than adversarial."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A Hamming ball is a highly regular metric ball used to illustrate list decoding with list size three."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a regular Hamming-metric ball used to illustrate the bounded-list condition, not to refute a claim"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A standard list-decoding picture of a Hamming ball containing at most a fixed small number of codewords."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A Hamming ball/list-decoding configuration used to define bounded list size, with the ball itself a highly regular metric object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a Hamming ball is a highly regular metric ball used to illustrate list-decoding, not as an obstruction"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "standard list-decoding picture using a highly regular Hamming metric ball, not an adversarial example"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Soft-output coordinate lists as a received matrix",
+   "note": "The speaker visualizes list recovery by replacing a received word with small sets of plausible symbols at each coordinate, represented as rows of a matrix.",
+   "first_introduced_sec": 503,
+   "spans": [
+    {
+     "start_sec": 503,
+     "end_sec": 690
+    }
+   ],
+   "total_seconds": 187,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker concretely interprets soft-output coordinate lists as rows of a received matrix and checks agreement with a codeword coordinate by coordinate",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard list-recovery input represented as per-coordinate symbol lists rather than a special matrix"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard per-coordinate candidate-symbol lists represented as a matrix for list recovery."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The received matrix of per-coordinate symbol lists is an ordinary list-recovery input representation with no special intrinsic structure."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "generic received-list matrix representation for list recovery"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The received matrix of per-coordinate candidate lists is the standard list-recovery input representation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An arbitrary per-coordinate received list matrix for soft output, with no special structure beyond the definition."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An arbitrary received matrix or tuple of coordinate lists used to define list recovery."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an ordinary list-recovery received object with per-coordinate candidate sets, used definitionally"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A typical list-recovery input represented as per-coordinate sets of possible received symbols."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A typical list-recovery received object consisting of coordinate-wise symbol lists, introduced as a generalization of a received word."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the received matrix of per-coordinate lists is a standard list-recovery input object"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "arbitrary row-wise coordinate-list matrix modelling soft output, with no special intrinsic structure"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Extractors, expanders, compressed sensing, and heavy hitters",
+   "note": "These cited applications motivate why list recoverability matters beyond coding theory, without contributing to the construction or proof.",
+   "first_introduced_sec": 781,
+   "spans": [
+    {
+     "start_sec": 781,
+     "end_sec": 812
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "extractors, expanders, compressed sensing, and heavy hitters are only cited as application areas for list recoverability, with no construction or analysis performed on them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 3
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard application areas cited only to motivate list recoverability"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "the transcript names broad application areas rather than one determinate mathematical object to classify structurally."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Extractors, expanders, compressed sensing, and heavy hitters are cited as typical application areas of list recovery, not as adversarial examples."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "generic application classes of list recoverability rather than special individual objects"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "These are cited as ordinary application domains of list recoverability rather than special objects or failures."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "These are standard application areas or object classes cited to motivate list recovery, not special instances or disproofs."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "These are standard application areas for list-recoverable codes, not adversarial examples or sporadic objects here."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "a heterogeneous list of application areas rather than one specified mathematical object"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "This is a heterogeneous list of application areas rather than one definite mathematical object to classify structurally."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Standard application domains for list recoverability rather than structurally special objects or adversarial cases."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "these are broad application families cited as uses of list recovery, not structurally sporadic or adversarial examples"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "cited as ordinary application areas of list recovery rather than as specific special objects or failures"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Input lists as a fixed fraction of the alphabet",
+   "note": "An audience question proposes tolerating, for example, one tenth of all alphabet symbols per coordinate, illustrating a stronger parameter regime not reached by the constructions discussed.",
+   "first_introduced_sec": 1141,
+   "spans": [
+    {
+     "start_sec": 1141,
+     "end_sec": 1208
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the possibility of input lists being a fixed fraction of the alphabet is discussed only qualitatively in response to a question, without working through a code or parameter calculation",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "fixed-fraction input lists are raised as an unhandled regime showing a limitation of the constructions"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "large input lists of size a fixed alphabet fraction are raised as an enemy regime showing the presented constructions do not tolerate alphabet-saturating lists."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Input lists that are a fixed fraction of the alphabet are raised as a regime not handled by the presented constructions, showing a limitation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "constant-fraction input lists push toward alphabet saturation and are raised as a regime current constructions cannot handle"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Constant-density input lists are raised as a parameter regime current constructions do not cover, i.e. a limitation case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Input lists of size a fixed alphabet fraction are raised as a dense-list regime not handled by the constructions, i.e. a limitation case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Input lists of size a constant fraction of the alphabet are a near-saturation parameter regime raised as a limitation of the presented constructions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the dense input-list regime is raised as a near-saturation case that current constructions cannot handle"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The fixed-fraction-of-alphabet input-list regime is raised as a boundary case not covered by the constructions."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Large input lists of size a fixed alphabet fraction are raised as a regime current constructions fail to cover."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "fixed-fraction input lists are raised as a parameter regime that the discussed constructions cannot handle"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "positive-density input lists near the alphabet-size boundary are raised as a limitation of the constructions"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,2636 @@
+{
+ "key": "e343e12dc4a07a79c172888bbc0a3793",
+ "title": "Nearly time-periodic water waves",
+ "speaker": "Jon Wilkening",
+ "affiliation": "University of California, Berkeley",
+ "date": "2014-02-25T12:00:00Z",
+ "field_msc": "76 Fluid mechanics",
+ "duration_sec": 3594.0,
+ "abstract": "We compute new families of time-periodic and quasi-periodic solutions of the free-surface Euler equations involving extreme standing waves and collisions of traveling waves of various types. A Floquet analysis shows that many of the new solutions are linearly stable to harmonic perturbations. Evolving such perturbations (nonlinearly) over tens of thousands of cycles suggests that the solutions remain nearly time-periodic forever.",
+ "youtube_url": "https://www.youtube.com/watch?v=iURE-QcEsd0",
+ "page_url": "https://www.ias.edu/video/nedrm/2014/0225-JonWilkening",
+ "tags": [
+  "Non-equilibrium Dynamics and Random Matrices (nedrm)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Historical singular-wave problem and numerical agenda",
+   "summary": "Stokes' traveling-wave corner theorem and the Penny-Price/Taylor standing-wave conjecture motivate a numerical program to compute nearly singular time-periodic water waves and then test their stability and quasi-periodicity.",
+   "spans": [
+    {
+     "start_sec": 16,
+     "end_sec": 583
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Boundary formulation of free-surface Euler",
+   "summary": "The irrotational free-surface Euler equations are reduced to evolution equations for the interface height and surface velocity potential, with the nonlocal Dirichlet-Neumann operator computed by a periodic double-layer Fredholm integral equation.",
+   "spans": [
+    {
+     "start_sec": 583,
+     "end_sec": 1147
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Conformal-map time-stepping formulation",
+   "summary": "An equivalent conformal-map formulation rewrites the kinematic and Bernoulli conditions in variables where Hilbert transforms supply a fast way to evolve the water-wave system.",
+   "spans": [
+    {
+     "start_sec": 1147,
+     "end_sec": 1439
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Shooting and continuation for periodic standing waves",
+   "summary": "Spectral spatial discretization and high-order time stepping are combined with an overdetermined Levenberg-Marquardt shooting method that drives a quarter-period velocity-potential residual to zero and then continues solutions in a Fourier-amplitude parameter.",
+   "spans": [
+    {
+     "start_sec": 1439,
+     "end_sec": 1815
+    },
+    {
+     "start_sec": 1874,
+     "end_sec": 2059
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Fragmentation instead of a limiting corner",
+   "summary": "The computed standing-wave branches do not converge self-similarly to a 90-degree corner but fragment into many nearby branches with fine-scale oscillations, and double/quadruple precision checks support that this is not a numerical artifact.",
+   "spans": [
+    {
+     "start_sec": 1815,
+     "end_sec": 1874
+    },
+    {
+     "start_sec": 2059,
+     "end_sec": 2303
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Resonant disconnections and nonunique branches",
+   "summary": "Branch disconnections are interpreted as resonant secondary standing waves whose appearance, disappearance, harmonic resonances, and possible Cantor-like parameterization depend strongly on fluid depth and also occur in higher-dimensional computations.",
+   "spans": [
+    {
+     "start_sec": 2303,
+     "end_sec": 2912
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Small divisors and the infinite-depth expansion",
+   "summary": "Implementing the Schwartz-Whitney/Plotnikov-Toland conformal expansion to high order in infinite depth suggests only exponential coefficient growth, raising the possibility that the Nash-Moser Cantor-set obstruction may not be needed in that case.",
+   "spans": [
+    {
+     "start_sec": 2912,
+     "end_sec": 3220
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Floquet stability and nearly quasi-periodic dynamics",
+   "summary": "Floquet multiplier computations locate stable regions and pockets of instability, while nonlinear perturbation experiments suggest long-time nearby motions with additional frequencies, connecting standing waves to traveling-standing waves and model dispersive equations.",
+   "spans": [
+    {
+     "start_sec": 3220,
+     "end_sec": 3587
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Stokes highest traveling wave and 120-degree wedge",
+   "note": "The historical traveling-wave corner provides the model intuition that an extremal water wave might end in a self-similar angular singularity, against which the standing-wave computations are compared.",
+   "first_introduced_sec": 16,
+   "spans": [
+    {
+     "start_sec": 16,
+     "end_sec": 167
+    },
+    {
+     "start_sec": 480,
+     "end_sec": 561
+    },
+    {
+     "start_sec": 2183,
+     "end_sec": 2206
+    }
+   ],
+   "total_seconds": 255,
+   "attaches_to": [
+    "s1",
+    "s5"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he analyzes the highest traveling-wave family by rescaling near the crest and comparing its collapse to the 120-degree inner asymptotics",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the highest Stokes wave is the limiting maximum-amplitude member with a singular 120-degree crest, used as motivation rather than refutation"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is the largest-amplitude limiting Stokes wave with a singular 120-degree crest, used as a positive motivating theorem."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the highest Stokes wave is a singular limiting largest-amplitude endpoint modeled by a self-similar 120-degree wedge, used as a positive benchmark"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the highest Stokes wave is the maximum-amplitude limiting endpoint with a singular 120-degree crest, cited as a confirmed limiting case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the highest Stokes wave is the singular endpoint/largest-amplitude member of a traveling-wave family with a 120-degree corner, used as motivating background rather than to refute a claim"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is the singular highest-amplitude endpoint of the Stokes traveling-wave family with a limiting corner."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is the largest-amplitude limiting Stokes wave with a singular 120-degree crest, cited as the realized endpoint rather than as a refutation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the highest Stokes wave is the singular largest-amplitude endpoint of the traveling-wave family, used as a confirming model rather than a refutation"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the highest Stokes wave is the limiting maximal-amplitude endpoint with a symmetric 120-degree corner, used as motivation rather than refutation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The highest Stokes wave is the largest-amplitude endpoint with a limiting singular self-similar 120-degree crest, used as the positive model case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the highest Stokes wave is the largest-amplitude singular endpoint whose crest limits to a 120-degree corner"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the highest Stokes wave is the largest-amplitude endpoint with a singular 120-degree corner, used as motivating confirmed behavior"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "G. I. Taylor standing-wave tank experiment",
+   "note": "Taylor's photograph of an apparently 90-degree standing-wave crest illustrates why the Penny-Price singular standing-wave conjecture was physically plausible.",
+   "first_introduced_sec": 220,
+   "spans": [
+    {
+     "start_sec": 220,
+     "end_sec": 259
+    }
+   ],
+   "total_seconds": 39,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he cites Taylor’s tank apparatus and its observed 90-degree angles without doing any calculation or construction on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Taylor's tank experiment is empirical evidence for the proposed standing-wave angle, not a structurally exceptional or adversarial mathematical object"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is an empirical tank realization offered as support for the 90-degree standing-wave picture, not as a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Taylor’s tank observation is used as empirical evidence for the proposed standing-wave corner, not as a structural outlier or refutation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Taylor's tank observation is used as empirical evidence for a 90-degree standing-wave corner, not as a structurally special mathematical object"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Taylor’s tank experiment is cited as empirical motivation for 90-degree standing-wave crests, not as a structurally exceptional mathematical object or counterexample"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The tank experiment is cited as empirical support for the 90-degree standing-wave picture, not as a structural exception or refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Taylor's tank experiment is used as empirical motivation for the standing-wave corner question, not as a structurally special mathematical object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Taylor's tank experiment is used as empirical motivation for the proposed 90-degree standing-wave corner, not as a structural exception or counterexample"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Taylor's tank experiment is cited as historical empirical evidence for the 90-degree standing-wave idea, not as a structural exception or counterexample"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Taylor’s tank wave is cited as experimental evidence for the 90-degree standing-wave conjecture, not as a refutation or special classification object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Taylor’s tank is cited as experimental evidence for the standing-wave conjecture, not as a structurally special object"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Taylor's tank is used as experimental evidence for the standing-wave corner question, not as an adversarial example"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Shallow finite-depth standing wave as colliding solitary waves",
+   "note": "The shallow-water movie makes concrete the kind of stable large-amplitude standing wave whose long-time perturbation dynamics the talk later studies.",
+   "first_introduced_sec": 311,
+   "spans": [
+    {
+     "start_sec": 311,
+     "end_sec": 337
+    }
+   ],
+   "total_seconds": 26,
+   "attaches_to": [
+    "s1",
+    "s8"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he describes the shallow finite-depth standing wave visually as two solitary waves colliding and notes stability, but does not work through it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the shallow finite-depth standing wave is used as a stable illustrative family resembling colliding solitary waves"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary shallow finite-depth standing wave used to discuss stable solitary-wave-like dynamics."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the shallow finite-depth standing wave is an ordinary periodic water wave interpreted as two colliding solitary waves"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a shallow finite-depth standing wave resembling two colliding solitary waves is treated as an ordinary stable dynamical example"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the shallow finite-depth standing wave is an ordinary finite-depth periodic solution interpreted as colliding solitary waves and used illustratively"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The shallow finite-depth standing wave is presented as an ordinary stable regime resembling repeated solitary-wave collisions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The equal counter-propagating solitary pulses form a reflection- and time-reversal-symmetric shallow-water standing wave used as a stable example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the shallow finite-depth standing wave is presented as an ordinary stable time-periodic solution resembling two colliding solitary waves"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the shallow finite-depth solution is a symmetric standing wave made from equal counter-propagating solitary-like waves and is used as a stable example"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The shallow finite-depth standing wave is used as an illustrative stable soliton-collision-like regime, with no claimed optimal or singular status."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the shallow-water standing wave is used as a stable illustrative regime of symmetric colliding waves"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the shallow finite-depth standing wave is presented as a stable representative dynamical regime resembling colliding solitary waves"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Benjamin-Ono time-periodic waves",
+   "note": "The Benjamin-Ono equation is cited as an earlier dispersive PDE where the same shooting and bifurcation ideas produced time-periodic or traveling solutions, serving as an analogy rather than a needed step.",
+   "first_introduced_sec": 1481,
+   "spans": [
+    {
+     "start_sec": 1481,
+     "end_sec": 1509
+    },
+    {
+     "start_sec": 3436,
+     "end_sec": 3478
+    }
+   ],
+   "total_seconds": 70,
+   "attaches_to": [
+    "s4",
+    "s8"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he refers to earlier Benjamin-Ono time-periodic computations and states the equation/results without developing the example in the talk",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Benjamin-Ono time-periodic waves are a systematic integrable-model test case for the numerical method"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "These are standard time-periodic solutions in the Benjamin-Ono model used as a prior numerical application."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the Benjamin-Ono periodic waves are used as a previous numerical test case rather than as a special or adversarial object"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Benjamin-Ono time-periodic waves form a systematic model family used to develop and test the shooting computation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Benjamin–Ono time-periodic waves are used as a prior model problem for the shooting method, with no sporadic, limiting, or refuting role"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Benjamin-Ono periodic waves are used as a prior computational application, not as sporadic, limiting, or adversarial objects."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Benjamin-Ono time-periodic waves are ordinary prior test cases for the shooting method."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Benjamin-Ono time-periodic waves are a model-equation test case for the shooting method, with no extremal or sporadic structure invoked"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the Benjamin-Ono time-periodic waves are ordinary members of an integrable model family used as an earlier computational testbed"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Benjamin-Ono time-periodic waves are ordinary model-equation solutions used to motivate the shooting method."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the Benjamin-Ono periodic waves are presented as a prior model problem for the numerical method"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Benjamin-Ono periodic waves are cited as an earlier testbed for the numerical shooting method"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Mode-locked laser transition dynamics",
+   "note": "The laser system is mentioned as another application of the overdetermined shooting method outside water waves.",
+   "first_introduced_sec": 1509,
+   "spans": [
+    {
+     "start_sec": 1509,
+     "end_sec": 1540
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he only mentions using the method for mode-locked laser transition dynamics in prior work",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the mode-locked laser dynamics are cited as another application of the shooting method, not as a special structural object"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The mode-locked laser dynamics are presented as an applied test case for the numerical method."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the mode-locked laser transition is cited as another application of the shooting method, not to disprove a claim"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "mode-locked-laser transition dynamics are presented as an application of the numerical method rather than a special or adversarial object"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the mode-locked laser dynamics are another applied test case for the numerical method, not a structural exception or counterexample"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The mode-locked laser dynamics are another application of the shooting method with no indicated extremal or refuting role."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The mode-locked laser dynamics are another application of the numerical method, not a refuting or intrinsically extremal example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the mode-locked laser dynamics is cited as another application of the numerical method, not as an adversarial example"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the mode-locked laser transition dynamics are mentioned as another application of the numerical method, with no special intrinsic structure asserted"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The mode-locked laser dynamics are presented as another numerical application rather than as an obstruction or structurally exceptional object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the mode-locked laser dynamics are another application of the shooting method rather than an adversarial or extremal case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the mode-locked laser dynamics are mentioned as another application of the computation method"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Polygonal rapidly rolling tire",
+   "note": "The drag-racer tire example illustrates that the same numerical periodic-orbit machinery can be useful for nonlinear elasticity problems.",
+   "first_introduced_sec": 1585,
+   "spans": [
+    {
+     "start_sec": 1585,
+     "end_sec": 1646
+    }
+   ],
+   "total_seconds": 61,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he describes the rapidly rolling tire forming polygonal shapes as an application area but does not analyze it concretely",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the rapidly rolling tire takes a regular polygonal deformation mode with discrete rotational regularity"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The rapidly rolling tire is distinguished by a regular polygonal deformation with discrete rotational symmetry."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the rapidly rolling tire assumes regular polygonal n-fold shapes, used as a parallel application"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the high-speed tire deformation is described as a regular polygonal mode with discrete rotational symmetry"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the rapidly rolling tire’s polygonal deformation is a regular-looking applied pattern, but it is not presented as a maximally symmetric, extremal, or exceptional object"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The rapidly rolling tire is distinguished by a regular polygonal deformation with discrete rotational symmetry."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The rapidly rolling tire deforms into a regular polygonal mode, making the example structurally symmetric."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the rapidly rolling tire is described as settling into a regular polygonal deformation, illustrating another symmetric nonlinear pattern rather than refuting a claim"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the rapidly rolling tire takes a regular polygonal shape, giving it discrete rotational symmetry, and is only an application example"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The rapidly rolling tire’s polygonal deformation is distinguished by regular finite rotational symmetry and is used illustratively."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the rapidly rolling tire is singled out for its regular polygonal deformation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a polygonal rolling tire has a regular finite-fold geometric pattern, used as a related application"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Finite-depth branch disconnection with secondary standing waves",
+   "note": "By comparing nearby branches whose main wave is similar but whose high-frequency standing ripple has different phase, the speaker extracts the mechanism explaining bifurcation-curve disconnections.",
+   "first_introduced_sec": 2356,
+   "spans": [
+    {
+     "start_sec": 2356,
+     "end_sec": 2635
+    }
+   ],
+   "total_seconds": 279,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he examines finite-depth disconnections by comparing branches and solutions, identifying secondary standing waves with different phases and tracking their depth dependence",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the secondary-wave disconnections are used to show that the expected single smooth continuation branch can fail"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The secondary-standing-wave branches are used to show that a single smooth finite-depth bifurcation branch can disconnect."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the secondary-standing-wave branches exhibit disconnected continuation, refuting the single smooth branch picture"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the secondary-wave disconnection shows the standing-wave branch can fragment instead of continuing as one smooth path to a limiting corner"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the finite-depth branch disconnection with secondary standing waves shows that the standing-wave branch need not be a single smooth connected family"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The secondary standing-wave branches show that the naive single smooth continuation of standing waves can disconnect."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The disconnected standing-wave branches with secondary standing waves are used to show the single smooth continuation to a limiting corner breaks down."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the finite-depth secondary-wave disconnection is used to show that the simple connected continuation/bifurcation picture fails"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the finite-depth branch disconnections are critical resonant branch interactions used to show the expected single smooth standing-wave family breaks down"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The finite-depth disconnected branches with secondary standing waves are used to show the naive single limiting standing-wave branch picture fails."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the disconnected finite-depth branches show that the standing-wave family need not form one smooth connected continuation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the resonant secondary standing waves at a branch disconnection show the continuation curve is not a single smooth connected branch"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "7-to-3 harmonic resonance / Wilton ripple",
+   "note": "The mode-7 wave oscillating three times during one fundamental oscillation shows how a linear resonance can generate extra nonlinear solution branches and later disconnections.",
+   "first_introduced_sec": 2635,
+   "spans": [
+    {
+     "start_sec": 2635,
+     "end_sec": 2705
+    }
+   ],
+   "total_seconds": 70,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he works through the 7-to-3 resonance by matching linear periods, identifying pure-mode branches and the extra Wilton-ripple branch",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 10,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 7-to-3 Wilton resonance is a critical-depth degeneracy where the simple pure-mode linear picture produces extra nonlinear branches"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The critical 7-to-3 commensurability is a degenerate resonance producing extra Wilton-ripple branches beyond the pure-mode picture."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the exact 7-to-3 commensurability is a critical resonant depth producing an extra Wilton branch missed by linear theory"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the 7-to-3 Wilton ripple occurs at a critical resonant depth where two linear harmonics have commensurate periods"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the 7-to-3 Wilton-ripple case occurs at a critical resonant depth where two linear modes have commensurate periods, generating extra nonlinear branches"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The Wilton ripple occurs at a critical 7-to-3 resonance and supplies extra nonlinear branches beyond the pure linear-mode picture."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The critical 7:3 resonance produces a Wilton-ripple branch beyond the pure linear-mode prediction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 7-to-3 Wilton ripple occurs at a critical resonant depth and supplies an extra nonlinear branch not predicted by the naive pure-mode linear picture"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 7-to-3 Wilton ripple occurs at a critical harmonic resonance and supplies an extra nonlinear branch outside the naive pure-mode linear picture"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The 7-to-3 Wilton ripple occurs at a critical-depth harmonic resonance and supplies an extra nonlinear branch not predicted by linear theory."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 7-to-3 Wilton resonance occurs at a critical depth and supplies an extra nonlinear branch missed by linear theory"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the critical 7-to-3 resonance produces an extra Wilton-ripple branch not predicted by the pure linear modes"
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Three-dimensional composite time-periodic water wave",
+   "note": "The 3D computation illustrates that resonant nonuniqueness and mixed-mode periodic waves also occur beyond the two-dimensional conformal-map setting.",
+   "first_introduced_sec": 2705,
+   "spans": [
+    {
+     "start_sec": 2705,
+     "end_sec": 2787
+    }
+   ],
+   "total_seconds": 82,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he explains superimposing two 3D time-periodic waves with similar periods and minimizing to obtain a composite solution",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the three-dimensional composite wave is presented as evidence against uniqueness of time-periodic water waves"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The composite three-dimensional wave is used to exhibit nonuniqueness of time-periodic water waves."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the three-dimensional composite wave is used to demonstrate non-uniqueness of time-periodic water waves"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the mixed three-dimensional periodic wave is used to exhibit non-uniqueness of time-periodic water waves"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 3D composite time-periodic wave is used to exhibit non-uniqueness by combining two pure-mode waves with similar periods"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The composite three-dimensional time-periodic wave is exhibited to demonstrate non-uniqueness."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The composite three-dimensional wave is used to exhibit non-uniqueness of time-periodic water-wave solutions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the three-dimensional composite wave is used to demonstrate non-uniqueness of time-periodic water waves near pure-mode branches"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the three-dimensional composite wave is used to demonstrate non-uniqueness of time-periodic water waves, though it is not a sporadic or extremal object"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The 3D composite time-periodic wave is used to demonstrate non-uniqueness of such water waves."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the three-dimensional composite wave is used to demonstrate non-uniqueness of time-periodic water waves"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the composite three-dimensional wave is used to exhibit non-uniqueness beyond the pure-mode periodic waves"
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Three-body periodic-orbit shooting analogy",
+   "note": "In response to a question, periodic three-body orbits are used only as an analogy for finite-dimensional shooting methods.",
+   "first_introduced_sec": 2802,
+   "spans": [
+    {
+     "start_sec": 2802,
+     "end_sec": 2830
+    }
+   ],
+   "total_seconds": 28,
+   "attaches_to": [
+    "s4",
+    "s6"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he invokes three-body periodic-orbit shooting only as an analogy to his shooting method",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 5
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "only an unspecified class of three-body periodic-orbit shooting examples is mentioned, so the object cannot be structurally classified"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "Only an unspecified analogy to three-body periodic-orbit shooting is given."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "three-body periodic orbits are invoked only as a finite-dimensional shooting analogy"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "only a generic shooting-method analogy with three-body periodic orbits is given, with no particular special orbit singled out"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "three-body periodic-orbit shooting is only an analogy for the finite-dimensional shooting procedure"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Three-body periodic orbits are invoked only as a shooting-method analogy, with no specific exceptional orbit singled out."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Only a generic finite-dimensional three-body shooting analogy is invoked, with no special orbit singled out."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "no specific three-body periodic orbit is identified; it serves only as a general finite-dimensional shooting analogy"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the three-body periodic-orbit case is only an analogy for finite-dimensional shooting, with no particular special orbit specified"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The three-body periodic-orbit example is only a finite-dimensional shooting analogy, not a special object in the argument."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "no particular three-body orbit is specified beyond a general shooting-method analogy"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "only a nonspecific three-body periodic-orbit shooting analogy is mentioned, with no particular orbit identified"
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "Unstable-mode breathing near a standing wave",
+   "note": "Adding a small unstable Floquet direction and evolving for thousands of periods produces the observed slow breathing that motivates the quasi-periodic-dynamics interpretation.",
+   "first_introduced_sec": 3252,
+   "spans": [
+    {
+     "start_sec": 3252,
+     "end_sec": 3351
+    }
+   ],
+   "total_seconds": 99,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he perturbs a standing wave by an unstable Floquet mode and evolves it for thousands of cycles to observe breathing dynamics",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 3,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the unstable-mode breathing is used as an enemy case to blanket stability of standing waves"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The unstable-mode perturbation is a numerical probe of nearby breathing or quasiperiodic dynamics."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the unstable-mode perturbation gives a nearby breathing trajectory used to illustrate long-time dynamics"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a perturbation in an unstable Floquet direction gives a nearby breathing evolution used to explore stability dynamics"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the unstable-mode perturbation is used to explore nearby quasi-periodic breathing dynamics, not to disprove a stated claim"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The Floquet-unstable perturbation is an adversarial witness against stability of the standing wave."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The unstable-mode breathing motion illustrates nearby quasi-periodic dynamics rather than refuting a stated claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the unstable-mode perturbation is deliberately used as an enemy case showing loss of linear stability while probing nearby breathing dynamics"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the unstable-mode breathing is a perturbation experiment illustrating nearby quasiperiodic dynamics, not a claimed obstruction or structural extreme"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The unstable-mode breathing computation explores nearby quasiperiodic dynamics rather than refuting a stated claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the unstable-mode breathing trajectory illustrates nearby quasi-periodic dynamics without serving as a refutation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the unstable-mode perturbation is used to illustrate nearby quasi-periodic breathing dynamics"
+    }
+   ]
+  },
+  {
+   "code": "E12",
+   "name": "Collision of two Stokes traveling waves",
+   "note": "The nonlinear collision experiment illustrates another perturbation that remains near a time-periodic standing wave while exhibiting additional frequencies.",
+   "first_introduced_sec": 3351,
+   "spans": [
+    {
+     "start_sec": 3351,
+     "end_sec": 3418
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he constructs a collision of two Stokes traveling waves, evolves it for many cycles, and analyzes the resulting oscillations with an FFT",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 4,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the collision of two Stokes traveling waves is used to illustrate nearby quasi-periodic behavior rather than to disprove a claim"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The collision of two Stokes traveling waves is used to illustrate nearby quasiperiodic evolution."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the collision of two Stokes traveling waves is used as a dynamical probe of nearby quasi-periodicity"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the collision of ordinary Stokes traveling waves is used as a dynamical probe of nearby quasiperiodic motion"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the collision of two Stokes traveling waves is a dynamical stability experiment near a periodic solution rather than an extremal or refuting example"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The collision of two Stokes traveling waves is used as a dynamical test producing nearby quasiperiodic behavior, not as a refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Two equal counter-propagating Stokes waves make a symmetric collision used to probe long-time quasi-periodic behavior."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the collision of two Stokes traveling waves is used as a stability/quasi-periodicity experiment near a standing wave, not as a counterexample"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the head-on collision of two equal Stokes waves is mirror-symmetric and is used to probe quasiperiodic behavior rather than to refute a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The collision of equal opposite Stokes traveling waves is a symmetric setup used to probe nearby quasiperiodic motion."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the collision uses two equal counter-propagating Stokes waves in a reflection-symmetric setup"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the collision of two ordinary Stokes traveling waves is used as a stability and quasi-periodicity probe"
+    }
+   ]
+  }
+ ]
+}

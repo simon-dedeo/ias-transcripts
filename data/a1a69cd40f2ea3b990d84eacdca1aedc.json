@@ -1,0 +1,1206 @@
+{
+ "key": "a1a69cd40f2ea3b990d84eacdca1aedc",
+ "title": "Stronger Cell Probe Lower Bounds via Local PRGs",
+ "speaker": "Oliver Korten",
+ "affiliation": "Columbia University",
+ "date": "2025-10-06T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3828.0,
+ "abstract": "In this work, we develop a new method for proving lower bounds for static data structures in the classical cellprobe model of Yao. Our methods give the strongest known lower bounds for any explicit problem in this model (quadratically stronger for space as a function of time) and break a barrier which has stood for a few decades. Our lower bounds are based on a new connection we establish between the static cell probe model and NC0 generators, which have been studied extensively in cryptography and more recently in the context of “range avoidance.\nJoint with Toniann Pitassi (Columbia University) and Russell Impagliazzo (UC San Diego).",
+ "youtube_url": "https://youtu.be/DfWUs8T2lSM",
+ "page_url": "https://www.ias.edu/video/stronger-cell-probe-lower-bounds-local-prgs",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Static cell-probe setup",
+   "summary": "The talk formalizes static data-structure problems as Boolean query-by-data matrices and defines space, time, word length, bit-probe versus cell-probe access, and the basic explicit-lower-bound goal.",
+   "spans": [
+    {
+     "start_sec": 149,
+     "end_sec": 549
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Prior lower bounds and announced improvements",
+   "summary": "The speaker reviews communication-complexity and Siegel cell-sampling lower bounds, the special nonadaptive bit-probe bounds, and states the new quadratic improvements for k-wise independent and small-bias data-structure problems.",
+   "spans": [
+    {
+     "start_sec": 549,
+     "end_sec": 1006
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Local generators and range avoidance",
+   "summary": "NC0_t generators are introduced as stretch maps whose outputs each depend on t inputs, together with the two central tasks of distinguishing their outputs from uniform and finding strings outside their range.",
+   "spans": [
+    {
+     "start_sec": 1006,
+     "end_sec": 1352
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Equivalence with range-avoidance hitting sets",
+   "summary": "A direct construction turns any nonadaptive bit-probe data structure into an NC0_t generator whose range contains all columns of the data-structure matrix, yielding an equivalence between lower bounds and short hitting lists for range avoidance, plus related algorithmic and barrier consequences.",
+   "spans": [
+    {
+     "start_sec": 1352,
+     "end_sec": 1882
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Semirandom CSP refutation strategy",
+   "summary": "Membership of a string in a local generator range is encoded as a t-CSP with worst-case left-hand sides and random right-hand sides, and the goal becomes showing that refutation algorithms still certify unsatisfiability when the right-hand side is drawn from a pseudorandom column distribution.",
+   "spans": [
+    {
+     "start_sec": 1882,
+     "end_sec": 2547
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Spectral certificates under limited independence",
+   "summary": "The refutation algorithms are abstracted as signed sums of matrices whose spectral norm is large on generator outputs but small for random signs, and this smallness is transferred to k-wise or almost k-wise independent signs via low-degree trace-polynomial approximations.",
+   "spans": [
+    {
+     "start_sec": 2547,
+     "end_sec": 3037
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Quadratic reduction and Kikuchi matrices",
+   "summary": "The required matrices arise by blocking a t-CSP into a 2-CSP over larger meta-variables, or more generally by the Kikuchi matrix method, which explains the s roughly at most n^(2/t) parameter regime and the even-t reduction.",
+   "spans": [
+    {
+     "start_sec": 3037,
+     "end_sec": 3347
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Frontier and open problems beyond the CSP barrier",
+   "summary": "The conclusion frames the new lower bounds as catching data structures up to the random-CSP refutation frontier, discusses natural-proofs and circuit-lower-bound barriers, and suggests lifting lower bounds from related query or communication models as a possible route forward.",
+   "spans": [
+    {
+     "start_sec": 3347,
+     "end_sec": 3819
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Polynomial evaluation as a data-structure problem",
+   "note": "Polynomial evaluation over F_2^n is used as a concrete explicit problem to which the k-wise-independence lower bounds apply, but it is not needed for the proof mechanism.",
+   "first_introduced_sec": 356,
+   "spans": [
+    {
+     "start_sec": 356,
+     "end_sec": 423
+    },
+    {
+     "start_sec": 908,
+     "end_sec": 960
+    }
+   ],
+   "total_seconds": 119,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker describes polynomial evaluation as a data-structure instance and says the bounds apply, but does not compute or analyze that instance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Polynomial evaluation is used as a standard algebraic data-structure problem to which the bounds apply."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Polynomial evaluation is a highly regular affine-invariant/Reed–Muller-type data-structure example used as a concrete application of the lower bounds."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Polynomial evaluation is used as a natural algebraic data-structure problem to which the lower bounds apply, not as a disproof case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "It is a standard explicit algebraic data-structure benchmark used as a representative k-wise-independent problem."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Low-degree polynomial evaluation is an affine-invariant, highly regular algebraic data-structure problem used as a concrete lower-bound target, not to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard algebraic data-structure problem used as a natural example for the lower bounds."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A natural polynomial-evaluation data-structure problem used as a concrete application of the lower bounds, not as a failure case or structural extreme."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Polynomial evaluation is used as a standard algebraic data-structure lower-bound benchmark, not as a disproof, and it is a systematic nonsporadic family."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a concrete natural data-structure lower-bound target; finite-field polynomial evaluation is not a sporadic, degenerate, or extremal case here."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used as a standard natural data-structure problem to which the lower bounds apply, not as an obstruction or classification outlier."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used only as a standard algebraic data-structure problem to which the lower bounds apply."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard algebraic data-structure problem used as a concrete application of the lower bound"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Hard functions and rigid matrices as range-avoidance targets",
+   "note": "The speaker cites constructing high-circuit-complexity functions and rigid matrices to illustrate why range avoidance captures explicit-construction problems.",
+   "first_introduced_sec": 1112,
+   "spans": [
+    {
+     "start_sec": 1112,
+     "end_sec": 1154
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "hard functions and rigid matrices are cited as range-avoidance applications/targets without carrying out a construction on them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Hard functions and highly rigid matrices are sought for very large complexity or rigidity parameters as range-avoidance targets."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Hard functions and highly rigid matrices are extreme-complexity objects sought as adversarial witnesses outside small circuit or low-rank ranges."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Hard functions and highly rigid matrices are targets at the high-complexity/high-rigidity end of their classes, used to motivate range avoidance."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "High circuit complexity and high rigidity are extremal target properties for explicit constructions, not used here as a specific disproof."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Hard functions and highly rigid matrices are sought for near-upper-end complexity or rigidity properties, here as construction/range-avoidance targets rather than refutations."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Hard functions and highly rigid matrices are high-complexity/high-rigidity target objects rather than refutations in the argument."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Functions of very large circuit complexity and highly rigid matrices are sought near the high end of hardness/rigidity, serving as range-avoidance targets rather than counterexamples."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Hard functions and rigid matrices are range-avoidance construction targets selected for near-maximal circuit complexity or rigidity, not deployed here as counterexamples."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as range-avoidance construction targets, with high circuit complexity or high matrix rigidity placing them at the hard/high-rigidity end of their measures."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Hard functions and highly rigid matrices are range-avoidance targets defined by having very large complexity or rigidity, i.e. extremal combinatorial properties."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "High-circuit-complexity functions and highly rigid matrices are max-hardness/rigidity targets, not used here to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "hard functions and highly rigid matrices are sought for their near-maximum complexity or rigidity, as construction targets rather than refutations here"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Local PRGs in indistinguishability obfuscation",
+   "note": "Indistinguishability obfuscation is mentioned as a cryptographic application motivating security questions for constant-locality pseudorandom generators.",
+   "first_introduced_sec": 1154,
+   "spans": [
+    {
+     "start_sec": 1154,
+     "end_sec": 1203
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "local PRGs are invoked as ingredients in indistinguishability obfuscation, with no worked cryptographic construction or analysis",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Local PRGs form a systematic cryptographic family motivating the model rather than a structural exception or adversarial example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Local NC0 PRGs are a systematic cryptographic family invoked as motivation for indistinguishability obfuscation, not as a refuting example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Local PRGs for indistinguishability obfuscation are ordinary structured cryptographic primitives in the talk, not classification exceptions or counterexamples."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Local NC0 PRGs are a restricted cryptographic family used as primitives in obfuscation, not sporadic, collapsed, or adversarial here."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Constant-local NC0 PRGs form a systematic restricted cryptographic family motivating iO, with no sporadic, degenerate, extremal, or refuting role here."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Constant-locality PRGs are a structured cryptographic family used as an application setting, not as a disproof."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Local NC0 PRGs are cited as cryptographic primitives underlying iO, not as sporadic, degenerate, or adversarial examples."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Constant-locality PRGs are a systematic cryptographic family used as an iO ingredient rather than an adversarial example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as motivating cryptographic objects for iO, and they form a systematic NC0 PRG class rather than a one-off or boundary case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Local PRGs for indistinguishability obfuscation are cited as motivating cryptographic objects, with no sporadic, limiting, or optimal structural role here."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Constant-local NC0 PRGs lie at the minimum-locality boundary for PRG constructions and are used as cryptographic motivation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "constant-local NC0 PRGs lie at the low-locality boundary of pseudorandom-generator constructions"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Biased or OR-output local predicates",
+   "note": "In response to a question, biased predicates such as OR outputs illustrate that some statistical attacks on NC0 PRGs need not yield useful range-refutation certificates.",
+   "first_introduced_sec": 2451,
+   "spans": [
+    {
+     "start_sec": 2451,
+     "end_sec": 2515
+    }
+   ],
+   "total_seconds": 64,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker reasons through biased predicates such as OR outputs by applying the simple bias distinguisher and noting why this does not similarly yield refutation",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 12,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "OR-type local predicates are highly biased symmetric predicates used to show bias-based distinguishers need not give range-refutation algorithms."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The OR-output case is a permutation-symmetric, maximally biased nonconstant local predicate used to show that easy statistical distinguishing need not give range refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "OR is a maximally biased nonconstant local predicate and is used to show easy distinguishing need not yield range-refutation certificates."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "An OR predicate is a maximally biased nonconstant local predicate used to show easy statistical distinguishing need not yield range refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The OR/bias case is an extremely unbalanced local predicate used to show that easy statistical distinguishing need not yield range-refutation certificates."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "OR predicates are permutation-symmetric and maximally biased among nonconstant predicates, used to show distinguishing attacks need not give range refutations."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Biased/OR predicates are used to show that easy PRG distinguishers need not yield range-refutations, and OR is a permutation-symmetric maximally biased nonconstant predicate."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Biased/OR predicates are offered to show that easy statistical distinguishing need not give range refutation, with OR being an extremely biased nonconstant predicate."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to show that easy statistical attacks need not yield refutations; OR predicates are near-constant/maximally biased among nonconstant predicates."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Biased/OR predicates are used to show that easy statistical distinguishability need not yield easy range refutation, and OR is a maximally biased nonconstant local predicate."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Biased/OR predicates give an easy distinguisher showing that PRG-breaking need not provide range-refutation, with OR maximally biased among nonconstant predicates."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the biased/OR predicate is used to show that easy statistical distinguishability need not yield easy range refutation, with OR maximally biased among nonconstant predicates"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Majority in the medium-fan-in query model",
+   "note": "Majority is used during Q&A as a familiar function exhibiting lower bounds in the auxiliary query-complexity model proposed as an analogy for data-structure lower bounds.",
+   "first_introduced_sec": 3477,
+   "spans": [
+    {
+     "start_sec": 3477,
+     "end_sec": 3530
+    }
+   ],
+   "total_seconds": 53,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "majority is cited in the medium-fan-in query model with a known lower-bound fact, but the speaker does not derive it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is a fully coordinate-symmetric Boolean function cited as a known example in the medium-fan-in model."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Majority is the fully symmetric Boolean threshold function used as a lower-bound witness against small medium-fan-in representations."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the canonical fully input-symmetric Boolean function used as a known lower-bound example in the medium-fan-in model."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the fully permutation-invariant Boolean threshold function used as a benchmark lower-bound example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the canonical permutation-invariant Boolean threshold function, used as an example with known medium-fan-in lower bounds rather than as a counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is a fully symmetric Boolean function used as an example with known medium-fan-in lower bounds."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is used as an explicit lower-bound example in the medium-fan-in model and is structurally distinguished by full permutation symmetry."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is used as a familiar lower-bound benchmark in the medium-fan-in model and is structurally the fully symmetric Boolean threshold function."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a benchmark function in the medium-fan-in model, and majority is invariant under all permutations of its input bits."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is cited as a function with known lower bounds in the medium-fan-in model, and it is structurally symmetric as a Boolean threshold function."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the fully permutation-symmetric Boolean threshold function used as an illustrative lower-bound example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "majority is cited as an illustrative hard function in the query model and is permutation-invariant in its inputs"
+    }
+   ]
+  }
+ ]
+}

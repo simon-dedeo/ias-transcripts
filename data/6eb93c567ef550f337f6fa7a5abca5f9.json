@@ -1,0 +1,2845 @@
+{
+ "key": "6eb93c567ef550f337f6fa7a5abca5f9",
+ "title": "Learning Controllable Representations",
+ "speaker": "Richard Zemel",
+ "affiliation": "University of Toronto; Member, School of Mathematics",
+ "date": "2020-04-02T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4240.0,
+ "abstract": "As deep learning systems become more prevalent in real-world applications it is essential to allow users to exert more control over the system. Exerting some structure over the learned representations enables users to manipulate, interpret, and even obfuscate the representations, and may also improve out-of-distribution generalization.",
+ "youtube_url": "https://www.youtube.com/watch?v=vmPPJ1fOe_s",
+ "page_url": "https://www.ias.edu/video/machinelearning/2020/0402-RichardZemel",
+ "tags": [
+  "School of Mathematics",
+  "Seminar on Theoretical Machine Learning"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Motivation for structured transferable representations",
+   "summary": "The talk frames the goal as learning multipurpose neural representations whose factors of variation are separated, noting transfer, interpretability, fairness, and the limits of fully unsupervised disentanglement before announcing a supervised program.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 321
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "From classifier information loss to bijective preservation",
+   "summary": "A standard classifier is described as retaining class identity while discarding nuisance variation, motivating a replacement viewpoint in which an invertible map preserves all input information while still exposing class-relevant information.",
+   "spans": [
+    {
+     "start_sec": 321,
+     "end_sec": 483
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Invertible representation with supervised and nuisance coordinates",
+   "summary": "Normalizing flows and reversible networks are reviewed, then the final representation z is split into z_s, the class-logit coordinates used by a softmax, and z_n, the remaining coordinates intended to carry nuisance information.",
+   "spans": [
+    {
+     "start_sec": 483,
+     "end_sec": 1163
+    },
+    {
+     "start_sec": 2720,
+     "end_sec": 2794
+    },
+    {
+     "start_sec": 3737,
+     "end_sec": 3958
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Hybrid preimages reveal excessive invariance",
+   "summary": "By combining z_s from one image with z_n from another and inverting the network, the speaker shows that the classifier output can remain fixed while the visible image changes drastically, defining a complementary adversarial vulnerability called excessive invariance.",
+   "spans": [
+    {
+     "start_sec": 1163,
+     "end_sec": 2361
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Information-theoretic diagnosis of cross entropy",
+   "summary": "The mutual-information decomposition shows that ordinary cross entropy only encourages high I(y;z_s) and gives no incentive to remove residual class information from z_n, so true disentanglement requires information separation or independence.",
+   "spans": [
+    {
+     "start_sec": 2361,
+     "end_sec": 2656
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Independence cross-entropy via an adversarial discriminator",
+   "summary": "The proposed ICE objective combines the usual class cross entropy on z_s with a discriminator trained to predict y from z_n while the representation is trained to make that discriminator fail, thereby reducing class information in z_n.",
+   "spans": [
+    {
+     "start_sec": 2656,
+     "end_sec": 3057
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Position relative to prior information-separation methods",
+   "summary": "The approach is contrasted with the information bottleneck, fair representation learning, entropy-estimation methods, MMD, variational autoencoders, style/content models, and ICA, emphasizing the role of exact invertibility and absence of a reconstruction-loss tradeoff.",
+   "spans": [
+    {
+     "start_sec": 3057,
+     "end_sec": 3498
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Empirical validation and extensions",
+   "summary": "Experiments on MNIST hybrids and spurious-cue distribution shifts show improved separation and robustness under ICE, and the speaker sketches extensions to multiple supervised factors and domain adaptation.",
+   "spans": [
+    {
+     "start_sec": 3498,
+     "end_sec": 4223
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Decapitated image classifier reused for detection/tracking",
+   "note": "An image-classification network with its last layer removed is used to make concrete the idea that intermediate representations transfer to object detection, tracking, and other tasks, but it does not supply the later method.",
+   "first_introduced_sec": 52,
+   "spans": [
+    {
+     "start_sec": 52,
+     "end_sec": 96
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The decapitated classifier is used as an introductory illustration of transfer to detection and tracking, with no construction or analysis carried out on it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A truncated pretrained vision network is used as an ordinary transfer representation, not to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A truncated classifier used as a feature backbone is a standard transfer-learning example, not a failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary transfer-learning feature extractor motivating reusable representations"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard feature-extractor transfer example used to motivate reusable representations"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary transfer-learning feature extractor used as a positive illustration, not a failure case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A decapitated pretrained classifier is an ordinary feature extractor used positively for transfer to detection and tracking."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard truncated pretrained classifier is used as a positive transfer-learning illustration, not as a failure case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard truncated pretrained classifier is used positively as a transferable feature extractor."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard pretrained feature extractor is used to illustrate successful transfer to detection/tracking"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary truncated classifier feature extractor used positively for transfer, with no special intrinsic structure"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard pretrained feature extractor is used as a positive transfer-learning illustration"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard transfer-learning feature extractor illustrating reusable intermediate representations"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Fairness via hiding sensitive attributes",
+   "note": "Sensitive-attribute obfuscation, later connected to race/gender fair representations, illustrates another motivation and related use of information separation rather than generating the talk's objective.",
+   "first_introduced_sec": 143,
+   "spans": [
+    {
+     "start_sec": 143,
+     "end_sec": 173
+    },
+    {
+     "start_sec": 3147,
+     "end_sec": 3250
+    }
+   ],
+   "total_seconds": 133,
+   "attaches_to": [
+    "s1",
+    "s7"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Fairness via hiding sensitive attributes is cited as a related application area, but the talk does not work through a fairness example.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Fair representations hiding sensitive attributes are cited as a standard application of structured representations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Hiding sensitive attributes is mentioned as a normal application of structured representations rather than as an adversarial example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard fair-representation use case rather than a failure example"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a typical fairness-representation application mentioned as a possible use rather than a failure"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard fair-representation motivation to remove sensitive information"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Hiding sensitive attributes is cited as a standard application of structured representations, not as a failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Hiding sensitive attributes is mentioned as an ordinary application of structured representations for fairness."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Hiding sensitive attributes is mentioned as an application of structured representations, not as a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "fair representations hiding sensitive attributes are mentioned as a normal application rather than as a failure case"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary fair-representation goal used as an application rather than to refute a claim"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "hiding sensitive attributes is cited as an ordinary fairness application rather than a refutation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "motivating application of structured representations to fairness rather than an adversarial case"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Airplane classifier with nuisance variation",
+   "note": "Airplane images with varying background, angle, and subtype make concrete the standard classifier's goal of retaining identity while discarding nuisance variability.",
+   "first_introduced_sec": 321,
+   "spans": [
+    {
+     "start_sec": 321,
+     "end_sec": 373
+    }
+   ],
+   "total_seconds": 52,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The airplane classifier is described only as an example of class identity versus nuisance variation, without a concrete computation on the images.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The airplane example is a routine classifier-with-nuisances illustration of task-relevant versus nuisance variation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Airplane recognition with pose and background nuisances is a representative classification scenario."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary supervised image-classification example illustrating nuisance variation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a routine classifier example illustrating nuisance variation and discarded information"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary image-classification setting separating label from nuisance variation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The airplane classifier is a typical supervised-classification example separating class information from nuisance variation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The airplane classifier is a representative classification setting with nuisance variation to be discarded."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The airplane images with viewpoint/background variation are an ordinary classification example illustrating nuisance factors."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the airplane classifier is a representative classification setup with nuisance variation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard classifier example separating airplane identity from nuisance variation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the airplane classifier is a standard illustration of nuisance variation in classification"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary classifier example showing intended separation of class identity from nuisance variation"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Other invertible-network architectures",
+   "note": "Glow, WaveNet, PixelCNN, and invertible ResNet variants illustrate that the abstract reversible-network assumption is realized by several deep-learning architectures, without being the specific construction on which the argument depends.",
+   "first_introduced_sec": 913,
+   "spans": [
+    {
+     "start_sec": 913,
+     "end_sec": 1087
+    }
+   ],
+   "total_seconds": 174,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Architectures such as Glow, WaveNet, PixelCNN, and invertible ResNets are named and briefly characterized, but not run through in detail as examples.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Glow, WaveNet, PixelCNN, and invertible ResNets are systematic architecture variants, cited as related constructions."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Glow, WaveNet, PixelCNN, and related invertible models are systematic architecture families used as positive examples."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "systematic invertible-network variants are cited as ordinary architectural alternatives"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary members of the invertible-network family cited as related architectures"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "systematic variants of invertible networks cited as related architectures"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Glow, WaveNet, PixelCNN, and invertible ResNets are systematic invertible-network variants rather than sporadic or adversarial examples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Glow, WaveNet, PixelCNN, and invertible ResNets are cited as systematic variants of invertible architectures rather than as obstructions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Glow, WaveNet, PixelCNN, and invertible ResNet variants are cited as standard invertible-network families."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Glow/WaveNet/PixelCNN-style invertible architectures are cited as ordinary variants of normalizing-flow models"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "invertible-network variants are cited as ordinary architectural examples, not as failures"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "systematic normalizing-flow variants are cited as related architecture choices"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard families of bijective architectures cited as related implementations of invertible networks"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Flower code mixed with bowman or dog nuisance code",
+   "note": "Swapping the flower's supervised code with another image's nuisance code visibly produces an image dominated by the nuisance image while the classifier output stays flower-like, which is presented as the phenomenon motivating 'excessive invariance.'",
+   "first_introduced_sec": 1163,
+   "spans": [
+    {
+     "start_sec": 1163,
+     "end_sec": 1578
+    }
+   ],
+   "total_seconds": 415,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker explicitly applies the invertible-network mixing construction to flower logits and bowman or dog nuisance codes and reasons about the inverse image and classifier output.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The flower/bowman or dog hybrid is used to show excessive invariance of the learned representation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The flower-logit/bowman-or-dog-nuisance hybrid is used to show excessive invariance and failure of the learned separation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "hybrid preimage keeps flower logits while looking like another image, exposing excessive invariance"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the flower/bowman or dog hybrids are used to show excessive invariance and failed disentanglement"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "latent-code hybrid is used to show excessive invariance under a visually different preimage"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The flower/bowman or dog hybrid metamer is used to show excessive invariance and failure of the standard representation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The flower/bowman or dog hybrid is used as an adversarial metamer showing the learned split fails to isolate class information."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The flower/class-code and bowman-or-dog nuisance-code hybrid exposes excessive invariance by keeping the class output while changing visual content."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the flower logits mixed with bowman/dog nuisance code are adversarial metamers showing excessive invariance"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "hybrid flower/nuisance preimages are used to expose excessive invariance while having no max/min or sporadic structure"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the flower/nuisance hybrid keeps flower logits while looking like another image, showing excessive invariance"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "hybrid preimage keeps the flower logits while visually taking bowman or dog content, exposing excessive invariance"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "MNIST digit hybrid metamers",
+   "note": "Digit hybrids such as a six or seven combined with a zero's nuisance code show the same nuisance domination on a simple dataset and later demonstrate that the proposed objective better preserves class while transferring style.",
+   "first_introduced_sec": 1578,
+   "spans": [
+    {
+     "start_sec": 1578,
+     "end_sec": 1691
+    },
+    {
+     "start_sec": 3498,
+     "end_sec": 3578
+    }
+   ],
+   "total_seconds": 193,
+   "attaches_to": [
+    "s4",
+    "s8"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "MNIST hybrid metamers are constructed by combining one digit’s class code with another digit’s nuisance code, and the resulting images are interpreted under different losses.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The MNIST hybrid metamer is an adversarial-looking case where the class code is preserved while the visible digit changes."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The MNIST hybrid metamers show that even digit representations keep the wrong visual content while preserving the classifier output."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "MNIST metamer keeps the source digit logits while visually adopting the target digit, showing failed disentanglement"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the MNIST hybrid metamers show the same representation failure even on digits"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "MNIST hybrids are adversarial metamers showing logits need not control perceived digit"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The MNIST hybrid metamers show that even digit representations can preserve the wrong class logits under perceptually different images."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The MNIST hybrids show the same excessive-invariance failure even on simple digit images."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The MNIST hybrids keep one digit’s logits but visually resemble another digit, showing failure of the hoped-for content/style separation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the MNIST hybrids show that even digit models fail to put class information only in the intended coordinates"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "MNIST hybrid metamers show visually different digits retaining the wrong representation, but are not structurally exceptional"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the MNIST hybrids keep source digit logits while resembling the nuisance digit, showing failed disentanglement"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "digit hybrid keeps source digit logits yet looks like the target digit, showing MNIST disentanglement failure"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Bullfrog logits retained under visually different ImageNet preimages",
+   "note": "A frog image whose logits rank bullfrog first can be transformed into visually different images with the same ordered logits, illustrating excessive invariance after it has been defined.",
+   "first_introduced_sec": 1706,
+   "spans": [
+    {
+     "start_sec": 1706,
+     "end_sec": 1803
+    }
+   ],
+   "total_seconds": 97,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The bullfrog ImageNet case is analyzed by retaining the same ranked logits while changing the preimage, showing excessive invariance across visually different images.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bullfrog-logit preimages are displayed to show visually different inputs receiving the same ranked ImageNet output."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bullfrog-logit ImageNet preimages are visually different but retain the same logits, demonstrating excessive invariance."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ImageNet preimages preserve bullfrog logit rankings despite different visual content, showing excessive invariance"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "visually different preimages with retained bullfrog logits demonstrate an adversarial excessive-invariance failure"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "bullfrog-logit preimages show identical network outputs with different ImageNet-looking images"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bullfrog-logit examples are adversarial preimages with unchanged classifier outputs but visibly different ImageNet content."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The bullfrog-logit preimages demonstrate unchanged ImageNet predictions for visually different images."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The visually different ImageNet preimages with the same bullfrog logit ranking demonstrate an adversarial excessive-invariance failure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the visually different ImageNet preimages with unchanged bullfrog logits demonstrate a classifier-invariance failure"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "bullfrog-logit-preserving ImageNet preimages demonstrate classifier invariance failure without intrinsic extremality"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "visually different ImageNet preimages with the same bullfrog-ranked logits exhibit excessive invariance"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "visually different ImageNet preimages retain identical bullfrog logit ranking, demonstrating excessive invariance"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Two-class adversarial-attack cartoon",
+   "note": "A red/light two-class picture with a decision boundary contrasts small boundary-crossing perturbations with long within-class moves, clarifying how excessive invariance complements standard adversarial examples.",
+   "first_introduced_sec": 1847,
+   "spans": [
+    {
+     "start_sec": 1847,
+     "end_sec": 2139
+    }
+   ],
+   "total_seconds": 292,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The two-class cartoon is used to reason through decision boundaries, short versus long adversarial arrows, and the corresponding equalities and inequalities for labels and network outputs.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The two-class cartoon represents adversarial moves that expose classifier failure under output-preserving or boundary-crossing perturbations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The two-class cartoon illustrates adversarial moves that make the classifier output disagree with the true visual class."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "minimal two-class linear cartoon depicts adversarial cases where classifier output and true class disagree"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the two-class cartoon is explicitly an adversarial-case schematic showing classifier failure modes"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "toy adversarial-classifier diagram illustrates classifier failure modes"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The two-class linear cartoon is a minimal toy setting used to depict adversarial moves that defeat the classifier."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The minimal two-class linear cartoon is used to illustrate adversarial failure modes of the classifier."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The binary cartoon depicts adversarial cases where the classifier output disagrees with the true visual class."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the two-class cartoon is explicitly an adversarial case illustrating unchanged network output despite changed true class"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "minimal two-class linear cartoon depicts adversarial failure in a deliberately simplified setting"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a minimal two-class cartoon depicts adversarial moves that defeat the classifier’s intended behavior"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "minimal two-class linear-boundary cartoon used to depict adversarial moves that defeat classifier semantics"
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Patch-composed noninvertible-network counterstudy",
+   "note": "Raised during discussion, the patch-constrained noninvertible-network study illustrates that perceptually different images with the same classification can occur beyond the invertible-network setting.",
+   "first_introduced_sec": 2294,
+   "spans": [
+    {
+     "start_sec": 2294,
+     "end_sec": 2361
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "The patch-composed noninvertible-network study is reported as a related counterexample, but no detailed construction or calculation is performed in the talk.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The patch-composed noninvertible-network study is invoked as another case producing perceptually different images with identical classifications."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The patch-composed noninvertible-network study supplies another case of perceptually different images with identical classification."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "patch-constrained images in noninvertible nets give perceptually different inputs with the same classification"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the patch-composed study supplies perceptually different images with the same classification as a failure case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "patch-composed images are reported as perceptually different inputs with the same classification"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The patch-composed noninvertible-network study is cited as another adversarial construction of perceptually different images with the same classification."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The patch-composed noninvertible-network study is cited as another construction of perceptually different images with the same classification."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The patch-composed noninvertible-network study finds perceptually different images with identical classifications, countering the idea that the issue is only invertibility."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the patch-composed study supplies perceptually different images with identical classifications in noninvertible nets"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "patch-composed noninvertible-network study is invoked to show perceptually different images with identical classification"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "patch-composed images show perceptually different inputs receiving the exact same classification"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "patch-constrained noninvertible-network construction yields perceptually different images with the same classification"
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Handwriting style/content separation",
+   "note": "The classic separation of digit identity from handwriting style illustrates the long-standing information-separation goal to which the present reversible-network approach is related.",
+   "first_introduced_sec": 3422,
+   "spans": [
+    {
+     "start_sec": 3422,
+     "end_sec": 3463
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Handwriting style/content separation is cited as historical related work using bilinear models, without working through a specific handwriting instance.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Handwriting style/content separation is cited as ordinary related work on factorized representations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Handwriting style/content separation is cited as a standard positive precedent for information separation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "classical handwriting style/content factorization is cited as ordinary related work"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "style/content separation in handwriting is cited as standard related work on information separation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard handwriting style-content separation example"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Handwriting style/content separation is presented as ordinary related work on information separation, not as an obstruction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Handwriting style/content separation is invoked as a historical positive example of information separation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Handwriting style/content separation is cited as related positive precedent for information separation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "handwriting style/content separation is cited as standard related work for information separation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "handwriting style/content separation is a standard positive disentanglement example"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "handwriting style/content separation is cited as standard related factor-separation work"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary handwriting example from related work illustrating supervised style/content factorization"
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "Telltale-pixel MNIST distribution shift",
+   "note": "A one-hot pixel perfectly correlated with digit class at training time is removed at test time to demonstrate that forcing all class information into the supervised code improves robustness to a spurious cue.",
+   "first_introduced_sec": 3578,
+   "spans": [
+    {
+     "start_sec": 3578,
+     "end_sec": 3737
+    }
+   ],
+   "total_seconds": 159,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The telltale-pixel MNIST shift is concretely constructed, the test perturbation is specified, and training versus adversarial error rates are compared.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The telltale-pixel MNIST task has a collapsed single-pixel label shortcut with perfect training correlation and is used as a distribution-shift failure case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The telltale-pixel MNIST task collapses label information into a perfectly correlated one-pixel shortcut and is used to expose distribution-shift failure."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "single pixel deterministically encodes the label, a collapsed maximal shortcut whose removal causes distribution-shift failure"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the one-pixel label code is a maximally predictive spurious shortcut used to expose distribution-shift failure"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "one-pixel label code is a degenerate, perfectly correlated shortcut used to expose distribution-shift failure"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The MNIST variant embeds a perfectly predictive one-pixel label code, and removing it is an adversarial distribution-shift failure for standard cross-entropy."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The one-pixel MNIST shortcut is an adversarial distribution-shift test with label information collapsed into a single telltale pixel."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-hot telltale pixel collapses MNIST classification to a trivial perfectly correlated shortcut, then removal at test creates an extreme distribution-shift failure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the MNIST shift uses a perfect one-pixel label code that trivializes training and exposes standard cross-entropy failure when removed"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "telltale-pixel MNIST uses a perfect one-pixel label leak, a collapsed boundary-case distribution, to show distribution-shift failure"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a single-pixel label code is a degenerate and perfectly correlated shortcut whose removal exposes failure"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "one-hot telltale pixel makes training classification nearly trivial and maximally spurious before removal at test time"
+    }
+   ]
+  },
+  {
+   "code": "E12",
+   "name": "Texture-background MNIST correlation shift",
+   "note": "Digit classes paired with class-specific textures during training and randomized textures at test time give a second spurious-correlation benchmark for the independence cross-entropy objective.",
+   "first_introduced_sec": 3979,
+   "spans": [
+    {
+     "start_sec": 3979,
+     "end_sec": 4066
+    }
+   ],
+   "total_seconds": 87,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The texture-background MNIST shift is concretely described with correlated training backgrounds, randomized test backgrounds, and resulting error rates.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 5,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The texture-background MNIST task uses a perfectly correlated spurious background cue and tests failure when that correlation is broken."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The texture-background MNIST task has a perfectly correlated shortcut with collapsed digit-texture support and is used to show cross-entropy brittleness."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "background texture is perfectly correlated with class in training and randomized at test time, a maximal collapsed spurious correlation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the training textures are perfectly correlated with digit class and then randomized to create a failure-inducing shift"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "background texture is a collapsed, perfectly label-correlated nuisance used to expose correlation-shift failure"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The textured-background MNIST setup uses a perfectly correlated nuisance background at training and breaks it at test time to expose failure."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The texture-background MNIST shift uses a perfect training correlation as an extreme spurious-feature case to expose failure under test shift."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The texture backgrounds are perfectly correlated with digit class during training and randomized at test, an extreme spurious-correlation shift used to defeat standard cross-entropy."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the texture-background shift uses a maximally correlated nuisance feature to expose failure under decorrelation at test time"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "texture-background MNIST uses perfect class-background correlation, a collapsed extremal shortcut, to expose robustness failure"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "perfect train-time texture-label correlation creates an extreme shortcut whose randomization exposes failure"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "training distribution collapses each digit to a perfectly correlated texture class and then breaks that correlation at test time"
+    }
+   ]
+  },
+  {
+   "code": "E13",
+   "name": "MNIST/SVHN domain-adaptation split",
+   "note": "Splitting the latent space into digit-class, domain, and nuisance parts illustrates how the proposed information-separation idea could extend to new digit domains and representation reuse.",
+   "first_introduced_sec": 4131,
+   "spans": [
+    {
+     "start_sec": 4131,
+     "end_sec": 4223
+    }
+   ],
+   "total_seconds": 92,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The MNIST/SVHN domain-adaptation split is described as a current direction with class, domain, and nuisance factors, but no empirical example is worked through.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The MNIST/SVHN split is a standard domain-adaptation setting for class/domain/nuisance factorization."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The MNIST/SVHN split is a standard domain-adaptation application for separating class, domain, and nuisance factors."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary multi-domain digit setup is proposed for domain adaptation rather than as a failure case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the MNIST/SVHN split is a standard domain-adaptation setup proposed as an application"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary MNIST-SVHN digit-domain split motivating domain-adapted representation learning"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The MNIST/SVHN split is a standard domain-adaptation example for separating class, domain, and nuisance factors."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The MNIST/SVHN split is presented as a standard domain-adaptation application with class, domain, and nuisance factors."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The MNIST/SVHN split is a standard domain-adaptation setting used as a target application for class/domain/nuisance factorization."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the MNIST/SVHN split is a conventional domain-adaptation benchmark proposed as an application"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "MNIST/SVHN split is an ordinary domain-adaptation benchmark used as a proposed application"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "MNIST/SVHN is used as a standard digit-domain adaptation split"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard domain-adaptation benchmark split motivating class/domain/nuisance representations"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,387 @@
+{
+ "key": "7e3b0d64f9c7e1212b01d8f406522f45",
+ "title": "Disjoint Pairs in Set Systems and the Combinatorics of Low-Rank Matrices",
+ "speaker": "Benjamin Sudakov",
+ "affiliation": "ETH Zürich",
+ "date": "2026-02-02T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 4349.0,
+ "abstract": "In this talk, I will discuss the solution to several problems in two closely related settings: set families in 2^[n] with many disjoint pairs, and low-rank matrices with many zero entries.\nHighlights include a resolution of an old question of Daykin and Erdős on the maximum number of disjoint set pairs, a proof of a conjecture by Singer and Sudan motivated by the log-rank conjecture in communication complexity, and tight bounds for a problem posed by Alon, Gilboa, and Gueron related to a long-standing question in coding theory about cover-free families.\nOur proofs use probabilistic, entropy, and discrepancy methods, revealing connections to additive combinatorics and coding theory.\nJoint with Z. Hunter, A. Milojević and I. Tomon.",
+ "youtube_url": "https://youtu.be/eqScNbKmp68",
+ "page_url": "https://www.ias.edu/video/disjoint-pairs-set-systems-and-combinatorics-low-rank-matrices",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Low-rank homogeneous-submatrix motivation",
+   "summary": "The talk starts from the log-rank homogeneous-submatrix problem, observes that intersection matrices of two set systems have rank at most the ground-set size, and explains why Lovett-type and Sudan–Singer questions reduce attention to zeros coming from disjoint set pairs.",
+   "spans": [
+    {
+     "start_sec": 33,
+     "end_sec": 648
+    },
+    {
+     "start_sec": 4041,
+     "end_sec": 4189
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Cross-disjoint subfamily theorem and optimal scale",
+   "summary": "The first main theorem states that two m-element set families on an n-element ground set with a constant fraction of disjoint cross-pairs contain large subfamilies A′ and B′, each of size about m/2^{C√n}, that are completely cross-disjoint, and the random √n-set construction shows the exponent scale is sharp.",
+   "spans": [
+    {
+     "start_sec": 648,
+     "end_sec": 926
+    },
+    {
+     "start_sec": 4221,
+     "end_sec": 4286
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Erdős–Daykin extremal disjoint-pair problem",
+   "summary": "The speaker formulates the older extremal problem of maximizing the number of disjoint cross-pairs, explains the 2^{n/2} threshold and the Alon–Frankl construction, and states new asymptotic upper bounds matching that construction in the near-threshold regime and improving the Alon–Frankl density exponent regime.",
+   "spans": [
+    {
+     "start_sec": 933,
+     "end_sec": 1884
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Distributional cover-free theorem as the probabilistic engine",
+   "summary": "A coding-theoretic r-cover-free-family question is converted into the Alon–Gilboa–Körner distributional problem, for which the talk states the optimal lower bound that a random set is covered by r independent random sets with probability at least 2^{-C n/r}, with Bernoulli p≈1/(r+1) showing sharpness up to constants.",
+   "spans": [
+    {
+     "start_sec": 1884,
+     "end_sec": 2599
+    },
+    {
+     "start_sec": 3190,
+     "end_sec": 3298
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Bad-set definition and random-union lemma",
+   "summary": "For an arbitrary distribution μ on subsets, a set U is declared bad when μ assigns exponentially small mass to subsets of U, and a union bound over all U proves that the union of r independent μ-random sets is bad with probability at most 2^{-n}.",
+   "spans": [
+    {
+     "start_sec": 2599,
+     "end_sec": 2929
+    },
+    {
+     "start_sec": 3147,
+     "end_sec": 3190
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Conditioning proof of the distributional theorem",
+   "summary": "Since the r-fold union is good with probability near one, conditioning on that good union and using the definition of goodness gives the desired lower bound for the probability that an independent F0 lies inside the union.",
+   "spans": [
+    {
+     "start_sec": 2929,
+     "end_sec": 3147
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Random-union setup for the cross-disjoint theorem",
+   "summary": "To prove the Sudan–Singer-type theorem, the speaker chooses r=√n random members of A, forms their union U, uses goodness of U to obtain many A-members inside U, and defines the candidate B′ as the common disjoint neighborhood of the chosen A-members.",
+   "spans": [
+    {
+     "start_sec": 3298,
+     "end_sec": 3855
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Common-neighborhood averaging and event intersection",
+   "summary": "The density of the disjointness graph implies by convexity that a random r-tuple from A has expected common B-neighborhood about δ^r m, and the very high probability of the good-union event forces overlap between this event and the large-neighborhood event, completing the construction of A′ and B′.",
+   "spans": [
+    {
+     "start_sec": 3855,
+     "end_sec": 3972
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "The r=1 antichain/Sperner special case",
+   "note": "The special case r=1 identifies cover-free families with antichains and invokes Sperner's lemma to make the definition concrete, not to generate the later probabilistic proof.",
+   "first_introduced_sec": 1957,
+   "spans": [
+    {
+     "start_sec": 1957,
+     "end_sec": 1981
+    },
+    {
+     "start_sec": 2154,
+     "end_sec": 2186
+    }
+   ],
+   "total_seconds": 56,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only identifies the r=1 cover-free condition as an antichain and states the Sperner maximum size without deriving or checking it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 10,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "It is the minimal base case r=1 of cover-free families, used only as the solved Sperner/antichain benchmark rather than to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The case r=1 is the minimal/base cover-free case, where the problem becomes Sperner’s theorem on maximum antichains, an extremal-size result rather than a counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is the minimal boundary case r=1 where the cover-free condition collapses to the simpler Sperner antichain problem, used as a known base case rather than to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is the minimal boundary/base case r=1 of cover-free families, reducing to Sperner antichains, and is used as a solved comparison rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The r=1 case is the minimal boundary case of the r-cover-free problem, reducing to ordinary antichains governed by Sperner’s extremal theorem rather than being used to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The r=1 case is the minimal/base case of cover-free families, and the cited Sperner middle-layer bound is the maximum-size extremal antichain, not a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is cited as the known minimal r=1 base case of cover-free families, where Sperner gives the maximum antichain size, not as a refutation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Used as the known base case of r-cover-free families (r=1 gives antichains), with Sperner’s theorem identifying the maximum-size antichain rather than refuting a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is cited as the minimal r=1 base case of cover-free families, where Sperner gives the exact maximum antichain size, not as a failure case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "It is used as the known base case of the r-cover-free problem, where r=1 degenerates to antichains and Sperner’s middle layer gives the maximum size."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is used as the known minimal base case of cover-free families, with Sperner’s theorem giving the maximum-size antichain, not as a disproof."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "It is used as the minimal r=1 base case of cover-free families, where the condition collapses to the ordinary antichain/Sperner condition rather than refuting a claim."
+    }
+   ]
+  }
+ ]
+}

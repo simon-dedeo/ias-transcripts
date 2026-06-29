@@ -1,0 +1,1923 @@
+{
+ "key": "f07bcd08a3090c64683321b5eeacee9c",
+ "title": "Nonlinear Independent Component Analysis",
+ "speaker": "Aapo Hyvärinen",
+ "affiliation": "University of Helsinki",
+ "date": "2020-08-04T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4123.0,
+ "abstract": "Unsupervised learning, in particular learning general nonlinear representations, is one of the deepest problems in machine learning. Estimating latent quantities in a generative model provides a principled framework, and has been successfully used in the linear case, e.g. with independent component analysis (ICA) and sparse coding. However, extending ICA to the nonlinear case has proven to be extremely difficult: A straight-forward extension is unidentifiable, i.e. it is not possible to recover those latent components that actually generated the data.",
+ "youtube_url": "https://www.youtube.com/watch?v=_cBLSNRWt8c",
+ "page_url": "https://www.ias.edu/video/machinelearning/2020/0804-AapoHyvarinen",
+ "tags": [
+  "School of Mathematics",
+  "Seminar on Theoretical Machine Learning"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Unsupervised-learning motivation and linear ICA baseline",
+   "summary": "The talk motivates unsupervised disentanglement from the limits of label-based deep learning and reviews linear ICA as an identifiable latent-variable model, contrasting it with PCA and Gaussian factor analysis.",
+   "spans": [
+    {
+     "start_sec": 106,
+     "end_sec": 143
+    },
+    {
+     "start_sec": 201,
+     "end_sec": 892
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "IID nonlinear ICA non-identifiability obstruction",
+   "summary": "A direct nonlinear extension of ICA with only independent latent components is shown to be ill-defined, since conditional-CDF constructions produce alternative independent coordinates with the same observable distribution.",
+   "spans": [
+    {
+     "start_sec": 143,
+     "end_sec": 167
+    },
+    {
+     "start_sec": 892,
+     "end_sec": 1153
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Nonstationary sources and time-contrastive learning",
+   "summary": "Replacing IID sampling by nonstationary time-series structure yields extra constraints, and a segment-classification self-supervised objective recovers nonlinear ICA components up to simple residual ambiguities under the stated theorem.",
+   "spans": [
+    {
+     "start_sec": 1153,
+     "end_sec": 1819
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Stationary temporal dependence and permutation contrastive learning",
+   "summary": "For stationary time series, discriminating true adjacent windows from time-permuted windows gives another contrastive objective that is identifiable when latent components have suitable temporal dependencies.",
+   "spans": [
+    {
+     "start_sec": 1819,
+     "end_sec": 2185
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Time-series generalizations and practical refinements",
+   "summary": "The temporal approaches are extended by combining nonstationarity with autoregressive dependence, learning segmentations with hidden Markov models, and making the contrastive objectives more robust to outliers.",
+   "spans": [
+    {
+     "start_sec": 2185,
+     "end_sec": 2342
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Auxiliary-variable conditional latent-variable model and IVAE",
+   "summary": "The temporal mechanisms are unified by an auxiliary variable whose conditioning modulates otherwise conditionally independent latent components, leading to identifiable deep latent-variable models and the IVAE estimator.",
+   "spans": [
+    {
+     "start_sec": 2342,
+     "end_sec": 2842
+    },
+    {
+     "start_sec": 3070,
+     "end_sec": 3130
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Alternative estimators and relaxed component assumptions",
+   "summary": "Beyond IVAE, the speaker discusses noise-free likelihood and relative-gradient estimation, connections with flow and energy-based models, and recent extensions allowing certain dependent components.",
+   "spans": [
+    {
+     "start_sec": 2842,
+     "end_sec": 3070
+    },
+    {
+     "start_sec": 3246,
+     "end_sec": 3428
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Principled disentanglement synthesis and methodological positioning",
+   "summary": "The conclusion and Q&A position identifiable nonlinear ICA as a rigorous probabilistic framework for disentanglement, clarify the roles of PCA-style dimension reduction and self-supervised heuristics, and compare the approach with other factorizations.",
+   "spans": [
+    {
+     "start_sec": 3130,
+     "end_sec": 3246
+    },
+    {
+     "start_sec": 3428,
+     "end_sec": 3919
+    },
+    {
+     "start_sec": 3974,
+     "end_sec": 4111
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Image classification with category labels",
+   "note": "Photographs assigned to categories such as cats or dogs illustrate the supervised-learning regime whose dependence on labels motivates the unsupervised ICA problem.",
+   "first_introduced_sec": 300,
+   "spans": [
+    {
+     "start_sec": 300,
+     "end_sec": 463
+    }
+   ],
+   "total_seconds": 163,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he cites image classification with category labels as the standard supervised deep-learning setup, without working through a specific classification example",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard supervised image-label task used as a typical deep-learning success case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary supervised image-label learning is used as a standard motivating case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard supervised image-label classification task used as background motivation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard supervised image-label learning task used as a typical motivating example of deep learning."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard supervised image-to-category task with labels used as a motivating success case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard supervised image-classification task used as a motivating success case for deep learning"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard labeled image-classification task is used as a representative supervised-learning success case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard supervised image-label task used as a motivating example of deep learning"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard supervised image-label task used to motivate deep learning’s dependence on labels."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary supervised image-label task illustrating label-dependent deep learning"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard supervised image-to-label task is used as a motivating success case, with no special intrinsic structure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard supervised image-label task is used as a familiar motivating contrast to unsupervised learning."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Uniform-square ICA versus PCA scatterplot",
+   "note": "Two independent uniform components mixed linearly make non-Gaussian structure visible and show why ICA can recover an orientation that PCA cannot.",
+   "first_introduced_sec": 620,
+   "spans": [
+    {
+     "start_sec": 620,
+     "end_sec": 731
+    }
+   ],
+   "total_seconds": 111,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he reasons through the uniform-square scatterplot under linear mixing, PCA normalization, and ICA recovery, using it to explain rotational identifiability",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "regular uniform-square source distribution is used to show PCA fails to recover ICA components"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the regular uniform square example is used to show PCA does not recover the ICA sources"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "regular uniform-square source distribution is used to show PCA fails to recover the ICA directions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "uniform square source distribution is a regular symmetric toy case used to show PCA fails to recover ICA components."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the uniform product distribution has a highly regular square support and is used to show PCA is not equivalent to ICA"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "uniform distribution on a square is a highly regular toy case used to show PCA recovers the wrong rotation while ICA recovers the axes"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The uniform square is a highly regular symmetric source distribution used to show that PCA does not recover the independent components."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "a regular uniform-square distribution used to show PCA can fail to recover the independent axes whereas ICA can"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The uniform square is a highly regular distribution used to show PCA does not recover the independent axes while ICA does."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "regular uniform square is used to show PCA's rotation fails to recover ICA sources"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular uniform square is a symmetric toy distribution used to show PCA whitening need not recover the ICA sources."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The uniform square mixture is used to show PCA fails to recover the independent coordinates while ICA can."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Four-signal blind source separation",
+   "note": "Observed time-series mixtures and their recovered sources illustrate the practical meaning of identifiability in linear ICA.",
+   "first_introduced_sec": 731,
+   "spans": [
+    {
+     "start_sec": 731,
+     "end_sec": 761
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he applies PCA and ICA to the four observed signal mixtures and compares the recovered source signals qualitatively",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary mixed time-series example used positively to illustrate blind source separation by ICA"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a standard four-source linear mixture illustrates blind source separation by ICA"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary finite linear source-mixture example used to illustrate blind separation by ICA."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary finite blind-source-separation mixture used to illustrate ICA recovery rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary finite blind-source-separation mixture used to illustrate ICA recovery of sources"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary finite linear blind-source-separation example used mainly to illustrate ICA recovery"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The four mixed signals are an ordinary square blind-source-separation instance illustrating ICA’s usefulness."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an ordinary blind-source-separation toy signal set used to illustrate ICA identifiability in practice"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary linear-mixture signal example used positively to illustrate ICA blind source separation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary four-channel linear mixture illustrates ICA's blind-separation capability"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary linear mixture of four signals is used mainly to illustrate ICA source recovery rather than as an obstruction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A representative four-source linear mixture illustrates blind source separation by ICA."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "EEG/MEG brain-source separation",
+   "note": "Brain imaging is used as an application where measured scalp signals are linear mixtures of latent neural sources that ICA can separate.",
+   "first_introduced_sec": 761,
+   "spans": [
+    {
+     "start_sec": 761,
+     "end_sec": 817
+    }
+   ],
+   "total_seconds": 56,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he describes EEG/MEG brain-source separation as an ICA application and states that sources can be recovered, but explicitly does not go into details",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard EEG/MEG source-separation application used as a successful ICA use case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "EEG/MEG source separation is presented as a typical applied ICA use case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard EEG/MEG source-mixing application used as a positive ICA use case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard EEG/MEG linear-mixing application used as a positive example of source separation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard real linear-mixture application of ICA to EEG/MEG sensor recordings"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard EEG/MEG source-separation application with brain sources linearly mixed into external sensors"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "EEG/MEG source separation is presented as a typical applied ICA setting rather than a structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a typical EEG/MEG linear-mixing application used to motivate ICA for brain-source recovery"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A typical EEG/MEG source-separation application illustrating ICA as exploratory analysis."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard EEG/MEG source-mixing application illustrates exploratory ICA recovery"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "EEG/MEG brain-source separation is presented as a standard application of ICA to linear mixtures."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "EEG/MEG source separation is presented as a practical application of ICA to mixed brain signals."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Natural-image ICA features",
+   "note": "Small image patches yielding wavelet-like or simple-cell-like features illustrate ICA as unsupervised feature extraction.",
+   "first_introduced_sec": 817,
+   "spans": [
+    {
+     "start_sec": 817,
+     "end_sec": 892
+    }
+   ],
+   "total_seconds": 75,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he describes running ICA on natural image patches and interprets the resulting mixing-matrix columns as learned wavelet-like visual features",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary natural-image patch feature-learning example used to illustrate ICA features"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "natural-image ICA features are a representative positive feature-learning example"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "typical natural-image patch feature-learning example used to show ICA-like filters."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "natural-image patch features are a representative ICA feature-learning application with no special structural status."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary natural-image patch data yielding learned local ICA features"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary natural-image feature-learning example yielding Gabor-like ICA filters"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Natural-image ICA features are used as a standard feature-extraction application producing ordinary localized dictionary elements."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard natural-image feature-learning application used as a positive illustration of linear ICA"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Natural-image patches yielding Gabor-like ICA features are a standard application example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "natural-image patches yield ordinary ICA dictionary features such as wavelet-like filters"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Natural-image ICA features are used as a typical dictionary-learning application, not as a special classification case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Natural-image patches yielding ICA edge-like features are used as an ordinary application of feature extraction."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Missing-patch image prediction",
+   "note": "Predicting a removed part of a photograph from the rest makes the general idea of self-supervised learning concrete before the TCL and PCL objectives are introduced.",
+   "first_introduced_sec": 1365,
+   "spans": [
+    {
+     "start_sec": 1365,
+     "end_sec": 1415
+    }
+   ],
+   "total_seconds": 50,
+   "attaches_to": [
+    "s3",
+    "s4"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he gives missing-patch prediction as a generic self-supervised vision task, without carrying it out on an image",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard self-supervised pretext task of predicting a masked image region"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "missing-patch prediction is a standard self-supervised learning task"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary masked-image prediction task used as a heuristic self-supervised-learning example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "missing-patch prediction is a standard self-supervised learning task, not a structural exception or adversarial case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard self-supervised missing-region prediction task used to motivate representation learning"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard self-supervised inpainting task used to motivate representation learning"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Missing-patch prediction is a routine self-supervised learning task used to motivate representation learning."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a common self-supervised prediction task used heuristically to explain representation learning"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Masked image-patch prediction is a typical self-supervised pretext task, not a structural special case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "masked-image prediction is a routine self-supervised pretext task"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Masked-patch prediction is a standard self-supervised learning task, not a limiting or adversarial example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Predicting a removed image patch is a standard self-supervised learning task used as illustration."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Laplacian autoregressive source simulation",
+   "note": "A first-order autoregressive source model with Laplacian innovations demonstrates that permutation contrastive learning can recover temporally dependent nonlinear ICA sources in practice.",
+   "first_introduced_sec": 2097,
+   "spans": [
+    {
+     "start_sec": 2097,
+     "end_sec": 2185
+    }
+   ],
+   "total_seconds": 88,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he constructs a Laplacian first-order autoregressive source simulation, applies contrastive learning, and compares estimated versus true sources",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "typical AR source simulation with Laplacian innovations used to demonstrate PCL recovery"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the Laplacian AR simulation is an ordinary non-Gaussian time-series test case for PCL"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "standard Laplacian AR source toy is reused to show failure when temporal dependence is ignored and recovery by PCL."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Laplacian AR source simulation is a typical synthetic temporally dependent source model used to demonstrate PCL."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard AR(1) simulation with Laplace innovations used as a positive PCL benchmark"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard non-Gaussian AR source simulation used to demonstrate permutation contrastive learning"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Laplacian AR source process is a simple synthetic temporally dependent ICA instance used to demonstrate PCL recovery."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard AR source simulation with Laplacian innovations used to demonstrate permutation contrastive learning"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard synthetic AR source with Laplacian innovations used to demonstrate PCL recovery."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "stationary AR sources with Laplacian innovations are a standard synthetic temporal-dependence case"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A Laplacian AR source simulation is an ordinary non-Gaussian time-series model used to validate PCL."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A stationary AR source with Laplacian innovations is a typical synthetic time-series example for PCL recovery."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Audio-conditioned video feature extraction",
+   "note": "The earlier multimodal video/audio idea is presented as motivating the move to an auxiliary variable that conditions latent component distributions.",
+   "first_introduced_sec": 2559,
+   "spans": [
+    {
+     "start_sec": 2559,
+     "end_sec": 2661
+    }
+   ],
+   "total_seconds": 102,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he invokes audio-conditioned video feature extraction as a motivating auxiliary-variable example and cites improved features, but does not work through the method",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary multimodal auxiliary-variable example used to motivate conditioned feature learning"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "audio-conditioned video learning is used as a representative auxiliary-variable example"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary cross-modal audio-as-auxiliary-variable example used to motivate conditional latent models."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "audio-conditioned video learning is a typical auxiliary-variable multimodal example supporting the IVAE framework."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary multimodal conditioning example motivating auxiliary variables for video features"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary multimodal auxiliary-variable example where audio conditions video feature extraction"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Audio-conditioned video feature extraction is a typical auxiliary-variable example motivating conditional nonlinear ICA."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a typical paired audio-video conditioning example used to motivate auxiliary-variable nonlinear ICA"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Audio-conditioned video feature learning is an ordinary multimodal auxiliary-variable example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "paired audio-video data is a typical auxiliary-variable illustration for conditioning features"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Audio-conditioned video feature extraction is a typical multimodal auxiliary-variable example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Audio-conditioned video feature extraction is used as a motivating auxiliary-variable application."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Nonnegative matrix factorization comparison",
+   "note": "In response to a question, NMF is used as a contrasting matrix-factorization method with a different and weaker identifiability story than probabilistic ICA.",
+   "first_introduced_sec": 3974,
+   "spans": [
+    {
+     "start_sec": 3974,
+     "end_sec": 4111
+    }
+   ],
+   "total_seconds": 137,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he compares NMF to ICA in general terms during questions, stating properties and possible combinations without deriving or applying it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard NMF method is mentioned only as a comparison with ICA-style modeling"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "NMF is discussed only as a comparison method rather than as a structural exception or disproof"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard nonnegative matrix factorization method is discussed only as a comparison to ICA/IVAE."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "NMF is discussed as a standard contrasting factorization method with weaker identifiability, not as a counterexample object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard NMF family mentioned only as a contrast to probabilistic ICA methods"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary alternative linear factorization method discussed for comparison with ICA-style models"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "NMF is mentioned only as a standard comparison method with nonnegativity constraints, not as a special or adversarial object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard alternative matrix-factorization framework mentioned for comparison rather than as a refuting example"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "NMF is invoked as a standard linear comparison method with nonnegativity constraints."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "NMF is invoked as an ordinary constrained factorization contrast with ICA and IVAE"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "NMF is discussed as an ordinary alternative factorization method rather than as a sporadic or adversarial object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "NMF is discussed only as a comparison to ICA rather than as a structural exception or adversarial case."
+    }
+   ]
+  }
+ ]
+}

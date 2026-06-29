@@ -1,0 +1,1381 @@
+{
+ "key": "e823713586f108d64670e058b216272e",
+ "title": "Finding Regular Subgraphs",
+ "speaker": "Richard Montgomery",
+ "affiliation": "University of Warwick",
+ "date": "2025-02-24T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 3706.0,
+ "abstract": "Finding regular subgraphs can be useful. Many results assume a graph is regular or are easier to prove when they are. In 1975, Erdős and Sauer asked for an estimate, for any constant r, on the maximum number of edges an n-vertex graph can have without containing an r-regular subgraph (one in which each vertex is in r edges). The best upper bound on this problem was for a long time one of Pyber from 1985, but the last few years have seen rapid developments, initiated by Janzer and Sudakov, and we now have an efficient framework to find regular subgraphs for not only constant r but the whole range of possible values of r. \nI will discuss this framework and its components, which include algebraic techniques of Alon, Friedland and Kalai, the recent breakthroughs on the sunflower conjecture, techniques to find almost-regular subgraphs developed from Pyber’s work, and, crucially, a novel random process that efficiently finds a very nearly regular subgraph in any almost-regular graph.\nJoint work with Debsoumya Chakraborti, Oliver Janzer and Abhishek Methuku.",
+ "youtube_url": "https://youtu.be/vhLAltMdSLg",
+ "page_url": "https://www.ias.edu/video/finding-regular-subgraphs",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Extremal problem and Turán context",
+   "summary": "The talk defines the function asking how much average degree in an n-vertex graph forces a nonempty r-regular subgraph, motivates exact regularity, and positions the question among classical Turán-type forcing problems.",
+   "spans": [
+    {
+     "start_sec": 59,
+     "end_sec": 585
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Known threshold landscape and new two-regime result",
+   "summary": "After introducing the notation d_r(n), the speaker reviews the Alon-Friedland-Kalai, Pyber-Rödl-Szemerédi, and Janzer-Sudakov milestones and states the new bounds showing different behavior for constant/small r and larger r, with near-tightness except around a transition range.",
+   "spans": [
+    {
+     "start_sec": 725,
+     "end_sec": 1224
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Regularization pipeline and loss bookkeeping",
+   "summary": "The proof strategy is organized as a passage from an arbitrary dense graph to an almost regular subgraph, then to a very nearly regular subgraph, and finally to an exactly r-regular subgraph, with the main average-degree loss occurring in the first step and the last step supplied by algebraic polynomial-method tools.",
+   "spans": [
+    {
+     "start_sec": 585,
+     "end_sec": 725
+    },
+    {
+     "start_sec": 1224,
+     "end_sec": 2246
+    },
+    {
+     "start_sec": 3590,
+     "end_sec": 3675
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "One-step near-regularization lemma",
+   "summary": "The main new ingredient is formulated as an iterative lemma: from a graph whose degrees lie between d and roughly (1+gamma)d, one finds a nonempty subgraph with only slightly smaller average scale but a multiplicatively narrower degree interval.",
+   "spans": [
+    {
+     "start_sec": 2246,
+     "end_sec": 2586
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Biased random thinning construction",
+   "summary": "To prove the lemma, vertices are split into low- and high-degree sets, edges inside the low set are discarded harmlessly, and then low vertices and cross-edges are randomly deleted with probabilities chosen to penalize high-degree vertices more than low-degree ones.",
+   "spans": [
+    {
+     "start_sec": 2613,
+     "end_sec": 2924
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Degree estimates, concentration, and iteration",
+   "summary": "The expected surviving degrees are computed at the bottom and top of the interval, concentration is invoked to make the estimates simultaneous, and repeated application yields a very nearly regular subgraph while retaining useful randomness for further applications.",
+   "spans": [
+    {
+     "start_sec": 2924,
+     "end_sec": 3383
+    },
+    {
+     "start_sec": 3383,
+     "end_sec": 3527
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "The cases r=1 and r=2",
+   "note": "The speaker notes that a 1-regular subgraph is just an edge and a 2-regular subgraph is a cycle, making the forcing problem concrete before the harder case r=3.",
+   "first_introduced_sec": 221,
+   "spans": [
+    {
+     "start_sec": 221,
+     "end_sec": 281
+    }
+   ],
+   "total_seconds": 60,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he explicitly treats the two easy cases, deriving that r=1 needs an edge and r=2 amounts to forcing a cycle",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The cases r=1 and r=2 are the lower-bound base cases of the regular-degree parameter, used only as easy illustrations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "These are the lowest-degree base cases, with r=1 just forcing an edge and r=2 just forcing a cycle."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The r=1 and r=2 cases are the lowest-regularity base cases of the problem, used only as easy illustrations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the r=1 and r=2 cases are the minimal/easy boundary cases of the regular-subgraph problem, not used to refute anything"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the smallest/base regularity cases, with r=1 collapsing to a single edge and r=2 to cycles, used only for orientation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "They are the minimal easy boundary cases of the regular-degree parameter, used as base cases rather than to refute anything."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "they are the trivial lowest/boundary regularity cases, namely an edge for r=1 and a cycle for r=2"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "They are the trivial lower-boundary/base cases of the regularity parameter, used only to calibrate the problem."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the low-end base cases of the parameter, with r=1 minimal and r=2 reducing to cycles"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Trivial low-degree base cases—r=1 is just an edge and r=2 a cycle—used only to orient the problem."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The r=1 edge case and r=2 cycle case are the lowest-degree boundary/base cases used only as easy illustrations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the cases r=1 and r=2 are the smallest base/boundary cases of the regular-subgraph problem, used only as easy illustrations"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Trees in the Turán comparison",
+   "note": "Trees are used as a familiar linearly forced family to locate the regular-subgraph problem within the broader extremal graph spectrum.",
+   "first_introduced_sec": 361,
+   "spans": [
+    {
+     "start_sec": 361,
+     "end_sec": 378
+    },
+    {
+     "start_sec": 1426,
+     "end_sec": 1484
+    }
+   ],
+   "total_seconds": 75,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "trees are only placed on the Turán-style spectrum as easy subgraphs obtainable with order n edges, without working through a tree example",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Trees are acyclic, minimally connected graphs in the Turán comparison, not deployed to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Trees are acyclic, minimally connected sparse graphs used as the easy linear Turán comparison case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Trees are acyclic minimally connected graphs, cited as the easy linear Turán comparison rather than as a refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "trees are boundary sparse connected graphs, with the minimum possible edges for connected graphs, used only as a Turán-comparison illustration"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "trees are acyclic and minimally connected fixed graphs at the sparse Turán boundary, used as comparison rather than refutation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Trees are acyclic/1-degenerate and edge-minimal connected graphs in the Turán comparison, not counterexamples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "trees are minimally connected acyclic graphs, used as the sparse easy side of the Turán comparison"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Trees are acyclic and minimally connected, sitting at the sparse end of the Turán comparison rather than refuting anything."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "trees are acyclic/minimally connected graphs used as an easy Turán comparison, not to refute a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Trees are acyclic minimally connected graphs at the sparse end of Turán forcing, used as comparison examples."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Trees are acyclic edge-minimal connected graphs used as an easy linear Turán comparison, not to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "trees are acyclic, minimally connected graphs at the sparse edge extreme, used as a Turán-comparison example rather than to refute a claim"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "The parameter regime r = sqrt(n)",
+   "note": "In response to a question, the speaker uses r roughly sqrt(n) to illustrate why the high-r bound has an r log n flavor coming from many degree scales.",
+   "first_introduced_sec": 1606,
+   "spans": [
+    {
+     "start_sec": 1606,
+     "end_sec": 1720
+    }
+   ],
+   "total_seconds": 114,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he substitutes r=sqrt(n) into the bounds and explains the resulting sqrt(n) log n scale and degree ranges in the construction",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The regime r=sqrt(n) is a representative growing-parameter example illustrating the high-r bound."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The regime r=sqrt(n) is an illustrative intermediate asymptotic parameter choice, not a structural exception."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The regime r=sqrt(n) is an illustrative intermediate growth regime, not a structural boundary or adversarial case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "r=sqrt(n) is an illustrative intermediate parameter regime rather than a structurally special or adversarial case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "r=sqrt(n) is a representative large-r scaling used to illustrate the bound, not a structural exception or adversarial case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The regime r=sqrt(n) is just an illustrative intermediate/high-r parameter choice with no special structural status."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "r=sqrt(n) is just an illustrative growing parameter regime, not a boundary or obstruction"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The choice r=sqrt(n) is an illustrative ordinary large-r scaling regime."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "r=sqrt(n) is an illustrative interior parameter regime for the r log n behavior"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The scaling r=sqrt(n) is a representative large-r regime used to illustrate the r log n term."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The regime r=sqrt(n) is an ordinary illustrative intermediate/high-growth parameter choice for explaining the bound."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the regime r=sqrt(n) is an ordinary illustrative scaling case in the range of parameters"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Unbalanced complete bipartite graph",
+   "note": "An unbalanced complete bipartite graph is cited to explain why deleting some low-degree-side vertices can be the right bias when making degrees more equal.",
+   "first_introduced_sec": 2924,
+   "spans": [
+    {
+     "start_sec": 2924,
+     "end_sec": 2970
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he uses an unbalanced complete bipartite graph to reason concretely that deleting vertices from one side is the natural way to regularize it",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "An unbalanced complete bipartite graph is edge-maximal for its bipartition and is used as a model motivating deletion of low-degree vertices."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "An unbalanced complete bipartite graph is edge-maximal for its bipartition and is used to motivate deleting low-degree vertices."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "An unbalanced complete bipartite graph is edge-maximal for its fixed bipartition and partwise highly symmetric, used to motivate deleting low-degree vertices."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "an unbalanced complete bipartite graph is edge-maximal for its bipartition and is used to motivate deleting low-degree-side vertices, not as a counterexample"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "a complete bipartite graph is maximally edge-dense for its bipartition and highly regular within parts, used as a motivating case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The unbalanced complete bipartite graph is a highly regular bipartite model illustrating why deleting low-degree-side vertices can help."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "an unbalanced complete bipartite graph is edge-maximal for its bipartition and highly regular within the two parts, used only as a guiding model"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A complete bipartite graph is edge-maximal for its bipartition and highly symmetric within the two parts, used as motivation for the deletion step."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "an unbalanced complete bipartite graph is edge-maximal bipartite and is used only to motivate deleting low-degree vertices"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "An unbalanced K_{a,b} is a complete edge-maximal bipartite graph with large within-part symmetry, used as a toy model for deleting low-degree vertices."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "An unbalanced complete bipartite graph is edge-maximal across its bipartition and is used to motivate pruning, not as a formal counterexample."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "an unbalanced complete bipartite graph is complete across its bipartition, edge-maximal for fixed parts and highly partwise symmetric, used as intuition for the deletion step"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "High-dimensional expander hypergraphs",
+   "note": "An audience question asks whether the near-regularization step could help make almost regular high-dimensional expander hypergraphs regular for lossless-expander constructions; it illustrates possible robustness applications rather than driving the proof.",
+   "first_introduced_sec": 3383,
+   "spans": [
+    {
+     "start_sec": 3383,
+     "end_sec": 3467
+    }
+   ],
+   "total_seconds": 84,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "high-dimensional expander hypergraphs are raised in a question and discussed only as a possible application with obstacles, not analyzed concretely",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "High-dimensional expander hypergraphs are a systematic expander family raised as a possible application rather than a counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "High-dimensional expander hypergraphs are mentioned as an application context rather than as sporadic, limiting, or extremal objects."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "High-dimensional expander hypergraphs are mentioned as an application class where regularization would be useful, not as sporadic or adversarial objects."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "high-dimensional expander hypergraphs are a structured application class but not a sporadic, degenerate, maximally symmetric, or explicitly extremal object here"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "high-dimensional expander hypergraphs are a structured application class but not presented as sporadic, degenerate, extremal, or obstructive"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "High-dimensional expander hypergraphs are mentioned as an application class for preserving expansion, not as sporadic, degenerate, or adversarial objects."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "high-dimensional expander hypergraphs are a broad application class, and expansion alone is not one of the marked structural types"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "High-dimensional expander hypergraphs are mentioned as a possible application class, not as sporadic or extremal classification exceptions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "high-dimensional expander hypergraphs are raised as an application target, not as sporadic or extremal objects here"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "High-dimensional expander hypergraphs are mentioned as a possible application where almost-regular-to-regular trimming would be useful."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "High-dimensional expander hypergraphs are sparse hypergraphs singled out for very strong expansion and are raised as a possible application."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "high-dimensional expander hypergraphs are systematic expanding hypergraph families mentioned as a possible application, not as sporadic or as a counterexample"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Linear expander subgraphs",
+   "note": "The speaker recalls wanting a regular sublinear or linear expander subgraph, illustrating why a randomized near-regularization procedure is useful when one wants to preserve expansion.",
+   "first_introduced_sec": 3482,
+   "spans": [
+    {
+     "start_sec": 3482,
+     "end_sec": 3527
+    }
+   ],
+   "total_seconds": 45,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "linear expander subgraphs are cited as motivation/application for the random nearly-regularization process, without checking expansion on a specific instance",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Linear expander subgraphs are ordinary expanding graph targets used as motivation for preserving expansion."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Linear expander subgraphs are cited as useful expansion-preserving targets, with no counterexample role or listed structural specialness."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Linear expander subgraphs are sought as regularity-preserving applications, not used to disprove a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "linear expander subgraphs are discussed as an application where randomness helps preserve expansion, not as structurally exceptional or refutational examples"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "linear expander subgraphs are used as an application target whose expansion one hopes to preserve, not as a special classification exception or counterexample"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Linear expander subgraphs are cited as a useful application target where random thinning may preserve expansion, not as counterexamples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "linear expander subgraphs are cited as a motivating application rather than as a special extremal or adversarial object"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Linear expander subgraphs are an application target whose expansion property is not one of the listed structural types here."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "linear expander subgraphs are mentioned as a useful application where expansion should be preserved"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Linear expander subgraphs are a desired preserved outcome of the random subgraph process, not a disproof or sporadic object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Linear expander subgraphs are sparse subgraphs with deliberately strong expansion, mentioned as motivating applications of the method."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "linear expander subgraphs are regularizing targets with expansion, not structurally exceptional or deployed to disprove anything"
+    }
+   ]
+  }
+ ]
+}

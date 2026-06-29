@@ -1,0 +1,2411 @@
+{
+ "key": "b5c2e6fcef47216ce273009c9327b5d6",
+ "title": "The Blessings of Multiple Causes",
+ "speaker": "David M. Blei",
+ "affiliation": "Columbia University",
+ "date": "2020-01-21T12:00:00Z",
+ "field_msc": "62 Statistics",
+ "duration_sec": 4032.0,
+ "abstract": "Does not exist",
+ "youtube_url": "https://www.youtube.com/watch?v=1-IVBdXDbW0",
+ "page_url": "https://www.ias.edu/video/machinelearning/2020/01/21-DavidBlei",
+ "tags": [
+  "School of Mathematics",
+  "Theoretical Machine Learning"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Multiple-cause causal-inference problem and confounding",
+   "summary": "The talk formulates the goal of estimating intervention effects from observational data, explains why ordinary prediction fails under unobserved confounding, and isolates the special leverage available when there are many causes rather than one.",
+   "spans": [
+    {
+     "start_sec": 39,
+     "end_sec": 540
+    },
+    {
+     "start_sec": 886,
+     "end_sec": 1082
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Deconfounder recipe via a cause-only factor model",
+   "summary": "The proposed procedure models only the assigned causes with a probabilistic factor model, estimates a local latent variable for each unit, and treats that variable as a substitute confounder.",
+   "spans": [
+    {
+     "start_sec": 540,
+     "end_sec": 605
+    },
+    {
+     "start_sec": 1082,
+     "end_sec": 1395
+    },
+    {
+     "start_sec": 1689,
+     "end_sec": 1748
+    },
+    {
+     "start_sec": 3377,
+     "end_sec": 3403
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Model checking for the assigned-cause distribution",
+   "summary": "The factor model must be checked to ensure that its local latent variable captures the distributional dependence among the causes, using Bayesian model criticism and predictive scores to choose among candidate factor models.",
+   "spans": [
+    {
+     "start_sec": 1395,
+     "end_sec": 1557
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Outcome adjustment with substitute confounders",
+   "summary": "After augmenting the data with estimated substitute confounders, standard causal adjustment methods such as regression adjustment, the g-formula, or backdoor adjustment are applied to estimate intervention contrasts.",
+   "spans": [
+    {
+     "start_sec": 1557,
+     "end_sec": 1689
+    },
+    {
+     "start_sec": 1794,
+     "end_sec": 1998
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Conditional-independence argument for capturing multi-cause confounders",
+   "summary": "If the fitted factor model makes the assigned causes conditionally independent given its local latent variable, then any remaining unobserved multi-cause confounder would contradict that independence, while the theory also rules out accidentally capturing downstream mediators or colliders.",
+   "spans": [
+    {
+     "start_sec": 1998,
+     "end_sec": 2268
+    },
+    {
+     "start_sec": 3403,
+     "end_sec": 3446
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Identification assumptions, no-free-lunch tradeoffs, and extensions",
+   "summary": "The identification theorem requires no unobserved single-cause confounders, a well-fitting factorization of the cause distribution, a pinpointing condition for the latent variable, and overlap, with resulting bias-variance and finite-sample issues motivating open problems.",
+   "spans": [
+    {
+     "start_sec": 2268,
+     "end_sec": 2974
+    },
+    {
+     "start_sec": 3446,
+     "end_sec": 3615
+    },
+    {
+     "start_sec": 3802,
+     "end_sec": 3978
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Empirical validation through simulation",
+   "summary": "Simulation studies, especially a GWAS-style height/SNP experiment with latent population groups, test whether factor-model quality predicts improved downstream causal-effect estimation.",
+   "spans": [
+    {
+     "start_sec": 2974,
+     "end_sec": 3377
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3",
+    "s4",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Movie-casting and James Bond confounding",
+   "note": "The running movie-revenue scenario, especially James Bondness making M, Q, and Moneypenny look valuable, generates the key intuition that shared latent structure among many causes can reveal multi-cause confounding.",
+   "first_introduced_sec": 94,
+   "spans": [
+    {
+     "start_sec": 94,
+     "end_sec": 384
+    },
+    {
+     "start_sec": 605,
+     "end_sec": 835
+    },
+    {
+     "start_sec": 886,
+     "end_sec": 933
+    },
+    {
+     "start_sec": 999,
+     "end_sec": 1457
+    },
+    {
+     "start_sec": 1557,
+     "end_sec": 1584
+    },
+    {
+     "start_sec": 1947,
+     "end_sec": 1998
+    },
+    {
+     "start_sec": 2118,
+     "end_sec": 2158
+    },
+    {
+     "start_sec": 2752,
+     "end_sec": 2818
+    },
+    {
+     "start_sec": 3878,
+     "end_sec": 3939
+    }
+   ],
+   "total_seconds": 1270,
+   "attaches_to": [
+    "s1",
+    "s2",
+    "s4",
+    "s5",
+    "s6"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 6,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker sets up the movie-casting variables, analyzes James Bondness as an unobserved multi-cause confounder, and reasons through how the deconfounder changes values for M, Q, and Sean Connery.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "stylized perfect Bond co-casting collapses treatment support and is used to show passive regression can misestimate causal actor effects"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the deterministic Bond-only co-casting is a collapsed/no-overlap boundary setup used to show naive regression misestimates actor effects"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "perfect Bond-only co-casting is a boundary confounding design used to show naive regression is not causal"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the stylized Bond setup has perfect co-casting and revenue confounding and is used to show naive regression/ML misestimates causal effects"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The James-Bond casting setup uses perfect co-casting and confounding to show naive regression/ML causal interpretation fails."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The Bond casting setup has deterministic co-casting/no-overlap confounding and is used to show naive regression gives biased causal effects."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A stylized perfectly confounded Bond-casting pattern is used to show naive regression can fail causally."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The deterministic Bondness setup is a perfect-confounding/no-overlap boundary case used to show naive regression misestimates actor effects."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "perfect Bond co-casting is used to show naive regression/ML overvalues supporting actors under boundary confounding."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the perfect Bond co-casting/high-revenue block is a collapsed boundary confounding design used to show naive regression fails"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used to show naive regression fails causally, with an idealized perfect co-casting/confounding pattern at a boundary of overlap."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The stylized Bond setup has perfect co-casting/revenue confounding and is used to show naive ML causal estimates fail."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Revenue-only latent variables such as season or moviegoing taste",
+   "note": "In answering a question, the speaker contrasts confounders with latent variables that affect only the outcome and hence are not confounders for the casting intervention.",
+   "first_introduced_sec": 394,
+   "spans": [
+    {
+     "start_sec": 394,
+     "end_sec": 428
+    }
+   ],
+   "total_seconds": 34,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Season and moviegoing taste are only named as possible latent variables affecting revenue but not casting.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary outcome-only latent variables are used to refute the idea that every latent variable is a confounder"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "season or moviegoing taste are ordinary outcome-only latent variables used to refute the idea that every latent variable is a confounder"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary outcome-only latent factors are used to refute the claim that every latent variable is a confounder"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "outcome-only latent variables are ordinary nuisance variables used to refute the claim that every latent variable is a confounder"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Season or general moviegoing taste are ordinary latent outcome variables used to refute the idea that every latent variable is a confounder."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Outcome-only latent variables are ordinary latent variables invoked to refute the claim that every latent variable is a confounder."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Outcome-only latent variables are used to refute the idea that every latent variable is a confounder."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Outcome-only latent variables are ordinary nuisance factors used to refute the claim that every latent variable is a confounder."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "season or moviegoing taste refute the idea that every latent variable is a confounder."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "revenue-only latent factors are ordinary latent variables used to refute the idea that every latent variable is a confounder"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to refute the idea that every latent variable is a confounder, since these affect only revenue."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Revenue-only latent factors affect the outcome but not the causes, refuting the identification of every latent variable with a confounder."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Advil and headache relief",
+   "note": "The one-treatment medical example illustrates the classical single-cause observational-inference setting and why the present problem differs by having many causes.",
+   "first_introduced_sec": 509,
+   "spans": [
+    {
+     "start_sec": 509,
+     "end_sec": 540
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Advil and headache relief are used as a standard one-cause causal-inference contrast, with only a brief stated confounding story.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary single-treatment causal-inference example used as a contrast with multi-cause problems"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Advil and headache relief is a standard single-treatment causal-inference illustration used only as a classical contrast"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard one-treatment Advil setup is used as a classical contrast rather than an adversarial case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the Advil example is a standard single-treatment causal-inference scenario used for contrast, not as an adversarial example"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Advil headache example is a standard single-treatment causal-inference illustration rather than an adversarial case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Advil example is a standard single-treatment causal-inference case used for comparison with multiple causes."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Advil example is an ordinary single-treatment causal inference setup used for contrast."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Advil example is the single-binary-treatment base case used to contrast classical causal inference with the many-cause setting."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Advil and headache relief is a standard single-treatment causal-inference illustration."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Advil and headache relief is a standard single-treatment causal-inference illustration rather than an adversarial structural case"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary single-treatment causal-inference illustration rather than an adversarial case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Advil headache setup is the one-treatment base case used as a standard contrast with multiple-cause problems."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Genes affecting a trait",
+   "note": "The speaker lists genes and a trait as a natural multiple-cause setting, foreshadowing the later GWAS simulation.",
+   "first_introduced_sec": 933,
+   "spans": [
+    {
+     "start_sec": 933,
+     "end_sec": 964
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Genes affecting a trait are listed as a domain where multiple-cause inference arises.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "generic multiple-cause genetics setting used as an application example"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "genes affecting a trait is an ordinary multiple-cause application motivating the method"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "genes affecting a trait is a typical multiple-cause application example"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "genes affecting a trait are a typical multiple-cause application of the framework"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Genes affecting a trait are presented as a representative multiple-cause causal-inference setting."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Genes affecting a trait are a routine high-dimensional multiple-cause application, not a special structural case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Genes affecting a trait are a standard multiple-cause application rather than a failure case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Genes affecting a trait are an ordinary high-dimensional multiple-cause causal-inference setting."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "genes affecting a trait is a representative multiple-cause application."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "genes affecting a trait is presented as a representative multiple-cause application domain"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard multiple-cause genetics application with many genes and one trait."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Genes-to-trait is an ordinary many-causes-one-outcome application domain."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Players affecting a game outcome",
+   "note": "Sports lineups are used as a quick concrete instance where many treatment variables jointly affect one outcome.",
+   "first_introduced_sec": 964,
+   "spans": [
+    {
+     "start_sec": 964,
+     "end_sec": 980
+    }
+   ],
+   "total_seconds": 16,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Players affecting a game outcome are only given as another possible multiple-cause setting.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "generic multiple-cause sports setting used as an application example"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "players affecting a game outcome is a representative multiple-cause causal question"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "players affecting a game outcome is a typical multiple-cause application example"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "players affecting a game outcome are an ordinary multiple-cause application example"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Players affecting a game outcome are used as an ordinary example of many causes for one outcome."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Players affecting a game outcome are listed as an ordinary multiple-cause application."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Players affecting a game outcome are given as a routine multiple-cause application."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Players affecting a game outcome are an ordinary multiple-cause example rather than a special or adversarial object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "players affecting a game outcome is an ordinary multiple-cause application."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "players affecting a game outcome is presented as an ordinary multiple-cause application domain"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A routine multiple-cause sports-analytics application of players influencing an outcome."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Players-to-game-outcome is an ordinary many-causes-one-outcome application domain."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Prices affecting supermarket revenue",
+   "note": "Changing many item prices is mentioned as an economic multiple-cause intervention on aggregate spending or revenue.",
+   "first_introduced_sec": 964,
+   "spans": [
+    {
+     "start_sec": 964,
+     "end_sec": 980
+    }
+   ],
+   "total_seconds": 16,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Supermarket prices affecting revenue are briefly posed as an example question without analysis.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "generic multiple-cause pricing setting used as an application example"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "prices affecting supermarket revenue is a routine multiple-intervention example"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "prices affecting supermarket revenue is a typical multiple-cause application example"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "item prices affecting supermarket revenue form a routine multiple-cause causal-inference example"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Prices affecting supermarket revenue are a typical multivariable intervention example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Prices affecting supermarket revenue are an ordinary multiple-cause causal-inference setting."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Prices affecting supermarket revenue are a typical observational multiple-cause example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Prices affecting supermarket revenue are a typical multivariate intervention problem used as an application domain."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "prices affecting supermarket revenue is a typical multiple-intervention causal example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "prices affecting supermarket revenue is presented as a typical multiple-intervention causal problem"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A typical multivariable economic causal setting involving item prices and revenue."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Prices-to-supermarket-revenue is an ordinary many-causes-one-outcome application domain."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Medicines affecting lab measurements",
+   "note": "Multiple drugs and health measurements illustrate the same causal structure in a medical setting.",
+   "first_introduced_sec": 980,
+   "spans": [
+    {
+     "start_sec": 980,
+     "end_sec": 999
+    }
+   ],
+   "total_seconds": 19,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Medicines affecting lab measurements are listed as an application area without any worked procedure.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "generic multiple-treatment medical-measurement setting used as an application example"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "medicines affecting lab measurements is a standard observational multiple-cause application"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "medicines affecting lab measurements is a typical multiple-cause application example"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "medicines affecting lab measurements are a typical observational multiple-treatment example"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Medicines affecting lab measurements are given as a standard multiple-treatment observational setting."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Medicines affecting lab measurements are presented as a standard multiple-treatment observational problem."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Medicines affecting lab measurements are a standard multi-treatment causal setting."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Medicines affecting lab measurements are a typical multiple-treatment biomedical causal setting."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "medicines affecting lab measurements is a representative multiple-treatment setting."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "medicines affecting lab measurements is presented as a representative many-treatment medical application"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard medical multiple-treatment setting, not structurally special in itself."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Medicines-to-lab-measurements is an ordinary many-causes-one-outcome application domain."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Neurons affecting limb movement",
+   "note": "Neural activity is cited as another many-causes-to-one-outcome observational problem.",
+   "first_introduced_sec": 980,
+   "spans": [
+    {
+     "start_sec": 980,
+     "end_sec": 999
+    }
+   ],
+   "total_seconds": 19,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Neurons affecting limb movement are named as an analogous multiple-cause problem.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "generic multiple-cause neuroscience setting used as an application example"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "neurons affecting limb movement is a normal many-causes-to-one-outcome example"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "neurons affecting limb movement is a typical multiple-cause application example"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "neurons affecting limb movement are presented as a standard many-causes-one-outcome application"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Neurons affecting limb movement are used as a representative many-causes biological example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Neurons affecting limb movement are cited as a typical many-cause scientific application."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Neurons affecting limb movement are presented as a normal many-cause scientific application."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Neurons affecting limb movement are a typical many-cause neuroscience setting."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "neurons affecting limb movement is a standard many-causes-to-one-outcome example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "neurons affecting limb movement is presented as a typical high-dimensional causal application"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A representative neuroscience multiple-cause example of neural activity affecting movement."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Neurons-to-limb-movement is an ordinary many-causes-one-outcome application domain."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Recommendation-system preferences from movie watching",
+   "note": "A recommender-system matrix-factorization analogy makes the pinpointing assumption concrete: many observed choices can determine a user's latent preference vector within the model.",
+   "first_introduced_sec": 2407,
+   "spans": [
+    {
+     "start_sec": 2407,
+     "end_sec": 2434
+    }
+   ],
+   "total_seconds": 27,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Recommendation-system preferences from movie watching are invoked as an analogy for pinpointing a latent variable via matrix factorization.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 3,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary latent-factor recommendation example used to illustrate pinpointing preferences from many observations"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "recommendation-system preferences inferred from movie watching are used as a typical matrix-factorization intuition for pinpointing a latent variable"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "matrix-factorized movie preferences are used to illustrate pinpointing of a latent variable, not to disprove a claim"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "recommendation-system latent preferences from viewing histories are a standard factor-model intuition for pinpointing"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The recommender-system example invokes the many-observation limiting regime where viewing history can pinpoint latent preferences."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Recommendation-system preferences inferred from movie watching are a standard latent-factor example used to explain pinpointing."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Movie-watching histories identifying recommendation preferences illustrate ordinary latent-factor estimation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The recommender example invokes the asymptotic many-movies limit in which a latent preference is pinpointed by behavior."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "movie-watching preferences are used as a standard latent-factor intuition for pinpointing."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "movie-watching histories pinning down preferences are used as a standard matrix-factorization intuition for the latent-variable assumption"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Used to illustrate the limiting pinpoint assumption where abundant watching data collapses latent preference uncertainty."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Recommendation preferences inferred from movie watching form a standard latent-factor example for the pinpointing assumption."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Arnold Schwarzenegger or Sean Connery in an artsy French film",
+   "note": "An audience question about casting a blockbuster actor in a foreign art film leads directly to the overlap/positivity condition and its finite-sample variance consequences.",
+   "first_introduced_sec": 2836,
+   "spans": [
+    {
+     "start_sec": 2836,
+     "end_sec": 2929
+    }
+   ],
+   "total_seconds": 93,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reasons through Arnold Schwarzenegger or Sean Connery in an artsy French film as an overlap/low-probability intervention case and its effect on estimator variance.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 4,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "zero- or near-zero-overlap casting intervention is an empty-support boundary case obstructing identification"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "casting Schwarzenegger or Connery in an artsy French film is a zero- or near-zero-overlap boundary case used to show where the theory fails or has high variance"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "an artsy-French-film casting of Schwarzenegger or Connery is a zero-or-near-zero-overlap boundary case used as an obstruction"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the artsy-French-film casting is a zero-or-near-zero-overlap boundary case used to show where the causal theory fails or has huge variance"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Putting Arnold Schwarzenegger or Sean Connery in an artsy French film is a zero-or-near-zero overlap boundary case obstructing causal estimation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Putting Schwarzenegger or Connery in an artsy French film is treated as a zero-probability/no-overlap boundary case where the identification theory fails."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Casting Schwarzenegger or Connery in an artsy French film is an off-support overlap boundary case obstructing causal estimation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The artsy-French-film casting is an off-support zero-overlap boundary case used as an obstruction to identification or stable estimation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "an action star in an artsy French film is an out-of-support or near-zero-overlap intervention obstructing identification."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a star in an artsy French film is a zero-or-near-zero overlap boundary case used as an obstruction to identification"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used as an overlap-violation or near-zero-probability intervention where the method can fail."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The artsy-film casting intervention lies on the zero-or-near-zero-overlap boundary and is used as an obstruction to identification or low-variance estimation."
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "GWAS height-and-SNP simulation",
+   "note": "A simulated genome-wide association study with latent population groups illustrates empirically that good factor-model predictive fit can improve downstream causal-effect estimates.",
+   "first_introduced_sec": 2974,
+   "spans": [
+    {
+     "start_sec": 2974,
+     "end_sec": 3377
+    }
+   ],
+   "total_seconds": 403,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker describes the GWAS height-and-SNP simulation, including latent groups, the generated height model, factor-model fitting, predictive checks, and RMSE comparisons.",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "generic simulated GWAS with latent population confounding is used as a validation study for the method"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the height-and-SNP GWAS simulation is a representative synthetic validation of deconfounding rather than an adversarial example"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the height-and-SNP GWAS simulation is a typical high-dimensional testbed supporting the deconfounder analysis"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the height-and-SNP study is a stylized but ordinary GWAS simulation used constructively to validate deconfounding behavior"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The GWAS height-and-SNP simulation is a typical synthetic high-dimensional causal study used to validate the deconfounder."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The GWAS height-and-SNP simulation is a representative synthetic benchmark used to validate the deconfounder procedure."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The height-and-SNP simulation is a standard synthetic GWAS benchmark for validating the method."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The height-and-SNP simulation is a standard high-dimensional GWAS-style testbed used to validate the deconfounder rather than refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the height-and-SNP GWAS simulation is a representative synthetic testbed for the method."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the simulated GWAS height-and-SNP study is an ordinary benchmark used to demonstrate the deconfounder’s performance"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A conventional synthetic GWAS-style high-dimensional simulation used to validate the method."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The height-and-SNP simulation is a standard synthetic GWAS benchmark used to validate the deconfounder."
+    }
+   ]
+  }
+ ]
+}

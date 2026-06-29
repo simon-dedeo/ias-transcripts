@@ -1,0 +1,750 @@
+{
+ "key": "69956d38eef0339ec0f4207f78499dcd",
+ "title": "A local central limit theorem for triangles in a random graph",
+ "speaker": "Swastik Kopparty",
+ "affiliation": "Does not exist",
+ "date": "2016-03-28T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 3879.0,
+ "abstract": "What is the distribution of the number of triangles in the random graph $G(n, 1/2)$? It was known for a long time that this distribution obeys a central limit theorem: from the point of view of large intervals (~ standard-deviation length), the distribution looks like a Gaussian random variable. We show that it even obeys a LOCAL central limit theorem: the distribution is pointwise close to a suitable discrete Gaussian random variable. Joint work with Justin Gilmer.",
+ "youtube_url": "https://www.youtube.com/watch?v=-tTXHSnYLRA",
+ "page_url": "https://www.ias.edu/video/csdm/2016/0328-SwastikKopparty",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics",
+  "Swastik Kopparty"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Problem statement and local limit theorem",
+   "summary": "The talk defines the triangle count S_n in G(n,1/2), records its mean and variance and the known central limit theorem, then states the main pointwise discrete-Gaussian local limit theorem and explains why this is stronger than the usual CLT.",
+   "spans": [
+    {
+     "start_sec": 18,
+     "end_sec": 599
+    },
+    {
+     "start_sec": 626,
+     "end_sec": 826
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Fourier viewpoint and reduction to tail control",
+   "summary": "After relating the theorem to earlier sparse-p and modular equidistribution results, the proof defines the normalized variable R_n and characteristic function psi_n(t), uses Fourier inversion to compare point probabilities with the Gaussian density, and reduces the local limit theorem to showing that the integral of |psi_n(t)| outside a fixed central interval is o(1).",
+   "spans": [
+    {
+     "start_sec": 826,
+     "end_sec": 1977
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Frequency decomposition of the characteristic-function tail",
+   "summary": "The remaining task is organized as several overlapping estimates for different ranges of the frequency t, each proving enough cancellation in psi_n(t) to make its tail integral negligible.",
+   "spans": [
+    {
+     "start_sec": 1977,
+     "end_sec": 2055
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Matching exposure estimate for midrange frequencies",
+   "summary": "For roughly sqrt(n) << t << n, the edges in a fixed matching are left unrevealed so that, conditioned on all other edges, S_n becomes a constant plus a linear sum of independent Bernoulli variables with coefficients about n/4, yielding product cancellation of size about exp(-t^2/n).",
+   "spans": [
+    {
+     "start_sec": 2055,
+     "end_sec": 2716
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Union-of-matchings extension to small noncentral frequencies",
+   "summary": "To cover frequencies below sqrt(n) but above an arbitrary large constant, the matching argument is modified by leaving a union of matchings unrevealed and showing that the resulting quadratic part is negligible compared with the linear part.",
+   "spans": [
+    {
+     "start_sec": 2716,
+     "end_sec": 2831
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Cauchy--Schwarz estimate for high frequencies",
+   "summary": "For large t, the vertex set is split into V and an outside vertex u, the triangle count is written as tri(A)+<b⊗b,A>, and a Cauchy--Schwarz squaring removes tri(A), after which independence across Ω(n^2) coordinates gives decay about exp(-t^2/n^2) for t larger than n.",
+   "spans": [
+    {
+     "start_sec": 2831,
+     "end_sec": 3748
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Filling the t≈n gap and assembling the proof",
+   "summary": "A many-outside-vertices variant of the high-frequency argument fills the difficult range around t=n, and together with the matching-based estimates covers the whole Fourier interval needed for the tail bound and hence the local limit theorem.",
+   "spans": [
+    {
+     "start_sec": 3748,
+     "end_sec": 3818
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Classical iid integer-valued local limit theorem",
+   "note": "A sum of independent integer-valued variables is recalled only to make the term “local limit theorem” concrete before returning to dependent triangle counts.",
+   "first_introduced_sec": 626,
+   "spans": [
+    {
+     "start_sec": 626,
+     "end_sec": 676
+    }
+   ],
+   "total_seconds": 50,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he cites the classical iid integer-valued local limit theorem and states its pointwise Gaussian conclusion, but does not work through an iid example or proof",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The classical iid integer-valued local limit theorem is used as a standard analogue/model result, not as a structural exception or failure case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The classical iid integer-valued local limit theorem is used as a standard motivating analogue, not as a structurally special object or failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The classical iid lattice local limit theorem is invoked as a standard independent analogue, not as a structurally special or refuting case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "It is the standard independent integer-valued local limit theorem used as an analogy, not a structurally special object or a disproof."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard iid integer-valued local limit theorem is used as the motivating analogue."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard iid lattice local limit theorem is used as an analogy, not as a structurally special object or failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as the standard iid prototype/analogy for the desired local limit theorem, with no sporadic or boundary structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as the standard independent analogue of the desired theorem, with no intrinsic degenerate, extremal, exceptional, or maximal-symmetry feature singled out."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as the standard iid benchmark/analogue for the desired local limit theorem, not to refute anything."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used as the standard iid analogue motivating the dependent triangle-count result, with no intrinsic atypical structure."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used as the standard analogous iid theorem rather than to refute anything, and it is a typical member of local limit theory."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as the standard iid analogue motivating the dependent triangle-count theorem, with no special structural feature."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Odd-versus-even triangle-count pathology",
+   "note": "The hypothetical fact that a CLT cannot distinguish a distribution supported only on odd values from one supported only on even values illustrates why pointwise or modular information is needed beyond a global CLT.",
+   "first_introduced_sec": 676,
+   "spans": [
+    {
+     "start_sec": 676,
+     "end_sec": 709
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he invokes the odd-versus-even triangle-count scenario only as a pathology that ordinary CLTs would not detect, with no construction or calculation on it",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The parity-supported odd/even triangle-count scenario is invoked as a pathology showing that ordinary CLT statements are insufficient for a local limit theorem."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A distribution confined to only odd or only even triangle counts is collapsed to one parity class and is invoked as a pathology showing CLT information alone can fail to give a local limit theorem."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A distribution forced onto one parity has collapsed mod-2 support and is used to show CLT-level information alone cannot imply the local limit theorem."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A distribution supported only on one parity class is a collapsed lattice case used to show that coarse CLTs alone cannot imply pointwise local behavior."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A hypothetical parity-supported lattice law collapses onto one coset and shows that ordinary CLTs cannot imply pointwise LLTs."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A distribution forced to one parity has collapsed mod-2 support and is invoked to show ordinary CLTs cannot imply a pointwise local theorem."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A hypothetical distribution supported only on one parity is used as an obstruction showing coarse CLTs cannot imply a pointwise local limit theorem."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The hypothetical all-odd or all-even support is a parity/lattice obstruction showing coarse CLTs would not imply a pointwise local limit theorem."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The hypothetical all-odd/all-even support is a parity-collapsed obstruction showing ordinary CLTs cannot imply a local limit theorem."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The all-odd/all-even parity scenario is invoked as an obstruction showing ordinary CLTs are insufficient, and its support is collapsed to one parity class."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The odd/even support scenario is invoked as an obstruction showing a CLT cannot imply a pointwise LLT, and its distribution is collapsed onto one parity class."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The parity-supported odd/even scenario is an adversarial obstruction showing a CLT alone cannot imply pointwise local behavior."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "High-frequency value t = pi sigma_n / 7",
+   "note": "The special frequency t=pi sigma_n/7 is used to illustrate that large values of t probe the distribution of the triangle count modulo a small integer, here modulo 7.",
+   "first_introduced_sec": 2918,
+   "spans": [
+    {
+     "start_sec": 2918,
+     "end_sec": 3001
+    }
+   ],
+   "total_seconds": 83,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he takes the concrete high-frequency value t = pi sigma_n/7, rewrites the characteristic function as E exp(i pi S_n/7), relates it to triangles mod 7, and then runs the conditioning/Cauchy-Schwarz Fourier argument for that high-t regime",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The value t = pi sigma_n/7 is a representative high-frequency Fourier point illustrating the large-t/mod-7 argument, not a boundary case or counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The value t = pi sigma_n / 7 is a representative high-frequency Fourier value used to illustrate the modular-analysis argument, not a boundary or adversarial case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The value t=πσ_n/7 lies in the upper-scale high-frequency end of the Fourier range and is used as an illustrative case, not to disprove a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The value t=πσ_n/7 is a representative large Fourier frequency illustrating the mod-7 regime, not a boundary case or obstruction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The value is a constant fraction of the maximal Fourier cutoff pi sigma_n, illustrating the top-scale high-frequency regime."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The value t = pi sigma_n/7 is just a representative high-frequency Fourier parameter illustrating the large-t argument."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The specific rational high-frequency Fourier value is used illustratively to analyze the mod-7 regime, not as a failure case or sporadic object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The value is chosen illustratively in the upper high-frequency scale of the Fourier domain, probing triangle counts modulo a small modulus rather than refuting a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The value is chosen as a maximal-scale high-frequency Fourier point illustrating the upper-range/mod-7 analysis, not as a failure case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The value t = pi sigma_n / 7 is a representative high-frequency Fourier parameter illustrating mod-7 behavior, not a failure case or structural extreme."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The value t = pi sigma_n / 7 is an illustrative high-frequency Fourier point linked to mod-7 behavior, not a refuting or structurally special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The value is a Fourier frequency of maximal order \u0018sigma_n\u0019 in the allowed range, used illustratively for the high-frequency estimate."
+    }
+   ]
+  }
+ ]
+}

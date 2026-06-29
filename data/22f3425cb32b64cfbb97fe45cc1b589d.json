@@ -1,0 +1,1868 @@
+{
+ "key": "22f3425cb32b64cfbb97fe45cc1b589d",
+ "title": "Tight hardness of the non-commutative Grothendieck problem",
+ "speaker": "Oded Regev",
+ "affiliation": "New York University",
+ "date": "2015-03-16T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3610.0,
+ "abstract": "We prove that for any $\\epsilon > 0$ it is NP-hard to approximate the non-commutative Grothendieck problem to within a factor $1/2 + \\epsilon$, which matches the approximation ratio of the algorithm of Naor, Regev, and Vidick (STOC'13). Our proof uses an embedding of $\\ell_2$ into the space of matrices endowed with the trace norm with the property that the image of standard basis vectors is longer than that of unit vectors with no large coordinates. The talk does not assume familiarity with the Grothendieck problem.",
+ "youtube_url": "https://www.youtube.com/watch?v=bNsXk1MlVLI",
+ "page_url": "https://www.ias.edu/video/csdm/2015/0316-OdedRegev",
+ "tags": [
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Classical Grothendieck inequality as an SDP relaxation",
+   "summary": "The talk recalls the classical Grothendieck optimization problem, its SDP relaxation by replacing signs with unit vectors, Grothendieck's constant-factor inequality, and the algorithmic rounding interpretation.",
+   "spans": [
+    {
+     "start_sec": 58,
+     "end_sec": 583
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Noncommutative Grothendieck formulation and factor-two algorithm",
+   "summary": "The speaker defines the noncommutative version with bilinear forms on unitary matrices, describes the corresponding SDP and Hagerup's factor-two inequality, and explains why the resulting problem is computationally meaningful.",
+   "spans": [
+    {
+     "start_sec": 595,
+     "end_sec": 1110
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Tight hardness target via little noncommutative Grothendieck",
+   "summary": "After reviewing the known hardness landscape for the commutative case, the main theorem is stated: approximating noncommutative Grothendieck within 2 minus epsilon is NP-hard, reduced to proving square-root-two hardness for the little noncommutative problem.",
+   "spans": [
+    {
+     "start_sec": 1135,
+     "end_sec": 1505
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Little Grothendieck warm-up through operator-norm duality",
+   "summary": "As a commutative warm-up, little Grothendieck is identified with the L2-to-L1 operator norm, then rewritten by duality and a positive-semidefinite factorization as a special case of the full Grothendieck problem.",
+   "spans": [
+    {
+     "start_sec": 1505,
+     "end_sec": 2034
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "PCP-to-geometric embedding hardness criterion",
+   "summary": "The complexity-theoretic machinery is compressed into a geometric requirement: construct a linear map that gives standard basis directions norm one while forcing all sufficiently smooth vectors to have smaller norm, with constants sqrt(2/pi) in L1 and 1/sqrt(2) in Schatten S1.",
+   "spans": [
+    {
+     "start_sec": 2034,
+     "end_sec": 2294
+    },
+    {
+     "start_sec": 2514,
+     "end_sec": 2555
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Bernoulli sign embedding for the commutative criterion",
+   "summary": "The warm-up criterion is proved by mapping a vector to the function summing its coordinates against independent signs, so basis vectors have L1 norm one while Berry-Esseen or the central limit theorem gives the sqrt(2/pi) value on smooth vectors.",
+   "spans": [
+    {
+     "start_sec": 2294,
+     "end_sec": 2514
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Schatten-one analogue and discarded random/CAR models",
+   "summary": "For the noncommutative proof the target space is changed from L1 to the Schatten-one trace norm, and natural candidates such as random unitaries, Gaussian random matrices, and the CAR-algebra integrality gap are analyzed and set aside.",
+   "spans": [
+    {
+     "start_sec": 2555,
+     "end_sec": 3067
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Clifford norm identity and random-phase symmetrization",
+   "summary": "Using Clifford generators, the speaker states an explicit Schatten-one norm formula involving the area of the parallelogram spanned by the real and imaginary parts; multiplying coordinates by random fourth roots of unity makes smooth vectors have norm about 1/sqrt(2) while preserving the norm of basis vectors, completing the required embedding.",
+   "spans": [
+    {
+     "start_sec": 3067,
+     "end_sec": 3591
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Max-Cut and cut-norm matrix partitioning",
+   "note": "These optimization problems are cited to make the classical Grothendieck objective concrete and to show why its SDP relaxation matters algorithmically.",
+   "first_introduced_sec": 188,
+   "spans": [
+    {
+     "start_sec": 188,
+     "end_sec": 210
+    },
+    {
+     "start_sec": 372,
+     "end_sec": 405
+    }
+   ],
+   "total_seconds": 55,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Max-Cut and cut-norm partitioning are cited as applications/interpretations of the Grothendieck optimization problem, without a concrete instance being computed or analyzed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Max-Cut and cut-norm partitioning are cited as ordinary applications of the Grothendieck optimization framework."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as ordinary motivating optimization problems related to Grothendieck/cut norms, not as structurally special objects or failures."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Canonical optimization problems cited as ordinary applications of Grothendieck-type formulations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard optimization applications motivating Grothendieck-type problems, not structurally special or adversarial"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard optimization applications of the commutative Grothendieck problem, cited only as motivation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Max-Cut and cut-norm partitioning are cited as ordinary motivating optimization problems, not as structurally special or adversarial examples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "cited as ordinary optimization applications of Grothendieck, not as special or refuting cases"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Cited only as standard applications/natural optimization problems related to Grothendieck, with no special intrinsic structure used."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cited as ordinary motivating applications of Grothendieck-type optimization, with no atypical intrinsic structure invoked."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cited as ordinary motivating optimization problems captured by Grothendieck-type formulations."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard optimization applications cited for motivation, not structurally special"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "cited as standard applications of the commutative Grothendieck optimization framework."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Goemans-Williamson hyperplane rounding",
+   "note": "The hyperplane rounding algorithm is mentioned as a familiar instance of turning SDP vectors into discrete signs, illustrating the general rounding paradigm.",
+   "first_introduced_sec": 510,
+   "spans": [
+    {
+     "start_sec": 510,
+     "end_sec": 538
+    }
+   ],
+   "total_seconds": 28,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Goemans-Williamson hyperplane rounding is only named as a famous rounding method using a hyperplane cut.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Goemans-Williamson rounding is used as a standard value-preserving rounding procedure, with its uniform hyperplane choice giving rotational symmetry."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A rotationally invariant random-hyperplane rounding scheme used as a standard rounding paradigm, not to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniformly random hyperplane rounding is rotationally invariant rather than an adversarial example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the rounding uses a rotationally invariant random hyperplane to treat SDP vector directions uniformly"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "uses a rotation-invariant random hyperplane as a standard SDP rounding illustration"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Goemans-Williamson rounding is used as a standard rounding method, with its random hyperplane choice giving rotational symmetry."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used as a standard rounding construction based on a rotationally invariant random hyperplane"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as an illustrative rounding method; the uniformly random hyperplane construction is rotationally invariant."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a standard rounding analogy, and its uniform random hyperplane choice is rotationally invariant."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a standard rounding algorithm, with the uniformly random hyperplane giving rotational symmetry."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "rotationally invariant random-hyperplane rounding used as a standard algorithmic procedure"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used as the canonical rotationally invariant hyperplane rounding procedure, not to refute a claim."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Diagonal unitaries as sign assignments",
+   "note": "In response to a question, diagonal unitary matrices with plus/minus entries are used to show how the matrix-valued noncommutative problem contains the classical sign-valued problem.",
+   "first_introduced_sec": 799,
+   "spans": [
+    {
+     "start_sec": 799,
+     "end_sec": 830
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker checks how diagonal unitary matrices encode sign choices and how restricting the bilinear form to diagonals reduces the noncommutative problem to the commutative one.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Restricting unitaries to diagonal sign matrices collapses the noncommutative variables to commuting sign assignments."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Diagonal sign unitaries are the collapsed commuting/sign-assignment special case of general noncommutative unitaries."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Diagonal sign unitaries are the commutative, coordinatewise special case with off-diagonal structure collapsed."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "diagonal ±1 unitaries are an off-diagonal-free commutative subcase reducing matrix variables to signs"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "diagonal sign unitaries collapse the matrix-valued noncommutative setting to commuting scalar sign choices"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Diagonal unitaries collapse the matrix-valued noncommutative setting to commuting scalar sign assignments."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "diagonal sign unitaries are the collapsed commutative subcase of general unitary matrices"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Diagonal sign unitaries are the collapsed commutative subcase of general unitary matrices, used to recover sign assignments."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Diagonal sign unitaries are the collapsed commutative/sign-assignment subcase of general unitary matrices, used to show containment."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Diagonal ±1 unitaries are commuting extreme sign choices that collapse the matrix setting to the scalar case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "commuting diagonal sign matrices are a collapsed special case of general unitaries"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "diagonal unitaries form the commuting diagonal special case reducing the noncommutative problem to sign assignments."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Hagerup-Ito CAR-algebra factor-two gap",
+   "note": "The known CAR-algebra integrality-gap example first illustrates tightness of the SDP gap and later serves as a failed model that pushes the proof toward a different algebraic embedding.",
+   "first_introduced_sec": 920,
+   "spans": [
+    {
+     "start_sec": 920,
+     "end_sec": 945
+    },
+    {
+     "start_sec": 2773,
+     "end_sec": 2920
+    }
+   ],
+   "total_seconds": 172,
+   "attaches_to": [
+    "s2",
+    "s7"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the Hagerup-Ito CAR-algebra gap is discussed as a known integrality-gap construction and dead end, but its construction is not actually worked through.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 9,
+    "exceptional": 0,
+    "countercase": 3,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Hagerup-Ito CAR construction is a sharp factor-two integrality-gap example showing tightness of the known bound."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Hagerup-Ito CAR-algebra example attains the tight factor-two SDP/OPT gap, so its role here is as a tight extremal gap example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular CAR-algebra construction attains the tight factor-two SDP/OPT gap and obstructs any better constant for that relaxation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the CAR-algebra construction realizes the optimal factor-two SDP/OPT gap and serves as an adversarial integrality-gap instance"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the highly regular CAR construction attains the sharp factor-two SDP/OPT gap"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The CAR-algebra construction gives a tight factor-two integrality gap, serving as an adversarial obstruction to any better SDP factor."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the CAR construction is a canonical highly regular example attaining the sharp factor-two SDP gap"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Hagerup-Ito CAR construction is cited as attaining the tight factor-two SDP/OPT gap rather than refuting a claim in the talk."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The CAR-algebra construction is used as a tight factor-two gap witness for the SDP/OPT ratio."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The canonical anticommutation construction is highly regular and achieves the tight factor-two SDP/OPT gap."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "canonical anticommutation construction is isotropic and realizes the tight factor-two SDP gap"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the Hagerup-Ito CAR construction attains the tight factor-two SDP/OPT gap via highly regular anticommutation relations."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Robust PCA, Procrustes, and molecular alignment",
+   "note": "These data-analysis and rotation-alignment tasks illustrate that the noncommutative Grothendieck objective captures natural optimization problems over rotations.",
+   "first_introduced_sec": 989,
+   "spans": [
+    {
+     "start_sec": 989,
+     "end_sec": 1036
+    }
+   ],
+   "total_seconds": 47,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "robust PCA, Procrustes, and molecular alignment are listed as motivating applications captured by the optimization framework, with no worked example.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Robust PCA, Procrustes, and molecular alignment are mentioned as typical motivating optimization applications."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "These are cited as ordinary application domains for optimization over rotations, not as special or adversarial examples."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "These are cited as standard application problems captured by the non-commutative formulation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "these are ordinary application problems captured by the noncommutative Grothendieck formulation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary application problems captured by the optimization framework and used motivationally"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Robust PCA, Procrustes, and molecular alignment are presented as typical applications captured by the optimization problem."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "listed as ordinary application problems captured by the non-commutative formulation"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Listed as ordinary application domains captured by the optimization problem, not as failures or structurally special objects."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Listed as typical application problems showing that the noncommutative OPT is useful."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Mentioned as ordinary application areas for optimizing over rotations/unitaries."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary application problems illustrating the optimization model"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "listed as ordinary motivating applications captured by the noncommutative Grothendieck formulation."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Largest L1-norm point in an ellipsoid",
+   "note": "The little Grothendieck norm is interpreted geometrically as maximizing the L1 norm on an ellipsoid, making the operator-norm formulation more visual.",
+   "first_introduced_sec": 1686,
+   "spans": [
+    {
+     "start_sec": 1686,
+     "end_sec": 1719
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker derives the ellipsoid formulation as maximizing ||Bx||_1 over ||x||_2=1 and rewrites it through duality and Cauchy-Schwarz into Grothendieck-type expressions.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The example is explicitly the point maximizing the L1 norm over an ellipsoid."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The object is explicitly the point maximizing the L1 norm over an ellipsoid."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The object is explicitly a point maximizing the L1 norm over an ellipsoid."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the point is defined by maximizing the L1 norm over all points of the ellipsoid"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the point is defined by maximizing the L1 norm over the ellipsoid"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The point is defined by maximizing the L1 norm over an ellipsoid, so it is an extremal optimizer."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "it is explicitly the point maximizing the L1 norm over an ellipsoid"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The object is explicitly the maximizer of the L1 norm over an ellipsoid."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The object is defined as a maximizer of the L1 norm over an ellipsoid."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The point is defined by maximizing the L1 norm over the ellipsoid."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the object is defined as a maximizer of the L1 norm over an ellipsoid"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the object is explicitly the point maximizing the L1 norm over an ellipsoid."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Random unitaries and the Gaussian random-matrix ensemble",
+   "note": "The failed attempt using random unitaries leads to Gaussian ensembles and the Wigner semicircle law, showing that this natural analogue gives the wrong constant and motivating a different construction.",
+   "first_introduced_sec": 2668,
+   "spans": [
+    {
+     "start_sec": 2668,
+     "end_sec": 2754
+    }
+   ],
+   "total_seconds": 86,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "random unitaries are tried as a concrete construction, related to the Gaussian random-matrix ensemble and Wigner semicircle law, and the resulting gap is computed to be too weak.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Haar-random unitaries/Gaussian ensembles are highly invariant but are presented as a failed candidate construction giving the wrong gap."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Haar-random unitaries/Gaussian random matrices are highly invariant ensembles and are presented as a natural attempted construction that fails to give the needed gap."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Haar-random unitaries/Gaussian matrix ensembles are highly invariant but are used as a dead-end showing the naive random-matrix construction gives the wrong gap."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Haar/Gaussian matrix ensembles are invariantly symmetric and are used to show the naive random-unitary construction gives the wrong constant"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Haar-unitary and Gaussian ensembles are invariant random-matrix choices presented as a failed construction giving the wrong gap"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Haar-random unitaries/Gaussian matrix ensembles are highly invariant, and their computed behavior is used as a dead end for the naive construction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used as the natural symmetric random-matrix attempt that fails to give the needed gap"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Presented as a natural attempted construction that fails to give the needed gap; Haar/Gaussian random-matrix ensembles are highly invariant."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Haar/Gaussian random-matrix constructions are highly invariant but are presented as a dead-end that fails to give the needed gap."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The unitary-invariant random-matrix ensemble is tried and shown to give the wrong gap, blocking that construction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "unitarily invariant random ensembles used to show the natural random-unitary construction gives the wrong gap"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used as a failed random-unitary/Gaussian-ensemble approach giving too weak a gap, with unitary/Gaussian invariance."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Smooth vector with many coordinates of size one-tenth",
+   "note": "The vector with many equal small coordinates concretely demonstrates how random phases split mass between real and imaginary parts and drive the Schatten-one norm down to the desired constant.",
+   "first_introduced_sec": 3352,
+   "spans": [
+    {
+     "start_sec": 3352,
+     "end_sec": 3461
+    }
+   ],
+   "total_seconds": 109,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly runs the Clifford/phases construction on a smooth vector with many 1/10-sized coordinates and computes the real/imaginary split, parallelogram area, and resulting 1/sqrt(2) norm.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The flat vector with many equal one-tenth coordinates is a regular smooth vector used to show the naive Clifford embedding alone fails before random phases."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The flat vector with about 100 equal coordinates of size one-tenth is maximally spread for unit L2 norm and permutation-regular, used only to illustrate the smooth case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The flat equal-coordinate vector is permutation-symmetric and illustrates why the unphased Clifford map fails on smooth vectors."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the flat equal-coordinate smooth vector is a regular test case that defeats the unrandomized Clifford embedding by still having norm one"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the flat equal-coordinate vector is highly regular and obstructs the unmodified Clifford embedding by still having norm one"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The flat vector with many equal small coordinates is highly regular and minimizes the largest coordinate for its support size, illustrating the smooth case rather than refuting a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the flat equal-coordinate unit vector shows the unphased Clifford map does not separate smooth from basis vectors"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The flat smooth vector obstructs the naive Clifford embedding, since it still maps to norm one; its equal coordinates make it highly regular."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The flat equal-coordinate smooth vector is a permutation-regular test case that exposes the raw Clifford map’s failure before random phasing."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The flat equal-coordinate vector exposes that the unphased Clifford map keeps norm one instead of shrinking smooth vectors."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "equal-magnitude spread vector is permutation-regular and used only as an illustrative smooth case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the vector with equal small coordinates is a flat, permutation-regular, maximally delocalized unit vector on its support."
+    }
+   ]
+  }
+ ]
+}

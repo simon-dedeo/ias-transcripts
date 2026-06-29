@@ -1,0 +1,4565 @@
+{
+ "key": "f7b2f199cac1d58a5f83e6567c792907",
+ "title": "Why Language Models Hallucinate",
+ "speaker": "Adam Kalai",
+ "affiliation": "Open AI",
+ "date": "2025-11-24T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4172.0,
+ "abstract": "Large language models (LLMs) sometimes generate statements that are plausible but factually incorrect—a phenomenon commonly called \"hallucination.\" We argue that these errors are not mysterious failures of architecture or reasoning, but rather predictable consequences of standard training and evaluation incentives.\nWe show (i) that hallucinations can be viewed as classification errors: when pretrained models cannot reliably distinguish a false statement from a true one, they may produce the false option rather than saying I don't know; (ii) that optimization of benchmark performance encourages guessing rather than abstaining, since most evaluation metrics penalize expressing uncertainty; and (iii) that a possible mitigation path lies in revising existing benchmarks to reward calibrated abstention, thus realigning incentives in model development.\nJoint work with Santosh Vempala (Georgia Tech) and Ofir Nachum & Edwin Zhang (OpenAI).",
+ "youtube_url": "https://youtu.be/0dRouBLcvMs",
+ "page_url": "https://www.ias.edu/video/why-language-models-hallucinate",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Hallucination as non-abstained falsehood",
+   "summary": "The talk defines hallucination as false output where uncertainty or abstention would be preferable, motivates the safety problem, and separates hallucination rate from accuracy, model size, and inevitability misconceptions.",
+   "spans": [
+    {
+     "start_sec": 49,
+     "end_sec": 584
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Idealized pretraining model",
+   "summary": "The speaker decomposes training into language prediction and alignment, then formalizes pretraining as learning a distribution \\(\\hat p\\) from noiseless positive samples supported on valid strings under the usual negative-log-likelihood objective.",
+   "spans": [
+    {
+     "start_sec": 584,
+     "end_sec": 811
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Reduction from prediction to validity classification",
+   "summary": "The main theorem repurposes any predictive model \\(\\hat p\\) as a threshold classifier for valid versus erroneous strings and lower-bounds hallucination probability by roughly twice the classifier error minus small ratio and calibration terms.",
+   "spans": [
+    {
+     "start_sec": 811,
+     "end_sec": 1358
+    },
+    {
+     "start_sec": 2138,
+     "end_sec": 2202
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Calibration induced by predictive loss",
+   "summary": "The calibration term is argued to be small for models trained to minimize log loss, since miscalibration on heavy hitters would allow a rescaling that improves the objective, while degenerate non-hallucinating predictors fail this predictive calibration.",
+   "spans": [
+    {
+     "start_sec": 1358,
+     "end_sec": 1700
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Sources and rates of pretraining hallucinations",
+   "summary": "Standard reasons for binary-classification error—statistical unlearnability, absence of rules, and poor representations—are transferred to hallucinations, and a Good-Turing singleton estimate gives lower bounds for fact-like queries.",
+   "spans": [
+    {
+     "start_sec": 1700,
+     "end_sec": 2260
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Post-training incentives that preserve hallucination",
+   "summary": "Although alignment should remove pretraining hallucinations, common benchmarks and preference evaluations often score abstention like a wrong answer or reward confident-looking responses, making guessing the optimized behavior.",
+   "spans": [
+    {
+     "start_sec": 2260,
+     "end_sec": 2495
+    },
+    {
+     "start_sec": 3981,
+     "end_sec": 4110
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Penalty-aware evaluation and behavioral calibration",
+   "summary": "The proposed remedy is to regrade existing evaluations with explicit wrong-answer penalties so models can choose when to abstain, yielding objective penalized scores and a behavioral-calibration notion measuring whether responses match the announced utility threshold.",
+   "spans": [
+    {
+     "start_sec": 2495,
+     "end_sec": 2929
+    },
+    {
+     "start_sec": 3670,
+     "end_sec": 3719
+    },
+    {
+     "start_sec": 4110,
+     "end_sec": 4155
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Outlook on aligned objectives and robust aggregation",
+   "summary": "The closing outlook frames AI safety as an engineering and theory problem, asks what aligned models should be trained to say, and presents a median-distribution aggregation theorem showing how a majority of safe model distributions can amplify safety up to an overlap factor.",
+   "spans": [
+    {
+     "start_sec": 2929,
+     "end_sec": 3038
+    },
+    {
+     "start_sec": 3056,
+     "end_sec": 3644
+    },
+    {
+     "start_sec": 3719,
+     "end_sec": 3976
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "PGGB acronym hallucinations",
+   "note": "Several language models invent expansions for an obscure acronym, illustrating the basic phenomenon that models output false specifics instead of abstaining.",
+   "first_introduced_sec": 89,
+   "spans": [
+    {
+     "start_sec": 89,
+     "end_sec": 191
+    }
+   ],
+   "total_seconds": 102,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he queries multiple models about PGGB, lists their invented expansions, and checks that some do not exist",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary obscure-acronym prompt whose fabricated expansions demonstrate failure to abstain."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the nonexistent PGGB expansions are ordinary strings used to exhibit LLM failure to abstain."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary acronym expansions used to exhibit the model inventing false answers rather than abstaining"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The PGGB prompt is an ordinary ambiguous acronym case, used to show language models fail by inventing nonexistent expansions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Obscure acronym expansions are structurally ordinary strings, but they are used to show LLMs fail to abstain and fabricate facts."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary acronym strings, used to show language models invent expansions instead of abstaining."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a no-referent or underspecified acronym query is used to expose LLM fabrication."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "PGGB is used as a no-answer factual query on which LLMs fabricate expansions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "False PGGB expansions are used to show LMs fail to abstain on an unknown acronym."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the PGGB prompt is used to exhibit LLMs inventing unsupported acronym expansions."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "fabricated PGGB expansions are used to show failure to abstain on an obscure acronym prompt"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "LLMs invent non-existent PGGB expansions instead of abstaining, while the acronym query is structurally ordinary."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Russian question abstention",
+   "note": "A question in Russian illustrates that ignorance can make abstention easy rather than requiring a large or highly capable model.",
+   "first_introduced_sec": 297,
+   "spans": [
+    {
+     "start_sec": 297,
+     "end_sec": 323
+    }
+   ],
+   "total_seconds": 26,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he only uses a Russian question as a quick illustration that ignorance can be easy to recognize",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 4,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A speaker with no Russian knowledge is a minimal-competence case showing abstention can be easy."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the Russian-question abstention case is used to refute the idea that avoiding hallucination requires high capability."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a contentless abstention on an unsupported language is a minimal QA behavior used to refute that nonhallucination requires large capacity"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A Russian question to someone who does not know Russian is a typical ignorance case, used against the claim that avoiding hallucination requires high capability."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A zero-Russian-knowledge query is a limiting out-of-domain case used to refute the idea that abstention needs a large model."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary unknown-language prompt, used to refute the idea that avoiding hallucination requires great intelligence or model size."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a non-Russian speaker's abstention is used to refute the idea that avoiding hallucination requires great knowledge."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "abstaining on a Russian question is used to refute the idea that non-hallucination requires great capability."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The no-Russian abstention case is a trivial ignorance case refuting that abstention needs a powerful model."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "abstaining on a Russian question refutes the idea that avoiding hallucination requires great capability."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "abstaining on a Russian question refutes the idea that avoiding hallucination requires great capability"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A Russian question to a non-speaker rebuts the idea that abstention requires great model capacity."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Calculator-only chatbot",
+   "note": "In response to a question about whether zero hallucination is possible, the speaker gives a restricted chatbot that answers calculator queries only and abstains otherwise.",
+   "first_introduced_sec": 411,
+   "spans": [
+    {
+     "start_sec": 411,
+     "end_sec": 433
+    }
+   ],
+   "total_seconds": 22,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he only proposes a chatbot that answers calculator questions as a trivial non-hallucinating case",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A severely restricted calculator-only bot is a zero-hallucination edge case refuting inevitability."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the calculator-only chatbot is a deliberately minimal boundary chatbot used to refute inevitability of hallucination."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a calculator-only bot is a severely restricted toy chatbot used to refute impossibility of avoiding hallucination"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A calculator-only chatbot is a deliberately minimal boundary-case chatbot, used to show zero hallucination is possible by extreme abstention outside its domain."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A calculator-only chatbot has a collapsed domain and zero-hallucination extreme, used to show hallucination is not inevitable."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A domain-collapsed chatbot with minimal scope and zero hallucination, used to show non-hallucination is trivially possible."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the bot is an intentionally restricted zero-hallucination boundary case used against inevitability claims."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a calculator-only chatbot is a deliberately restricted boundary case with zero hallucination."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A calculator-only chatbot is a deliberately restricted system achieving the zero-hallucination extreme."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a calculator-only chatbot is a severely restricted zero-hallucination boundary case against inevitability claims."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a calculator-only chatbot is a deliberately restricted zero-hallucination boundary case against inevitability claims"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A calculator-only chatbot is a deliberately limited system achieving the zero-hallucination boundary by refusing almost everything."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Spelling and grammar versus factual recall",
+   "note": "Spelling and grammar serve as rule-governed cases where clean pretraining can avoid errors, contrasting with arbitrary factual data such as birthdays.",
+   "first_introduced_sec": 442,
+   "spans": [
+    {
+     "start_sec": 442,
+     "end_sec": 512
+    },
+    {
+     "start_sec": 1753,
+     "end_sec": 1776
+    }
+   ],
+   "total_seconds": 93,
+   "attaches_to": [
+    "s1",
+    "s5"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he contrasts spelling/grammar with factual recall by stating their general learnability properties without working a concrete instance",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Rule-governed spelling and grammar versus arbitrary facts shows clean data need not prevent factual hallucination."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the contrast is used to show factual recall can fail despite clean data while rule-governed spelling and grammar succeed."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary rule-governed versus arbitrary tasks are used to show clean prediction need not prevent false factual recall"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Spelling/grammar versus factual recall are ordinary task types, used to show perfect-looking language prediction still fails on ruleless facts."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Rule-governed spelling and grammar versus arbitrary factual recall is used to show noiseless training need not prevent factual hallucination."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary rule-governed language tasks contrasted with arbitrary facts, used to show clean training data need not prevent false factual generations."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "rule-governed spelling and grammar contrasted with arbitrary facts shows true training data need not prevent factual hallucination."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "arbitrary factual recall is contrasted with spelling and grammar to show noiseless training does not prevent false facts."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The spelling/grammar versus fact contrast explains rule-learnability rather than serving as an adversarial case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "false factual recall despite clean data is contrasted with rule-governed spelling and grammar to show prediction can fail."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the contrast with spelling and grammar is used to show clean prediction can still fail on factual recall"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The contrast shows that perfect data can prevent spelling errors yet still fail for arbitrary factual recall."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Unknown birthday facts",
+   "note": "The speaker's non-public birthday is used to reveal why fact families with no learnable rule force guessing and to motivate singleton-frequency lower bounds and better uncertainty reports.",
+   "first_introduced_sec": 512,
+   "spans": [
+    {
+     "start_sec": 512,
+     "end_sec": 562
+    },
+    {
+     "start_sec": 1123,
+     "end_sec": 1135
+    },
+    {
+     "start_sec": 1776,
+     "end_sec": 1801
+    },
+    {
+     "start_sec": 1902,
+     "end_sec": 2034
+    },
+    {
+     "start_sec": 2056,
+     "end_sec": 2063
+    },
+    {
+     "start_sec": 2226,
+     "end_sec": 2246
+    },
+    {
+     "start_sec": 2871,
+     "end_sec": 2892
+    }
+   ],
+   "total_seconds": 267,
+   "attaches_to": [
+    "s1",
+    "s3",
+    "s5",
+    "s7"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 4,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he asks models for his birthday, compares repeated guesses and abstention, and uses birthday facts in the later hallucination-rate analysis",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Arbitrary private birthday facts are used to show models guess when the fact is unavailable."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "unknown birthday facts are ordinary personal facts used to show models guess when the answer is unavailable."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary personal-date facts used to show hallucination when the answer is unavailable"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unknown birthday facts are ordinary factual items, used to show models guess when the information is unavailable."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Private birthday facts are ordinary arbitrary lookup facts, used to show models guess when the answer is unavailable."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary arbitrary personal facts, used as a failure case where the model guesses unavailable information."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary but unavailable birthday facts are used as low-frequency factual queries on which models fabricate answers."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the unavailable birthday fact is used to show models guess instead of abstaining."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The unavailable birthday facts are used to show factual recall can force guessing rather than certainty."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "unknown birthday facts are used to show factual recall fails when the fact is absent or unlearnable."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "unknown birthday facts are used as unanswerable factual-recall cases where models guess falsely"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unknown birthdays are used to show factual questions can force hallucination rather than reliable recall."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Letter counting in 'ladder' under tokenization",
+   "note": "Counting the d's in 'ladder' illustrates hallucinations caused by a bad representation, since tokenization does not expose individual letters directly.",
+   "first_introduced_sec": 1801,
+   "spans": [
+    {
+     "start_sec": 1801,
+     "end_sec": 1841
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he analyzes counting d's in 'ladder' via the model's token representation and the token containing a d",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The ordinary word ladder is an error case because tokenization is a poor representation for letter counting."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "letter counting in “ladder” is an ordinary tokenization case used to show the representation fails for a simple task."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the ordinary word-tokenization mismatch is used as a failure case for letter-counting representations"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The word 'ladder' under tokenization is a typical token-representation case, used as an obstruction showing letter-counting can fail under a bad representation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The word ladder is structurally ordinary, but tokenization makes it an obstruction case for letter-counting by LMs."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The word-tokenization instance is ordinary, but it is used as a bad-representation failure case for letter counting."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the ordinary word-counting query is an adversarial representation-mismatch case for tokenized models."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "letter counting in “ladder” is used as an enemy case for token-based representations."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Counting letters in “ladder” is used as a bad-tokenization failure case for language models."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "letter counting in “ladder” under tokenization is used as a failure caused by a bad representation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "letter counting in ladder is used as a failure case caused by token-level representation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Letter counting in tokenized ladder is used as a representation-induced failure case for language models."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Good-Turing fishing analogy",
+   "note": "The fish-species sampling analogy explains why items seen exactly once estimate the probability that the next sample is a new unseen type.",
+   "first_introduced_sec": 1841,
+   "spans": [
+    {
+     "start_sec": 1841,
+     "end_sec": 1902
+    }
+   ],
+   "total_seconds": 61,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he runs through the Good-Turing fishing analogy with fish counts and the singleton-species estimate",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ordinary fish-species sampling is used to explain Good-Turing estimation rather than to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the fishing story is a standard sampling analogy for the Good–Turing estimator, not a failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the fishing story is a standard sampling analogy for Good-Turing unseen-mass estimation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Good-Turing fishing story is a standard sampling analogy for unseen species, not a failure case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The fishing sample is a standard species-sampling analogy for Good-Turing estimation, not an adversarial example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The fishing sample is a standard illustrative analogy for Good-Turing estimation, not a disproof case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an ordinary species-frequency sample is used constructively to explain the Good-Turing unseen-mass estimate."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the fishing story only illustrates the Good-Turing singleton estimator."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The fishing story is a standard analogy for Good–Turing unseen-type estimation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the Good-Turing fishing analogy focuses on singleton species, the minimum positive observed count, as an estimator rather than a refutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the fishing story is an explanatory analogy for Good-Turing unseen-mass estimation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The fishing story is an ordinary analogy for the Good-Turing unseen-species estimator."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Country capitals and paper titles",
+   "note": "These factual categories illustrate how the singleton-rate lower bound varies with corpus frequency and how representation, not rarity, may dominate for article titles.",
+   "first_introduced_sec": 2034,
+   "spans": [
+    {
+     "start_sec": 2034,
+     "end_sec": 2125
+    }
+   ],
+   "total_seconds": 91,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he applies the singleton-frequency idea qualitatively to country capitals and paper titles and reasons about why paper titles still hallucinate",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Frequent paper-title facts are used to show singleton rarity is not the only source of hallucination."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "country capitals and paper titles are ordinary factual domains used to compare frequency and representation effects."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary tabular facts and paper titles are used to show that repetition alone does not explain all hallucinations"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Country capitals and paper titles are ordinary factual lists, used to compare frequency and representation effects rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Country capitals and paper titles are ordinary facts, with paper titles used to show singleton-frequency explanations are not exhaustive."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary fact classes, with paper titles used to show singleton Good-Turing rarity is not a complete explanation of hallucination."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "paper-title facts are used to show hallucination can persist despite high frequency, while capitals serve as a comparison."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "paper titles are used to show that hallucination need not come from rare singleton facts."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Paper titles appearing often yet still being hallucinated show singleton frequency is not the whole explanation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "paper titles are used as a hallucination case not explained by singleton rarity but by representation limits."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "country capitals and paper titles are ordinary factual classes used to compare frequency and representation effects"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Country capitals and paper titles are ordinary lookup facts used to discuss frequency effects."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Predictive keyboard birthday suggestion",
+   "note": "Autocomplete guessing a birthday is harmless as a suggestion but becomes a hallucination when presented as an answer, clarifying the role of post-training behavior.",
+   "first_introduced_sec": 2226,
+   "spans": [
+    {
+     "start_sec": 2226,
+     "end_sec": 2260
+    }
+   ],
+   "total_seconds": 34,
+   "attaches_to": [
+    "s5",
+    "s6"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he only invokes predictive keyboard birthday completion as an intuition for a guess rather than a factual answer",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The predictive-keyboard birthday suggestion is an ordinary analogy for next-token guessing."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the predictive-keyboard birthday suggestion is an ordinary next-token analogy rather than a refuting example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the keyboard suggestion is a typical predictive-language analogy rather than a refuting case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A predictive-keyboard birthday completion is a typical next-token suggestion, used to give intuition for prediction rather than as a disproof."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A predictive-keyboard birthday completion is a standard autocomplete analogy illustrating prediction rather than refuting a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary next-word suggestion, used as an analogy for predictive modeling rather than as a falsifying case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a normal next-word predictor suggesting a birthday is used only as intuition for prediction versus truth."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the predictive-keyboard birthday suggestion is only an analogy for next-token guessing."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The predictive-keyboard birthday suggestion is an explanatory analogy for next-token prediction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the predictive-keyboard birthday suggestion is an explanatory analogy for plausible next-token guessing."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the predictive-keyboard birthday suggestion is a benign analogy for probabilistic guessing"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The birthday autocomplete is a typical predictive-text analogy rather than a failure case."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Multiple-choice exam guessing",
+   "note": "Human test-taking makes the incentive problem transparent: if blank and wrong answers get the same score, guessing is a dominant strategy.",
+   "first_introduced_sec": 2278,
+   "spans": [
+    {
+     "start_sec": 2278,
+     "end_sec": 2339
+    },
+    {
+     "start_sec": 2402,
+     "end_sec": 2451
+    }
+   ],
+   "total_seconds": 110,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he analyzes multiple-choice exam scoring, guessing as a dominant strategy, and how penalties determine abstention thresholds",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 3,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "No-penalty multiple-choice exams show humans and models are incentivized to guess instead of abstain."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "multiple-choice guessing is used to show the evaluation rule fails by making guessing a dominant response."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "zero-penalty multiple-choice scoring is a boundary incentive regime used to show that guessing can be rational"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A no-penalty multiple-choice exam is a standard testing setup, used to show evaluations can make guessing/hallucination the dominant strategy."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "No-penalty multiple-choice guessing is used to show evaluation rules can make hallucination a dominant strategy."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary no-penalty test situation, used to show evaluations can make guessing a dominant strategy."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "zero-penalty multiple-choice scoring is a boundary collapsed scoring rule used to show why guessing is rational."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a no-penalty multiple-choice test is a collapsed boundary scoring rule that makes guessing dominant."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The no-penalty multiple-choice setup collapses wrong and abstain, making guessing a failure-inducing dominant strategy."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "no-penalty multiple-choice scoring collapses abstention with error and shows evaluations can reward guessing."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "no-penalty multiple-choice scoring collapses abstention with being wrong and makes guessing dominant"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "No-penalty multiple-choice grading collapses abstention with wrong answers and incentivizes guessing."
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "Bullet points preferred over 'I don't know'",
+   "note": "Human preference comparisons can reward a confident-looking fabricated answer because raters may not know it is false.",
+   "first_introduced_sec": 2376,
+   "spans": [
+    {
+     "start_sec": 2376,
+     "end_sec": 2394
+    }
+   ],
+   "total_seconds": 18,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he only states that humans prefer confident bullet-point answers over 'I don't know' in evaluations",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Human preference for detailed bullet points over abstention shows preference evals can reward hallucination."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "preference for bullet-point answers over “I don’t know” is used to show human/eval feedback can reward hallucination."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary polished bullet answers are used to show human preference evaluations can reward hallucination over abstention"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Preference for bullet points over 'I don't know' is an ordinary human-evaluation phenomenon, used to show preference tests can reward hallucinations."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Preference for fluent bullet points is used as an obstruction to human-preference evaluation rewarding truthful abstention."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary formatted answers, used to show human-preference evaluation can reward hallucinated confidence over abstention."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "fluent bullet-point answers preferred over abstention are used as a human-evaluation failure favoring hallucinations."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "preference for confident bullet points is used to show human evaluations can reward hallucination."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Preference for polished bullet points over “I don’t know” shows human evaluation can reward hallucination."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "preference for confident bullet points over “I don’t know” shows human-choice evaluation can favor hallucination."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "preference for polished bullet-point hallucinations over I-don't-know shows human evals can reward false answers"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Preference for fluent bullet points over I-don't-know exposes a failure of human preference evaluation."
+    }
+   ]
+  },
+  {
+   "code": "E12",
+   "name": "Flight-delay forecast calibration",
+   "note": "A forecast that says flights will be twenty minutes late is used to recall standard calibration before introducing behavioral calibration.",
+   "first_introduced_sec": 2781,
+   "spans": [
+    {
+     "start_sec": 2781,
+     "end_sec": 2817
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he checks calibration with the concrete flight-delay forecast example of predicted twenty minutes versus average five minutes",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The flight-delay forecast is a standard example used only to define statistical calibration."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the flight-delay forecast is a routine example used to define calibration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the flight-delay forecast is a standard illustration of calibration"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The flight-delay forecast is a typical probabilistic prediction example, used as a case where calibration fails if predicted and average delays differ."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Flight-delay forecasts are a standard calibration example used to define the concept, not as a counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard forecast-calibration example, used definitionally rather than to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the flight-delay example is a standard forecast-calibration illustration rather than a structurally special case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the flight-delay forecast is only used to explain ordinary statistical calibration."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The flight-delay forecast is used to define ordinary calibration behavior."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the flight-delay forecast is only a standard illustration of calibration."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the flight-delay forecast is used to define ordinary calibration rather than to defeat a claim"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The flight-delay forecast is a standard example used to define calibration."
+    }
+   ]
+  },
+  {
+   "code": "E13",
+   "name": "Setting a watch ahead ten minutes",
+   "note": "The watch example illustrates behavioral calibration as the utility-improving effect of being told a distorted threshold or penalty.",
+   "first_introduced_sec": 2817,
+   "spans": [
+    {
+     "start_sec": 2817,
+     "end_sec": 2844
+    }
+   ],
+   "total_seconds": 27,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he uses setting a watch ten minutes ahead only as an analogy for behavioral calibration",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The fast watch is an everyday analogy for utility-improving self-miscalibration."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "setting a watch ahead is a familiar analogy for utility-improving self-bias, not itself a disproof."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "setting a watch ahead is an ordinary analogy for beneficial self-deception in behavioral calibration"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Setting a watch ahead ten minutes is an ordinary self-deception device, used as an analogy for behavioral calibration."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A watch set ahead is an ordinary biased signal used to illustrate failure of behavioral calibration."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary deliberately biased watch, used as an analogy for behavioral calibration."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a deliberately fast watch illustrates behavior that improves under a false signal, i.e. miscalibration."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "setting a watch ahead is only an analogy for utility-improving self-deception."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The fast watch is an analogy for behavioral calibration rather than a structural special case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "setting a watch ahead is an analogy for behavioral calibration and self-bias, not an obstruction case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "setting a watch ahead is an analogy for behavioral calibration and self-deception"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A watch set ahead ten minutes is an ordinary analogy for beneficial self-miscalibration."
+    }
+   ]
+  },
+  {
+   "code": "E14",
+   "name": "Inferring handedness from video",
+   "note": "A model's guess about whether the speaker is left- or right-handed illustrates a better uncertainty response when the answer includes the evidence and reasoning source.",
+   "first_introduced_sec": 2882,
+   "spans": [
+    {
+     "start_sec": 2882,
+     "end_sec": 2929
+    }
+   ],
+   "total_seconds": 47,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he only reports that a model inferred handedness from video cues without analyzing the video himself",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Handedness inference from video is an ordinary example of graded evidence and source-aware uncertainty."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "inferring handedness from video is an ordinary evidential-guess example illustrating better explanation of uncertainty."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the handedness inference is an ordinary uncertain inference used to motivate explaining sources of guesses"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Inferring handedness from video is a typical uncertain perceptual inference, used to illustrate useful source-aware guessing."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Inferring handedness from video is an ordinary evidential guess used to illustrate sourced uncertainty."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary perceptual inference, used to illustrate better uncertainty explanation rather than a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "handedness from video is an ordinary uncertain inference used to motivate sourced uncertainty."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "handedness inference from video is used as an example of a guess that should cite its evidence."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Handedness from video illustrates a useful uncertain guess with evidence."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "inferring handedness from video is presented as a reasonable uncertain guess with sources, not a failure example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "handedness inference from video illustrates explaining an uncertain guess rather than a structural failure case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Inferring handedness from video is used as a normal example of sourced uncertain reasoning."
+    }
+   ]
+  },
+  {
+   "code": "E15",
+   "name": "RSA and blockchain security",
+   "note": "Cryptographic systems illustrate the speaker's proposed stance that AI-safety mechanisms can be engineered with adversarial guarantees rather than merely observed biologically.",
+   "first_introduced_sec": 2995,
+   "spans": [
+    {
+     "start_sec": 2995,
+     "end_sec": 3038
+    }
+   ],
+   "total_seconds": 43,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he cites RSA and blockchain as cryptographic systems that can be engineered securely",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "RSA and blockchain are standard cryptographic systems cited as engineerable security examples."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "RSA and blockchains are standard engineered security examples used positively as an analogy for AI safety."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "RSA and blockchains are standard engineered-security examples for the AI-as-cryptography analogy"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "RSA and blockchain systems are standard cryptographic constructions, used as an analogy for engineered AI security."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "RSA and blockchain security are standard engineered cryptographic examples used positively, not as failures."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Standard cryptographic systems, used as positive analogies for engineered security."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "RSA and blockchains are standard cryptographic constructions used as a positive analogy for engineered AI security."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "RSA and blockchains are used as constructive analogies for engineered security."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "RSA and blockchain are positive examples of engineered security systems."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "RSA and blockchain security are positive analogies for engineered adversarial robustness."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "RSA and blockchain are cited as ordinary engineered-security analogues for AI safety"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "RSA and blockchains are positive examples of engineered security rather than counterexamples."
+    }
+   ]
+  },
+  {
+   "code": "E16",
+   "name": "Wernicke's aphasia",
+   "note": "The neurological analogy distinguishes a receptive language component that may contain false or offensive strings from a generative component aligned with what one should say.",
+   "first_introduced_sec": 3106,
+   "spans": [
+    {
+     "start_sec": 3056,
+     "end_sec": 3130
+    }
+   ],
+   "total_seconds": 74,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he only names Wernicke's aphasia as an analogy for babbling or hallucination",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Wernicke's aphasia is a pathological loss of normal language control used as an analogy for babbling."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wernicke’s aphasia is used as a pathological language-production failure analogous to hallucination."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wernicke's aphasia is used as a pathological human case of fluent but uncontrolled language generation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Wernicke's aphasia is a known neurological condition, used illustratively for fluent nonsensical generation rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wernicke's aphasia is used as a pathological failure analogy for uncontrolled language generation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A clinical language-production condition, used as an analogy for hallucination-like generation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Wernicke's aphasia is a pathological loss of semantic language control used as a failure analogy for hallucination."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Wernicke’s aphasia is used only as a biological analogy for fluent nonsensical generation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Wernicke’s aphasia is a pathological language-production failure analogous to babbling hallucination."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Wernicke’s aphasia is a pathological language-production case used as a hallucination-like failure analogy."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Wernicke's aphasia is a pathological loss of semantic control used as a human hallucination-like failure mode"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Wernicke's aphasia is a degraded language-production condition used as a hallucination-like failure mode."
+    }
+   ]
+  },
+  {
+   "code": "E17",
+   "name": "Recipes and short stories as desired invention",
+   "note": "In Q&A, creative writing and recipe generation show that some contexts require invention, so abstention policy cannot be fixed at pretraining alone.",
+   "first_introduced_sec": 3200,
+   "spans": [
+    {
+     "start_sec": 3149,
+     "end_sec": 3247
+    }
+   ],
+   "total_seconds": 98,
+   "attaches_to": [
+    "s6",
+    "s8"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he only says recipes and short stories are cases where invention is desired",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Creative recipes and short stories are ordinary cases where invented output is desired, refuting a blanket ban on hallucination."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "recipes and short stories are ordinary creative tasks used to refute a blanket ban on invention."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary creative tasks are used to refute the idea that all invention-like hallucination should be suppressed"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Recipes and short stories are ordinary creative-generation tasks, used to refute the blanket idea that made-up content is always undesirable."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Recipes and short stories are ordinary creative tasks used to refute blanket suppression of invention."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary creative-generation tasks, used to refute the idea that invented outputs should always be suppressed."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "recipes and short stories are ordinary creative tasks used to refute a blanket ban on invention."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "recipes and short stories are used to refute a blanket ban on invented outputs."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Recipes and short stories are cases where invention is desired, blocking a blanket ban on made-up output."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "recipes and short stories are ordinary creative tasks used to block a blanket ban on invention."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "recipes and short stories show that invention can be desired, defeating blanket anti-hallucination rules"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Recipes and short stories refute the blanket idea that all invention-like hallucination should be suppressed."
+    }
+   ]
+  },
+  {
+   "code": "E18",
+   "name": "Offering an LLM twenty dollars",
+   "note": "A prompting anecdote illustrates that models' behavior can shift under stated incentives, reinforcing the need to control the effective utility signal.",
+   "first_introduced_sec": 3292,
+   "spans": [
+    {
+     "start_sec": 3278,
+     "end_sec": 3309
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he cites a paper saying that offering an LLM twenty dollars improves performance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Offering an LLM twenty dollars is a prompting-incentive example, not a structural special case or refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "offering an LLM twenty dollars is a prompting anecdote about incentives rather than an obstruction or disproof."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the twenty-dollar prompt is an ordinary empirical prompting trick used to illustrate incentive sensitivity"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Offering an LLM twenty dollars is a typical prompting incentive example, cited as empirical support for context-sensitive behavior."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Offering an LLM twenty dollars is cited as an empirical prompting effect, not as a structural special case or refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary incentive-style prompt, used as supporting evidence for prompt sensitivity rather than as a central disproof."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the twenty-dollar prompt is a normal prompt-sensitivity anecdote, not a special structural object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "offering an LLM twenty dollars is cited only as evidence that prompts can change performance."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Offering an LLM twenty dollars is cited as an ordinary incentive-prompt effect."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "offering an LLM twenty dollars is cited as a prompting effect that improves performance, not as a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "offering an LLM twenty dollars is cited as empirical prompt-sensitivity evidence, not as a special object"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Offering an LLM twenty dollars is an ordinary prompting anecdote about incentive sensitivity."
+    }
+   ]
+  },
+  {
+   "code": "E19",
+   "name": "Unsafe code vulnerability",
+   "note": "A model inserting a code vulnerability is used as a concrete member of the abstract unsafe set in the median-distribution safety theorem.",
+   "first_introduced_sec": 3496,
+   "spans": [
+    {
+     "start_sec": 3496,
+     "end_sec": 3520
+    }
+   ],
+   "total_seconds": 24,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he only uses injected code vulnerabilities as an example of an unsafe output in the abstract median-distribution discussion",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An unsafe code vulnerability is an adversarial bad output in the safety discussion."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an unsafe code vulnerability is an ordinary unsafe output serving as the adversarial set in the safety theorem."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an injected code vulnerability is an unsafe enemy output for the proposed safety aggregation setting"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An unsafe code vulnerability is an ordinary bad output, used as the adversarial unsafe set in the security discussion."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An unsafe code vulnerability is an ordinary bad output used as the adversarial unsafe set in the safety argument."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary unsafe program defect, used explicitly as an enemy case for safety guarantees."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a hidden vulnerable program is the unsafe adversarial output set the median method is meant to suppress."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an injected code vulnerability is the unsafe enemy output the median-model method is meant to avoid."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An injected code vulnerability is an unsafe adversarial output the median-method example tries to avoid."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an injected code vulnerability is an explicit unsafe adversarial output in the median-model discussion."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "unsafe code with a vulnerability is the adversarial output the proposed safety aggregation aims to avoid"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An injected code vulnerability is an unsafe enemy case for the proposed safety framework."
+    }
+   ]
+  },
+  {
+   "code": "E20",
+   "name": "Repeated inconsistent birthday answers",
+   "note": "An audience question uses the earlier multiple birthday guesses to propose stability checking as a way to detect likely hallucinations.",
+   "first_introduced_sec": 3670,
+   "spans": [
+    {
+     "start_sec": 3670,
+     "end_sec": 3719
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he and the audience use the multiple inconsistent birthday answers to discuss a concrete stability-checking method",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Different birthday answers on repeated queries show the model's factual answer is unreliable."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "repeated inconsistent birthday answers are used to diagnose that the model’s factual answer is unreliable."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "inconsistent repeated birthday answers are used as evidence that the claimed fact is not reliable"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Repeated inconsistent birthday answers are ordinary stochastic outputs, used to expose unreliability and hallucination."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Repeated incompatible birthday answers are used to expose inconsistency and hallucination."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary inconsistent repeated answers, used to expose the birthday response as unreliable hallucination."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "multiple incompatible birthdays form a nonfunctional answer set used to reveal hallucination by instability."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "inconsistent repeated birthday answers are used as a diagnostic failure case for hallucination."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Repeated inconsistent birthday answers are used as a detectable hallucination failure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "repeated incompatible birthday answers expose hallucination and motivate stability checking."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "repeated inconsistent birthday answers expose instability and lack of factual knowledge"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Inconsistent repeated birthday answers are used as evidence of factual hallucination."
+    }
+   ]
+  },
+  {
+   "code": "E21",
+   "name": "Canonical programs and theorem proofs",
+   "note": "In Q&A, the many valid ways to write a proof or program motivate canonicalization as a possible way to increase overlap among safe model distributions.",
+   "first_introduced_sec": 3925,
+   "spans": [
+    {
+     "start_sec": 3925,
+     "end_sec": 3976
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he discusses canonical programs and theorem proofs only as a broad obstacle and possible direction, not by constructing a concrete proof or program",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Many possible programs or theorem proofs create a low-overlap obstruction that motivates canonicalization."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "canonical proofs and programs are proposed as ordinary normalization targets to improve overlap, not as a refuting example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "many valid programs or proofs are used as an obstruction to naive overlap or majority-based agreement"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Programs and theorem proofs are ordinary objects with many equivalent forms, used as an obstacle to overlap-based median sampling unless canonicalized."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Programs and theorem proofs with many valid forms are used as an obstruction to naive overlap or majority methods."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary nonunique programs and proofs, used as an obstruction to simple overlap or majority methods and motivation for canonicalization."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "open-ended proofs and programs are ordinary many-solution tasks used as a low-overlap obstruction to majority methods."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the many valid proofs or programs are used as an obstruction to overlap-based majority methods."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Noncanonical programs and theorem proofs are an obstruction to overlap-based aggregation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "many valid programs or theorem proofs are used as an obstruction to simple overlap-based median sampling."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "noncanonical programs and theorem proofs obstruct simple overlap or majority-style safety methods"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Many valid programs or proofs obstruct naive overlap-based aggregation unless outputs are canonicalized."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1023 @@
+{
+ "key": "cb7d0cee424a5e69b74805cab8bcab82",
+ "title": "Graph isomorphism in quasipolynomial time II",
+ "speaker": "László Babai",
+ "affiliation": "University of Chicago",
+ "date": "2016-03-01T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4105.0,
+ "abstract": "The algorithm indicated in the title builds on Luks's classical framework and introduces new group theoretic and combinatorial tools. In the first talk we outline the algorithm and state the core group theoretic and algorithmic ingredients. Some of the technical details will be given in the second talk, with a focus on the core group theoretic routine (\"Local Certificates\") and the aggregation of the the local certificates. Time permitting, we also discuss one of the combinatorial partitioning algorithms (\"Design lemma\").",
+ "youtube_url": "https://www.youtube.com/watch?v=0LONzyGiQgw",
+ "page_url": "https://www.ias.edu/video/csdm/2016/0301-Babai",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "String-isomorphism formulation and group toolbox",
+   "summary": "The graph-isomorphism task is reformulated as string isomorphism under an ambient permutation group, with isomorphism sets represented as cosets and standard polynomial-time permutation-group routines recalled as implicit infrastructure.",
+   "spans": [
+    {
+     "start_sec": 53,
+     "end_sec": 723
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Luks divide-and-conquer by orbits and blocks",
+   "summary": "The algorithm first exploits the ambient group's canonical orbit and imprimitivity-block structure to reduce the problem recursively, while controlling nonunique block-system choices by the n−1 bound on maximal systems and bounded individualization.",
+   "spans": [
+    {
+     "start_sec": 817,
+     "end_sec": 1997
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Quasipolynomial reduction blueprint",
+   "summary": "The overall pipeline is previewed: local certificates on a hard set gamma are aggregated into a canonical logarithmic-arity relation, and then combinatorial reductions turn such structure into colorings, partitions, or Johnson-type structure at quasipolynomial cost.",
+   "spans": [
+    {
+     "start_sec": 723,
+     "end_sec": 817
+    },
+    {
+     "start_sec": 1997,
+     "end_sec": 2398
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Local test-set dichotomy and certificates",
+   "summary": "For each logarithmic test set T in gamma, the algorithm asks whether the automorphism image is giant on T and produces either a global fullness certificate or a local non-fullness subgroup obstruction, with unaffected stabilizers explaining how local information yields global automorphisms.",
+   "spans": [
+    {
+     "start_sec": 2398,
+     "end_sec": 2701
+    },
+    {
+     "start_sec": 3165,
+     "end_sec": 3420
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Non-fullness aggregation to a canonical k-ary relation",
+   "summary": "When non-fullness dominates, the local obstructions are compared over all ordered test tuples and across the two input strings to define a functorial k-ary relation on gamma with substantial symmetry defect.",
+   "spans": [
+    {
+     "start_sec": 2701,
+     "end_sec": 2948
+    },
+    {
+     "start_sec": 3068,
+     "end_sec": 3100
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Fullness aggregation via the generated automorphism group",
+   "summary": "When fullness dominates, the fullness subgroups generate a canonical automorphism group F whose support, orbit partition, and transitivity level yield a good coloring or partition, or else reduce after few individualizations to a transitive non-giant action.",
+   "spans": [
+    {
+     "start_sec": 3100,
+     "end_sec": 3147
+    },
+    {
+     "start_sec": 3420,
+     "end_sec": 4008
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Invariant graph and downstream combinatorial closure",
+   "summary": "The binary stage is reached either by the design/split-or-Johnson reductions or, in the fullness branch, by taking an orbital graph of a transitive but not doubly transitive action, giving the nontrivial invariant graph needed for the quasipolynomial recursion.",
+   "spans": [
+    {
+     "start_sec": 2030,
+     "end_sec": 2177
+    },
+    {
+     "start_sec": 4008,
+     "end_sec": 4090
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Hexagon symmetries and two block systems",
+   "note": "The dihedral action on a hexagon, with the Star-of-David partition and opposite-pair partition, makes concrete that a transitive group can have several systems of imprimitivity.",
+   "first_introduced_sec": 989,
+   "spans": [
+    {
+     "start_sec": 989,
+     "end_sec": 1017
+    }
+   ],
+   "total_seconds": 28,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he cites the hexagon symmetry group as having the Star of David and opposite-pair imprimitivity partitions, without analyzing or verifying them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the regular hexagon's dihedral action has two distinct block systems, showing block systems in a transitive action need not be unique"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the regular hexagon’s dihedral action is highly symmetric and is used to illustrate multiple imprimitivity systems"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular hexagon/dihedral action is highly symmetric, and the two invariant partitions show block systems need not be unique."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the regular hexagon/dihedral action is highly symmetric and is used to exhibit non-unique block systems of imprimitivity"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular hexagon has maximal dihedral symmetry and its two block systems show uniqueness of imprimitivity systems fails."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the dihedral symmetries of a regular hexagon are used to show that imprimitivity block systems need not be unique"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular hexagon's dihedral action is used to show imprimitivity block systems need not be unique, and the hexagon is highly symmetric."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the regular hexagon’s dihedral action is used to refute uniqueness of imprimitivity block systems and is highly symmetric"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The dihedral action on a regular hexagon is highly symmetric and is used to show that a transitive group need not have a unique imprimitivity system."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular hexagon’s full dihedral symmetry is highly symmetric and is used to exhibit two distinct imprimitivity systems, defeating uniqueness."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the regular hexagon's dihedral action is highly symmetric and exhibits two distinct block systems, so uniqueness of imprimitivity systems fails"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the regular hexagon/dihedral action is used to show block systems need not be unique, and the object is geometrically highly symmetric"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Regular permutation representation and coset blocks",
+   "note": "The regular action of a group on itself illustrates how every subgroup gives a system of imprimitivity via its cosets, showing the possible abundance of block systems.",
+   "first_introduced_sec": 1017,
+   "spans": [
+    {
+     "start_sec": 1017,
+     "end_sec": 1083
+    }
+   ],
+   "total_seconds": 66,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he constructs the regular permutation representation by right translations and applies the coset construction to get imprimitivity systems",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the regular action has coset block systems from subgroups, exhibiting non-uniqueness of imprimitivity systems"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the regular action is a sharply transitive systematic construction whose cosets illustrate the richness of block systems"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The right-regular action is sharply transitive, and cosets of subgroups exhibit many imprimitivity systems rather than a unique one."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the regular action on a group is a uniform systematic construction whose cosets show that many block systems can occur"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular action is sharply transitive and cosets of subgroups give many block systems, obstructing any unique block-system choice."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the regular action with subgroup coset blocks is used to illustrate many possible systems of imprimitivity rather than a unique one"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cosets in the right-regular action show nonunique block systems, and the action is the sharply transitive extremal representation of a group."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the regular action with coset blocks shows non-uniqueness of block systems and is a sharply transitive minimal transitive action"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular action is sharply transitive, an extremal/minimal transitive action, and its coset block systems illustrate failure of uniqueness of imprimitivity systems."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular action of a group on itself is a homogeneous/sharply transitive construction whose subgroup cosets give many block systems, again showing non-uniqueness."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the right regular action is a sharply transitive, highly regular boundary case of transitive G-actions and its coset blocks show non-uniqueness of block systems"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the regular action with coset block systems illustrates failure of uniqueness of imprimitivity systems, and regular actions are sharply transitive with minimal point stabilizers"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Elementary abelian group with equivalent cyclic subgroups",
+   "note": "The vector-space/Cayley-graph example shows that no single maximal imprimitivity system need be canonical, motivating the algorithmic move of individualizing one member of a canonical bounded set.",
+   "first_introduced_sec": 1329,
+   "spans": [
+    {
+     "start_sec": 1329,
+     "end_sec": 1378
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he invokes elementary abelian/vector-space groups only to state that their cyclic subgroups give equivalent maximal imprimitivity systems",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "an elementary abelian group has equivalent one-dimensional cyclic subgroups, obstructing a canonical choice of one block system"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the elementary abelian vector-space case is homogeneous on cyclic subgroups and obstructs choosing a canonical imprimitivity system"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The elementary abelian group is vector-space homogeneous, with equivalent cyclic subgroups obstructing a canonical block-system choice."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the elementary abelian vector-space case has all one-dimensional cyclic subgroups equivalent, obstructing a canonical choice of maximal imprimitivity system"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "An elementary abelian group is highly homogeneous as a vector space, and equivalent cyclic subgroups show no canonical imprimitivity system can be selected."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the elementary abelian regular-action case obstructs choosing a canonical imprimitivity system because its cyclic subgroups are all equivalent"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The elementary abelian vector-space example obstructs a canonical choice of maximal block system because all cyclic subgroups are equivalent under its high symmetry."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the elementary abelian/vector-space case obstructs a canonical choice because its cyclic subgroups are all equivalent under symmetry"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "An elementary abelian group is a highly symmetric vector-space family whose equivalent cyclic subgroups obstruct choosing a canonical block system."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "An elementary abelian group/vector space is highly homogeneous, with cyclic subgroups equivalent, so it obstructs choosing a canonical maximal block system."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the elementary abelian vector-space case is highly homogeneous on cyclic subgroups and is used as an obstruction to choosing a canonical imprimitivity system"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the elementary abelian/vector-space case obstructs a canonical choice because all cyclic subgroups are equivalent under its symmetry"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Individualizing one vertex versus a triple",
+   "note": "The speaker uses the cost n for choosing one vertex and n^3 for choosing a triple to illustrate how individualization produces multiplicative branching factors.",
+   "first_introduced_sec": 1866,
+   "spans": [
+    {
+     "start_sec": 1866,
+     "end_sec": 1905
+    }
+   ],
+   "total_seconds": 39,
+   "attaches_to": [
+    "s2",
+    "s6"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he computes the branching cost: individualizing one vertex costs n, while individualizing a triple costs n^3",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "individualizing a vertex or a triple is used only to illustrate the multiplicative branching cost"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "single vertices and triples are ordinary individualized tuples used only to explain the branching cost"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary vertex or ordered triple is used only to illustrate the branching cost n versus n^3."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a single vertex or triple is only used to illustrate the multiplicative cost of individualization"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A chosen vertex or triple is just an ordinary tuple used to illustrate branching cost, not a structurally special object or refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a vertex and a triple are ordinary choices used only to explain the multiplicative cost of individualization"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A single vertex or a triple is used only as an ordinary branching-cost illustration for individualization."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an arbitrary vertex or triple is used only to illustrate branching cost, not to disprove a claim or invoke special structure"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Individualizing a vertex or a triple is an ordinary branching-cost illustration, not an adversarial example or special structure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Individualizing one vertex or a triple is just a generic counting illustration of multiplicative cost, not a special object or a refutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary vertex and vertex-triple choices are used only to illustrate branching costs for individualization"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "individualizing a vertex or a triple is an ordinary branching-cost illustration rather than a failure example"
+    }
+   ]
+  }
+ ]
+}

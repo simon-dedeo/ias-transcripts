@@ -1,0 +1,795 @@
+{
+ "key": "8fd8ca1e7601d69da26a9f30847a75b5",
+ "title": "A Zero-Knowledge PCP Theorem",
+ "speaker": "Nicholas Spooner",
+ "affiliation": "Cornell University",
+ "date": "2025-03-17T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3917.0,
+ "abstract": "Two central results in modern complexity theory can be summed up as follows:\nEverything provable is provable in zero knowledge (NP ⊆ CZK); and\nEverything provable is locally checkable (NP = PCP[log n, 1]).\nIn a pair of recent works, we show how to achieve these two properties simultaneously: Everything provable is locally checkable in zero knowledge.\nThat is, we demonstrate that for every polynomial Q, every NP language has a polynomial-size proof which can be verified by querying O(1) positions, but where querying any Q(n) positions reveals no information about the witness.\nBased on joint work with Tom Gur and Jack O'Connor.",
+ "youtube_url": "https://youtu.be/JocsIgYhWU4",
+ "page_url": "https://www.ias.edu/video/zero-knowledge-pcp-theorem",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "PCP and zero-knowledge notions",
+   "summary": "The speaker introduces probabilistically checkable proofs, completeness, soundness, proof length, query complexity, malicious-verifier query bounds, and simulation-based zero knowledge.",
+   "spans": [
+    {
+     "start_sec": 36,
+     "end_sec": 730
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Prior work and target theorem",
+   "summary": "Earlier zero-knowledge PCP constructions are compared by proof length, honest-query complexity, adversarial query bound, adaptivity, and zero-knowledge quality, motivating the new theorem with perfect zero knowledge, constant nonadaptive queries, and proof length polynomial in n and the query bound.",
+   "spans": [
+    {
+     "start_sec": 730,
+     "end_sec": 1191
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Zero-knowledge PCP recipe via robust composition",
+   "summary": "The classical PCP pipeline is recalled—arithmetization, sum-check, low-degree testing, robust soundness, and proof composition—and then modified by inserting zero-knowledge-friendly arithmetization and a zero-knowledge sum-check while proving that composition preserves zero knowledge.",
+   "spans": [
+    {
+     "start_sec": 1191,
+     "end_sec": 1450
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Polynomial-summation problem and non-ZK baseline",
+   "summary": "The key subroutine is formulated as proving the sum of an oracle low-degree polynomial over H^m, and the standard partial-sum/sum-check PCP is shown to fail zero knowledge because simulating one proof query can require many queries to the underlying polynomial.",
+   "spans": [
+    {
+     "start_sec": 1450,
+     "end_sec": 2044
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Random masking and antisymmetric row/column trick",
+   "summary": "A random mask is developed through two failed attempts—one zero-knowledge but unsound, one sound but leaking by linear subtraction—before the construction switches to row versus column summation and uses an antisymmetric mask a = r - r^T whose total contribution cancels.",
+   "spans": [
+    {
+     "start_sec": 2044,
+     "end_sec": 2416
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Bivariate zero-knowledge simulation through costly unmasking",
+   "summary": "In the bivariate case, the antisymmetric random mask hides row sums unless the adversary spends about k queries to remove it, and the algebraic complications are handled by replacing the mask with a uniformly random low-degree extension whose queries can be simulated from a comparable number of matrix-entry queries.",
+   "spans": [
+    {
+     "start_sec": 2416,
+     "end_sec": 3259
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Multivariate subcube leakage lemma",
+   "summary": "The construction is lifted to m variables, where sum-check queries reveal sums over prefix subcubes, and the main combinatorial lemma shows that a reversible union of t disjoint prefix subcubes is either tiny or co-tiny, yielding the needed polynomial simulation blow-up.",
+   "spans": [
+    {
+     "start_sec": 3259,
+     "end_sec": 3687
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Final theorem, scaled-up variant, and directions",
+   "summary": "The talk concludes with the NP zero-knowledge PCP theorem, its NEXP-scale analogue requiring implicit simulation of exponentially large objects, and future directions on proof-length optimality and connections to quantum PCPs and quantum codes.",
+   "spans": [
+    {
+     "start_sec": 3687,
+     "end_sec": 3862
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Three-coloring hats protocol on the Petersen graph",
+   "note": "The randomized color-permutation-and-hats protocol for a 3-coloring makes local probabilistic checking and the intuition of zero knowledge concrete, but it is not used in the later construction.",
+   "first_introduced_sec": 36,
+   "spans": [
+    {
+     "start_sec": 36,
+     "end_sec": 357
+    }
+   ],
+   "total_seconds": 321,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker runs the hats protocol on the Petersen graph, permuting colors, revealing an edge, and analyzing its soundness and zero-knowledge behavior.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 9,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is a highly symmetric extremal graph, but the hats protocol is used as an introductory weak-ZK/PCP illustration rather than to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph used for the hat-check illustration is highly symmetric and extremal as the (3,5)-cage, not deployed as a counterexample here."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is a highly symmetric extremal graph (e.g. the (3,5)-cage) used as a toy illustration of the hats/PCP idea rather than to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph underlying the toy hats protocol is a highly symmetric extremal cubic cage/Moore graph, and the protocol is used mainly as a motivating illustration rather than a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the Petersen-graph hat protocol is used as an illustrative toy zero-knowledge/PCP example, and the Petersen graph is highly regular and symmetric but not sporadic, degenerate, or extremal here"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph used in the hats protocol is a highly symmetric graph and is extremal as a Moore/cage-type cubic graph, but here it is mainly a motivating toy protocol rather than a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as a motivating toy protocol rather than a refutation; the Petersen graph is highly symmetric and extremal as the unique cubic girth-5 cage/Moore graph."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as a motivating toy protocol rather than a disproof; the Petersen graph is highly regular/arc-transitive and extremal as a Moore graph/(3,5)-cage."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is highly regular/symmetric, and the hats protocol is used as a motivating toy example rather than to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used as a motivating illustration rather than a refutation, with the Petersen graph a highly symmetric regular graph"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is a highly symmetric extremal cage, and the hats protocol is used as a motivating weak PCP/ZK example rather than a refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Petersen graph is used as a motivating toy protocol rather than to refute a claim, and the graph itself is a highly symmetric cubic cage/Moore-type extremal graph."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "UP languages as a degeneracy of witness indistinguishability",
+   "note": "Languages with unique witnesses illustrate why witness indistinguishability is much weaker than zero knowledge: the property becomes essentially vacuous when there is only one possible witness.",
+   "first_introduced_sec": 1004,
+   "spans": [
+    {
+     "start_sec": 966,
+     "end_sec": 1017
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "UP is invoked only to illustrate that witness indistinguishability becomes trivial when there is a unique witness.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "UP has at most one witness, making witness indistinguishability vacuous, and it is cited to show that WI can fail as a meaningful zero-knowledge surrogate."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "For UP there is at most one witness, so witness indistinguishability collapses to a vacuous condition, illustrating the weakness of that notion."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "UP has unique witnesses, making witness indistinguishability vacuous and serving to show that WI is too weak as a zero-knowledge notion."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A UP language has unique witnesses, so witness indistinguishability collapses to a vacuous condition and is invoked as a bad case for that guarantee."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "UP has unique witnesses, making witness indistinguishability vacuous, and it is invoked to show that WI fails as a meaningful zero-knowledge guarantee"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "UP has unique witnesses, so witness indistinguishability collapses vacuously and is used to show that the notion can fail to express meaningful zero knowledge."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "UP is invoked to show witness indistinguishability can become vacuous, since unique witnesses collapse the comparison between witnesses."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "UP is invoked to show witness indistinguishability can become vacuous, since a unique witness leaves nothing to distinguish."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "UP has unique witnesses, making witness indistinguishability vacuous and illustrating that the notion can fail to capture zero knowledge."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "unique-witness UP cases make witness indistinguishability vacuous, showing that guarantee is too weak"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "UP's unique-witness condition collapses witness indistinguishability to a vacuous case, used to show the notion's weakness."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "UP is invoked to show witness indistinguishability can become trivial, since a unique witness collapses any distinction between witnesses."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Interactive proof for the permanent",
+   "note": "An audience question about zero knowledge for the permanent in interactive proofs is used only to contrast standard interactive-proof simulation with the adaptive proof-generation simulation used for PCPs here.",
+   "first_introduced_sec": 3862,
+   "spans": [
+    {
+     "start_sec": 3862,
+     "end_sec": 3900
+    }
+   ],
+   "total_seconds": 38,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "The permanent interactive proof is only raised in a question, and the speaker says they know of no connection or application.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The permanent interactive proof is a standard related protocol raised in a question, not a structural exception or a failure case in the argument."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The permanent is a #P-complete, maximally hard counting problem, but the interactive-proof example is only raised as a possible comparison/application."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The permanent interactive proof is a standard sum-check/IP example mentioned as a possible application, not as a failing case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The permanent is a #P-complete, hence maximally hard, counting problem, but its interactive proof is only raised as a possible related setting."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the standard interactive proof for the permanent is mentioned as a possible related application rather than as an obstruction or structurally exceptional object"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The permanent interactive proof is mentioned as a standard related protocol in a question, not as a structural anomaly or as a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The permanent interactive proof is mentioned only as a possible application, while the permanent is extremal in complexity as a #P-complete problem."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The permanent interactive proof is only raised as a possible comparison/application, not as a failure case, and the protocol is structurally standard here."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The permanent interactive proof is only raised as a possible related application, not as a structurally special object or counterexample."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "mentioned only as a possible connection, while the permanent is a #P/VNP-complete maximally hard problem"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The permanent is #P-complete/maximally hard, while its interactive proof is only mentioned as a possible comparison."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The permanent interactive proof is only mentioned as a standard comparison point in a question, with no structurally exceptional or limiting feature used."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,559 @@
+{
+ "key": "f6e983e13a40174d55b4f5b37e344fda",
+ "title": "Approximating Iterated Multiplication of Stochastic Matrices in Small Space",
+ "speaker": "Dean Doron",
+ "affiliation": "Ben-Gurion University of the Negev",
+ "date": "2023-04-24T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3680.0,
+ "abstract": "Matrix powering, and more generally iterated matrix multiplication, is a fundamental linear algebraic primitive with myriad applications in computer science. Of particular interest is the problem’s space  complexity as it constitutes the main route towards resolving the BPL vs. L problem.",
+ "youtube_url": "https://youtu.be/gKAFhV5Zl9Y",
+ "page_url": "https://www.ias.edu/video/approximating-iterated-multiplication-stochastic-matrices-small-space",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "IMM and space-bounded derandomization landscape",
+   "summary": "The talk formulates iterated multiplication of stochastic matrices, reviews probabilistic log-space computation and BPL versus L, and places exact and approximate matrix-product algorithms within the known space-complexity landscape.",
+   "spans": [
+    {
+     "start_sec": 56,
+     "end_sec": 758
+    },
+    {
+     "start_sec": 3583,
+     "end_sec": 3642
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Stochastic powering as the BPL-complete target and main bound",
+   "summary": "Stochastic matrix powering is identified as complete for BPL-style derandomization, known bounds are compared, and the new nearly log n plus square-root-log n times log w space bound is stated.",
+   "spans": [
+    {
+     "start_sec": 758,
+     "end_sec": 1190
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Algorithmic ingredients and Nisan as matrix-powering routine",
+   "summary": "The proof is organized around Nisan's generator viewed as a randomized matrix-powering algorithm, the Saks-Zhou randomness-recycling framework, and Richardson iteration as an error-reduction tool.",
+   "spans": [
+    {
+     "start_sec": 1190,
+     "end_sec": 1443
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Saks-Zhou recycling and shift-and-truncate bottlenecks",
+   "summary": "Repeated applications of Nisan's routine raise powers through blocks, but reusing a seed creates adaptivity issues that shift-and-truncate resolves, after which the space costs of shifts and Nisan's precision requirements are isolated.",
+   "spans": [
+    {
+     "start_sec": 1443,
+     "end_sec": 2014
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Low-precision Nisan plus Richardson error restoration",
+   "summary": "The powering algorithm deliberately truncates matrices and asks Nisan only for mild accuracy, then uses Richardson iteration with access to the original matrix and mild approximations to recover high-precision approximations without paying log n space at every iteration.",
+   "spans": [
+    {
+     "start_sec": 2014,
+     "end_sec": 2666
+    },
+    {
+     "start_sec": 3364,
+     "end_sec": 3583
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Extension from powering to arbitrary products",
+   "summary": "For distinct matrices the powering scheme is lifted to a product tree, with the main obstacle being the impossibility of independent shifts at all nodes; the talk sketches input-level shifting, a second Richardson-type correction, confidence amplification, and a related no-shift approach.",
+   "spans": [
+    {
+     "start_sec": 2666,
+     "end_sec": 3089
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Black-box PRG formulation and open problem",
+   "summary": "The conclusion recasts IMM approximation as the black-box problem of constructing small pseudorandom walk sets for read-once branching programs, explains why current PRGs lag behind algorithms, and poses making the Saks-Zhou-style constructions fully black-box as an open direction.",
+   "spans": [
+    {
+     "start_sec": 3089,
+     "end_sec": 3351
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Scalar rounding boundary in shift-and-truncate",
+   "note": "The decimal scalar value such as 1.5123, together with the near-boundary variant, illustrates why naive truncation may or may not hide dependence on the random seed and motivates adding a random shift before truncating.",
+   "first_introduced_sec": 1634,
+   "spans": [
+    {
+     "start_sec": 1634,
+     "end_sec": 1812
+    }
+   ],
+   "total_seconds": 178,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker walks through concrete scalar outputs in shift-and-truncate, showing how truncation can erase seed dependence and how being near a rounding boundary makes two successful invocations truncate differently, motivating random shifts.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A scalar lying at or near a truncation grid boundary is a boundary case, and it is used to show naive truncation need not remove seed dependence."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A scalar value near a truncation grid boundary is a boundary case used to show naive truncation need not remove seed-dependence."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A scalar lying at a truncation-cell boundary is a boundary case and is used to refute the claim that truncation always removes seed-dependence."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A scalar value lying near a truncation/rounding boundary is a boundary case, used to refute the naive claim that truncation always removes dependence on the random seed."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A truncation-grid boundary is a boundary case, and it is used to show naive truncation can fail to remove seed-dependence."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A scalar lying at or near a truncation boundary is a boundary case used to show plain truncation can still depend on the seed."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a scalar lying at or near a truncation cell boundary is used to show naive truncation can fail to remove seed dependence."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A scalar near a truncation-grid boundary is used to show naive truncation can fail to remove seed-dependence."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A scalar near a truncation grid boundary is used to show naive truncation can fail to remove seed-dependence."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a value lying on a truncation-cell boundary is used to show naive truncation can still reveal the seed"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A value lying at a truncation/rounding bin boundary is used to show naive truncation can fail to remove seed dependence, and it is structurally a boundary case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A scalar lying at a truncation/rounding boundary is used to show truncation alone can fail to remove seed-dependence."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Constant-width PRG status at widths three and four",
+   "note": "The contrast between recent black-box generators for width 3 and the lack of improvement over Nisan for width 4 illustrates the gap between algorithmic small-space approximations and fully black-box PRG constructions.",
+   "first_introduced_sec": 3226,
+   "spans": [
+    {
+     "start_sec": 3226,
+     "end_sec": 3250
+    }
+   ],
+   "total_seconds": 24,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The speaker only states the known PRG status for constant widths—recent progress for width 3 and no improvement over Nisan for width 4—without analyzing or constructing either case.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 5,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Widths 3 and 4 are ordinary small constant-width branching-program parameters, cited to describe current PRG progress and an open gap rather than to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The width-3/width-4 PRG cases are ordinary low-width branching-program regimes, cited to exhibit the present black-box PRG gap, especially the failure to beat Nisan at width 4."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Widths 3 and 4 are ordinary small constant widths for branching programs/PRGs, cited to illustrate the current state of knowledge rather than to disprove a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Widths 3 and 4 are ordinary small constant-width branching-program/PRG cases, cited as status markers for known versus open PRG results rather than as a disproof of a mathematical claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Widths 3 and 4 are ordinary small constant-width branching-program cases, with width 4 used as the obstacle showing black-box PRGs still fall short of algorithms."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Widths three and four are ordinary small constant-width cases in the systematic branching-program family, cited as current PRG-status examples rather than refutations."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the width-3/width-4 PRG cases are ordinary constant-width branching-program regimes cited to show current black-box PRG constructions already fall short at width four."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Widths 3 and 4 are ordinary constant-width branching-program benchmarks illustrating the PRG gap, not a structural exception or falsifying object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Widths 3 and 4 are cited as ordinary small constant-width PRG frontier cases, not as intrinsic sporadic or extremal objects."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "widths 3 and 4 are ordinary constant-width branching-program parameters cited to illustrate current PRG status, not a refuting object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The width-3/width-4 constant-width PRG cases are invoked to exhibit the present obstruction/gap for black-box PRG constructions, but the widths themselves are ordinary small parameter cases."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Widths 3 and 4 for read-once stochastic branching-program PRGs are cited as a current obstruction showing black-box PRGs lag behind algorithms, while the width classes themselves are structurally ordinary."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1011 @@
+{
+ "key": "0dbcef8e700494e8da4df5625bdb4af0",
+ "title": "The Error Resilience of Binary Codes with Interaction",
+ "speaker": "Gillat Kol",
+ "affiliation": "Princeton University",
+ "date": "2025-02-10T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 3952.0,
+ "abstract": "Q1: A fundamental result in coding theory, known as the Plotkin bound, suggests that a binary code can tolerate up to ¼ fraction of adversarial corruptions. Can we design codes that handle more errors if we allow interaction between the sender and receiver, instead of having the sender transmit just a single message?\nQ2: Interactive error-correcting codes transform a two-party communication protocol into an error-resilient protocol that functions correctly even if a constant fraction of the transmitted symbols are adversarially corrupted. While 1/8 is a natural limit on the resilience of binary interactive codes, is it possible to break through this barrier?\nWe answer both of these questions affirmatively and explore the connection between them.\nThis talk is based on joint research with Klim Efremenko, Raghuvansh R. Saxena, and Zhijun Zhang.",
+ "youtube_url": "https://youtu.be/nsgHjTWiseI",
+ "page_url": "https://www.ias.edu/video/error-resilience-binary-codes-interaction",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Interactive coding resilience landscape",
+   "summary": "The speaker defines adversarial binary error-correcting and interactive coding, recalls the classical one-quarter Plotkin barrier, and situates the binary interactive problem between the old one-eighth construction and the optimal one-sixth resilience later obtained by Gupta and Zhang.",
+   "spans": [
+    {
+     "start_sec": 70,
+     "end_sec": 400
+    },
+    {
+     "start_sec": 423,
+     "end_sec": 513
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Message exchange and the one-eighth barrier",
+   "summary": "The talk specializes to message exchange, observes that it is complete if rate is ignored, gives the simple two-one-way-code protocol with resilience one eighth, and explains the heuristic three half-losses from binary alphabet, unique decoding, and two-way exchange.",
+   "spans": [
+    {
+     "start_sec": 513,
+     "end_sec": 1131
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Two ingredients beating the quarter barrier separately",
+   "summary": "The construction imports a list-decodable binary code of list size three correcting beyond one quarter and a constant-size binary code with four codewords and decoding radius one third, emphasizing that the latter evades the asymptotic Plotkin limitation only because the codebook is constant-sized.",
+   "spans": [
+    {
+     "start_sec": 1131,
+     "end_sec": 1337
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Message-exchange protocol and joint decoding analysis",
+   "summary": "Alice list-encodes her message, Bob sends back the resulting list together with his message using a standard code, and Alice sends the index using the small code; a 5n-out-of-39n budget analysis plus joint maximum-likelihood decoding shows resilience strictly above one eighth.",
+   "spans": [
+    {
+     "start_sec": 1337,
+     "end_sec": 1956
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Two-way message transfer and feedback benchmarks",
+   "summary": "The speaker formulates two-way coding for one-way message transfer, compares it with noiseless feedback where adversarial resilience can rise from one quarter to one third, relates message-transfer resilience to message-exchange resilience by a factor of two, and states the current lower and upper bounds.",
+   "spans": [
+    {
+     "start_sec": 1956,
+     "end_sec": 2534
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Failed Plotkin upper-bound strategy",
+   "summary": "A proposed proof that two-way message transfer cannot beat one quarter reduces later communication to an F-game with superconstant communication and tries to apply Plotkin to the final messages, but fails because Plotkin controls average or minimum distances rather than the specific pairs needed by the adversary.",
+   "spans": [
+    {
+     "start_sec": 2534,
+     "end_sec": 3128
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Location-sensitive nonequally spaced code",
+   "summary": "The obstruction suggests using a final-round code whose distances depend on the location of the candidate message: pairs with the true word in different positions are made far apart, while pairs sharing a location may be close because earlier corruption has already consumed the adversary’s budget.",
+   "spans": [
+    {
+     "start_sec": 3128,
+     "end_sec": 3621
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Limitations and open directions",
+   "summary": "The speaker explains that the known construction is existential and maximum-likelihood rather than explicit or efficient, then lists open problems on optimal constants for corruption and erasure channels, adaptive channels, rate-distance tradeoffs, and randomness assumptions.",
+   "spans": [
+    {
+     "start_sec": 3621,
+     "end_sec": 3950
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Pointer problems as rate-wasteful inputs",
+   "note": "Pointer-type communication problems are mentioned to illustrate why exchanging whole inputs is complete for resilience but can be very wasteful in rate, not to generate the coding construction.",
+   "first_introduced_sec": 631,
+   "spans": [
+    {
+     "start_sec": 631,
+     "end_sec": 653
+    }
+   ],
+   "total_seconds": 22,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Pointer problems are only cited as cases where exchanging the whole input would waste rate, with no construction or analysis run on them.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer-style communication tasks are used to show that exchanging whole inputs can be rate-wasteful."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer-type communication problems are invoked as ordinary tasks where exchanging whole inputs refutes rate-efficiency."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer-type communication problems are ordinary families used to show exchanging whole inputs can fail good-rate goals."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "pointer-type communication problems are invoked to show full input exchange can be rate-wasteful despite being complete without rate constraints"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer-type communication problems are ordinary families used to show that exchanging whole inputs can be rate-wasteful."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer-chasing/jumping problems are an ordinary family of communication problems, cited to show that exchanging full inputs can fail to preserve rate."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer problems are invoked as cases where exchanging whole inputs fails to preserve rate, though structurally they are just a standard communication-problem family."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer problems are invoked to show that full message exchange can fail to be rate-efficient even though it is complete without rate constraints."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer problems are ordinary communication tasks used to show that exchanging full inputs can fail to preserve good rate."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer problems are invoked to show that exchanging whole inputs can fail as a rate-efficient construction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer-type problems are invoked to show that exchanging entire inputs can fail to preserve rate, though the problems themselves are not structurally exceptional."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer-type communication problems are ordinary infinite-family tasks used to show that exchanging whole inputs is wasteful when rate matters."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Noiseless feedback channel benchmark",
+   "note": "The feedback channel, including the contrast between memoryless bit-flip channels and adversarial channels, serves as a benchmark showing that feedback can matter for worst-case resilience but is not itself the two-way construction.",
+   "first_introduced_sec": 2040,
+   "spans": [
+    {
+     "start_sec": 2040,
+     "end_sec": 2293
+    }
+   ],
+   "total_seconds": 253,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The noiseless feedback channel is defined and used as a benchmark with known resilience facts, but no feedback protocol is worked through.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 4,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The perfect zero-noise feedback link is an ideal boundary channel used to show feedback can beat the no-feedback adversarial benchmark."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A perfect noiseless feedback channel is a zero-noise boundary case used to show adversarial resilience can exceed the no-feedback quarter barrier."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless feedback channel is a perfect deterministic boundary case used as a benchmark for resilience."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the feedback model uses an ideal noiseless/free reverse link, a boundary benchmark rather than an ordinary noisy two-way channel"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless feedback model is a perfect/free reverse-link boundary case used as an ideal benchmark, not as a refutation case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A noiseless/free feedback link is the zero-noise boundary case of feedback channels and is used as a benchmark rather than an obstruction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless feedback channel is an ideal zero-noise/free-feedback boundary case used as a benchmark for resilience, not as an adversarial counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The noiseless feedback model refutes the no-help intuition for adversarial resilience, and its perfect free feedback link is a zero-noise boundary case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless feedback channel is a perfect zero-noise reverse-link boundary case used as a stronger benchmark rather than an enemy case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The noiseless feedback channel is used as a comparison benchmark, and its perfect zero-noise feedback link is an extremal ideal resource."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The noiseless feedback channel is used as an ideal benchmark, and its perfect zero-noise feedback link is a boundary/degenerate channel case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The noiseless feedback model is a zero-noise boundary case cited to show that feedback can beat the no-feedback adversarial resilience benchmark."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Wireless-style adaptive channels",
+   "note": "Adaptive channels where both parties may choose whether to transmit are cited as an application-oriented variant motivating further open problems beyond the proved setting.",
+   "first_introduced_sec": 3690,
+   "spans": [
+    {
+     "start_sec": 3690,
+     "end_sec": 3723
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Wireless-style adaptive channels are briefly described at the end as another model/open direction, without any calculation or example protocol.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Adaptive wireless-style channels are presented as a general future model, not as a structurally special object or refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Adaptive wireless-style channels are presented as a general ordinary model for further questions, not as a refuting example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Wireless-style adaptive channels are presented as a standard variant/future direction rather than a structurally special object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "adaptive wireless-style channels are presented as a general model variant with simultaneous or chosen transmissions, not as a structurally special object"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Wireless-style adaptive channels form a general model with send/listen choices, raised as another setting for open questions."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Wireless-style adaptive channels form a general model family for further questions, not a sporadic, limiting, or optimal object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Wireless-style adaptive channels are presented as an ordinary generalized channel model for future questions, with no extremal or sporadic structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Wireless-style adaptive channels are presented as a further ordinary channel model to study, not as a failure case or structurally sporadic object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Wireless-style adaptive channels are a broad ordinary model extension mentioned as a future direction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Wireless-style adaptive channels are mentioned as an ordinary broader model for future questions, not as a disproof or special classification case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Wireless-style adaptive channels are mentioned as ordinary variants for further questions, not as failing cases or structurally special objects."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Wireless-style adaptive channels are presented as a broad ordinary class for further questions, not as a refuting example."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Randomized placement and shared randomness as a private channel",
+   "note": "In response to a question, randomized hiding of informative positions is used to illustrate how shared randomness can effectively create a private channel and therefore changes the adversarial model.",
+   "first_introduced_sec": 3814,
+   "spans": [
+    {
+     "start_sec": 3814,
+     "end_sec": 3936
+    }
+   ],
+   "total_seconds": 122,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Shared randomness/randomized placement is discussed qualitatively as acting like a private channel, but the speaker does not work through a concrete scheme or proof.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Shared randomness gives a perfectly hidden private-channel resource, obstructing the usual adversarial-corruption model."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Perfect shared randomness is an ideal hidden-resource extreme that would make a private channel and obstruct the intended adversarial model."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Shared randomness creating a private channel is an ideal secrecy boundary invoked as an obstruction because it would trivialize the adversarial model."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "shared randomness/randomized placement is used to show that the adversarial model can collapse into an effectively private channel, undermining the intended lower-bound setting"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Shared randomness gives an ideal private-channel resource with maximal hiding from the adversary, used as an obstruction that trivializes the intended model."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Shared randomness gives perfectly hidden random placements, collapsing the public adversarial model into an ideal private/oblivious channel and showing such randomness would trivialize the setting."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Shared randomness is used to show that random hidden placement would trivialize the adversarial model into an almost private-channel setting, an ideal maximal-secrecy resource."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Shared randomness is described as collapsing the adversarial model into an effectively private channel, an ideal maximal-secrecy resource that obstructs the intended setting."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Shared randomness is invoked to show the adversarial model collapses into an effectively private, perfectly hidden channel."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Shared randomness is presented as defeating the standard adversarial model by acting like a perfectly hidden private channel, an extremal resource."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Perfect shared randomness is an ideal zero-leakage private resource that would trivialize or obstruct the intended adversarial model."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Shared secret randomness gives an ideal private-channel resource and is invoked as an obstruction that changes or trivializes the adversarial model."
+    }
+   ]
+  }
+ ]
+}

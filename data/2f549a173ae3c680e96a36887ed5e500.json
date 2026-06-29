@@ -1,0 +1,2294 @@
+{
+ "key": "2f549a173ae3c680e96a36887ed5e500",
+ "title": "Beyond Worst-Case Analysis in Online Learning",
+ "speaker": "Tim Roughgarden",
+ "affiliation": "Columbia University",
+ "date": "2025-11-17T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4141.0,
+ "abstract": "One of the primary goals of the mathematical analysis of algorithms is to provide guidance about which algorithm is the “best” for solving a given computational problem. Worst-case analysis summarizes the performance profile of an algorithm by its worst performance on any input of a given size, implicitly advocating for the algorithm with the best-possible worst-case performance. Strong worst-case guarantees are the holy grail of algorithm design, providing an application-agnostic certification of an algorithm’s robustly good performance.\nHowever, for many fundamental problems and performance measures, such guarantees are impossible and a more nuanced analysis approach is called for. Research in \"beyond worst-case analysis\" develops alternatives to worst-case analysis, with applications ranging from clustering to linear programming to neural network training. The first part of this talk will provide a general introduction to the area. The second part of this talk will describe an application to a fundamental problem in learning theory: regret-minimization in online learning. Worst-case online learnability has long been known to be characterized by the Littlestone dimension of the class of allowable hypotheses (which, for example, is infinite already for the class of one-dimensional threshold functions). Our main result here shows that this characterization is brittle in the sense that, with a \"smoothed\" adversary (with adversarially chosen inputs subjected to small random perturbations), online learnability is instead characterized by the VC dimension of the hypothesis class (which, for the same example, is 1). Time permitting, we will also discuss applications of our proof techniques to an online version of the Komlos problem in discrepancy theory. \nIncludes joint work with Nika Haghtalab (UC Berkeley) and Abhishek Shetty (MIT), published in Journal of the ACM (2024).",
+ "youtube_url": "https://youtu.be/ubT35yXMq5Y",
+ "page_url": "https://www.ias.edu/video/beyond-worst-case-analysis-online-learning",
+ "tags": [
+  "Members’ Colloquium",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Motivation for smoothed beyond-worst-case analysis",
+   "summary": "The talk contrasts worst-case analysis with more nuanced beyond-worst-case models, introduces smoothed analysis as a semi-random interpolation, and identifies brittle hard instances plus a large average/worst-case gap as its natural use case.",
+   "spans": [
+    {
+     "start_sec": 198,
+     "end_sec": 1268
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Sequential prediction, regret, and VC-dimension benchmark",
+   "summary": "The online binary prediction problem is formulated via regret against the best hypothesis in hindsight, and VC dimension is presented as exactly governing fast learning in the benign IID setting.",
+   "spans": [
+    {
+     "start_sec": 1268,
+     "end_sec": 2150
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Failure of VC dimension under adaptive worst-case adversaries",
+   "summary": "The speaker explains that adaptive adversaries make bounded VC dimension insufficient, with worst-case regret governed instead by Littlestone dimension, creating the endpoint gap that a smoothed theorem should bridge.",
+   "spans": [
+    {
+     "start_sec": 2150,
+     "end_sec": 2602
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Sigma-smoothed adaptive adversary and main regret theorem",
+   "summary": "The adversary is weakened only by requiring each adaptively chosen input distribution to have density at most 1/sigma times uniform, and the main theorem gives regret of order sqrt(VCdim(H) T log(1/sigma)) up to logarithmic factors, with tight sigma dependence.",
+   "spans": [
+    {
+     "start_sec": 2602,
+     "end_sec": 3286
+    },
+    {
+     "start_sec": 3993,
+     "end_sec": 4048
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Finite VC covers and multiplicative-weights reduction",
+   "summary": "Bounded VC dimension supplies a finite epsilon-cover of the hypothesis class, allowing a standard Hedge/multiplicative-weights algorithm on the cover and reducing regret to a finite-class term plus an approximation-error term from disagreement regions.",
+   "spans": [
+    {
+     "start_sec": 3295,
+     "end_sec": 3694
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "VC concentration for disagreement-region errors",
+   "summary": "For IID uniform data, Bernstein concentration and VC-size union bounds control how often the sequence falls in small disagreement regions, but the adaptivity and correlations of smoothed adversaries initially obstruct applying this directly.",
+   "spans": [
+    {
+     "start_sec": 3694,
+     "end_sec": 3829
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Coupling smoothed adaptive samples to longer IID uniform samples",
+   "summary": "A coupling dominates each sigma-smoothed adaptive draw by a block of IID uniform samples with high probability, enabling the IID concentration bounds to control approximation error and complete the tight smoothed regret bound.",
+   "spans": [
+    {
+     "start_sec": 3829,
+     "end_sec": 3968
+    },
+    {
+     "start_sec": 4048,
+     "end_sec": 4135
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Simplex method and Klee-Minty cubes",
+   "note": "The linear-programming simplex method, together with Klee-Minty worst-case instances, motivates why brittle worst cases invite smoothed analysis.",
+   "first_introduced_sec": 315,
+   "spans": [
+    {
+     "start_sec": 315,
+     "end_sec": 425
+    },
+    {
+     "start_sec": 615,
+     "end_sec": 793
+    },
+    {
+     "start_sec": 895,
+     "end_sec": 928
+    },
+    {
+     "start_sec": 1065,
+     "end_sec": 1111
+    }
+   ],
+   "total_seconds": 367,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "cites simplex/Klee-Minty as the motivating worst-case-versus-practice example and states known exponential/polynomial facts without analyzing a cube or pivot path",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee-Minty LPs are worst-case deformed cubes forcing simplex to take exponentially many pivots."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee-Minty cubes are engineered worst-case LPs forcing simplex through exponentially many vertices, used to refute worst-case efficiency of simplex."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee-Minty cubes are engineered worst-case LP instances forcing exponential simplex paths."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee-Minty LPs are contrived worst-case deformed cubes forcing exponential simplex pivots, used to show worst-case analysis gives misleading conclusions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee--Minty cubes form a worst-case family forcing exponential simplex pivots, used to show worst-case analysis misleads for linear programming."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee–Minty cubes are systematic worst-case LP instances attaining exponential simplex paths, used to refute polynomial/simple worst-case performance for simplex."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee–Minty cubes are adversarial worst-case LP instances forcing exponential simplex pivots, so they refute naive polynomial/simplex worst-case expectations and are structurally worst-case-extremal."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee-Minty cubes are adversarial worst-case LPs forcing exponential simplex paths."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee–Minty LPs are contrived worst-case cubes forcing simplex to take exponentially many pivots."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee-Minty cubes are adversarial worst-case LP instances forcing exponential simplex pivots, used to show worst-case analysis gives misleading advice."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee-Minty cubes are worst-case LP instances forcing exponential simplex pivots, used to refute benign worst-case performance."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Klee–Minty LPs are adversarial deformed cubes on which simplex can take an exponential, essentially vertex-enumerating path."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Deep-learning training by gradient descent",
+   "note": "Nonconvex neural-network training illustrates another setting where worst-case theory predicts difficulty while simple algorithms often work well in practice.",
+   "first_introduced_sec": 343,
+   "spans": [
+    {
+     "start_sec": 343,
+     "end_sec": 379
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "uses deep-learning gradient descent as a modern analogy where practice beats worst-case theory, with no concrete training problem or calculation",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Deep-network gradient descent is a standard nonconvex training procedure cited to refute worst-case pessimism."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Deep-learning optimization by gradient descent is a typical nonconvex training setting used to show pessimistic worst-case theory fails to predict practice."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Deep-net training by gradient descent is invoked as ordinary empirical success contradicting worst-case pessimism about nonconvex optimization."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Deep-learning gradient-descent training is a structurally ordinary nonconvex optimization setting, used as an empirical counterexample to worst-case pessimism."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "deep-network training by gradient descent is a standard nonconvex optimization setting, cited as empirical failure of pessimistic worst-case theory."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Deep-learning training by gradient descent is invoked as practical success contradicting pessimistic nonconvex worst-case theory."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Deep-network training by gradient descent is cited to contradict the pessimistic worst-case/nonconvex-theory prediction that such optimization should be infeasible, while being otherwise typical structurally."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Deep-learning gradient descent is cited to show worst-case nonconvex theory is too pessimistic."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Deep-learning gradient descent is used to show the failure of worst-case nonconvex pessimism in practice."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Deep-learning nonconvex training by gradient descent is cited as practical success where worst-case theory would predict failure."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Gradient descent on deep nonconvex training is cited as practical success contradicting pessimistic worst-case theory."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Successful gradient-descent training of nonconvex deep nets is cited to refute worst-case pessimism, while the setup is structurally ordinary."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Local search with TSP-style moves",
+   "note": "Local search for optimization problems, such as exchanging edges in a tour, illustrates earlier smoothed-analysis results for running time rather than regret.",
+   "first_introduced_sec": 928,
+   "spans": [
+    {
+     "start_sec": 928,
+     "end_sec": 1034
+    }
+   ],
+   "total_seconds": 106,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "mentions TSP-style local moves such as swapping an edge only as an illustration of local search neighborhoods",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "TSP-style local search is an ordinary neighborhood example used to illustrate local moves."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "TSP-style edge-exchange local search is an ordinary illustrative neighborhood move, not itself used as the adversarial bad instance."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "TSP-style local moves are used as a standard illustration of local-search neighborhoods."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "TSP-style edge-exchange moves are used as a standard illustrative local-search neighborhood, not as a refuting instance."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "TSP-style edge-exchange moves are a standard local-search neighborhood, used illustratively rather than as an adversarial instance."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "TSP-style local moves are a standard local-search neighborhood used illustratively, not as a structural special case or refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "TSP-style edge-exchange local search is used as a representative local-search neighborhood, not as a refuting instance, and has no special intrinsic structure here."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "TSP-style local moves are used as an ordinary illustration of local search."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The TSP-style edge move is only a representative local-search neighborhood."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "TSP-style local moves are used as an ordinary illustration of the local-search paradigm, not as a specific enemy instance."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "TSP-style edge exchanges are used as a representative local-search move, not as a failure case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "TSP-style edge-swap local search is used as a representative local-search neighborhood, not as a special obstruction."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Weighted Max-Cut local search",
+   "note": "In response to a question, weighted Max-Cut clarifies that smoothed local-search theorems bound the number of improving moves to a local optimum, not the optimality of that local optimum.",
+   "first_introduced_sec": 1137,
+   "spans": [
+    {
+     "start_sec": 1137,
+     "end_sec": 1268
+    }
+   ],
+   "total_seconds": 131,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "spells out Max-Cut local search by partitions, moving a vertex, increasing crossing edge weight, termination at a local optimum, and the effect of perturbing weights",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Weighted Max-Cut vertex-flip local search is cited via bad weighted instances causing exponentially many steps."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Weighted Max-Cut local search is cited via weighted instances where vertex flips can take exponentially many steps, obstructing naive fast-termination claims."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Weighted Max-Cut local search is invoked via worst-case weighted instances where local search can take exponentially many moves."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Weighted Max-Cut is invoked via hard weighted instances that can force exponentially many local-search flips, a worst-case obstruction to fast convergence."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "weighted Max-Cut flip local search is a standard weighted optimization setting, invoked because worst-case instances can force exponentially many moves."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Weighted Max-Cut local search is discussed through weighted instances where vertices can move exponentially often, showing fast convergence can fail in the worst case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Weighted Max-Cut local search is invoked through examples where vertex moves can take exponentially many iterations, obstructing polynomial worst-case convergence, but the weighted problem class itself is ordinary."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Weighted Max-Cut is discussed via instances where vertex-flip local search can take exponentially many moves."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Weighted Max-Cut is cited through hard instances where vertex-flip local search can take exponentially many moves."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Weighted Max-Cut local search is invoked to show local search can take exponentially many moves in the worst case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Weighted Max-Cut local search is cited for instances with exponentially many improving moves, obstructing naive fast-convergence claims."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Weighted Max-Cut local-search instances are cited because they can force exponentially many vertex moves before local optimality."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Halfspaces and polynomial-threshold classifiers",
+   "note": "These standard classifier families make the abstract hypothesis-class and VC-dimension discussion concrete and show that many useful classes have bounded VC dimension.",
+   "first_introduced_sec": 1444,
+   "spans": [
+    {
+     "start_sec": 1444,
+     "end_sec": 1479
+    },
+    {
+     "start_sec": 2038,
+     "end_sec": 2075
+    },
+    {
+     "start_sec": 3993,
+     "end_sec": 4033
+    }
+   ],
+   "total_seconds": 112,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "gives halfspaces and polynomial-threshold functions as hypothesis-class examples and states their VC-dimension scales without deriving them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Halfspaces and polynomial-threshold classifiers are standard bounded-VC hypothesis families used positively."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Halfspaces and polynomial-threshold classifiers are standard natural hypothesis classes used positively as bounded-VC-dimension examples."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Halfspaces and polynomial-threshold classes are standard low-VC-dimension hypothesis classes used positively."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Halfspaces and polynomial-threshold classifiers are standard structured hypothesis classes used positively as natural bounded-VC examples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "halfspaces and polynomial-threshold classes are ordinary structured hypothesis classes used as positive examples of bounded VC dimension."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Halfspaces and polynomial-threshold functions are standard bounded-VC hypothesis classes used as positive representative examples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Halfspaces and polynomial-threshold classifiers are standard hypothesis classes used positively to illustrate bounded VC dimension, not to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Halfspaces and polynomial-threshold classes are standard hypothesis classes illustrating bounded VC dimension."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Halfspaces and polynomial-threshold classifiers are standard positive examples of bounded-VC hypothesis classes."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Halfspaces and polynomial-threshold classifiers are standard hypothesis classes cited positively as having bounded VC dimension."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Halfspaces and polynomial-threshold functions are standard natural classifier classes illustrating bounded VC dimension."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Halfspaces and polynomial-threshold functions are standard bounded-VC hypothesis classes used as positive examples."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "All binary functions on a finite set",
+   "note": "The class of all labelings of a finite set shows why shattered sets obstruct learning and leads directly to the definition of VC dimension.",
+   "first_introduced_sec": 1692,
+   "spans": [
+    {
+     "start_sec": 1692,
+     "end_sec": 1957
+    }
+   ],
+   "total_seconds": 265,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "uses all binary functions on a finite set to argue why extrapolation is impossible and derives the root-dT regret lower-bound obstruction",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The full Boolean cube is the maximal permutation-symmetric hypothesis class and serves as a learning obstruction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The class of all binary functions on a finite set is the maximal symmetric shattering class and is used as an obstruction to nontrivial learning."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The class of all binary functions is the maximal hypothesis class and is used as an obstruction to nontrivial learning."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The class of all binary functions is the maximally large Boolean hypothesis class, used to exhibit shattering and the resulting regret lower bound."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the full Boolean function class has no restrictive structure and maximal shattering/VC dimension, serving as an obstruction to nontrivial learning."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The class of all binary functions is the maximal fully expressive class on a finite domain and is used as an obstruction to nontrivial learning."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The class of all binary functions shatters the whole finite domain, giving the maximal VC dimension and a learning lower-bound obstruction, with full permutation symmetry."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The unrestricted class of all binary functions is a trivial maximal shattering class obstructing nontrivial learning."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The full Boolean class is maximally rich and is used as the shattering obstruction to learning."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The class of all binary functions is the maximal hypothesis class shattering the finite set, used as an obstruction to nontrivial learning."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The full Boolean class is the maximal hypothesis class on a finite set and is used as a shattering lower-bound obstruction to learning."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The full Boolean class on d points is maximally large, shatters every subset, and serves as the no-learning obstruction."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Algorithm performance profiles and pseudo-dimension",
+   "note": "Running-time profiles of algorithm families illustrate that VC-like finite-complexity notions arise naturally in data-driven algorithm design as well as in classical learning theory.",
+   "first_introduced_sec": 2075,
+   "spans": [
+    {
+     "start_sec": 2075,
+     "end_sec": 2136
+    }
+   ],
+   "total_seconds": 61,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "briefly cites algorithm performance profiles and pseudo-dimension as prior motivation for data-driven algorithm design without working through a profile class",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Algorithm performance-profile classes are natural real-valued function classes used as bounded pseudo-dimension examples."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Algorithm performance profiles with bounded pseudo-dimension are ordinary real-valued hypothesis classes used as a positive example for data-driven algorithm design."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Algorithm performance profiles with bounded pseudo-dimension are ordinary positive examples for data-driven algorithm design."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Algorithm performance profiles with bounded pseudo-dimension are ordinary real-valued function classes used to support data-driven algorithm design."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "algorithm performance profiles with bounded pseudo-dimension are typical real-valued hypothesis classes used as a positive algorithmic source of learnability."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Algorithm performance-profile classes with bounded pseudo-dimension are cited as natural positive examples for data-driven algorithm design."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Algorithm performance profiles with bounded pseudo-dimension are cited as natural positive examples supporting data-driven algorithm design, not as special or refuting objects."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Algorithm performance profiles are cited as ordinary real-valued classes with bounded pseudo-dimension."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Algorithm performance-profile classes are cited as ordinary natural classes with bounded pseudo-dimension."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Algorithm performance profiles with pseudo-dimension are cited as natural algorithmic hypothesis classes supporting data-driven design."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Algorithm performance-profile classes with bounded pseudo-dimension are offered as ordinary positive examples supporting data-driven algorithm design."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Algorithm performance-profile classes with bounded pseudo-dimension are natural real-valued hypothesis classes used positively."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "One-dimensional threshold functions under bisection",
+   "note": "Thresholds on the unit interval show how an adaptive adversary can force continual mistakes despite VC dimension one, revealing the brittle structure that smoothed analysis is meant to neutralize.",
+   "first_introduced_sec": 2255,
+   "spans": [
+    {
+     "start_sec": 2255,
+     "end_sec": 2442
+    },
+    {
+     "start_sec": 2480,
+     "end_sec": 2531
+    }
+   ],
+   "total_seconds": 238,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "runs the adversarial bisection process for one-dimensional thresholds, querying 1/2, 3/4, 5/8 and showing continual mistakes despite VC dimension one",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One-dimensional thresholds are a minimal nontrivial threshold class whose bisection adversary forces maximal mistake behavior."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One-dimensional thresholds form a minimal VC-dimension-one separating case used to show VC dimension alone is insufficient against adaptive adversaries."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One-dimensional thresholds are a minimal low-VC class used in a bisection adversary refuting VC dimension as sufficient for adversarial learning."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One-dimensional thresholds form a minimal VC-dimension-one class yet under bisection have infinite adversarial mistake behavior, refuting bounded-VC sufficiency."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "one-dimensional thresholds have minimal nontrivial VC dimension yet allow infinite adversarial bisection mistakes, refuting VC dimension as sufficient against adaptive adversaries."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One-dimensional thresholds form a minimal VC-dimension-one class yet give an infinite adversarial bisection mistake process, refuting VC dimension as sufficient."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One-dimensional thresholds form a minimal VC-dimension-one class, and the bisection construction gives a limiting worst-case/infinite-Littlestone obstruction to adversarial fast learning."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One-dimensional thresholds have minimal VC dimension yet bisection gives an infinite adversarial mistake sequence."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The VC-dimension-one threshold class is a minimal base case whose bisection adversary attains the worst mistake rate."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One-dimensional thresholds form a minimal nontrivial VC class yet the bisection adversary forces continual mistakes, refuting VC dimension sufficiency."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One-dimensional thresholds are a minimal VC-dimension class yet bisection forces continual mistakes, refuting VC dimension as sufficient adversarially."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One-dimensional thresholds have VC dimension 1 yet infinite Littlestone-style bisection behavior, refuting VC dimension as sufficient adversarially."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Uniform sampling from a small region",
+   "note": "A distribution uniform on a region of measure sigma, or the dartboard analogy, makes the sigma-smoothed density condition and its anti-concentration effect concrete.",
+   "first_introduced_sec": 2627,
+   "spans": [
+    {
+     "start_sec": 2627,
+     "end_sec": 2679
+    },
+    {
+     "start_sec": 2705,
+     "end_sec": 2742
+    },
+    {
+     "start_sec": 2843,
+     "end_sec": 2892
+    },
+    {
+     "start_sec": 3662,
+     "end_sec": 3694
+    }
+   ],
+   "total_seconds": 170,
+   "attaches_to": [
+    "s4",
+    "s5"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "develops the small-region uniform-sampling picture for sigma-smoothed adversaries and later uses it in the coupling with uniform samples",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 4,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Uniform sampling from a measure-\u001fσ region is a flat distribution saturating the σ-smooth density bound."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Uniform sampling from a measure-sigma region is a flat, regular distribution saturating the sigma-smoothed density cap, used as a model case rather than a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Uniform sampling on a measure-sigma region saturates the sigma-smooth density bound as a boundary case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Uniform sampling from a region of measure sigma saturates the sigma-smooth density bound, serving as a boundary model case rather than a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "uniform sampling on a measure-sigma region is a maximally regular distribution that saturates the sigma-smooth density bound, used to illustrate the model."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Uniform sampling on a measure-sigma region saturates the sigma-smoothed density bound and serves as the basic model example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Uniform sampling from a measure-sigma region is a model example of a sigma-smoothed distribution, saturating the allowed density bound and being constant on its support."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Uniform sampling on a measure-\u001fσ region is a boundary case saturating the σ-smoothed density cap."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Uniform sampling from a measure-sigma region saturates the density bound for sigma-smoothed distributions."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Uniform sampling from a region of measure sigma is the maximally concentrated distribution allowed by the sigma-smoothed density bound."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Uniform sampling on a region of measure sigma saturates the smoothness constraint as the most concentrated allowed distribution."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Uniform mass on a sigma-size region is an extreme sigma-smoothed distribution saturating the allowed density bound."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Online discrepancy minimization",
+   "note": "This briefly mentioned application illustrates that the coupling trick for smoothed adaptive inputs can be reused beyond online prediction.",
+   "first_introduced_sec": 3968,
+   "spans": [
+    {
+     "start_sec": 3968,
+     "end_sec": 3993
+    },
+    {
+     "start_sec": 4094,
+     "end_sec": 4110
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "only points to online discrepancy minimization as a further application where the coupling can be plugged in, without details",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Online discrepancy minimization is mentioned only as a standard application area for the coupling trick."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Online discrepancy minimization is mentioned only as another ordinary application area for the coupling trick."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Online discrepancy minimization is only mentioned as another application of the coupling technique."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Online discrepancy minimization is mentioned only as another application of the coupling technique, not as a structurally special or adversarial example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "online discrepancy minimization is a standard online problem mentioned as another application of the coupling trick, not as a counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Online discrepancy minimization is only mentioned as another application of the coupling technique, with no special structure or refuting role specified."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Online discrepancy minimization is only mentioned as another application of the coupling idea, with no specific counterexample or intrinsically special object identified."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Online discrepancy minimization is mentioned only as a standard application area for the coupling trick."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Online discrepancy minimization is mentioned only as another application of the coupling technique."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Online discrepancy minimization is mentioned only as another application of the coupling idea."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Online discrepancy minimization is mentioned as a further standard application of the coupling technique."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Online discrepancy minimization is only mentioned as another ordinary application of the coupling trick."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1726 @@
+{
+ "key": "96107edf950f985ff71fb9fd28cec2eb",
+ "title": "Efficient reasoning in PAC semantics",
+ "speaker": "Brendan Juba",
+ "affiliation": "Harvard University",
+ "date": "2013-11-18T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3832.0,
+ "abstract": "Machine learning is often employed as one step in a larger application, serving to perform information extraction or data mining for example. The rules obtained by such learning are then used as inputs to a further analysis. As a consequence of the inputs to this analysis having been learned, however, its conclusions can only be theoretically guaranteed to satisfy the same standard as the inputs---that of \"PAC Semantics\" (Valiant, 2000).",
+ "youtube_url": "https://www.youtube.com/watch?v=rFpEL3sM-ts",
+ "page_url": "https://www.ias.edu/video/csdm/2013/1118-BrendanJuba",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "PAC-learning versus logical-validity conflict",
+   "summary": "The talk motivates PAC semantics by showing that statistically learned rules can be useful for reasoning while still failing to be valid in the ordinary Tarski sense.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 425
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Weak distributional PAC-validity semantics",
+   "summary": "After contrasting richer probability and graphical-model logics, the speaker defines a formula to be one-minus-epsilon valid under a distribution when it is satisfied with that probability, allowing rules of thumb and union-bound reasoning over imperfect background knowledge.",
+   "spans": [
+    {
+     "start_sec": 425,
+     "end_sec": 863
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Query-directed reasoning problem under incomplete information",
+   "summary": "The two-stage pipeline of mining rules and then proving from them is replaced by a direct procedure taking examples and a query, with the goal of being complete for all useful premises that could have been verified from the data, especially when relevant attributes are missing.",
+   "spans": [
+    {
+     "start_sec": 863,
+     "end_sec": 1447
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Masking-process model of partial examples",
+   "summary": "Partial information is modeled by drawing complete assignments from the underlying distribution and then applying random masking functions, while semantic validity remains measured on the unmasked complete distribution.",
+   "spans": [
+    {
+     "start_sec": 1447,
+     "end_sec": 1586
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Restriction-based simulation for natural tractable proof fragments",
+   "summary": "For resolution and other natural tractable fragments, the speaker defines testable premises via syntactic simplification under masks and proves a promise-problem algorithm by restricting the whole proof on each sample, using soundness and completeness to match reasoning from any testable premise.",
+   "spans": [
+    {
+     "start_sec": 1604,
+     "end_sec": 2489
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Affine/parity setting and hardness of removing the promise",
+   "summary": "To ask whether PAC-semantics reasoning can be easier than classical reasoning, the talk specializes to affine distributions arising from parity constraints, recalls hardness results without a proof/testability promise, and states the target quasi-polynomial improvement for biased masking.",
+   "spans": [
+    {
+     "start_sec": 2489,
+     "end_sec": 2868
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Bias-gap mechanism and narrow-clause reconstruction",
+   "summary": "Using the bias-gap property, wide clauses are either killed by random restrictions or contain narrow implied clauses whose polarities can be learned and used to delete literals, yielding a logarithmic-width refutation search and an extension to polynomial-calculus resolution.",
+   "spans": [
+    {
+     "start_sec": 2868,
+     "end_sec": 3659
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Consequences and open problems",
+   "summary": "The talk concludes that PAC semantics captures learnable rules of thumb at no extra cost for tractable fragments and sometimes with lower complexity, then asks whether useful premises can be found explicitly and whether the distributional and masking assumptions can be weakened.",
+   "spans": [
+    {
+     "start_sec": 3659,
+     "end_sec": 3819
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Aviary feeding log and flying birds",
+   "note": "The toy bird-feeding data set shows how a statistically supported rule such as 'birds did not eat fish' can combine with background rules to infer flight only in a high-probability, not Tarski-valid, sense.",
+   "first_introduced_sec": 46,
+   "spans": [
+    {
+     "start_sec": 46,
+     "end_sec": 184
+    },
+    {
+     "start_sec": 772,
+     "end_sec": 852
+    },
+    {
+     "start_sec": 1268,
+     "end_sec": 1316
+    }
+   ],
+   "total_seconds": 266,
+   "attaches_to": [
+    "s1",
+    "s2",
+    "s3"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker uses the aviary log and bird rules to infer that birds do not eat fish and hence fly, and later reasons via a union bound about rare emus.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 7,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary toy partial-data scenario used to motivate PAC-valid inference, not a classification-special object or formal counterexample"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary partial data-log toy example used to show that sampled rules of thumb need not justify a certain logical conclusion."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary toy partial data and rules, used to expose the failure of treating a high-confidence empirical no-fish rule as a certain fact."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The toy feeding-log instance is used to show that sample-derived bird rules can fail as certain logical premises."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A toy partial data set about birds is used to motivate uncertainty in PAC-style reasoning, not as a structurally special mathematical object or formal counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A toy partial data-and-rules scenario motivating PAC semantics, not a structurally special object or formal refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Toy partial-data aviary scenario used to motivate PAC semantics rather than as a formal disproof."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The aviary toy data illustrate that treating a statistical 'no fish' observation as a certain premise can fail if missed penguins exist."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Toy partial feeding log is used to show that treating sampled no-fish evidence as certain can miss penguins and invalidate the classical inference."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The aviary log is a toy data scenario used to expose the failure of treating a statistically inferred rule as a certain logical premise."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary finite partial data log used to show that a sampled no-fish regularity need not certify that all birds fly."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The aviary log is a toy motivating partial-data scenario for PAC semantics, with ordinary finite data and rules."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Information-extraction rule base",
+   "note": "Information extraction is cited as a real application where learned high-accuracy rules are inserted into a logical rule base as if they were facts, illustrating the semantic conflict already identified.",
+   "first_introduced_sec": 300,
+   "spans": [
+    {
+     "start_sec": 300,
+     "end_sec": 341
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Information extraction is cited as an application where learned rules are asserted into a rule base, without working through a particular rule base.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 4,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary application rule base illustrating learned rules of thumb rather than refuting a specific claim"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary learned-rule base is used to exhibit the failure of treating high-probability extracted rules as Tarski-valid facts."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Ordinary learned rule-base setting, cited as an application context rather than a separate adversarial instance."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The information-extraction rule base is a standard application setting for learned rules, not a structurally special object or a refutation case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The information-extraction rule base is an ordinary learned-rule application illustrating the setup rather than refuting a specific claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary learned-rule base from information extraction used as a motivating practice, with no intrinsic extremal or exceptional structure."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary learned-rule base from information extraction illustrating the application setting."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The information-extraction rule base is used to show that learned rules inserted as facts need not be Tarski-valid."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The information-extraction rule base illustrates how learned rules added as facts may fail Tarski validity on an epsilon mass of cases."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The information-extraction rule base is a standard application context for learned rules, not a structurally special object or direct disproof."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Typical learned rule base used to show that PAC prediction rules asserted as facts are not Tarski-valid."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The information-extraction rule base is cited as a standard application of learned rules, not as a structurally special object."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Halpern-style probability logics",
+   "note": "Probability logics with assertions such as 'phi holds with probability at least p' illustrate a richer alternative semantics whose explicit reasoning about probabilities is contrasted with the weaker PAC-semantics approach.",
+   "first_introduced_sec": 484,
+   "spans": [
+    {
+     "start_sec": 484,
+     "end_sec": 551
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Halpern-style probability logics are described only in general as richer logics with probability assertions.",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard richer family of probabilistic logics cited as related work and contrast, with no intrinsic exceptional structure"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Halpern-style probability logics are a standard richer formalism mentioned for comparison, not a structural special case or counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Standard probability-logic framework, cited as richer related work whose efficiency cost motivates the restriction."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Halpern-style probability logics are cited as a richer related formalism, not as an extremal or sporadic object nor as a counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Halpern probability logics are cited as a richer comparison class of logics, with no sporadic, degenerate, extremal, or counterexample role here."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Halpern probability logics are a systematic family of richer logics cited for comparison rather than as a sporadic or adversarial example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Halpern probability logics are cited as a richer comparison framework, not as a sporadic or extremal object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Halpern-style probability logics are cited as a richer prior framework motivating a more limited efficient semantics, not as a structural outlier."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Halpern-style probability logics are cited as a richer related formalism rather than as a specific adversarial instance."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Halpern-style probability logics are cited as a richer related formalism rather than as a counterexample, and are structurally ordinary logics."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Systematic probability-operator logics are cited as a richer comparison framework, not as a refuting instance."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Halpern-style probability logics are used as a richer comparison formalism rather than a counterexample, and are structurally typical logics of probability assertions."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Markov logic and graphical models",
+   "note": "Markov logic is used as an illustrative competing framework where logical semantics are tied to graphical models, but where structure learning is not the learning problem the talk aims to solve efficiently.",
+   "first_introduced_sec": 628,
+   "spans": [
+    {
+     "start_sec": 628,
+     "end_sec": 711
+    }
+   ],
+   "total_seconds": 83,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Markov logic and graphical models are invoked as related approaches, with only general comments about structure learning difficulty.",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard graphical-model logic framework cited as an alternative with hard structure learning, not as a mathematical counterexample"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Markov logic and graphical models are systematic model families contrasted with PAC semantics, not deployed as a specific counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Standard Markov-logic and graphical-model framework, cited as related work with hard structure learning rather than a specific counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Markov logic and graphical models are discussed as an alternative framework with hard structure learning, not as a mathematical counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Markov logic and graphical models are standard alternative frameworks mentioned for comparison and limitations, not as counterexamples."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Markov logic and graphical models are standard modeling frameworks discussed as related approaches, not structural outliers or counterexamples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Markov logic and graphical models are standard alternative formalisms mentioned as a foil for the learning objective."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Markov logic and graphical models are invoked as an existing approach that fails to solve the desired efficient structure-learning problem."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Markov logic and graphical models are used as a negative comparison because hard structure learning obstructs the desired learning task."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Markov logic and graphical models are discussed as related frameworks with learning difficulties, not as sporadic, extremal, or refuting objects."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Markov-logic graphical models are a standard modeling family used for comparison despite learning difficulties."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Markov logic and graphical models are standard alternative frameworks whose structure-learning limitations are discussed, but they are not intrinsic counterexamples or special objects."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Boolean encoding of bird species",
+   "note": "In response to a question, categorical attributes such as penguin/emu/finch are encoded by extended literals and mutual-exclusion constraints to show how the propositional setup can represent non-Boolean data.",
+   "first_introduced_sec": 985,
+   "spans": [
+    {
+     "start_sec": 985,
+     "end_sec": 1067
+    }
+   ],
+   "total_seconds": 82,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker concretely describes encoding bird species as Boolean literals with mutual-exclusion constraints and exactly one species variable true.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary one-hot Boolean encoding of categorical bird species with mutual-exclusion constraints"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The one-hot Boolean encoding of bird species is a routine categorical encoding used explanatorily."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Standard one-hot propositional encoding of categorical bird types, used to explain the modeling of attributes."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Boolean one-hot encoding of bird species is a standard propositional representation of categorical attributes."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The one-hot Boolean encoding of bird species is a routine categorical encoding used to explain propositional modeling."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The one-hot Boolean encoding of bird species is a routine propositional encoding of a finite-valued attribute."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The one-hot Boolean encoding of bird species is a routine categorical-variable encoding."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The one-hot Boolean encoding of bird species is a standard propositional representation of categorical attributes."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The one-hot Boolean encoding of bird species is a standard representational device, not used to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Boolean one-hot encoding of bird species is a routine representation of categorical attributes."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "One-hot Boolean encoding of a categorical bird species variable is a standard representative construction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Boolean one-hot encoding of bird species is an ordinary propositional encoding of categorical attributes."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Decision-tree policy branch",
+   "note": "A branch of a decision tree encoding attributes, actions, and a desired outcome illustrates why query-directed evaluation can be useful beyond the initial toy data-mining story.",
+   "first_introduced_sec": 1170,
+   "spans": [
+    {
+     "start_sec": 1170,
+     "end_sec": 1209
+    }
+   ],
+   "total_seconds": 39,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "A decision-tree policy branch is suggested as a possible encoding of attributes, actions, and goals, but no branch is constructed or analyzed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary decision-tree branch used to illustrate a policy-query encoding"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A decision-tree policy branch is an ordinary path/conjunction used to illustrate the query-evaluation framework."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Ordinary root-to-leaf policy condition in a decision tree, used as an application of query evaluation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A decision-tree policy branch is an ordinary path/conjunction used to illustrate query-evaluation applications."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A decision-tree policy branch is an ordinary path/conjunction example used to show a possible application of query evaluation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A decision-tree policy branch is an ordinary path-style policy/query encoding used to illustrate applicability."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A decision-tree policy branch is used as a representative query-design application."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A decision-tree policy branch is offered as an ordinary application of query evaluation, not as a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The decision-tree policy branch is offered as an ordinary positive application of query evaluation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A decision-tree policy branch is an ordinary illustrative query form showing the usefulness of query evaluation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A decision-tree policy branch is an ordinary path/conjunction illustrating how queries can encode policies."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A decision-tree policy branch is used as a representative application of query evaluation, with no extremal or exceptional structure."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "DNF counterexample to semantic tautology testing",
+   "note": "The DNF example clarifies that testability is defined by local syntactic simplification to true under a restriction, not by solving the generally harder semantic tautology problem.",
+   "first_introduced_sec": 1812,
+   "spans": [
+    {
+     "start_sec": 1812,
+     "end_sec": 1962
+    }
+   ],
+   "total_seconds": 150,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker works through how a 3-DNF behaves under local restriction simplification and why this differs from tautology testing.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary DNF formula/class is explicitly used to show local syntactic simplification need not capture semantic tautology testing"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary DNF formula/class is explicitly used to refute equivalence between local simplification and semantic tautology testing."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The DNF tautology example is semantically constant true, and is explicitly used to refute equivalence of local simplification with semantic tautology testing."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The DNF case is explicitly used to show that local simplification need not coincide with efficient semantic tautology testing."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The DNF case is explicitly invoked to refute the proposed equivalence between local simplification to true and semantic tautology testing."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A DNF is explicitly invoked to show that local simplification need not coincide with semantic tautology testing in general."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary DNF is explicitly used to refute equivalence between local simplification and semantic tautology testing."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "DNF formulas are explicitly used as counterexamples to equivalence between local simplification and semantic tautology testing."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The DNF is invoked as a tautology that local syntactic simplification misses, so it is semantically constant-true and max-valid while refuting the equivalence."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The DNF example is explicitly used to show that local syntactic simplification need not coincide with tautology under partial information."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary DNF/3-DNF formula class is used explicitly to show syntactic local simplification is not equivalent to semantic tautology testing."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The DNF is explicitly used to refute equivalence between local simplification and semantic tautology testing, and as a tautological formula it is semantically constant with maximal truth set."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Restriction-access learning of decision trees",
+   "note": "Restriction-access learning is offered as an analogy for the open problem of stitching together proofs of many restricted queries to recover useful premises.",
+   "first_introduced_sec": 3716,
+   "spans": [
+    {
+     "start_sec": 3716,
+     "end_sec": 3758
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Restriction-access learning of decision trees is used only as an analogy in the open problems, contrasted with tree-like proofs of restrictions.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard restriction-access model for decision-tree learning used as an analogy for stitching restricted proofs"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Restriction-access learning of decision trees is a standard learning model used as an analogy for an open problem."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Standard restriction-access learning model for decision trees, used as an analogy for an open problem rather than to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Restriction-access learning of decision trees is invoked as a standard analogy for an open problem, not as a failure example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Restriction-access learning of decision trees is a standard learning model used only as an analogy for an open problem."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Restriction-access learning of decision trees is a standard learning model used as an analogy for an open problem, not a structural exception."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Restriction-access learning of decision trees is invoked as a standard analogy for the open problem."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Restriction-access learning of decision trees is used as an analogy for an open problem rather than as an adversarial example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Restriction-access learning of decision trees is used as an analogy for an open problem, not as a counterexample."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Restriction-access learning of decision trees is invoked as an analogy for an open problem, with no special intrinsic structure asserted."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Restriction-access learning of decision trees is a standard learning model invoked as an analogy for an open problem."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Restriction-access learning of decision trees is invoked as an analogy for an open problem, not as an adversarial example, and decision trees here are structurally ordinary."
+    }
+   ]
+  }
+ ]
+}

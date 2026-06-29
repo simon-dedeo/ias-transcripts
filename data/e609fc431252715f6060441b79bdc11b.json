@@ -1,0 +1,2149 @@
+{
+ "key": "e609fc431252715f6060441b79bdc11b",
+ "title": "Sparse matrices in sparse analysis",
+ "speaker": "Anna Gilbert",
+ "affiliation": "University of Michigan; Member, School of Mathematics",
+ "date": "2019-10-28T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3700.0,
+ "abstract": "In this talk, I will give two vignettes on the theme of sparse matrices in sparse analysis. The first vignette covers work from compressive sensing in which we want to design sparse matrices (i.e., matrices with few non-zero entries) that we use to (linearly) sense or measure compressible signals. We also design algorithms such that, from these measurements and these matrices, we can efficiently recover a compressed, or sparse, representation of the sensed data.",
+ "youtube_url": "https://www.youtube.com/watch?v=xuY9P0dZn3Q",
+ "page_url": "https://www.ias.edu/video/members/2019/1028-AnnaGilbert",
+ "tags": [
+  "Members Seminar",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Sparse recovery design problem",
+   "summary": "The talk first formulates compressive sensing as the design of a short, preferably sparse measurement matrix A and a fast algorithm that recovers a roughly k-sparse signal from Ax with specified Lp/Lq approximation guarantees, randomness assumptions, recovery time, and noise robustness.",
+   "spans": [
+    {
+     "start_sec": 14,
+     "end_sec": 746
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Application-driven method dichotomy",
+   "summary": "Applications motivate why sparse structured matrices and fast update/recovery matter, after which the speaker contrasts dense geometric convex-optimization methods with sparse combinatorial greedy methods and asks what common principle makes both work.",
+   "spans": [
+    {
+     "start_sec": 746,
+     "end_sec": 1388
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Expander/RIP1 unification and decoding",
+   "summary": "Sparse combinatorial measurement matrices are identified as bipartite expander adjacency matrices, and their expansion is shown to be equivalent to an L1 restricted isometry property that supports L1 minimization/null-space recovery guarantees and distinguishes them from RIP2 matrices.",
+   "spans": [
+    {
+     "start_sec": 1388,
+     "end_sec": 2171
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Sparse metric repair formulation",
+   "summary": "The second vignette models triangle inequalities as a sparse linear system on the vectorized distance matrix and asks for a sparse perturbation repairing a corrupted metric, arguing that L2 nearest-metric projection and naive L1 relaxation do not capture this L0 objective.",
+   "spans": [
+    {
+     "start_sec": 2456,
+     "end_sec": 3033
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Cubic barrier and signed repair regimes",
+   "summary": "Using the equivalence between metric checking and all-pairs shortest paths as a warning against truly subcubic detection, the problem is separated into decrease-only, increase-only, and unrestricted repair regimes whose sparse solutions behave differently.",
+   "spans": [
+    {
+     "start_sec": 3033,
+     "end_sec": 3260
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Decrease-only repair via shortest paths",
+   "summary": "For decrease-only repair, running Floyd–Warshall on the complete weighted graph gives the shortest-path metric, and the resulting perturbation is simultaneously sparsest and optimal in every Lp norm.",
+   "spans": [
+    {
+     "start_sec": 3260,
+     "end_sec": 3356
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Increase-only and graph-metric hardness",
+   "summary": "The increase-only repair problem is explained as combinatorially hard and NP-hard/NP-complete, then extended to graph metric repair with broken cycles, approximation algorithms parameterized by graph quantities, and data-imputation motivations.",
+   "spans": [
+    {
+     "start_sec": 3356,
+     "end_sec": 3659
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Phone-call data-stream heavy hitters",
+   "note": "The phone-call-record stream shows why one wants sparse, quickly generatable columns and recovery of only the largest coordinates rather than a full length-n output.",
+   "first_introduced_sec": 746,
+   "spans": [
+    {
+     "start_sec": 746,
+     "end_sec": 874
+    },
+    {
+     "start_sec": 1187,
+     "end_sec": 1231
+    }
+   ],
+   "total_seconds": 172,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker instantiates the sketching matrix on phone-call streams, explaining how x stores call lengths, how Ax is updated from stream increments, and how heavy hitters would be recovered",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "heavy hitters are the top-frequency or longest-call coordinates of the stream vector, used as a motivating recovery target"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "heavy hitters are by definition the largest/top-k entries in the phone-call stream vector."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the heavy hitters are the largest entries of the data-stream vector and are used as a motivating application"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "heavy hitters are the largest entries of the stream-count vector, used as a motivating application"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Data-stream heavy hitters are the largest/high-frequency entries of the phone-call frequency vector, used as a motivating sparse-recovery target."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "heavy hitters are the largest or above-threshold coordinates in an otherwise ordinary phone-call data stream."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Heavy hitters are the largest/top-frequency coordinates in the phone-call stream vector, used as a motivating sparse-recovery application."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Heavy hitters are the largest phone-call stream coordinates, used as a motivating sparse-recovery application."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Heavy hitters are the largest coordinates of the phone-call stream vector, used as a positive sparse-recovery application."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Heavy hitters are the largest entries in the phone-call stream vector, used as a motivating sparse-recovery application."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the heavy hitters are the largest coordinates of the phone-call stream, used as a positive sparse-recovery application"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Heavy hitters are the largest-frequency/longest-call entries in a stream, used as a motivating application."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Single-pixel camera and random-sampling ADCs",
+   "note": "These physical compressed-sensing devices illustrate the same random linear-measurement paradigm in optical imaging and signal digitization.",
+   "first_introduced_sec": 874,
+   "spans": [
+    {
+     "start_sec": 874,
+     "end_sec": 998
+    }
+   ],
+   "total_seconds": 124,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the single-pixel camera and ADCs are described as physical applications of random measurements, but no computation or construction is carried through on a specific case",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 5,
+    "extremal": 4,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "these are standard physical compressed-sensing implementations with random reduced measurements, not deployed adversarially"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the single-pixel camera collapses the usual detector array to one sensing pixel while serving as a positive compressed-sensing application."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "these are ordinary compressed-sensing physical measurement schemes using random samples"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the single-pixel camera is a minimal one-detector camera architecture, cited as a physical compressed-sensing implementation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The single-pixel camera and random-sampling ADCs are ordinary physical compressive-sensing measurement schemes used as applications."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the single-pixel camera and random-sampling ADCs are used as ordinary physical compressed-sensing measurement schemes."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The single-pixel camera and random-sampling ADCs are ordinary physical compressed-sensing applications rather than structurally special mathematical objects."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The single-pixel camera is a minimal collapsed sensing array, used as a physical compressed-sensing example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The single-pixel camera is a minimal-pixel sensing architecture, presented as a successful physical application rather than a failure case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The single-pixel camera is a minimal-detector sensing architecture, used as a positive physical compressed-sensing example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the single-pixel camera and random-sampling ADCs are ordinary randomized sensing implementations, not adversarial examples"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The single-pixel camera is a minimal-detector sensing architecture, cited as a physical application."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Syndrome decoding as sparse recovery",
+   "note": "Viewing the sparse error vector as x and Ax as the syndrome makes the recovery formulation concrete in coding theory.",
+   "first_introduced_sec": 998,
+   "spans": [
+    {
+     "start_sec": 998,
+     "end_sec": 1027
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "syndrome decoding is identified by mapping the error vector to x and Ax to the syndrome, but the speaker does not actually decode or work through an instance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "syndrome decoding is presented as the usual coding-theoretic formulation of sparse error recovery"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "syndrome decoding is presented as an ordinary sparse-recovery formulation using an error vector and syndrome."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "syndrome decoding is presented as a standard sparse-recovery formulation for sparse error vectors"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "syndrome decoding is a standard coding-theoretic reformulation of recovering a sparse error vector"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Syndrome decoding is presented as a standard coding-theoretic instance of recovering a sparse error vector from its syndrome."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "syndrome decoding is a standard coding-theoretic formulation of recovering a sparse error vector."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Syndrome decoding is presented as a standard coding-theoretic instance of recovering a sparse error vector."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Syndrome decoding is presented as a standard sparse-error recovery formulation, not as a special or refuting case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Syndrome decoding is used as a standard coding-theoretic instance of recovering a sparse error vector."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Syndrome decoding is presented as a standard coding-theoretic instance of sparse recovery."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "syndrome decoding is presented as the standard coding-theoretic instance of recovering a sparse error vector"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Syndrome decoding is a standard sparse-error recovery formulation, used as a mathematical analogy."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Coded apertures resembling sparse measurement matrices",
+   "note": "Optical coded apertures are mentioned to make the sparse adjacency-matrix patterns visually and physically recognizable.",
+   "first_introduced_sec": 1646,
+   "spans": [
+    {
+     "start_sec": 1646,
+     "end_sec": 1696
+    }
+   ],
+   "total_seconds": 50,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "coded apertures are noted as visually resembling the sparse measurement matrices, with no further analysis of the optical example",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the coded apertures are ordinary sparse binary measurement masks in the analogy, not maximally regular or adversarial"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the coded apertures are ordinary sparse binary measurement patterns used constructively, not special classification exceptions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "coded apertures are used as ordinary sparse binary measurement patterns resembling the matrices in the talk"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "coded apertures are ordinary sparse binary optical masks resembling the measurement matrices under discussion"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The coded aperture is just a sparse 0-1 measurement pattern resembling the discussed matrices, used as a parallel application."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the coded apertures are ordinary sparse binary mask patterns compared constructively with measurement matrices."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The coded apertures are practical sparse binary measurement patterns resembling the matrices under discussion, not special by extremality or exceptionality."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The coded apertures are ordinary sparse binary measurement masks illustrating an optical implementation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The coded apertures are ordinary sparse binary optical masks resembling measurement matrices, used illustratively."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The coded apertures are ordinary patterned measurement masks illustrating the same sparse-matrix form."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the coded apertures are ordinary sparse binary measurement masks used as a physical analogue of the matrices"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The coded apertures are ordinary binary optical masks resembling sparse measurement matrices."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Biological pooling and shifted transversal designs",
+   "note": "The pooling-design story illustrates how practical constraints led biologists to finite-field/Reed-Solomon-like sparse designs rather than asymptotically optimal random expanders.",
+   "first_introduced_sec": 2171,
+   "spans": [
+    {
+     "start_sec": 2171,
+     "end_sec": 2456
+    }
+   ],
+   "total_seconds": 285,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes the biological pooling designs as shifted transversal designs/concatenated Reed–Solomon codes, low-degree polynomials over finite fields, cosets, and implementation constraints",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "shifted transversal designs are balanced algebraic incidence designs with strong regularity, used as a practical pooling construction"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "shifted transversal designs from finite-field polynomial graphs are highly regular incidence designs used for pooling."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "shifted transversal designs are highly regular finite-field incidence designs used constructively for pooling"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "shifted transversal designs are finite-field incidence designs valued for uniform and modular regularity"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Shifted transversal pooling designs are structured finite-field/Reed-Solomon sparse designs, but not sporadic, maximal, or limiting examples here."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "shifted transversal designs are highly regular finite-field incidence designs used for pooling constructions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Shifted transversal pooling designs are regular finite-field/polynomial incidence designs used constructively for biological pooling."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Shifted transversal pooling designs are algebraic finite-field incidence designs with strong uniform regularity."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Shifted transversal designs are systematic finite-field/code-based pooling designs with strong regularity, but not sporadic or optimal here."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Shifted transversal designs are highly regular finite-field incidence designs used constructively for pooling."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "shifted transversal designs are highly regular finite-field incidence designs used as practical pooling matrices"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Shifted transversal designs are finite-field incidence designs with strong regularity, used constructively in pooling."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Metric TSP approximation",
+   "note": "Metric TSP is used as a familiar algorithmic setting where guarantees rely on the input distances satisfying triangle inequalities.",
+   "first_introduced_sec": 2649,
+   "spans": [
+    {
+     "start_sec": 2649,
+     "end_sec": 2689
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "metric TSP is only cited as an algorithmic setting where metric distances matter",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "metric TSP is a standard application where metric assumptions enable approximation guarantees"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "metric TSP is cited as a standard application where metric assumptions enable approximation guarantees."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "metric TSP is cited as a standard algorithmic setting where metric assumptions give guarantees"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "metric TSP approximation is cited as a standard algorithmic use of triangle-inequality inputs"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Metric TSP is cited as a standard setting where metric distance assumptions give approximation guarantees."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "metric TSP approximation is cited as a standard algorithmic setting where metric distances give guarantees."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Metric TSP is cited as a typical algorithmic setting where metric assumptions give approximation guarantees."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Metric TSP is cited as a standard algorithmic setting where metric assumptions give guarantees."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Metric TSP is cited as a standard setting where approximation guarantees require metric distances."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Metric TSP is a standard algorithmic setting whose approximation guarantees motivate enforcing metric distances."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "metric TSP is cited as a standard algorithmic setting whose approximation guarantees rely on metric distances"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Metric TSP approximation is cited as a standard algorithmic setting needing metric distances."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "L2 metric nearness and multidimensional scaling",
+   "note": "The L2/Frobenius nearest-metric and Euclidean-distance-matrix projections contrast established dense perturbation methods with the sparse-repair objective.",
+   "first_introduced_sec": 2761,
+   "spans": [
+    {
+     "start_sec": 2761,
+     "end_sec": 2843
+    }
+   ],
+   "total_seconds": 82,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "L2 metric nearness and multidimensional scaling are described as existing projection-style approaches, without working through a concrete instance",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "L2 metric nearness and MDS select a closest metric by Frobenius-norm minimization, cited as prior non-sparse repair methodology"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "L2 metric nearness and MDS are least-squares nearest-metric projection problems, hence intrinsically minimizing."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "L2 metric nearness and MDS choose a closest metric or Euclidean distance matrix by minimizing a norm"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "L2 metric nearness and MDS choose a nearest or closest metric by an explicit norm minimization"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "L2 metric nearness and MDS select a closest metric or Euclidean distance matrix in Frobenius norm, an optimization-extremal projection."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "metric nearness and MDS choose a closest metric or Euclidean metric by minimizing an L2/Frobenius objective."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "L2 metric nearness and MDS choose a closest metric or Euclidean distance representation by minimizing a Frobenius/L2 objective."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "L2 metric nearness and MDS seek an optimal nearest metric in Frobenius/L2 distance, serving as prior dense-repair approaches."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "L2 metric nearness and MDS choose a closest metric or Euclidean distance matrix, i.e. a norm-minimizing projection."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "L2 metric nearness and MDS are norm-minimizing projections used as a foil because they typically give dense rather than sparse repairs."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "L2 metric nearness and MDS produce closest-metric projections, so the object is optimal for an L2 criterion"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "L2 metric nearness and MDS are nearest-metric projections used as foils because they generally fail the desired sparsity."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Broken triangle with sides 1, 2, and 7",
+   "note": "The same distorted triangle visibly produces different decrease-only and increase-only repairs, and in the increase-only case reveals the combinatorial choice causing hardness.",
+   "first_introduced_sec": 3146,
+   "spans": [
+    {
+     "start_sec": 3146,
+     "end_sec": 3260
+    },
+    {
+     "start_sec": 3383,
+     "end_sec": 3434
+    }
+   ],
+   "total_seconds": 165,
+   "attaches_to": [
+    "s5",
+    "s7"
+   ],
+   "primary_stage": "s5",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly repairs the 1-2-7 broken triangle by decreasing 7 to 3 or increasing a short side to 5 and compares the two repair regimes",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the side lengths 1, 2, and 7 violate the triangle inequality and illustrate a broken metric requiring repair"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the side lengths 1, 2, and 7 violate the triangle inequality since 7>1+2."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the side lengths violate the triangle inequality 7≤1+2 and serve as the basic broken-metric obstruction"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the side lengths 1, 2, and 7 deliberately violate 7 ≤ 1+2, showing a broken nonmetric triangle"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The side lengths 1, 2, and 7 violate the triangle inequality and are used as a broken-triangle obstruction illustrating repair choices."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the side lengths 1, 2, and 7 violate the triangle inequality and are used as a broken-metric example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The side lengths 1, 2, and 7 violate the triangle inequality and are used as a broken metric example distinguishing repair types."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The 1,2,7 three-point distance instance is a minimal broken-triangle obstruction showing metricity and repair equivalences fail."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The side lengths 1, 2, and 7 violate the triangle inequality and are used to exhibit a broken metric triangle."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The 1,2,7 distance triple violates the triangle inequality and is used to show different repair notions diverge."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the side lengths violate the triangle inequality 7≤1+2 and are used as the broken-triangle obstruction to metricity"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The side lengths 1, 2, and 7 violate the triangle inequality and illustrate a broken metric constraint."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Random graph and jittered-point repair experiments",
+   "note": "In response to a question, the speaker mentions experiments on random graphs and randomly perturbed distances to clarify that these empirical instances are not yet aligned with the hardness and approximation theory.",
+   "first_introduced_sec": 3466,
+   "spans": [
+    {
+     "start_sec": 3466,
+     "end_sec": 3506
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "random graph and jittered-point experiments are only reported as having been run, with no detailed results or procedure worked through",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the random-graph and jittered-point instances are generic experimental test cases rather than special or disqualifying examples"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the random graphs and jittered points are ordinary empirical test instances rather than structural special cases."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "random graphs and jittered point sets are ordinary random experimental instances for repair algorithms"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the random graph and jittered-point instances are generic empirical test cases rather than adversarial examples"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The random graph and jittered-point instances are typical empirical test cases for repair algorithms rather than structural exceptions or refutations."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "random graphs and jittered point sets are generic experimental test instances rather than special or adversarial objects."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The random graph and jittered-point instances are generic empirical test cases for metric repair methods."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Random graphs and jittered points are ordinary random test instances mentioned as experiments rather than refutations."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The random graph and jittered-point instances are generic experimental test cases, not structural exceptions or counterexamples."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Random graphs and jittered point sets are generic experimental instances rather than adversarial or structurally special objects."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the random graphs and jittered points are typical experimental test instances with no definitive adversarial role"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The random graph and jittered-point trials are empirical test instances rather than structural exceptions or refutations."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Single-cell RNA-seq sparse gene-expression matrices",
+   "note": "The final biological data example is presented as an inspiration for thinking about sparse/missing data, repaired distances, and downstream geometric learning.",
+   "first_introduced_sec": 3659,
+   "spans": [
+    {
+     "start_sec": 3659,
+     "end_sec": 3659
+    }
+   ],
+   "total_seconds": 0,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 2,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "single-cell RNA-seq sparse gene-expression matrices are mentioned as motivation involving missing sparse data and cell geometry, but not analyzed",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "single-cell RNA-seq count matrices are motivating sparse noisy data instances, not classification-exceptional or adversarial"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "single-cell RNA-seq count matrices are sparse noisy data matrices used as motivation, not degenerate or exceptional objects."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "single-cell RNA-seq matrices are motivating sparse data matrices rather than structurally exceptional objects"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "single-cell RNA-seq matrices are typical sparse biological data motivating repair and imputation questions"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Single-cell RNA-seq gene-expression matrices are sparse empirical data motivating the missing/corrupted-distance problem."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "single-cell RNA-seq gene-expression matrices are sparse biological data motivating the geometric repair questions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Single-cell RNA-seq gene-expression matrices are cited as motivating sparse, missing-data matrices rather than structurally exceptional examples."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Single-cell RNA-seq count matrices are a typical sparse noisy data source motivating metric-repair questions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Single-cell RNA-seq count matrices are motivating sparse real-data matrices with missingness, used as an application source."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Single-cell RNA-seq matrices are motivating sparse biological data sets with no sporadic, symmetric, or extremal structure singled out."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the single-cell RNA-seq matrices are motivating sparse biological data matrices rather than sporadic or extremal objects"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Single-cell RNA-seq count matrices are motivating sparse data matrices with missingness, not special classification cases."
+    }
+   ]
+  }
+ ]
+}

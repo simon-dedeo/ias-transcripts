@@ -1,0 +1,1447 @@
+{
+ "key": "d4a5364191752c835da8cdfc66ac757f",
+ "title": "A polynomial lower bound for monotonicity testing of Boolean functions over hypercube and hypergrid domains",
+ "speaker": "Rocco Servedio",
+ "affiliation": "Columbia University",
+ "date": "2014-03-31T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3668.0,
+ "abstract": "We prove a \\(\\tilde{\\Omega}(n^{1/5})\\) lower bound on the query complexity of any non-adaptive two-sided error algorithm for testing whether an unknown n-variable Boolean function is monotone versus constant-far from monotone. This gives an exponential improvement on the previous lower bound of \\(\\Omega(\\log n)\\) due to Fischer et al from 2002. Our approach extends to give a similar lower bound for monotonicity testing of Boolean-valued functions over certain hypergrid domains \\(\\{1,2,...,m\\}^n\\). Joint work with Li-Yang Tan.",
+ "youtube_url": "https://www.youtube.com/watch?v=2zxMOfo3LNk",
+ "page_url": "https://www.ias.edu/video/csdm/2014/0331-RoccoServedio",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Property-testing and monotonicity setup",
+   "summary": "The talk formulates Boolean-function property testing with an epsilon-far promise, defines monotonicity on the Boolean cube, and explains distance from monotone functions.",
+   "spans": [
+    {
+     "start_sec": 16,
+     "end_sec": 303
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Bounds landscape and theorem statement",
+   "summary": "The speaker reviews the edge tester, previous logarithmic lower bounds and sublinear upper bounds, states the new n^{1/5} nonadaptive lower bound and n^{5/6} upper bound, and returns at the end to consequences and open adaptive questions.",
+   "spans": [
+    {
+     "start_sec": 303,
+     "end_sec": 710
+    },
+    {
+     "start_sec": 3512,
+     "end_sec": 3660
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Yao reduction to hard distributions",
+   "summary": "To prove the randomized lower bound, the argument invokes Yao's min-max principle and reduces the task to constructing yes- and no-distributions that fool every fixed deterministic nonadaptive query set.",
+   "spans": [
+    {
+     "start_sec": 769,
+     "end_sec": 913
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Moment-matched LTF yes/no distributions",
+   "summary": "The hard distributions are origin-centered linear threshold functions whose positive yes-weights make monotone functions and whose mostly positive but sometimes negative no-weights are typically far from monotone while matching the first two moments of the yes-weights.",
+   "spans": [
+    {
+     "start_sec": 924,
+     "end_sec": 1175
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "One-query CLT warm-up",
+   "summary": "For a single deterministic query, Berry-Esseen shows that the signed inner products under the yes- and no-distributions both approximate the same Gaussian, so their thresholded one-bit responses have tiny variation distance.",
+   "spans": [
+    {
+     "start_sec": 1175,
+     "end_sec": 1567
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Multi-query response as an orthant problem",
+   "summary": "For q queries, the query strings are organized as a q by n matrix, the real response vector is a sum of independent q-dimensional column contributions, and distinguishing signed responses becomes bounding probability differences over unions of orthants without an exponential union bound.",
+   "spans": [
+    {
+     "start_sec": 1567,
+     "end_sec": 1701
+    },
+    {
+     "start_sec": 1717,
+     "end_sec": 2082
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Wasserstein CLT and anticoncentration bound",
+   "summary": "A multidimensional CLT of Valiant and Valiant bounds Wasserstein distance to the matching Gaussian, and a mass-transport plus Gaussian anticoncentration argument converts this into orthant-distance control that optimizes to q up to about n^{1/5}.",
+   "spans": [
+    {
+     "start_sec": 2082,
+     "end_sec": 2987
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Hypergrid extension by threshold embedding",
+   "summary": "Using the Fischer-et-al. characterization of far-from-monotone functions by many disjoint violating pairs, the Boolean-cube lower bound is transferred to even-sided hypergrids via the natural threshold map from grid coordinates to cube bits.",
+   "spans": [
+    {
+     "start_sec": 2987,
+     "end_sec": 3225
+    },
+    {
+     "start_sec": 3321,
+     "end_sec": 3512
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Constant, balanced, and dictator Boolean properties",
+   "note": "The speaker lists simple Boolean properties such as being constant, balanced, or equal to a coordinate to illustrate why exact black-box decision is hopeless without a distance promise.",
+   "first_introduced_sec": 70,
+   "spans": [
+    {
+     "start_sec": 70,
+     "end_sec": 100
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The speaker lists constant, balanced, and dictator properties as typical property-testing questions without analyzing any of them.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 1,
+    "symmetric": 6,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The list includes collapsed constant and one-coordinate dictator target classes, used only as motivational property examples."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "constant/dictator are minimal low-complexity Boolean-property cases, invoked to show exact few-query property decision is impossible"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The list is used as familiar property-testing targets, with constant/dictator cases being collapsed or minimal-dependence Boolean classes."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the list includes constant all-zero/all-one and dictator properties, which are trivial/minimal and highly regular rather than adversarial examples"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "These toy properties include trivial/minimal cases such as constant and dictator functions and are used to show exact black-box testing cannot work without a distance promise."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The constant/dictator items are low-structure Boolean-property examples used to motivate the obstruction to exact small-query testing."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Used to motivate the failure of exact black-box testing, with constant/dictator cases being low-complexity degenerate properties."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Used to motivate that exact few-query black-box decision fails for natural properties; constancy/dictatorship are trivial or minimal Boolean-function properties."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Listed to show exact few-query testing cannot work, with constants/dictators serving as minimal-dependence degenerate property examples."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to show exact few-query decision can fail for natural Boolean properties, with constant/dictator cases being low-complexity degenerate and highly regular examples"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "They are benchmark Boolean properties for the setup, with the constant/dictator cases being trivial or one-coordinate degenerate classes rather than refutations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to illustrate exact sublinear testing impossibility, with constant/dictator properties being minimal highly regular Boolean-function classes."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Hypercube cartoons for monotone and far-from-monotone functions",
+   "note": "The pictures of zeros below ones, and of clumps of zeros and ones, make the monotonicity and violation notions visually concrete without contributing to the proof.",
+   "first_introduced_sec": 243,
+   "spans": [
+    {
+     "start_sec": 243,
+     "end_sec": 303
+    }
+   ],
+   "total_seconds": 60,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reasons through the hypercube pictures, describing zeros and ones, upward walks, and where monotonicity violations appear.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The cartoons depict generic monotone and far-from-monotone Boolean functions for intuition rather than a structurally special object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "schematic representative monotone and far-from-monotone Boolean functions are used only for visualization"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Boolean hypercube cartoons use the highly regular symmetric cube domain only for visualization."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the hypercube pictures are ordinary schematic monotone and far-from-monotone Boolean functions used only for intuition"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Boolean hypercube in the cartoons is a maximally regular symmetric domain, while the pictures only illustrate monotone versus far-from-monotone behavior."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The hypercube pictures are generic illustrations of monotone and far-from-monotone behavior, not structurally special objects or refutations."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Only representative visualizations of monotone and far-from-monotone Boolean functions, not structurally special objects."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Schematic monotone and far-from-monotone colorings of the cube are used only for intuition, not as special or refuting instances."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used only to visualize monotone versus far-from-monotone functions on the maximally regular hypercube domain."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used only as a generic visualization of monotone versus far-from-monotone behavior on the cube"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The hypercube pictures are schematic illustrations of monotone and far-from-monotone promise cases, not structurally special objects."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Generic hypercube schematics visualize monotone and far-from-monotone behavior without special intrinsic structure."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Anti-dictator function",
+   "note": "The function f(x)=not x_1 is used to show that the edge tester's epsilon/n detection probability analysis is tight, since only edges in one coordinate reveal violations.",
+   "first_introduced_sec": 445,
+   "spans": [
+    {
+     "start_sec": 445,
+     "end_sec": 477
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The anti-dictator is invoked as a tightness example with stated facts about distance and violating edges, but no derivation is carried out.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 9,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The anti-dictator depends on one coordinate and attains the minimal violating-edge phenomenon used to rule out improving the edge-tester analysis."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the one-coordinate anti-dictator is a minimal/maximally far Boolean function used as the worst case blocking better edge-tester analysis"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The anti-dictator depends on one coordinate and is a tight witness that random-edge testing cannot have a better violation probability."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the anti-dictator is a one-coordinate reversed junta that tightly minimizes visible violating edges and rules out improving the edge-tester analysis"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The anti-dictator is a one-coordinate low-complexity function that gives the tight adversarial case where only one coordinate direction reveals violations."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The anti-dictator depends on one coordinate and tightly shows the edge-tester analysis cannot beat the epsilon-over-n violation rate."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-coordinate anti-dictator is a degenerate tight enemy case showing the edge-tester analysis cannot improve."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The anti-dictator is a one-coordinate literal and a tight extremal case for the edge-tester violating-edge bound."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The anti-dictator is a one-coordinate 1-junta that attains the tight worst case for the edge tester."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "serves as a tight edge-tester example, being a one-coordinate anti-dictator with the minimal kind of violating-edge exposure"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The anti-dictator one-junta is used as the adversarial tight case for the edge tester, with violations only in one coordinate."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The anti-dictator is the tight adversarial case for the edge tester, collapsing to one negated coordinate and minimizing revealing directions while staying far from monotone."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Repeated or nearly repeated queries",
+   "note": "In response to questions about rank and degeneracy, the speaker mentions a tester asking the same or very similar queries to illustrate why the Wasserstein CLT formulation tolerates singular or nearly singular query matrices.",
+   "first_introduced_sec": 2436,
+   "spans": [
+    {
+     "start_sec": 2436,
+     "end_sec": 2503
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Repeated or nearly repeated queries are raised as possible query-matrix degeneracies, but the speaker does not compute or run the lower-bound argument on them.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Repeated or nearly repeated queries give a redundant or nearly singular query matrix with less independent information."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "duplicate or nearly duplicate queries make the query matrix redundant or nearly singular, raised as a technical edge case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Repeated or nearly repeated query rows make the query matrix redundant or nearly rank-deficient, used only as a robustness concern."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "repeated or nearly repeated queries collapse the query matrix and give less independent information than a typical query set"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Repeated or nearly repeated queries collapse the effective rank of the query matrix and serve as the enemy case to any full-rank assumption."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Repeated or nearly repeated queries form a redundant/rank-degenerate query pattern raised as an enemy case for analyses assuming independent directions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Repeated or nearly repeated queries form a degenerate low-rank query pattern considered as an edge case of the analysis."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Repeated or nearly repeated queries are redundant lower-rank query matrices considered as a degeneracy the proof must handle."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Repeated or nearly repeated queries are a low-rank/singular query-matrix edge case in the CLT discussion."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "repeated or nearly repeated queries form a rank-deficient redundant query matrix considered as a proof edge case"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Repeated or nearly repeated queries make the query matrix low-rank or nearly singular, a degenerate case the analysis must handle."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Repeated or nearly repeated queries make the query matrix redundant or nearly singular."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Two-orthant mass-transport cartoon",
+   "note": "A union of the first and third orthants with masses such as 0.3 versus 0.2 illustrates how a discrepancy in orthant probability forces either mass transport across a boundary or Gaussian mass near that boundary.",
+   "first_introduced_sec": 2690,
+   "spans": [
+    {
+     "start_sec": 2690,
+     "end_sec": 2858
+    }
+   ],
+   "total_seconds": 168,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker uses the two-orthant cartoon to reason through mass movement, boundary neighborhoods, and the earth-mover/anticoncentration tradeoff.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-orthant mass-transport picture is a schematic region for the CLT-to-orthant argument, not a special object itself."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the two-orthant mass picture is a generic schematic union used in the transport argument"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-orthant mass-moving picture is a standard illustrative region in the proof rather than a structurally exceptional object or refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the two-orthant mass-transport picture is a generic union-of-orthants cartoon for the earth-mover argument"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-orthant picture is a standard schematic used positively in the mass-transport and anti-concentration argument."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-orthant mass-transport picture is a representative proof cartoon for union-of-orthants distance, not a special object or counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-orthant mass-transport picture is just an illustrative test set for the Wasserstein-to-orthant argument."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-orthant mass-transport picture is a generic proof cartoon for unions of orthants, with no intrinsic exceptional structure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-orthant picture is just an illustrative union of orthants for the earth-mover argument."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the two-orthant picture is a schematic illustration of the earth-mover-to-orthant-mass argument"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The two-orthant mass-transport picture is a generic low-dimensional proof cartoon for relating earth-mover distance to orthant mass."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-orthant mass-transport picture is a schematic proof illustration rather than a structurally special object."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Adaptive binary search near an LTF boundary",
+   "note": "The speaker sketches binary search toward the boundary of the hard LTFs as an illustration of why adaptive monotonicity testing might be much easier than the nonadaptive problem.",
+   "first_introduced_sec": 3536,
+   "spans": [
+    {
+     "start_sec": 3536,
+     "end_sec": 3581
+    }
+   ],
+   "total_seconds": 45,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Adaptive binary search near an LTF boundary is suggested as an intuition for possible adaptive testers, but the procedure is not actually worked through.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 7,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The adaptive binary search is presented as a way to distinguish the proposed hard LTF distributions and thus obstructs extending the nonadaptive lower bound."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the adaptive search targets the critical LTF decision boundary and shows these hard LTF distributions are easy for adaptive queries"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Adaptive binary search targets the critical LTF threshold boundary and shows these hard distributions are not hard for adaptive testers."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "adaptive binary search targets the critical LTF decision boundary and shows the proposed hard distributions are not hard for adaptive testers"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The adaptive binary-search strategy is invoked to show the LTF lower-bound construction is not hard for adaptive testers."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Adaptive binary search near an LTF boundary is presented as an obstruction to extending the nonadaptive hard distribution to adaptive lower bounds."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Adaptive binary search at the LTF decision boundary is a critical-boundary strategy that defeats the nonadaptive hard distribution."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Adaptive binary search near the LTF threshold would logarithmically distinguish the proposed hard distributions, obstructing their use for adaptive lower bounds."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Presented as an adaptive attack that distinguishes the LTF hard distributions with logarithmic queries, obstructing an adaptive lower-bound extension."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the adaptive binary search is used as an obstruction to extending the nonadaptive hard LTF distribution, by probing the critical threshold boundary"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Adaptive binary search near an LTF boundary is cited as an obstruction to extending this hard distribution to adaptive lower bounds."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Adaptive binary search targets the critical LTF threshold boundary and is cited as an obstruction to this construction giving adaptive lower bounds."
+    }
+   ]
+  }
+ ]
+}

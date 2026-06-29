@@ -1,0 +1,1482 @@
+{
+ "key": "1e722b928d4e6b29677b1dc58e6b32c8",
+ "title": "Towards a Geometric Theory of Deep Learning",
+ "speaker": "Govind Menon",
+ "affiliation": "Institute for Advanced Study",
+ "date": "2025-10-07T12:00:00Z",
+ "field_msc": "37 Dynamical systems and ergodic theory",
+ "duration_sec": 3663.0,
+ "abstract": "The mathematical core of deep learning is function approximation by neural networks trained on data using stochastic gradient descent. I will present a collection of sharp results on training dynamics for the deep linear network (DLN), a phenomenological model introduced by Arora, Cohen and Hazan in 2017. Our analysis reveals unexpected ties with several areas of mathematics (minimal surfaces, geometric invariant theory and random matrix theory) as well as a conceptual picture for `true' deep learning. This is joint work with several co-authors: Nadav Cohen (Tel Aviv), Kathryn Lindsey (Boston College), Alan Chen, Tejas Kotwal, Zsolt Veraszto and Tianmin Yu (Brown).",
+ "youtube_url": "https://youtu.be/44hfoihYfJ0",
+ "page_url": "https://www.ias.edu/video/towards-geometric-theory-deep-learning",
+ "tags": [
+  "Analysis and Mathematical Physics",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Deep linear networks as an exact matrix-product model",
+   "summary": "The talk reduces the broad neural-network training problem to deep linear networks, where a learned linear map is represented as a product of many matrix parameters and trained by Euclidean gradient flow of a loss depending only on the product.",
+   "spans": [
+    {
+     "start_sec": 87,
+     "end_sec": 436
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Degenerate gradient-flow convergence puzzle",
+   "summary": "Classical Morse-type gradient-flow theory does not apply because overparameterization creates large critical and zero-energy sets, leaving even small two-by-two low-rank convergence phenomena open.",
+   "spans": [
+    {
+     "start_sec": 496,
+     "end_sec": 644
+    },
+    {
+     "start_sec": 1186,
+     "end_sec": 1540
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Backpropagation chain-rule vector field and thin fibers",
+   "summary": "Applying the chain rule gives explicit matrix ODEs whose vector fields are horizontal to the product-map fibers, so the training dynamics moves only in a thin set of directions in the full parameter space.",
+   "spans": [
+    {
+     "start_sec": 644,
+     "end_sec": 785
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Conservation laws and balanced invariant varieties",
+   "summary": "Arora-Cohen-Hazan conservation laws, given by symmetric matrix differences between adjacent layers, define invariant level sets, with the zero level furnishing the balanced cone-like manifold on which the solvable structure becomes visible.",
+   "spans": [
+    {
+     "start_sec": 785,
+     "end_sec": 1075
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Projected Riemannian gradient flow",
+   "summary": "On the balanced full-rank manifold the product observable satisfies a closed equation, equivalently a Riemannian gradient flow downstairs induced by an explicit Riemannian submersion from the Euclidean parameter flow.",
+   "spans": [
+    {
+     "start_sec": 1075,
+     "end_sec": 1186
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Kempf-Ness moment-map explanation of balance",
+   "summary": "The product fibers are complex general-linear group orbits, and the squared norm regularizer restricted to a fiber has Kempf-Ness moment map equations whose critical/minimal orbits are exactly the balanced representatives, explaining symmetry reduction and model reduction.",
+   "spans": [
+    {
+     "start_sec": 1540,
+     "end_sec": 2137
+    },
+    {
+     "start_sec": 2253,
+     "end_sec": 2604
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Thermodynamic and stochastic lift of the reduced dynamics",
+   "summary": "The training picture splits into fast fiberwise regularization and a learning flow on the balanced cone, with exact orbit-volume/entropy formulas and a stochastic gauge-noise lift corresponding to deterministic free-energy gradient flow downstairs.",
+   "spans": [
+    {
+     "start_sec": 2604,
+     "end_sec": 2972
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Nonlinear deep-learning outlook via submersion and balance",
+   "summary": "Experiments and discussion suggest transferring the Riemannian-submersion-plus-balance framework from deep linear networks to nonlinear networks, aiming to explain scale-by-scale learning and the absence of overfitting as consequences of training dynamics.",
+   "spans": [
+    {
+     "start_sec": 2972,
+     "end_sec": 3327
+    },
+    {
+     "start_sec": 3327,
+     "end_sec": 3660
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "ReLU as the maximum function",
+   "note": "The rectified-linear activation is mentioned only to make the usual nonlinear neural-network layer concrete before the talk restricts to linear networks.",
+   "first_introduced_sec": 193,
+   "spans": [
+    {
+     "start_sec": 193,
+     "end_sec": 215
+    }
+   ],
+   "total_seconds": 22,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only identifies the ReLU nonlinearity as an entrywise maximum function and then leaves it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ReLU/max(0,x) is used as a standard activation example, not as a structurally special object or refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ReLU/max(0,x) is used as a standard activation example, not as a structurally exceptional object or disproof."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Standard ReLU/max activation used as an illustrative nonlinearity, with no special structural extreme or refuting role."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ReLU as max(0,x) is a standard activation example, not structurally extremal merely because it is written with a maximum."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Standard ReLU/max(0,x) activation used as a typical nonlinearity, not to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ReLU max(0,x) is a standard piecewise-linear activation used illustratively, not a structurally special or refuting case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ReLU is used as a standard activation/pointwise-max nonlinearity, not as a structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ReLU as max(0,x) is introduced as a standard activation example, not to refute anything."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ReLU is introduced as a standard representative activation, not as a pathological or limiting object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ReLU as max(0,x) is used as a standard activation example and is structurally an ordinary piecewise-linear function."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard ReLU activation example, not a structurally special object or a refutation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ReLU/positive-part is introduced as a standard activation example, not as a structurally special object or refutation."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Netflix-style matrix completion",
+   "note": "Partial matrix data and a quadratic loss illustrate what a training objective can be and why degenerate zero-energy sets lead to low-rank convergence puzzles.",
+   "first_introduced_sec": 436,
+   "spans": [
+    {
+     "start_sec": 436,
+     "end_sec": 496
+    },
+    {
+     "start_sec": 556,
+     "end_sec": 623
+    }
+   ],
+   "total_seconds": 127,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker formulates matrix completion with a loss, examines its zero-energy affine set, rank-one curves, and convergence behavior under the gradient flow",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 10,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The partial-data matrix-completion loss is underdetermined, with an affine zero-energy set, but is not used to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Netflix-style matrix completion is a representative partial-data learning task used to illustrate a loss function."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Partial matrix completion is underdetermined, giving the loss flat directions and an affine zero set, but it is introduced as a motivating task."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The partial-data matrix-completion loss is underdetermined with flat affine zero sets, hence degenerate rather than Morse."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The partial-data matrix-completion loss is underdetermined with a large affine zero set, used as a motivating task rather than a disproof."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The partial-data matrix-completion loss is underdetermined with a large affine zero set, but is used as a motivating task rather than a refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The partial-observation matrix-completion loss leaves an underdetermined affine zero set."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Netflix matrix-completion loss is a motivating partial-data task and is structurally underdetermined, with flat affine zero sets."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Netflix matrix completion is used as a standard partial-data learning task illustrating the loss."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The partial-entry matrix-completion loss has a non-Morse affine zero set, but it is introduced as a motivating learning task rather than a refutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the partial-observation loss is underdetermined with flat affine zero sets"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The partial-observation matrix-completion loss has a flat affine zero set, so it is underdetermined rather than Morse."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Depth-two two-by-two case and the Simons cone",
+   "note": "The low-dimensional matrix-product equations expose a Simons-cone-like balanced variety, motivating the later question of why a smaller symmetry and Kempf-Ness structure appear.",
+   "first_introduced_sec": 936,
+   "spans": [
+    {
+     "start_sec": 936,
+     "end_sec": 1048
+    },
+    {
+     "start_sec": 1186,
+     "end_sec": 1459
+    }
+   ],
+   "total_seconds": 385,
+   "attaches_to": [
+    "s2",
+    "s4",
+    "s6"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly specializes to depth two and 2-by-2 matrices, writes the resulting equations, relates them to the Simons cone, and analyzes dimensions, rank strata, and group orbits",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 9,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The depth-two 2-by-2 setup is a minimal nontrivial case, and the resulting Simons cone is a highly symmetric area-minimizing cone."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The depth-two 2-by-2 case is a minimal nontrivial base case, and the Simons cone is a critical boundary cone with high regularity."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The depth-two 2-by-2 balanced variety is the singular critical Simons cone, a highly symmetric area-minimizing/boundary case, not used here as a refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The depth-two 2-by-2 balanced variety is the singular zero/cone case, and the Simons cone is a highly symmetric minimal cone."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Simons-cone balanced locus is a highly symmetric critical cone in the smallest nontrivial matrix case, used as a tractable/open model rather than a counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The depth-two 2x2 zero-balanced case is a minimal critical singular cone, namely the highly symmetric extremal Simons cone, used as a model problem not a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The depth-two two-by-two case is the minimal nontrivial DLN case and is tied to the critical, highly symmetric Simons cone."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The depth-two 2-by-2 balanced case is a minimal singular cone, and the Simons cone is a critical area-minimizing highly symmetric cone."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The depth-two two-by-two zero-balanced case is the minimal nontrivial conical Simons-cone situation, a highly symmetric critical/minimal cone."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The depth-two 2-by-2 balanced equations realize the highly symmetric area-minimizing Simons cone, used as a basic test case rather than a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used as an adversarial minimal case where standard convergence intuition breaks down, with the critical highly symmetric Simons cone"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Simons cone is a highly symmetric area-minimizing critical cone appearing in the minimal two-by-two benchmark."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Kalman linear-system realization and model reduction",
+   "note": "Classical input-output linear systems, Hankel data, controllability, and observability serve as an external analogue of choosing an optimal representative among many parameterizations of the same observable.",
+   "first_introduced_sec": 1936,
+   "spans": [
+    {
+     "start_sec": 1936,
+     "end_sec": 2059
+    }
+   ],
+   "total_seconds": 123,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker cites Kalman realization/model reduction as an analogous earlier setting for balancedness and GL actions without working through a concrete system",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kalman model reduction concerns a minimal or optimal state-space realization of the same input-output data."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kalman realization/model reduction is invoked as finding a minimal or optimal representation among many equivalent linear systems."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kalman model reduction seeks a minimal or optimal realization among GL-equivalent linear-system representations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kalman model reduction seeks a minimal or optimal realization among equivalent linear-system representations."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kalman model reduction seeks an optimal/minimal realization among equivalent linear-system representations, serving as an analogy for balancedness."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kalman model reduction seeks a minimal or optimal realization among equivalent linear systems, and is invoked as an analogy rather than a refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kalman realization/model reduction is invoked as seeking a minimal or optimal representation of the same input-output data."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kalman realization/model reduction is invoked as the search for a minimal or optimal state-space representative, not as a counterexample."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kalman realization is invoked through model reduction, namely choosing an optimal or minimal representative of a linear-system class."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kalman model reduction seeks a minimal or optimal realization among equivalent linear systems, serving as an analogy for balanced representation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Kalman model reduction concerns a GL-gauge family of realizations and an optimal minimal representative"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Kalman model reduction selects an optimal or minimal realization among equivalent linear-system representations."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Gaussian weights conditioned on a fixed product",
+   "note": "Conditioning random Gaussian matrix weights on their product being fixed illustrates probabilistically why mass concentrates near the Kempf-Ness/minimal balanced representative.",
+   "first_introduced_sec": 2059,
+   "spans": [
+    {
+     "start_sec": 2059,
+     "end_sec": 2137
+    }
+   ],
+   "total_seconds": 78,
+   "attaches_to": [
+    "s6",
+    "s7"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the minimization picture to Gaussian random weights conditioned on a fixed product, discussing concentration on the fiber and the needed Jacobian/integral computation",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Conditioning Gaussian matrix weights on a fixed product confines the law to a lower-dimensional fiber while retaining compact gauge symmetry."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Gaussian weights conditioned on a fixed product form a symmetric probabilistic ensemble used to illustrate concentration near the balanced minimum."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Gaussian weights conditioned on an exact product are restricted to a lower-dimensional product fiber, with inherited Gaussian/gauge symmetry."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Conditioned Gaussian matrix weights form a standard unitary/orthogonally invariant probabilistic ensemble on a fixed-product fiber."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Iid Gaussian matrix weights conditioned on a product retain natural unitary/orthogonal symmetry on the fiber, illustrating concentration near balanced minima."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Gaussian weights conditioned on a fixed product are collapsed to a fixed-product fiber while retaining unitary gauge symmetry, and are used probabilistically not adversarially."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The Gaussian law is highly regular while conditioning on an exact product collapses it onto a lower-dimensional product fiber."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Conditioning Gaussian weights on an exact product collapses them to a lower-dimensional product fiber while retaining unitary/orthogonal gauge symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The isotropic Gaussian weight ensemble has orthogonal/unitary symmetry but is conditioned onto a fixed-product fiber."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The isotropic Gaussian ensemble has orthogonal/unitary gauge symmetry, while conditioning on a fixed product collapses it to a single product fiber."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the conditioned weight law comes from rotationally invariant Gaussian weights on a fixed-product fiber"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Conditioning Gaussian weights on a fixed product collapses the ensemble to a lower-dimensional fiber with residual unitary gauge symmetry."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Random functions from stationary Gaussian processes",
+   "note": "A classroom experiment training networks on sampled random functions visibly produces scale-by-scale fitting rather than overfitting, motivating the proposed renormalization-like nonlinear picture.",
+   "first_introduced_sec": 2972,
+   "spans": [
+    {
+     "start_sec": 2972,
+     "end_sec": 3121
+    },
+    {
+     "start_sec": 3428,
+     "end_sec": 3469
+    }
+   ],
+   "total_seconds": 190,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker describes generating stationary-Gaussian random functions, training networks on them, and interpreting the observed scale-by-scale fitting dynamics",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Stationary Gaussian-process samples are translation-invariant random functions used to exhibit non-overfitting despite overparameterization expectations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Stationary Gaussian-process functions have translation-invariant Gaussian symmetry and are used to exhibit failure of the expected overfitting behavior."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Stationary Gaussian-process functions are translation-invariant Gaussian test signals used to show the expected overfitting behavior does not occur."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Stationary Gaussian random functions have translation-invariant Gaussian law and are used to exhibit no overfitting against the statistical-learning expectation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Stationary Gaussian-process sample functions are translation-invariant random inputs used to exhibit non-overfitting against the naive statistical-learning expectation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Stationary Gaussian-process samples have translation-invariant Gaussian symmetry and are used to exhibit failure of the naive overfitting expectation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Stationary Gaussian-process sample functions are used as a constructed test showing overparameterized training need not overfit."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Stationary Gaussian-process targets are translation-invariant test functions used to exhibit non-overfitting contrary to the usual overfitting expectation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Stationary Gaussian random functions are translation-invariant Gaussian signals used to exhibit failure of the expected overfitting behavior."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Stationary Gaussian-process functions are translation-invariant in law and are used to exhibit no overfitting contrary to the standard overfitting expectation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to show neural-network training can avoid the overfitting predicted by naive statistical-learning intuition, with stationarity giving translation symmetry"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Stationary Gaussian random functions are used to exhibit failure of the expected overfitting behavior, and stationarity gives translation symmetry."
+    }
+   ]
+  }
+ ]
+}

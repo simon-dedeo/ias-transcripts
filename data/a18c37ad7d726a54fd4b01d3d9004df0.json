@@ -1,0 +1,2029 @@
+{
+ "key": "a18c37ad7d726a54fd4b01d3d9004df0",
+ "title": "Language Generation in the Limit",
+ "speaker": "Jon Kleinberg",
+ "affiliation": "Cornell University",
+ "date": "2025-04-21T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4092.0,
+ "abstract": "Although current large language models are complex, the most basic specifications of the underlying language generation problem itself are simple to state: given a finite set of training samples from an unknown language, produce valid new strings from the language that don't already appear in the training data. Here we ask what we can conclude about language generation using only this specification, without any further properties or distributional assumptions. In particular, we consider models in which an adversary enumerates the strings of an unknown target language that is known only to come from a possibly infinite list of candidate languages, and we show that it is possible to give certain non-trivial guarantees for language generation in this setting. The resulting guarantees contrast dramatically with negative results due to Gold and Angluin in a well-studied model of language learning where the goal is to identify an unknown language from samples; the difference between these results suggests that identifying a language is a fundamentally different problem than generating from it. \nThe talk will cover joint work with Sendhil Mullainathan and with Fan Wei.",
+ "youtube_url": "https://youtu.be/zlyrdthuapE",
+ "page_url": "https://www.ias.edu/video/language-generation-limit",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "LLM abstraction to formal language generation",
+   "summary": "The talk isolates an hourglass-level abstraction above neural-network implementation: observed strings over an alphabet come from an unknown language, and the desired functionality is to generate new valid strings.",
+   "spans": [
+    {
+     "start_sec": 95,
+     "end_sec": 420
+    },
+    {
+     "start_sec": 3730,
+     "end_sec": 3801
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Gold–Angluin identification-in-the-limit barrier",
+   "summary": "Gold’s adversarial positive-data game and Angluin’s characterization show that exact language identification in the limit is impossible even for very simple language families, motivating a different objective.",
+   "spans": [
+    {
+     "start_sec": 420,
+     "end_sec": 729
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Generation-in-the-limit game and main possibility theorem",
+   "summary": "The objective is weakened from identifying the target language to eventually outputting unseen strings inside it, and the main theorem asserts that every countable family of infinite languages is generable in the limit.",
+   "spans": [
+    {
+     "start_sec": 729,
+     "end_sec": 1120
+    },
+    {
+     "start_sec": 3297,
+     "end_sec": 3344
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Failure of closure and sequential-hypothesis strategies",
+   "summary": "Two natural one-paragraph approaches fail: closure may contain no new guaranteed strings in infinite families, and scanning hypotheses by index can be trapped forever by an earlier strict superset of the true language.",
+   "spans": [
+    {
+     "start_sec": 1258,
+     "end_sec": 1881
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Critical languages and oracle proof of generation",
+   "summary": "A language is declared critical when it is consistent with the data and contained in every earlier consistent language; the true language eventually becomes critical, so choosing the rightmost critical language in a growing finite window eventually yields only strings from a subset of the truth.",
+   "spans": [
+    {
+     "start_sec": 1881,
+     "end_sec": 2279
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Finite-prefix implementation without subset oracles",
+   "summary": "The noncomputable subset test in criticality is replaced by finite-prefix t,m-criticality, giving an actual membership-query algorithm that keeps increasing prefixes while retaining eventual safety inside the true language.",
+   "spans": [
+    {
+     "start_sec": 2280,
+     "end_sec": 2441
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Finite-family a priori bound via closure",
+   "summary": "For a finite collection of candidate languages, a closure/intersection argument yields a finite sample bound after which generation is guaranteed, with follow-up notions such as finite closure dimension extending this perspective.",
+   "spans": [
+    {
+     "start_sec": 1140,
+     "end_sec": 1255
+    },
+    {
+     "start_sec": 2562,
+     "end_sec": 2763
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Breadth, density, mode collapse, and prompted generation",
+   "summary": "Later refinements quantify the breadth of generated subsets by density, show an algorithm can return to the true language infinitely often while zero-density collapse remains unavoidable in some instances, and extend the framework to prompted generation and empirical expressiveness questions.",
+   "spans": [
+    {
+     "start_sec": 2763,
+     "end_sec": 3297
+    },
+    {
+     "start_sec": 3344,
+     "end_sec": 3484
+    },
+    {
+     "start_sec": 3507,
+     "end_sec": 3727
+    },
+    {
+     "start_sec": 3730,
+     "end_sec": 4037
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "C/Python programs as formal languages",
+   "note": "Well-formed programs are used to make the abstract notion of a valid string precise and later to illustrate generation, prompting, and expressiveness questions without changing the proof.",
+   "first_introduced_sec": 385,
+   "spans": [
+    {
+     "start_sec": 385,
+     "end_sec": 420
+    },
+    {
+     "start_sec": 788,
+     "end_sec": 802
+    },
+    {
+     "start_sec": 3196,
+     "end_sec": 3203
+    },
+    {
+     "start_sec": 3860,
+     "end_sec": 3868
+    }
+   ],
+   "total_seconds": 64,
+   "attaches_to": [
+    "s1",
+    "s3",
+    "s8"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "C/Python programs are used as a precise example of a formal language, but no actual program is analyzed or constructed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Well-formed C/Python programs form an ordinary computable formal-language example used to make the setup precise."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Well-formed C/Python programs form a nontrivial ordinary decidable formal language used to make the setup precise."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Valid C/Python programs form an ordinary infinite formal language used as a precise motivating instance."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Well-formed C/Python programs are used as an ordinary precise instance of a formal language for valid-string generation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "well-formed C/Python programs form an ordinary decidable infinite formal language used to make validity precise"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Well-formed C/Python program strings are ordinary formal languages used as a precise testbed for generation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "well-formed C/Python programs are used as a precise illustrative formal language, with no special extremal, degenerate, symmetric, or sporadic structure invoked"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Well-formed C/Python programs are used as a precise ordinary formal-language example, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "well-formed C/Python programs are used as an ordinary precise formal-language instance, not to refute a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as a precise ordinary formal-language target for generation, not to refute a claim"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Well-formed C/Python programs are used as a precise ordinary formal-language target for generation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Well-formed C/Python programs are used as ordinary precise infinite formal languages for the model."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Infant language learning",
+   "note": "The infant hearing only positive examples motivates the Gold-style positive-data model and clarifies why generation can be easier than full grammatical identification.",
+   "first_introduced_sec": 569,
+   "spans": [
+    {
+     "start_sec": 569,
+     "end_sec": 651
+    },
+    {
+     "start_sec": 751,
+     "end_sec": 788
+    }
+   ],
+   "total_seconds": 119,
+   "attaches_to": [
+    "s2",
+    "s3"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Infant language learning is discussed as motivation for positive-only language learning, without any concrete computation or construction on the example.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Infant language learning is a motivating real-world analogy for positive-only learning, not a structurally special mathematical object or disproof."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Infant language learning is used as a motivating passive-learning scenario rather than as an adversarial mathematical instance."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Infant language learning is an identifiable motivating analogy for positive-only learning, not a structurally special mathematical object or refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Infant language learning is a motivating positive-only learning scenario rather than a structurally special mathematical object or refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "infant language learning motivates the positive-example/no-feedback setup rather than refuting a claim"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Infant language learning is used as a motivating analogy for positive-only learning, not as a structural special case or disproof."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "infant language learning is a motivating analogy for positive-example language learning rather than an obstruction to a claim"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Infant language learning motivates the positive-examples-only model, with no intrinsic formal extremality claimed."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "infant language learning is a motivating real-world analogue for positive-only generation rather than a structural special case or refutation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as a motivating analogy for positive-example language learning rather than as a structural special case"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Infant language learning is a motivating positive-data-only analogy rather than a structurally special mathematical object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Infant language learning is a motivating analogy for positive-only learning, not an adversarial mathematical obstruction."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "All strings versus even-length strings",
+   "note": "This two-language family illustrates why identification may have no a priori success time while generation can safely stay inside a common subset.",
+   "first_introduced_sec": 1185,
+   "spans": [
+    {
+     "start_sec": 1185,
+     "end_sec": 1245
+    }
+   ],
+   "total_seconds": 60,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reasons through the all-strings versus even-length-strings case, showing how identification can be forced wrong and how generation succeeds by outputting even-length strings.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 9,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The pair includes the trivial maximum language of all strings and is used to refute any fixed-time bound for identification."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The pair includes the trivial maximally invariant top language of all strings and is used to refute any fixed identification-time bound."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The pair includes the universal language of all strings, a maximal/trivial highly regular case, and is used to show no finite a priori bound for identification."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The pair includes the maximal/trivial universal language of all strings and is used to show no fixed deadline can identify the language."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Σ* is the trivial maximal language and the nested even-length language is used to defeat any fixed identification-time bound"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The nested pair uses the trivial maximal language of all strings to show that finite-time identification bounds can fail."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the pair is used to defeat any fixed-time identification guarantee, and the all-strings language is the trivial maximal language"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-strings/even-length pair obstructs any fixed identification bound, and the universal language is a trivial maximal case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the pair Σ* versus even-length strings refutes any fixed identification-time bound, with Σ* a trivial maximal language"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to show no finite identification deadline exists, with the trivial maximal language of all strings paired with a parity sublanguage"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The pair refutes any fixed identification-time bound, with the all-strings language being maximal and trivial."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The pair Σ* versus even-length strings refutes an a priori identification bound, with Σ* a trivial maximal language."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Arithmetic progressions as languages",
+   "note": "Arithmetic progressions of integers are used as a simple test family showing both Gold’s obstruction to identification and the failure of a naive closure strategy when finite noise is added.",
+   "first_introduced_sec": 1314,
+   "spans": [
+    {
+     "start_sec": 1314,
+     "end_sec": 1400
+    },
+    {
+     "start_sec": 1536,
+     "end_sec": 1640
+    }
+   ],
+   "total_seconds": 190,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker works through arithmetic progressions by deriving outputs from observed points, e.g. using −3 and 3 to generate 9, 15, 21, and using them to illustrate Gold’s argument.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Arithmetic progressions are highly regular periodic languages used to exhibit Gold-style failure of identification in the limit."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Arithmetic progressions are highly regular periodic languages used as a simple adversarial family for Gold-style identification failure."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Arithmetic progressions are highly regular periodic languages used in the adversarial proof that identification in the limit can fail."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Arithmetic-progression languages are highly periodic regular languages used to exhibit the adversarial failure of identification in the limit."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "arithmetic progressions are highly periodic languages used in a Gold-style adversarial construction showing identification can fail"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Arithmetic-progressions are highly regular periodic languages used as simple adversarial cases for identification and closure strategies."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "arithmetic-progression languages are used to illustrate Gold-style failure of identification in the limit, while their periodic form is highly regular"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Arithmetic progressions are used as a simple adversarial family for Gold-style identification failure, and are highly periodic regular sets."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "arithmetic-progressions-as-languages give a highly regular family used to exhibit Gold-style failure of identification"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used as a simple periodic family forcing identification errors in Gold's theorem while remaining highly regular"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Arithmetic-progression languages are used in Gold’s adversarial failure of identification and are highly regular periodic sets."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Arithmetic-progression languages are highly regular examples used to exhibit identification failure and closure-strategy obstruction."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Convex hull of observed points",
+   "note": "The secret-convex-set analogy makes the closure operation concrete by comparing guaranteed generable points to points inside the convex hull of observed data.",
+   "first_introduced_sec": 1500,
+   "spans": [
+    {
+     "start_sec": 1500,
+     "end_sec": 1536
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The convex-hull example is used constructively: from observed points, the speaker explains generating safely inside the hull, such as the interval between two points.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A convex hull is the minimal convex set containing the observed points and is used as a positive analogy for closure-based generation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A convex hull is the minimal convex set forced by the observed points and is used as a positive closure analogy."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A convex hull is the minimal convex set containing the observed points and is used as a positive analogy for closure-based generation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A convex hull is the minimal convex set containing the observed points and is used as a closure analogy, not a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the convex hull is the minimal convex set containing the observations and is used as a positive closure analogy"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The convex hull is the minimal convex set containing the observations and is used as a positive closure analogy."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the convex hull is used positively as the minimal convex set forced by the observations"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The convex hull is used as a closure analogy and is the minimal convex set containing the observed points."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the convex hull is invoked as the minimal convex set forced by observations, not as a refutation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "used as a positive closure analogy, and the convex hull is the minimal convex set containing the observations"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The convex hull is an analogy for safe closure-based generation and is the minimal convex superset of the observations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The convex hull is used constructively as the minimal convex set forced by the observed points."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Subreddit vernacular aging",
+   "note": "Empirical observations about users learning and then aging out of a subreddit’s idiom are compared to the algorithm’s movement from hallucination through correctness toward mode collapse.",
+   "first_introduced_sec": 3361,
+   "spans": [
+    {
+     "start_sec": 3361,
+     "end_sec": 3451
+    }
+   ],
+   "total_seconds": 90,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Subreddit vernacular aging is invoked as an empirical analogy to mode collapse, but the speaker does not analyze the data or compute anything from it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Subreddit vernacular aging is an ordinary empirical analogy for mode collapse rather than a counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Subreddit vernacular aging is an empirical analogy for mode collapse rather than a formal obstruction."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Subreddit vernacular aging is a social-language analogy for mode collapse rather than a structurally special object or counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Subreddit vernacular aging is an empirical analogy for linguistic narrowing, not a structurally exceptional object or counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "subreddit vernacular aging is a sociolinguistic analogy for mode collapse, not a structural exception or refutation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Subreddit vernacular aging is an empirical analogy for mode collapse rather than a mathematical counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "subreddit vernacular aging is an analogy for mode collapse rather than a mathematical obstruction or structurally special object"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Subreddit vernacular aging is an empirical analogy for collapse rather than an obstruction or special mathematical object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "subreddit vernacular aging is an illustrative sociolinguistic analogy for narrowing usage, not a counterexample"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as an empirical analogy for linguistic aging and mode collapse, not as an adversarial mathematical object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Subreddit vernacular aging is an empirical analogy for increasing rigidity rather than a counterexample or special structure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Subreddit vernacular aging is an illustrative sociolinguistic parallel to mode collapse, not a structural mathematical exception."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Good–Turing unseen-mass estimate and Enigma code words",
+   "note": "In response to a question, the speaker relates probabilistic hallucination results to Good–Turing estimation of unseen valid strings from rare observed strings.",
+   "first_introduced_sec": 3573,
+   "spans": [
+    {
+     "start_sec": 3573,
+     "end_sec": 3620
+    }
+   ],
+   "total_seconds": 47,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Good–Turing and Enigma code words are cited to explain unseen-mass estimation, but no estimate is calculated or derived.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Good–Turing/Enigma example is a standard unseen-mass estimation illustration for probabilistic hallucination arguments."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Good–Turing unseen-mass reasoning is invoked as the probabilistic obstruction behind hallucination-free broad generation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Good–Turing/Enigma example is a standard statistical unseen-mass illustration used explanatorily, not as a structural exception or refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Good–Turing/Enigma example is a standard statistical illustration of unseen-mass estimation, not a counterexample in the argument."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Good–Turing is a standard unseen-mass estimator invoked to explain a probabilistic hallucination analysis"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Good–Turing unseen-mass estimation is a standard statistical estimator invoked to explain probabilistic hallucination arguments."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Good–Turing unseen-mass estimation and Enigma code words are cited as a probabilistic analogy for hallucination analysis, not as a counterexample"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Good–Turing and Enigma code words illustrate unseen-mass estimation in a probabilistic hallucination discussion, not a structural exception."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the Good–Turing/Enigma example is a standard statistical analogy for unseen mass, not a structurally exceptional object or refutation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as a probabilistic estimation analogy for unseen mass and hallucination, not as a counterexample or sporadic structure"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Good–Turing and Enigma code words illustrate unseen-mass estimation in a probabilistic account of hallucination."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Good–Turing unseen-mass estimation and Enigma code words are cited as a probabilistic analogy for unseen strings, not as a counterexample."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Short-prompt expressiveness of ChatGPT, Claude, and Gemini",
+   "note": "The Q&A uses modern LLMs to illustrate how the abstract breadth question could become an empirical question about what fraction of a language a model can be induced to generate.",
+   "first_introduced_sec": 3801,
+   "spans": [
+    {
+     "start_sec": 3801,
+     "end_sec": 3908
+    }
+   ],
+   "total_seconds": 107,
+   "attaches_to": [
+    "s1",
+    "s8"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "ChatGPT, Claude, and Gemini are named in a proposed question about short-prompt expressiveness, without carrying out a comparison.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Short-prompt expressiveness of current LLMs is posed as a typical measurable breadth question, not as a special object or disproof."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The short-prompt reachable outputs of ChatGPT, Claude, and Gemini are proposed as ordinary measurable expressiveness sets."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Short-prompt expressiveness of current LLMs is posed as an ordinary empirical/formal measurement question."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Short-prompt expressiveness of particular LLMs is posed as a possible empirical/formal measure, not as a special object or refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "short-prompt reachability is posed as an ordinary expressiveness measure for LLMs, not as a failure case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Short-prompt expressiveness of LLMs is posed as a typical reachable-output/breadth measurement question."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "short-prompt expressiveness of ChatGPT, Claude, and Gemini is posed as a possible measurement question with no intrinsic special structure specified"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Short-prompt expressiveness of LLMs is posed as a possible measurement question, not as a counterexample or special structure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "short-prompt expressiveness of current LLMs is posed as an evaluative question rather than an adversarial example"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used to pose an expressiveness metric for ordinary LLM systems under short prompts, not to disprove a claim"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Short-prompt expressiveness of LLMs is posed as a measurement question, not as a structurally special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Short-prompt expressiveness of LLMs is posed as an ordinary breadth-measurement question rather than a special object or obstruction."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Image-generation steerability by prompting",
+   "note": "The speaker illustrates the broader breadth/steerability issue by describing attempts to prompt an image generator toward a target picture such as a self-driving car scene.",
+   "first_introduced_sec": 3926,
+   "spans": [
+    {
+     "start_sec": 3926,
+     "end_sec": 4037
+    }
+   ],
+   "total_seconds": 111,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker describes concrete prompting and steerability experiments for image generation, including generating an image from a short prompt and challenging people to recover such prompts.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The image-prompting experiment is used as an obstruction to the idea that existence of a short prompt yields practical steerability."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Prompt-based image steerability is presented as an ordinary reachability and communication problem, not as a special mathematical object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Image-generation steerability by prompting is an application example illustrating a communication bottleneck, not a special mathematical structure or counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Image-generation steerability by prompting is an informal prompting task illustrating a communication bottleneck, not a mathematical counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "image-generation steerability by prompting illustrates a communication bottleneck rather than a special mathematical object"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Image-generation steerability by prompting is used to illustrate a communication bottleneck and search problem, not a structural exception."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "image-generation steerability by prompting is an application-style example of reachable outputs, not a counterexample or structurally special object"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Image-generation steerability by prompting is an application example about controllability, with no intrinsic extremal or exceptional structure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "image-generation steerability by prompting illustrates a communication bottleneck, not a mathematical counterexample"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as an application illustrating prompting and steerability questions rather than a structurally special object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Image-generation steerability by prompting is used as a motivating communication-bottleneck example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Image-generation steerability by prompting is an applied analogy about controllability, with no intrinsic exceptional or extremal structure."
+    }
+   ]
+  }
+ ]
+}

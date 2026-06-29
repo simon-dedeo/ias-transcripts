@@ -1,0 +1,1840 @@
+{
+ "key": "451affa73757422ea42e9ac18fd7b14f",
+ "title": "Effective-resistance-reducing flows, spectrally thin trees and asymmetric TSP",
+ "speaker": "Shayan Oveis Gharan",
+ "affiliation": "University of California, Berkeley",
+ "date": "2015-03-02T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 4149.0,
+ "abstract": "Given a $k$-edge-connected graph $G = (V,E)$, a spanning tree $T$ is $\\alpha$-thin w.r.t. $G$, if for any $S \\subset V$, $|T(S,V - S)| \\leq \\alpha.|E(S,V - S)|$. The thin tree conjecture asserts that for a sufficiently large $k$ (independent of size of $G$) every $k$-edge-connected graph has a $1/2$-thin tree. This conjecture is intimately related to designing approximation algorithms for Asymmetric Traveling Salesman Problem (ATSP). We show that any $k$-edge-connected graph has a $\\mathrm{polyloglog}(n)/k$-thin spanning tree.",
+ "youtube_url": "https://www.youtube.com/watch?v=mhOAqjHC91s",
+ "page_url": "https://www.ias.edu/video/csdm/2015/0302-ShayanOveisGharan",
+ "tags": [
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "ATSP benchmark and announced gap bound",
+   "summary": "The talk defines asymmetric TSP, the Held-Karp LP relaxation and its integrality gap, recalls prior logarithmic-type bounds, and announces a polyloglog(n) upper bound on the gap, presently nonalgorithmic.",
+   "spans": [
+    {
+     "start_sec": 31,
+     "end_sec": 343
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Reduction to combinatorially thin trees",
+   "summary": "The speaker reformulates the ATSP task through k-edge-connected unweighted graphs and alpha-thin spanning/connected subgraphs, explaining that sufficiently thin trees in log n-connected graphs imply corresponding ATSP integrality-gap and approximation bounds, with randomized rounding giving the previous log n/k-type barrier.",
+   "spans": [
+    {
+     "start_sec": 343,
+     "end_sec": 1228
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Spectral thinness via graph Laplacians",
+   "summary": "Graph Laplacians and their quadratic forms are introduced in order to define alpha-spectrally-thin trees, a stronger condition than cut thinness that is polynomially testable through eigenvalues.",
+   "spans": [
+    {
+     "start_sec": 1228,
+     "end_sec": 1583
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Effective-resistance obstruction",
+   "summary": "Effective resistance is identified as the spectral thinness of a single edge, implying every tree’s spectral thinness is at least the maximum effective resistance of its edges, and a k-edge-connected long-path construction shows that direct spectral thinness can fail badly.",
+   "spans": [
+    {
+     "start_sec": 1583,
+     "end_sec": 2057
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "MSS sufficient criterion for spectral thinning",
+   "summary": "The Marcus-Spielman-Srivastava/Kadison-Singer machinery is used as a sufficient condition: if edge effective resistances, or their averages over every cut, are small, then a spectrally thin tree exists; this separates the desired L1 cut-connectivity condition from the stronger L2 effective-resistance condition.",
+   "spans": [
+    {
+     "start_sec": 2057,
+     "end_sec": 2486
+    },
+    {
+     "start_sec": 2623,
+     "end_sec": 2719
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Cut-preserving L2 symmetrization by an augmentation",
+   "summary": "To bridge k-connectivity and effective resistance, the proposed strategy is to add a graph or positive semidefinite matrix D that is dominated by G on all cuts while improving the L2/effective-resistance structure, so a spectral tree in G+D becomes a combinatorially thin tree for G.",
+   "spans": [
+    {
+     "start_sec": 2486,
+     "end_sec": 2623
+    },
+    {
+     "start_sec": 2719,
+     "end_sec": 3190
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Good-edge set and generalized MSS step",
+   "summary": "Since some graphs admit no cut-dominated D that reduces all effective resistances, the proof must also delete bad edges by finding a k-connected good set F and a matrix D with small effective resistance on F, then extend the MSS argument to obtain a spectrally thin tree supported on G despite F being sparse in some cuts.",
+   "spans": [
+    {
+     "start_sec": 3190,
+     "end_sec": 3756
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s5"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Convex-program construction and consequences",
+   "summary": "A convex program, motivated by a singleton-cut version and analyzed through its dual l1-metric structure, is sketched as the method for constructing the needed D and F, leading to polyloglog(n)/k thin trees and hence the polyloglog(n) ATSP integrality-gap theorem, with algorithmic MSS implementation and c/k thin trees left as major goals.",
+   "spans": [
+    {
+     "start_sec": 3756,
+     "end_sec": 4124
+    }
+   ],
+   "depends_on": [
+    "s7",
+    "s1"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Planar and bounded-genus graph cases",
+   "note": "These graph families are cited as known special cases where constant-factor ATSP approximations or 1/k thin trees are available, serving as context for the general graph problem.",
+   "first_introduced_sec": 235,
+   "spans": [
+    {
+     "start_sec": 235,
+     "end_sec": 267
+    },
+    {
+     "start_sec": 994,
+     "end_sec": 1014
+    }
+   ],
+   "total_seconds": 52,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The planar and bounded-genus cases are cited as special cases with constant-factor approximation/one-over-k thin trees, without working through them.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Planar/bounded-genus graphs are low-genus boundary cases cited as positive tractable families."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Planar and bounded-genus graphs are broad infinite topological special cases cited for positive constant-factor results."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Planar/bounded-genus graphs lie at the low-genus topological extreme, and are cited as positive special cases."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Low-genus graph families, including planar genus-zero graphs, are boundary cases of the genus hierarchy and are cited only as positive special cases."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Planar/bounded-genus graphs are systematic low-genus boundary cases used only as positive special cases."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Planar and bounded-genus graphs are infinite low-topology special families used for positive approximation results, not as failures."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cited as positive bounded-topology cases with known constant-factor or 1/k thin-tree results."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as positive prior special cases, with planar/bounded-genus graphs lying at the low-genus boundary of graph families."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "systematic low-genus graph families used as positive special cases for constant-factor results"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Planar and bounded-genus graphs are used as tractable special families with known bounds, not to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Planar and bounded-genus graphs are systematic positive special cases, not sporadic, degenerate, or used to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Planar and bounded-genus graphs are systematic positive special-case families, not sporadic, degenerate, extremal, or maximally symmetric."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Hamiltonian path in the complete graph",
+   "note": "The complete graph calculation makes the definition of combinatorial thinness concrete by showing a Hamiltonian path is about 2/n-thin.",
+   "first_introduced_sec": 436,
+   "spans": [
+    {
+     "start_sec": 436,
+     "end_sec": 499
+    }
+   ],
+   "total_seconds": 63,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "For a Hamiltonian path in the complete graph, the speaker computes cut sizes k(n−k), bounds tree cut edges by 2k, and derives the about 2/n thinness ratio.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The ambient complete graph is maximally dense and symmetric, while the Hamiltonian path achieves the optimal-order thinness used as an illustration."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The ambient complete graph is edge-maximal and maximally symmetric, while the spanning tree is an extremal path used to exhibit 2/n thinness."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The ambient complete graph is maximally regular, while the Hamiltonian path is a degree-2 spanning tree giving near-tight 2/n thinness."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "In the maximally symmetric complete graph, a Hamiltonian path has minimum possible maximum degree and gives tight order-1/n thinness."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A Hamiltonian path is an extremal spanning tree in the maximally dense complete graph, used to illustrate thinness."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "In the maximally symmetric complete graph, the Hamiltonian path attains the optimal order 2/n cut-thinness."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as a positive illustration of essentially optimal 2/n thinness in the maximally symmetric complete graph."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used to illustrate thinness, and a Hamiltonian path is an extremal spanning tree in the highly symmetric complete graph."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the ambient complete graph is maximally symmetric and the Hamiltonian path attains very low near-optimal thinness"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The example uses the maximally symmetric complete graph and a Hamiltonian path as an extremal low-thinness spanning tree, not as a failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The ambient complete graph is maximally dense/symmetric and the spanning path is an extremal path-shaped tree used as a positive thinness example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Hamiltonian path is used as a positive thin-tree example and is extremal among spanning trees of K_n by having minimum possible maximum degree and optimal order 1/n thinness."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Thin tree in the k-dimensional cube",
+   "note": "The cube is mentioned as a nontrivial case where one can achieve optimal 1/k thinness, illustrating what the thin-tree conjecture asks for in structured graphs.",
+   "first_introduced_sec": 527,
+   "spans": [
+    {
+     "start_sec": 527,
+     "end_sec": 634
+    }
+   ],
+   "total_seconds": 107,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The k-dimensional cube is named as having a 1/k thin tree and noted as nontrivial, but no construction or verification is carried out.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The hypercube is highly transitive and the stated 1/k thinness meets the cut lower bound, serving as a positive example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The hypercube is highly regular and symmetric, and the tree attains the optimal 1/k thinness lower bound."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The hypercube is highly vertex/edge-transitive and the stated 1/k thinness matches the connectivity lower bound."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The hypercube is edge-transitive and the cited thin tree attains the order-1/k lower bound forced by k-edge cuts."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The hypercube is highly symmetric and the stated 1/k thinness is optimal for its k-edge cuts."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The hypercube is highly edge/vertex-transitive, and the stated 1/k-thin tree meets the min-cut lower bound."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The cube is highly symmetric and the stated 1/k thin tree attains the connectivity lower bound."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as a positive nontrivial construction, achieving the optimal 1/k thinness scale in the highly symmetric hypercube."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the hypercube is highly vertex- and edge-transitive and the claimed 1/k thinness meets the cut lower bound"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The hypercube is highly symmetric and the cited 1/k-thin tree attains the natural connectivity lower bound."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The hypercube is highly symmetric and the stated 1/k-thin tree attains the natural cut lower bound."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The cube thin tree is cited as attaining the 1/k lower bound forced by k-edge cuts, so it is structurally extremal rather than a counterexample."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Symmetric/edge-transitive graphs",
+   "note": "These graphs illustrate the MSS effective-resistance criterion because symmetry makes all edge effective resistances equal, yielding 1/k spectral thinness.",
+   "first_introduced_sec": 994,
+   "spans": [
+    {
+     "start_sec": 994,
+     "end_sec": 1014
+    },
+    {
+     "start_sec": 2358,
+     "end_sec": 2441
+    }
+   ],
+   "total_seconds": 103,
+   "attaches_to": [
+    "s2",
+    "s5"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "For symmetric/edge-transitive graphs, the speaker derives 1/k spectral thinness from equal effective resistances and their average being 1/k.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Edge-transitive graphs are symmetric by definition and are cited as positive cases with equal effective resistances."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Edge-transitive graphs are symmetric by definition and are cited as a positive family with 1/k spectral thinness."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Edge-transitive graphs are structurally symmetric and are used as positive cases for spectral thinness."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Edge-transitive graphs are highly symmetric regular cases with equal edge effective resistances."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Edge-transitive graphs are symmetric by definition and are cited as a positive family with good thin trees."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Edge-transitive graphs are symmetric by definition and are used here as a positive case for spectral thin trees."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Edge-transitive graphs are invoked as a positive symmetric family with equal effective resistances."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a positive sufficient family, and edge-transitive graphs are symmetric by definition."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "edge-transitivity gives equal effective resistances and hence the optimal 1/k spectral-thin behavior"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Edge-transitive graphs are invoked because their symmetry equalizes effective resistances, not as an obstruction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Edge-transitive graphs are singled out precisely for their symmetry and are used as positive cases."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Edge-transitive graphs are invoked as a positive family where symmetry equalizes effective resistances."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Four-cycle Laplacian",
+   "note": "The four-cycle is used to display the concrete D-A form of a graph Laplacian before moving to quadratic forms and spectral thinness.",
+   "first_introduced_sec": 1294,
+   "spans": [
+    {
+     "start_sec": 1294,
+     "end_sec": 1316
+    }
+   ],
+   "total_seconds": 22,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The four-cycle is used to concretely build the Laplacian entries, with degree-2 diagonal entries and −1 off-diagonal edge entries explained.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The four-cycle is a regular edge-transitive cycle used only as a toy Laplacian computation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The four-cycle is a regular vertex/edge-transitive graph used only to illustrate the Laplacian matrix."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The four-cycle is a regular dihedrally symmetric toy graph used only to illustrate the Laplacian."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The four-cycle has a dihedrally symmetric/circulant Laplacian and is used only to illustrate the definition."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The four-cycle is a regular vertex/edge-transitive graph used just to demonstrate the Laplacian matrix."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The four-cycle is a regular edge-transitive cycle used only as a simple Laplacian illustration."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The four-cycle is a regular vertex- and edge-transitive graph used only to illustrate Laplacian entries."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used only as a toy Laplacian computation, with C4 a regular edge-transitive cycle."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the four-cycle is a regular dihedrally symmetric graph used only to illustrate the Laplacian"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The four-cycle Laplacian is a simple illustrative Laplacian of a regular vertex- and edge-transitive graph."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The four-cycle Laplacian is just a toy computation on a regular dihedrally symmetric graph."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The four-cycle Laplacian is only an illustrative Laplacian example, and C4 is a regular vertex- and edge-transitive graph."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Red shortcut edges in the long-path obstruction",
+   "note": "Adding weighted shortcut edges to the earlier long-path graph demonstrates how a cut-dominated augmentation can lower effective resistances without substantially changing cuts.",
+   "first_introduced_sec": 2802,
+   "spans": [
+    {
+     "start_sec": 2802,
+     "end_sec": 3040
+    }
+   ],
+   "total_seconds": 238,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The red shortcut edges are added to the long-path obstruction and the speaker reasons through how flow uses them, how cuts are affected, and how effective resistance drops.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The red shortcut edges are a constructive preconditioning gadget for the long-path example, not the obstruction itself."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The red weighted shortcuts are auxiliary added edges for reducing effective resistance in the long-path graph, not the adversarial object themselves."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The red shortcut edges are an auxiliary construction to reduce effective resistance, not the adversarial obstruction itself."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The red high-multiplicity shortcuts are an auxiliary augmentation used to repair the long-path obstruction, not to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The red shortcut edges are an auxiliary regular construction for reducing effective resistance, not the failing obstruction itself."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The red shortcut edges are an added preconditioning gadget to lower effective resistances, not themselves an adversarial example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The red shortcut edges are introduced to repair the long-path obstruction rather than to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The red edges are a constructive shortcut/preconditioning device for the obstruction, not themselves the adversarial example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the red shortcut edges are an auxiliary constructive modification that lowers effective resistance in the obstruction"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The red shortcut edges are the proposed repair that lowers effective resistances in the long-path obstruction, not themselves a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The red shortcut edges are auxiliary preconditioning edges that repair the long-path obstruction rather than serving as the obstruction themselves."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The red shortcut edges are auxiliary additions used to repair the long-path obstruction by lowering effective resistances, not to refute a claim."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Choosing F as the bottom edges in the layered obstruction",
+   "note": "In response to a question about where the good-edge set F appears, the speaker explains that in the bad layered graph one would keep the bottom edges, which have small effective resistance and remain k-connected.",
+   "first_introduced_sec": 3613,
+   "spans": [
+    {
+     "start_sec": 3613,
+     "end_sec": 3668
+    }
+   ],
+   "total_seconds": 55,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "In the layered obstruction, the speaker chooses F as the bottom edges and checks that these edges have good effective resistance and k-connectivity despite being sparse in some cuts.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 8,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Choosing F as the bottom edges illustrates the good subgraph used to handle the layered obstruction, rather than disproving a claim itself."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bottom-edge set F is the shortest/base layer of the hierarchy and is used as the good retained subgraph rather than as the failure example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bottom-edge choice is the minimal shortest-layer k-connected backbone used to salvage the layered bad graph."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The bottom-edge F is the minimal k-connected backbone in the layered bad graph, witnessing cut-sparsity that blocks the direct approach."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The bottom-edge choice of F is a positive sparse-good-subgraph selection inside the layered obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Choosing F as the bottom edges illustrates the repaired framework on the layered bad graph rather than serving as the obstruction itself."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bottom-edge set is a deliberately sparse k-connected backbone at the connectivity threshold."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The bottom-edge choice is a sparse minimal k-connected backbone with optimal 1/k effective-resistance scale, used to illustrate the workaround."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the bottom-edge choice is the sparse minimal k-connected skeleton retained as the good set F in the layered example"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Choosing F as the bottom edges illustrates the new good-edge selection that handles the layered obstruction rather than serving as the obstruction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Choosing only the bottom edges gives a sparse minimal k-connected skeleton in the layered graph, illustrating the repaired F-subgraph rather than a refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Choosing F as the bottom edges is a workaround in the layered bad graph, and F is an extremally sparse/minimal k-connected good-edge set."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Graph-metric ATSP special case",
+   "note": "A recent constant-factor approximation for ATSP on unweighted graph metrics is mentioned as a contrasting special case using cycle-cover ideas rather than thin trees.",
+   "first_introduced_sec": 4075,
+   "spans": [
+    {
+     "start_sec": 4075,
+     "end_sec": 4124
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The graph-metric ATSP case is briefly cited as a recent constant-factor result using cycle-cover ideas, without applying or analyzing it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Graph-metric ATSP is an ordinary restricted metric special case cited for a positive constant-factor result."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Graph-metric ATSP is a broad restricted input family cited for a positive constant-factor approximation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Graph-metric ATSP is a systematic restricted special case, cited as related positive work rather than a failure example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Graph-metric ATSP is a systematic restricted special case mentioned as a positive approximation result."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Graph-metric ATSP is a systematic restricted special case mentioned as a positive approximation result."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Graph-metric ATSP is a broad systematic restriction with a positive constant-factor result, not a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Mentioned as a positive special case with a constant-factor approximation by a different method."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as a positive restricted ATSP special case with no intrinsic degeneracy, sporadicity, extremality, or symmetry asserted."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "graph-metric ATSP is a systematic positive special case handled by a different approximation approach"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Graph-metric ATSP is mentioned as a systematic special case with a different approximation approach, not as a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Graph-metric ATSP is a systematic restricted special case with a different positive approximation approach."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The graph-metric ATSP case is cited as a positive restricted special case with a different algorithmic approach."
+    }
+   ]
+  }
+ ]
+}

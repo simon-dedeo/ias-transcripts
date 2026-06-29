@@ -1,0 +1,1960 @@
+{
+ "key": "8b9adc7f86671f99a890c59efd101d14",
+ "title": "Probabilistic analysis of random CSPs",
+ "speaker": "Nike Sun",
+ "affiliation": "Massachusetts Institute of Technology",
+ "date": "2021-04-21T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4105.0,
+ "abstract": "(This lecture is related to the preceding lecture, but I will try to make it self-contained as much as possible.) In this lecture I will elaborate on some of the existing mathematical approaches to the study of random CSPs, particularly involving the (first and second) moment method. We will see that implementing the moment method often reduces to the solution of difficult (non-convex) optimization problems.",
+ "youtube_url": "https://youtu.be/Np26l5ux8GA",
+ "page_url": "https://www.ias.edu/video/probabilistic-analysis-random-csps",
+ "tags": [
+  "Marston Morse Lectures",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Random regular NAE-SAT model and replica-symmetric baseline",
+   "summary": "The talk recalls the random d-regular k-NAE-SAT instance, its solution space, the cavity interpolation from a graph to a cavity graph and back, and the replica-symmetric free-energy prediction that is valid only up to condensation.",
+   "spans": [
+    {
+     "start_sec": 36,
+     "end_sec": 349
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Cluster entropy and condensation picture",
+   "summary": "The solution space is described through a cluster-entropy curve sigma(s), whose optimizer explains the transition from exponentially many relevant clusters below condensation to order-one dominant clusters and long-range correlations above condensation.",
+   "spans": [
+    {
+     "start_sec": 349,
+     "end_sec": 1096
+    },
+    {
+     "start_sec": 3662,
+     "end_sec": 3883
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Frozen/free internal structure of a typical cluster",
+   "summary": "A cluster is modeled by mostly frozen variables together with a sparse subgraph of free variables, whose components are typically small trees for large k, making the uniform measure inside one cluster essentially a product over components and hence replica-symmetric.",
+   "spans": [
+    {
+     "start_sec": 1096,
+     "end_sec": 1831
+    },
+    {
+     "start_sec": 4022,
+     "end_sec": 4074
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "One-RSB cluster counting via plus/minus/free encodings",
+   "summary": "Cluster sizes are read from plus/minus/free encodings by tree recursions, and the one-RSB cavity heuristic computes weighted cluster counts Z_m, with the satisfiability threshold reduced to the m=0 count of valid low-free encodings.",
+   "spans": [
+    {
+     "start_sec": 1831,
+     "end_sec": 2488
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Moment method applied to clusters rather than solutions",
+   "summary": "Because direct first and second moments of the number of solutions fail above condensation due to rare huge clusters, the proof instead takes moments of the encoded cluster count and identifies the threshold through the resulting phi-star exponent.",
+   "spans": [
+    {
+     "start_sec": 2488,
+     "end_sec": 2792
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Moment computations as empirical-measure entropy optimizations",
+   "summary": "A bijection to edge colorings turns first and second moment calculations into explicit finite-dimensional optimizations over variable, clause, and edge empirical measures, with the second moment requiring the product empirical measure to be the maximizer.",
+   "spans": [
+    {
+     "start_sec": 2792,
+     "end_sec": 3124
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Localization and tree-recursion proof of the optimizer",
+   "summary": "The nonconvex optimizations are first localized near the predicted replica-symmetric measure by rough combinatorial estimates and then solved by a local rerandomization/update argument that reduces the decisive step to convex maximum-entropy problems on trees.",
+   "spans": [
+    {
+     "start_sec": 3124,
+     "end_sec": 3550
+    },
+    {
+     "start_sec": 3573,
+     "end_sec": 3658
+    },
+    {
+     "start_sec": 3883,
+     "end_sec": 4022
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "All incident edge labels allowed to coincide",
+   "note": "An audience question asks whether all signs incident to a clause/vertex could have the same color, clarifying that the edge labels are IID and not constrained by balance.",
+   "first_introduced_sec": 109,
+   "spans": [
+    {
+     "start_sec": 109,
+     "end_sec": 175
+    }
+   ],
+   "total_seconds": 66,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only says IID edge labels could all coincide at a vertex, such as three blue labels, without analyzing that case",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 11,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 9,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "a monochromatic incident-label star is maximally regular and at an endpoint of the plus/minus count, used only to clarify IID labeling"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A constant incident label pattern is a boundary all-one-color case used to refute the suggested restriction that one label must differ."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A monochromatic incident-label pattern is permutation-symmetric and boundary in sign balance, and it rules out an assumed mixed-label requirement."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-same sign pattern is the maximally regular endpoint of local labelings and is used to rule out an “always one different color” restriction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-same incident-label pattern is permutation-symmetric and refutes the suggested rule that one label must differ."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-same incident sign pattern is maximally uniform and at an endpoint of the sign-count, and it is cited to rule out the proposed mixed-label restriction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "An all-same incident sign pattern refutes the suggested mixed-label restriction and is a boundary, permutation-symmetric labeling pattern."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A constant incident sign pattern refutes the suggested mixed-label restriction and is collapsed, maximally imbalanced, and permutation-symmetric."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "a monochromatic incident-label pattern is maximally regular and maximally imbalanced, used only to clarify the iid-label model"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A monochromatic incident-label pattern is a maximally regular boundary case of label counts and refutes any requirement of mixed labels."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A monochromatic incident-label star refutes the suggested rule that labels must differ and is a maximally homogeneous endpoint pattern."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A monochromatic incident-label pattern is merely an allowed IID labeling, with maximal label coincidence and permutation-regularity."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Two singleton clusters at all-plus and all-minus",
+   "note": "The toy two-cluster measure illustrates why a bounded number of dominant clusters creates long-range correlations, since observing one coordinate identifies the cluster.",
+   "first_introduced_sec": 911,
+   "spans": [
+    {
+     "start_sec": 911,
+     "end_sec": 996
+    }
+   ],
+   "total_seconds": 85,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses the all-plus/all-minus singleton-cluster case to check failure of correlation decay by tracing how one plus variable determines all others",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "two antipodal singleton clusters are minimal and spin-flip symmetric, used to show correlation decay can fail"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Two antipodal singleton clusters are minimal and highly regular, used to show correlation decay can fail."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The solution space is a spin-flip-symmetric pair of antipodal singleton clusters, used to show correlation decay can fail."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two antipodal singleton clusters are a maximally regular minimal-cluster extreme used to exhibit failure of correlation decay."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two antipodal singleton clusters are maximally regular, minimal-size clusters and an extreme case showing correlation decay can fail."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Two singleton clusters at the antipodal all-plus/all-minus configurations are minimal and maximally regular, used to show correlation decay can fail."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two antipodal singleton clusters illustrate failure of correlation decay, with clusters of minimal size and maximal spin-flip/permutation symmetry."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two antipodal one-point clusters obstruct correlation decay, with minimal cluster size, maximal Hamming separation, and full coordinate/spin-flip symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to show correlation decay can fail; antipodal singleton clusters are maximally regular and minimal"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Two antipodal singleton clusters are maximally regular, minimal-size/extreme clusters used to show correlation decay can fail."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two antipodal singleton clusters are used to show correlation decay can fail, with minimal cluster size and maximal hypercube separation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two all-plus/all-minus singleton clusters are used to show correlation decay can fail, and are minimal highly symmetric clusters."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Local neighborhood of a free variable",
+   "note": "A concrete signed clause neighborhood shows a variable whose surrounding clauses are already satisfied by other variables, making the definition of a free variable visible.",
+   "first_introduced_sec": 1135,
+   "spans": [
+    {
+     "start_sec": 1135,
+     "end_sec": 1243
+    }
+   ],
+   "total_seconds": 108,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker zooms into a variable’s neighborhood and checks clause by clause that surrounding assignments make the central variable flippable",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the central variable is locally unconstrained by its incident clauses, illustrating the source of cluster freedom"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A free variable has no effective local constraint on its spin and is used explanatorily, not as a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The central variable is locally unconstrained by all incident clauses, so the neighborhood has collapsed local forcing."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A free-variable neighborhood is locally underconstrained, with the central value irrelevant to all adjacent clauses, and is used to motivate cluster size."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The local witness has an effectively unconstrained central coordinate and is used only to explain freeness."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A free variable whose incident clauses impose no condition on it is a locally underconstrained zero-forcing case, used as an explanatory example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A free variable is locally unconstrained relative to a typical frozen variable and is used to explain cluster size, not to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The neighborhood is used to explain cluster volume, and the central variable is locally unconstrained by its incident clauses."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a free variable is locally unconstrained, used to explain cluster formation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The central variable is locally unconstrained by its incident clauses, illustrating cluster freedom rather than refuting a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The free-variable neighborhood is an illustrative underconstrained local configuration where all incident clauses are indifferent to the variable."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The central variable is effectively unconstrained by its incident clauses, a degenerate local neighborhood used to explain cluster formation."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Neighboring free variables that cannot both flip",
+   "note": "This counterexample to the naive subcube picture shows why cluster size is not simply 2 to the number of free variables and motivates analyzing interacting free components.",
+   "first_introduced_sec": 1243,
+   "spans": [
+    {
+     "start_sec": 1243,
+     "end_sec": 1337
+    }
+   ],
+   "total_seconds": 94,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes neighboring free variables, noting each can flip alone but a shared clause prevents flipping both simultaneously",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "two individually free variables form an underconstrained local pair whose joint-flip obstruction refutes independent flipping"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The adjacent free pair is a small nontrivial interaction used to disprove the naive independent-flips/subcube picture."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "This is an ordinary small interacting free component used to refute the idea that free variables always flip independently."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The neighboring free pair is a local interaction pattern used to show that free variables cannot always be flipped independently."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The neighboring free-variable pair is an ordinary interacting local configuration used to refute the naive independent-flips/subcube picture."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The neighboring free pair is an ordinary local interaction, used to refute the idea that individually free variables can always be flipped independently."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The adjacent free variables give the local obstruction to treating free variables as independently flippable, but the object is an ordinary finite interaction pattern."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The adjacent free pair refutes the naive independent-flips/subcube picture but is just a small ordinary interacting free component."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to refute independent flipping of free variables, but the interacting pair is an ordinary local obstruction"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "This is the minimal nontrivial interacting free component and serves as an obstruction to the naive independent-subcube picture."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The adjacent free-variable pair is used to disprove the naive subcube/independent-flips picture of clusters."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The neighboring free pair obstructs the naive independent-subcube picture, but is just an ordinary local interaction gadget."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Isolated free variable has two completions",
+   "note": "The isolated-free-variable case is a simple illustration of the tree-completion count used to read cluster sizes from the plus/minus/free encoding.",
+   "first_introduced_sec": 1872,
+   "spans": [
+    {
+     "start_sec": 1872,
+     "end_sec": 1913
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker evaluates the isolated-free-variable component by giving its number of compatible completions as two",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 3,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "a size-one free component is the minimal underconstrained case with spin-flip-symmetric completions"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "An isolated free variable is the singleton free-component base case with exactly two completions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "An isolated free variable is the one-vertex minimal tree component, giving the trivial two-completion base case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The isolated free variable is a singleton free-component base case with no effective local constraint, giving two completions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A singleton free component is the minimal base-case free tree with the smallest two-completion choice."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "An isolated free variable is the singleton/base free component and has the minimum two completions, used as a simple computation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "An isolated free variable is the size-one base component with two completions and is used as a simple computation, not adversarially."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The isolated free variable is the one-vertex base case for the tree computation, with no internal constraint and two completions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "an isolated free variable is the minimal free component and serves as the base case for completions"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "An isolated free variable is the one-vertex no-interaction base case with exactly two completions."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "An isolated free variable is the singleton, noninteracting base component with just two local completions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "An isolated free bit is the minimal unconstrained free component with two possible completions, used as a base computation."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "All-free encoding satisfying the local rules",
+   "note": "The all-free configuration shows that the naive plus/minus/free local constraints admit spurious encodings, motivating the additional restriction on the fraction of free variables.",
+   "first_introduced_sec": 2217,
+   "spans": [
+    {
+     "start_sec": 2217,
+     "end_sec": 2264
+    }
+   ],
+   "total_seconds": 47,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker checks that the all-free encoding satisfies the stated local forcing rules, while explaining why it is not a real cluster",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the constant all-free encoding is maximally free and regular, showing the local rules alone do not define actual clusters"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-free encoding is a maximally free constant boundary case satisfying the local rules but not corresponding to an actual cluster."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-free encoding is a maximally uniform, maximally free, collapsed configuration used to show the local rules are not sufficient for being a cluster."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-free encoding is maximally uniform and maximally free, but is cited as satisfying the local rules without representing a cluster."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-free encoding is maximally homogeneous, has no frozen information and maximizes free variables while showing the local rules are not sufficient for a true cluster."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-free encoding is completely collapsed and maximizes the free fraction, and it is used to show the local rules alone do not characterize true clusters."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-free encoding satisfies the local rules while not representing a cluster, and it is maximally free and fully uniform."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-free encoding shows the local rules are insufficient for real clusters and is the maximally free, completely uniform collapsed encoding."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to show local rules alone do not characterize clusters; the all-free encoding is maximally uniform and has the maximum free fraction"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The constant all-free encoding is maximally regular and maximally uninformative, and shows the local rules alone do not characterize clusters."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-free encoding satisfies the local rules but is used to show those rules do not characterize real clusters, and it maximizes freeness in a constant collapsed state."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-free encoding refutes the converse from local rules to actual clusters and is the maximally free, constant, collapsed encoding."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Spin-glass and REM/GREM analogues for Poisson-Dirichlet weights",
+   "note": "In Q&A, p-spin, spherical p-spin, quantum Heisenberg, random energy, and GREM-type models are mentioned as other settings where related Poisson-Dirichlet or hierarchical statistics appear or are expected.",
+   "first_introduced_sec": 3662,
+   "spans": [
+    {
+     "start_sec": 3662,
+     "end_sec": 3883
+    }
+   ],
+   "total_seconds": 221,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "spin-glass, REM, GREM, and p-spin analogues are only discussed as related settings for Poisson-Dirichlet behavior, without computations on them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "these are standard systematic spin-glass and REM/GREM analogues for the same weight law, not refutations or one-off exceptions"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The spin-glass REM/GREM cases are standard systematic analogues for Poisson-Dirichlet cluster weights, not obstructions or sporadic exceptions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The spin-glass/REM/GREM references are standard analogue models for the expected Poisson-Dirichlet statistics, not obstructions or sporadic exceptions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The spin-glass, REM, and GREM cases are systematic comparison families for the same Poisson-Dirichlet weight phenomenon, not obstructions or sporadic exceptions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The spin-glass and REM/GREM cases are standard analogues invoked for universality rather than as structural exceptions or failures."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The spin-glass and REM/GREM cases are standard systematic analogues for Poisson-Dirichlet weights, invoked for comparison rather than as failures."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The spin-glass REM/GREM cases are cited as regular mean-field or hierarchical analogues for Poisson-Dirichlet weights, not as obstructions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The spin-glass and REM/GREM cases are cited as systematic analogues for Poisson-Dirichlet weights, not as failures or sporadic special objects."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "these are systematic analogue models for the same Poisson-Dirichlet phenomenon, not a sporadic or limiting exception in the argument"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The spin-glass/REM/GREM cases are highly symmetric mean-field analogues invoked for universality, not as failures of a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The spin-glass/REM/GREM cases are invoked as supporting analogues for Poisson-Dirichlet weights in low-temperature extreme-weight regimes."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The spin-glass REM/GREM and Poisson-Dirichlet cases are invoked as standard analogues rather than as failures or sporadic objects."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Two chosen roots accidentally close together",
+   "note": "An audience question highlights that the local-update cartoon fails if selected roots are too near, prompting the refinement that the auxiliary sample should be large but sparse enough that neighborhoods are typically disjoint.",
+   "first_introduced_sec": 3883,
+   "spans": [
+    {
+     "start_sec": 3883,
+     "end_sec": 4022
+    }
+   ],
+   "total_seconds": 139,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "two chosen roots being accidentally close is raised only as a caveat to the localization argument, with no concrete worked analysis of such a configuration",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "nearby chosen roots create an overlapping-neighborhood collision that obstructs the disjoint-tree update argument"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Two sampled roots lying close is a bad collision case showing the disjoint-neighborhood cartoon cannot be taken literally."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Two selected roots being close makes their neighborhoods overlap, a collapsed bad case obstructing the independence-style rerandomization argument."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Two selected roots being very close is a small-distance boundary case raised as an obstruction to the disjoint-neighborhood update argument."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Two roots being accidentally close is a bad local sampling case used as an obstruction to the literal independent-neighborhood argument."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Two selected roots that are accidentally close create an overlapping-neighborhood collision, used as a bad case showing the naive separation argument needs restrictions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Nearby chosen roots are raised as an obstruction to the literal independence cartoon, while structurally they are just an ordinary low-distance pair."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Two sampled roots being close is an obstruction to the independence/cartoon argument, but the pair itself is only a bad sampling configuration."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a close pair of sampled roots is a collision of neighborhoods that obstructs the independence/localization argument"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Two sampled roots being close is a neighborhood-collision case that breaks the intended independence/tree-neighborhood argument."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Two selected roots lying close are an obstruction to the cartoon independence argument, a collision where the intended separated neighborhoods overlap."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Accidentally close roots are a bad collision case for the disjoint-neighborhood update argument."
+    }
+   ]
+  }
+ ]
+}

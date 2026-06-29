@@ -1,0 +1,1297 @@
+{
+ "key": "956ce56ae2899b69e0628992272cf270",
+ "title": "An Optimal Lower Bound for File Maintenance",
+ "speaker": "Michael Saks",
+ "affiliation": "Rutgers, The State University of New Jersey",
+ "date": "2012-01-23T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4102.0,
+ "abstract": "In the file maintenance problem, n integer items from the set {1,....,r} are to be stored in an array of size m>=n . The items are presented sequentially in an arbitrary order and must be stored in the array in sorted order (but not necessarily in consecutive locations in the array). Each new item is stored before the next arrives. If r=m then we can simply store item j in location j , but if r>m then we may have to shift the location of stored items IN to make space for a newly arrived item.",
+ "youtube_url": "https://www.youtube.com/watch?v=42u70zjRGiY",
+ "page_url": "https://www.ias.edu/video/csdm/saks20120123",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "File-maintenance and online-labeling formulation",
+   "summary": "The talk defines the online problem of storing arriving ordered keys in a gapped array, its equivalent online-labeling formulation, the cost model, and the nontrivial parameter regime n <= m < r.",
+   "spans": [
+    {
+     "start_sec": 42,
+     "end_sec": 282
+    },
+    {
+     "start_sec": 449,
+     "end_sec": 521
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Known bounds and target optimality statements",
+   "summary": "The speaker recalls O(log^2 n) small-space upper bounds, the O(log^3 n) exact-space bound, and states the matching new amortized lower bounds for m = c n with r = Θ(m) and for m = n.",
+   "spans": [
+    {
+     "start_sec": 282,
+     "end_sec": 449
+    },
+    {
+     "start_sec": 555,
+     "end_sec": 1014
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Density-threshold rebalancing upper bound",
+   "summary": "A binary tree over array positions, level-dependent density thresholds, and rebalancing at the highest violated node give the standard O(n log^2 n) total-cost upper-bound analysis by charging each rebalance to enough intervening insertions.",
+   "spans": [
+    {
+     "start_sec": 1044,
+     "end_sec": 1982
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Need for an unrestricted adversarial lower bound",
+   "summary": "Previous lower bounds assumed middle insertion and even redistribution over a chosen segment, so the new proof must replace that restricted adversary with one that works against arbitrary relabeling or movement choices.",
+   "spans": [
+    {
+     "start_sec": 1982,
+     "end_sec": 2268
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Crowded-location adversary via nested dense buffered segments",
+   "summary": "The lower-bound adversary is designed to insert between adjacent stored keys in a location that is crowded at many scales, encoded by a depth-Θ(log n) chain of nested array segments whose densities drop by only O(1/log n) and whose sides contain buffer mass.",
+   "spans": [
+    {
+     "start_sec": 2268,
+     "end_sec": 2958
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Online maintenance through busy regions and critical intervals",
+   "summary": "After each adversarial insertion, the algorithm's moved contiguous busy region determines which previous nested segments can be kept, which one is critical, and where the adversary must reconstruct the lower levels at the next step.",
+   "spans": [
+    {
+     "start_sec": 2958,
+     "end_sec": 3324
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Potential construction of the nested segments",
+   "summary": "The speaker sketches the existence step: after a free half-loading initialization, segments are chosen by maximizing a potential combining interval length and density, with middle-third truncations and auxiliary intervals ensuring both controlled shrinkage and buffer properties; the final cost accounting is deferred.",
+   "spans": [
+    {
+     "start_sec": 3324,
+     "end_sec": 4060
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Direct-addressing when the array is at least the universe size",
+   "note": "The case m >= r is used only to show why the interesting regime excludes enough space to store value i directly in position i.",
+   "first_introduced_sec": 221,
+   "spans": [
+    {
+     "start_sec": 221,
+     "end_sec": 259
+    }
+   ],
+   "total_seconds": 38,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he gives the concrete direct-addressing construction, storing item i in location i when m≥r",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 10,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The full-universe direct-address table is a trivial no-rebalancing boundary regime m≥r, used only to mark the easy case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the high-space regime m>=r is the boundary case where file maintenance collapses to trivial direct addressing."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A universe-sized direct-address table collapses the problem to the trivial high-space boundary case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the m≥r direct-addressing regime is a boundary case in which the problem collapses to the trivial map item i to slot i."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the case m>=r is the trivial high-space boundary where direct addressing removes the maintenance problem"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The large-universe direct-addressing regime collapses the problem to the trivial store-key-i-at-location-i solution."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The m≥r direct-address table is the boundary trivial regime where each key can be placed at its own address, not a refutation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "trivial boundary regime m≥r permits one fixed cell per universe element."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the direct-address table is the trivial boundary regime m≥r where no compression or rebalancing is needed"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the m>=r direct-addressing regime is a trivial high-space boundary case, not an adversarial example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "trivial identity placement in the boundary regime m≥r rather than a refuting example"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "with m at least the universe size, direct addressing stores key i in slot i and collapses the maintenance problem to a trivial no-rebalancing case"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Blocks of size 2^j with one empty slot",
+   "note": "This ideal partially loaded configuration illustrates why, in the exact-space upper-bound sketch, a later move can force an entire old block to move and hence multiply costs by 2^j.",
+   "first_introduced_sec": 778,
+   "spans": [
+    {
+     "start_sec": 778,
+     "end_sec": 830
+    }
+   ],
+   "total_seconds": 52,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he analyzes the block setup, deriving that moves are multiplied by 2^j and computing the resulting phase costs",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Equal 2^j-blocks with exactly one gap per block are a highly regular minimally-slack packed configuration used illustratively, not to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "uniform power-of-two blocks with exactly one vacancy form a minimum-slack, highly regular ideal layout."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Equal power-of-two blocks with exactly one gap each form a highly regular minimal-slack configuration."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "blocks with exactly one empty slot are maximally crowded while still having a gap, used as a regular idealized cost illustration rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "uniform dyadic blocks with exactly one vacancy are highly regular and have minimal slack per block"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The equal power-of-two blocks with exactly one gap each are a highly regular near-full boundary configuration used only to illustrate the cost multiplier."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The layout with one slack cell in each equal 2^j-block is a critical near-full and highly regular packing used to explain cost amplification."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "uniform power-of-two blocks with minimum slack are a regular near-full boundary configuration."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "equal blocks each with exactly one gap form a highly regular near-full configuration with minimal local slack"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the dyadic block configuration is highly regular and has minimal one-slot slack per block."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "uniform nearly full blocks form a regular critical crowding pattern used only to illustrate cost"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "blocks of size 2^j with exactly one empty slot form a regular nearly-full boundary configuration illustrating the cost multiplier"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Monotone insertion sequence against restricted rebalancing",
+   "note": "The ordered sequence 1,2,3,4,5,... is presented as a dumb adversary that defeats the restricted evenly-rebalancing algorithms, motivating the need for a genuinely adaptive lower-bound adversary.",
+   "first_introduced_sec": 2194,
+   "spans": [
+    {
+     "start_sec": 2194,
+     "end_sec": 2247
+    }
+   ],
+   "total_seconds": 53,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he cites the monotone sequence 1,2,3,… as defeating the restricted algorithm but does not work through it",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 12,
+    "symmetric": 8,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The increasing insertion order is maximally ordered/minimum-disorder and is used as an enemy sequence for the restricted rebalancing method."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the monotone sequence has zero inversions and maximal regularity, and is used as an adversary for the restricted algorithm."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The increasing sequence is a maximally ordered input used as an adversarial case against the restricted rebalancing scheme."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the increasing sequence 1,2,3,… is a zero-inversion extreme insertion order used as an enemy sequence for the restricted rebalancing algorithms."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the increasing sequence is maximally regular with minimum disorder and is used as an adversarial witness against restricted rebalancing"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The increasing insertion order is a trivial maximally ordered sequence used as an adversarial case for the restricted rebalancing rule."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The monotone 1,2,3,... input is an inversion-minimal completely regular adversarial sequence exposing the weakness of restricted rebalancing."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the increasing input is an adversarial sequence for the restricted scheme and is the zero-inversion extreme among orders."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the increasing sequence 1,2,3,… is used to expose failure of the restricted rebalancing model and is maximally ordered"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the increasing sequence is a maximally ordered enemy input for the restricted rebalancing strategy."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "zero-inversion monotone input is maximally ordered and used as the adversarial case for the restricted scheme"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the increasing sequence 1,2,3,... is an adversarial case for the restricted rebalancing scheme and is extremal as a sorted/minimum-inversion insertion order"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Densest-child descent ending beside a huge gap",
+   "note": "In response to a question, the speaker explains that always descending to a child of density at least the parent density may land near a large empty region, which motivates stronger all-scale crowded-segment conditions.",
+   "first_introduced_sec": 2581,
+   "spans": [
+    {
+     "start_sec": 2581,
+     "end_sec": 2641
+    }
+   ],
+   "total_seconds": 60,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he traces the densest-child descent down the binary tree and explains why it can end next to a huge empty gap",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 9,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The path always taking a densest child is an extremal-density selection that is shown can fail by landing next to a huge gap."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the descent can terminate next to a zero-density huge gap, a boundary sparse configuration refuting the naive densest-child choice."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The locally densest descent ending next to an extreme empty gap shows the naive densest-child choice can fail."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "always following the densest child is an extremal greedy descent whose selected region can lie beside an empty gap, showing that the naive crowding criterion fails."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the greedy locally densest path can end next to an empty gap, defeating the naive top-down crowding argument"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The densest-child path can land next to an empty gap, showing the naive descent rule fails to find a genuinely crowded point."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The densest-child path beside a huge empty gap is a sparse-gap pathological configuration obstructing the naive local-density descent."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "locally densest-child choices can still land next to an empty gap, obstructing the naive adversary."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the densest-child descent is used to refute the naive greedy crowding choice by landing next to an extreme empty gap"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "it refutes the naive densest-child descent by using locally densest choices that end next to a large empty gap."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the greedy dense path can terminate next to a large empty gap, obstructing the naive descent rule"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the densest-child descent can land beside an extremely sparse gap, showing the greedy crowding choice fails"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Endpoint-concentrated density obstruction",
+   "note": "The possibility that the first and last tenth of the items are crammed at the two ends exposes a flaw in the oversimplified buffer argument and leads to the density-size potential selection method.",
+   "first_introduced_sec": 3516,
+   "spans": [
+    {
+     "start_sec": 3516,
+     "end_sec": 3715
+    }
+   ],
+   "total_seconds": 199,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he reasons through the endpoint-concentrated case, checking how the buffers fail and why discarding endpoints lowers density too much",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The configuration with mass concentrated at the endpoints is a boundary-concentrated distribution used as an obstruction to the naive interval-selection argument."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "mass crammed at the endpoints is a collapsed boundary-density distribution obstructing the simplified buffer argument."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Concentrating mass at the endpoints is a boundary-density obstruction to the oversimplified buffer argument."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "mass crammed at the endpoints with a sparse middle is a boundary-density configuration used as an obstruction to the simplified buffer-selection argument."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the configuration collapses mass into endpoint clusters as an extreme boundary distribution obstructing the simplified buffer argument"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The mass pushed to the two ends is a boundary-concentrated distribution that obstructs the simplified buffer argument."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The endpoint-crammed density pattern is a boundary concentrated configuration that breaks the naive buffer-density selection."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "mass crammed at the endpoints is a boundary/collapsed distribution that breaks the simplified buffer argument."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "endpoint-crammed mass is an obstruction to the simple buffered-interval argument and is a boundary concentration pattern"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "it obstructs the simplified interval argument by collapsing density onto boundary endpoints and leaving the middle sparse."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "endpoint-concentrated mass is a boundary density profile used to defeat the naive buffer choice"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "mass concentrated at the two ends is a boundary distribution obstructing the oversimplified buffer-density argument"
+    }
+   ]
+  }
+ ]
+}

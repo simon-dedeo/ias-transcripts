@@ -1,0 +1,822 @@
+{
+ "key": "b9c0f4ceb4af65d2cfc6e20cd76bc856",
+ "title": "A new approach to the sensitivity conjecture",
+ "speaker": "Michael Saks",
+ "affiliation": "Rutgers University",
+ "date": "2015-04-13T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3810.0,
+ "abstract": "The sensitivity conjecture is a major outstanding foundational problems about boolean functions is the sensitivity conjecture. In one of its many forms, it asserts that the degree of a boolean function (i.e. the minimum degree of a real polynomial that interpolates the function) is bounded above by some fixed power of its sensitivity (which is the maximum vertex degree of the graph defined on the inputs where two inputs are adjacent if they differ in exactly one coordinate and their function values are different).",
+ "youtube_url": "https://www.youtube.com/watch?v=X6sjMMm3GIE",
+ "page_url": "https://www.ias.edu/video/csdm/2015/0413-MichaelSaks",
+ "tags": [
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Streaming permutation communication game and benchmark protocols",
+   "summary": "The speaker defines the game in which Alice fills a bit-vector in permutation order with the last bit forced, Bob must output a set containing the last position, and simple protocols give costs n/2 and sqrt(n) as benchmarks.",
+   "spans": [
+    {
+     "start_sec": 42,
+     "end_sec": 685
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Boolean complexity measures and the sensitivity conjecture",
+   "summary": "The talk reviews low-level Boolean complexity measures, defines sensitivity, recalls Nisan--Szegedy polynomial equivalences among many measures, and isolates sensitivity as the missing polynomial-equivalence case.",
+   "spans": [
+    {
+     "start_sec": 696,
+     "end_sec": 1601
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Reduction from degree-versus-sensitivity to the game",
+   "summary": "The proposition states and proves that a Boolean function of degree n and sensitivity k yields a strategy for the game G_n of cost at most k, by having Alice maintain polynomial degree until the last coordinate and Bob output sensitive coordinates.",
+   "spans": [
+    {
+     "start_sec": 1601,
+     "end_sec": 1769
+    },
+    {
+     "start_sec": 1885,
+     "end_sec": 2248
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Natural strengthened game conjectures",
+   "summary": "After reducing attention to the game, the speaker formulates stronger versions involving constant-size alphabets, random inputs with expected cost, and residual entropy of the last position, while announcing that two of these strengthenings are false and the average-case cost version remains open.",
+   "spans": [
+    {
+     "start_sec": 1769,
+     "end_sec": 1885
+    },
+    {
+     "start_sec": 2248,
+     "end_sec": 2838
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Entropy strengthening refuted by a GF(2) zero-sum protocol",
+   "summary": "Interpreting indices as vectors over GF(2), Alice leaves t positions, writes ones on a large zero-sum subset, and thereby makes the conditional entropy of the last position only O(log log n), refuting the information-theoretic strengthening.",
+   "spans": [
+    {
+     "start_sec": 2838,
+     "end_sec": 3319
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Ternary-alphabet strengthening refuted by coloring and coding",
+   "summary": "With three symbols, Alice writes zeros until the last t positions and then encodes the remaining t-set using a coloring of the t-subset graph plus an error-correcting code, giving Bob a logarithmic-cost strategy.",
+   "spans": [
+    {
+     "start_sec": 3319,
+     "end_sec": 3661
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Monotonicity separation and remaining status of the original game",
+   "summary": "The counterprotocols are related to a monotonicity property; under monotone protocols the original sqrt(n) strategy is optimal, but a slightly better nonmonotone protocol exists, leaving the main game lower-bound conjecture unresolved.",
+   "spans": [
+    {
+     "start_sec": 3661,
+     "end_sec": 3788
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Controlled-last-bit trivial protocol",
+   "note": "In the altered game where Alice chooses the final bit, she writes zeros and then a single one, illustrating why the externally supplied last bit is the source of the communication problem.",
+   "first_introduced_sec": 260,
+   "spans": [
+    {
+     "start_sec": 260,
+     "end_sec": 341
+    }
+   ],
+   "total_seconds": 81,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker traces the hypothetical controlled-last-bit protocol: Alice writes zeros until the last position, writes a one there, and Bob identifies the unique one.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 5,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is the collapsed last-bit-controlled marker protocol, achieving the minimum possible singleton output cost rather than refuting a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "In the relaxed game it is the trivial write-zeros-then-final-one protocol and attains the minimum possible cost, used as motivation rather than to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "In the relaxed model where Alice controls the last write, the coordinate-uniform zero-until-final-one protocol is trivial and cost-1 optimal, defeating any nontrivial lower bound for that variant."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "With last-bit control the game collapses to the trivial one-hot protocol of minimum possible cost 1, showing that relaxation would destroy any nontrivial lower bound."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "In the relaxed game it is a trivial coordinate-blind one-hot marking protocol achieving the minimum possible cost 1, used only to motivate the last-bit restriction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "In the relaxed game it is the trivial direct-marker protocol and attains the minimum possible singleton output cost, used only to motivate the restriction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the last-one marker protocol is a trivial, permutation-uniform, cost-1 optimum for the relaxed game, used to show that allowing control of the final bit would collapse the problem."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The relaxed protocol with Alice controlling the last bit is the trivial all-zero/one-marker strategy and achieves the minimum possible singleton output cost, used only as a contrast to the real game."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "In the relaxed game this trivial coordinate-equivariant cost-1 protocol defeats any nontrivial lower bound."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The label-symmetric zero-until-final-one protocol is a trivial optimal cost-1 boundary case used to motivate forbidding Alice control of the last bit."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The controlled-last-bit variant collapses to a trivial one-marker protocol of minimum possible cost, used only to motivate the rule forbidding last-bit control."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "In the relaxed game it one-hot encodes the final position with minimum cost 1, showing that allowing Alice to control the last bit would destroy the intended hardness."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Block-OR certificate example",
+   "note": "The function that is true when some block is all ones makes 1-certificates and 0-certificates concrete for the definition of certificate complexity.",
+   "first_introduced_sec": 907,
+   "spans": [
+    {
+     "start_sec": 907,
+     "end_sec": 981
+    }
+   ],
+   "total_seconds": 74,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker analyzes the block-OR-style function by exhibiting concrete certificates for value one and for value zero using an all-one block or one zero per block.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 9,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The block-OR/OR-of-ANDs function is used as an ordinary illustration of certificates, with no exceptional or extremal status invoked."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The block-OR/OR-of-block-ANDs function is an ordinary structured Boolean-function example used to illustrate certificates, not to disprove anything."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The equal-size OR of identical AND blocks has a regular block-permutation symmetry and is used only to illustrate 1- and 0-certificates."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The OR-of-equal-AND-blocks function is used only to illustrate certificates; it is a regular block construction but not a classification exception or extremal case here."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The OR-of-equal-block-ANDs Boolean function is a standard illustrative certificate-complexity example, not a sporadic, degenerate, extremal, or refuting case here."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The OR-of-equal-block-ANDs is a regular block-symmetric Boolean function used simply to illustrate certificates."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the equal-block OR-of-ANDs function is a regular block-symmetric illustrative example for certificates, not a disproof of a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The OR-of-block-ANDs Boolean function is a standard structured example used to illustrate certificates, not to refute a claim or serve as a classification exception."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The equal-size OR-of-AND blocks is a regular certificate illustration, not a sporadic or adversarial example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The OR of identical all-one blocks is a regular block-symmetric Boolean function used to illustrate certificates rather than to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The equal-block OR-of-ANDs Boolean function is a regular illustrative example for certificates, not a sporadic or optimal object and not used to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The OR of equal-size AND blocks is a regular block-symmetric Boolean function used only to illustrate 1- and 0-certificates."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "AND function sensitivity",
+   "note": "The AND function has maximum worst-case sensitivity at the all-one input but tiny average sensitivity, illustrating both the sensitivity definition and why average sensitivity is not the same issue as the randomized game variant.",
+   "first_introduced_sec": 1074,
+   "spans": [
+    {
+     "start_sec": 1074,
+     "end_sec": 1104
+    },
+    {
+     "start_sec": 1406,
+     "end_sec": 1466
+    },
+    {
+     "start_sec": 2700,
+     "end_sec": 2720
+    }
+   ],
+   "total_seconds": 110,
+   "attaches_to": [
+    "s2",
+    "s4"
+   ],
+   "primary_stage": "s2",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker computes the AND function’s sensitivity, noting the all-ones input has n sensitive neighbors and concluding the sensitivity is n.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "AND_n is permutation-symmetric and attains the maximum possible sensitivity n at the all-ones input, here used to illustrate sensitivity."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The AND function is fully permutation-symmetric and has maximum possible worst-case sensitivity n, and it is also invoked to show that average sensitivity can be tiny."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "AND_n is fully variable-symmetric and attains the maximum possible sensitivity n at the all-ones input, here serving as an illustration of sensitivity."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "AND_n is permutation-symmetric and attains the maximum possible sensitivity n, but in the main discussion it serves as an illustrative sensitivity example rather than a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "AND_n is fully permutation-symmetric and attains the maximum possible sensitivity n at the all-ones input, but is used here to illustrate the definition rather than disprove a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "AND_n is coordinate-symmetric and attains the maximum possible worst-case sensitivity n, here serving as an illustrative computation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "AND is fully symmetric and attains maximum possible worst-case sensitivity n, here used to illustrate the definition."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AND function is a sparse/simple Boolean function whose worst-case sensitivity attains the maximum n, used here mainly to illustrate the definition of sensitivity."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "AND_n is fully permutation-symmetric and attains the maximum possible sensitivity n, here used to illustrate the definition."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AND function is fully permutation-symmetric and attains maximum possible sensitivity n, but here it mainly illustrates the sensitivity definition."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AND function is permutation-symmetric and attains the maximum possible worst-case sensitivity n, serving as an illustration rather than a counterexample."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AND_n is fully permutation-symmetric and has maximum worst-case sensitivity n, and it is cited to show average sensitivity can be tiny."
+    }
+   ]
+  }
+ ]
+}

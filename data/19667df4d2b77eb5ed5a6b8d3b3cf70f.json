@@ -1,0 +1,1178 @@
+{
+ "key": "19667df4d2b77eb5ed5a6b8d3b3cf70f",
+ "title": "Learning and Testing k-Model Distributions",
+ "speaker": "Rocco Servidio",
+ "affiliation": "Columbia University",
+ "date": "2011-04-25T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3547.0,
+ "abstract": "A k-modal probability distribution over the domain {1,...,N} is one whose histogram has at most k \"peaks\" and \"valleys\". Such distributions are a natural generalization of the well-studied class of monotone increasing (or monotone decreasing) probability distributions.",
+ "youtube_url": "https://www.youtube.com/watch?v=0Ob8dEr7vDg",
+ "page_url": "https://www.ias.edu/video/csdm/servidio",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Problem formulation, baselines, and main bounds",
+   "summary": "The talk defines learning and identity testing for k-modal distributions over an ordered finite domain, contrasts them with unstructured distribution learning/testing, states the main sample-complexity upper and lower bounds, and situates the results relative to prior monotone/unimodal work.",
+   "spans": [
+    {
+     "start_sec": 22,
+     "end_sec": 646
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Two sampling tools: DKW and empirical PDF learning",
+   "summary": "The Dvoretzky--Kiefer--Wolfowitz inequality is introduced as a way to form approximate equal-probability intervals, and the standard empirical-estimator bound is recalled for learning an arbitrary distribution on a finite set.",
+   "spans": [
+    {
+     "start_sec": 666,
+     "end_sec": 888
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Monotone case via Birgé's oblivious decomposition",
+   "summary": "For k=0, Birgé's exponentially growing oblivious buckets make every monotone distribution close to its bucketwise flattening, reducing learning and identity testing to the corresponding arbitrary-distribution problems on only O(log n/epsilon) buckets, with a matching lower-bound sketch.",
+   "spans": [
+    {
+     "start_sec": 888,
+     "end_sec": 1528
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Naive general-k learner and its extra epsilon factor",
+   "summary": "A first k-modal learner partitions the domain into many small-mass intervals, runs monotone learners on all of them, and combines the hypotheses, but its sample complexity loses a factor because the learner is invoked on about k/epsilon intervals.",
+   "spans": [
+    {
+     "start_sec": 1528,
+     "end_sec": 2075
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Promised k-modal monotonicity tester",
+   "summary": "The needed tester distinguishes whether an unknown promised k-modal distribution is monotone or epsilon-far from monotone using O(k^2/epsilon^2) samples, by checking interval-average inequalities and proving soundness through local peak-and-valley corrections.",
+   "spans": [
+    {
+     "start_sec": 2075,
+     "end_sec": 2307
+    },
+    {
+     "start_sec": 2827,
+     "end_sec": 3284
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Semi-agnostic monotone learner",
+   "summary": "Birgé's oblivious-bucket learner is observed to remain effective when the target is only OPT-close to monotone, returning a hypothesis with error on the order of OPT plus epsilon, which is necessary because a tester can certify only approximate monotonicity.",
+   "spans": [
+    {
+     "start_sec": 2307,
+     "end_sec": 2474
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Sharp general-k learning algorithm",
+   "summary": "The final learner uses DKW to form small initial intervals, repeatedly extends a block while the promised monotonicity tester accepts and marks spoiler intervals when it rejects, then agnostically learns the resulting close-to-monotone superintervals and ignores the at most k marked low-mass intervals.",
+   "spans": [
+    {
+     "start_sec": 2474,
+     "end_sec": 2827
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Identity testing for known k-modal distributions and outlook",
+   "summary": "The known-q identity tester is sketched by decomposing according to small intervals and q's modes, applying the monotonicity/identity checks locally, and then the talk concludes with the testing-versus-learning separation and future directions for broader and more structured distribution classes.",
+   "spans": [
+    {
+     "start_sec": 3284,
+     "end_sec": 3542
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Sketched monotone and k-modal histograms",
+   "note": "The speaker draws increasing, unimodal, and three-modal histograms to make the definition of k-modality concrete, without deriving any later argument from the particular shapes.",
+   "first_introduced_sec": 29,
+   "spans": [
+    {
+     "start_sec": 29,
+     "end_sec": 120
+    }
+   ],
+   "total_seconds": 91,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker sketches and labels monotone, unimodal, and three-modal histograms only to illustrate the definitions, without carrying out further analysis on them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Generic schematic monotone, unimodal, and multimodal histograms are used only to illustrate definitions."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Generic sketched histograms are used only to illustrate monotone, unimodal, and k-modal distributions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "generic monotone/unimodal/k-modal sketches used only to illustrate the definitions"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Generic sketched monotone, unimodal, and three-modal histograms illustrate definitions as ordinary members of the k-modal setting."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "generic schematic histograms used only to illustrate monotone, unimodal, and k-modal distributions"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "generic monotone/unimodal/k-modal histograms are used as representative definitional pictures"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Representative monotone, unimodal, and multimodal histogram sketches are used only to illustrate the definitions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The histograms are generic illustrative representatives used to define monotone and k-modal distributions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "generic histograms are used only to illustrate monotone, unimodal, and k-modal definitions."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "schematic monotone/unimodal/k-modal histograms are used only to illustrate definitions, with no sporadic, optimal, or collapsed structure singled out"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Schematic monotone/unimodal/k-modal histograms are used only as representative illustrations of the definitions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "generic schematic histograms illustrating monotone, unimodal, and k-modal distributions rather than an adversarial case"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Uniform distribution versus uniform on a random subset",
+   "note": "This sample-indistinguishability construction explains why testing whether an arbitrary unknown distribution is k-modal is too hard and later motivates retaining the k-modal promise in the monotonicity tester.",
+   "first_introduced_sec": 265,
+   "spans": [
+    {
+     "start_sec": 265,
+     "end_sec": 314
+    },
+    {
+     "start_sec": 2187,
+     "end_sec": 2214
+    }
+   ],
+   "total_seconds": 76,
+   "attaches_to": [
+    "s1",
+    "s5"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses the uniform-vs-random-subset case to reason through a lower bound, comparing modality/farness and explaining why samples cannot distinguish them because collisions are unlikely",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The maximally regular uniform distribution is paired with uniform-on-a-random-subset as an indistinguishable hard instance for k-modality testing."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The uniform-vs-random-subset construction is an indistinguishability/lower-bound enemy case, with the full uniform distribution being maximally regular."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the uniform-vs-random-subset pair is an adversarial indistinguishability example showing the harder testing problem cannot be easy"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The uniform-vs-random-subset pair is a hard-instance obstruction showing that testing k-modality without the known-reference promise is sample-hard, with the uniform side maximally regular."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the full uniform distribution is maximally regular and the pair is used as an indistinguishability lower-bound obstruction to testing k-modality"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the uniform-vs-random-subset pair is an adversarial lower-bound example for testing k-modality, with the full uniform distribution maximally regular"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The pair is used as an indistinguishability lower-bound obstruction, with the full uniform distribution being maximally symmetric."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The uniform-versus-random-subset pair is used as a lower-bound hard instance showing k-modality testing cannot be easy, and the full uniform distribution is maximally regular."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the pair is a lower-bound indistinguishability construction for testing k-modality, with the full uniform law maximally symmetric."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the uniform-vs-random-subset pair is a lower-bound obstruction to testing k-modality, and the full uniform law is maximally regular"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The uniform/random-subset uniform pair is a highly regular indistinguishability construction used as a lower-bound obstruction to testing k-modality."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used as a hard indistinguishability construction for a testing lower bound, with the full uniform distribution maximally regular"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Five-point empirical CDF picture",
+   "note": "A small empirical CDF drawn from five sample points illustrates the DKW inequality's guarantee on uniform CDF error.",
+   "first_introduced_sec": 724,
+   "spans": [
+    {
+     "start_sec": 724,
+     "end_sec": 748
+    }
+   ],
+   "total_seconds": 24,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker constructs the empirical CDF for five sample points, describing the jumps such as to one fifth and how DKW controls its deviation from the true CDF",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The five-sample step CDF is the standard empirical-CDF illustration for DKW, not an adversarial or special object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The five-sample empirical CDF is a routine illustrative empirical distribution, not a structural special case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a small empirical CDF staircase is a routine illustration of the DKW estimator"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A five-sample empirical CDF is a standard finite step-function illustration of the DKW inequality, not a special structural case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an ordinary five-sample empirical CDF picture illustrating the DKW inequality"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a five-sample empirical CDF is a standard illustrative empirical step function"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The five-sample empirical CDF is a standard illustrative empirical step function."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The five-point empirical CDF is just a standard finite-sample illustration of the DKW inequality."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the five-sample staircase is a generic empirical CDF picture used to explain the DKW inequality."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the five-sample empirical CDF is a routine illustrative empirical estimator for DKW, not an adversarial or structurally special object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The five-sample empirical CDF is a standard illustrative empirical step function for the DKW inequality."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an ordinary empirical step CDF drawn only to illustrate the DKW estimate"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Heavy atom obstruction to equal-mass bucketing",
+   "note": "A point mass larger than the target bucket mass is used as an edge-case illustration of why DKW-based partitions are only morally equal-mass and how heavy points can be handled separately.",
+   "first_introduced_sec": 792,
+   "spans": [
+    {
+     "start_sec": 792,
+     "end_sec": 812
+    },
+    {
+     "start_sec": 1887,
+     "end_sec": 1914
+    }
+   ],
+   "total_seconds": 47,
+   "attaches_to": [
+    "s2",
+    "s4"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes the heavy-point case as an obstruction to equal-mass intervals and explains how repeated samples would identify such atoms so they can be handled separately",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A heavy atom is used as the obstruction showing exact equal-mass interval bucketing can fail."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A macroscopic point mass is a collapsed atomic feature and is used as an obstruction to exact equal-mass interval bucketing."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a macroscopic point atom is a collapsed mass that obstructs exact equal-mass interval bucketing"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A distribution with a heavy atom is an ordinary discrete distribution but is used to show exact equal-mass interval bucketing can fail."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a heavy atom is invoked to show exact equal-mass interval bucketing can fail"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a heavy atom is cited as an obstruction to literal equal-mass interval bucketing"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A large point mass obstructs exact equal-mass interval bucketing by collapsing substantial mass onto one atom."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A heavy atom is used to obstruct the naive claim that one can always form equal-mass intervals."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a large atom is a collapsed mass point used as an obstruction to exact equal-mass bucketing."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a distribution with a heavy atom is cited as the obstruction to literal equal-mass interval bucketing, and its mass is partially collapsed onto one point"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A heavy atom is invoked specifically to show that exact equal-mass interval bucketing can fail."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a concentrated point mass is a collapsed heavy-atom case used to show exact equal-mass interval bucketing can fail"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Sum of independent biased coins",
+   "note": "The Poisson-binomial distribution of the number of heads from n coins with unknown biases illustrates a more structured unimodal subclass learnable with sample complexity independent of n.",
+   "first_introduced_sec": 3471,
+   "spans": [
+    {
+     "start_sec": 3471,
+     "end_sec": 3542
+    }
+   ],
+   "total_seconds": 71,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker cites the sum of independent biased coins as a structured unimodal subclass with a known improved learning bound, but does not derive or compute anything for it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Poisson-binomial law from independent biased coins is a structured but nonexceptional subclass used as a positive learnability example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A Poisson-binomial distribution from independent biased coins is a systematic structured subclass used as a positive example of easier learning."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a Poisson-binomial law from independent biased coins is an infinite structured subclass used as a positive learning example"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The sum of independent biased coins is a systematic Poisson-binomial unimodal family used as a positive structured special case, not as an adversarial or sporadic example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a Poisson-binomial distribution is a structured but non-sporadic subclass used as a positive learnability example"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a Poisson-binomial sum of independently biased coins is a systematic structured subclass used as a positive special case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A Poisson-binomial sum is presented as a structured positive subclass learnable efficiently rather than as an adversarial failure case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The sum of independent biased coins is presented as a structured positive example of a learnable unimodal subclass, not as a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the Poisson-binomial law is a positive structured subclass example rather than a sporadic, extremal, or symmetric object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a Poisson-binomial law is used as a positive structured subclass of unimodal distributions, not as a failure case or sporadic/extreme object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The sum of independent biased coins is the ordinary Poisson-binomial subclass used as a positive structured learning example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard Poisson-binomial distribution used as a structured subclass with better learning bounds, not a sporadic or extremal object"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1690 @@
+{
+ "key": "328edb4c49411e9ca10eebddabfe8006",
+ "title": "Model-based clustering of high-dimensional data: Pitfalls & solutions",
+ "speaker": "David Dunson",
+ "affiliation": "Does not exist",
+ "date": "2020-09-09T12:00:00Z",
+ "field_msc": "62 Statistics",
+ "duration_sec": 3812.0,
+ "abstract": "Does not exist",
+ "youtube_url": "https://www.youtube.com/watch?v=1-_0X1AsrNk",
+ "page_url": "https://www.ias.edu/video/MissingDataWS/2020/0909-DavidDunson",
+ "tags": [
+  "School of Mathematics",
+  "Virtual Workshop on Missing Data Challenges in Computation Statistics and Applications"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "High-dimensional clustering problem and desiderata",
+   "summary": "The talk formulates the task of clustering massive-dimensional observations, especially gene-expression vectors, while retaining uncertainty quantification and avoiding purely algorithmic one-clustering outputs.",
+   "spans": [
+    {
+     "start_sec": 88,
+     "end_sec": 456
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Bayesian mixture-clustering apparatus",
+   "summary": "A model-based clustering framework is set up through mixture densities, Bayesian priors on weights or partitions, nonparametric Dirichlet/Pitman-Yor priors, MCMC data augmentation, and straightforward missing-data imputation.",
+   "spans": [
+    {
+     "start_sec": 456,
+     "end_sec": 1157
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "High-dimensional posterior-failure question",
+   "summary": "The speaker explains why high-dimensional kernels are forced between over-simple and over-flexible parameterizations, motivating the question whether observed clustering degeneracies are MCMC artifacts or true posterior limits when p grows with n fixed.",
+   "spans": [
+    {
+     "start_sec": 1178,
+     "end_sec": 1669
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Partition-posterior degeneracy theorem",
+   "summary": "After expressing the posterior probability of a partition as prior mass times marginal likelihood, the main theorem shows that marginal-likelihood ratios for merging clusters tending to zero or infinity force the posterior to concentrate respectively on one cluster or on all singleton clusters.",
+   "spans": [
+    {
+     "start_sec": 1669,
+     "end_sec": 2037
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Gaussian-kernel corollaries",
+   "summary": "Applying the theorem to standard Gaussian location-mixture models shows that common parsimonious kernels produce singleton-cluster collapse, whereas more flexible full-covariance kernels produce one-cluster collapse, independently of the true data-generating distribution.",
+   "spans": [
+    {
+     "start_sec": 2037,
+     "end_sec": 2362
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Latent factor mixture middle ground",
+   "summary": "The proposed LAM model avoids both extremes by using a sparse factor model for the high-dimensional observations and placing a flexible mixture only on fixed-dimensional latent factors.",
+   "spans": [
+    {
+     "start_sec": 2362,
+     "end_sec": 2583
+    },
+    {
+     "start_sec": 3039,
+     "end_sec": 3094
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Bayes-oracle asymptotic justification",
+   "summary": "A Bayes-oracle clustering posterior based on the true latent variables is defined, and under factor-model assumptions the LAM posterior over partitions is shown to converge to this oracle as p tends to infinity with n fixed; the later Q&A clarifies that this is not a separate separation-based consistency theorem.",
+   "spans": [
+    {
+     "start_sec": 2583,
+     "end_sec": 2856
+    },
+    {
+     "start_sec": 3698,
+     "end_sec": 3806
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Computation, empirical validation, and extensions",
+   "summary": "The method is implemented with Gibbs and split-merge MCMC, compared against Gaussian-mixture, infinite-factor-analyzer, and sparse-PCA/k-means competitors in simulations and single-cell data, and discussed in relation to scalability and robustness extensions.",
+   "spans": [
+    {
+     "start_sec": 2856,
+     "end_sec": 3039
+    },
+    {
+     "start_sec": 3094,
+     "end_sec": 3698
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Single-cell RNA-seq cell-type clustering",
+   "note": "Single-cell gene-expression data provide the motivating biomedical setting and later a benchmark for comparing LAM with Seurat and PCA/k-means, but the theoretical argument does not depend on this dataset.",
+   "first_introduced_sec": 142,
+   "spans": [
+    {
+     "start_sec": 142,
+     "end_sec": 168
+    },
+    {
+     "start_sec": 189,
+     "end_sec": 329
+    },
+    {
+     "start_sec": 2915,
+     "end_sec": 2935
+    },
+    {
+     "start_sec": 3355,
+     "end_sec": 3412
+    }
+   ],
+   "total_seconds": 243,
+   "attaches_to": [
+    "s1",
+    "s8"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses single-cell RNA-seq as the motivating application, visualizes it with UMAP, and later applies LAM/Seurat/PCA-k-means to a real dataset and compares ARI values against a gold standard",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ordinary high-dimensional genomics clustering application used for motivation and benchmarking, not to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary motivating scRNA-seq clustering application, used to motivate rather than refute"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A motivating high-dimensional biological clustering application, not a structurally special object or failure case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard high-dimensional omics clustering application used for motivation and validation, not as a failure case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard high-dimensional genomics clustering application used for motivation and validation, not as a structural outlier or refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary motivating single-cell clustering application rather than a refuting case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "used as a motivating high-dimensional genomics application rather than to refute a claim, with no intrinsic extremal or exceptional structure"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard motivating high-dimensional genomics clustering application, not used to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "motivating real high-dimensional genomics clustering application, not used to refute a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used as the motivating real-data application, and it is a typical high-dimensional omics clustering problem."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "motivating real-data clustering application rather than a failure case or structurally special object"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard motivating high-dimensional genomics clustering application, not a sporadic or failure example."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Sparse PCA followed by k-means baseline",
+   "note": "The two-stage baseline exposes why unsupervised dimension reduction before clustering is unsatisfactory and motivates LAM as an integrated probabilistic analogue of sparse factor reduction plus clustering.",
+   "first_introduced_sec": 356,
+   "spans": [
+    {
+     "start_sec": 356,
+     "end_sec": 456
+    },
+    {
+     "start_sec": 2539,
+     "end_sec": 2578
+    },
+    {
+     "start_sec": 2993,
+     "end_sec": 3039
+    },
+    {
+     "start_sec": 3094,
+     "end_sec": 3294
+    },
+    {
+     "start_sec": 3355,
+     "end_sec": 3379
+    }
+   ],
+   "total_seconds": 409,
+   "attaches_to": [
+    "s1",
+    "s6",
+    "s8"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "sparse PCA followed by k-means is not only proposed as a baseline but run in simulations and the real-data comparison, with ARI and estimated cluster counts discussed",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 6,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Standard two-stage heuristic used mainly as a baseline comparator rather than as a mathematical refuting case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "pragmatic two-stage baseline used as a foil whose limitations and failures motivate LAM"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard two-stage heuristic used mainly as a baseline comparator, not itself as a counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a conventional two-stage baseline/foil whose limitations are discussed, but the method itself is not the adversarial example"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A common two-stage baseline algorithm used for comparison, with limitations noted but not itself a mathematical counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "standard two-stage baseline used as a foil whose limitations and failures expose naive clustering pitfalls"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "presented as a pragmatic baseline/competitor method, not a structural special case or classification exception"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A conventional two-stage baseline/competitor rather than an intrinsically special object or a formal counterexample."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary two-stage baseline used to expose limitations and failures of simple dimension-reduction-plus-k-means"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a foil showing limitations of a naive two-stage high-dimensional clustering baseline."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "standard two-stage baseline is used as a foil whose limitations and hard-simulation failures motivate LAM"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary two-stage baseline is used to illustrate shortcomings and failures of pragmatic clustering workflows."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Finite-subject medical omics thought experiment",
+   "note": "The speaker uses clinical/genomic/metabolomic measurements on a bounded cohort to make concrete the asymptotic regime in which dimension grows while sample size is fixed.",
+   "first_introduced_sec": 1623,
+   "spans": [
+    {
+     "start_sec": 1623,
+     "end_sec": 1669
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the finite-subject medical omics case is used as a motivating thought experiment for fixed n and growing p, without any computation or concrete analysis on it",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The fixed-sample, dimension-growing omics regime is a boundary high-dimensional asymptotic used to motivate the theory."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "fixed-n, p-to-infinity omics regime is a limiting stress case exposing posterior-degeneracy pitfalls"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The fixed-subject, p-to-infinity omics regime is a boundary asymptotic setting used to motivate the analysis."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the fixed-n, p-to-infinity omics regime is a limiting boundary asymptotic used to motivate the theorem"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The fixed-subject, dimension-to-infinity omics regime is a limiting high-dimensional asymptotic setting used to motivate the theory."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "fixed-sample-size and dimension-going-to-infinity omics regime is a limiting enemy case for model-based clustering"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the fixed-sample-size with dimension tending to infinity thought experiment is a boundary high-dimensional asymptotic regime motivating the theorem"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The fixed-sample, dimension-to-infinity medical-omics regime is a boundary high-dimensional asymptotic thought experiment used for motivation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "fixed-subject, p-to-infinity omics regime is an extreme high-dimensional asymptotic motivation rather than a refutation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used to motivate the fixed-sample, dimension-growing asymptotic regime, which is a limiting high-dimensional case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "fixed-subject p-to-infinity omics regime is an extreme high-dimensional asymptotic used for motivation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The fixed-sample, dimension-going-to-infinity omics setup is a limiting high-dimensional regime motivating the theory."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Spherical Gaussian location mixture",
+   "note": "This k-means-like Gaussian special case illustrates the theorem by showing that an overly rigid within-cluster kernel drives the posterior to singleton clusters as dimension grows.",
+   "first_introduced_sec": 2113,
+   "spans": [
+    {
+     "start_sec": 2113,
+     "end_sec": 2221
+    }
+   ],
+   "total_seconds": 108,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the spherical Gaussian location mixture is analyzed as a corollary, specifying sigma squared identity and deriving the bad posterior limit of singleton clusters",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 5,
+    "extremal": 2,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The isotropic Gaussian mixture has spherical symmetry and is used to prove the bad singleton-cluster posterior limit."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "isotropic scalar-shift Gaussian mixture is collapsed and rotationally regular, used to prove singleton-cluster collapse"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The isotropic Gaussian location mixture is a maximally regular, collapsed subfamily used to exhibit the all-singletons posterior failure."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the isotropic Gaussian mixture is maximally regular/spherical and is used to show a too-simple model yields singleton-cluster posterior collapse"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The isotropic Gaussian mixture is maximally symmetric and is used to show a bad posterior limit with singleton clusters."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "spherical covariance is a collapsed maximally regular Gaussian submodel used to prove the singleton-cluster bad limit"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the spherical Gaussian location mixture is used to show a bad posterior limit where every observation forms its own cluster, and its isotropic covariance gives maximal rotational symmetry"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The highly parsimonious spherical location mixture is used to exhibit posterior failure to the all-singletons limit, and its covariance/mean structure is collapsed and maximally regular."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "maximally regular spherical Gaussian location mixture is a minimal-complexity extreme used to show singleton-cluster posterior failure"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to prove a bad all-singletons posterior limit for an overly parsimonious, maximally isotropic Gaussian mixture."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "isotropic Gaussian location mixture is a maximally regular model used to show the singleton-cluster bad posterior limit"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The overly parsimonious isotropic location mixture is used to prove singleton-cluster posterior collapse."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Full-covariance Gaussian location mixture",
+   "note": "The conjugate full-covariance Gaussian mixture illustrates the opposite failure mode: excessive within-cluster flexibility makes the posterior collapse to one cluster.",
+   "first_introduced_sec": 2234,
+   "spans": [
+    {
+     "start_sec": 2234,
+     "end_sec": 2362
+    }
+   ],
+   "total_seconds": 128,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the full-covariance Gaussian location mixture is analyzed via a conjugate inverse-Wishart/normal setup and shown to have the opposite bad posterior limit of one cluster",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An otherwise standard full-covariance Gaussian location mixture is used to prove the opposite bad all-in-one-cluster posterior limit."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary full-covariance location mixture is used to prove the opposite all-in-one posterior collapse"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The full-covariance Gaussian location mixture is an ordinary flexible Gaussian model used to exhibit the all-in-one-cluster posterior failure."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the ordinary full-covariance Gaussian location mixture is used to show a too-flexible standard model yields all-in-one-cluster posterior collapse"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The ordinary full-covariance Gaussian location mixture is used to show the opposite bad posterior limit with all points in one cluster."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "generic full-covariance Gaussian location mixture is used to prove the opposite all-observations-in-one-cluster bad limit"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the full-covariance Gaussian location mixture is used to show the opposite bad posterior limit where all observations merge into one cluster"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A standard full-covariance Gaussian mixture is used to show the opposite posterior failure, concentration on one cluster."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "maximally flexible full-covariance Gaussian location mixture is used to show all-in-one-cluster posterior failure"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to prove the opposite bad limit, all observations in one cluster, for a standard full-covariance Gaussian mixture."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary full-covariance Gaussian location mixture is used to show the all-in-one-cluster bad posterior limit"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The standard full-covariance Gaussian location mixture is used to prove all-points-one-cluster posterior collapse."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Challenging simulation scenarios",
+   "note": "Mixture-factor, LAM-generated, and zero-inflated Poisson-like simulation designs are used to stress-test clustering accuracy and cluster-count recovery under high dimension.",
+   "first_introduced_sec": 2879,
+   "spans": [
+    {
+     "start_sec": 2879,
+     "end_sec": 3039
+    },
+    {
+     "start_sec": 3094,
+     "end_sec": 3355
+    }
+   ],
+   "total_seconds": 421,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the challenging simulation scenarios are explicitly run and interpreted, including dimensions, true cluster numbers, ARI comparisons, credible intervals, and failure/success patterns",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The deliberately hard simulations with small or overlapping clusters serve as adversarial tests exposing baseline failures."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "hard low-separation and tiny-cluster simulations are adversarial stress tests exposing failures of competitors"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The deliberately hard simulations function as adversarial stress tests exposing failures of competing methods."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the intentionally hard overlapping/small-cluster simulations are adversarial stress tests showing baseline failures and testing robustness"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The deliberately hard overlapping and misspecified simulations serve as adversarial stress tests, especially exposing baseline failures."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "deliberately hard simulation settings serve as adversarial tests exposing failures of competing methods"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the deliberately hard simulations with overlapping and tiny clusters are adversarial benchmark cases used to expose failures of competing methods"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The simulations are deliberately hard adversarial benchmarks exposing failures of naive competitors while testing LAM."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "deliberately hard small-or-overlapping-cluster simulations are used as adversarial stress tests against competing methods"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as deliberately hard stress-test cases where baseline methods can fail, not as structurally sporadic objects."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "hard high-dimensional scenarios with many tiny or overlapping clusters are adversarial edge cases for clustering methods"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The deliberately hard simulations with many small or overlapping clusters serve as adversarial tests near the difficult boundary."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Million-cell single-cell scalability scenario",
+   "note": "An audience question about datasets with millions of cells elicits discussion of divide-and-conquer MCMC and scalability limits of the current implementation.",
+   "first_introduced_sec": 3645,
+   "spans": [
+    {
+     "start_sec": 3645,
+     "end_sec": 3698
+    }
+   ],
+   "total_seconds": 53,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the million-cell scenario arises in a scalability question and is discussed only at the level of feasibility and possible divide-and-conquer MCMC, not actually run or analyzed",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 10,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The million-cell setting is an extreme-scale sample-size scenario used to challenge the scalability of the presented code."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "million-cell dataset is a massive-n boundary case used to show the current code is not scalable as is"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The million-cell setting is raised as a scalability obstruction for the presented code rather than as a structurally special dataset."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the million-cell case is a large-scale computational boundary scenario raised as an obstruction to the method’s direct scalability"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The million-cell case is an extreme scalability regime posed as an obstruction to the current code running as-is."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "million-cell data are an extreme scalability regime showing the presented code is not directly scalable"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the million-cell case is raised as a scalability stress case showing the presented code would not work as-is"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The million-cell case is a large-scale stress scenario showing the presented code is not scalable as-is."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "million-cell setting is a massive-scale boundary case showing the current implementation cannot run as-is"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used as a scalability obstruction for the current code, and the million-cell size is an extreme computational regime."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "million-cell setting is an extreme-scale obstruction to the presented MCMC implementation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The million-cell case is a massive-scale boundary scenario exposing the current implementation’s scalability obstruction."
+    }
+   ]
+  }
+ ]
+}

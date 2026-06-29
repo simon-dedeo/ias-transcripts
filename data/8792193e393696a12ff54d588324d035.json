@@ -1,0 +1,2260 @@
+{
+ "key": "8792193e393696a12ff54d588324d035",
+ "title": "A solution to Weaver's \\(KS_2\\)",
+ "speaker": "Adam Marcus",
+ "affiliation": "Yale University",
+ "date": "2013-12-02T12:00:00Z",
+ "field_msc": "46 Functional analysis",
+ "duration_sec": 4126.0,
+ "abstract": "We will outline the proof that gives a positive solution of to Weaver's conjecture \\(KS_2\\). That is, we will show that any isotropic collection of vectors whose outer products sum to twice the identity can be partitioned into two parts such that each part is a small distance from the identity. The distance will depend on the maximum length of the vectors in the collection but not the dimension (the two requirements necessary for Weaver's reduction to a solution of Kadison Singer).",
+ "youtube_url": "https://www.youtube.com/watch?v=mwvjyeHpeow",
+ "page_url": "https://www.ias.edu/video/csdm/2013/1202-AdamMarcus",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Finite-dimensional KS2 target and technical theorem",
+   "summary": "The talk motivates Kadison-Singer, passes to equivalent finite-dimensional frame-partition formulations, defines the bounded Parseval-frame problem underlying Weaver's KS2, fixes notation, and states the main random-vector theorem that will imply KS2.",
+   "spans": [
+    {
+     "start_sec": 16,
+     "end_sec": 1240
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Characteristic-polynomial strategy",
+   "summary": "The spectral-norm objective is translated into a largest-root problem for characteristic polynomials, and computational observations motivate proving that some assignment is no worse than the expected characteristic polynomial while bounding that expected polynomial.",
+   "spans": [
+    {
+     "start_sec": 1240,
+     "end_sec": 1723
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Interlacing-family selection principle",
+   "summary": "Conditional expected characteristic polynomials are organized in an assignment tree, and common interlacers plus the anchor lemma show that an interlacing family has a leaf whose largest root is at most that of the root expected polynomial.",
+   "spans": [
+    {
+     "start_sec": 1723,
+     "end_sec": 2605
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Mixed characteristic polynomials are real-rooted",
+   "summary": "Using real stable polynomials and Borcea-Branden closure lemmas, the conditional expected characteristic polynomials are identified as mixed characteristic polynomials and proved real-rooted, thereby giving the required interlacing family.",
+   "spans": [
+    {
+     "start_sec": 2605,
+     "end_sec": 3126
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Barrier bound for the expected root",
+   "summary": "The expected mixed characteristic polynomial is expressed as a diagonalization of a multivariate polynomial, and a multivariate logarithmic-derivative barrier argument tracks the zero set under the differential operators to bound the largest root by 1 + 3√ε.",
+   "spans": [
+    {
+     "start_sec": 3126,
+     "end_sec": 3780
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Deduction of Weaver's KS2",
+   "summary": "The interlacing selection result and root bound yield the main technical theorem, and a doubled-vector random construction converts a KS2 instance into that theorem to obtain a two-part partition with explicit universal constants.",
+   "spans": [
+    {
+     "start_sec": 3780,
+     "end_sec": 4102
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3",
+    "s4",
+    "s5"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Continuous Kadison-Singer failure on L2[0,1]",
+   "note": "The continuous Hilbert-space case is mentioned to show why the word “discrete” in Kadison-Singer’s formulation matters, but it is not used in the finite-dimensional proof.",
+   "first_introduced_sec": 278,
+   "spans": [
+    {
+     "start_sec": 278,
+     "end_sec": 347
+    }
+   ],
+   "total_seconds": 69,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the continuous counterexample L2[0,1] is cited as Kadison-Singer's failure case, but the speaker says they do not know the nonuniqueness proof offhand",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The diffuse L2[0,1] continuous case is a standard Hilbert-space/MASA setting used to show KS uniqueness fails outside the discrete hypothesis."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The continuous L2[0,1] case is used as Kadison-Singer's non-unique-extension failure, while the Hilbert space/MASA is not a sporadic or extremal structure."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the non-atomic L2[0,1] setting is used as Kadison-Singer's continuous-case failure"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the continuous MASA on L2[0,1] is used to show uniqueness fails in the non-discrete Kadison-Singer setting."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The continuous L2[0,1] setting is a standard diffuse Hilbert-space case used by Kadison-Singer to show uniqueness fails without discreteness."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The standard nonatomic continuous Hilbert-space setting is used to show uniqueness fails outside the discrete Kadison-Singer case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The continuous L2[0,1] setting is used as Kadison–Singer’s example where uniqueness of extension fails."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The diffuse L2[0,1] setting is used to show uniqueness fails in the continuous Kadison-Singer problem."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "standard continuous nonatomic Hilbert-space case is cited to show Kadison-Singer uniqueness fails without discreteness"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The continuous MASA/Hilbert-space case on L2[0,1] is cited as Kadison–Singer's non-unique-extension failure outside the discrete setting."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The continuous L2[0,1] case is used to show Kadison-Singer uniqueness fails without the discrete hypothesis, while the Hilbert-space example is not structurally sporadic or extremal."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show the continuous Kadison-Singer analogue fails on the standard non-atomic Hilbert space case."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Orthonormal basis as a Parseval frame and obstruction",
+   "note": "An orthonormal basis makes the Parseval-frame definition concrete and illustrates why large vectors prevent a two-way almost-Parseval partition.",
+   "first_introduced_sec": 460,
+   "spans": [
+    {
+     "start_sec": 460,
+     "end_sec": 533
+    },
+    {
+     "start_sec": 596,
+     "end_sec": 648
+    }
+   ],
+   "total_seconds": 125,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker checks that an orthonormal basis is Parseval by summing e_i e_i^T to the identity and reasons through why it obstructs a two-partition",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "An orthonormal basis is the minimal norm-one highly regular Parseval frame and is used as the unsplittable large-vector obstruction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An orthonormal basis is the minimal nonredundant Parseval frame with unit-norm vectors and is used as the obstruction to partitioning without a norm bound."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "an orthonormal basis is the minimally redundant max-norm Parseval frame and is used as the obstruction to arbitrary splitting"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "an orthonormal basis is the minimal nonredundant Parseval frame with maximal vector norms, and it obstructs partitioning without a small-norm hypothesis."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "An orthonormal basis is a minimally redundant boundary Parseval frame with unit-size vectors, used as the obstruction to arbitrary two-part paving."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "As a Parseval frame an orthonormal basis is the nonredundant unit-norm boundary case and obstructs two almost-Parseval parts without norm bounds."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "An orthonormal basis is the minimal nonredundant Parseval frame with maximal vector norms and is used to obstruct naive two-way paving."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A minimal, norm-one, maximally regular Parseval frame is used as the no-redundancy obstruction to splitting."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "an orthonormal basis is the minimal nonredundant Parseval frame and obstructs splitting when large unit vectors are allowed"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "An orthonormal basis is used as the no-redundancy Parseval-frame obstruction, with unit vectors of maximal possible norm preventing a balanced partition."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "An orthonormal basis is a maximally regular minimal Parseval frame with unit-norm atoms, and it obstructs splitting because a coordinate direction cannot be put in both parts."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The orthonormal basis is the minimal Parseval frame with maximal vector norms and obstructs a two-way almost-Parseval partition."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Basic constructions of Parseval frames",
+   "note": "The regular simplex, unions of rescaled Parseval frames, and whitening arbitrary vectors are given as quick examples showing that Parseval frames are redundant analogues of bases.",
+   "first_introduced_sec": 533,
+   "spans": [
+    {
+     "start_sec": 533,
+     "end_sec": 570
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker lists constructions such as scaled simplexes, unions of frames, and inverse-square-root transforms without deriving or checking them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The listed frame-building operations are routine illustrative constructions rather than a special or adversarial object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The listed Parseval-frame constructions are illustrative generic ways to build frames rather than failures or classification-special objects."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the listed Parseval-frame constructions are routine systematic examples used illustratively"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "these are standard systematic recipes for producing Parseval frames, used illustratively rather than adversarially."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The listed Parseval-frame constructions are standard systematic examples used to illustrate the definition."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The listed recipes are standard ways to produce ordinary Parseval frames and are used only illustratively."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The listed Parseval-frame constructions are routine systematic examples used for illustration, not as adversarial cases."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "These are systematic generic constructions illustrating Parseval frames rather than an adversarial or structurally special object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "routine constructions are used only to illustrate the Parseval-frame definition"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The listed Parseval-frame constructions are standard ways to produce ordinary frames rather than a failure case or sporadic extreme object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The listed Parseval-frame constructions are presented as routine illustrative ways to populate the class, not as adversarial or classification-exceptional objects."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "These are systematic illustrative constructions of Parseval frames rather than sporadic, limiting, or adversarial objects."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Scaled elementary-basis balls-and-bins case",
+   "note": "The tight example for random selection is described as a balls-and-bins problem, illustrating why random partitioning cannot remove the logarithmic dimension factor.",
+   "first_introduced_sec": 688,
+   "spans": [
+    {
+     "start_sec": 688,
+     "end_sec": 717
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the scaled elementary-basis case is invoked as the tight random example that becomes balls-and-bins, with no balls-and-bins calculation carried out",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 12,
+    "symmetric": 9,
+    "exceptional": 0,
+    "countercase": 7,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Repeated scaled coordinate vectors collapse the matrix problem to symmetric balls-in-bins and give the tight adversarial case for random selection."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The scaled coordinate-basis multiset collapses directions to bins and gives the tight balls-and-bins obstruction to improving random sampling."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the scaled coordinate-vector case collapses to symmetric balls-and-bins and gives the tight obstruction to improving random partitioning"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the scaled elementary-basis instance is the tight balls-and-bins worst case for random partition bounds."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Scaled coordinate-basis vectors reduce the matrix problem to a diagonal balls-and-bins case and give the tight obstruction to improving random sampling."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Repeated scaled coordinate vectors collapse the frame to bins and give the tight obstruction to improving the random logarithmic bound."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The repeated scaled coordinate-vector frame is a sparse atomic tight instance showing the random balls-and-bins method needs the log d factor."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The repeated coordinate-axis frame is the tight balls-and-bins case for Tropp's random bound."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the repeated scaled coordinate-vector case collapses to balls-and-bins and tightly realizes Tropp's random bound"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The scaled coordinate-vector frame reduces random partitioning to balls-and-bins and witnesses the tight obstruction to improving the random log-d bound."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The repeated scaled coordinate-basis frame is a diagonal collapsed case where the random bound is tight and the problem reduces to balls-and-bins."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Repeated scaled coordinate vectors form a collapsed coordinate-axis frame that is tight for the random balls-and-bins bound."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Equal-isotropic Laguerre polynomial experiment",
+   "note": "The experimentally worst-looking case, where expected outer products are all equal and the expected characteristic polynomial becomes an associated Laguerre polynomial, is presented as the evidence that led to the expected-polynomial strategy.",
+   "first_introduced_sec": 1413,
+   "spans": [
+    {
+     "start_sec": 1413,
+     "end_sec": 1583
+    }
+   ],
+   "total_seconds": 170,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the equal-isotropic case is reported as experimentally yielding an associated Laguerre polynomial with good root bounds, but no derivation or computation is shown",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The equal-size isotropic instance is the symmetric optimizer/worst case whose mixed characteristic polynomial is Laguerre, not a refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The equal-size isotropic case is the experimentally worst largest-root case and is highly regular, leading to associated Laguerre polynomials."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the equal-isotropic setup is highly regular and is presented as the maximal-largest-root Laguerre worst case in experiments"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the equal-size isotropic setup is the experimentally root-maximizing case and is highly regular, yielding a Laguerre polynomial."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The equal scalar-isotropic setup is maximally regular and was identified experimentally as the worst-largest-root Laguerre case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The equal-isotropic case is maximally regular and was observed as the worst largest-root Laguerre case, supporting rather than refuting the approach."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The equal-isotropic case is the highly homogeneous experimental worst case whose expected characteristic polynomial is Laguerre."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The all-equal isotropic case is the experimentally worst largest-root case and has full isotropic regularity."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the equal isotropic setup is a highly regular experimental worst case whose polynomial becomes Laguerre"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The equal-size isotropic case is the experimentally worst largest-root case and yields the highly regular associated Laguerre polynomial family."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The equal-size isotropic case is highly regular and is singled out as the experimentally worst maximal-root Laguerre case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The equal-isotropic case is a highly regular experimentally worst case whose expected polynomial is an associated Laguerre polynomial."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Failure without an anchor in the polynomial-sum lemma",
+   "note": "A pictured pair of polynomials whose sum has a largest root outside the desired range shows why the anchor hypothesis is needed.",
+   "first_introduced_sec": 2017,
+   "spans": [
+    {
+     "start_sec": 2017,
+     "end_sec": 2046
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses a pictured counterexample to reason why dropping the anchor lets the sum's largest root fall outside the desired range",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The unanchored pair is introduced precisely to show the polynomial-sum lemma can fail without the anchor."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The no-anchor polynomial pair is introduced precisely to show the polynomial-sum lemma can fail without the anchoring hypothesis."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the polynomial pair is introduced to show the root-location lemma can fail without an anchor"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the no-anchor polynomial pair is used to show the polynomial-sum lemma can fail without the anchoring hypothesis."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The no-anchor polynomial pair is used to show the polynomial-sum lemma can fail without the anchor hypothesis."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The no-anchor polynomial pair is presented specifically to show the polynomial-sum lemma can fail without an anchor."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The no-anchor polynomial pair is used to show the polynomial-sum lemma can fail without the anchor hypothesis."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The pair of ordinary polynomials is used to show the sum lemma can fail without a common anchor."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the unanchored pair of polynomials is used to show the anchor hypothesis in the sum lemma cannot simply be dropped"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The unanchored pair of polynomials is shown precisely to demonstrate that the polynomial-sum lemma can fail without the anchor hypothesis."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The pair of polynomials without a common anchor is used to show the polynomial-sum root lemma fails if the anchor hypothesis is removed."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The pair of polynomials is used to show the polynomial-sum lemma can fail when no anchor is imposed."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Sum of real-rooted polynomials with no real roots",
+   "note": "The speaker points out that adding characteristic polynomials can destroy real-rootedness, motivating the need for a stronger real-stability argument.",
+   "first_introduced_sec": 2189,
+   "spans": [
+    {
+     "start_sec": 2189,
+     "end_sec": 2215
+    }
+   ],
+   "total_seconds": 26,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker notes that two real-rooted polynomials can sum to a polynomial with no real roots, but does not compute or analyze a concrete pair",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The pair of real-rooted polynomials whose sum has no real roots refutes closure of real-rootedness under addition."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The sum of two real-rooted polynomials with no real roots is used to refute closure of real-rootedness under addition."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the sum is used to show real-rooted polynomials are not closed under addition"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the sum of two real-rooted polynomials with no real roots refutes closure of real-rootedness under addition."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The sum of two real-rooted polynomials with no real roots refutes closure of real-rootedness under addition."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The example shows that sums of real-rooted polynomials need not remain real-rooted."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The pair of real-rooted polynomials whose sum has no real roots refutes closure of real-rootedness under addition."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It refutes closure of real-rootedness under addition, using an otherwise ordinary polynomial sum."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the pair of real-rooted polynomials whose sum has no real roots refutes closure of real-rootedness under addition"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The sum of two real-rooted polynomials with no real roots is used to refute closure of real-rootedness under addition."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The sum of two real-rooted polynomials with no real roots refutes any naive closure of real-rootedness under addition."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It refutes the naive closure of real-rootedness under summing real-rooted polynomials."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Derivative interlacing by Rolle's theorem",
+   "note": "The example that p' interlaces a real-rooted p makes the definition of interlacing concrete before common interlacers are introduced.",
+   "first_introduced_sec": 2292,
+   "spans": [
+    {
+     "start_sec": 2292,
+     "end_sec": 2320
+    }
+   ],
+   "total_seconds": 28,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the derivative example is verified via Rolle's theorem by explaining that between consecutive roots the derivative must vanish",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The derivative interlacer given by Rolle’s theorem is a standard interlacing construction, not a special failure case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Rolle derivative interlacing is a standard positive example of an interlacer, not an obstruction or special sporadic object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Rolle derivative interlacing is a standard systematic example of an interlacer"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "p prime interlacing p is the standard Rolle-theorem construction, used as a positive illustration."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Derivative interlacing by Rolle's theorem is a standard general real-rooted-polynomial phenomenon used illustratively."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The derivative interlacing supplied by Rolle's theorem is a standard positive illustration of interlacing."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The derivative p' interlacing p is a standard Rolle-theorem illustration of interlacing."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The derivative interlacing is Rolle's standard systematic example for real-rooted polynomials."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Rolle's theorem supplies the derivative as a standard interlacer of a real-rooted polynomial"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The derivative p' interlacing a real-rooted p is a standard Rolle-theorem illustration of interlacing, not an obstruction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The derivative interlacing a real-rooted polynomial is a standard Rolle-theorem illustration rather than a structurally special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Rolle’s theorem supplies a standard positive example of an interlacer via the derivative."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Univariate Batson-Spielman-Srivastava barrier",
+   "note": "The older one-variable logarithmic-derivative potential is cited to clarify the multivariate potential function used in the root bound.",
+   "first_introduced_sec": 3371,
+   "spans": [
+    {
+     "start_sec": 3371,
+     "end_sec": 3421
+    }
+   ],
+   "total_seconds": 50,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the univariate BSS barrier is explicitly computed as the logarithmic derivative, giving the sum of terms 1/(x-r_i)",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The BSS barrier p′/p is the one-variable base case of the multivariate potential method."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The BSS univariate barrier is cited as the ordinary one-variable predecessor of the multivariate potential method."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the BSS barrier is the one-variable base case of the multivariate potential method"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the BSS barrier is the one-variable base specialization of the multivariate potential function."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The BSS univariate logarithmic-derivative barrier is a standard precursor to the multivariate potential method."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The BSS barrier is the one-variable base case of the multivariate potential method, not an adversarial example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Batson–Spielman–Srivastava barrier is the one-variable base case of the multivariate potential method."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The BSS barrier is the one-variable base case of the multivariate potential used later."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the BSS univariate potential is used as a standard predecessor to the multivariate barrier function"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Batson–Spielman–Srivastava univariate barrier p'/p is cited as a standard precursor to the multivariate potential method."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The BSS one-variable log-derivative barrier is cited as the standard univariate predecessor of the multivariate potential, not as an adversarial case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Batson-Spielman-Srivastava barrier is the one-variable base case generalized by the multivariate potential."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Expander edge partition analogy",
+   "note": "In response to a question, the speaker explains that an analogous vector partition can be viewed as splitting the edges of an expander so that both parts remain expanders.",
+   "first_introduced_sec": 3882,
+   "spans": [
+    {
+     "start_sec": 3882,
+     "end_sec": 3933
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the expander edge partition is used as an analogy for splitting edges into two expanding parts, without working through a graph or proof",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The expander edge split is only a representative analogy with ordinary expanders, not an extremal or obstructing example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The expander edge partition is only an analogy for partitioning vectors and is not deployed as a failure case or sporadic structure."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the expander edge partition is only an analogy with ordinary expander graphs"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the expander edge partition is only an analogy for splitting a well-connected object into two good pieces."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The expander edge partition is presented only as an analogy for the vector partitioning result, not as an obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The expander edge partition is an ordinary analogy for splitting vectors or edges, not a special or failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The expander edge split is offered only as an analogy for partitioning vectors, not as a special obstruction or sporadic object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The expander edge split is only an analogy with a standard family of expanders, not an extremal or exceptional object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the expander edge split is offered as an analogy or related application rather than an obstruction"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The expander edge-partition discussion is an analogy/application of the vector partitioning idea rather than a counterexample or classification-exception."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The expander edge partition is only an analogy for splitting vectors into two good pieces, with no specific optimal or sporadic graph singled out."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The expander edge split is only an analogy with ordinary expander graphs, not a sporadic or extremal construction here."
+    }
+   ]
+  }
+ ]
+}

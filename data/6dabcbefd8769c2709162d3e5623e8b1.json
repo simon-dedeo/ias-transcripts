@@ -1,0 +1,1429 @@
+{
+ "key": "6dabcbefd8769c2709162d3e5623e8b1",
+ "title": "Quasi-Linear Size PCPs with Small Soundness from High-Dimensional Expanders",
+ "speaker": "Mitali Bafna",
+ "affiliation": "Massachusetts Institute of Technology",
+ "date": "2024-11-04T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3929.0,
+ "abstract": "The theory of probabilistically checkable proofs (PCPs) shows how to encode a proof for any theorem into a format where the theorem's correctness can be verified by making only a constant number of queries to the proof. The PCP Theorem [ALMSS] is a fundamental result in computer science with far-reaching consequences in hardness of approximation, cryptography, and cloud computing. A PCP has two important parameters: 1) the size of the encoding, and 2) soundness, which is the probability that the verifier accepts an incorrect proof, both of which we wish to minimize.\nIn 2005, Dinur gave a surprisingly elementary and purely combinatorial proof of the PCP theorem that relies only on tools such as graph expansion, while also giving the first construction of 2-query PCPs with quasi-linear size and constant soundness (close to 1). Our work improves upon Dinur's PCP and constructs 2-query, quasi-linear size PCPs with arbitrarily small constant soundness. As a direct consequence, assuming the exponential time hypothesis, we get that no approximation algorithm for 3-SAT can achieve an approximation ratio significantly better than 7/8 in time 2^{n/polylog n}. \nIn this talk, I will introduce PCPs and discuss the components that go into our proof. This talk is based on joint work with Dor Minzer and Nikhil Vyas, with an appendix by Zhiwei Yun. Our work builds on the recent construction of linear-size direct product testers with small soundness by independent works of Bafna, Lifshitz and Minzer, as well as, Dikstein, Dinur and Lubotzky.",
+ "youtube_url": "https://youtu.be/a0Ry1ojxu-o",
+ "page_url": "https://www.ias.edu/video/quasi-linear-size-pcps-small-soundness-high-dimensional-expanders",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "PCP-to-CSP framework and target theorem",
+   "summary": "The talk recasts the PCP theorem as a gap-preserving reduction from 3SAT to two-query CSPs, identifies size and soundness as the key parameters, and states the new quasi-linear-size constant-alphabet PCP with arbitrary constant soundness and ETH hardness corollaries.",
+   "spans": [
+    {
+     "start_sec": 43,
+     "end_sec": 612
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "High-dimensional expanders as sparse hosts",
+   "summary": "High-dimensional expanders are introduced as sparse graphs whose local neighborhoods and constant-size cliques retain expander-like connectivity, providing the sparse structured host graphs used later.",
+   "spans": [
+    {
+     "start_sec": 612,
+     "end_sec": 724
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Direct-product gap amplification on sparse set systems",
+   "summary": "Starting from a near-linear PCP with value bounded away from one, the speaker abstracts parallel repetition as a direct-product test, explains the dense blowup barrier, and invokes the theorem that HDX clique set systems have close-to-zero direct-product soundness precisely when they have coboundary expansion, with such sparse HDXs now constructible.",
+   "spans": [
+    {
+     "start_sec": 724,
+     "end_sec": 1610
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "HDX-hosted amplification pipeline",
+   "summary": "For CSPs whose constraints already lie on the HDX one-skeleton, a clique-based two-query CSP and the HDX direct-product tester amplify value close to zero with constant blowup, yielding the overall plan: embed an arbitrary CSP on an HDX, amplify, and then use query composition to restore constant alphabet size.",
+   "spans": [
+    {
+     "start_sec": 1610,
+     "end_sec": 1908
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Ordinary routing embedding and its soundness loss",
+   "summary": "The first arrow is compared with prior routing embeddings that decompose a CSP graph into matchings and route each matching through a fixed host graph, but single-path routing causes a soundness loss proportional to the path length and greatly enlarges the alphabet.",
+   "spans": [
+    {
+     "start_sec": 1908,
+     "end_sec": 2484
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Fault-tolerant routing abstraction",
+   "summary": "The speaker defines efficient edge-fault-tolerant routing protocols and states the general reduction theorem that any fixed graph supporting such protocols can host arbitrary CSPs while preserving soundness up to the desired parameters.",
+   "spans": [
+    {
+     "start_sec": 2484,
+     "end_sec": 2811
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Edge-fault-tolerant routing on HDXs",
+   "summary": "Using ideas from distributed computing but strengthening them from vertex faults to arbitrary edge faults, sufficiently good polylog-degree HDXs with many cliques and links are shown to support the required routing protocols with polylogarithmic work per vertex.",
+   "spans": [
+    {
+     "start_sec": 2811,
+     "end_sec": 3448
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Parameter compatibility and wrap-up",
+   "summary": "The final parameter discussion explains that the same constructed HDX can satisfy both the direct-product/coboundary-expansion requirements and the routing requirements, completing the reduction, and closes with alternative amplification, open size-efficiency questions, and related algorithmic or distributed-computing implications.",
+   "spans": [
+    {
+     "start_sec": 3448,
+     "end_sec": 3921
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Bogus P=NP proof on arXiv",
+   "note": "The imagined daily arXiv proof of P=NP motivates why PCP verification should allow checking only a few encoded proof locations, but it does not generate any proof step.",
+   "first_introduced_sec": 43,
+   "spans": [
+    {
+     "start_sec": 43,
+     "end_sec": 81
+    }
+   ],
+   "total_seconds": 38,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the bogus P=NP arXiv proof is only used as a motivating scenario for PCP verification, with no specific proof analyzed",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It is an ordinary invalid proof used as the adversarial proof-checking case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An invalid purported proof is used as the verifier’s wrong-proof enemy case, but has no special intrinsic structure."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A generic erroneous proof is used as the adversarial wrong-proof case motivating PCP rejection."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An invalid alleged P=NP proof is the wrong-proof/enemy input motivating PCP rejection, but it has no special mathematical structure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A bogus arXiv P=NP proof is only a motivating invalid proof instance, not a structurally special object or a refutation device here."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a bogus/wrong proof that a PCP verifier should reject, with no special intrinsic mathematical structure specified."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a bogus P=NP proof is used as the adversarial wrong proof a PCP verifier should catch, but has no special intrinsic mathematical structure"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an invalid or adversarial proof that a PCP verifier should reject; structurally it is just a generic bogus proof."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A bogus proof is used as the verifier's adversarial wrong-proof case, with no special intrinsic mathematical structure specified."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A bogus P=NP proof is the adversarial wrong-proof case that PCP soundness should reject."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a wrong/adversarial proof attempt that a PCP verifier is meant to reject"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a bogus/adversarial proof whose flaw a verifier should detect, with no special intrinsic structure"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Vertex-neighborhood expander picture",
+   "note": "A drawn local neighborhood whose vertices themselves form a small expander makes the HDX local-expansion condition concrete.",
+   "first_introduced_sec": 650,
+   "spans": [
+    {
+     "start_sec": 650,
+     "end_sec": 700
+    }
+   ],
+   "total_seconds": 50,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker points to the drawn graph and checks the local-neighborhood condition by looking at a vertex whose neighbors form a small expander",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is a representative local expander-neighborhood picture illustrating HDX structure."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The vertex-neighborhood expander is a representative local-expansion picture for HDXs, not a refuting example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary local expander neighborhood in an HDX illustrates the definition rather than a failure case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The pictured vertex neighborhood is just a representative local expander in an HDX, used illustratively rather than negatively."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The picture illustrates a typical high-dimensional-expander feature, namely expanding vertex neighborhoods, without maximal symmetry or a negative role."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A neighborhood that is itself an expander is presented as a representative local feature of an HDX, not as a failure case or sporadic object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the neighborhood-expander drawing is a positive illustration of a typical high-dimensional-expander local property, not a failure case"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used illustratively to explain local expansion in an HDX, not to refute anything; no special intrinsic structure beyond being a representative expander picture is specified."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The neighborhood expander is an illustrative local HDX feature, not a failure case, and is not described as maximally symmetric or optimal."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The picture is a representative HDX local-neighborhood expander illustrating local expansion, not a failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used illustratively to show the local-neighborhood expansion property of an HDX, not as a failure case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a schematic ordinary local-neighborhood expander illustrating HDX structure, not a negative example"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Three-branch majority routing toy protocol",
+   "note": "The fan-out-and-majority message-passing sketch illustrates the allowed fault-tolerant routing model before the general theorem is stated.",
+   "first_introduced_sec": 2484,
+   "spans": [
+    {
+     "start_sec": 2484,
+     "end_sec": 2569
+    }
+   ],
+   "total_seconds": 85,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker traces the toy routing protocol through three outgoing messages, another layer of sends, and majority decoding before forwarding",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 6,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "It is a regular three-way majority gadget used only to illustrate fault-tolerant routing."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The three-branch majority protocol is just an illustrative routing gadget, not a structural extreme or a failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform three-way fanout with majority treats branches symmetrically as a toy fault-tolerant protocol."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The three-branch majority routing is a simple illustrative fault-tolerant toy protocol, not a structural extreme or a refuting case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The three-branch majority routing protocol is a simple illustrative redundancy gadget, not used to disprove anything or as a classification-exception/extreme case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The three-branch majority routing is a toy illustration of redundancy/fault tolerance rather than an extremal or adversarial construction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the three-way majority routing gadget is used illustratively as a possible fault-tolerant protocol and is structurally just a simple representative toy"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as a toy positive illustration of majority-based fault-tolerant routing, not as a failure case or intrinsically exceptional object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The three-way majority routing protocol is only a toy illustration of possible fault-tolerant routing, not a counterexample or structurally exceptional object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The three-way repetition with majority is a symmetric toy routing gadget used illustratively, not to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a positive toy illustration of redundant majority routing with identical branches"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a uniformly branched majority toy protocol used positively to illustrate fault-tolerant routing"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Butterfly network from earlier work",
+   "note": "The butterfly network is cited as a prior sparse network whose routing still follows long paths and hence does not give the needed constant edge-fault tolerance.",
+   "first_introduced_sec": 2881,
+   "spans": [
+    {
+     "start_sec": 2881,
+     "end_sec": 2916
+    }
+   ],
+   "total_seconds": 35,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the butterfly network is cited from prior work and only briefly characterized as using long paths and lacking constant-fraction tolerance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular layered butterfly network is cited as a prior topology whose long-path protocol is not constant-fault tolerant."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The butterfly network is cited as a prior routing network whose path-based protocol is not tolerant to constant-fraction interruptions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The butterfly is a highly regular layered network cited as a prior path-routing construction that fails constant-fraction fault tolerance."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The butterfly network is a highly regular layered network, but here it is cited as failing constant-fraction fault tolerance."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The butterfly network is a highly regular layered routing network, cited here to show that the earlier path-based protocol is not constant-fraction fault tolerant."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The butterfly network is a highly regular routing network, cited here to show the earlier path-based protocol is not tolerant to constant-fraction interruptions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the butterfly network is cited as an earlier highly regular network whose path-based routing fails to tolerate constant-fraction interruptions"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Cited as an earlier network/protocol whose path routing is not tolerant to constant-fraction interruptions; the butterfly network is a highly regular layered network."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The butterfly network is cited to show the earlier path-based protocol is not tolerant to constant-fraction corruptions, and the network is a highly regular layered family."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The highly regular butterfly network is cited as a prior construction whose long-path routing is not constant-fault-tolerant."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the butterfly network is cited as an earlier structured network whose path routing fails constant-fraction fault tolerance"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the highly regular butterfly network is cited as a prior construction whose path routing is not constant-fraction fault tolerant"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Random 100-regular graph",
+   "note": "An audience question about random regular graphs is used to contrast ordinary expander/path routing with the stronger local structure needed for edge-fault-tolerant routing.",
+   "first_introduced_sec": 2916,
+   "spans": [
+    {
+     "start_sec": 2916,
+     "end_sec": 3051
+    }
+   ],
+   "total_seconds": 135,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker discusses a random 100-regular graph as an expander and reasons through why path-based routing on it only tolerates about a 1/log n fraction of corruptions",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A typical sparse random regular expander is raised and rejected as not sufficing for fault-tolerant routing."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random 100-regular graph is an ordinary random regular expander discussed as a negative candidate for the desired fault-tolerant routing."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A generic random regular expander candidate is rejected as not giving the desired fault-tolerant routing."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random 100-regular graph is a typical random regular expander, raised as a negative foil to fault-tolerant routing."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random 100-regular graph is a typical random regular expander, raised and rejected as not giving the desired fault-tolerant routing property."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random 100-regular graph is a typical sparse expander, raised and rejected as not evidently supporting the desired fault-tolerant routing."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a random 100-regular graph is discussed as a natural candidate but rejected as not fault-tolerant beyond path-routing limitations"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Raised as a natural candidate but treated as not giving the desired fault-tolerant routing; a random 100-regular graph is typical among such regular graphs."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The random 100-regular graph is discussed as an expander that apparently does not give the needed fault-tolerant routing, while being structurally generic rather than special."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random 100-regular expander is raised and rejected as not expected to provide the needed constant edge-fault tolerance."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "introduced as a natural random-expander candidate that likely does not provide the needed fault-tolerant routing"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a typical random regular expander is raised and dismissed as insufficient for the desired fault-tolerant routing property"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Clique-to-clique HDX routing attempt",
+   "note": "The failed clique-to-clique routing idea is presented as revealing why the construction must instead route through other dense local subgraphs, namely links.",
+   "first_introduced_sec": 3120,
+   "spans": [
+    {
+     "start_sec": 3120,
+     "end_sec": 3229
+    },
+    {
+     "start_sec": 3300,
+     "end_sec": 3343
+    }
+   ],
+   "total_seconds": 152,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker describes the clique-to-clique HDX routing attempt, its error-correction idea, and why it did not give the needed parameters",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The attempt routes through complete cliques, which are maximally dense and symmetric, but is said to miss the needed parameters."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The clique-to-clique attempt uses complete cliques, which are maximally dense and symmetric, but is presented as failing to give the needed parameters."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Routing between complete cliques uses maximally dense symmetric subgraphs but is presented as a failed attempt with insufficient parameters."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The clique-to-clique attempt uses complete clique blocks, which are maximally dense and symmetric, but is mentioned because it fails the needed parameters."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The attempted clique-to-clique HDX routing uses complete subgraphs, which are maximally symmetric and edge-dense, but is cited as failing to give the needed parameters."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Routing clique-to-clique uses complete subgraphs, which are maximally dense and symmetric, but the attempt is cited as failing to give the needed parameters."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the clique-to-clique routing attempt is a failed parameter-achieving construction, and its clique pieces are maximally dense complete subgraphs"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Described as an attempted clique-to-clique HDX routing protocol that failed to give the needed parameters; cliques are complete, hence maximally dense and symmetric local pieces."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The clique-to-clique HDX routing attempt is reported to miss the needed parameters, and cliques are complete maximally dense and highly symmetric local graphs."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The clique-to-clique protocol uses maximally dense symmetric cliques but is presented as an attempt that fails to give the needed parameters."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the clique-to-clique HDX protocol is a failed parameter attempt built from complete subgraphs, which are maximally dense and symmetric"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the clique-to-clique HDX protocol uses maximally dense symmetric cliques but is presented as a failed attempt with inadequate parameters"
+    }
+   ]
+  }
+ ]
+}

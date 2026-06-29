@@ -1,0 +1,985 @@
+{
+ "key": "254a8e42dc061a6137dbef2dabba508a",
+ "title": "Induced Subgraphs and Pathwidth",
+ "speaker": "Maria Chudnovsky",
+ "affiliation": "Princeton University",
+ "date": "2024-11-18T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 4086.0,
+ "abstract": "Tree decompositions, and in particular path decompositions, are a powerful tool in both structural graph theory and graph algorithms. Many hard problems become tractable if the input graph is known to have a tree decomposition of bounded “width”. Exhibiting a particular kind of a tree decomposition is also a useful way to describe the structure of a graph.\nFamilies of bounded treewith and pathwidth have been completely characterized in terms of forbidden subgraphs (and minors) in the 1990s.  Studying this question in connection with graph containment relations of more local flavor (such as induced subgraph or induced minors) is a relatively new research direction. In this talk we will present a recent result that provides a complete list of induced subgraph obstructions to bounded pathwidth.\nThis is joint work with Sepehr Hajebi and Sophie Spirkl, building on earlier results of the series \"Induced subgraphs and tree decompositions\", that is currently comprised of 18 papers.",
+ "youtube_url": "https://youtu.be/z_vMgyqlwho",
+ "page_url": "https://www.ias.edu/video/induced-subgraphs-and-pathwidth",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Tree and path decompositions as width parameters",
+   "summary": "The talk defines tree decompositions, path decompositions, treewidth, and pathwidth, and explains their intuition through bag size, balanced separators, overlapping local pieces, and algorithmic dynamic programming.",
+   "spans": [
+    {
+     "start_sec": 73,
+     "end_sec": 1078
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Exclusion questions and classical minor/subgraph theorems",
+   "summary": "The central question is framed as asking which forbidden configurations force bounded width, with the Robertson--Seymour grid/wall theorem and its subgraph subdivision version recalled after defining minors and induced minors.",
+   "spans": [
+    {
+     "start_sec": 1078,
+     "end_sec": 1695
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Induced-treewidth obstructions and brick reduction",
+   "summary": "For induced subgraphs one must forbid complete graphs, complete bipartite graphs, subdivided walls, and line graphs of subdivided walls, but counterexamples show these basic obstructions are insufficient, leading to results that reduce the remaining large-treewidth case to clique-like multi-path brick subdivisions.",
+   "spans": [
+    {
+     "start_sec": 1695,
+     "end_sec": 2464
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Additional nonbasic large-treewidth families",
+   "summary": "The brick reduction motivates further necessary obstruction families, including orderly multi-path constructions with external vertices hitting the paths and the death-star construction, which become the Y-type obstructions.",
+   "spans": [
+    {
+     "start_sec": 2464,
+     "end_sec": 2715
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Pathwidth reduced to treewidth after excluding X-obstructions",
+   "summary": "The pathwidth analogue replaces walls by binary trees for minors/subgraphs, and Higginbotham's theorem is used to say that after excluding the induced pathwidth-basic X-obstructions, bounded treewidth is enough to bound pathwidth.",
+   "spans": [
+    {
+     "start_sec": 2715,
+     "end_sec": 3054
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Main induced-subgraph characterization for bounded pathwidth",
+   "summary": "The main theorem is stated: for every t, forbidding the X_t obstructions and the generalized Y_t obstruction families as induced subgraphs forces bounded pathwidth.",
+   "spans": [
+    {
+     "start_sec": 3054,
+     "end_sec": 3218
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Large induced complete bipartite minor case",
+   "summary": "The proof first analyzes a large induced K_{r,r} minor by studying minimal connected branch pieces hitting many opposite branch sets, whose few possible shapes force one of the forbidden X/Y obstructions.",
+   "spans": [
+    {
+     "start_sec": 3218,
+     "end_sec": 3508
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Brick, banana, and contraction argument",
+   "summary": "In the absence of such induced complete bipartite minors, large treewidth gives a brick subdivision; Ramsey-type choices of induced paths, unbreakable bananas, and induced-minor contractions produce smaller bricks and finally a forbidden tree induced minor, contradicting the strengthened exclusions and hence bounding treewidth and pathwidth.",
+   "spans": [
+    {
+     "start_sec": 3508,
+     "end_sec": 3938
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Rooted-tree decomposition of a tree",
+   "note": "A tree is decomposed by using the same underlying tree and putting each vertex together with its parent toward a chosen root, making the definition of bags and connectedness concrete.",
+   "first_introduced_sec": 232,
+   "spans": [
+    {
+     "start_sec": 232,
+     "end_sec": 319
+    }
+   ],
+   "total_seconds": 87,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker constructs the decomposition for a rooted tree, choosing root 3, tracing paths to the root, and listing the resulting bags.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 10,
+    "extremal": 10,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a tree decomposed by essentially itself is the minimal treewidth base case, with bags of size at most an edge and hence optimal for a nontrivial tree."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The graph being decomposed is already a tree, so the construction is a minimal/base-case tree-decomposition illustration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the graph is already an acyclic tree, the minimal case for treewidth, and the parent-bag decomposition attains optimal width"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The input graph is already a tree, the minimal nontrivial treewidth boundary case, and the rooted parent-bag construction realizes optimal small width."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the graph being decomposed is already a tree, so this is the base low-complexity case used only to illustrate the definition"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is the base optimal decomposition of an already-tree graph, which has minimal nonzero treewidth."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "base case where the graph is already a tree and the parent-bag decomposition has optimal width"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is used as an easy illustration, and a nontrivial tree is the base case of treewidth with this rooted decomposition attaining the minimal width."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is the easy base case of decomposing an already-tree graph, with minimum-size bags for a nontrivial tree."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A tree is the minimum-treewidth/base case and the rooted parent-bag decomposition is optimal, serving only as an illustration."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The standard parent-bag decomposition is an optimal width-1 representation of a nontrivial tree."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It decomposes a graph that is already a tree, the base/minimum-treewidth case."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Trivial one-bag decomposition",
+   "note": "The audience-observed decomposition with all vertices in one bag motivates why the width must minimize bag size rather than merely ask for a representation.",
+   "first_introduced_sec": 319,
+   "spans": [
+    {
+     "start_sec": 319,
+     "end_sec": 367
+    },
+    {
+     "start_sec": 488,
+     "end_sec": 532
+    }
+   ],
+   "total_seconds": 92,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the one-vertex tree with all vertices in one bag is only cited as the simplest possible decomposition and contrasted with narrower ones.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 9,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-vertex decomposition tree with all graph vertices in a single bag is the collapsed trivial decomposition."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A single bag containing all vertices is the collapsed trivial tree decomposition."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the single-bag decomposition is the collapsed trivial decomposition and uses the largest possible bag"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The one-bag decomposition is the collapsed/coarsest boundary case, with the decomposition tree reduced to a single node and maximal bag size."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-node decomposition tree with all vertices in a single bag is the collapsed/trivial valid construction"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The decomposition collapses the whole graph into one bag, giving the trivial maximal-width representation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "single-bag decomposition collapses the whole graph into a maximum-size bag"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "It is raised as a loophole showing that decompositions without width control are vacuous, collapsing the decomposition tree to one node with the all-vertex bag."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The one-bag decomposition collapses the decomposition tree to a single node and uses the maximum possible bag."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The all-vertices single bag is a collapsed coarsest decomposition with maximum possible bag size, used to motivate minimizing width rather than to refute a theorem."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A collapsed single full bag is used as the vacuous enemy decomposition showing why width must be minimized."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The single bag containing all vertices is the collapsed coarsest decomposition with maximal bag size."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Path decomposition of a graph with a cycle",
+   "note": "A non-tree graph is simplified by deleting a vertex to expose a tree-like/path-like structure and then adding that vertex to the relevant consecutive bags.",
+   "first_introduced_sec": 385,
+   "spans": [
+    {
+     "start_sec": 385,
+     "end_sec": 488
+    }
+   ],
+   "total_seconds": 103,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker builds a path decomposition for a non-tree graph by deleting a vertex to get a tree, forming bags, then adding vertex 1 to capture edges and satisfy the path condition.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 4,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the constructed path decomposition of a cyclic graph is an ordinary illustrative decomposition, not a sporadic, limiting, optimal, or maximally symmetric object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary path decomposition used to illustrate decomposing a non-tree graph, not a sporadic or limiting object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the cyclic graph with a path decomposition is an ordinary illustrative non-tree example"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "It is used as an ordinary path-decomposition example for a non-tree graph with a cycle, not as a special or adversarial object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "it is an ordinary path decomposition of a non-tree graph used as a routine illustrative example"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary illustrative path decomposition of a cyclic graph, not used to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the displayed cycle example has a minimum-width path decomposition and is used only illustratively"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "It is an illustrative path decomposition of the displayed cycle graph, attaining the cycle’s minimal pathwidth rather than serving as an obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary illustrative path decomposition of a non-tree graph, not an adversarial example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "For the cycle example the path decomposition has optimal size-three bags but is used just to illustrate decomposing a non-tree."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The displayed cycle decomposition is a standard minimum-width path decomposition of the simplest non-tree case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is used as an ordinary illustrative path decomposition of a non-tree graph."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Bounded-radius H-decompositions",
+   "note": "In the final Q&A, decompositions over an arbitrary target graph H with bounded-radius bags are mentioned as an example of other possible decomposition theories, related to quasi-isometry.",
+   "first_introduced_sec": 3978,
+   "spans": [
+    {
+     "start_sec": 3978,
+     "end_sec": 4005
+    }
+   ],
+   "total_seconds": 27,
+   "attaches_to": [],
+   "primary_stage": null,
+   "depth": null,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "bounded-radius H-decompositions are only described abstractly in response to a question, with no concrete construction or verification.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "bounded-radius H-decompositions are presented as a general ordinary variant of graph decompositions over another target graph, not as a special exception or adversarial case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Bounded-radius H-decompositions are presented as a general ordinary variant of decompositions, not as an extreme or exceptional case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "bounded-radius H-decompositions are presented as a general possible target-decomposition notion, not as a special or refuting object"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Bounded-radius H-decompositions are presented as a general decomposition framework rather than a sporadic, limiting, symmetric, or refuting example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "bounded-radius H-decompositions are offered as a general alternative decomposition notion, not as a special obstruction or failure case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "They are a general metric variant of H-decompositions with bounded-radius bags, not a sporadic or adversarial object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a systematic general notion with bounded-radius bags, not a sporadic or limiting object"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is offered as a general example of other decomposition targets with bounded-radius bags, not as a sporadic or boundary object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Bounded-radius H-decompositions are presented as a systematic possible generalization, not as a sporadic or limiting object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Bounded-radius H-decompositions are an ordinary generalized decomposition condition mentioned as a possible direction, not as a special or adversarial object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Bounded-radius H-decompositions are presented as an ordinary metric-controlled generalization, not as a sporadic or limiting object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Bounded-radius H-decompositions are presented as a general illustrative variant, not a sporadic or limiting object."
+    }
+   ]
+  }
+ ]
+}

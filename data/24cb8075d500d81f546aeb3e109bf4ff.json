@@ -1,0 +1,2866 @@
+{
+ "key": "24cb8075d500d81f546aeb3e109bf4ff",
+ "title": "Evaluating Lossy Compression Rates of Deep Generative Models",
+ "speaker": "Roger Grosse",
+ "affiliation": "Does not exist",
+ "date": "2020-04-15T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3697.0,
+ "abstract": "Implicit generative models such as GANs have achieved remarkable progress at generating convincing fake images, but how well do they really match the distribution? Log-likelihood has been used extensively to evaluate generative models whenever it’s convenient to do so, but measuring log-likelihoods for implicit generative models presents computational challenges. Furthermore, in order to obtain a density, one needs to smooth the distribution using a noisy model (typically Gaussian), and this choice is hard to motivate.",
+ "youtube_url": "https://www.youtube.com/watch?v=KG6jq7MfIcE",
+ "page_url": "https://www.ias.edu/video/workshop/2020/0415-RogerGrosse",
+ "tags": [
+  "School of Mathematics",
+  "Workshop on New Directions in Optimization Statistics and Machine Learning"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Need for distributional evaluation beyond samples",
+   "summary": "The talk motivates likelihood and compression-based evaluation by arguing that sample quality, inception/FID-style scores, and exact-support GAN likelihoods fail to measure whether a generative model captures the data distribution.",
+   "spans": [
+    {
+     "start_sec": 7,
+     "end_sec": 535
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "AIS likelihood estimation for Gaussianized implicit models",
+   "summary": "After imposing a Gaussian observation model to make implicit models assign nonzero densities, annealed importance sampling with MCMC transitions is introduced as an unbiased partition-function estimator for the marginal likelihood p(x).",
+   "spans": [
+    {
+     "start_sec": 535,
+     "end_sec": 583
+    },
+    {
+     "start_sec": 626,
+     "end_sec": 1009
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "BDMC validation by reverse AIS",
+   "summary": "The speaker derives stochastic lower and upper log-partition bounds, using reverse AIS initialized by exact posterior samples available for model-generated data, so that the BDMC gap estimates AIS error.",
+   "spans": [
+    {
+     "start_sec": 1009,
+     "end_sec": 1369
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Likelihood experiments diagnose submode dropping",
+   "summary": "Applying AIS and BDMC to MNIST VAEs, GANs, and GMMNs shows accurate likelihood estimates, little evidence of memorization, and a large GAN likelihood deficit explained by subtle submode dropping rather than merely missing entire digit classes.",
+   "spans": [
+    {
+     "start_sec": 1369,
+     "end_sec": 1923
+    },
+    {
+     "start_sec": 2024,
+     "end_sec": 2169
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Rate-distortion formulation of lossy evaluation",
+   "summary": "The second part reframes evaluation as lossy compression by defining distortion, rate as KL divergence from posterior code distribution to prior, and the constrained rate-distortion function together with its separable Lagrangian form.",
+   "spans": [
+    {
+     "start_sec": 1923,
+     "end_sec": 2024
+    },
+    {
+     "start_sec": 2169,
+     "end_sec": 2633
+    },
+    {
+     "start_sec": 3498,
+     "end_sec": 3567
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "AIS traces and bounds RD curves",
+   "summary": "The optimal RD posterior is shown to be proportional to p(z)exp(-beta d(x,f(z))), matching AIS intermediate distributions and yielding an AIS-computable upper bound on the rate-distortion curve.",
+   "spans": [
+    {
+     "start_sec": 2633,
+     "end_sec": 2852
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Empirical RD-curve validation and comparisons",
+   "summary": "The method is validated on tractable and deliberately damaged models, then used to compare VAEs, GANs, architectures, inference-network approximations, and distortion metrics, showing that full RD curves reveal distinctions hidden by scalar likelihoods.",
+   "spans": [
+    {
+     "start_sec": 2852,
+     "end_sec": 3394
+    },
+    {
+     "start_sec": 3408,
+     "end_sec": 3498
+    },
+    {
+     "start_sec": 3567,
+     "end_sec": 3661
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "BigGAN sample images",
+   "note": "The displayed BigGAN images illustrate why visual sample quality is impressive but insufficient as a criterion for modeling a full distribution.",
+   "first_introduced_sec": 67,
+   "spans": [
+    {
+     "start_sec": 67,
+     "end_sec": 85
+    }
+   ],
+   "total_seconds": 18,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "BigGAN samples are only shown as examples of impressive generated images, with no analysis of those images.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "BigGAN samples are used as ordinary illustrative outputs of a strong image generator, not as a structural special case or refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary BigGAN samples are used as a positive illustration of visual generative quality."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary BigGAN outputs are used as motivating successes, not as structurally special or failing cases."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary BigGAN samples are used to illustrate visual sample quality."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary BigGAN outputs are shown as high-quality samples, not as a refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary generated image samples are used to illustrate visual quality, not as a structural special case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used only as ordinary high-quality samples motivating the evaluation problem."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "used as representative high-quality generated images, not as a failure case or structurally special object"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "BigGAN samples are used only to illustrate impressive generative output."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "BigGAN samples are used as ordinary evidence of visual sample quality, not as a failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "BigGAN samples are used as ordinary illustrative successes of image generation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary BigGAN outputs are used to motivate generative-model evaluation, not as a structural special case or refutation."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Training-set memorization baseline",
+   "note": "The comparison between a trained image model and random training examples illustrates that good-looking samples need not certify distributional learning.",
+   "first_introduced_sec": 85,
+   "spans": [
+    {
+     "start_sec": 85,
+     "end_sec": 143
+    }
+   ],
+   "total_seconds": 58,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The training-set memorization model is invoked as a baseline possibility—sampling a random training example—but not analyzed or computed with directly.",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The memorization baseline is a trivial empirical sampler with little learned structure, used to show that good-looking samples alone can be misleading."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a pure empirical sampler has collapsed support on the training set and is used to undermine sample-only evaluation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the empirical training-set sampler is a no-generalization degenerate generator used to undermine sample-quality evaluation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the empirical memorization model has collapsed finite training-set support and shows sample quality can mislead."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the empirical memorizer is a trivial finite-support baseline used to show sample inspection can be fooled."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A trivial empirical memorizer is used to show that good-looking samples need not imply distributional modeling."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A finite empirical memorizer is a degenerate generative model used to show sample inspection can be fooled."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a trivial empirical generator is used as an adversarial baseline showing samples can look good despite memorization"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The pure memorization sampler is a collapsed, maximally overfit endpoint used against visual sample evaluation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The memorization baseline is a trivial empirical generator used to show that good-looking samples can fail to imply distributional learning."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The memorization sampler is an adversarial baseline showing good-looking samples need not mean learned distribution, and it collapses generation to the finite training set."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the empirical memorization sampler is a trivial collapsed baseline used to show sample quality can be misleading."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "GAN inversion missing an object",
+   "note": "The validation image paired with its closest GAN reconstruction shows a plausible but semantically incomplete match, motivating metrics that detect omitted structure.",
+   "first_introduced_sec": 171,
+   "spans": [
+    {
+     "start_sec": 171,
+     "end_sec": 240
+    }
+   ],
+   "total_seconds": 69,
+   "attaches_to": [
+    "s1",
+    "s4"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker describes the GAN inversion procedure on validation images and interprets the resulting reconstruction as missing a salient object.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The GAN inversion reconstruction that omits an object is used as a failure case showing that plausible reconstructions can miss important parts of the data distribution."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the reconstruction pair is used to show a GAN can omit a semantic object despite looking plausible."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the GAN inversion that omits a scene object is used to exhibit a representation failure despite plausible samples."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the inversion is an optimized closest latent reconstruction that still misses an object, exposing a GAN failure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the GAN inversion reconstruction is used as a failure case because it omits a salient object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A plausible GAN inversion that omits scene content is used as a failure case for perceptual sample quality."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The reconstruction omitting a salient object is a failure case for visual or perceptual evaluation of GANs."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the inversion reconstruction omits a semantic object to demonstrate a GAN failure mode"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The inversion image omitting an object is presented as a GAN failure mode."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The inversion reconstruction collapses by omitting scene content and is used as a failure case for perceptual/sample-based evaluation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The inversion pair is used to exhibit a GAN failure mode where a plausible reconstruction omits a semantically important object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the inversion reconstruction omitting an object is used as a failure case for GAN distribution coverage despite plausible samples."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Tractable flow-GAN with enormous bits per dimension",
+   "note": "The invertible GAN likelihood estimate of about 10^15 bits per dimension illustrates why literal lossless likelihood under exact-support models can be a misleading evaluation target.",
+   "first_introduced_sec": 435,
+   "spans": [
+    {
+     "start_sec": 435,
+     "end_sec": 535
+    }
+   ],
+   "total_seconds": 100,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The tractable flow-GAN likelihood example is quantitatively compared to the uniform distribution, yielding the enormous bits-per-dimension/worse-than-uniform conclusion.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tractable flow-GAN with astronomically bad bits per dimension is used to argue that literal lossless likelihood conclusions can be the wrong evaluation criterion."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 10^15-bits-per-dimension flow-GAN is an extreme likelihood pathology used against naive lossless-likelihood evaluation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the tractable flow-GAN's absurd bits-per-dimension is used against treating raw lossless likelihood as the right evaluation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the invertible flow-GAN is used to show exact lossless likelihood can give an absurd evaluation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a standard tractable flow-GAN with absurd likelihood is used to argue lossless likelihood can mislead."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tractable flow-GAN’s absurd lossless rate is used to show exact likelihood can give misleading conclusions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tractable flow-GAN with astronomically bad likelihood is used to show exact lossless likelihood can give an unreasonable verdict."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the absurd flow-GAN likelihood is used against raw lossless-likelihood evaluation, without being a true extremal object"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tractable flow-GAN’s absurd likelihood is used to challenge lossless likelihood as a meaningful GAN evaluation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The tractable flow-GAN has an astronomically bad bits-per-dimension value and is used to show lossless likelihood can give a misleading verdict."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The tractable flow-GAN’s absurd bits-per-dimension is used against naive lossless-likelihood evaluation of GANs."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the tractable flow-GAN has an astronomically bad bits-per-dimension value used to show lossless likelihood can give an unreasonable evaluation."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "One-dimensional Gaussian-to-bimodal AIS toy problem",
+   "note": "The toy annealing path from a Gaussian to a bimodal target makes AIS trajectories and the extended-state-space importance-sampling view concrete.",
+   "first_introduced_sec": 836,
+   "spans": [
+    {
+     "start_sec": 836,
+     "end_sec": 871
+    },
+    {
+     "start_sec": 956,
+     "end_sec": 1009
+    }
+   ],
+   "total_seconds": 88,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The one-dimensional Gaussian-to-bimodal AIS example is traced through with annealing steps, Metropolis transitions, mode misallocation, and forward/reverse trajectory reasoning.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 5,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The one-dimensional Gaussian-to-bimodal AIS problem is a simple illustrative inference example rather than a classification exception, limit case, or refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the Gaussian-to-bimodal example is a regular toy illustration of AIS behavior."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-dimensional Gaussian-to-bimodal setup is a reduced toy inference problem used illustratively rather than refutationally."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the Gaussian-to-bimodal one-dimensional target is a standard illustrative AIS toy rather than a refuting case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the one-dimensional annealing problem is a pedagogical AIS illustration rather than an obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The one-dimensional Gaussian-to-bimodal setup is a simple AIS illustration rather than a structurally special object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-dimensional Gaussian-to-bimodal setup is a simplified toy distribution for illustrating AIS."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a minimal one-dimensional toy annealing problem is used to illustrate AIS behavior rather than refute a claim"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Gaussian-to-bimodal problem is an ordinary toy illustration of AIS behavior."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The Gaussian-to-bimodal setup is a minimal one-dimensional toy used to illustrate AIS behavior rather than refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The one-dimensional Gaussian-to-bimodal setup is a standard toy illustration of AIS behavior rather than an obstruction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-dimensional Gaussian-to-bimodal setup is a deliberately minimal toy distribution for visualizing AIS."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "MNIST ones, twos, and eights under GAN posterior reconstructions",
+   "note": "Inspecting MNIST samples and posterior reconstructions leads from the naive class-level notion of mode collapse to the key diagnosis that GANs miss particular submodes or writing styles.",
+   "first_introduced_sec": 1573,
+   "spans": [
+    {
+     "start_sec": 1573,
+     "end_sec": 1897
+    },
+    {
+     "start_sec": 2117,
+     "end_sec": 2169
+    }
+   ],
+   "total_seconds": 376,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The MNIST digit examples are analyzed via sample proportions, posterior reconstructions, a log-likelihood-loss calculation for class imbalance, and submode-dropping diagnostics.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The MNIST posterior reconstructions are used to expose GAN mode/submode dropping, including failures to reconstruct twos and eights."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the MNIST reconstruction examples are used to exhibit GAN submode dropping on twos and eights."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the MNIST posterior reconstructions are used to show GAN mode and submode dropping, such as eights or twos reconstructed incorrectly."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the MNIST reconstructions are used to reveal GAN submode-dropping failures on twos and eights."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary MNIST digit reconstructions are deployed as failure cases showing GANs miss submodes and styles."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The MNIST posterior reconstructions reveal GANs missing particular digit submodes."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The MNIST posterior reconstructions are used as failure cases showing GANs miss digit submodes."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary MNIST posterior reconstructions are used to expose GAN submode dropping on twos and eights"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The MNIST reconstructions are used to show GAN mode and submode dropping."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The MNIST reconstructions expose mode/submode collapse in GANs, especially for twos and eights."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The MNIST reconstructions are used to demonstrate subtle GAN mode dropping on twos and eights."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the MNIST posterior reconstructions are used to exhibit GAN mode/submode dropping such as twos or eights reconstructed incorrectly."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "One-dimensional manifold cartoon for rate distortion",
+   "note": "The cartoon shows how posterior concentration, the prior, and the model manifold separately affect rate and distortion, producing the idea that the whole RD curve reveals more than a scalar likelihood.",
+   "first_introduced_sec": 2422,
+   "spans": [
+    {
+     "start_sec": 2422,
+     "end_sec": 2633
+    }
+   ],
+   "total_seconds": 211,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The one-dimensional manifold cartoon is used to reason through rate, distortion, posterior choices, the RD frontier, projection error, and effects of changing the prior or manifold.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The one-dimensional manifold cartoon is an ordinary schematic model for explaining rate–distortion tradeoffs."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the cartoon model collapses the ambient input distribution onto a one-dimensional support to explain RD tradeoffs."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-dimensional manifold model is a collapsed low-dimensional cartoon for explaining rate-distortion tradeoffs."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the one-dimensional generator-manifold cartoon is a generic schematic for explaining rate distortion."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the one-dimensional manifold cartoon is a schematic representative for rate-distortion tradeoffs."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The cartoon’s rate-distortion curve is the optimal frontier of achievable rate-distortion tradeoffs."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The low-dimensional manifold cartoon is degenerate, and its rate-distortion curve is an optimal frontier."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a one-dimensional manifold cartoon is a stripped-down model for explaining rate-distortion tradeoffs"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The rate-distortion cartoon uses a singular one-dimensional model manifold as a simplified support."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-dimensional manifold is a singular low-support cartoon used to explain rate-distortion tradeoffs."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The one-dimensional manifold cartoon is an explanatory schematic for rate–distortion tradeoffs."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-dimensional manifold is a simplified minimal cartoon for explaining the rate-distortion frontier."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Linear VAE with analytically known RD curve",
+   "note": "The tractable linear VAE serves as a benchmark where AIS-estimated and exact rate-distortion curves can be visually compared.",
+   "first_introduced_sec": 2852,
+   "spans": [
+    {
+     "start_sec": 2852,
+     "end_sec": 2889
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The linear VAE is used as a validation case where the exact analytic RD curve is computed and compared against the AIS estimate.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 10,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The linear VAE is a deliberately simplified tractable special case with less expressive structure than a typical nonlinear VAE, used for validation rather than refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the linear VAE is a tractable validation benchmark with an exact RD curve."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the linear VAE is a simplified limiting VAE with less nonlinear structure, used as a tractable validation case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the linear-Gaussian VAE is a stripped-down tractable base case for validating RD estimates."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the linear VAE is a stripped-down analytically tractable base case used for validation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The analytically known RD curve is the exact minimum-rate boundary for the linear VAE model."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The linear VAE is a simplified tractable model, and its RD curve is the exact optimal tradeoff curve."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a linear VAE is a simplified tractable special case used to validate the RD estimator"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The linear VAE is a simplified linear-Gaussian tractable limit used for validation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The linear VAE is a simplified analytically solvable base case used to validate AIS RD estimates."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The linear VAE is a simplified linear-Gaussian base case used because its RD curve is analytically tractable."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the linear VAE is a simplified tractable limiting model used to validate AIS against an analytic RD curve."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Garbage-prior and blurred-generator damage tests",
+   "note": "Mixing the prior with a broad garbage distribution and blurring generated images illustrate that prior errors and manifold/reconstruction errors shift RD curves in different ways.",
+   "first_introduced_sec": 2889,
+   "spans": [
+    {
+     "start_sec": 2889,
+     "end_sec": 2992
+    }
+   ],
+   "total_seconds": 103,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The model is deliberately damaged with a garbage prior or blurred generator, and the resulting shifts in the RD curves are interpreted.",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The garbage-prior and blurred-generator variants are adversarially damaged models used to test whether RD curves detect failures in the prior or generator."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the garbage-prior and blurred-generator variants deliberately remove useful model structure as adversarial damage cases."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the garbage-prior and blurred-generator variants are deliberately damaged enemy cases that discard learned mass or image detail."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the garbage-prior and blurred-generator variants are deliberately damaged negative-control models."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the corrupted priors and blurred generators remove meaningful modeling detail and serve as adversarial damage tests."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The garbage prior and blurred generator are intentionally corrupted enemy cases with useful structure removed."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The garbage-prior and blurred-generator variants are intentionally corrupted enemy cases with degraded model structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "artificially corrupted priors and blurred generators are adversarial damage tests with intentionally degraded structure"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The garbage prior and blurred generator are intentionally degraded adversarial sanity checks."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The garbage-prior and blurred-generator variants are deliberately damaged models used as adversarial diagnostic cases."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The garbage-prior and blurred-generator variants are deliberately damaged enemy cases testing whether RD curves detect model defects."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the garbage-prior and blurred-generator variants are deliberately damaged degenerate models used as adversarial sanity checks for RD curves."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "MNIST VAE and GAN architecture sweeps",
+   "note": "Varying latent dimension, width, depth, and GAN regularizers on MNIST illustrates how RD curves expose effects of architecture not visible in a single likelihood number.",
+   "first_introduced_sec": 2992,
+   "spans": [
+    {
+     "start_sec": 2992,
+     "end_sec": 3207
+    }
+   ],
+   "total_seconds": 215,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "MNIST VAE and GAN architecture changes are compared through RD-curve shifts as latent dimension, width, depth, and GAN regularizers vary.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The MNIST VAE/GAN architecture sweeps are ordinary families of model variants used for comparison across latent dimension, width, and depth."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the MNIST VAE and GAN sweeps are ordinary architecture comparisons of RD-curve effects."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the MNIST VAE/GAN architecture sweeps are ordinary model comparisons used to study trends in RD curves."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the MNIST architecture sweeps are ordinary model comparisons across size and depth."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the MNIST architecture sweeps compare ordinary model-size and depth choices without a structural special case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The MNIST VAE/GAN sweeps are ordinary architecture comparisons used to study trends."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The MNIST architecture sweeps are ordinary comparative model families used to study how RD curves change."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary MNIST VAE and GAN architecture families are swept for comparative RD behavior"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The MNIST architecture sweeps are ordinary model-family comparisons."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The MNIST VAE/GAN sweeps are ordinary model comparisons used to study architectural trends."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The MNIST VAE/GAN sweeps are ordinary architecture comparisons across latent dimension, width, and depth."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the MNIST VAE/GAN architecture sweeps are ordinary model-family comparisons used to study how RD curves change."
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "Inference-network RD estimates versus AIS",
+   "note": "The comparison shows that variational inference networks can approximate VAE RD curves tolerably but fail badly for GANs, supporting the use of AIS for evaluation.",
+   "first_introduced_sec": 3234,
+   "spans": [
+    {
+     "start_sec": 3234,
+     "end_sec": 3297
+    },
+    {
+     "start_sec": 3567,
+     "end_sec": 3661
+    }
+   ],
+   "total_seconds": 157,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "Inference-network RD estimates are directly compared with AIS estimates for VAEs and GANs, including the conclusion that the GAN variational curves are unusable.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The inference-network RD estimates are contrasted with AIS to show that the cheaper variational method can fail badly for GANs."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the inference-network RD estimates are shown to fail as a substitute for AIS on GANs."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the inference-network estimates, especially for GANs, are used to refute the suggestion that they can replace AIS reliably."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the inference-network estimates are used to show the cheap variational substitute fails for GAN RD curves."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "standard inference-network estimates are contrasted with AIS to show they fail badly for GAN RD curves."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The inference-network estimates fail against AIS for GANs, refuting the suggestion that they suffice."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The inference-network estimates, especially for GANs, refute the suggestion that they suffice in place of AIS."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the inference-network curves are used to refute the suggestion that variational RD estimates suffice for GANs"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The inference-network curves are used to show that this approximation can fail badly for GANs."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The inference-network RD estimates, especially for GANs, are used to show that variational inference can fail badly relative to AIS."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The inference-network estimates are contrasted with AIS to show that variational RD estimation can fail badly for GANs."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the inference-network estimates, especially for GANs, are used to refute the suggestion that variational inference would work as well as AIS."
+    }
+   ]
+  },
+  {
+   "code": "E12",
+   "name": "Classifier-hidden-space distortion metric",
+   "note": "Replacing pixelwise mean-squared error by squared error in a classifier representation illustrates robustness of the model comparisons to the distortion metric choice.",
+   "first_introduced_sec": 3297,
+   "spans": [
+    {
+     "start_sec": 3297,
+     "end_sec": 3360
+    }
+   ],
+   "total_seconds": 63,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The classifier-hidden-representation distortion metric is actually used to compute RD curves and compared with pixelwise MSE curves.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The classifier-hidden-space distortion is an alternative semantic metric used as a robustness check, not as a structurally special object or failure case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the classifier-hidden-space metric is an alternative distortion choice used for a robustness check."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the classifier-hidden-space distortion is an ordinary alternative metric used as a robustness check, not as a failure case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the classifier-hidden-space metric is an ordinary alternative distortion measure used as a robustness check."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the classifier-hidden-space distortion is an ordinary alternative metric used for robustness checking."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The classifier-hidden-space distortion is an ordinary alternative metric used as a robustness check."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The classifier-hidden-space distortion is an alternative robustness check rather than a structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the classifier-hidden-space metric is used as a robustness check with no special intrinsic structure"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The classifier-hidden-space distortion is a standard alternative metric checked for robustness."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The classifier-hidden-space distortion is an ordinary alternative metric used as a robustness check."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The classifier-hidden-space metric is a robustness check showing similar RD conclusions under a semantic distortion choice."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the classifier-hidden-space distortion is an ordinary alternative metric used as a robustness check."
+    }
+   ]
+  },
+  {
+   "code": "E13",
+   "name": "Language data as a discrete-domain extension",
+   "note": "In response to a question, language data is used to illustrate that the rate-distortion framework is conceptually applicable beyond continuous images but would require discrete MCMC and a trusted distortion metric.",
+   "first_introduced_sec": 3498,
+   "spans": [
+    {
+     "start_sec": 3498,
+     "end_sec": 3567
+    }
+   ],
+   "total_seconds": 69,
+   "attaches_to": [
+    "s5",
+    "s6"
+   ],
+   "primary_stage": "s5",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Language data is only discussed as a possible discrete-domain extension requiring different MCMC and distortion choices, with no concrete computation or application.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Language data is mentioned as a possible discrete-domain extension requiring different MCMC and distortion choices, not as a counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "language data is mentioned only as a possible discrete-domain extension with algorithmic challenges."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "language data is discussed as an ordinary discrete-domain extension with algorithmic complications."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "language data is a standard discrete-domain extension requiring different inference machinery."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "language data is mentioned only as a possible discrete-domain extension with algorithmic complications."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Language data is a standard discrete-domain extension question rather than a structural exception or failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Language data is mentioned only as a typical possible discrete-domain extension."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "language data is raised as a possible discrete-domain extension and algorithmic challenge, not a concrete failure example"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Language data is mentioned as a possible discrete-domain extension rather than a refuting case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Language data is mentioned as a typical discrete-domain extension with algorithmic challenges, not as a special object or failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Language data is mentioned as a conceptually possible discrete-domain extension with algorithmic complications."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "language data is raised as a discrete-domain extension requiring different MCMC and distortion choices, not as a special object or counterexample."
+    }
+   ]
+  }
+ ]
+}

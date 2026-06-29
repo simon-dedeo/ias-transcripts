@@ -1,0 +1,1827 @@
+{
+ "key": "b928c50e4bbfa570f2af5adbd22f79d1",
+ "title": "Using discrepancy theory to improve the design of randomized controlled trials",
+ "speaker": "Daniel Spielman",
+ "affiliation": "Yale University",
+ "date": "2020-05-11T12:00:00Z",
+ "field_msc": "62 Statistics",
+ "duration_sec": 4185.0,
+ "abstract": "In randomized experiments, such as a medical trials, we randomly assign the treatment, such as a drug or a placebo, that each experimental subject receives. Randomization can help us accurately estimate the difference in treatment effects with high probability. We also know that we want the two groups to be similar: ideally the two groups would be similar in every statistic we can measure beforehand.",
+ "youtube_url": "https://www.youtube.com/watch?v=q8iyf0wNab8",
+ "page_url": "https://www.ias.edu/video/csdm/2020/0511-DanielSpielman",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Potential-outcome setup and Horvitz-Thompson error",
+   "summary": "The talk formalizes randomized controlled trials using fixed Neyman-Rubin potential outcomes, defines designs as random treatment partitions, introduces the average treatment effect and the unbiased Horvitz-Thompson estimator, and derives the estimator error as an inner product with the outcome-sum vector.",
+   "spans": [
+    {
+     "start_sec": 135,
+     "end_sec": 1154
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Variance criterion and baseline designs",
+   "summary": "Writing the variance as a quadratic form involving the assignment covariance matrix Z, the speaker analyzes IID and balanced designs to show that IID is minimax unless one assumes structure in the potential outcomes, while balance can help when the outcome-sum vector has a large mean component.",
+   "spans": [
+    {
+     "start_sec": 1154,
+     "end_sec": 1499
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Covariates as a matrix-discrepancy objective",
+   "summary": "If the outcome-sum vector is close to the row span of the covariate matrix X, the variance is controlled by XZX^T, so the design problem becomes finding randomized signings that keep both Z and the covariate discrepancy small.",
+   "spans": [
+    {
+     "start_sec": 1499,
+     "end_sec": 1647
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Gram-Schmidt walk signing construction",
+   "summary": "The Gram-Schmidt walk is introduced as a randomized signing algorithm for input vectors, and its alive/frozen coordinates, pivot choice, update direction, and zero-mean step distribution are described.",
+   "spans": [
+    {
+     "start_sec": 1647,
+     "end_sec": 1809
+    },
+    {
+     "start_sec": 2230,
+     "end_sec": 2503
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Sharp one-sub-Gaussian analysis",
+   "summary": "The speaker explains the improved analysis proving the optimal sigma-squared equals one, using the martingale structure of the updates, projection norm bounds, Hoeffding's lemma, phase-by-phase control, and an operator-monotone matrix inequality.",
+   "spans": [
+    {
+     "start_sec": 1809,
+     "end_sec": 1840
+    },
+    {
+     "start_sec": 2517,
+     "end_sec": 3114
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Augmented-covariate tradeoff theorem",
+   "summary": "By feeding augmented vectors combining coordinate directions with covariates into the Gram-Schmidt walk, the parameter phi trades robustness against covariate balancing and yields Loewner-order, operator-norm, variance, and sub-Gaussian tail guarantees, interpretable as a ridge-regression-type bound.",
+   "spans": [
+    {
+     "start_sec": 1840,
+     "end_sec": 2230
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Optimality and hardness barriers",
+   "summary": "Trace and identity-matrix arguments show the main variance bound cannot generally be improved, and an NP-hardness result of Charikar, Newman, and Nikolov rules out guaranteed instancewise improvements beyond this scale.",
+   "spans": [
+    {
+     "start_sec": 3114,
+     "end_sec": 3221
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Confidence intervals and practical deployment",
+   "summary": "The talk constructs conservative variance estimates using Horvitz-Thompson ideas and Neyman's diagonal trick, explains why random permutation helps with pairwise inclusion probabilities, and then discusses tighter confidence intervals, covariate transformations, regression adjustment, class-size and online variants, rerandomization, and practical choices of phi.",
+   "spans": [
+    {
+     "start_sec": 3221,
+     "end_sec": 3939
+    },
+    {
+     "start_sec": 3962,
+     "end_sec": 4169
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Flipped-classroom trial with old and newborn subjects",
+   "note": "The classroom intervention, with old people and newborns as observable covariate groups, makes potential outcomes and covariate imbalance concrete without being used in the proof.",
+   "first_introduced_sec": 135,
+   "spans": [
+    {
+     "start_sec": 135,
+     "end_sec": 545
+    }
+   ],
+   "total_seconds": 410,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker walks through the flipped-classroom toy trial with old and newborn subjects, potential outcomes, random assignment, imbalance, and then balances the covariate by swapping assignments",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A two-age deterministic no-effect toy collapses outcome variation to a binary covariate and is used to show covariate imbalance can make randomization misleading."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "toy RCT whose outcomes collapse to a binary age covariate with no treatment effect, used to show naive randomization can mislead under covariate imbalance"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Toy null-effect trial where age essentially determines outcomes, used as a failure mode for covariate-imbalanced randomization"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Null-effect, age-determined potential outcomes are used as a failure case for unbalanced randomization."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary toy RCT used to show naive randomization can falsely suggest an effect."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a zero-treatment-effect, covariate-determined toy trial is used to show random imbalance can falsely suggest an effect"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Toy null-effect trial whose potential outcomes collapse to two age-determined groups."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "toy trial collapses outcomes to a deterministic age covariate and is used as a failure case for naive randomization under covariate imbalance"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "used as a failure mode for naive randomization; the toy trial has only two covariate types, zero treatment effect, and perfectly covariate-determined outcomes"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "No-effect age-determined potential outcomes are used as a failure mode for naive random assignment with unbalanced covariates."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the toy trial has collapsed no-treatment-effect potential outcomes and is used to show covariate imbalance can falsely suggest an effect"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a two-type deterministic toy RCT used to show covariate imbalance can create a spurious treatment effect"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Matched-pair design",
+   "note": "Matching is mentioned as a familiar design in which similar subjects are paired and split across arms, illustrating what a randomized design distribution can look like.",
+   "first_introduced_sec": 665,
+   "spans": [
+    {
+     "start_sec": 665,
+     "end_sec": 715
+    }
+   ],
+   "total_seconds": 50,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the matched-pair design is only described as a standard design where similar subjects are paired and randomly split, without analyzing a concrete pair instance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is presented as a standard pairwise randomization design rather than as a structurally special or refuting case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard paired experimental design introduced as a common design rather than as a structural edge case or failure case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Standard pairwise randomization design, introduced as a common design rather than an adversarial case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A matched-pair design is presented as a standard randomized design, not as an adversarial case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Pair blocks are split one-one with equiprobable swaps, giving local symmetry and maximum pair balance."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "exactly one member of each matched pair is assigned to each arm, giving minimal within-pair imbalance"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Standard matched-pair randomization is used as an ordinary design example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard matched-pair randomization is presented as a common experimental design, not as an obstruction or special classification case"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "introduced as a standard design; exact one-treated/one-control assignment in each pair locally minimizes imbalance"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "It is a paired block design with exact one-treated/one-control balance in every pair, cited as a standard design."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "matched-pair randomization is presented as a standard representative experimental design"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "a paired block design with exact one-treatment-one-control balance within each pair"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "All-positive outcomes under balanced assignment",
+   "note": "The case where all potential outcomes are positive illustrates why subtracting the mean of the outcome-sum vector can make a balanced design lower-variance than IID assignment.",
+   "first_introduced_sec": 1432,
+   "spans": [
+    {
+     "start_sec": 1432,
+     "end_sec": 1454
+    }
+   ],
+   "total_seconds": 22,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses the balanced-design variance formula to reason that when all outcomes are positive, subtracting the mean of mu can reduce the norm and make balancing preferable",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 7,
+    "symmetric": 7,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Positive-valued outcomes are an ordinary noncentered case illustrating when balanced assignment can help."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary positive-outcome scenario used to illustrate when a balanced design can reduce variance"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The half-half balanced assignment is permutation-symmetric, used to illustrate possible variance improvement for positive outcomes"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "All-positive outcomes are an ordinary sign-restricted case illustrating when balanced assignment can lower variance."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Uniform half-half assignment is permutation-symmetric with zero group-size imbalance, while positivity motivates variance reduction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the uniform half-half assignment is exchangeable and attains zero group-size imbalance in a favorable positive-outcome case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Exact balanced assignment minimizes treatment-control size imbalance."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the balanced assignment has zero group-size imbalance, an extremal balancing condition, and the positive outcomes illustrate variance reduction rather than failure"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "illustrates when balanced assignment helps; the balanced half-and-half assignment attains minimum group-size imbalance"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The balanced half-and-half assignment exactly minimizes group-size imbalance while illustrating a variance benefit for positive outcomes."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "all-positive outcomes are used only to illustrate when a balanced design may reduce variance"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the balanced half-assignment has exact minimum group-size imbalance and full permutation regularity"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Orthogonal unit covariates",
+   "note": "Assuming unit-norm covariates with orthogonal rows is a simple linear-algebra model showing why the coefficient vector beta can have much smaller norm than the potential-outcome vector.",
+   "first_introduced_sec": 1594,
+   "spans": [
+    {
+     "start_sec": 1594,
+     "end_sec": 1621
+    }
+   ],
+   "total_seconds": 27,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the orthogonal unit-covariate case is explicitly computed, deriving xx^T = n/d times the identity and ||beta||^2 = d/n ||mu||^2",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 10,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Unit covariates with orthogonal isotropic rows form a maximally regular tight configuration."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "equal-norm orthogonal/isotropic covariates form a highly regular model case for comparing norms"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Unit covariates with orthogonal rows form a highly regular ideal model case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Orthogonal unit covariates form an isotropic tight-frame model case with optimally regular conditioning."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Unit orthogonal covariates are maximally decorrelated and well-conditioned."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "unit covariates with orthogonal/isotropic rows form a maximally regular tight model case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Orthogonal unit covariates form a maximally decorrelated tight/isotropic configuration."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "unit orthogonal covariates form a maximally regular zero-correlation model case used to show the regression coefficient norm can be small"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "used as a model case; unit orthogonal/isotropic covariates are maximally regular and optimally uncorrelated"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Unit covariates with orthogonal rows form a tight, maximally uncorrelated model case for the norm calculation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "unit covariates with orthogonal rows form a maximally regular tight-frame/isotropic model case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "unit covariates with orthogonal rows form an optimally conditioned highly regular model case"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Ideal orthogonal update-vector case",
+   "note": "The speaker temporarily imagines fixed orthogonal update directions to explain the variance and sub-Gaussian martingale calculation before handling the real phase analysis.",
+   "first_introduced_sec": 2732,
+   "spans": [
+    {
+     "start_sec": 2732,
+     "end_sec": 2929
+    }
+   ],
+   "total_seconds": 197,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the ideal orthogonal update-vector case is worked through by expanding z into update steps and deriving the variance and sub-Gaussian bounds under orthogonality",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 5,
+    "extremal": 10,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Fixed mutually orthogonal updates collapse the adaptive walk to the maximally regular minimal-correlation ideal."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "ideal Gram-Schmidt-walk case where adaptive complications collapse to fixed orthogonal updates"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The orthogonal fixed-update case collapses the Gram–Schmidt walk analysis to one-step independent-looking phases"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The orthogonal fixed-update situation is the ideal regular boundary case for the Gram-Schmidt walk analysis."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Orthogonal fixed update directions form the maximally decorrelated ideal case for the proof."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "fixed mutually orthogonal update directions are the ideal regular case where cross-terms vanish and the bound is tight"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The orthogonal update-vector case is the best-case regular limit where cross terms vanish."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the fixed mutually orthogonal update-vector case collapses the walk to an ideal no-interaction analysis with one-step phases"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "used to explain the analysis; fixed orthogonal update vectors are the ideal zero-cross-term, maximally regular case"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The fixed orthogonal update directions are the ideal maximally decorrelated case used to explain the proof."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the fixed mutually orthogonal update-vector situation is the pivot-frozen minimal-phase ideal case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the ideal case makes all update directions orthogonal so cross-correlations vanish at a boundary case"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Medical trial user choosing phi",
+   "note": "In response to a question, the speaker uses a medical practitioner and biostatistician as the practical scenario for choosing the conservativeness parameter by simulation and modeling judgment.",
+   "first_introduced_sec": 3962,
+   "spans": [
+    {
+     "start_sec": 3962,
+     "end_sec": 4060
+    }
+   ],
+   "total_seconds": 98,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the medical trial user choosing phi is discussed only as a practical scenario requiring simulations or a biostatistician, with no concrete medical instance computed",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The medical user choosing phi is a typical application scenario for selecting the tradeoff parameter."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "hypothetical medical-trial use of the tuning parameter phi is a practical application scenario, not a special mathematical object"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Practical choice of the tradeoff parameter in a medical trial is an ordinary application scenario"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The medical-trial user choosing phi is a typical applied-use scenario for selecting the tradeoff parameter."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Practical parameter-selection scenario rather than a structurally special mathematical object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a generic applied choice of the tuning parameter phi in a medical trial has no special intrinsic structure"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Medical choice of the tuning parameter is an ordinary application scenario."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a medical-trial practitioner choosing the tradeoff parameter phi is an ordinary application scenario"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a typical applied-use scenario for choosing the tradeoff parameter phi, not a structural special case"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "This is an ordinary application scenario for choosing the trade-off parameter phi, not a structurally special mathematical object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a medical user choosing the tradeoff parameter is a generic application scenario"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a practical medical-trial parameter-choice scenario with no special intrinsic structure"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Political-science and economics field experiments",
+   "note": "The answer to a question cites political-science and economics experiments as application domains where covariate-balanced randomized trials could be useful.",
+   "first_introduced_sec": 4081,
+   "spans": [
+    {
+     "start_sec": 4081,
+     "end_sec": 4144
+    }
+   ],
+   "total_seconds": 63,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "political-science and economics field experiments are cited as application areas for randomized trials, without any specific experiment being analyzed",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Political-science and economics field experiments are cited as ordinary application domains for the design method."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "political-science and economics experiments are cited as ordinary application domains for randomized trials"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Political-science and economics field experiments are cited as ordinary application domains for the design"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Political-science and economics field experiments are cited as ordinary application domains for randomized trials."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary application domains for randomized trials, not used adversarially."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "political-science and economics field experiments are cited as ordinary application domains for the design"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Political-science and economics field experiments are cited as typical application domains."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "political-science and economics field experiments are cited as typical domains for randomized controlled trials"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary application domains for randomized field experiments, cited to indicate scope"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "These are typical application domains for randomized controlled trials with covariates."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "political-science and economics field experiments are cited as ordinary application domains for the design"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary application domains for randomized field experiments"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Facebook A/B test",
+   "note": "The possible change in how Facebook presents a page is a brief application example of the same randomized-experiment design issue in an online computing context.",
+   "first_introduced_sec": 4144,
+   "spans": [
+    {
+     "start_sec": 4144,
+     "end_sec": 4169
+    }
+   ],
+   "total_seconds": 25,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the Facebook A/B test is only offered as a possible application context, with no construction or calculation carried out on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Facebook A/B test is cited as a standard large-scale randomized experiment application."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Facebook A/B testing is mentioned as a typical applied randomized experiment where the design might be useful"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Facebook A/B testing is cited as a standard large-scale randomized-experiment application"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A Facebook A/B test is a standard online randomized-experiment application rather than a special object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary A/B-testing application, not a structural exception or counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a Facebook A/B test is a standard two-arm experimental application, not a structurally special object"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A Facebook A/B test is a standard two-arm randomized experiment example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the Facebook A/B test is a standard online randomized experiment application, not a structural special case"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an ordinary large-scale A/B-testing application, cited as a possible use case"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A Facebook A/B test is cited as a representative two-arm online experiment application."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the Facebook A/B test is a typical two-arm randomized application example"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard two-arm online A/B testing application"
+    }
+   ]
+  }
+ ]
+}

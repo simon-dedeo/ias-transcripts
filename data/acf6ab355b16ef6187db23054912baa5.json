@@ -1,0 +1,2093 @@
+{
+ "key": "acf6ab355b16ef6187db23054912baa5",
+ "title": "Oracle Separation of Quantum Polynomial time and the Polynomial Hierarchy",
+ "speaker": "Avishay Tal",
+ "affiliation": "University of California, Berkeley",
+ "date": "2018-10-01T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4174.0,
+ "abstract": "In their seminal paper, Bennett, Bernstein, Brassard and Vazirani [SICOMP, 1997] showed that relative to an oracle, quantum algorithms are unable to solve NP-complete problems in sub-exponential time (i.e., that Grover's search is optimal in this setting).",
+ "youtube_url": "https://www.youtube.com/watch?v=LUGr7mO-tM0",
+ "page_url": "https://www.ias.edu/video/csdm/2018/1001-AvishayTal",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Complexity-class landscape for the BQP versus PH question",
+   "summary": "The talk sets up P, NP, coNP, PH, PSPACE, BPP, and BQP, emphasizing that the true containments between efficient quantum computation and classical nondeterministic or hierarchical computation are unknown.",
+   "spans": [
+    {
+     "start_sec": 32,
+     "end_sec": 406
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Oracle-relativized separation as the attainable target",
+   "summary": "Since unrelativized separations would imply major open lower bounds, the speaker introduces oracle access, explains relativized complexity classes, reviews prior oracle separations, and formulates the goal of separating BQP from PH relative to an oracle.",
+   "spans": [
+    {
+     "start_sec": 406,
+     "end_sec": 1138
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Reduction to pseudorandomness against AC0",
+   "summary": "The main theorem is restated through the Aaronson-Ambainis/Aaronson reduction: it suffices to construct a distribution on strings that fools constant-depth circuits but is distinguishable by a polylogarithmic-time quantum algorithm, using the standard translation between PH oracle computations and AC0 circuits.",
+   "spans": [
+    {
+     "start_sec": 1155,
+     "end_sec": 1908
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Forrelation-based distribution",
+   "summary": "The candidate distribution is explicitly defined by sampling a Gaussian vector, applying a Hadamard/Fourier transform to create weak cross-correlations, truncating, and then using the resulting coordinates as coin biases to obtain a Boolean distribution.",
+   "spans": [
+    {
+     "start_sec": 1933,
+     "end_sec": 2414
+    },
+    {
+     "start_sec": 3895,
+     "end_sec": 3928
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Quantum distinguishability of the distribution",
+   "summary": "Using Aaronson's quantum algorithm, the acceptance probability is expressed through a forrelation statistic whose expectation is zero under the uniform distribution but about epsilon under the constructed distribution, giving inverse-logarithmic distinguishing advantage.",
+   "spans": [
+    {
+     "start_sec": 2414,
+     "end_sec": 2658
+    },
+    {
+     "start_sec": 3895,
+     "end_sec": 3928
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Sparse low-degree structure of shallow circuits",
+   "summary": "The classical side is prepared by recalling AC0 circuits, their low-degree polynomial approximations, and the key refinement that AC0 approximants are sparse in each degree, unlike the dense quadratic statistic used by the quantum algorithm.",
+   "spans": [
+    {
+     "start_sec": 2658,
+     "end_sec": 3196
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Fourier-extension reduction from Boolean to Gaussian analysis",
+   "summary": "A Boolean function is expanded as a multilinear Fourier polynomial so that expectations over the rounded Boolean distribution can be compared, up to truncation error, with the value of the multilinear extension on the underlying Gaussian and at the origin.",
+   "spans": [
+    {
+     "start_sec": 3196,
+     "end_sec": 3519
+    },
+    {
+     "start_sec": 3928,
+     "end_sec": 3938
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Random-walk hybrid proof and parity-gate outlook",
+   "summary": "The Gaussian is represented as the endpoint of many tiny independent Gaussian steps, a hybrid argument bounds each consecutive change using sparse low-degree approximation and the CHHL restriction lemma, and the talk closes by explaining that a stronger Fourier-coefficient bound would extend the method to AC0 with parity gates.",
+   "spans": [
+    {
+     "start_sec": 3519,
+     "end_sec": 3895
+    },
+    {
+     "start_sec": 3938,
+     "end_sec": 4159
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Satisfiability as an NP-complete problem",
+   "note": "SAT makes concrete the NP notion that a proposed witness is easy to verify even when finding one is believed hard.",
+   "first_introduced_sec": 91,
+   "spans": [
+    {
+     "start_sec": 91,
+     "end_sec": 130
+    }
+   ],
+   "total_seconds": 39,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the NP verification criterion to satisfiability by explaining that a proposed assignment is checked by plugging values into the formula",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is NP-complete, hence a hardest/complete problem for NP under reductions, and is used illustratively."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is presented as an NP-complete, hence hardest-under-reductions, problem rather than as a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is NP-complete, hence maximal for NP under reductions, and is used only to illustrate NP."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is complete for NP, hence a hardest problem under standard reductions, and is used illustratively rather than as a disproof."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is NP-complete, hence maximal-hard among NP problems under reductions, and is used as a standard example rather than to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is NP-complete, hence maximal among NP problems under polynomial reductions, and is used illustratively."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is cited as a standard NP-complete task, making it maximally hard within NP under reductions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is used as a standard NP example, and NP-completeness makes it maximal under reductions within NP."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is used illustratively as an NP example and is structurally complete, i.e. maximal in NP under reductions."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is used as a standard NP-complete, hence hardest-in-NP, example rather than to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is used as a standard NP example and is structurally extremal as an NP-complete problem."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "SAT is used as a standard NP example, and NP-completeness makes it maximally hard within NP under reductions."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Primality testing via Miller-Rabin and AKS",
+   "note": "Primality testing illustrates randomized polynomial time and the possibility, still open in general, of derandomizing BPP.",
+   "first_introduced_sec": 190,
+   "spans": [
+    {
+     "start_sec": 190,
+     "end_sec": 226
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Miller-Rabin and AKS are cited only as randomized and deterministic primality algorithms with no analysis of the tests",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Primality testing is presented as a standard derandomization success from randomized to deterministic polynomial time."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Primality testing is used as an ordinary example of randomized versus deterministic efficient algorithms."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Primality testing is presented as a standard decision problem illustrating randomized versus deterministic algorithms."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Primality testing is presented as a standard randomized-then-deterministic efficient-computation example, with no special structural extremality."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Primality testing is cited as a typical derandomization success story from BPP-style algorithms to P."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Primality testing is presented as an ordinary derandomization example from randomized to deterministic polynomial time."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Primality testing is used as a natural example of randomized and later deterministic efficient algorithms."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Primality testing is cited as an ordinary derandomization example from BPP-style algorithms to P."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Primality testing is used as a standard illustration of randomized versus deterministic polynomial-time algorithms."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Primality testing is cited as a natural randomized-then-deterministic polynomial-time problem, with no special structural role among the listed types."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Primality testing is used as a representative randomized-then-deterministic efficient decision problem."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Primality testing is used illustratively for randomized versus deterministic algorithms, with no sporadic, limiting, extremal, or maximal-symmetry structure invoked."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Integer factoring and Shor's algorithm",
+   "note": "Factoring is used as the standard concrete task suggesting that BQP may exceed known classical efficient computation.",
+   "first_introduced_sec": 247,
+   "spans": [
+    {
+     "start_sec": 247,
+     "end_sec": 299
+    }
+   ],
+   "total_seconds": 52,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "factoring and Shor's algorithm are named as a BQP example and contrasted with classical algorithms, but no workings of the algorithm are given",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Integer factoring is used as a typical motivating BQP task for Shor's algorithm rather than as a structural exception."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Factoring with Shor's algorithm is used as a standard motivating BQP problem, not a structural extreme or refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Integer factoring is used as a canonical BQP application via Shor's algorithm without proving a failed containment."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Integer factoring with Shor's algorithm is used as a motivating quantum-speedup example, not as a formal obstruction or structurally exceptional object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Integer factoring with Shor's algorithm is used as a representative candidate quantum speedup, not as a proven obstruction or classification exception."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Integer factoring is used as a standard BQP-motivating problem with no proven extremal or exceptional status here."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Integer factoring is used as a natural BQP example via Shor's algorithm, not as a disproof of a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Factoring via Shor is used as a motivating BQP advantage example, not as a structural extreme or refutation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Factoring via Shor's algorithm is used as a motivating quantum-speedup example, with no intrinsic special structure among computational problems marked here."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Factoring via Shor's algorithm is a motivating BQP example, not a structural exception or a counterexample in the argument."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Factoring via Shor is used to illustrate a quantum speedup, not as a structural extreme or disproof."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Factoring via Shor's algorithm is a motivating BQP example of possible speedup, not a formal refutation, and factoring is not presented as complete or extreme."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "SAT oracle solving NP-complete tasks",
+   "note": "An oracle for SAT illustrates how oracle access can give a polynomial-time machine enough power to solve problems such as traveling salesperson and clique via reductions.",
+   "first_introduced_sec": 479,
+   "spans": [
+    {
+     "start_sec": 479,
+     "end_sec": 515
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker concretely explains how a SAT oracle plus reductions lets a polynomial-time machine solve NP-complete problems such as TSP or clique",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is complete for NP and so gives access to NP-complete power in an extremal way."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is complete for NP and so represents maximal NP power under reductions, used illustratively."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is complete for NP tasks under reductions, so it is structurally maximal in that setting."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is based on an NP-complete problem and so occupies a hardest/complete position for NP tasks, but it is used to illustrate oracle power."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is extremal for NP because SAT-completeness lets it solve all NP-complete tasks via reductions, but it is only illustrating oracle power."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is complete for NP under reductions, giving maximal NP-query power, and illustrates oracle usefulness."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is used to illustrate oracle power, and SAT is complete/maximally hard for NP reductions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is used to illustrate oracle power, and SAT is complete/hardest for NP under reductions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is used to illustrate oracle power and is structurally extremal because SAT is NP-complete."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is powerful because SAT is NP-complete, an extremal complete problem for NP, and is used positively to illustrate oracle power."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is used to show oracle power and is extremal because SAT is complete for NP."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A SAT oracle is used to illustrate oracle power, with SAT's NP-completeness making it maximal for NP reductions."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Students with a supercomputer analogy",
+   "note": "The analogy explains why an oracle separation is only indirect evidence: the same added resource is given to both competing models and may reveal a difference without proving the unrelativized one.",
+   "first_introduced_sec": 565,
+   "spans": [
+    {
+     "start_sec": 565,
+     "end_sec": 627
+    }
+   ],
+   "total_seconds": 62,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the supercomputer story is used as an analogy for oracle access without any mathematical construction or calculation on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 10
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The students-with-supercomputer story is only an analogy, not an identifiable mathematical object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The students-with-a-supercomputer passage is a non-mathematical analogy rather than a determinate mathematical object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The students-with-supercomputer passage is a non-mathematical analogy rather than an identifiable mathematical object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The students-with-a-supercomputer passage is an informal analogy rather than a determinate mathematical object to classify structurally."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The students-with-a-supercomputer passage is a non-mathematical analogy rather than an identifiable mathematical object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The students-with-supercomputer passage is a nonmathematical analogy rather than a determinate mathematical object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The students-with-a-supercomputer story is only an analogy for oracle access, with no special mathematical structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The students-with-supercomputer story is only an oracle analogy and carries no special mathematical structure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The students-with-a-supercomputer passage is a non-mathematical analogy rather than a classifiable mathematical object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The students-with-a-supercomputer passage is a non-mathematical analogy rather than a classifiable mathematical object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The students-with-supercomputer passage is a non-mathematical analogy rather than an identifiable mathematical object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "This is a non-mathematical analogy rather than a well-defined mathematical object to classify."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "IP = PSPACE but relativization can fail",
+   "note": "In response to a notation question, the speaker cites IP = PSPACE and an oracle where the relativized classes differ to illustrate that not all inclusions relativize.",
+   "first_introduced_sec": 802,
+   "spans": [
+    {
+     "start_sec": 802,
+     "end_sec": 814
+    }
+   ],
+   "total_seconds": 12,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "IP = PSPACE and an oracle where relativization fails are cited as facts, with no derivation or example worked through",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The IP=PSPACE relativization example is used to show that equality of classes need not persist relative to every oracle."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "IP = PSPACE with an oracle separating IP^A from PSPACE^A is used to show that equality need not relativize."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The oracle with IP^A not equal to PSPACE^A is used to refute the idea that IP=PSPACE relativizes."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The IP = PSPACE relativization failure is used as a counterexample to the idea that an equality of classes must persist relative to every oracle."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The IP = PSPACE relativization example is used to refute the inference that an equality of classes must persist relative to every oracle."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The IP = PSPACE relativization failure is used to show that an equality need not persist relative to every oracle."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The relativized IP/PSPACE example refutes the idea that an equality of classes must relativize to every oracle."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The oracle with IP^A not equal to PSPACE^A is used to show that equality proofs need not relativize."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The oracle separating IP^A from PSPACE^A despite IP=PSPACE is used to show that relativization can fail."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The IP=PSPACE oracle separation is invoked to show that equality need not relativize."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The IP=PSPACE relativization example is used to refute the naive inference that equal classes remain equal relative to every oracle."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The relativized IP/PSPACE separation is cited to refute the implication that unrelativized equality forces relativized equality."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Grover search tightness",
+   "note": "The BBBV oracle result is described through the tightness of Grover search, illustrating evidence that quantum algorithms should not solve arbitrary NP-complete search exponentially faster.",
+   "first_introduced_sec": 959,
+   "spans": [
+    {
+     "start_sec": 959,
+     "end_sec": 1005
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Grover search tightness is stated as the consequence of the BBBV oracle lower bound, but the search bound is not proved or computed",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Grover search tightness is an optimal lower-bound case used to rule out better generic quantum search speedups."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Grover search tightness is an optimal-query lower-bound example used to rule out improving the quadratic speedup."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Unstructured search gives the optimal Grover query bound and is used as a black-box obstacle to faster quantum search."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Grover search is a tight optimal black-box quadratic speedup and is invoked via the lower bound as an obstruction to stronger quantum search/NP-solving claims."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Grover search is an optimal tight Θ(√N) quantum-search bound and is cited as an oracle obstruction to improving search enough to solve all NP tasks."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Grover search has a tight optimal square-root query bound and is used as an oracle lower-bound obstruction to stronger quantum speedups for NP search."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Grover search tightness is used as an oracle lower-bound obstruction to faster quantum search and gives an optimal boundary case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Grover search is used as an oracle lower-bound obstruction to better quantum search, and its sqrt query complexity is optimal."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Grover search tightness is used as an oracle/query lower-bound obstruction to faster quantum search and is structurally an optimal tight case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Grover search tightness is an optimal black-box search bound used as an obstruction to faster quantum search for NP-style search tasks."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Grover search is used as an oracle lower-bound obstruction showing the square-root speedup is optimal."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Unstructured search is used as a relativized obstruction to faster quantum search, with its permutation symmetry and tight Θ(√N) bound."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Parity is not in AC0",
+   "note": "Parity exemplifies classical AC0 lower bounds and the low-degree approximation method before the talk explains why that method must be refined for the quantum separation.",
+   "first_introduced_sec": 2764,
+   "spans": [
+    {
+     "start_sec": 2764,
+     "end_sec": 2982
+    }
+   ],
+   "total_seconds": 218,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker defines parity, relates it to sum mod 2/product of inputs, and sketches why low-degree polynomial approximation separates it from AC0",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a permutation-symmetric Boolean function used as the standard obstruction showing AC0 cannot compute even this simple function."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a maximally high-degree symmetric Boolean function used to show AC0 cannot compute even this simple function."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a fully coordinate-symmetric Boolean function of maximal Fourier degree used to show AC0 cannot compute even this simple function."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a fully permutation-symmetric Boolean function with maximal Fourier degree, used as a hard function showing AC0 cannot compute even this simple task."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a fully permutation-invariant Boolean function of maximal Fourier degree and is used as a simple function AC0 cannot compute."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a fully permutation-symmetric Boolean function of maximal Fourier degree, used to show AC0 cannot compute even this simple function."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is used to exhibit a simple function AC0 cannot compute, and it is a fully symmetric Boolean function of maximal degree."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is used to exhibit AC0 failure, and the parity function is permutation-symmetric with maximal Fourier degree."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is used as a simple function AC0 cannot compute, and structurally it is permutation-symmetric with full degree n."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a highly symmetric Boolean function of maximal degree used to show that AC0 cannot compute even this simple function."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a symmetric Boolean function of maximal degree used to show AC0 cannot compute even this simple function."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is used to show AC0 cannot compute even this simple function, and parity is permutation-symmetric with maximal degree n."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Brownian motion as the limit of the hybrid walk",
+   "note": "Brownian motion is mentioned only to interpret the finite Gaussian random-walk decomposition as a motion built from many tiny steps.",
+   "first_introduced_sec": 3706,
+   "spans": [
+    {
+     "start_sec": 3706,
+     "end_sec": 3725
+    }
+   ],
+   "total_seconds": 19,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Brownian motion is only noted as the infinite-step limit of the hybrid random walk, while the proof proceeds with a finite walk instead",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Brownian motion is invoked as the limiting case obtained when the hybrid random walk takes infinitely many tiny steps."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Brownian motion is invoked as the limiting continuous-time endpoint of the hybrid random walk, not as a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Brownian motion is the highly regular Gaussian stationary-increment continuum limit of the finite hybrid walk."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Brownian motion appears as the continuous limiting case of the finite hybrid random walk, used analytically rather than adversarially."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Brownian motion is invoked as the limiting continuous case of the finite hybrid random walk, not as a counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Brownian motion is invoked as the t→∞ limiting boundary case of the finite hybrid random walk, not as an obstruction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Brownian motion is invoked only as the t-to-infinity limiting case of the hybrid random walk."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Brownian motion is invoked only as the t-to-infinity limiting diffusion of the hybrid random walk."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Brownian motion is mentioned as the limiting continuous-time form of the hybrid random walk, not as a counterexample."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Brownian motion is mentioned only as the continuous limiting case of the finite hybrid random walk, not as a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Brownian motion is invoked as the limiting continuous process of the hybrid random walk, not as a counterexample."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Brownian motion is only an illustrative t→∞ scaling limit of the hybrid walk, with Gaussian translation and scaling symmetries."
+    }
+   ]
+  }
+ ]
+}

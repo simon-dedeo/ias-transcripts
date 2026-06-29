@@ -1,0 +1,1773 @@
+{
+ "key": "db36a4eb7618912d87cb4d47374fd4a0",
+ "title": "The Non-Stochastic Control Problem",
+ "speaker": "Elad Hazan",
+ "affiliation": "Princeton University",
+ "date": "2020-05-18T12:00:00Z",
+ "field_msc": "93 Systems theory; control",
+ "duration_sec": 3503.0,
+ "abstract": "Linear dynamical systems are a continuous subclass of reinforcement learning models that are widely used in robotics, finance, engineering, and meteorology. Classical control, since the work of Kalman, has focused on dynamics with Gaussian i.i.d. noise, quadratic loss functions and, in terms of provably efficient algorithms, known systems and observed state.",
+ "youtube_url": "https://www.youtube.com/watch?v=WAhXXkQ3t38",
+ "page_url": "https://www.ias.edu/video/csdm/2020/0518-EladHazan",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Linear-dynamical control model and classical baselines",
+   "summary": "The talk formulates linear dynamical control with state, action, perturbation, and convex cost, then reviews LQR and H-infinity control to identify the gap between stochastic optimality and worst-case robustness.",
+   "spans": [
+    {
+     "start_sec": 303,
+     "end_sec": 879
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Adversarial policy-regret objective",
+   "summary": "The non-stochastic control problem is posed with adversarial disturbances and convex costs, measuring performance by policy regret against the best linear feedback controller in hindsight, with the stated goal of an efficient sublinear-regret algorithm under boundedness assumptions.",
+   "spans": [
+    {
+     "start_sec": 879,
+     "end_sec": 1569
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Disturbance-action convex relaxation",
+   "summary": "Opening the closed-loop recursion shows that optimizing directly over linear feedback matrices is nonconvex, so the controller is reparameterized as a linear function of past perturbations in a larger convex policy class that contains approximations to the linear comparators.",
+   "spans": [
+    {
+     "start_sec": 1569,
+     "end_sec": 1831
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Logarithmic memory and slow online optimization",
+   "summary": "The infinite disturbance history is truncated to logarithmic length while still approximating the best linear policy, and online convex optimization with memory is handled by making gradient updates slowly enough to control the effect of changing policies on future losses.",
+   "spans": [
+    {
+     "start_sec": 1831,
+     "end_sec": 2038
+    },
+    {
+     "start_sec": 2335,
+     "end_sec": 2438
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Gradient perturbation controller",
+   "summary": "Combining the relaxation, truncation, and slow gradient updates yields the gradient perturbation controller, which learns matrices multiplying recent recovered perturbations and is compared empirically with LQR and H-infinity controllers.",
+   "spans": [
+    {
+     "start_sec": 2038,
+     "end_sec": 2297
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Moment recovery for unknown dynamics",
+   "summary": "When the system matrices are unknown, small Gaussian exploratory perturbations allow recovery of Markov parameters such as A^kB, from which the dynamics can be identified sufficiently to run the preceding control method.",
+   "spans": [
+    {
+     "start_sec": 2297,
+     "end_sec": 2492
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Spectral-filter basis for partially observed prediction",
+   "summary": "For partially observed linear dynamical systems, the prediction problem is convexified by learning input-output filters, and a fixed Hankel-matrix eigenbasis approximates geometric impulse responses with few coefficients independently of the condition number.",
+   "spans": [
+    {
+     "start_sec": 2492,
+     "end_sec": 2978
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Scope, limitations, and extensions",
+   "summary": "The speaker summarizes the per-instance robust-control viewpoint, notes limitations such as the symmetric-matrix assumption in the spectral argument, and discusses extensions to slowly time-varying or linearized nonlinear dynamics and to planning applications.",
+   "spans": [
+    {
+     "start_sec": 2978,
+     "end_sec": 3122
+    },
+    {
+     "start_sec": 3136,
+     "end_sec": 3464
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Inverted pendulum/cart-pole",
+   "note": "The cart-pole makes the meanings of state, control, perturbation, Markovian evolution, cost, and state-dependent policies concrete without supplying any proof step.",
+   "first_introduced_sec": 104,
+   "spans": [
+    {
+     "start_sec": 104,
+     "end_sec": 199
+    },
+    {
+     "start_sec": 335,
+     "end_sec": 371
+    },
+    {
+     "start_sec": 476,
+     "end_sec": 534
+    },
+    {
+     "start_sec": 723,
+     "end_sec": 757
+    },
+    {
+     "start_sec": 1276,
+     "end_sec": 1316
+    }
+   ],
+   "total_seconds": 263,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses the cart-pole to instantiate state, control, perturbation, Markovianity, and a concrete squared-distance-plus-control cost",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The cart-pole is a standard control benchmark whose upright inverted equilibrium is a top unstable extreme, not a refutation case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard nonlinear control benchmark used illustratively for Markovian state dynamics, not as a disproof case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the cart-pole example is centered on the upright inverted equilibrium, a maximal-potential unstable critical configuration"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The cart-pole is used as a standard illustrative Markovian control system, not as a sporadic, extremal, or refuting case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard underactuated control benchmark used to illustrate Markovian dynamics, not to refute a claim"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The cart-pole is used illustratively, and its upright inverted equilibrium is a potential-energy maximum/unstable critical case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The cart-pole is used as a standard illustrative Markovian control system, not as a failure case or structural outlier."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as a motivating Markovian control example; the inverted upright configuration is a critical unstable potential-energy maximum."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a standard illustrative Markovian control benchmark, not to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The cart-pole is used as a standard illustrative Markovian control system, with no sporadic, extremal, degenerate, or maximal-symmetry structure invoked."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the cart-pole is used as a motivating benchmark, and its upright inverted state is a critical unstable maximum-potential equilibrium"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard cart-pole control benchmark used to illustrate Markovian dynamics, not to refute a claim"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Spacecraft control and the moon landing",
+   "note": "Kalman's work on rockets and celestial tracking is used as a historical illustration of the importance of classical control theory.",
+   "first_introduced_sec": 199,
+   "spans": [
+    {
+     "start_sec": 199,
+     "end_sec": 255
+    }
+   ],
+   "total_seconds": 56,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "spacecraft control and the moon landing are cited historically as successes of control theory without any analysis of the system",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Spacecraft guidance and the moon landing are used as ordinary historical applications of control theory."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Spacecraft control is cited as a historical application of classical control rather than a structurally special or adversarial example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "spacecraft control is cited as a historical application of control theory rather than as a structurally special object or failure case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Spacecraft control and the moon landing are cited as historical applications of control theory rather than structurally special mathematical objects or counterexamples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary historical application of Kalman/control theory cited as evidence of usefulness"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Spacecraft control is cited as a historical application of classical control, not as a structurally special object or failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Spacecraft control and the moon landing are cited as historical applications of control theory, not as counterexamples or exceptional mathematical objects."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as historical evidence of control theory’s success, not to refute a claim, and it is an ordinary real-world control application."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cited as a historical application of control theory rather than an adversarial case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Spacecraft control and the moon landing are cited as historical applications of control theory rather than as failures of a claim or structurally special mathematical objects."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "spacecraft control and the moon landing are cited as successful applications of classical control theory"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "historical engineering application of Kalman/control theory, not a structurally special mathematical object"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Hinge loss as a non-quadratic cost",
+   "note": "Hinge loss illustrates why machine-learning-motivated control problems may require arbitrary convex costs rather than the quadratic costs of LQR.",
+   "first_introduced_sec": 835,
+   "spans": [
+    {
+     "start_sec": 835,
+     "end_sec": 879
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "hinge loss is named as an example of a non-quadratic convex cost from machine learning without being derived or applied",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Hinge loss is an ordinary convex nonquadratic loss used to show quadratic LQR/Riccati methods do not cover all relevant costs."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Hinge loss is an ordinary convex non-quadratic loss used to show the limitation of quadratic-cost LQR theory."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "hinge loss is used as a convex non-quadratic cost outside the LQR/Riccati quadratic-cost setting"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Hinge loss is an ordinary convex non-quadratic loss, used to show the quadratic-cost Riccati/LQR framework does not cover all relevant costs."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary convex piecewise-linear loss used to exhibit useful costs outside the quadratic LQR setting"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Hinge loss is an ordinary convex non-quadratic loss used to show the quadratic-cost LQR/Riccati framework is too restrictive."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Hinge loss is used as a convex non-quadratic cost outside the LQR quadratic-cost framework, while structurally it is an ordinary machine-learning loss."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a witness that quadratic-cost Riccati/LQR theory does not cover common machine-learning losses."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a convex non-quadratic loss showing the limitation of quadratic LQR/Riccati methods."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Hinge loss is used as a convex non-quadratic loss illustrating the limitation of LQR/Riccati quadratic-cost methods, but the loss itself is an ordinary convex loss."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "hinge loss is a standard convex non-quadratic loss used to show that quadratic LQR/Riccati methods do not cover all relevant costs"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "standard convex non-quadratic loss cited to show quadratic LQR/Riccati methods do not cover important ML costs"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Online learning and stateful reinforcement-learning tasks",
+   "note": "In response to a question, supervised online learning, chess, Go, and driving are contrasted with control to clarify why state and state-dependent policies make the regret objective different.",
+   "first_introduced_sec": 1211,
+   "spans": [
+    {
+     "start_sec": 1211,
+     "end_sec": 1316
+    }
+   ],
+   "total_seconds": 105,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "online learning and reinforcement learning are discussed as analogies/frameworks distinguished by the presence of state, but no concrete task is worked through",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Online learning and stateful reinforcement-learning tasks are standard comparison frameworks used to explain the role of state."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Online-learning/RL tasks are used as a comparison class for stateful decision problems, with no intrinsic special structure singled out."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "online learning and stateful RL tasks are used for comparison with control rather than to refute a claim"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Stateful online-learning/RL tasks are invoked as a standard analogy for systems with state, not as exceptional structures or a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "broad class of ordinary state-based learning/control tasks used for analogy with online learning"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Online learning and stateful RL tasks are used as ordinary comparison frameworks for explaining the role of state."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Online learning and stateful RL tasks are used for analogy and contrast with control, not as a specific adversarial or structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used to explain the role of state in online control versus online learning/RL, not as a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used to explain the distinction between stateless online learning and stateful RL/control tasks."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Online learning and stateful RL tasks are used for comparison and motivation, not to refute a claim, and are structurally standard modeling settings."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "online learning and stateful RL tasks are ordinary sequential-decision settings invoked to explain the role of state"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "representative stateful-learning examples used to explain the distinction from stateless online learning"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Fixed-portfolio comparison",
+   "note": "The audience's portfolio-investment analogy illustrates the general online-learning practice of competing against a restricted comparator class, here specialized to linear feedback policies.",
+   "first_introduced_sec": 1316,
+   "spans": [
+    {
+     "start_sec": 1316,
+     "end_sec": 1356
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "fixed-portfolio comparison is invoked by a questioner as an analogy for competing with a restricted strategy class",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The fixed-portfolio comparator is the usual static benchmark in online learning, offered only as an analogy."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A fixed portfolio is an ordinary static comparator used by analogy for restricted policy classes."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the fixed-portfolio comparator is an ordinary online-learning analogy for restricting the comparator class"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The fixed-portfolio comparator is a typical online-learning benchmark used by analogy, not an extremal or adversarial example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard static comparator in online portfolio learning used as an analogy for restricted policy classes"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A fixed portfolio is the static time-independent base comparator among richer adaptive portfolio policies."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The best fixed portfolio is a standard comparator baseline in online learning, not deployed to refute a claim and not intrinsically extremal or exceptional."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Used as an analogy for comparator restrictions; a fixed portfolio is a static memoryless policy class."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A fixed portfolio is a time-independent memoryless policy class compared with general adaptive strategies."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The fixed-portfolio comparator is an analogy for restricting to a policy class in regret analysis, not an adversarial example, and is a standard comparator class."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the best fixed portfolio is an ordinary static comparator used as an analogy for restricted policy classes"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the comparator is the hindsight-best fixed portfolio, an optimal element of the restricted portfolio class, used as an analogy"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Noise benchmark simulations",
+   "note": "Gaussian noise, Gaussian random-walk noise, sinusoidal disturbance, H-infinity, LQR, and no-control baselines empirically illustrate when the gradient perturbation controller matches or improves on classical controllers.",
+   "first_introduced_sec": 2148,
+   "spans": [
+    {
+     "start_sec": 2148,
+     "end_sec": 2297
+    }
+   ],
+   "total_seconds": 149,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker reports running the controller on Gaussian, random-walk, and sinusoidal noise benchmarks and compares the resulting performance curves to LQR and H-infinity methods",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The noise benchmarks are stress tests, especially the sinusoidal disturbance, used to show classical controllers can perform badly."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The noise benchmarks, especially the sinusoidal/adversarial cases, are used to exhibit poor performance of classical controllers."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the non-Gaussian noise benchmarks, especially sinusoidal noise, are used as enemy cases where classical controllers perform poorly"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The noise benchmarks are ordinary test processes, with non-Gaussian cases used to exhibit poor performance of classical controllers."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary benchmark noise scenarios, with non-Gaussian cases serving as hard cases for classical controllers"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The benchmark noise simulations are used to exhibit cases, especially structured sinusoidal noise, where classical controllers perform poorly."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The noise simulations, especially the sinusoidal disturbance, are used as stress tests showing classical controllers can perform poorly, but the benchmark collection is not a structural outlier."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to exhibit non-Gaussian or sinusoidal noise cases where classical controllers perform much worse; the chosen noises are regular symmetric benchmarks."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The non-Gaussian and sinusoidal noise benchmarks are used as regimes where classical LQR/H-infinity methods perform poorly."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The benchmark noise simulations, especially sinusoidal noise, are used to exhibit poor performance of classical controllers relative to the proposed learner, while the benchmark suite is not intrinsically exceptional or extremal."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the benchmark noise simulations, especially the sinusoidal disturbance, are used to exhibit cases where classical controllers perform poorly"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "benchmark disturbances, especially sinusoidal noise, are used to exhibit poor performance of classical controllers"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Noncommutative polynomial and rational system descriptions",
+   "note": "An audience question about noncommutative polynomial/rational formulations of linear systems serves to probe how the presented linear-dynamical model relates to other algebraic system representations.",
+   "first_introduced_sec": 3136,
+   "spans": [
+    {
+     "start_sec": 3136,
+     "end_sec": 3255
+    }
+   ],
+   "total_seconds": 119,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "noncommutative polynomial and rational descriptions are raised in a question and answered at a high conceptual level without applying the method to a specific such system",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 9,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Noncommutative polynomial and rational descriptions are a standard broader formalism raised as a scope question."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Noncommutative polynomial/rational system descriptions are raised as a possible broader linear-system model challenging the fixed-matrix formulation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "noncommutative polynomial and rational descriptions are raised as a possible obstruction to the fixed-matrix linear-system formulation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Noncommutative polynomial/rational descriptions are systematic control representations raised as a possible obstruction to the fixed-matrix formulation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary noncommutative algebraic system formalism raised as a possible generalization rather than a proved obstruction"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Noncommutative polynomial and rational descriptions are raised as a potential obstruction to the speaker’s fixed-matrix linear-system formulation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Noncommutative polynomial and rational descriptions are raised as a challenge to the speaker’s simpler fixed-matrix formulation of linear systems, but they are ordinary objects in that broader formalism."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Raised as a possible adversarial challenge to the fixed-matrix linear-system formulation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Raised as a broader systematic representation class in a question, not as a demonstrated disproof."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Noncommutative polynomial/rational descriptions are raised as a possible obstruction to the speaker’s linear-system formulation, though such descriptions are not sporadic or extremal objects."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "noncommutative polynomial and rational descriptions are raised as a possible broader class that might obstruct the fixed-matrix linear formulation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "noncommutative rational descriptions are raised as a possible broader linear-system formulation challenging the stated model"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Robotics planning and drone trajectories",
+   "note": "The Q&A examples of robotics, planning, and drone simulation indicate plausible application domains for the robust online-control method, rather than forming part of the proof.",
+   "first_introduced_sec": 3388,
+   "spans": [
+    {
+     "start_sec": 3388,
+     "end_sec": 3464
+    }
+   ],
+   "total_seconds": 76,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "robotics planning and drone trajectories are cited as possible applications with preliminary simulations but no trajectory or planning calculation is shown",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Robotics planning and drone trajectories are ordinary application targets for the proposed robust-control methods."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Robotics planning and drone trajectories are ordinary application targets for the controller rather than structurally special or refuting examples."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "robotics planning and drone trajectories are presented as prospective applications of the method"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Robotics planning and drone trajectories are cited as intended applications of the method, not as structurally special or failure cases."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary application domain of trajectory planning cited as an intended use of the method"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Robotics planning and drone trajectories are cited as ordinary prospective applications of the control method."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Robotics planning and drone trajectories are presented as prospective applications of the method, not as counterexamples or structurally special systems."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as prospective application domains for robust planning/control, not as counterexamples or structurally special objects."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Mentioned as prospective application domains for the controller and planning methods."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Robotics planning and drone trajectories are presented as intended applications of the method, with ordinary trajectory-planning structure."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "robotics planning and drone trajectories are presented as prospective ordinary applications of the control methods"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary robotics planning and drone-trajectory applications used as prospective use cases"
+    }
+   ]
+  }
+ ]
+}

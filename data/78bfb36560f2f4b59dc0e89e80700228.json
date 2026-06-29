@@ -1,0 +1,1393 @@
+{
+ "key": "78bfb36560f2f4b59dc0e89e80700228",
+ "title": "Communication complexity of approximate Nash equilibria",
+ "speaker": "Aviad Rubinstein",
+ "affiliation": "University of California, Berkeley",
+ "date": "2016-10-31T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3795.0,
+ "abstract": "For a constant $\\epsilon$, we prove a $\\mathrm{poly}(N)$ lower bound on the communication complexity of $\\epsilon$-Nash equilibrium in two-player $N \\times N$ games. For $n$-player binary-action games we prove an $\\exp(n)$ lower bound for the communication complexity of $(\\epsilon,\\epsilon)$-weak approximate Nash equilibrium, which is a profile of mixed actions such that at least $(1-\\epsilon)$-fraction of the players are $\\epsilon$-best replying.",
+ "youtube_url": "https://www.youtube.com/watch?v=hRV9chspWI0",
+ "page_url": "https://www.ias.edu/video/csdm/2016/1031-AviadRubinstein",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Communication-complexity formulation of approximate equilibrium",
+   "summary": "The talk motivates Nash equilibrium computation, replaces conditional computational hardness by unconditional communication lower bounds, states the two-player and many-player lower-bound theorems, and defines epsilon Nash and epsilon-delta weak Nash equilibria.",
+   "spans": [
+    {
+     "start_sec": 16,
+     "end_sec": 920
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Totality and small-support obstacles",
+   "summary": "Because equilibria always exist and approximate equilibria have small supports, standard communication reductions from decision problems or nondeterministic-hard problems cannot be used directly.",
+   "spans": [
+    {
+     "start_sec": 920,
+     "end_sec": 1181
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "End-of-line hardness lifted to communication",
+   "summary": "The proof takes end-of-line as the total-search source problem, uses a simulation/lifting theorem with an indexing gadget, and invokes the WAP model to obtain randomized communication lower bounds from query lower bounds.",
+   "spans": [
+    {
+     "start_sec": 1181,
+     "end_sec": 1212
+    },
+    {
+     "start_sec": 1298,
+     "end_sec": 2222
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Brouwer fixed-point embedding of end-of-line",
+   "summary": "A Hirsch-Papadimitriou-Vavasis-style construction embeds the end-of-line path into a Lipschitz Brouwer map whose only approximate fixed points reveal endpoints, strengthened so being far from fixed is witnessed in many coordinates and with a default safe displacement away from decodable path regions.",
+   "spans": [
+    {
+     "start_sec": 2222,
+     "end_sec": 2915
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Need for non-black-box composition",
+   "summary": "Since the Brouwer reduction is continuous while the lifting theorem is discrete, the argument cannot simply compose them black-box and instead must combine both mechanisms inside one game gadget.",
+   "spans": [
+    {
+     "start_sec": 1212,
+     "end_sec": 1298
+    },
+    {
+     "start_sec": 2915,
+     "end_sec": 3045
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Imitation game turning fixed points into equilibria",
+   "summary": "A two-player continuous imitation game is defined in which Alice tries to match Bob's vector and Bob tries to match f(x), so equilibria correspond to fixed points and the squared-norm payoff makes mixed strategies analyzable through expectations and variance.",
+   "spans": [
+    {
+     "start_sec": 3045,
+     "end_sec": 3354
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Simulation game enforcing local distributed evaluation",
+   "summary": "The game is augmented with decoded vertices and lifting-gadget messages alpha and beta, with payoffs forcing Bob and Alice to reveal the local information needed to compute the Brouwer displacement without giving either player the whole function.",
+   "spans": [
+    {
+     "start_sec": 3361,
+     "end_sec": 3696
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Extensions and consequences",
+   "summary": "The same construction is briefly adapted to many two-action players by splitting coordinates among players, and the communication lower bound is related to slow convergence of uncoupled learning dynamics.",
+   "spans": [
+    {
+     "start_sec": 3696,
+     "end_sec": 3741
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Combinatorial auctions with exponentially many actions",
+   "note": "Auctions where bidders value subsets of items illustrate why the normal-form action set size can be exponential in a smaller underlying description, motivating communication lower bounds in large games.",
+   "first_introduced_sec": 662,
+   "spans": [
+    {
+     "start_sec": 662,
+     "end_sec": 693
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker cites auctions with bidding on subsets as an application where the action space can be exponential, but does not analyze an auction instance.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Combinatorial auctions with subset bids are a systematic application class used to illustrate exponentially large action spaces, not to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary combinatorial-auction action spaces are used to illustrate exponential action counts, not to refute a claim"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Combinatorial auctions are used as a natural application where the action space can be exponential, with no special structural role beyond that."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "It is a standard application where the action set is naturally exponential, used illustratively rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary combinatorial-auction action spaces of item subsets are used only to motivate exponential game size"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Combinatorial auctions over subsets are used as a standard motivating case with succinct representation and exponentially many actions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as a natural application where bundle choices give exponentially many actions, not as a failure case or structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is used as a standard motivating application where subset actions make the action space exponential."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "used only to motivate succinct games with exponentially large action spaces in a standard combinatorial-auction setting"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used as a motivating application where succinct games can have exponentially many actions, not to refute a claim; structurally an ordinary large action-space auction model."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "full subset-bidding gives a power-set-sized action space, maximal in the item dimension"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the auction action set ranges over all item subsets, giving a maximal/exponential bundle space rather than serving as a refutation"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Almost-clearing markets with a few mispriced products",
+   "note": "The market-clearing analogy makes the epsilon-delta weak Nash notion concrete by comparing unhappy players to a small fraction of products clearing at wrong prices.",
+   "first_introduced_sec": 836,
+   "spans": [
+    {
+     "start_sec": 836,
+     "end_sec": 875
+    }
+   ],
+   "total_seconds": 39,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker uses almost-clearing markets with a few wrongly priced products as an analogy for weak Nash, without working through a market example.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Markets with only a few mispriced products are used as motivation for weak approximate equilibrium, not as a structural exception or counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a near-clearing market with a few wrong prices motivates the weak-equilibrium notion rather than serving as a failure case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Almost-clearing markets with a few wrong prices illustrate the weak approximate-equilibrium notion rather than a structurally extreme or refuting case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "It illustrates the motivation for weak approximate equilibrium via mostly-clearing markets, not a structurally special or refuting instance."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an almost-clearing market is just an illustrative approximate-equilibrium analogue with a few violated constraints"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Almost-clearing markets with a few mispriced products are a relaxed approximate-equilibrium motivation, not a structurally singular case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used to motivate weak approximate equilibrium through markets with sparse pricing errors, with no extremal or adversarial role."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It illustrates the weak-equilibrium idea via ordinary approximate market clearing with a small fraction of errors."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "used as an analogy for weak approximate equilibrium, not to defeat a claim or present a structurally special market"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used to motivate weak approximate equilibrium via market-clearing with a few violations, not as an obstruction or failure case; no special intrinsic structure is singled out."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an almost-clearing market is used as a motivating approximation analogy, not as a structural extreme or refutation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "it is used as a motivating near-equilibrium market scenario, not as a sporadic, collapsed, tight, or highly symmetric object"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Zero-sum games and small supports",
+   "note": "The audience-raised zero-sum special case illustrates that small-support approximate equilibria are not merely an artifact of general-sum games.",
+   "first_introduced_sec": 1120,
+   "spans": [
+    {
+     "start_sec": 1120,
+     "end_sec": 1144
+    }
+   ],
+   "total_seconds": 24,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "zero-sum games are only discussed via stated known support-size bounds, with no derivation or application to a concrete zero-sum game.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Zero-sum games are cited as having matching support-size lower-bound instances, making them tight for the small-support bound rather than counterexamples."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "zero-sum support examples are cited for a matching tight support-size bound, not as counterexamples"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The zero-sum-game mention concerns matching lower-bound instances for the small-support theorem, so they realize a tight worst-case support size."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The zero-sum examples are invoked as matching the small-support lower bound, so they are tight rather than counterexamples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the cited zero-sum lower-bound games tightly require the logarithmic small-support size"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The zero-sum support examples are cited as matching the known support-size lower bound, hence tight rather than counterexamples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Cited as matching the support-size lower bound even for zero-sum games, making it a tight support instance rather than a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Zero-sum collapses the two payoff functions to one, and the cited support-size examples match the known bound tightly."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "cited as attaining the matching support-size lower bound even within zero-sum games"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Zero-sum games are cited as having matching lower bounds for small-support equilibria, so the relevant instances are tight for the support-size bound rather than counterexamples."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "zero-sum games are cited as attaining the matching small-support lower bound"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the zero-sum small-support discussion concerns matching/tight support-size bounds, not a failure of a claim"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Naive random edge partition for end-of-line",
+   "note": "Randomly giving blue edges to Alice and red edges to Bob seems hard but admits an endpoint-summing protocol, showing why a lifting/simulation gadget is needed instead.",
+   "first_introduced_sec": 1416,
+   "spans": [
+    {
+     "start_sec": 1416,
+     "end_sec": 1583
+    }
+   ],
+   "total_seconds": 167,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker sets up the random red/blue edge partition for end-of-line and explicitly gives the endpoint-summing protocol showing why it is easy.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The random edge partition is an ordinary EOL communication setup used to show the naive expected hardness fails via the endpoint-summing protocol."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the random edge split has an efficient endpoint-summing protocol, defeating the naive communication-hardness attempt"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The naive random edge partition is presented as a failed hard distribution because summing endpoints gives an efficient protocol."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The random red-blue edge partition is used to show the naive communication-hardness idea fails because a short endpoint-summing protocol works."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the random edge partition is used to show the naive communication-hardness attempt fails via an efficient endpoint-summing protocol"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The naive random red/blue edge partition has a simple endpoint-summing protocol, defeating the hoped-for communication lower bound."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The random edge split is shown to admit an efficient summing protocol, defeating the naive communication-hardness construction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The random edge partition is shown to fail as a hard communication instance because endpoint summing gives an efficient protocol."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the random edge split is used to refute the naive expectation of exponential communication via a parity-summing protocol"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The random edge partition is presented as the naive hard communication formulation that fails because a simple endpoint-summing protocol solves it efficiently."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the random edge partition is shown to defeat the naive hoped-for communication lower bound via endpoint summing"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the random edge partition is presented to show the naive communication-hardness construction fails via an efficient endpoint-summing protocol"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Single-line WAP guessing protocol",
+   "note": "For a single end-of-line path, simply guessing the endpoint gives a tiny WAP protocol, motivating the more elaborate hard distribution with multiple path structures.",
+   "first_introduced_sec": 1955,
+   "spans": [
+    {
+     "start_sec": 1955,
+     "end_sec": 2033
+    }
+   ],
+   "total_seconds": 78,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker runs the WAP protocol on the single-line case by guessing the endpoint and computing the resulting acceptance probabilities.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 3,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The single-line EOL case is the minimal/simple case and its guessing protocol shows that this restricted WAP instance is not hard."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the one-line end-of-line case is a minimal simplified instance and a guessing WAP protocol makes it easy"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The single-line end-of-line case is a collapsed/simple instance where a WAP protocol can just guess the unique endpoint, showing that this case is not hard."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-line end-of-line case is a minimal boundary instance where the WAP guessing protocol makes the attempted hardness fail."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the one-line end-of-line case is a simplified minimal case that admits an easy WAP guessing protocol, defeating that attempted hard distribution"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The single-line end-of-line case is a collapsed unique-path instance with a trivial guess-the-endpoint WAP protocol, so it obstructs the desired lower bound."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The one-line end-of-line case admits a simple WAP guessing protocol, obstructing a one-line hardness proof and collapsing the general structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The single-line end-of-line case is a collapsed instance that defeats WAP hardness by a simple guessing protocol."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the one-line EOL case is a minimal boundary instance used to show WAP hardness fails by uniform guessing"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The one-line End-of-Line case gives an easy WAP guessing protocol, showing that such a restricted distribution cannot prove hardness; the single-line case is a collapsed/minimal topology."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the single-line EOL case has a minimal one-path form and gives an easy WAP guessing protocol, blocking that hardness attempt"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the single-line case is a minimal simplified end-of-line instance whose easy WAP guessing protocol obstructs a lower-bound attempt"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Hypercube transition from 000 to 001",
+   "note": "The bit-flip edge in the hypercube is a toy local picture for how vertices of the end-of-line graph are embedded as neighboring subcubes in the Brouwer construction.",
+   "first_introduced_sec": 2704,
+   "spans": [
+    {
+     "start_sec": 2699,
+     "end_sec": 2789
+    }
+   ],
+   "total_seconds": 90,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses the specific hypercube move such as 000 to 001 to illustrate how the embedding turns neighboring vertices into coordinate-direction motion.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 4,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The move from 000 to 001 is just a canonical adjacent hypercube step used to explain the embedding construction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the 000-to-001 move is an ordinary adjacent Boolean-hypercube edge used only to illustrate the embedding"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The move from 000 to 001 is just a representative adjacent-coordinate step used to explain the hypercube embedding."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The move from 000 to 001 is just a representative adjacent hypercube step used to explain the embedding."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the move from 000 to 001 is a representative adjacent hypercube transition used only to illustrate the embedding"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The 000-to-001 move is a representative one-bit transition in the highly regular edge-transitive hypercube, used only illustratively."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An arbitrary adjacent hypercube move is used only to illustrate the path embedding, not to refute anything or mark a special case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is just a representative adjacent coordinate edge in the hypercube used to visualize the embedding."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a canonical adjacent edge in the highly regular hypercube is used only as an illustration of the embedding"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The move from 000 to 001 is just a representative adjacent-bit step in the hypercube embedding, used illustratively and not to disprove anything."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the 000-to-001 move is just a generic one-bit hypercube step used to illustrate the embedding"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the move from 000 to 001 is an ordinary adjacent edge in the highly symmetric hypercube used only illustratively"
+    }
+   ]
+  }
+ ]
+}

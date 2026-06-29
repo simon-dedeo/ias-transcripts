@@ -1,0 +1,2571 @@
+{
+ "key": "6e4ef815ee2322a047f36de5410f05f6",
+ "title": "A Completeness Theorem for Pseudo-Linear Functions with Applications to UC Security",
+ "speaker": "Charanjit Jutla",
+ "affiliation": "IBM T. J. Watson Research Center",
+ "date": "2010-02-28T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3701.0,
+ "abstract": "We prove completeness results for certain class of functions which have implications for automatic proving of universally-composable security theorems for ideal and real functionalities composed of if-then-else programs with (uniform) random number generation and data objects from additive group of GF(2^m) .",
+ "youtube_url": "https://www.youtube.com/watch?v=b1ZFuBe0Qo8",
+ "page_url": "https://www.ias.edu/video/csdm/jutla",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "UC realization by environmental indistinguishability",
+   "summary": "The talk sets up UC security as a real/ideal-world simulation definition in which an environment supplies inputs, observes outputs, and distinguishes executions, making the simulator rather than rewinding the central proof object.",
+   "spans": [
+    {
+     "start_sec": 14,
+     "end_sec": 999
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Compositional reduction to simulator computation",
+   "summary": "The UC composition theorem and hybrid-model viewpoint reduce protocol proof generation to deciding whether a serialized real-world behavior can be computed by a simulator from the outputs of ideal functionalities.",
+   "spans": [
+    {
+     "start_sec": 999,
+     "end_sec": 1401
+    },
+    {
+     "start_sec": 2840,
+     "end_sec": 2957
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Pseudo-linear programming fragment",
+   "summary": "To make this decision problem automatable, the speaker restricts protocols and ideal functionalities to finite branching programs with random generation, XOR-linear expressions, equality guards, and fixed-size tables, uniformly in the security parameter.",
+   "spans": [
+    {
+     "start_sec": 1401,
+     "end_sec": 1793
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Monolithic pseudo-linear completeness theorem",
+   "summary": "Pseudo-linear functions are defined as guarded linear expressions over large characteristic-two fields, and the main monolithic theorem states that any pseudo-linear target which is a function of given pseudo-linear inputs is already pseudo-linearly expressible from them.",
+   "spans": [
+    {
+     "start_sec": 1793,
+     "end_sec": 2201
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Basis and interpolatability criterion",
+   "summary": "Zero/nonzero guard-signature tables lead to elementary and then basic pseudo-linear polynomials, yielding an interpolatability test requiring rowwise linear dependence and identical coefficients on isomorphic rows.",
+   "spans": [
+    {
+     "start_sec": 2201,
+     "end_sec": 3027
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Non-interpolatability implies non-functionality",
+   "summary": "The key converse lemma asserts that if the interpolatability criterion fails, then over a sufficiently large field there are two points with the same values of all input functions but different target values, so the target is not even an arbitrary function of the inputs.",
+   "spans": [
+    {
+     "start_sec": 3027,
+     "end_sec": 3099
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Iterated, randomized, and stateful simulations",
+   "summary": "The monolithic completeness result is extended toward real simulator strategies that make iterated calls to ideal functionalities, where larger field bounds, randomized pseudo-linear choices, superguards, and eventually persistent variables handle the new degeneracies.",
+   "spans": [
+    {
+     "start_sec": 3099,
+     "end_sec": 3645
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Key-exchange ideal functionality",
+   "note": "The two-party key-exchange ideal world makes concrete how dummy parties, a trusted functionality, an adversary/simulator, and environment-visible outputs define UC indistinguishability.",
+   "first_introduced_sec": 213,
+   "spans": [
+    {
+     "start_sec": 213,
+     "end_sec": 495
+    }
+   ],
+   "total_seconds": 282,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker traces the ideal key-exchange functionality with dummy parties, secure channels, a trusted party computing the key, and the simulator/adversary comparison",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an ordinary UC ideal functionality illustrating trusted-party key exchange"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard trusted key-exchange functionality used only to illustrate UC idealization"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard two-party key-exchange ideal functionality used as an illustrative specification, not as a refutation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard two-party key-exchange functionality illustrating ideal-world specification, not a failure case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard two-party ideal functionality used only to illustrate UC specification"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard UC ideal functionality used as an illustrative specification for key exchange"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard trusted-party ideal functionality is used as a representative illustration of UC key exchange."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as the standard UC ideal specification for key exchange, not as a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a standard illustrative UC ideal functionality for key exchange, with no intrinsic sporadic, limiting, or extremal structure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary UC ideal functionality used to illustrate trusted key generation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "It is used as the canonical positive UC specification for key exchange and treats the two parties symmetrically by giving them a shared key."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary two-party UC ideal functionality used to illustrate ideal-world specification"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Password-based key exchange with a weak password",
+   "note": "The password-authenticated key-exchange scenario illustrates both why the environment must choose inputs such as weak passwords and how such protocols look like simple conditional pseudo-linear programs.",
+   "first_introduced_sec": 495,
+   "spans": [
+    {
+     "start_sec": 495,
+     "end_sec": 561
+    },
+    {
+     "start_sec": 970,
+     "end_sec": 999
+    },
+    {
+     "start_sec": 2149,
+     "end_sec": 2201
+    }
+   ],
+   "total_seconds": 147,
+   "attaches_to": [
+    "s1",
+    "s3"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker invokes weak-password password-based key exchange to illustrate the environment choosing inputs, without working through a concrete protocol or proof",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "used as a standard PBKE scenario showing that the environment can choose low-entropy inputs"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "low-entropy password is a deliberately weak low-information secret used as a motivating scenario"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the weak password is a low-entropy reduced-randomness case used to illustrate environment-chosen inputs"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "weak-password PBKE illustrates environment-chosen inputs, not a refutation of a claim"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard PAKE weak-secret setting used to show that the environment can choose inputs"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a normal PAKE threat-model example showing that the environment can choose a weak password"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The weak-password PBKE setting illustrates the usefulness of environment-supplied inputs rather than refuting a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used to illustrate environment-supplied PAKE inputs; weak passwords are the ordinary PAKE setting."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used to illustrate the environment’s ability to choose low-entropy inputs, not to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary PAKE scenario used to illustrate environment-supplied inputs"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The weak-password PAKE setting is used to illustrate environment-chosen inputs and UC expressiveness, not to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard password-authenticated key-exchange setting used to show that the environment supplies inputs"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Parallel session placed inside the environment",
+   "note": "A second parallel copy of the protocol is used to illustrate how the environment models larger contexts and hence why UC security implies composability.",
+   "first_introduced_sec": 561,
+   "spans": [
+    {
+     "start_sec": 561,
+     "end_sec": 600
+    }
+   ],
+   "total_seconds": 39,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker says a parallel session can be put inside the environment as an instance of composability, but does not analyze a particular session",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a routine parallel-composition scenario used to motivate UC composability"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary concurrent session embedded in the environment to illustrate composability"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary concurrent session placed in the environment to illustrate composability"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a parallel copy inside the environment illustrates UC composability, not an obstruction"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary concurrent session used to illustrate composition through the environment"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an ordinary concurrent-session scenario used to illustrate universal composition"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A parallel session inside the environment is used to explain composability, not as a structural special case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as a compositional scenario that the environment can contain, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a normal compositional scenario where a parallel session is absorbed into the environment."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary concurrent-session scenario used to illustrate composability"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A parallel session inside the environment is a standard compositional scenario used to motivate UC security."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary parallel-composition scenario used to motivate universal composability"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Zero-knowledge rewinding",
+   "note": "Classical zero-knowledge simulation by rewinding is used as a contrast showing why UC simulations are stricter and more amenable to non-rewinding automated proof search.",
+   "first_introduced_sec": 600,
+   "spans": [
+    {
+     "start_sec": 600,
+     "end_sec": 717
+    }
+   ],
+   "total_seconds": 117,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker reasons through what happens when a zero-knowledge simulator rewinds and why the UC environment can distinguish it",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "rewinding is presented as a proof technique that fails in UC because the environment can distinguish it"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "rewinding is cited as an obstruction because the UC environment would distinguish it"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "rewinding is presented as an obstruction to UC proofs because the environment can distinguish it"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "rewinding is presented as an obstruction to UC proofs because the environment can detect it"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "rewinding is presented as an obstruction to UC simulation because the environment can notice it"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "rewinding is presented as an obstruction because the UC environment can distinguish it"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Rewinding is presented as an obstruction to ordinary zero-knowledge proofs carrying over to UC security."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Rewinding is cited as a standard zero-knowledge proof technique that fails in UC because the environment can distinguish it."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Rewinding is presented as an obstruction showing ordinary zero-knowledge simulation techniques fail in the UC setting."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as an obstruction showing standard rewinding simulations fail in the UC setting"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Zero-knowledge rewinding is cited as an obstruction to UC proofs because the environment can detect the rewind."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "rewinding is presented as an obstruction showing ordinary zero-knowledge simulation need not be UC-secure"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Elliptic-curve and Diffie-Hellman assumptions",
+   "note": "Hard algebraic assumptions such as DDH are cited to illustrate how lower-level cryptographic mathematics can be pushed into ideal functionalities or axioms before proving higher-level protocols.",
+   "first_introduced_sec": 1114,
+   "spans": [
+    {
+     "start_sec": 1114,
+     "end_sec": 1226
+    }
+   ],
+   "total_seconds": 112,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "elliptic-curve algebra and Diffie-Hellman assumptions are cited as cryptographic assumptions to axiomatize, with no concrete derivation",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard cryptographic hardness assumptions used as examples of algebra hidden behind ideal functionalities"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard algebraic cryptographic assumptions are used as axiomatizable primitives"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard elliptic-curve/Diffie-Hellman hardness assumptions are used as axiomatized algebraic subroutines"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard elliptic-curve/Diffie-Hellman assumptions are used as axiomatized primitives, not as exceptions or failures"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard hardness assumptions used as axiomatized algebraic building blocks"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard cryptographic hardness assumptions used as examples of algebra hidden behind ideal functionalities"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Elliptic-curve and Diffie-Hellman assumptions are standard cryptographic hardness assumptions abstracted into ideal functionalities."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Elliptic-curve and Diffie-Hellman assumptions are standard cryptographic assumptions being axiomatized."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Elliptic-curve and Diffie-Hellman assumptions are cited as standard algebraic assumptions to axiomatize, not as failures or special classification exceptions."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard cryptographic hardness assumptions used as examples of algebra hidden in ideal functionalities"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Elliptic-curve and Diffie-Hellman assumptions are standard algebraic cryptographic assumptions used as modular axioms."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard cryptographic hardness assumptions used as examples of algebra hidden behind ideal functionalities"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Canetti-Fischlin protocol with a pseudorandom generator",
+   "note": "The displayed protocol from Canetti-Fischlin serves only to show that realistic higher-level crypto protocols often have very small, simple program structure once primitives are axiomatized.",
+   "first_introduced_sec": 1344,
+   "spans": [
+    {
+     "start_sec": 1344,
+     "end_sec": 1401
+    }
+   ],
+   "total_seconds": 57,
+   "attaches_to": [
+    "s2",
+    "s3"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the Canetti-Fischlin protocol with a pseudorandom generator is shown as a typical simple-language protocol but not analyzed",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a named but ordinary protocol example illustrating a simple higher-level language with a PRG idealization"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "named protocol with a PRG is used as a representative simple-language crypto protocol"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "named Canetti-Fischlin protocol with a PRG is used as a representative simple higher-level protocol"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the Canetti-Fischlin protocol with a PRG is used as a typical simple-language crypto protocol"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary protocol/PRG fragment used to illustrate a simple higher-level language"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a representative high-level crypto protocol example with the PRG treated axiomatically"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Canetti-Fischlin protocol with a PRG is used as a representative simple-language protocol example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Canetti-Fischlin protocol with a PRG is used as a representative simple higher-level protocol."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Canetti-Fischlin protocol with a PRG is used as a representative simple-language cryptographic protocol."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "typical higher-level crypto protocol used to illustrate the simple programming language"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Canetti-Fischlin protocol with a PRG is presented as a representative higher-level protocol in a simple language."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "representative higher-level cryptographic protocol used to illustrate a simple pseudo-linear language with a PRG axiom"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Public-key encryption table lookup",
+   "note": "Storing ciphertext/plaintext pairs and searching a fixed-size table illustrates the kind of persistent state allowed in the pseudo-linear language without introducing general algebra or undecidable storage.",
+   "first_introduced_sec": 1553,
+   "spans": [
+    {
+     "start_sec": 1553,
+     "end_sec": 1609
+    }
+   ],
+   "total_seconds": 56,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "public-key encryption table lookup is described as a storage example—save ciphertexts and return plaintexts—but no concrete lookup is carried out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a normal table-storage lookup functionality used to illustrate fixed-size persistent state"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "fixed-size ciphertext table lookup is an ordinary storage operation in the functionality"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "routine fixed-size ciphertext table lookup functionality used to illustrate persistent storage"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary fixed-size table lookup in public-key encryption storage illustrates the language fragment"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard finite table lookup/storage functionality used as a benign feature"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a routine fixed-size table-lookup abstraction for public-key encryption storage"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The public-key-encryption table lookup is a routine storage-and-search operation in an ideal functionality."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The public-key encryption table lookup is a standard fixed-size storage operation illustrating the language."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The public-key-encryption table lookup is a routine storage example for ideal functionalities."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary table-lookup storage behavior used as an example of simple ideal-functionality state"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The public-key encryption table lookup is a routine storage-and-search operation inside an ideal functionality."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary table-storage abstraction for public-key encryption used to illustrate persistent variables"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Two-variable rowwise-linearity failure",
+   "note": "The functions involving x1, x2, and a guarded x1+x2 show that if the target is not a linear combination of the inputs on a guard-signature row, then it cannot be recovered from them, motivating the first interpolatability condition.",
+   "first_introduced_sec": 2201,
+   "spans": [
+    {
+     "start_sec": 2201,
+     "end_sec": 2398
+    }
+   ],
+   "total_seconds": 197,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker builds the zero/nonzero row table for the two-variable functions and uses a rowwise linear-combination failure to conclude non-functionality",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the two-variable pseudo-linear functions show failure of rowwise linear combination and hence non-computability from the inputs"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the two-variable construction violates rowwise linear-combination, showing the target is not a function"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the two-variable pseudo-linear table shows the target is not rowwise a linear combination of the inputs"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the two-variable table has a row where the target is not a linear combination of the inputs"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "two-variable pseudo-linear toy functions show a row where the target is not a linear combination"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the two-variable pseudo-linear example is used to show rowwise linear-combination failure"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The two-variable pseudo-linear example is built to show rowwise linearity can fail, so the target is not a function of the inputs."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The two-variable pseudo-linear example is used to show failure of the rowwise linear-combination condition."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The two-variable pseudo-linear setup is used to show rowwise linearity can fail, so the target is not even a function of the inputs."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "constructed to show a target row is not a linear combination of the input rows"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The two-variable pseudo-linear example is used to show failure of the rowwise linear-combination condition."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the two-variable pseudo-linear instance is used to show rowwise linear-combination failure, so the target is not a function of the inputs"
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Isomorphic-row coefficient failure",
+   "note": "The modified two-variable table shows that rows with the same zero/nonzero guard signature must use the same linear combination, forcing the isomorphic-row part of the criterion.",
+   "first_introduced_sec": 2398,
+   "spans": [
+    {
+     "start_sec": 2398,
+     "end_sec": 2487
+    }
+   ],
+   "total_seconds": 89,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker compares isomorphic rows with the same zero/nonzero signature and identifies the coefficient mismatch as a counterexample",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the example shows that matching rows are not enough when isomorphic rows require different coefficients"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the construction violates equal coefficients on isomorphic rows, showing non-functionality"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "isomorphic rows require different coefficients, refuting functional dependence/interpolatability"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "isomorphic rows require different coefficients, witnessing failure of the needed functionality condition"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "toy functions show isomorphic rows needing different coefficients, so functional dependence fails"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the example is used to show failure of matching coefficients on isomorphic rows"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The isomorphic-row example shows that differing coefficients on rows with the same zero/nonzero signature prevent functional dependence."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The isomorphic-row example is used to show inconsistent coefficients across equal zero/nonzero signatures, refuting functionhood."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The isomorphic-row example is used to show that differing linear coefficients across rows prevent functional dependence."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "constructed to show isomorphic rows requiring different coefficients prevent functional dependence"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The isomorphic-row example is used to show that matching zero/nonzero signatures can still force inconsistent coefficients."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the isomorphic-row example is used to show coefficient inconsistency, hence failure of being a function of the given functions"
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Repaired two-variable pseudo-linear case",
+   "note": "After both row conditions are satisfied, the example demonstrates the positive side of the criterion: the target is indeed a pseudo-linear function of the given functions.",
+   "first_introduced_sec": 2487,
+   "spans": [
+    {
+     "start_sec": 2487,
+     "end_sec": 2530
+    }
+   ],
+   "total_seconds": 43,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker checks the repaired example row by row, notes the same linear combination on isomorphic rows, and concludes it is pseudo-linear",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the repaired two-variable case is a positive witness where the same linear combinations work across isomorphic rows"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the repaired two-variable case is a positive pseudo-linear interpolation example"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "repaired two-variable case has consistent linear combinations and illustrates the positive pseudo-linear situation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the repaired two-variable case satisfies the matching-coefficient condition and supports the theorem"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "positive repaired toy case with matching rowwise coefficients, not a refutation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the repaired two-variable case is a positive interpolatable pseudo-linear example"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The repaired two-variable case is the positive example where the row conditions hold and a pseudo-linear representation exists."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The repaired two-variable case is a positive example where the same linear combination works on isomorphic rows."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The repaired two-variable case is a positive interpolation example where the same pseudo-linear combination works."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "positive repaired pseudo-linear instance satisfying the rowwise coefficient conditions"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The repaired two-variable case satisfies the interpolation conditions and serves as a positive pseudo-linear example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the repaired two-variable instance satisfies the same-coefficient interpolation condition and serves as a positive case"
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "Brute-force password oracle",
+   "note": "An ideal functionality returning x only when queried with y=x shows that arbitrary iterated computation can recover x by exhaustive search, thereby forcing the theorem to exclude security-parameter-dependent brute-force simulations.",
+   "first_introduced_sec": 3209,
+   "spans": [
+    {
+     "start_sec": 3209,
+     "end_sec": 3354
+    }
+   ],
+   "total_seconds": 145,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker defines the password oracle, runs the brute-force iteration over field values, and explains why it computes the password but is not pseudo-linear",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the oracle collapses to zero except on the equality guard and refutes a naive unrestricted pseudo-linear iterated simulation claim"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the oracle collapses all wrong guesses to zero and yields only a brute-force non-pseudo-linear iteration"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the equality password oracle collapses to zero off the correct guess and refutes a naive unbounded implication to pseudo-linear simulation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the equality password oracle gives exhaustive-search computability without a pseudo-linear simulator for an unrestricted formulation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "point password oracle is collapsed to zero off one value and minimally supported, showing an unrestricted brute-force dependence need not be pseudo-linear"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the exact-match oracle is zero except on the password hit and shows unrestricted brute-force iterated computation need not be pseudo-linear"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The oracle returning the password only on the exact guess is a collapsed sparse oracle used to show brute-force computability need not be pseudo-linear."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The singleton-hit password oracle gives brute-force computability but no pseudo-linear iterated simulation, a degenerate oracle edge case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The password oracle is a collapsed point-test oracle and is used to show arbitrary iterated computation can recover the password only by non-pseudo-linear brute force."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "singleton-success password oracle collapses off the correct guess and refutes naive pseudo-linear closure under arbitrary iteration"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The password-check oracle collapses all wrong guesses to zero and shows unrestricted iterated computability need not be pseudo-linear."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the password-check oracle is a point-test functionality, used to show arbitrary iterated computation by brute force need not be pseudo-linear"
+    }
+   ]
+  },
+  {
+   "code": "E12",
+   "name": "Reverse password oracle requiring randomness",
+   "note": "The reversed functionality, which reveals x except on the correct password, shows why deterministic pseudo-linear simulation is insufficient and motivates allowing probabilistic simulator programs.",
+   "first_introduced_sec": 3354,
+   "spans": [
+    {
+     "start_sec": 3354,
+     "end_sec": 3458
+    }
+   ],
+   "total_seconds": 104,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker defines the reverse oracle and reasons that deterministic pseudo-linear simulation can fail while random sampling yields a probabilistic simulation",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the reverse oracle has a degenerate equality-guard exception and is used to show deterministic pseudo-linear simulation can fail without randomness"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the reverse oracle is a maximally leaking boundary case showing deterministic simulation can fail without randomness"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the reverse oracle is almost the trivial reveal-password map except on one equality guard and shows deterministic simulation can require randomness"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the reverse oracle shows deterministic pseudo-linear simulation can fail and randomness is needed"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "co-point reverse oracle is collapsed to the secret except at one value and shows deterministic pseudo-linear simulation fails without randomness"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the reverse oracle is used to show deterministic pseudo-linear simulation can fail without randomness"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The reverse password oracle is used to show deterministic pseudo-linear simulation can fail and randomized simulation is needed."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The reverse password oracle is almost constant except at one password and is used to show deterministic pseudo-linear simulation can fail without randomness."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The reverse oracle has a degenerate exceptional guard and is used to show deterministic pseudo-linear simulation can fail unless randomness is allowed."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "near-trivial reverse oracle leaks the password except on one guess and shows deterministic pseudo-linear simulation can fail without randomness"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The reverse password oracle is nearly constant off the correct guess and is used to show deterministic pseudo-linear simulation can fail without randomness."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the reverse password oracle has a single exceptional zero branch and is used to show deterministic pseudo-linear simulation can fail without randomness"
+    }
+   ]
+  }
+ ]
+}

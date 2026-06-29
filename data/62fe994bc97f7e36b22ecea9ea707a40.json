@@ -1,0 +1,2390 @@
+{
+ "key": "62fe994bc97f7e36b22ecea9ea707a40",
+ "title": "Borrowing memory that's being used: catalytic approaches to the Tree Evaluation Problem",
+ "speaker": "James Cook",
+ "affiliation": "University of Toronto",
+ "date": "2020-04-06T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3916.0,
+ "abstract": "I'll be presenting some joint work with Ian Mertz scheduled to appear at STOC 2020. The study of the Tree Evaluation Problem (TEP), introduced by S. Cook et al. (TOCT 2012), is a promising approach to separating L from P. Given a label in [k] at each leaf of a complete binary tree and an explicit function [k]^2 -> [k] for recursively computing the value of each internal node from its children, the problem is to compute the value at the root node.",
+ "youtube_url": "https://www.youtube.com/watch?v=cE75sjTDqBY",
+ "page_url": "https://www.ias.edu/video/csdm/2020/0406-JamesCook",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Complexity motivation and Tree Evaluation Problem setup",
+   "summary": "The talk motivates TEP as a candidate route toward separating log space from polynomial time, defines the complete-binary-tree evaluation problem, and records the parameters h, k and input size.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 400
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Branching programs and pebbling as the baseline model",
+   "summary": "Layered branching programs are introduced as the computational model, pebbling games are used to model remembered node values, and the standard h-pebble strategy yields a branching program of roughly k^h states while the tight pebbling lower bound motivates a matching-state conjecture.",
+   "spans": [
+    {
+     "start_sec": 400,
+     "end_sec": 1041
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Lower-bound targets and restricted-model obstacles",
+   "summary": "The speaker translates a log-space lower bound into a branching-program state lower bound, compares the pebbling and new algorithms against that target, and explains that known k^h lower bounds only hold under read-once or thrifty restrictions that the new algorithm violates.",
+   "spans": [
+    {
+     "start_sec": 1041,
+     "end_sec": 1444
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Catalytic memory and clean reversible register computations",
+   "summary": "Catalytic-space results motivate the idea of borrowed memory, after which the speaker formalizes reversible ring-register instructions, clean computation of a function into a register, inversion to compute negatives, and a lemma converting such instruction sequences into branching programs.",
+   "spans": [
+    {
+     "start_sec": 1444,
+     "end_sec": 2133
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Clean multiplication with borrowed registers",
+   "summary": "A product-computation lemma shows how two clean subroutines can be interleaved with reversible add/subtract operations so as to cleanly compute f1f2 into a third register using four subroutine calls while allowing all recursive calls to reuse the same registers.",
+   "spans": [
+    {
+     "start_sec": 2163,
+     "end_sec": 2584
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Indicator-polynomial CheckNode algorithm",
+   "summary": "TEP is expressed over F2 by an indicator formula for whether a node has value x, and the first recursive CheckNode algorithm implements this formula with three one-bit registers but incurs too many recursive calls, giving a branching program worse than pebbling.",
+   "spans": [
+    {
+     "start_sec": 2584,
+     "end_sec": 2939
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Parallel one-hot computation of all value indicators",
+   "summary": "The algorithm is improved by storing a k-bit one-hot vector for a node value and computing all value indicators in parallel via a function of two vector registers, yielding branching programs of size 2^{O(k+h)} and beating pebbling when h is much larger than k/log k.",
+   "spans": [
+    {
+     "start_sec": 2939,
+     "end_sec": 3330
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Hybrid encoding tradeoff and final upper bound",
+   "summary": "By interpolating between one-hot and binary encodings with a tunable parameter, the final algorithm achieves about (k/(h+1))^{5h} times a polynomial in k states, beating pebbling for h growing faster than k^{4/5}, and the remaining bottleneck is identified as expensive d-ary clean products.",
+   "spans": [
+    {
+     "start_sec": 3330,
+     "end_sec": 3622
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Majority outside known AC^0_6 techniques",
+   "note": "The majority function on a bit string is used only to illustrate how weak AC^0_6 appears relative to the complexity classes motivating the separation program.",
+   "first_introduced_sec": 115,
+   "spans": [
+    {
+     "start_sec": 115,
+     "end_sec": 162
+    }
+   ],
+   "total_seconds": 47,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the majority problem is only cited as something not known to be in uniform AC^0_6",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is a permutation-symmetric Boolean threshold function cited as an unknown for AC^0_6, not a disproof."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is a permutation-invariant threshold Boolean function, used only as an example not known in AC^0_6."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is invariant under all permutations of the input bits and is used only as an unknown AC^0_6 benchmark."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is invariant under all input-coordinate permutations, and is used only as an unknown-for-AC^0_6 benchmark."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The majority Boolean function is permutation-symmetric in its input bits, cited only to illustrate AC^0_6 weakness."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "majority is a permutation-invariant threshold function used only to illustrate weak known AC^0_6 techniques"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is a permutation-symmetric Boolean threshold function used only as an unknown/hard benchmark for AC^0_6."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is a fully permutation-symmetric Boolean function, cited only as not known for AC^0_6 rather than as a proved refutation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "majority is used only as a hard-looking benchmark for AC^0_6, and the Boolean majority function is permutation-symmetric"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "majority is used only as a hard benchmark and is a permutation-invariant Boolean function"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is a permutation-invariant Boolean threshold function cited as an open benchmark for AC^0_6 techniques."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "majority is a permutation-invariant Boolean threshold function cited only as an unknown AC^0_6 benchmark"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Height-3, alphabet-3 tree evaluation instance",
+   "note": "A concrete tree with leaf values 3,1,2,2 and small lookup tables makes the recursive definition of node values and the parameters h and k explicit.",
+   "first_introduced_sec": 269,
+   "spans": [
+    {
+     "start_sec": 269,
+     "end_sec": 400
+    }
+   ],
+   "total_seconds": 131,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker evaluates the concrete height-3, k=3 tree by looking up child table entries and then the root entry",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary small complete-binary TEP input with arbitrary labels and tables used to define the problem."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The height-3, alphabet-3 tree evaluation input is an ordinary illustrative instance with arbitrary labels."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The displayed h=3, k=3 input is just a generic running TEP instance with arbitrary leaf values and tables."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A height-3, alphabet-3 tree with arbitrary values and tables is an ordinary small TEP instance."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The height-3, alphabet-3 tree-evaluation input is an ordinary illustrative instance of the problem."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "it is an ordinary small complete-binary-tree TEP input with arbitrary labels and tables used to define evaluation"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The height-3, k=3 tree is an ordinary finite TEP instance used to explain the evaluation rule."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary small labeled complete-binary tree-evaluation instance used to define the problem."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the height-3, k=3 tree input is an ordinary illustrative instance of tree evaluation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the height-3, alphabet-3 tree-evaluation input is a small ordinary instance used to define the problem"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The height-3, k=3 tree evaluation input is an ordinary small instance with arbitrary labels and tables."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the height-3, k=3 tree is an ordinary small instance used to define tree evaluation"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Width-layered branching program for h=2, k=2",
+   "note": "The small branching program querying leaves b,c and then the appropriate root-table entry illustrates the branching-program model and how layers store partial information.",
+   "first_introduced_sec": 492,
+   "spans": [
+    {
+     "start_sec": 492,
+     "end_sec": 638
+    }
+   ],
+   "total_seconds": 146,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker builds and traces the layered branching program on a sample h=2, k=2 input to its output",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 10,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The h=2,k=2 layered program is the minimal nontrivial TEP branching-program case used illustratively."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The h=2,k=2 branching program is the minimal nontrivial tree-evaluation base case with no recursive internal subtrees."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The h=2, k=2 branching program is the nonrecursive base-case instance with only two leaves and a single root table."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The h=2,k=2 layered branching program is the minimal nontrivial TEP case with only two leaves and one internal table."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The h=2, k=2 branching program solves the smallest nontrivial tree-evaluation case with only one internal table."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the h=2,k=2 layered branching program is the minimal nontrivial binary TEP toy case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The h=2, k=2 branching program is the minimal nontrivial one-internal-node case used as a toy illustration."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The h=2, k=2 branching program is the minimal nontrivial tree-evaluation case, used as a toy algorithm."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the h=2, k=2 layered branching program is a toy illustration of the model, not an intrinsically special object"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the layered h=2, k=2 branching program is a toy decision program illustrating the model"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The h=2, k=2 branching program is the minimal nontrivial toy case of the tree-evaluation branching-program construction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the h=2, k=2 layered branching program is the minimal nontrivial base case for illustrating the model"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Three-pebble play on a height-3 tree",
+   "note": "The speaker walks through placing pebbles on the two subtrees and avoiding moving the saved left-child pebble to illustrate the pebbling strategy and memory intuition.",
+   "first_introduced_sec": 700,
+   "spans": [
+    {
+     "start_sec": 700,
+     "end_sec": 852
+    }
+   ],
+   "total_seconds": 152,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker plays through the three-pebble strategy on the height-3 tree move by move",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "For a height-3 tree, three pebbles are exactly the minimum needed to reach the root."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Three pebbles on a height-3 tree realizes the tight minimum h pebbles needed to pebble the root."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Using three pebbles on a height-3 tree attains the tight h-pebble winning threshold."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Three pebbles on a height-3 complete binary tree attain the tight minimum of h pebbles."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The three-pebble play uses the tight minimum h pebbles needed for a height-3 complete binary tree."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "using exactly h=3 pebbles is the tight minimum for winning on a height-3 tree"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The three-pebble play on a height-3 tree uses exactly the tight minimum h pebbles."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The play uses exactly h=3 pebbles, the critical tight number for a height-3 complete binary tree."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the three-pebble play uses the tight number of pebbles for a height-3 complete binary tree"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the play uses the tight minimum h=3 pebbles for a height-3 tree"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The play uses exactly h=3 pebbles, the minimum number needed for a height-3 complete binary tree."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the three-pebble play uses the tight minimum h pebbles for a height-3 tree"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Audience parameter regime k=h=log n",
+   "note": "An audience question uses the special regime k=h=log n to check how the new upper bound compares with prior superpolynomial-looking bounds.",
+   "first_introduced_sec": 1270,
+   "spans": [
+    {
+     "start_sec": 1270,
+     "end_sec": 1352
+    }
+   ],
+   "total_seconds": 82,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "in the question exchange they plug in k=h=log n and discuss what the upper bound becomes in that regime",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The diagonal setting k=h=log n is a parameter choice for comparison, not a boundary object or refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The regime k=h=log n is a balanced parameter choice raised for comparison, not a structural extreme or failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The diagonal regime k=h=log n is an ordinary parameter choice used to estimate the bound."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The balanced regime k=h=log n is used for parameter comparison, not as a boundary or refuting case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The regime k=h=log n is a balanced parameter choice, not a structural exception or boundary case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the diagonal logarithmic parameter choice is used as a comparison regime for the bound, not as an intrinsic special object"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The regime k=h=log n is a representative diagonal parameter choice raised in discussion, not an obstruction or sporadic case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The diagonal regime k=h=log n is an ordinary parameter choice raised for comparison, not an extremal construction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the regime k=h=log n is used as a sample parameter setting rather than a boundary or adversarial object"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the diagonal regime k=h=log n is just a parameter check for the upper bound"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The regime k=h=log n is a balanced comparison setting raised in discussion, not a structural extreme or disproof."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the regime k=h=log n is a diagonal parameter choice used for comparison rather than a structural extreme"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Only table entry (3,2) matters in a thrifty query",
+   "note": "A node whose children have values 3 and 2 illustrates the definition of a thrifty branching program: only the row-3 column-2 table cell may be read.",
+   "first_introduced_sec": 1389,
+   "spans": [
+    {
+     "start_sec": 1389,
+     "end_sec": 1419
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the thrifty condition to children valued 3 and 2 to identify row 3 column 2 as the only relevant table cell",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The (3,2) cell is the ordinary unique table entry selected by the actual child values in a thrifty query."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The cell (3,2) is just the ordinary table entry selected by the two child values in a thrifty query."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The cell (3,2) is merely the contextually relevant table query selected by the child values."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The cell (3,2) is just the ordinary unique table entry selected by the actual child values in a thrifty evaluation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The cell (3,2) is just the ordinary table entry selected by the two child values in a thrifty query."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "for fixed child values, querying the single relevant table cell is the standard thrifty behavior"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The single relevant table cell selected by child values is the ordinary situation defining thriftiness."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The (3,2) cell is simply the semantically relevant table entry selected by the child values in a thrifty query."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the relevant table entry (3,2) is just the ordinary cell selected by the children’s values in a thrifty query"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the single relevant table cell is the ordinary cell selected by the two child values in a thrifty query"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The entry (3,2) is just the contextually relevant table cell selected by the children’s values in a thrifty query."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the single relevant cell (3,2) is the ordinary table entry selected by the children in a thrifty query"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Matrix determinant in catalytic space",
+   "note": "The determinant is cited as a familiar problem computable with catalytic memory, illustrating that borrowed memory can add computational power.",
+   "first_introduced_sec": 1562,
+   "spans": [
+    {
+     "start_sec": 1562,
+     "end_sec": 1602
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "matrix determinant is only given as an example computable in catalytic space",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 4,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant is a highly regular alternating matrix invariant cited as a catalytic-space capability."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant is a highly regular alternating matrix invariant, cited as a catalytic-space computation rather than a disproof."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant is a highly regular alternating matrix polynomial, cited as a positive catalytic-space example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant is a highly regular alternating matrix polynomial, cited as a catalytic-space showcase rather than a refutation here."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant is a highly regular alternating matrix invariant, cited as a catalytic-space capability rather than a refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the determinant is a highly symmetric matrix invariant cited as catalytic computation undermining the borrowed-memory-is-useless intuition"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The determinant is a highly structured alternating matrix polynomial used as a positive catalytic-space example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The determinant is cited as a standard problem computable with catalytic space, not as a proved separation or structural exception."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "matrix determinant in catalytic space is invoked as an obstruction to the intuition that borrowed memory cannot help"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "determinant is cited to undermine the intuition that borrowed catalytic memory is useless and is a highly regular alternating matrix polynomial"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The determinant is a highly invariant matrix polynomial invoked as a witness that catalytic memory defeats the no-useful-borrowed-memory intuition."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the determinant is a highly invariant alternating matrix polynomial cited as a catalytic-space capability"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Borrowing the stored left-child value while computing the right child",
+   "note": "The root-with-children b,c scenario shows why the naive h log k memory lower-bound argument fails and motivates clean reversible subroutines that temporarily use memory holding b while evaluating c.",
+   "first_introduced_sec": 1602,
+   "spans": [
+    {
+     "start_sec": 1602,
+     "end_sec": 1713
+    }
+   ],
+   "total_seconds": 111,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker traces the memory scenario where a stored left-child value is retained while the other child computation may borrow and restore that memory",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Borrowing b's stored value while computing c obstructs the naive memory-reservation lower-bound argument."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Borrowing the stored left-child value while computing the right child is used to defeat the naive reserved-memory lower-bound argument."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "This borrowing scenario is invoked to defeat the naive lower-bound argument that the left value must occupy unusable space."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Borrowing the stored left-child value while computing the right child is the obstruction to the naive additive-memory lower-bound argument."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Borrowing the stored left-child bits while computing the right child is used to invalidate the naive memory lower-bound argument."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "borrowing the stored left-child bits during the right-child computation obstructs the naive h log k space lower-bound argument"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Borrowing the stored left-child value while computing the right child defeats the naive memory-reservation lower-bound argument."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Borrowing the saved left-child register during the right-child computation is the obstruction to the naive memory-reservation lower-bound argument."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "borrowing the stored left-child value while computing the right child defeats the naïve recursive memory lower-bound argument"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "borrowing the stored left-child value is the obstruction to the naive h log k memory lower-bound argument"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Borrowing the stored left-child value while computing the right child is used to invalidate the naive recursive memory lower-bound argument."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the borrowed-left-value scenario is used to defeat the naive recursive memory lower-bound argument"
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Clean computation of x1+x2 into one register",
+   "note": "Adding x1 and then x2 to register r1 is a toy clean computation used to make the definition concrete before the product construction.",
+   "first_introduced_sec": 2163,
+   "spans": [
+    {
+     "start_sec": 2163,
+     "end_sec": 2192
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly runs the two register updates and tracks the register value to compute x1+x2 cleanly",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 0,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two additions cleanly computing x1+x2 form a standard simple reversible-computation example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The clean computation of x1+x2 is a minimal linear example using one output register and no auxiliary cleanup."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The target x1+x2 is swap-symmetric and the two-addition program is a minimal clean-computation toy case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The clean computation of x1+x2 is a basic linear reversible routine with no special structural feature."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-instruction clean computation of x1+x2 is a basic reversible addition routine."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "this two-instruction linear clean computation is a minimal example and the sum is invariant under swapping inputs"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The reversible computation of x1+x2 is a simple illustrative clean computation, not a limiting or adversarial object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The x1+x2 routine is a straightforward clean reversible computation used to illustrate the definition."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the clean computation of x1+x2 is a routine illustration of the reversible-register model"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the clean computation of x1+x2 is a basic illustrative reversible addition routine"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The clean computation computes the symmetric linear function x1+x2 and is used only as a basic illustration."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the x1+x2 register program is a simple representative clean computation illustrating the definition"
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Root table whose 1-entries give three indicator terms",
+   "note": "A small lookup table with three positions containing 1 illustrates how the algebraic indicator formula for the root value is assembled.",
+   "first_introduced_sec": 2632,
+   "spans": [
+    {
+     "start_sec": 2632,
+     "end_sec": 2674
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker derives the three indicator-product terms from the positions of the 1 entries in the root table",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The 3-by-3 root table with three 1-cells is an arbitrary illustrative table for expanding the indicator formula."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The root table with three 1-entries gives a standard indicator-sum formula for that particular table."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The root table with three 1-cells only illustrates the standard indicator-sum expansion."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A root table whose three 1-cells yield three indicator terms is an ordinary instance of the general expansion."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The root table with three 1-entries is an ordinary finite table used to derive the indicator-sum formula."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the displayed root table has arbitrary 1-positions used only to illustrate the indicator formula"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The root table with three 1-entries is an ordinary k=3 table used to illustrate the indicator-sum formula."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The displayed root table is an arbitrary local table whose three 1-cells expand into indicator terms."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the root table with three 1-entries is an arbitrary example used to derive the indicator formula"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the root table with three 1-entries is used only to illustrate the indicator-sum formula"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The displayed root table has ordinary target-1 positions that expand into the corresponding indicator-sum terms."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the root table with three 1-cells is an ordinary lookup table used to derive indicator terms"
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "One-hot encoding of 2 as 010 for k=3",
+   "note": "The vector 010 is used only to make the one-hot representation underlying the parallelized algorithm concrete.",
+   "first_introduced_sec": 3030,
+   "spans": [
+    {
+     "start_sec": 3030,
+     "end_sec": 3079
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the one-hot encoding construction to the value 2 for k=3, yielding 010",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 10,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "010 is a standard basis-vector one-hot codeword for the value 2, used only to explain the encoding."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The one-hot word 010 is a standard basis vector with minimum nonzero Hamming support among binary encodings."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The vector 010 is a one-hot unit vector of minimum nonzero Hamming weight."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "010 is a standard codeword within the one-hot encoding scheme for k=3."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The one-hot codeword 010 is a minimal-support nonzero binary vector and the high-redundancy endpoint of the encoding tradeoff."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "010 is a one-hot standard basis vector with minimal nonzero support among k-bit strings"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The one-hot codeword is a boundary encoding with minimum nonzero Hamming weight and maximal redundancy in the encoding tradeoff."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The vector 010 is a one-hot codeword at the sparse minimum-support endpoint of the encoding tradeoff."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the vector 010 is a one-hot code, hence a minimal-support endpoint of the encoding tradeoff"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the one-hot vector 010 is the sparse endpoint of the encoding tradeoff"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The one-hot code is a regular constant-weight encoding at the maximally sparse and redundant end of the encoding tradeoff."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the vector 010 is a one-hot basis codeword of minimal nonzero Hamming weight"
+    }
+   ]
+  }
+ ]
+}

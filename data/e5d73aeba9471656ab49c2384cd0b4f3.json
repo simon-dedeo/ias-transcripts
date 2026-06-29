@@ -1,0 +1,1213 @@
+{
+ "key": "e5d73aeba9471656ab49c2384cd0b4f3",
+ "title": "Counting Pattern Avoiding Permutations Via Integral Operators",
+ "speaker": "Richard Ehrenborg",
+ "affiliation": "University of Kentucky; Institute for Advanced Study",
+ "date": "2010-11-23T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 3578.0,
+ "abstract": "A permutation pi=(pi_{1},...,pi_{n}) is consecutive 123-avoiding if there is no sequence of the form pi_i < pi_{i+1} < pi_{i+2}. More generally, for S a collection of permutations on m+1 elements, this definition extends to define consecutive S-avoiding permutations. We show that the spectrum of an associated integral operator on the space L^2([0,1]^m) determines the asymptotics of the number of consecutive S-avoiding permutations.",
+ "youtube_url": "https://www.youtube.com/watch?v=RgPZBaHo_To",
+ "page_url": "https://www.ias.edu/video/csdm/ehrenborg",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Permutation counts as cube volumes",
+   "summary": "The count alpha_n of permutations with no consecutive 123 pattern is normalized by n! and identified with the volume of the region in the unit cube avoiding inequalities x_i<x_{i+1}<x_{i+2}.",
+   "spans": [
+    {
+     "start_sec": 14,
+     "end_sec": 238
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Transfer operator for the no-double-ascent condition",
+   "summary": "The avoidance region is encoded by an indicator function, integrated down to functions F_n of the last two variables, yielding a linear integral operator T with alpha_n/n! = <T^{n-2}1,1>.",
+   "spans": [
+    {
+     "start_sec": 238,
+     "end_sec": 653
+    },
+    {
+     "start_sec": 695,
+     "end_sec": 864
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Explicit eigenproblem for the 123 case",
+   "summary": "The eigenvalue equation for T is split over the two triangles x<y and y<x, reduced from integral equations to a two-dimensional ODE system, and solved to obtain explicit real eigenvalues and eigenfunctions.",
+   "spans": [
+    {
+     "start_sec": 871,
+     "end_sec": 1322
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Compact-operator spectral expansion",
+   "summary": "Functional analysis is invoked by observing that T^2 is Hilbert-Schmidt/compact, allowing the desired inner product <T^{n-2}1,1> to be expanded using simple eigenvalues, eigenfunctions, and adjoint eigenfunctions with a controlled remainder.",
+   "spans": [
+    {
+     "start_sec": 1322,
+     "end_sec": 1751
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Asymptotic expansion and its limitation",
+   "summary": "Substituting the explicit eigenvalues gives finite asymptotic expansions dominated by the largest positive eigenvalue, but the coefficients for positive eigenvalues grow so the method does not yield a convergent exact infinite series for alpha_n.",
+   "spans": [
+    {
+     "start_sec": 1751,
+     "end_sec": 2088
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "General consecutive-pattern operator",
+   "summary": "For any forbidden set S of consecutive patterns of length m+1, the reduction map Pi and an analogous indicator define a transfer operator on L^2([0,1]^m), although direct computation of its full spectrum quickly becomes intractable.",
+   "spans": [
+    {
+     "start_sec": 2099,
+     "end_sec": 2186
+    },
+    {
+     "start_sec": 2344,
+     "end_sec": 2804
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Krein-Rutman criterion via an overlap graph",
+   "summary": "A positivity-improving theorem for compact operators is translated into ergodicity of a directed sliding-window graph H, giving a simple positive dominant eigenvalue and hence alpha_N(S) = C lambda^N plus a smaller error term in broad pattern-avoidance cases.",
+   "spans": [
+    {
+     "start_sec": 2823,
+     "end_sec": 3441
+    },
+    {
+     "start_sec": 3465,
+     "end_sec": 3561
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Three-dimensional cube cut into six permutation simplices",
+   "note": "The toy 3-cube sliced by the planes x_i=x_j makes the volume-to-permutation correspondence visible, with the 123 simplex removed in the no-double-ascent case.",
+   "first_introduced_sec": 139,
+   "spans": [
+    {
+     "start_sec": 139,
+     "end_sec": 238
+    }
+   ],
+   "total_seconds": 99,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he physically cuts/describes the 3D cube by the coordinate hyperplanes, identifies the six permutation simplices, and reasons that the 123 simplex is missing",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The cube-with-braid-arrangement decomposition is the regular coordinate-symmetric partition of a 3-cube into the six order simplices."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The cube with its permutation-simplex triangulation is a highly regular symmetric visualization, not used to refute anything."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the unit cube with its coordinate-permutation chamber decomposition is highly regular and is used only to illustrate the volume correspondence"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A regular 3-cube with the coordinate-permutation chamber decomposition is highly symmetric and only illustrates the volume correspondence."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The unit cube with the permutation-simplex decomposition is a regular highly symmetric geometric model, used illustratively rather than negatively."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the braid-arrangement decomposition of a regular cube is a highly symmetric illustrative model, not used to refute anything"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used to illustrate the volume decomposition, and the cube/braid-arrangement chambers are highly symmetric"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A regular cube with its symmetric coordinate-order triangulation illustrates the volume correspondence, not a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "standard braid-arrangement triangulation of a regular cube, used only to visualize the volume decomposition"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the cube triangulated by coordinate-order chambers is a highly regular symmetric decomposition used to illustrate the volume formula"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used as a geometric illustration of the volume encoding, and the cube/permutation-simplex decomposition has the natural S3 coordinate symmetry"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a regular S3-symmetric braid-arrangement subdivision used to illustrate the volume/permutation correspondence"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Sequential random-variable rejection picture",
+   "note": "In response to a question, the operator recursion is recast as choosing uniform coordinates one at a time and rejecting a choice when it creates a double ascent.",
+   "first_introduced_sec": 695,
+   "spans": [
+    {
+     "start_sec": 695,
+     "end_sec": 821
+    }
+   ],
+   "total_seconds": 126,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he traces the random-variable construction step by step, picking coordinates and rejecting them when they create a double ascent",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The sequential uniform-random rejection construction is an ordinary probabilistic encoding of the avoidance condition."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The sequential rejection process is an ordinary probabilistic interpretation of the integral operator, with no special structural status."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "it is a standard rejection-sampling interpretation of the integral operator, not a structurally special or adversarial object"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The sequential uniform-variable rejection process is an ordinary probabilistic interpretation of the integral, not a special object or refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The sequential uniform-sampling rejection process is an ordinary probabilistic reinterpretation of the integral operator."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the sequential uniform-sampling rejection process is an ordinary probabilistic reformulation of the same counting problem"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an ordinary iid-uniform sampling-and-rejection process used to motivate the integral operator"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "This is just a probabilistic reinterpretation of the integral iteration and rejection process, with no special intrinsic structure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "iid uniform rejection sampling interpretation of the operator, used to explain the integral formulation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "it is an ordinary independent-uniform sampling and rejection interpretation, not a refuting example"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an ordinary rejection-sampling interpretation of the same integral operator, not an adversarial case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an ordinary probabilistic sampling-and-rejection formulation of the same avoidance condition"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Alternating permutations and Euler numbers comparison",
+   "note": "The speaker contrasts the present nonconvergent spectral expansion with the earlier alternating-permutation/Euler-number case where the same style of method yields an actual convergent series.",
+   "first_introduced_sec": 1958,
+   "spans": [
+    {
+     "start_sec": 1958,
+     "end_sec": 2009
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he only compares with the alternating-permutation/Euler-number case and says the method gives a series there, without carrying it out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 10,
+    "symmetric": 4,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Alternating permutations form the maximally up-down/zigzag class counted by Euler numbers and are used only as a successful comparison case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Alternating permutations have a maximally regular up-down pattern and are cited as a successful comparison case for Euler-number series."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "alternating permutations impose a maximally regular up-down pattern, attaining maximal adjacent alternation, and are used as a successful comparison case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Alternating permutations form a highly regular up-down family used only as a comparison where the method gives Euler-number series."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Alternating permutations are maximally zigzag permutations, cited as a successful comparison with Euler-number series."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "alternating permutations are the maximally zigzag case with every adjacent comparison changing direction, used only as a positive comparison"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "used as a successful comparison case, with alternating permutations maximizing adjacent direction changes"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Alternating permutations have the maximum possible alternation of adjacent inequalities and are cited as a successful Euler-number comparison."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "up-down permutations are maximally oscillating and serve as a successful Euler-number comparison"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "alternating permutations have the maximally alternating ascent-descent pattern and serve as a successful comparison case"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "used as a positive comparison where the method gives Euler-number series, and alternating permutations have a maximally regular up-down pattern"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Euler zigzag permutations are cited as a successful comparison and have maximal adjacent up-down alternation"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Consecutive 213-avoiding permutations",
+   "note": "The 213 case leads to an eigenvalue equation involving the error function, visibly motivating the move from explicit eigenvalue solution to a Perron-Frobenius/Krein-Rutman leading-eigenvalue approach.",
+   "first_introduced_sec": 2482,
+   "spans": [
+    {
+     "start_sec": 2482,
+     "end_sec": 2526
+    },
+    {
+     "start_sec": 2629,
+     "end_sec": 2804
+    }
+   ],
+   "total_seconds": 219,
+   "attaches_to": [
+    "s6",
+    "s7"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he applies the operator/eigenvalue calculation to consecutive 213 avoidance and derives the error-function equation for its eigenvalues and root behavior",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Consecutive 213-avoidance is a standard singleton consecutive-pattern class, used here to show the eigenvalue method already leads to non-explicit transcendental equations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Consecutive 213-avoidance is a standard pattern-avoidance class, used to show that the spectral calculation quickly stops giving exact closed forms."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the consecutive 213-avoidance class is an ordinary singleton pattern-avoidance family but is used to show clean eigenvalue calculations break down"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The consecutive 213-avoiding class is a standard singleton-pattern case used to show the nice explicit eigenvalue calculation already breaks down."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The consecutive 213-avoidance case is a typical nonmonotone pattern class used as a hard case showing exact elementary eigenvalue formulas break down."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "213 is a representative nonmonotone length-three consecutive pattern, used as a harder worked case rather than a disproof"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "serves as an obstruction to the hope for simple exact eigenvalue formulas, while 213-avoidance is an ordinary consecutive-pattern class"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The 213 consecutive-avoidance class is ordinary structurally, but is used as a hard case where the explicit 123 eigenvalue calculation breaks down."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary nonmonotone consecutive pattern class used as a hard case where simple explicit eigenvalues break down"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the standard consecutive 213-avoidance class is used to show the spectral calculation becomes transcendental rather than explicitly solvable"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 213-avoiding case is used to show that even a typical other consecutive pattern leads to a non-nice transcendental eigenvalue equation"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the ordinary nonmonotone consecutive pattern 213 is used as a hard case where explicit eigenvalues become transcendental"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Singleton forbidden pattern for m greater than 2",
+   "note": "As an application of the graph criterion, any one forbidden consecutive pattern of length m+1 with m>2 satisfies the hypotheses and hence has the asserted one-dominant-eigenvalue asymptotics.",
+   "first_introduced_sec": 3237,
+   "spans": [
+    {
+     "start_sec": 3237,
+     "end_sec": 3289
+    },
+    {
+     "start_sec": 3414,
+     "end_sec": 3441
+    }
+   ],
+   "total_seconds": 79,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he states that for m greater than 2 and a singleton forbidden set the theorem applies and proves a conjectured asymptotic form, without showing the verification",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A singleton forbidden set is the minimal nonempty case among sets of forbidden patterns and is used as a positive application of the theorem."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A one-element forbidden set is the minimal nonempty boundary case among forbidden pattern sets, used positively to prove the asymptotic form."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a singleton forbidden set is the minimal nonempty basis case, and here it is used positively as a case where the theorem applies"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A singleton forbidden set is the minimal nonempty forbidden-pattern case, and here it is used positively to apply the theorem and prove a conjecture."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A singleton forbidden set is the minimal nonempty pattern-basis case, used as a positive application of the theorem."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a singleton forbidden set is the minimal nonempty pattern basis, and here it is a positive application proving the conjectured asymptotic form"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a positive application where the forbidden set is a minimal nonempty singleton case"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A one-pattern forbidden set is the minimal nonempty forbidden set and is used as a positive application proving the conjectured asymptotic form."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "minimal nonempty forbidden set in the pattern family, used as a positive application of the theorem"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a singleton forbidden set is the minimal nonempty forbidden-pattern case and is used as a positive application of the theorem"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a singleton forbidden set is the minimal nonempty forbidden-pattern case, used positively to apply the theorem and prove a conjecture"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a one-pattern forbidden set is the minimal nonempty forbidden family used as an application of the Perron-type theorem"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1744 @@
+{
+ "key": "3d2591893849abbb138cfc483e917750",
+ "title": "The Optimal Error Resilience of Interactive Communication over the Binary Alphabet",
+ "speaker": "Rachel Zhang",
+ "affiliation": "Massachusetts Institute of Technology",
+ "date": "2022-10-17T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 3209.0,
+ "abstract": "In interactive coding, Alice and Bob wish to compute some function f of their private inputs x and y. They do this by engaging in a non-adaptive (fixed speaking order, fixed length) protocol to jointly compute f(x,y). The goal is to do this in an error-resilient way, such that even if some fraction of the communication is adversarially corrupted, both parties still learn f(x,y).",
+ "youtube_url": "https://youtu.be/dYRCrbZ3MCI",
+ "page_url": "https://www.ias.edu/video/optimal-error-resilience-interactive-communication-over-binary-alphabet",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Binary error-correcting-code baseline",
+   "summary": "The talk sets up ordinary error-correcting codes, adversarial errors and erasures, relative distance and resilience, and the asymptotic binary limitation of distance one-half together with the crucial finite-message exception.",
+   "spans": [
+    {
+     "start_sec": 43,
+     "end_sec": 420
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Interactive coding model",
+   "summary": "The speaker defines the task of compiling a noiseless two-party protocol into a fixed-order noisy protocol whose transcript can still be recovered under a bounded fraction of adversarial corruptions.",
+   "spans": [
+    {
+     "start_sec": 420,
+     "end_sec": 794
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Known bounds and optimal target theorem",
+   "summary": "Prior large-alphabet and binary results are compared, the new theorem is stated as achieving the matching binary optima of one-sixth error resilience and one-half erasure resilience with positive rate and efficiency, and the feedback model is identified as the source of the one-sixth target.",
+   "spans": [
+    {
+     "start_sec": 794,
+     "end_sec": 1484
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Message-exchange reduction and one-eighth baseline",
+   "summary": "For exposition the protocol is reduced to exchanging two private messages, where directly sending binary ECCs gives only one-eighth error resilience, so the proof must communicate in short updates that can use two-thirds-distance encodings.",
+   "spans": [
+    {
+     "start_sec": 1524,
+     "end_sec": 1737
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "One-sided question-answer synchronization",
+   "summary": "In the simplified one-sided setting Bob repeatedly sends his current guess and Alice answers with the next bit or a backspace, with the answer encoded among three two-thirds-separated options and then echoed with the received question to avoid updating on corrupted questions.",
+   "spans": [
+    {
+     "start_sec": 1737,
+     "end_sec": 2196
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Two-sided protocol and asymmetric distance code",
+   "summary": "Both parties now maintain guesses and send question-plus-answer messages, using a special binary code whose three possible answers at a fixed pair of questions have distance two-thirds while other pairs retain distance one-half, because enforcing two-thirds everywhere would make questions too fragile.",
+   "spans": [
+    {
+     "start_sec": 2196,
+     "end_sec": 2669
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Randomized update rule for half-distance corruptions",
+   "summary": "Since a half-distance corruption can change both the answer and the associated question, the protocol updates with probability one on a matching question but only probability one-half on a mismatched question, restoring positive expected progress toward the correct guesses.",
+   "spans": [
+    {
+     "start_sec": 2676,
+     "end_sec": 2912
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Lifting to efficient full interactive coding",
+   "summary": "The speaker explains that positive rate is obtained by tree-code-like compression, computational efficiency by chunking and hashing techniques, and full interactive protocols by tracking transcript guesses rather than just exchanged messages, leaving derandomization as an open problem.",
+   "spans": [
+    {
+     "start_sec": 2912,
+     "end_sec": 3207
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Uncoded two-bit message corrupted from 01 to 11",
+   "note": "The toy corruption makes concrete why Bob cannot infer Alice's intended message from a noisy uncoded transmission, motivating ordinary error-correcting codes.",
+   "first_introduced_sec": 80,
+   "spans": [
+    {
+     "start_sec": 80,
+     "end_sec": 113
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker traces the specific corruption 01→11 and checks the resulting ambiguity between possible original messages",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A routine uncoded two-bit transmission is used to show that a single bit flip can make decoding ambiguous."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary two-bit transmission is used to show that one bit flip makes uncoded decoding ambiguous."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an ordinary raw two-bit transmission is used to show uncoded sending can be defeated by one bit flip"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The uncoded identity transmission has no redundancy and is used to show raw sending can become ambiguous after one bit flip."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the trivial no-redundancy transmission is used to show raw sending fails under a single bit flip"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the identity/no-redundancy two-bit transmission is used to show a single flip makes raw communication ambiguous"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A trivial uncoded transmission is used as the adversarial one-bit-flip ambiguity showing raw sending is not error-resilient."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "An uncoded identity transmission has no redundancy, and a one-bit adversarial flip makes decoding ambiguous."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A single-bit flip of an uncoded transmission is used to show direct sending is not error-resilient."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a single flip in the uncoded transmission makes the received word ambiguous, showing uncoded communication is not error-resilient"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the identity/no-redundancy two-bit transmission is defeated by a single bit flip"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the trivial uncoded two-bit transmission is used to show that a single flip can make decoding ambiguous"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Four-word binary code of relative distance two-thirds",
+   "note": "The small binary code for four possible two-bit messages is presented as the observation that reveals why constant-size answers can beat the asymptotic one-half binary distance barrier.",
+   "first_introduced_sec": 254,
+   "spans": [
+    {
+     "start_sec": 254,
+     "end_sec": 329
+    },
+    {
+     "start_sec": 1603,
+     "end_sec": 1657
+    }
+   ],
+   "total_seconds": 129,
+   "attaches_to": [
+    "s1",
+    "s4"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker examines the four binary codewords, verifies their pairwise relative distance is two-thirds, and derives the resulting error/erasure resilience",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 9,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The four-word equidistant binary code attains the optimal finite-size distance two-thirds and is used to defeat the naive finite reading of the binary one-half bound."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The equidistant four-word binary code is optimal for that tiny parameter range and refutes the finite-code reading of the binary one-half distance bound."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the four-word length-three binary simplex code is an equidistant optimal small code and illustrates the failure of the unqualified one-half distance slogan"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The four codewords form the optimal equidistant binary simplex code of relative distance 2/3, presented as a positive small-code ingredient."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the equidistant four-word binary code is a finite optimal-looking/simplex code used to refute the naive finite reading of the one-half bound"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the four codewords form an equidistant binary [3,2,2] simplex/parity code, optimal for that size, and rebut the unqualified one-half-distance intuition for finite codes"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The four codewords form an optimal equidistant binary simplex/tetrahedron code used as a finite high-distance building block."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The four-word length-3 binary code is an optimal equidistant code used to refute the finite-code reading of the binary distance-one-half bound."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The equidistant four-word binary code is used to refute a literal finite-size reading of the binary distance-1/2 bound and attains the optimal small-code distance 2/3."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the four binary codewords are equidistant at relative distance 2/3, giving a symmetric finite code meeting the small-code optimum"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the four length-3 codewords form an equidistant tetrahedral (3,4,2) code attaining the finite optimum while exposing the finite-size caveat to the 1/2 bound"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the equidistant four-word binary simplex code attains the optimal finite distance 2/3 and shows the 1/2 binary bound is only asymptotic"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Degenerate all-zero/all-one binary code",
+   "note": "The audience-raised two-codeword construction illustrates why the binary distance upper bound must be interpreted for large code families with meaningful rate or message size.",
+   "first_introduced_sec": 329,
+   "spans": [
+    {
+     "start_sec": 329,
+     "end_sec": 356
+    }
+   ],
+   "total_seconds": 27,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the all-zero/all-one code is only cited as a degenerate high-distance caveat, without any construction or calculation beyond stating the fact",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two-codeword repetition code is a trivial maximally distant code, cited to show why large code size/rate assumptions are needed."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two-word repetition code is collapsed to all-zero/all-one codewords, has maximal relative distance one, and is cited to show size/rate assumptions are necessary."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the repetition code {0^n,1^n} is a maximally separated minimal code used to show high distance is possible without large code size assumptions"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-zero/all-one repetition code is a trivial two-word code attaining maximum distance 1 and is invoked to defeat unqualified distance claims without a largeness/rate assumption."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the two constant antipodal codewords form a zero-rate trivial code with maximal distance, illustrating why size/rate assumptions are needed"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the two antipodal constant codewords form a trivial repetition code with maximal distance one, raised as a caveat to distance claims without large-code or rate assumptions"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two constant codewords are a trivial repetition code with maximal relative distance 1, invoked to expose missing large-code or rate assumptions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The all-zero/all-one repetition code is a two-codeword degenerate antipodal code with maximal relative distance, used to show the need for code-size/rate assumptions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two-codeword repetition code shows that without a large-code/rate assumption one can get distance 1, the maximum possible, but only in a trivial low-rate case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the repetition code {0^n,1^n} has maximal distance 1 but only a trivial two-word low-rate structure, exposing missing size/rate assumptions"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the two-word repetition code {0^n,1^n} is a trivial maximally distant and highly symmetric code used to defeat bounds without a size/rate condition"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the two-codeword all-zero/all-one repetition code is a trivial antipodal maximum-distance code used to defeat any bound lacking a large-code assumption"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Chess as an interactive protocol",
+   "note": "Encoding each chess move separately fails after one adversarially corrupted move, showing why interactive coding needs synchronization, error detection, and rollback rather than ordinary block coding alone.",
+   "first_introduced_sec": 444,
+   "spans": [
+    {
+     "start_sec": 444,
+     "end_sec": 561
+    },
+    {
+     "start_sec": 3032,
+     "end_sec": 3092
+    }
+   ],
+   "total_seconds": 177,
+   "attaches_to": [
+    "s2",
+    "s8"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker runs the encoded-move idea on chess and reasons through how corrupting the first move makes Alice and Bob maintain different game states",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 10,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Chess is an ordinary motivating interactive protocol rather than a structurally special object or the counterexample itself."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Chess is a representative alternating protocol used to show that independently encoding each move can fail after one adversarial corruption."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "chess is an ordinary interactive protocol used as the setting where one corrupted move defeats naive per-message encoding"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Chess is an ordinary interactive protocol used to illustrate how per-message coding can be broken by an adversarial first-move corruption."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary chess is used as an interactive protocol where one early corrupted move defeats the naive encode-each-message idea"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "chess is an ordinary alternating protocol used with a first-move corruption to show per-message ECC does not suffice for interactive communication"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Chess is an ordinary interactive protocol used to show that one corrupted move defeats naive per-message encoding."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Chess is an ordinary turn-taking protocol used to show that independently encoding each move can desynchronize after one corrupted move."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Chess is used as a familiar representative interactive protocol, not as a structurally special object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the chess protocol supplies the enemy case where one corrupted first move makes a naively encoded interactive simulation diverge"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "chess is an ordinary interactive protocol used as an enemy case where one corrupted first move makes local encoding fail"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "chess is an ordinary interactive protocol used to demonstrate that per-message encoding can be desynchronized by one adversarially corrupted move"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Repeat-until-received bit over an erasure channel",
+   "note": "In response to a question, the speaker explains the erasure intuition by imagining one party repeatedly sending a bit while the other reports whether it was received.",
+   "first_introduced_sec": 1355,
+   "spans": [
+    {
+     "start_sec": 1355,
+     "end_sec": 1393
+    }
+   ],
+   "total_seconds": 38,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker concretely describes the repeat-until-received interaction, with one party resending a bit until the other acknowledges receiving it",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The repeat-until-received bit protocol is a standard positive illustration of how interaction handles erasures."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The repeat-until-received gadget is a minimal one-bit erasure-channel base case used as positive intuition rather than as a failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the stop-and-wait transmission of a single bit is a minimal erasure-protocol gadget used constructively"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The repeat-until-received bit is a standard ARQ-style erasure protocol used as positive intuition rather than as an obstruction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the stop-and-wait retransmission subroutine is a standard positive illustration of erasure handling rather than a failure case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the repeat-and-acknowledge scheme is a minimal one-bit erasure-channel protocol illustrating the waiting idea"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The repeat-until-received bit protocol is a standard constructive erasure-channel illustration of waiting for information."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "This is a minimal one-bit repeat/acknowledge erasure protocol illustrating how interaction can wait out erasures, not a refutation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The repeat-until-acknowledged one-bit exchange is a minimal erasure-handling subroutine illustrating the construction intuition."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the repeat-until-acknowledged single bit is a minimal stop-and-wait erasure-channel toy illustrating waiting, not a refutation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-bit repeat-until-acknowledged routine is a minimal base-case protocol illustrating a positive erasure strategy"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the repeat-until-received scheme is a minimal one-bit erasure-channel primitive illustrating how interaction lets parties wait for information"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Fifteen-bit termination edge case",
+   "note": "The audience's 15-bit-message scenario clarifies that Bob does not terminate early but keeps updating until the predetermined end and then reads the required prefix.",
+   "first_introduced_sec": 1969,
+   "spans": [
+    {
+     "start_sec": 1969,
+     "end_sec": 2051
+    }
+   ],
+   "total_seconds": 82,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes the 15-bit termination edge case, explaining that Bob keeps updating until the fixed end and then takes the first 15 bits",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The last-bit fifteen-bit scenario is a boundary termination case used as a possible failure of premature stopping."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The last-bit/length-fifteen termination scenario is a boundary case raised as a possible obstruction to early stopping."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the last-bit length-fifteen scenario is a boundary termination case raised as a possible flaw in early stopping"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The last-bit termination scenario is a boundary case raised as a possible failure of stopping as soon as a 15-bit guess is formed."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the last-bit termination scenario is a boundary case raised as an obstruction to premature stopping"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the last-bit stopping scenario is a boundary case used to expose a possible flaw in early termination"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The fifteenth-bit case is a terminal boundary case raised as a possible obstruction to early termination."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The corrupted final bit is a termination-boundary case used to show that stopping as soon as a 15-bit guess appears would be unsafe."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The last-bit/termination scenario is an endpoint case used to expose the failure of naive early stopping."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the corrupted final-bit situation is a boundary termination case showing that stopping as soon as 15 bits are held could fail"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the last-bit-at-termination scenario is a boundary case that would break an early-stopping variant"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the possible wrong fifteenth bit is a boundary termination case raised as an obstruction to stopping as soon as the target length is reached"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Corrupting Bob back to the empty guess",
+   "note": "The worked run where Alice knows Bob's input and Eve corrupts a response to a wrong-question backspace exhibits the obstruction that motivates updating with probability one-half on mismatched questions.",
+   "first_introduced_sec": 2676,
+   "spans": [
+    {
+     "start_sec": 2676,
+     "end_sec": 2805
+    }
+   ],
+   "total_seconds": 129,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker steps through Bob’s empty guess being extended to 0, then corrupted via a rewind/backspace update back to the empty string, and discusses the probabilistic fix",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The adversarial corruption returns Bob to the empty minimal guess, showing the proposed deterministic update rule can make no progress."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The adversary drives Bob back to the empty guess, a collapsed transcript state, to show the naive update rule can make no progress."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the adversarial half-distance corruption returns Bob to the empty guess, a minimal state and tight obstruction to the naive update rule"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The adversarial update returns Bob to the empty-string initial guess, showing the naive progress argument can fail."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the attack returns Bob to the empty initial guess, showing the naive deterministic update rule can make no progress"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "returning Bob to the empty string is a collapsed minimal state and the attack shows the naïve deterministic update can make zero progress"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The attack returns Bob to the minimal empty-string guess, showing the proposed update rule can make no progress."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The attack uses Bob’s minimal empty-guess state and a tight half-distance corruption to show deterministic always-update behavior can make no progress."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The adversarial update sends Bob back to the empty guess, a minimal collapsed state, to show the always-update scheme can make no progress."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the adversary uses a half-distance corruption to return Bob to the minimal empty guess, obstructing the always-update progress argument"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the attack collapses Bob's state back to the empty guess, showing the always-update scheme can make no progress"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the adversary’s corruption drives Bob back to the empty minimal guess, showing the always-update version can make no progress"
+    }
+   ]
+  }
+ ]
+}

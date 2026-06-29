@@ -1,0 +1,2354 @@
+{
+ "key": "3835636684cb1f064786918b0aa320f0",
+ "title": "Uncoupled isotonic regression",
+ "speaker": "Jonathan Niles-Weed",
+ "affiliation": "New York University; Member, School of Mathematics",
+ "date": "2019-12-04T12:00:00Z",
+ "field_msc": "62 Statistics",
+ "duration_sec": 3448.0,
+ "abstract": "The classical regression problem seeks to estimate a function f on the basis of independent pairs $(x_i,y_i)$ where $\\mathbb E[y_i]=f(x_i)$, $i=1,\\dotsc,n$. In this talk, we consider statistical and computational aspects of the \"uncoupled\" version of this problem, where one observes only the unordered sets $\\{x_1,…,x_n\\}$ and $\\{y_1,…,y_n\\}$ and still hopes to recover information about $f$.",
+ "youtube_url": "https://www.youtube.com/watch?v=8GsMaKM8WcA",
+ "page_url": "https://www.ias.edu/video/tml/2019/1204-JonathanNilesWeed",
+ "tags": [
+  "School of Mathematics",
+  "Seminar on Theoretical Machine Learning"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "From paired regression to uncoupled samples",
+   "summary": "The talk starts from classical paired regression, motivates why paired labeled data may be unavailable, and formulates the uncoupled observation model in which only unordered collections of covariates and responses are observed, with monotonicity as the key identifiability assumption in one dimension.",
+   "spans": [
+    {
+     "start_sec": 11,
+     "end_sec": 815
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Classical isotonic-regression benchmark",
+   "summary": "The speaker defines the usual one-dimensional isotonic regression class of bounded nondecreasing functions with Gaussian noise and recalls that, with paired data, least-squares isotonic regression attains the minimax rate n^{-2/3} and is computable by the pool-adjacent-violators algorithm.",
+   "spans": [
+    {
+     "start_sec": 815,
+     "end_sec": 1206
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Main uncoupled minimax claim and assumptions",
+   "summary": "The central problem is to determine rates and algorithms for uncoupled isotonic regression, and the announced result is that the minimax rate deteriorates to roughly log log n/(log n)^2 while remaining achievable by a simple projection-type estimator under known sub-exponential noise and bounded signal scale.",
+   "spans": [
+    {
+     "start_sec": 1206,
+     "end_sec": 1622
+    },
+    {
+     "start_sec": 3219,
+     "end_sec": 3279
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Wasserstein reformulation and projection estimator",
+   "summary": "The empirical L2 distance between two increasing functions on the design points is identified with a W2 distance between their induced empirical measures, and the observed responses are recognized marginally as draws from the convolution of the true induced measure with the noise, leading to a minimum-Wasserstein-distance estimator.",
+   "spans": [
+    {
+     "start_sec": 1622,
+     "end_sec": 2031
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Moment-based Wasserstein deconvolution upper bound",
+   "summary": "The upper-bound analysis first obtains closeness after convolution by empirical Wasserstein concentration, then converts this to moment closeness, uses a theorem that moment gaps control Wp distance for sub-exponential measures, and finally deconvolves, with unavoidable exponential losses producing the logarithmic rate.",
+   "spans": [
+    {
+     "start_sec": 2031,
+     "end_sec": 2710
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Two-point lower bound via blurred measures",
+   "summary": "The minimax lower bound is obtained by constructing two measures that are well separated in Wasserstein distance but nearly indistinguishable in total variation after convolution with the noise, then turning them into random isotonic functions on arbitrary fixed design points.",
+   "spans": [
+    {
+     "start_sec": 2710,
+     "end_sec": 2806
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Polynomial-time computation and entropic-OT MLE",
+   "summary": "Although the direct optimization over isotonic induced measures is nonconvex, relaxation to all probability measures, discretization, and rounding give a polynomial-time estimator, and an entropically regularized Wasserstein projection is identified with the maximum likelihood estimator.",
+   "spans": [
+    {
+     "start_sec": 2806,
+     "end_sec": 3219
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Scope, extensions, and open directions",
+   "summary": "The closing discussion records that the analysis extends to sub-exponential noise and Wp/Lp losses and points to open problems involving mixtures of coupled and uncoupled data, multivariate identifiability, and adaptive sampling.",
+   "spans": [
+    {
+     "start_sec": 3219,
+     "end_sec": 3422
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Disability and labor-force participation data",
+   "note": "The labor-market example illustrates why covariates about accessibility or health environments and outcomes from labor statistics may exist in separate databases without individual pairings.",
+   "first_introduced_sec": 132,
+   "spans": [
+    {
+     "start_sec": 132,
+     "end_sec": 232
+    },
+    {
+     "start_sec": 755,
+     "end_sec": 796
+    }
+   ],
+   "total_seconds": 141,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the disability/labor-force setting is used as motivation for why paired covariate-outcome data may be unavailable, with no analysis of the data itself",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 7,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary applied regression data used to motivate uncoupled observations rather than a structural special case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary applied regression data used to motivate uncoupled observations, not a structurally special object"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary empirical data used as an obstruction to paired x-y observations across agencies"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary applied data example used as an obstruction to assuming paired disability-environment and labor-force observations"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary applied regression data used to motivate unpaired observations, not to refute a mathematical claim"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary applied data used to show paired regression observations may be unavailable across agencies"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show that paired disability/workforce covariates may be unavailable across agencies, while the data themselves are ordinary applied data."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show that paired disability-environment and labor-participation observations may fail to exist across agencies"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary applied uncoupled-regression motivation from economics, not used to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary social-science regression data are used to motivate uncoupled observations."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as an ordinary applied-data obstruction to the classical paired-regression observation model."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show an ordinary labor-economics regression setting where paired agency data may be unavailable."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Alzheimer's behavioral scores versus autopsy tangles",
+   "note": "Behavioral MMSE measurements and postmortem neurofibrillary-tangle counts exemplify medically meaningful variables for which paired observations are scarce and specialized.",
+   "first_introduced_sec": 232,
+   "spans": [
+    {
+     "start_sec": 232,
+     "end_sec": 335
+    }
+   ],
+   "total_seconds": 103,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the Alzheimer’s scores and autopsy tangles are described as an application where paired measurements are hard to obtain, but no computation or checking is done on them",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 7,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary medical paired-measurement example illustrating scarcity of labels, not a mathematical obstruction"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary medical regression measurements used as a motivation for scarce paired data"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary medical study data used to show behavioral and autopsy variables are rarely jointly labeled"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary medical data example used to show paired behavioral and autopsy measurements may be unavailable"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "specialized biomedical paired-data setting but structurally a typical application motivating uncoupling"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary medical measurements used to show paired behavioral and autopsy data are scarce"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show that behavioral Alzheimer’s scores and autopsy tangles are hard to observe paired at scale, with no intrinsic extremal or exceptional structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show that behavioral Alzheimer’s scores and autopsy tangle counts are rarely available as paired data"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary medical paired-data motivation illustrating why labels are hard to obtain."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary medical regression data illustrate why paired labels may be hard to obtain."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show that paired behavioral and autopsy measurements are scarce and classical paired data may fail to exist at scale."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show a medical setting where paired behavioral scores and autopsy tangles are hard to obtain."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "SAT scores versus income and race",
+   "note": "The standardized-testing example shows how privacy or institutional release policies could provide only marginal distributions of demographics and scores, not their pairings.",
+   "first_introduced_sec": 335,
+   "spans": [
+    {
+     "start_sec": 335,
+     "end_sec": 434
+    },
+    {
+     "start_sec": 755,
+     "end_sec": 796
+    }
+   ],
+   "total_seconds": 140,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the SAT-income-race example is cited to illustrate anonymized or censored pairing, without working through the dataset",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 7,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary social-policy data example where privacy may remove pairings, not a special structure"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary social-policy regression data used to illustrate anonymization and missing pairings"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary anonymized policy data used to show privacy can break the pairing needed by classical regression"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary policy-data example used to show privacy/anonymization can break the paired-observation model"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary social-science regression data used as a privacy/anonymization motivation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary policy data used to show privacy/anonymization can destroy the needed pairings"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show that privacy/anonymization can destroy SAT-income-race pairings, while the dataset is structurally typical."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show that privacy or anonymization can destroy the pairing between SAT outcomes and demographic covariates"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary social-policy data example motivating anonymized or uncoupled observations."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary education-policy data motivate anonymized or uncoupled covariate/outcome samples."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a privacy/anonymization obstruction to assuming paired SAT, income, and race observations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show privacy/anonymization can destroy SAT-score pairings with income and race in otherwise ordinary data."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "de Groot--Goel broken-sample linear model",
+   "note": "The scalar linear broken-sample model is historical evidence that uncoupled regression can be identifiable and consistently estimable, though poorly.",
+   "first_introduced_sec": 465,
+   "spans": [
+    {
+     "start_sec": 465,
+     "end_sec": 572
+    }
+   ],
+   "total_seconds": 107,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the de Groot--Goel broken-sample linear model is summarized as prior work with stated results, not concretely derived or computed in the talk",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard one-parameter broken-sample linear model used as historical positive motivation"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard one-dimensional broken-sample linear model used historically as a motivating case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard one-dimensional linear broken-sample model used as a positive historical test case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard simple broken-sample linear model cited as a positive baseline for uncoupled estimation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a simple univariate linear broken-sample model from a systematic regression family, used as precedent"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the scalar broken-sample linear model is a minimal uncoupled regression base case with the pair structure removed"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Presented as a historical positive model where uncoupled scalar linear regression is still consistently estimable, not as an obstruction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard univariate broken-sample linear regression model cited as a historical positive case"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Standard scalar linear broken-sample model used as historical precedent, not as an obstruction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The scalar broken-sample linear model is a standard motivating model for possible estimation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard scalar linear broken-sample model introduced as historical precedent, not as a structural exception or disproof."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The de Groot--Goel broken-sample scalar linear model is a standard positive test case for uncoupled estimation."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Unlabeled sensor-network measurements",
+   "note": "The compressed-sensing sensor-network story illustrates the same unknown-permutation phenomenon in a signal-processing setting where sensors report measurements without labels.",
+   "first_introduced_sec": 647,
+   "spans": [
+    {
+     "start_sec": 647,
+     "end_sec": 679
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the sensor-network case is invoked as an unlabeled-sensing motivation with an unknown permutation, but no construction is run on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 7,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "typical unlabeled-sensing scenario with an unknown permutation, used as motivation"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "typical unlabeled-sensing application with an unknown permutation, not a sporadic or extremal object"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary unlabeled-sensing setup used to show sensor labels and pairings can be unavailable"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary unlabeled-sensing scenario used as an obstruction to having coordinated labeled measurements"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard unlabeled-sensing scenario with an unknown permutation, used as an application area"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "unlabeled sensor measurements have their label/permutation structure collapsed and obstruct ordinary paired sensing"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show a sensor-network setting where unique measurement labels are unavailable because coordination is too costly."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show that sensor measurements may naturally arrive without labels or a known permutation"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Typical unlabeled-sensing scenario with an unknown permutation, used as another application setting."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The unlabeled sensor-network setting is a typical unknown-permutation sensing motivation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as an applied obstruction where sensor labels or pairings are unavailable because coordination is too costly."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show a sensing setup where labels or pairings may be absent because sensors do not coordinate."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Income and rent monotonicity",
+   "note": "Income versus rent is used as a concrete univariate case where monotonicity is more plausible than exact linearity.",
+   "first_introduced_sec": 733,
+   "spans": [
+    {
+     "start_sec": 733,
+     "end_sec": 755
+    }
+   ],
+   "total_seconds": 22,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "income and rent are named as a monotone one-dimensional application, with identifiability stated but not demonstrated on the example",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "typical univariate monotone relationship offered as a plausible application assumption"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary monotone income-rent relationship used to motivate isotonic assumptions"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary monotone socioeconomic relationship illustrating a plausible isotonic assumption"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "typical monotone economics example used to motivate isotonic rather than linear structure"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary one-dimensional monotone socioeconomic relation used to justify isotonic assumptions"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "income-rent monotonicity is a typical motivating monotone relationship used positively for identifiability"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as a representative monotone regression relation where monotonicity gives identifiability, not as a failure case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a typical one-dimensional monotone economics relationship used to motivate isotonic identifiability"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary one-dimensional monotone relationship used to justify isotonic assumptions in applications."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Income-rent monotonicity is an ordinary one-dimensional isotonic-regression application."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an ordinary monotone socioeconomic relationship used to motivate isotonic assumptions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A typical monotone socioeconomic relation used positively to justify isotonic assumptions."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Errors-in-measurement comparison",
+   "note": "In response to a question, the speaker contrasts local noisy measurements of covariates with the uncoupled setting, where there is no prior linkage between the two samples.",
+   "first_introduced_sec": 832,
+   "spans": [
+    {
+     "start_sec": 832,
+     "end_sec": 894
+    }
+   ],
+   "total_seconds": 62,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the errors-in-measurement model is contrasted with uncoupled data as having small local perturbations, without a worked example",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard errors-in-measurement model used only as a contrast with fully uncoupled data"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard errors-in-measurement model used only as a comparison with uncoupled data"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard errors-in-measurement model used only as a contrast with the uncoupled model"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard errors-in-measurement model used only for comparison with the uncoupled setting"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard errors-in-measurement model used only as a contrast with full uncoupling"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the errors-in-measurement model is a standard comparison case with local perturbations"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used only as a contrasting standard errors-in-measurement model with local perturbations, not as a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the usual errors-in-measurement model is mentioned only as a contrasting related framework"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Standard errors-in-measurement model is mentioned only as a comparison to the uncoupled setting."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The errors-in-measurement model is used only as a standard comparison with local perturbations."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard errors-in-measurement model used only as a comparison with the uncoupled setting."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The errors-in-measurement model is a standard comparison model with local perturbations, not an adversarial case."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Pool-adjacent-violators cartoon",
+   "note": "The noisy monotone sequence with local monotonicity violations makes the classical isotonic least-squares projection algorithm concrete.",
+   "first_introduced_sec": 1071,
+   "spans": [
+    {
+     "start_sec": 1071,
+     "end_sec": 1155
+    }
+   ],
+   "total_seconds": 84,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker walks through the pool-adjacent-violators cartoon by finding monotonicity violations, pooling them, and recursing until monotone",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary noisy isotonic-regression cartoon illustrating the PAV algorithm"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "generic noisy isotonic-regression cartoon illustrating pooling of local violations"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary noisy isotonic toy sequence illustrating pooling of local monotonicity violations"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary noisy isotonic-regression cartoon used to illustrate the pool-adjacent-violators algorithm"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "typical noisy isotonic-regression cartoon illustrating pool-adjacent-violators"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the pool-adjacent-violators cartoon is a typical schematic illustration of the isotonic projection algorithm"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A pedagogical cartoon of the pool-adjacent-violators procedure on typical noisy isotonic data."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a typical noisy isotonic-regression cartoon used to explain the pooling algorithm"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Typical noisy isotonic data cartoon illustrating the pool-adjacent-violators algorithm."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The noisy isotonic cartoon simply illustrates pooling adjacent monotonicity violations."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a typical noisy isotonic-data cartoon used to illustrate the pool-adjacent-violators algorithm."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The cartoon illustrates the PAV least-squares isotonic projection, an optimizer over nondecreasing fits."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Discrete Wasserstein matching picture",
+   "note": "Finite discrete distributions are described as a cheapest matching problem to make the Wasserstein coupling definition intuitive.",
+   "first_introduced_sec": 1676,
+   "spans": [
+    {
+     "start_sec": 1676,
+     "end_sec": 1697
+    }
+   ],
+   "total_seconds": 21,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker works through the discrete Wasserstein picture by matching ordered purple and orange points and explaining why first-to-first matching gives the distance",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the displayed monotone matching is the minimum-cost coupling realizing the one-dimensional Wasserstein distance"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the sorted one-dimensional coupling is introduced as the cheapest Wasserstein matching"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the one-dimensional sorted matching is the minimum-cost Wasserstein coupling used illustratively"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the displayed discrete coupling is the minimum-cost Wasserstein matching of the ordered points"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the depicted ordered Wasserstein matching is the minimum-cost coupling between the discrete measures"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the sorted discrete Wasserstein matching is the cost-minimizing coupling on the line"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The depicted order-preserving coupling is the cost-minimizing Wasserstein matching of the discrete measures."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the depicted order-preserving coupling is the minimum-cost Wasserstein matching for the two discrete measures"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary finite one-dimensional optimal-transport matching picture explaining Wasserstein distance."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The depicted coupling is the minimum-cost one-dimensional Wasserstein matching."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the depicted one-dimensional matching is the minimum-cost optimal Wasserstein coupling."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The sorted matching is presented as the minimum-cost Wasserstein coupling of ordered equal-mass points."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Measure-preserving multivariate nonidentifiability",
+   "note": "The audience-prompted measure-preserving transformation scenario shows why naive multivariate uncoupled models can be nonidentifiable and motivates stronger structural assumptions.",
+   "first_introduced_sec": 3378,
+   "spans": [
+    {
+     "start_sec": 3378,
+     "end_sec": 3406
+    }
+   ],
+   "total_seconds": 28,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "measure-preserving multivariate nonidentifiability is only sketched as a possible scrambling obstruction, with no explicit construction analyzed",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "measure-preserving scrambling is used as an obstruction showing multivariate uncoupled models can be nonidentifiable"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "measure-preserving transformations collapse distinct multivariate regressions to the same uncoupled law, obstructing identifiability"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "measure-preserving scrambling is used as an obstruction to multivariate identifiability"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "measure-preserving scrambling is used as an obstruction to multivariate identifiability under uncoupling"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "measure-preserving scrambling is used as an obstruction to naive multivariate identifiability"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "measure-preserving multivariate scramblings are used as an obstruction to identifiability"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a multivariate nonidentifiability obstruction via measure-preserving transformations that scramble the covariates."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a measure-preserving scramble is used as an obstruction to multivariate identifiability"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Measure-preserving scrambling is used as an obstruction showing multivariate uncoupled models can be nonidentifiable."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Measure-preserving scrambling is presented as an obstruction to multivariate identifiability."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a nonidentifiability obstruction to naive multivariate uncoupled regression models."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an obstruction to multivariate identifiability, since measure-preserving scrambling can give the same uncoupled law."
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "Budgeted medical follow-up study",
+   "note": "The medical sampling scenario illustrates the adaptive version of the problem, where a limited number of coupled observations can be strategically collected.",
+   "first_introduced_sec": 3406,
+   "spans": [
+    {
+     "start_sec": 3406,
+     "end_sec": 3422
+    }
+   ],
+   "total_seconds": 16,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the budgeted medical follow-up study is posed as a future adaptive-design motivation, not worked through",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary adaptive-design motivation for choosing follow-up samples under a medical-study budget"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary adaptive medical-data collection scenario posed as a future application"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary adaptive-design medical application posing a budget-allocation question"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary adaptive-design medical scenario posed as a future application with a limited follow-up budget"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary adaptive medical-study design scenario motivating future work under a budget"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the budgeted medical follow-up study is a typical proposed adaptive-design application"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Mentioned as a natural adaptive-design application with a limited follow-up budget, not as a structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard budgeted adaptive medical follow-up setting is posed as future work rather than as a refutation"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Typical adaptive-study design motivation with limited coupled medical follow-up budget."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The budgeted medical follow-up study is a typical adaptive-data-collection motivation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an ordinary budget-constrained medical-study scenario proposed as a future adaptive-design application."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A typical adaptive-design application with a budget constraint, not a special mathematical object."
+    }
+   ]
+  }
+ ]
+}

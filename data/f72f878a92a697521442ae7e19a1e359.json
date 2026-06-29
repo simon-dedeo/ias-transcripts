@@ -1,0 +1,1787 @@
+{
+ "key": "f72f878a92a697521442ae7e19a1e359",
+ "title": "Matching: A New Proof for an Ancient Algorithm",
+ "speaker": "Vijay Vazirani",
+ "affiliation": "Georgia Institute of Technology",
+ "date": "2012-12-10T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 4188.0,
+ "abstract": "For all practical purposes, the Micali-Vazirani algorithm, discovered in 1980, is still the most efficient known maximum matching algorithm (for very dense graphs, slight asymptotic improvement can be obtained using fast matrix multiplication). However, this has remained a ``black box\" result for the last 32 years. We hope to change this with the help of a recent paper giving a simpler proof and exposition of the algorithm: http://arxiv.org/abs/1210.4594",
+ "youtube_url": "https://www.youtube.com/watch?v=D48ci95qHQY",
+ "page_url": "https://www.ias.edu/video/1213/csdm/VijayVazirani1210",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Augmenting-path phase framework",
+   "summary": "The talk reduces maximum matching to repeated augmentation and then to phases that find a maximal set of vertex-disjoint shortest augmenting paths, aiming for O(m) work per phase and O(sqrt n) phases.",
+   "spans": [
+    {
+     "start_sec": 192,
+     "end_sec": 577
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Bipartite BFS predecessor template",
+   "summary": "In bipartite graphs, alternating BFS from all unmatched vertices on one side assigns levels and predecessors, after which backtracking and deleting used vertices yields a maximal set of disjoint shortest augmenting paths in linear time.",
+   "spans": [
+    {
+     "start_sec": 735,
+     "end_sec": 1022
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Parity obstruction in general graphs",
+   "summary": "For non-bipartite graphs, vertices may have distinct even and odd levels, minimum alternating paths are not BFS-honest, and finding the needed parity paths appears to require a new structural theory rather than straightforward search.",
+   "spans": [
+    {
+     "start_sec": 1022,
+     "end_sec": 1325
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Bridges, buds, petals, and double DFS",
+   "summary": "The general-graph search distinguishes props from bridges, uses bridges to assign max levels up to bottlenecks, and introduces double depth-first search with petal/blossom-node marking to find bases or augmentations while skipping nested structures efficiently.",
+   "spans": [
+    {
+     "start_sec": 1325,
+     "end_sec": 2187
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Tenacity and recursive blossoms",
+   "summary": "Tenacity, defined from even and odd levels, restores enough BFS-honesty to prove uniqueness of the higher-tenacity base on all min/max paths, yielding iterated bases and a recursive graph-theoretic definition of blossoms.",
+   "spans": [
+    {
+     "start_sec": 2187,
+     "end_sec": 2924
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Supports and synchronized event schedule",
+   "summary": "The algorithm assigns edge tenacities, runs each search level as a min-level BFS step followed exactly by double DFS on bridges of tenacity 2i+1, and relies on the main theorem that every vertex of a given tenacity lies in the support of a unique appropriate bridge on a max-level path.",
+   "spans": [
+    {
+     "start_sec": 2934,
+     "end_sec": 3786
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Path reconstruction, deletion, and linear-time implementation",
+   "summary": "After reaching unmatched vertices, blossom nodes store enough bridge-endpoint and base information to patch an augmenting path, remove the whole affected blossom safely using iterated-base properties, and achieve linear-time phases with suitable skipping/data-structure support.",
+   "spans": [
+    {
+     "start_sec": 3786,
+     "end_sec": 3950
+    },
+    {
+     "start_sec": 4064,
+     "end_sec": 4135
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Toy augmenting paths in a current matching",
+   "note": "The slide with matched and unmatched edges makes an augmenting path and the flip operation concrete, after the augmenting-path framework has already been stated.",
+   "first_introduced_sec": 316,
+   "spans": [
+    {
+     "start_sec": 316,
+     "end_sec": 493
+    }
+   ],
+   "total_seconds": 177,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker traces concrete augmenting paths in the current matching, checks disjointness, and explains flipping matched/unmatched edges to augment",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 7,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the displayed augmenting paths are chosen as a maximal family of minimum-length augmenting paths."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the displayed paths form a maximal collection of disjoint minimum-length augmenting paths in the current matching"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative augmenting paths are used to explain flipping in a current matching"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary alternating augmenting paths in a current matching are used illustratively rather than as special structural cases."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary small matching configuration used to illustrate augmenting paths and augmentation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The displayed augmenting paths are being treated as a maximal set of disjoint minimum-length augmenting paths."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary current-matching fragment is used to illustrate augmenting paths, not to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The displayed augmenting paths are used constructively as a maximal set of minimum-length disjoint augmenting paths."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary small augmenting-path illustrations in a current matching, used explanatorily rather than to refute a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the displayed augmenting paths are shortest/minimum-length disjoint paths for the current matching and are used constructively"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A constructive toy matching illustrating a maximal set of disjoint minimum-length augmenting paths."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "These are minimum-length augmenting paths in a maximal disjoint family, used illustratively."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Bipartite layered predecessor search",
+   "note": "A sample bipartite graph is used to show levels, predecessor sets, and the extraction/removal of vertex-disjoint shortest augmenting paths.",
+   "first_introduced_sec": 763,
+   "spans": [
+    {
+     "start_sec": 763,
+     "end_sec": 967
+    },
+    {
+     "start_sec": 1010,
+     "end_sec": 1022
+    }
+   ],
+   "total_seconds": 216,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker runs the bipartite BFS layering, records predecessors, backtracks to form paths, and removes vertices to obtain a maximal set",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 8,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the bipartite predecessor layering records shortest alternating-distance levels."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an ordinary bipartite BFS/predecessor layering is used constructively to find shortest augmenting paths"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard bipartite BFS layering with predecessors is used constructively to find disjoint shortest augmenting paths"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bipartite predecessor layering is built from shortest alternating-path levels and yields shortest augmenting paths."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard bipartite BFS/predecessor layering used constructively to find disjoint shortest augmenting paths"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bipartite layering is by shortest alternating-path levels and is used to recover minimum-length augmenting paths."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bipartite predecessor layering is organized by shortest alternating levels and yields a maximal set of minimum-length disjoint augmenting paths."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bipartite predecessor layers encode shortest alternating distances and yield shortest augmenting paths."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard bipartite BFS/predecessor layering used to show the constructive phase procedure"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the bipartite BFS predecessor layers encode shortest alternating paths and support a constructive search"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A bipartite BFS predecessor layering organized by shortest alternating-path levels."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The bipartite BFS layer example gives shortest paths and is noted to be maximal but not maximum."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Non-bipartite vertex requiring longer paths",
+   "note": "The displayed graph shows a vertex whose needed parity path can be obtained only by using a longer path to another vertex, revealing why ordinary BFS honesty fails in general graphs.",
+   "first_introduced_sec": 1134,
+   "spans": [
+    {
+     "start_sec": 1134,
+     "end_sec": 1205
+    }
+   ],
+   "total_seconds": 71,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker follows specific non-bipartite alternating paths of lengths 7, 9, and 11 and explains why longer paths are needed to reach certain vertices",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the non-bipartite configuration is used to show BFS-honesty of shortest alternating paths fails."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the non-bipartite configuration shows that the bipartite BFS-honesty subpath property fails and longer parity paths may be required"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary non-bipartite parity configuration shows the bipartite shortest-subpath or BFS-honesty property can fail"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The non-bipartite configuration is used to show BFS-honesty/naive shortest-path extension fails."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary non-bipartite alternating-path configuration used to show BFS-honesty fails and longer paths may be necessary"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The non-bipartite graph is used to show that BFS-honesty of shortest alternating paths fails and longer paths may be necessary."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The non-bipartite parity configuration is used to show the bipartite BFS-prefix property fails and longer paths may be necessary."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The non-bipartite configuration shows that BFS-honest shortest-subpath behavior fails and longer intermediate paths may be necessary."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "non-bipartite parity example is used to show BFS-honesty from the bipartite case fails"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the non-bipartite configuration refutes BFS-honesty of shortest alternating paths"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show the bipartite shortest-subpath/BFS-honesty property fails in non-bipartite graphs."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The non-bipartite graph refutes BFS-honesty of shortest alternating paths."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "First bridge with a bottleneck base",
+   "note": "The first encountered non-prop edge is used to motivate replacing Edmonds-style shrinking, for shortest paths, by assigning max levels through a bridge and its bottleneck.",
+   "first_introduced_sec": 1363,
+   "spans": [
+    {
+     "start_sec": 1363,
+     "end_sec": 1652
+    }
+   ],
+   "total_seconds": 289,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes a particular bridge edge by following predecessors to a bottleneck base and assigning max levels to vertices below it",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 10,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 5,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the bridge has a highest bottleneck base and is used to show naive shrinking or BFS would lose needed max-level information."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the first non-prop edge is a boundary bridge with a highest bottleneck base and it obstructs naive shrinking or bipartite-style continuation"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard blossom-like bridge configuration is used to introduce bridges and bottleneck bases"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bridge is the first critical non-prop encountered and its base is the highest bottleneck in the predecessor structure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary odd-cycle bridge/blossom-with-base configuration used to introduce bridge, base, and max-level assignment"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bridge is paired with the highest predecessor bottleneck serving as its base, a critical boundary in the layered structure."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The first non-prop bridge is a critical earliest bridge event with a highest bottleneck base in the layered search."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The first bridge at a highest bottleneck base is an obstruction to simply carrying over bipartite BFS or Edmonds-style shrinking while preserving lengths."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the first bridge and its highest bottleneck base form a critical boundary event in the layered search"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the first bridge has a highest bottleneck base and shows that shrinking or ignoring max levels would lose shortest-path information"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A first bridge whose base is the highest bottleneck and whose support receives critical max-level labels."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The first bridge is a critical non-prop edge with a highest bottleneck base, obstructing naive BFS/shrinking."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Layered double-DFS race",
+   "note": "A simplified layered graph animates the two synchronized DFS searches, showing the two possible outcomes: meeting at a base or producing disjoint paths to unmatched vertices.",
+   "first_introduced_sec": 1771,
+   "spans": [
+    {
+     "start_sec": 1771,
+     "end_sec": 2143
+    }
+   ],
+   "total_seconds": 372,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker simulates the double depth-first searches step by step with red/blue moves, backtracking, meetings, bases, and augmentations",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the layered double-DFS race is an ordinary illustrative search configuration."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the layered double-DFS instance is a standard illustrative search configuration for finding a base or an augmentation"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "generic layered graph is used to demonstrate the coordinated double-DFS procedure"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The layered double-DFS race is a representative procedural example for finding a base or augmentation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary layered search graph used to demonstrate the coordinated double-DFS procedure"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The layered double-DFS race is a representative procedural example for finding a base or augmentation, with no intrinsic degeneracy, sporadic exception, symmetry, or optimum."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The layered two-DFS configuration is a standard illustrative search instance rather than a structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The layered double-DFS trace is a generic constructive search illustration for finding a base or augmentation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "layered two-DFS search graph is a representative procedural illustration, not a sporadic or limiting object"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the layered double-DFS race is a representative algorithmic trace for finding a base or augmentation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A generic layered graph used to illustrate the coordinated double-DFS procedure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The layered double-DFS trace is a schematic illustration of the search procedure."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Green/purple/yellow tenacity hierarchy",
+   "note": "The colored graph makes tenacity classes, iterated bases, recursive blossoms, and edge tenacity visible as nested levels of the same structure.",
+   "first_introduced_sec": 2187,
+   "spans": [
+    {
+     "start_sec": 2187,
+     "end_sec": 2924
+    },
+    {
+     "start_sec": 2934,
+     "end_sec": 2985
+    }
+   ],
+   "total_seconds": 788,
+   "attaches_to": [
+    "s5",
+    "s6"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker computes and compares vertex and edge tenacities in the green/purple/yellow hierarchy and builds the corresponding bases and blossoms",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the green-purple-yellow picture is a standard nested tenacity/blossom hierarchy."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the green, purple, and yellow tenacity classes illustrate a systematic nested blossom hierarchy rather than a sporadic or limiting object"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary nested tenacity/blossom hierarchy is used to illustrate bases and increasing tenacity levels"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The colored tenacity hierarchy illustrates nested bases and blossoms within the general theory, not a sporadic or limiting object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "nested tenacity/blossom hierarchy illustrating definitions and the iterated-base theorem"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The green/purple/yellow picture illustrates ordinary nested tenacity and blossom structure rather than a classification exception or extremal object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The green-purple-yellow nested tenacity picture is a systematic blossom hierarchy, not a sporadic, degenerate, or maximally symmetric object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The colored tenacity hierarchy illustrates the systematic nested blossom structure rather than a sporadic, symmetric, or limiting object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "nested green/purple/yellow tenacity blossoms illustrate the general hierarchy rather than a one-off or degenerate case"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the green-purple-yellow diagram is an ordinary nested blossom/tenacity hierarchy used to state the structure theorem"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The nested tenacity picture is organized by unique higher-tenacity bases and threshold blossoms."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The colored tenacity hierarchy is an ordinary nested blossom/tenacity configuration used to define structure."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Bridge-tenacity scheduling cases",
+   "note": "Several pictured edges of tenacity 9, 13, 15, and 19 illustrate why bridges of tenacity 2i+1 are available by the end of the corresponding min-level search.",
+   "first_introduced_sec": 3130,
+   "spans": [
+    {
+     "start_sec": 3130,
+     "end_sec": 3424
+    }
+   ],
+   "total_seconds": 294,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker works through scheduling cases by computing bridge tenacities and search levels and checking when each bridge is found and processed",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the bridge cases are scheduled at the exact critical tenacity threshold 2i+1."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the bridge-tenacity examples illustrate the scheduled processing of ordinary bridges of specified tenacity"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary bridge cases are used to justify the tenacity-based scheduling of searches"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The bridge-tenacity cases are ordinary threshold examples used to explain the scheduling invariant."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary bridge and edge-tenacity timing cases used to explain scheduled double-DFS processing"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The bridge-tenacity scheduling examples are typical cases used to explain when bridges are processed, not counterexamples or structurally exceptional objects."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bridge cases are organized around the exact critical tenacity threshold at which scheduling must occur."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The bridge-tenacity cases include overlapping and empty-support bridges, blocking naive assumptions that supports are disjoint or always nonempty."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "bridges are organized at the exact tenacity/search-level threshold, a critical scheduling boundary"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the bridge cases sit at the exact tenacity search-level thresholds used by the scheduling rule"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bridge cases are scheduled at their exact critical tenacity levels 2i+1."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The bridge-tenacity cases illustrate scheduling and support-finding in the induction."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Too-early double DFS mislabels vertices",
+   "note": "Adding a lower-tenacity bridge to the diagram shows that running double DFS before the prescribed time can assign tenacity 15 to vertices whose true tenacity is 13, forcing the precise synchronization rule.",
+   "first_introduced_sec": 3667,
+   "spans": [
+    {
+     "start_sec": 3667,
+     "end_sec": 3786
+    }
+   ],
+   "total_seconds": 119,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker modifies the graph and shows concretely how doing double DFS too early would assign tenacity 15 instead of the correct tenacity 13",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the example shows that running double DFS too early can assign vertices the wrong tenacity."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the overlapping-support graph shows that running double DFS too early can assign vertices the wrong tenacity labels"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary scheduling configuration shows that running double DFS too early can assign wrong tenacity labels"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The premature double-DFS example is deployed to show that running searches before lower tenacities are assigned mislabels vertices."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "overlapping-support graph used to show that running double DFS too early can assign wrong tenacities"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The overlapping-bridge instance is a tight scheduling case used to show that doing double DFS too early gives wrong tenacity labels."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The overlapping-bridge configuration is used adversarially to show that running double DFS too early can assign wrong labels."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The premature double-DFS example explicitly mislabels lower-tenacity vertices, refuting the too-early scheduling shortcut."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the graph is deployed to show that running double DFS too early can assign wrong tenacities"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the overlapping-support instance is used to show that running double DFS too early can assign wrong tenacities"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show that running double DFS too early can assign vertices the wrong tenacity labels."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The early double-DFS graph shows that processing a bridge too soon can assign wrong tenacities."
+    }
+   ]
+  }
+ ]
+}

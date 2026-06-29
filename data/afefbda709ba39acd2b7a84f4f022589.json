@@ -1,0 +1,1500 @@
+{
+ "key": "afefbda709ba39acd2b7a84f4f022589",
+ "title": "Lower bounds for clique vs. independent set",
+ "speaker": "Mika Göös",
+ "affiliation": "University of Toronto",
+ "date": "2015-02-23T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3236.0,
+ "abstract": "We prove an $\\omega(\\log n)$ lower bound on the conondeterministic communication complexity of the Clique vs. Independent Set problem introduced by Yannakakis (STOC 1988, JCSS 1991). As a corollary, this implies superpolynomial lower bounds for the Alon--Saks--Seymour conjecture in graph theory. Our approach is to first exhibit a query complexity separation for the decision tree analogue of the UP vs. coNP question---namely, unambiguous DNF width vs. CNF width---and then \"lift\" this separation over to communication complexity using a result from prior work.",
+ "youtube_url": "https://www.youtube.com/watch?v=R_HxtijjW6E",
+ "page_url": "https://www.ias.edu/video/csdm/2015/0223-MikaGoos",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Clique-vs-independent-set statement and target separation",
+   "summary": "The talk defines the communication problem for a fixed graph, recalls its extension-complexity and Alon-Saks-Seymour motivations, and states the main result that the relevant co-nondeterministic complexity can be superlogarithmic, equivalently giving superpolynomial gaps between chromatic number and biclique partition number.",
+   "spans": [
+    {
+     "start_sec": 14,
+     "end_sec": 172
+    },
+    {
+     "start_sec": 314,
+     "end_sec": 602
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Unambiguous communication as disjoint rectangle covers",
+   "summary": "Nondeterministic protocols are reinterpreted as rectangle covers of a communication matrix, the clique-vs-independent-set protocol is identified as unambiguous, and Yannakakis' construction embeds any efficient unambiguous protocol into a clique-vs-independent-set instance, reducing the theorem to a coNP-versus-UP communication separation.",
+   "spans": [
+    {
+     "start_sec": 172,
+     "end_sec": 314
+    },
+    {
+     "start_sec": 635,
+     "end_sec": 1049
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Decision-tree analogues and query-to-communication strategy",
+   "summary": "The proof strategy is set up by defining co-nondeterministic decision-tree complexity as CNF width and unambiguous decision-tree complexity as unambiguous DNF width, with the plan to prove the separation in query complexity and then lift it to communication complexity.",
+   "spans": [
+    {
+     "start_sec": 602,
+     "end_sec": 635
+    },
+    {
+     "start_sec": 1049,
+     "end_sec": 1227
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Naive Boolean gap and one-sided composition obstruction",
+   "summary": "A small Boolean function shows a local gap between unambiguous and co-nondeterministic complexity, but recursive self-composition fails because certifying a top-level one may require certifying hard zero outputs, motivating functions with one hard zero symbol and many easy-to-certify nonzero symbols.",
+   "spans": [
+    {
+     "start_sec": 1227,
+     "end_sec": 1561
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Weighted projective-plane pointer functions for a composable query gap",
+   "summary": "Using pairwise-intersecting hypergraphs from finite projective planes and weighted encodings of pointer values, the construction gives low unambiguous certificates for satisfied edges while forcing many queries to certify the all-zero input, and recursive composition amplifies this base gap.",
+   "spans": [
+    {
+     "start_sec": 1561,
+     "end_sec": 2237
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Lifting theorem via composed functions and conical juntas",
+   "summary": "A composed-function lifting theorem with an inner-product gadget converts communication protocols into conical-junta representations of the outer query function, so nondeterministic communication lower bounds follow from nondeterministic decision-tree lower bounds up to the gadget-size factor.",
+   "spans": [
+    {
+     "start_sec": 2237,
+     "end_sec": 3010
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Communication separation and remaining lifting questions",
+   "summary": "Since communication protocols can trivially simulate the query upper bounds, the query separation lifts to the desired communication and clique-vs-independent-set separation, after which the speaker formulates conjectures about larger gaps and open problems on sharper simulation theorems.",
+   "spans": [
+    {
+     "start_sec": 3010,
+     "end_sec": 3214
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Traveling-salesperson linear-program formulation",
+   "note": "The traveling-salesperson problem is mentioned only to illustrate Yannakakis' original extension-complexity motivation for studying clique-vs-independent-set communication.",
+   "first_introduced_sec": 74,
+   "spans": [
+    {
+     "start_sec": 74,
+     "end_sec": 133
+    }
+   ],
+   "total_seconds": 59,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He cites TSP only as Yannakakis’ motivating LP-extension problem and then sets it aside.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 9,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The TSP LP/formulation is cited as a standard natural extension-complexity target, not as a structurally exceptional object or the talk's refuting example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The TSP polytope/formulation problem is invoked as a natural hard case obstructing polynomial-size LP formulations, with no special sporadic or degenerate structure singled out."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "TSP is invoked as a natural optimization polytope for which polynomial-size LP formulations were to be ruled out."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The TSP polytope/formulation is an ordinary natural optimization target, invoked as an obstruction to polynomial-size LP formulations."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cited as historical motivation for extension-complexity lower bounds, not as a structurally special object or counterexample here"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a motivating obstruction to the hope of polynomial-size LP formulations for natural optimization polytopes."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The TSP LP/polytope is cited as a motivating natural hard optimization problem rather than as a structurally extreme or sporadic object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The TSP polytope is cited as a natural obstruction to polynomial-size LP formulations, with its usual city-relabeling symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The TSP polytope/formulation is invoked as a natural obstruction to polynomial-size LP formulations, but is not structurally sporadic or extremal here."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "invoked as a natural case where polynomial-size LP formulation is to be ruled out, while the TSP polytope is not a sporadic or boundary object here"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The TSP polytope/formulation is used as a motivating obstruction to polynomial-size linear programs, with no sporadic or boundary structure emphasized."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The TSP LP/extension-complexity example is invoked as a natural obstruction to polynomial-size linear programming formulations, with no special sporadic or extremal structure used."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Set intersection and set disjointness",
+   "note": "Set intersection illustrates the basic nondeterministic protocol by guessing an intersecting element, and set disjointness later illustrates the standard composed-function form.",
+   "first_introduced_sec": 172,
+   "spans": [
+    {
+     "start_sec": 172,
+     "end_sec": 314
+    },
+    {
+     "start_sec": 2410,
+     "end_sec": 2462
+    }
+   ],
+   "total_seconds": 194,
+   "attaches_to": [
+    "s2",
+    "s6"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He describes the nondeterministic certificate protocol for intersection by guessing the intersecting element and relates its log n cost.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 10,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Set intersection/disjointness are uniform set predicates invariant under relabeling the universe, used here as standard comparison examples rather than refutations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Set intersection/disjointness is symmetric under relabeling the universe and is cited as the standard exponential separation of NPcc from coNPcc."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Set intersection/disjointness is invariant under relabeling the universe, and disjointness is cited as separating NP from coNP communication complexity."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Set intersection/disjointness are coordinate-symmetric communication problems, with disjointness used as the standard NP-vs-coNP communication separation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Set disjointness/intersection are coordinate-permutation-invariant predicates, and disjointness is cited as the easy exponential NP-vs-coNP separation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Set intersection/disjointness is a permutation-invariant boundary predicate, with disjointness cited as the standard exponential NP-vs-coNP separation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Set intersection/disjointness are used as standard benchmark communication problems with coordinate-permutation symmetry, not as refutations of a claim here."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Set disjointness is invoked as the boundary zero-intersection problem giving a standard exponential NP/coNP communication separation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Set disjointness/intersection is a highly permutation-symmetric communication predicate, with disjointness used as the standard separation showing NP/coNP-type measures can be far apart."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "set disjointness is cited as the standard exponential NP-versus-coNP communication separation and is highly relabeling-symmetric with extremal one-sided hardness"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Set disjointness/intersection is used as the canonical hard one-sided communication example separating NP from coNP, and has highly coordinate-symmetric extremal certificate behavior."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Set intersection/disjointness is used as the canonical one-sided hard separation example, and its OR-type structure has extremal certificate asymmetry and coordinate symmetry."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Complete graph in the Alon-Saks-Seymour setting",
+   "note": "The complete graph is used as motivating evidence for the conjectured relation between chromatic number and biclique partition number before explaining later counterexamples and the polynomial variant.",
+   "first_introduced_sec": 401,
+   "spans": [
+    {
+     "start_sec": 401,
+     "end_sec": 483
+    }
+   ],
+   "total_seconds": 82,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He states that the complete graph has chromatic number n and biclique partition number n−1, but does not derive or use this instance further.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally dense/maximally chromatic and highly vertex-symmetric, and is used as the equality case motivating the conjecture."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph has maximal edge/chromatic density and full vertex symmetry, and is used as the tight equality case in the Alon-Saks-Seymour motivation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally edge-dense and fully vertex-symmetric, serving as the tight equality case in the Alon-Saks-Seymour setting."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally symmetric and extremal in edges and chromatic number, but here it is only the equality case motivating the conjecture."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally edge-dense and highly vertex-transitive, and is used as the tight equality case rather than a refutation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally regular and attains the Alon-Saks-Seymour inequality tightly, serving as supporting evidence rather than a disproof."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is used as the tight motivating equality case and is structurally maximally edge-dense and highly regular."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is used as the equality/motivating case, and it has maximum edge density and full vertex-permutation symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally symmetric and extremal in edges/chromatic number, and here it motivates the conjecture by attaining equality rather than refuting it."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the complete graph is the maximally regular and edge-maximal graph and gives equality in the stated chromatic/biclique-partition bound"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is a maximally regular graph with extremal chromatic and edge structure, used as a supporting equality case rather than a refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is a maximally edge-dense, maximally chromatic, highly regular graph used as a supporting equality case rather than a disproof."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Three-bit Hamming-weight one-or-two function",
+   "note": "This tiny Boolean function has unambiguous width 2 and co-nondeterministic width 3, and the failed attempt to amplify it by recursive composition exposes the one-sided obstruction motivating the multi-valued construction.",
+   "first_introduced_sec": 1227,
+   "spans": [
+    {
+     "start_sec": 1227,
+     "end_sec": 1450
+    }
+   ],
+   "total_seconds": 223,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He analyzes the specific 3-bit function, giving an unambiguous width-2 DNF argument and proving co-nondeterministic complexity 3 via sensitivity of 000.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 10,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 10,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-bit weight-1-or-2 function is coordinate/complement symmetric with fully sensitive zero inputs giving maximal zero-certificate cost, and it witnesses a small gap from unambiguous complexity."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-bit weight-one-or-two function is coordinate-symmetric and witnesses a 2-versus-3 unambiguous/co-nondeterministic query gap."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-bit weight-one-or-two function is permutation-symmetric and has maximal zero-certificate complexity on 000 while giving a gap from unambiguous complexity."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-bit weight-one-or-two function is symmetric and has maximally sensitive zero inputs, and is used to witness a gap from unambiguous complexity."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "This symmetric Hamming-weight predicate has fully sensitive zero inputs giving maximal three-query co-certificates, and is presented as a small separating example"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "This NAE_3 Hamming-weight function is symmetric and has a fully sensitive corner forcing maximal zero-certificate complexity, used to exhibit a gap."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The three-bit weight-1-or-2 Boolean function is a symmetric toy witness of a small complexity gap, not a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The symmetric three-bit NAE function witnesses a UP-versus-coNP gap, with maximum zero-certificate complexity at the all-zero input."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The 3-bit not-all-equal/Hamming-weight-1-or-2 function is symmetric and has maximal 0-certificate complexity on three bits, serving as a witness that the two query measures can differ."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the three-bit not-all-equal function witnesses a strict UP-versus-coNP query gap and has a fully sensitive zero input giving maximal 0-certificate complexity on three variables"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-bit Hamming-weight-1-or-2 function witnesses a gap between the two query measures, and is symmetric with maximum zero-certificate complexity at the all-zero input."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The three-bit weight-1-or-2 function is a symmetric NAE-type function with fully sensitive zero inputs giving maximal three-bit zero-certificate complexity, used as a small gap witness."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Fourier degree versus decision-tree composition analogy",
+   "note": "The speaker cites the standard recursive-composition separation for Fourier degree and decision-tree complexity as an analogy for why one might hope the same amplification trick would work here.",
+   "first_introduced_sec": 1382,
+   "spans": [
+    {
+     "start_sec": 1382,
+     "end_sec": 1426
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He invokes Fourier degree versus decision-tree recursive composition only as an analogy where the standard trick works.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 9
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Fourier-degree/decision-tree composition point is a methodological analogy with no special object structure, cited as a successful contrast rather than a counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No definite mathematical object is specified, only an analogy to recursive-composition separations for Fourier degree versus decision trees."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Fourier-degree versus decision-tree comparison is used as a standard positive analogy for recursive composition rather than as a special object or refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "This is only an unspecified analogy to recursive-composition separations, not a definite mathematical object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No single mathematical object is specified, only an analogy to a standard recursive-composition separation method"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "Only an unspecified analogy to recursive-composition separations is given, so no particular object can be structurally judged."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "This is a proof-strategy analogy rather than a determinate mathematical object whose intrinsic structure can be classified."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No specific mathematical object is specified; it is only an analogy to the known recursive-composition method for Fourier degree versus decision trees."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript gives a methodological analogy to recursive composition for Fourier degree versus decision trees, not a specific mathematical object to classify."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "the transcript gives only an analogy to an unspecified recursive-composition separation, not a definite object whose intrinsic structure can be classified"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No specific Boolean function or object is singled out, only an analogy to a known recursive-composition separation method."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Fourier-degree versus decision-tree composition case is a methodological analogy where recursive composition works, not a structurally special object or refutation."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "AND function for conical juntas versus polynomials",
+   "note": "The AND function illustrates that conical juntas behave more classically and one-sidedly than ordinary approximating polynomials, which can approximate AND at much lower degree.",
+   "first_introduced_sec": 2770,
+   "spans": [
+    {
+     "start_sec": 2770,
+     "end_sec": 2866
+    }
+   ],
+   "total_seconds": 96,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He states the contrast that low-degree polynomials approximate AND while conical juntas must read almost all inputs, without proving it on AND.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 4,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 10,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AND is a permutation-symmetric boundary threshold function with a single accepting input, used as a separating case where conical juntas need high degree while polynomials do not."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AND_n is the permutation-symmetric one-minterm boundary case, used to show conical juntas can require near-full degree unlike polynomials."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AND is permutation-symmetric with a unique accepting input and is used to exhibit the gap between low approximate polynomial degree and high conical-junta degree."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AND is a permutation-symmetric one-corner conjunction with extremal conical-junta degree, used to show a gap from approximate polynomials."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The AND function is a symmetric boundary threshold with near-maximal conical-junta degree, used to separate conical juntas from ordinary polynomials"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AND has a singleton accepting corner and permutation symmetry, making it an extremal one-sided test separating conical juntas from polynomial approximants."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AND function is used to illustrate the gap between polynomial approximation and conical juntas, and structurally is the fully symmetric extremal conjunction with a unique accepting input."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AND is the permutation-symmetric extreme threshold function with a singleton accepting input, used to separate low approximate degree from high conical-junta degree."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AND is a symmetric extreme threshold with a single accepting input, used to show low-degree conical juntas cannot approximate as polynomials can."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "AND is used to illustrate the polynomial/conical-junta contrast and is a permutation-symmetric boundary threshold function with nearly maximal conical-junta degree"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AND is used to separate conical juntas from ordinary polynomials, and is a permutation-symmetric endpoint threshold function with extremal read-all-inputs behavior for conical juntas."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AND is used to separate conical juntas from low-degree polynomial approximators, and it is a permutation-symmetric boundary threshold with near-maximal one-sided query requirements."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1416 @@
+{
+ "key": "e9434b8c6c4ddfd211b1139deb783304",
+ "title": "The Diffraction Limit and Extremal Functions",
+ "speaker": "Ankur Moitra",
+ "affiliation": "Massachusetts Institute of Technology",
+ "date": "2023-10-02T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 4158.0,
+ "abstract": "It is widely believed that the physics of diffraction imposes certain fundamental limits on the resolution of an optical system. In this work we study the diffraction limit as a statistical inverse problem in increasingly more realistic mathematical models and prove rigorous upper and lower bounds on the sample complexity of resolving closely-spaced point sources.",
+ "youtube_url": "https://youtu.be/DzgShfFzYws",
+ "page_url": "https://www.ias.edu/video/diffraction-limit-and-extremal-functions",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Off-grid super-resolution model and phase-transition theorem",
+   "summary": "The talk formulates sparse point-source recovery from low-frequency Fourier measurements, adds noise and separation, and states the sharp threshold m at least 1/delta plus 1 for stable recovery, with an exponentially hard regime below it.",
+   "spans": [
+    {
+     "start_sec": 63,
+     "end_sec": 932
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Noiseless recovery by the matrix pencil method",
+   "summary": "A rectangular complex Vandermonde matrix is used to build two measurement-populated matrices A and B whose generalized eigenvalues recover the spike phases, giving exact noiseless recovery when the frequencies are distinct.",
+   "spans": [
+    {
+     "start_sec": 932,
+     "end_sec": 1466
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Stability reduced to Vandermonde conditioning",
+   "summary": "The robustness of the generalized eigenvalue step is reduced to whether the Vandermonde matrix has a controlled smallest singular value, so the noisy problem becomes a condition-number question.",
+   "spans": [
+    {
+     "start_sec": 1466,
+     "end_sec": 1658
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Beurling-Selberg extremal functions as bandlimited preconditioners",
+   "summary": "Beurling-Selberg majorants and minorants for signs and intervals are introduced, with their Fourier support and sharp L1 error identified as the mechanism for reweighting rows of the Vandermonde matrix.",
+   "spans": [
+    {
+     "start_sec": 1658,
+     "end_sec": 2215
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Fourier-comb proof of singular-value bounds",
+   "summary": "By rewriting the squared norm of a Vandermonde exponential sum using the Dirac comb, the bandlimited majorant/minorant kills all off-diagonal separated terms and yields upper and lower singular-value bounds with the m ± 1/delta constants.",
+   "spans": [
+    {
+     "start_sec": 2215,
+     "end_sec": 2727
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "First-principles optical model and historical diffraction criteria",
+   "summary": "The discussion shifts from Donoho's Fourier model to Fraunhofer diffraction, Airy disks, photon samples, and classical Rayleigh-type heuristic limits, setting up the need for a rigorous statistical formulation.",
+   "spans": [
+    {
+     "start_sec": 2727,
+     "end_sec": 3409
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Diffraction limit as sample-complexity phase transition",
+   "summary": "The speaker states learning-theoretic results for mixtures of Airy disks: no true diffraction limit for constant k, but for growing k a transition between polynomial and exponential sample complexity governed by separation and Vandermonde-type conditioning.",
+   "spans": [
+    {
+     "start_sec": 3409,
+     "end_sec": 4156
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Super-resolution microscopy of HIV entering a cell",
+   "note": "The speaker uses cell imaging and HIV entry to motivate why low-frequency or low-energy measurements can still be asked to reveal fine structure.",
+   "first_introduced_sec": 155,
+   "spans": [
+    {
+     "start_sec": 155,
+     "end_sec": 231
+    }
+   ],
+   "total_seconds": 76,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the HIV microscopy case is used as an application motivating super-resolution cameras, without doing a mathematical calculation on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A motivating biological imaging application rather than a structurally special mathematical object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is a motivating microscopy application rather than a structurally special mathematical object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The HIV-cell microscopy example is a motivating application of super-resolution rather than a structurally special mathematical object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An application vignette of super-resolution imaging, not a structurally special object or counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Motivating biological application of super-resolution imaging, not a structurally special mathematical object or a refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A motivating physical super-resolution imaging application rather than a structurally special object or refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an applied illustration of super-resolution imaging rather than a structurally special mathematical object"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Motivating real-world application of super-resolution microscopy, not a mathematical obstruction or structurally special object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Motivating application of super-resolution imaging, not a structurally special mathematical object or a refutation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A motivating real-world super-resolution application rather than a structurally special mathematical object or refutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as a motivating real-world application of super-resolution, with no intrinsic extremal or exceptional mathematical structure singled out"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A motivating applied instance of super-resolution imaging, not a structurally special object or a refutation."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Single-spike case of the matrix pencil construction",
+   "note": "The case k=1 makes visible why the entries of the constructed matrix are low-frequency exponential-sum measurements.",
+   "first_introduced_sec": 1115,
+   "spans": [
+    {
+     "start_sec": 1115,
+     "end_sec": 1137
+    }
+   ],
+   "total_seconds": 22,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly specializes the matrix pencil construction to k=1 and traces the column vector, outer product, and resulting powers of alpha in the matrix entries",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The k=1 spike case is the minimal rank-one/base case of the multi-spike construction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The k=1 matrix-pencil/Vandermonde case is the minimal single-spike base case used only for explanation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-spike matrix-pencil case is the minimal base case of the multi-spike Vandermonde construction."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "With k=1 the pencil/Vandermonde construction collapses to a single-column outer-product base case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The k=1 point-source/Vandermonde case is the minimal base case used only to illustrate the matrix-pencil entries."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The k=1 spike case is the minimal rank-one base case used to illustrate the matrix pencil entries."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the k=1 matrix-pencil/Vandermonde case is the minimal collapsed spike case used for explanation"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The k=1 spike case is a minimal base case used to illustrate the matrix-pencil entries, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The k=1 spike signal is the minimal rank-one/base case used only to illustrate the matrix entries."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The k=1 spike case is the minimal base case used to illustrate the matrix-pencil algebra."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the k=1 spike signal is the minimal/base case used only to explain the matrix-pencil entries"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The k=1 matrix-pencil/Vandermonde case is the rank-one minimal base case used for explanation."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Counting primes in intervals with smooth majorants",
+   "note": "This illustrates the classical analytic-number-theory use of Beurling-Selberg functions before they are repurposed here as conditioning tools.",
+   "first_introduced_sec": 2007,
+   "spans": [
+    {
+     "start_sec": 2007,
+     "end_sec": 2083
+    }
+   ],
+   "total_seconds": 76,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "prime-counting in intervals is cited as a number-theory use of smooth majorants, but no prime count or construction is carried out for a concrete interval",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The smooth Beurling-Selberg majorants are optimal band-limited majorants used to approximate interval indicators."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The smooth Beurling-Selberg majorants used for prime-counting are L1-optimal bandlimited extremal functions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The smooth majorants are Beurling-Selberg-type bandlimited approximants chosen for sharp optimal one-sided approximation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Beurling-Selberg smooth majorant is an extremal bandlimited approximant optimizing the L1 error."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Beurling–Selberg smooth majorants/minorants used for prime-counting are bandlimited L1-optimal extremal approximants, not used adversarially."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Beurling-Selberg smooth majorants/minorants used for prime-counting are L1-optimal band-limited envelopes."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Beurling-Selberg smooth majorants are extremal bandlimited approximants used to bound interval counts"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The smooth Beurling-Selberg majorants are extremal bandlimited approximants used as a number-theory tool, not as counterexamples."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The smooth Beurling--Selberg majorants are used as sharp optimal L1 majorants for interval-counting, not as a counterexample."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The smooth Beurling-Selberg majorants are optimal bandlimited upper approximants used for prime-counting estimates."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the smooth Beurling-Selberg majorants/minorants are optimal bandlimited approximants used illustratively for prime-counting"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The smooth Beurling–Selberg majorants/minorants used for prime counts are optimal band-limited approximants."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Single star versus double star through an Airy disk",
+   "note": "The classical two-star thought experiment is used to show why visual separation criteria are insufficient and why the diffraction limit should instead be formulated statistically.",
+   "first_introduced_sec": 3072,
+   "spans": [
+    {
+     "start_sec": 3072,
+     "end_sec": 3152
+    },
+    {
+     "start_sec": 3247,
+     "end_sec": 3288
+    },
+    {
+     "start_sec": 3461,
+     "end_sec": 3491
+    },
+    {
+     "start_sec": 3655,
+     "end_sec": 3708
+    }
+   ],
+   "total_seconds": 204,
+   "attaches_to": [
+    "s6",
+    "s7"
+   ],
+   "primary_stage": "s6",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker reasons through the Airy-disk model for one versus two stars, describing the photon density, superposition of disks, and how resolution/sample complexity changes",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The one-versus-two-star Airy-disk test is a minimal source configuration used to challenge naive diffraction-limit criteria."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The one-versus-two Airy-disk source case is a low-component base case used to undercut a hard Rayleigh-style diffraction limit."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The single-versus-double Airy-disk star test uses the radially symmetric Airy pattern and the minimal one-source case to challenge the naive diffraction-limit heuristic."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The one-versus-two-source Airy test is a minimal source-count case with a radially symmetric point-spread function, invoked to rebut a hard two-source diffraction-limit heuristic."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The one-versus-two Airy-disk star test is a minimal source-count case with a rotationally symmetric Airy kernel, used to refute a naive two-source diffraction limit."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The one-versus-two-source Airy-disk setup is a low-component radially symmetric test case used to refute a naive hard diffraction limit."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the one-versus-two Airy-disk thought experiment is used to undermine a hard two-source diffraction-limit heuristic and is a minimal source configuration"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The one-versus-two-star Airy-disk setup is a minimal source-identification case used to challenge the naive two-source diffraction-limit heuristic."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The one-versus-two point-source Airy-disk setup is a minimal source-count case used to undermine the naive two-source diffraction-limit heuristic."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The radially symmetric Airy-disk one-versus-two-source test is a minimal case used to challenge a hard two-star diffraction limit."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the one-versus-two Airy-disk source test is the minimal hard case used to challenge classical diffraction-limit heuristics"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The one-versus-two Airy-disc source problem is a minimal low-k optical test case used to rebut a hard two-source diffraction limit."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Mixtures of Gaussians learned by moments",
+   "note": "The analogy with Gaussian mixtures supplies the learning-theoretic idea that overlapping components may still be recoverable and motivates treating optical resolution as a moment/inverse problem.",
+   "first_introduced_sec": 3152,
+   "spans": [
+    {
+     "start_sec": 3152,
+     "end_sec": 3191
+    },
+    {
+     "start_sec": 3409,
+     "end_sec": 3425
+    },
+    {
+     "start_sec": 4028,
+     "end_sec": 4084
+    },
+    {
+     "start_sec": 4124,
+     "end_sec": 4156
+    }
+   ],
+   "total_seconds": 143,
+   "attaches_to": [
+    "s6",
+    "s7"
+   ],
+   "primary_stage": "s6",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Gaussian mixtures and moment methods are invoked as an analogy for learnability without separation, without computing moments or running the method",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Gaussian mixtures are a standard mixture model used to refute the heuristic that overlapping unimodal observations make learning impossible."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Gaussian mixtures learned by moments are invoked to show that overlapping or unimodal components need not make recovery impossible."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Gaussian mixtures learned by moments are cited to refute the heuristic that close overlapping components cannot be learned."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary Gaussian mixtures are invoked to refute the intuition that overlapping or unimodal components cannot be learned."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Close Gaussian mixtures learned by moments are used to show that visual merging or unimodality need not imply nonlearnability."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Gaussian mixtures learned by moments are invoked to show that overlapping or unimodal observations need not make recovery impossible."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "close Gaussian mixtures learned by moments refute the idea that overlapping or unimodal profiles are unlearnable and are near-coalesced mixtures"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Gaussian mixtures learned by moments are invoked to refute the intuition that overlapping or unimodal component mixtures are inherently unlearnable."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Gaussian mixtures learned by moments are invoked to show that close or unimodal-looking components need not be unlearnable."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Gaussian mixtures learned by moments are used as a standard learning-theory analogy rather than a structurally special object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Gaussian mixtures learned by moments are invoked to refute the heuristic that overlapping or unimodal observations make recovery impossible"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Gaussian mixtures learned by moments are a standard family used to show that close or unimodal components need not be unlearnable."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Lagrange polynomial interpolation analogy",
+   "note": "In response to a question, the speaker compares the k-dependence of ill-conditioning to the familiar deterioration of polynomial interpolation with many points.",
+   "first_introduced_sec": 3883,
+   "spans": [
+    {
+     "start_sec": 3883,
+     "end_sec": 3918
+    }
+   ],
+   "total_seconds": 35,
+   "attaches_to": [
+    "s5",
+    "s7"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Lagrange interpolation is only used as an analogy for conditioning being fine at small k and bad at large k, with no interpolation example worked out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Lagrange interpolation is invoked as a standard analogy for Vandermonde conditioning rather than as a special object or obstruction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Lagrange interpolation is used as an ordinary analogy for Vandermonde ill-conditioning, not as a special object or refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Lagrange polynomial interpolation is used as a standard conditioning analogy rather than as a special or adversarial object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary Lagrange interpolation is used only as an analogy for large-k ill-conditioning."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Lagrange interpolation is invoked as a standard analogy for Vandermonde conditioning, not as a special object or counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Lagrange interpolation is used only as a standard analogy for Vandermonde conditioning."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Lagrange interpolation is invoked as a standard conditioning analogy, not as a special or adversarial object"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Lagrange interpolation is used as a standard analogy for Vandermonde conditioning, with no special structural status or adversarial role."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Lagrange interpolation is used only as a standard analogy for conditioning as the number of points grows."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Lagrange interpolation is invoked as an ordinary analogy for Vandermonde conditioning."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Lagrange interpolation is used as an ordinary analogy for Vandermonde conditioning rather than as a special or adversarial object"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Lagrange interpolation is a standard Vandermonde-conditioning analogy, not a special or adversarial object."
+    }
+   ]
+  }
+ ]
+}

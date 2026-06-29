@@ -1,0 +1,1524 @@
+{
+ "key": "088704e3acc19a4110c55b05044395bd",
+ "title": "Protein Folding Characterization via Persistent Homology",
+ "speaker": "Marcio Gameiro",
+ "affiliation": "University of Sao Paolo",
+ "date": "2018-04-07T12:00:00Z",
+ "field_msc": "55 Algebraic topology",
+ "duration_sec": 3200.0,
+ "abstract": "We use persistent homology to analyze predictions of protein folding by trying to identify global geometric structures that contribute to the error when the protein is misfolded. The goal is to find correlations between global geometric structures, as measured by persistent homology, and the failure to predict the correct folding. This technique could be useful in guiding the energy minimization techniques to the correct minimum corresponding to the desired folding.",
+ "youtube_url": "https://www.youtube.com/watch?v=REY6VPkHMuY",
+ "page_url": "https://www.ias.edu/video/TopologyWS/2018/0407-MarcioGameiro",
+ "tags": [
+  "School of Mathematics",
+  "Workshop on Topology: Identifying Order in Complex Systems"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Protein-folding false-minimum problem",
+   "summary": "The talk sets up simulated protein folding as energy minimization, explains RMSD comparison with known PDB native states, and formulates the working hypothesis that low-energy but high-RMSD predictions may reveal global geometric defects in the energy functional.",
+   "spans": [
+    {
+     "start_sec": 36,
+     "end_sec": 951
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Persistent homology as a stable shape descriptor",
+   "summary": "The speaker recalls filtrations, Betti numbers, persistence diagrams, and bottleneck stability, emphasizing that persistent homology can robustly encode sizes and lifetimes of holes in geometric data.",
+   "spans": [
+    {
+     "start_sec": 951,
+     "end_sec": 1241
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Weighted alpha complexes for protein atom clouds",
+   "summary": "Protein structures are converted from atom coordinates and van der Waals radii into weighted alpha-shape filtrations, whose complexes preserve the homology of unions of growing balls and can be computed efficiently from PDB-format data.",
+   "spans": [
+    {
+     "start_sec": 1241,
+     "end_sec": 1830
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Persistence-image vectorization",
+   "summary": "Persistence diagrams are turned into finite-dimensional vectors by placing weighted Gaussians at birth-persistence points and sampling or integrating over a chosen grid, preserving a useful stability property for downstream statistics.",
+   "spans": [
+    {
+     "start_sec": 1830,
+     "end_sec": 2071
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Linear regression and dual persistence diagrams",
+   "summary": "The RMSD error is modeled as a linear function of the persistence-image vector, producing an interpretable dual persistence diagram, with L2 and L1 regularization used to control overfitting and, in the L1 case, encourage sparsity.",
+   "spans": [
+    {
+     "start_sec": 2071,
+     "end_sec": 2318
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Preliminary data analysis on low-energy predictions",
+   "summary": "The method is applied to about 400 low-energy predicted structures from roughly 43 to 48 small protein types, and cross-validated regression scores suggest that two-dimensional persistence diagrams of cavities contain information predictive of folding error.",
+   "spans": [
+    {
+     "start_sec": 2318,
+     "end_sec": 3010
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Tracing significant topological features back to atoms",
+   "summary": "High-magnitude regions of the learned dual diagram, especially in the sparse L1 fit, are proposed as targets for recovering persistence generators and mapping them back to simplices and atoms that may indicate where the energy functional is failing.",
+   "spans": [
+    {
+     "start_sec": 3010,
+     "end_sec": 3181
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Prions as misfolded proteins",
+   "note": "An audience member raises prions to clarify the distinction between an alternative acceptable fold and a wrong, pathological fold; the exchange illustrates the biological meaning of a bad fold without producing the method.",
+   "first_introduced_sec": 557,
+   "spans": [
+    {
+     "start_sec": 557,
+     "end_sec": 598
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Prions are only brought up and described as wrongly folded brain proteins, with no computation or analysis performed on them.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prions are invoked as pathological misfolded proteins, an enemy case for correct folding rather than a structurally exceptional mathematical object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Prions are used as pathological misfolded proteins, not as a mathematical disproof."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prions are identifiable pathological wrong-fold proteins, used as an enemy case of folding failure rather than as a structurally special mathematical object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prions are invoked as pathological wrong-folded enemy cases rather than as structural extremes or classification exceptions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "prions are mentioned only as pathological misfolded proteins, not as a mathematical obstruction or sporadic structural exception."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Prions are cited as ordinary misfolded protein states rather than a classification-exception or a disproof device."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prions are invoked as a pathological wrong-folding/nonfunctional case, not as a structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prions are invoked as pathological wrong-folded proteins to be avoided, not as a structurally exceptional protein class."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "used only as a pathological illustration of wrong folding, with no sporadic or extremal protein structure invoked"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prions are invoked as pathological misfolded proteins where proper folding/function fails, not as a structurally exceptional mathematical object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prions are invoked as a pathological misfolding/failure mode for correct protein folding, not as a structurally special protein class."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Prions are invoked as an adverse misfolded-protein case, but they are not structurally exceptional/degenerate/extremal/symmetric as proteins."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "PDE level sets with beta_0 equal to one",
+   "note": "The speaker recalls earlier simulations of three-dimensional PDE level sets whose zeroth Betti number was always one, using this as a quick reminder of Betti-number measurements rather than as a source of the protein-folding method.",
+   "first_introduced_sec": 980,
+   "spans": [
+    {
+     "start_sec": 980,
+     "end_sec": 1046
+    }
+   ],
+   "total_seconds": 66,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The PDE level sets are recalled as past simulations where beta_0 was always one, but no level set is worked through in the talk.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The PDE level sets are ordinary connected level sets with beta_0=1, mentioned as an observed phenomenon rather than to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A nonempty level set with beta_0=1 has the minimal possible number of connected components."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A nonempty level set with beta_0=1 is connected, attaining the minimal possible number of connected components."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A nonempty level set with beta_0=1 has the minimal possible number of connected components."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a nonempty level set with beta_0=1 has the minimal possible number of connected components, and it is reported observationally rather than adversarially."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Having beta_0=1 puts the nonempty level set at the minimum possible number of connected components."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A nonempty level set with beta_0=1 is connected and attains the minimum possible number of components."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The PDE level sets are used as an observation/example and beta_0=1 is the minimal nonempty number of connected components."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the level sets are connected, so beta_0=1 attains the minimum nonempty number of components"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The level sets are described as always having \u0000_0=1, the minimal nonzero number of connected components."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The level sets are connected, so their beta_0=1 is the minimal possible nonempty zeroth Betti number."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A nonempty level set with beta_0=1 is connected, attaining the minimal possible number of components, and is used as an observed phenomenon rather than a refutation."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Toy filtration with three components and one loop",
+   "note": "A simple filtration is used to show concretely how birth-death pairs in dimensions zero and one become points in a persistence diagram.",
+   "first_introduced_sec": 1132,
+   "spans": [
+    {
+     "start_sec": 1132,
+     "end_sec": 1188
+    }
+   ],
+   "total_seconds": 56,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker explicitly computes the persistence diagram of the toy filtration, tracking component deaths and the loop born at 3 and dying at 4.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The filtration with three components and one loop is a small illustrative finite filtration, not structurally sporadic, limiting, optimal, or maximally symmetric."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The three-component one-loop filtration is just a small illustrative ordinary filtration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The three-component, one-loop filtration is an ordinary toy filtration used to illustrate birth and death in persistence."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The small filtration is just a standard illustrative persistence example with ordinary components and one loop."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the small filtration with three components and one finite loop is a standard toy illustration of persistence."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The small filtration with three components and one loop is a standard illustrative persistence example with no intrinsic special structure."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The filtration is a small pedagogical configuration with ordinary births and deaths of components and a loop."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The small filtration is only an ordinary illustrative persistence example with components merging and one loop dying."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a small pedagogical filtration with components and a loop, not a disproof or structurally special case"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The three-component one-loop filtration is just a small illustrative persistence example with no intrinsic special classification property."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary toy filtration used to illustrate births and deaths of components and a loop."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The small filtration with three components and one loop is a generic toy illustration of births and deaths in persistence."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Red-blue matching for bottleneck distance",
+   "note": "Two schematic persistence diagrams are matched point-by-point, with unmatched points sent to the diagonal, to illustrate the bottleneck metric and stability statement.",
+   "first_introduced_sec": 1206,
+   "spans": [
+    {
+     "start_sec": 1206,
+     "end_sec": 1241
+    }
+   ],
+   "total_seconds": 35,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker applies the bottleneck-distance construction to the red and blue diagrams by matching points, using the diagonal, and taking the sup/inf.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The red-blue bijective matching is a standard example for defining bottleneck distance, not a failure case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bottleneck matching is chosen to minimize the maximum matched distance over bijections."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The red-blue bottleneck matching is the minimax/best matching used to realize the bottleneck-distance definition."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bottleneck matching is an optimal minimax matching between diagram points."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the bottleneck matching is an optimal minimax matching, minimizing the largest matched distance between diagrams."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A bottleneck-distance matching is selected by minimizing the maximum paired distance over bijections."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bottleneck pairing is the optimal minimax matching defining the infimum over bijections."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The matching illustrates the bottleneck distance, whose relevant matching is the minimax optimal bijection over diagrams."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the bottleneck matching is the minimax optimal bijection used to define the distance"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bottleneck matching is an optimal minimax matching realizing the infimum over bijections."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The bottleneck matching is an optimal minimax matching over possible bijections."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A bottleneck matching is the optimal minimax matching realizing the infimum over bijections, not a counterexample."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Growing-radius alpha-shape filtration",
+   "note": "A small point-cloud picture with increasing radius alpha illustrates how points, edges, and faces enter an alpha-complex filtration.",
+   "first_introduced_sec": 1489,
+   "spans": [
+    {
+     "start_sec": 1489,
+     "end_sec": 1541
+    }
+   ],
+   "total_seconds": 52,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker runs through the growing-radius alpha-shape construction, explaining how points become edges, faces, and eventually the full triangulation.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The growing-radius alpha-shape filtration is the standard point-cloud construction, used constructively to model homology."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The growing-radius alpha shape is the standard nested alpha-complex filtration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The growing-radius alpha-shape construction is a standard nested filtration of complexes from a point cloud."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A growing alpha-shape filtration is the standard systematic filtration of a point cloud by increasing radii."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the growing-radius alpha-shape filtration is the standard nested complex construction for a point cloud."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The growing-radius alpha-shape filtration is a standard point-cloud construction used positively to model the protein."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The growing-radius alpha-shape filtration is the standard nested complex built from a point cloud."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The growing-radius alpha-shape construction is a standard nested filtration of a point cloud rather than a special extreme case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard alpha-complex filtration obtained by increasing radii, not a special endpoint case itself"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The growing-radius alpha-shape filtration is the standard representative construction for a point cloud."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "It is the standard alpha-complex filtration obtained by growing balls, not a sporadic or boundary object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A growing-radius alpha-shape filtration is a standard point-cloud construction with no sporadic, collapsed, optimal, or maximally symmetric structure."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Hemoglobin PDB persistence diagram",
+   "note": "Hemoglobin is used as a concrete protein point cloud whose one-dimensional persistence diagram displays loops or tunnels in the molecular structure.",
+   "first_introduced_sec": 1662,
+   "spans": [
+    {
+     "start_sec": 1662,
+     "end_sec": 1818
+    }
+   ],
+   "total_seconds": 156,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker computes and interprets the dimension-one persistence diagram for a specific hemoglobin PDB example, including a long-lived loop.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The hemoglobin persistence diagram is a representative computed diagram for a protein structure, not structurally exceptional or adversarial."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The hemoglobin diagram is a computed persistence diagram for a familiar protein, with no special classification status."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The hemoglobin PDB persistence diagram is a representative real-data persistence diagram, not a maximal, limiting, or sporadic object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The hemoglobin persistence diagram is used as an ordinary data-derived example rather than a special object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the hemoglobin PDB persistence diagram is an empirical diagram of a familiar protein with no invoked maximal symmetry or extremal property."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The hemoglobin persistence diagram is used as an ordinary computed example of protein topology."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The hemoglobin PDB persistence diagram is used as an empirical illustrative diagram with ordinary persistent features."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The hemoglobin persistence diagram is used as a representative data example, with no classification-exceptional or maximal structure asserted."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "hemoglobin is used as a representative PDB point-cloud persistence example rather than a structurally exceptional diagram"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The hemoglobin persistence diagram is used as an ordinary concrete protein-data example, not as a maximal, sporadic, or boundary case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The hemoglobin persistence diagram is a concrete data example, with no maximal symmetry or extremal property asserted."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The hemoglobin PDB persistence diagram is used as an ordinary real-data example of a protein diagram, not as a pathological or extremal case."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Coarse-grid persistence image of the preceding diagram",
+   "note": "The speaker applies the persistence-image construction to an earlier diagram, thresholds tiny values, and displays the resulting grid values to make vectorization concrete.",
+   "first_introduced_sec": 1960,
+   "spans": [
+    {
+     "start_sec": 1960,
+     "end_sec": 2017
+    }
+   ],
+   "total_seconds": 57,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker constructs a coarse-grid persistence image from the preceding diagram by choosing a grid, evaluating/thresholding the function, and forming a vector.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The coarse persistence image is an illustrative vectorization of the preceding diagram, not a degenerate mathematical limiting case or counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The coarse persistence image is an illustrative vectorization rather than a structurally singular object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The coarse-grid persistence image is a standard vectorized discretization of the preceding diagram used for illustration."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The coarse persistence image is an illustrative vectorization of the diagram, not a limiting or exceptional structure."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the coarse-grid persistence image is just a finite vectorized visualization of the preceding diagram."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The coarse-grid persistence image is a deliberately low-resolution, thresholded version of the preceding diagram."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The coarse persistence image is a routine vectorized approximation of the preceding diagram for illustration."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The coarse persistence image is an illustrative vectorization of the preceding diagram, not a mathematically degenerate or extremal object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a coarse persistence image is an ordinary vectorization/visualization of the preceding diagram"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The coarse thresholded persistence image is a deliberately low-resolution collapsed representation of the preceding diagram."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The coarse persistence image is a standard illustrative vectorization of the preceding diagram rather than a structurally special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The coarse-grid persistence image is an illustrative vectorization of the preceding diagram, with no intrinsic classification-exception or extremal property."
+    }
+   ]
+  }
+ ]
+}

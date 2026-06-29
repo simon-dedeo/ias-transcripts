@@ -1,0 +1,2018 @@
+{
+ "key": "06e635e034ed218bae70f0e3c9e7f8cf",
+ "title": "Algorithmic Stochastic Localization for the Sherrington-Kirkpatrick Model",
+ "speaker": "Mark Sellke",
+ "affiliation": "Member, School of Mathematics",
+ "date": "2022-11-28T12:00:00Z",
+ "field_msc": "82 Statistical mechanics, structure of matter",
+ "duration_sec": 3693.0,
+ "abstract": "Sampling from high-dimensional, multimodal distributions is a computationally challenging and fundamental task.  This talk will focus on a family of random instances of such problems described by random quadratic potentials on the hypercube known as the Sherrington-Kirkpatrick model.  I will describe an approximate sampling algorithm for the high temperature regime as well as matching low-temperature hardness results stemming from disorder chaos.  Our algorithm uses stochastic localization, which progressively tilts the desired measure towards a single configuration, together",
+ "youtube_url": "https://youtu.be/Ik5hRkViZJ4",
+ "page_url": "https://www.ias.edu/video/algorithmic-stochastic-localization-sherrington-kirkpatrick-model",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "SK Gibbs sampling target",
+   "summary": "The talk frames the algorithmic problem of sampling a high-dimensional Gibbs measure, recalls Ising/Glauber sampling, and specializes to the GOE Sherrington-Kirkpatrick model with constant inverse temperature.",
+   "spans": [
+    {
+     "start_sec": 35,
+     "end_sec": 180
+    },
+    {
+     "start_sec": 1519,
+     "end_sec": 1810
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Stochastic-localization reduction to posterior means",
+   "summary": "Sampling from a target measure is reformulated as simulating the averaged diffusion Y_t=B_t+tX_* whose drift is the posterior mean of X_* given the current endpoint, so a discretized sampler needs repeated conditional-mean estimates.",
+   "spans": [
+    {
+     "start_sec": 180,
+     "end_sec": 1265
+    },
+    {
+     "start_sec": 1307,
+     "end_sec": 1519
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "High-temperature Wasserstein sampling theorem",
+   "summary": "After reviewing the expected beta=1 threshold and prior total-variation mixing results for smaller beta, the speaker states the main result: for every beta<1, an efficient algorithm samples the SK Gibbs measure up to arbitrarily small normalized Wasserstein error with high probability over the GOE matrix.",
+   "spans": [
+    {
+     "start_sec": 1810,
+     "end_sec": 2210
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Stability barrier beyond beta equals one",
+   "summary": "The algorithm's stability under small perturbations of the coupling matrix implies stability of the true Gibbs measures, while disorder chaos plus replica-symmetry breaking show that no similarly stable algorithm can sample past beta>1.",
+   "spans": [
+    {
+     "start_sec": 2210,
+     "end_sec": 2495
+    },
+    {
+     "start_sec": 3561,
+     "end_sec": 3691
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "TAP/AMP construction of the denoiser",
+   "summary": "To compute the posterior mean needed by localization, the speaker derives a TAP-corrected mean-field fixed point with the localization observation as an external field and turns it into a Bolthausen-style approximate-message-passing recursion.",
+   "spans": [
+    {
+     "start_sec": 2495,
+     "end_sec": 2819
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "State evolution and MMSE certification",
+   "summary": "The AMP recursion is analyzed by a contiguity change to a spiked Gaussian matrix model and by state evolution, giving an explicit mean-squared-error curve that is certified optimal via an MMSE area law.",
+   "spans": [
+    {
+     "start_sec": 2819,
+     "end_sec": 3108
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Refinement, assembly, and scope of the sampler",
+   "summary": "A local strong-convexity refinement upgrades the rough AMP estimate to the accuracy needed for the discretized localization sampler, after which the speaker compares the denoising structure with diffusion models and summarizes the beta<1 result and its limits in related models.",
+   "spans": [
+    {
+     "start_sec": 3108,
+     "end_sec": 3561
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Log-concave/Gaussian-looking sampling targets",
+   "note": "The speaker uses concave, Gaussian-like measures as familiar cases where Langevin-type samplers are already efficient, contrasting them with the SK sampling problem.",
+   "first_introduced_sec": 35,
+   "spans": [
+    {
+     "start_sec": 35,
+     "end_sec": 79
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only cites log-concave/Gaussian-looking targets as cases where Langevin-type methods sample efficiently",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A broad log-concave or Gaussian-like target class is used as a standard easy-sampling benchmark."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Broad log-concave or Gaussian-like targets are presented as standard easy sampling cases, not as sporadic, limiting, or adversarial objects."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A broad log-concave/approximately Gaussian tractable target class is used as a positive benchmark for efficient sampling."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A broad class of regular log-concave/Gaussian-like targets is used as a standard tractable sampling case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Gaussian/log-concave targets are invoked as the highly regular easy baseline for sampling."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Gaussian-like/log-concave targets are used as highly regular tractable baselines, not to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as a standard tractable class of sampling targets, not as a refutation, and no specific extremal or sporadic object is singled out."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "used as a standard tractable baseline for sampling rather than as an obstruction, with no special structural extreme specified"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used as an easy baseline for sampling, with Gaussian/log-concave regularity but no sporadic, degenerate, or extremal role"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Gaussian-looking log-concave targets are invoked as highly regular tractable sampling measures."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A broad tractable benchmark class of log-concave targets used positively, not a particular maximally symmetric Gaussian."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as easy positive sampling targets; Gaussian-like log-concave laws are highly regular."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Sequential sampling with a conditional-mean oracle",
+   "note": "This toy oracle sampler motivates the idea of revealing information gradually and repeatedly using conditional means rather than relying on a long-mixed Markov chain.",
+   "first_introduced_sec": 180,
+   "spans": [
+    {
+     "start_sec": 180,
+     "end_sec": 280
+    }
+   ],
+   "total_seconds": 100,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker traces the sequential sampler using a conditional-mean oracle coordinate by coordinate",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The conditional-mean-oracle scheme is an idealized motivational sampling procedure, not an obstruction or classification exception."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The conditional-mean-oracle sampler is an idealized motivating procedure rather than a structurally special object or a disproof case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The conditional-mean-oracle procedure is a stylized positive sampling mechanism, not an adversarial failure case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The conditional-mean oracle is an idealized sampling device used for motivation, not to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The conditional-mean oracle sampler is an idealized generic procedure, not a structural exception or refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The conditional-mean oracle sampler is an idealized motivational procedure, not a structurally special object or a failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An idealized sequential sampling procedure motivating localization, not an adversarial example or intrinsically extremal object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "an exact conditional-mean oracle collapses the sampling task into an idealized sequential procedure"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an idealized motivating sampling procedure, not used to refute a claim and not structurally special in the listed senses"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The conditional-mean oracle procedure is an idealized motivational sampler rather than a structurally special obstruction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An idealized oracle-based sampling scheme used as motivation, with no intrinsic extremal or sporadic structure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as a motivational idealized procedure, not as an obstruction or a structurally special object."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Laplace rule of succession for a uniform random parameter",
+   "note": "Sampling an infinite Bernoulli sequence averaged over an unknown uniform parameter and then recovering the parameter by the law of large numbers is presented as the toy model for stochastic localization's path-and-read-off strategy.",
+   "first_introduced_sec": 280,
+   "spans": [
+    {
+     "start_sec": 280,
+     "end_sec": 653
+    }
+   ],
+   "total_seconds": 373,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker works through the Laplace-rule construction by sampling bits, updating the conditional probability, and recovering the uniform parameter by the law of large numbers",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform prior in Laplace succession is the flat, maximally regular prior on the interval, used constructively."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Laplace succession with a uniform prior is a canonical conjugate-prior example used positively to motivate gradual revealing."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Laplace succession with a uniform prior is a standard Bayesian toy construction used motivationally."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform-prior Laplace succession example is a canonical symmetric/uninformative Bayesian toy model."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform prior in Laplace succession is a flat symmetric Bayesian toy model used for motivation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Laplace rule uses the flat uniform prior, a symmetric toy case for sequential sampling."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Laplace rule with a uniform prior is used as a motivating toy construction, with the uniform parameter law being maximally regular."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the Laplace-rule construction is a toy positive illustration of sequential sampling for a uniform prior"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a toy Bayesian construction with the flat uniform prior, used positively as an analogy rather than as an obstruction"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform-prior Laplace rule is the flat exchangeable toy case used constructively."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform Beta(1,1) prior gives a reflection-symmetric/exchangeable Laplace-succession toy construction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a stylized positive analogy; the uniform prior is flat and symmetric."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "One-dimensional Brownian motion with unknown \u0000b11 drift",
+   "note": "The one-dimensional drift example makes concrete why the averaged process has a state-dependent drift equal to the conditional mean of the hidden signal.",
+   "first_introduced_sec": 862,
+   "spans": [
+    {
+     "start_sec": 862,
+     "end_sec": 971
+    }
+   ],
+   "total_seconds": 109,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker reasons through the one-dimensional unknown-drift Brownian motion, including how posterior drift probabilities produce an averaged drift",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 10,
+    "extremal": 0,
+    "symmetric": 6,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-dimensional unknown-drift Brownian motion is a minimal toy diffusion illustrating the localization process."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-dimensional ±1-drift Brownian example is the minimal toy case of the higher-dimensional stochastic-localization diffusion."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The unknown-drift Brownian motion is reduced to the one-dimensional two-drift base case for intuition."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The one-dimensional unknown-drift Brownian motion is a minimal toy case of the multidimensional localization diffusion."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Brownian motion with Gaussian increments is a highly regular illustrative diffusion, not an obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The unknown ±1 drift Brownian motion is the minimal one-dimensional toy case for the localization diffusion."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A one-dimensional Brownian motion with drift restricted to ±1 is a minimal toy case and is reflection-symmetric, not a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the one-dimensional unknown-drift Brownian motion is a minimal toy version of the stochastic-localization diffusion"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "a one-dimensional plus/minus-drift Brownian toy model, serving as the minimal base case for the localization diffusion"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Brownian motion with an equally likely unknown ± drift is a canonical Gaussian symmetric diffusion used for illustration."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The equal ±1-drift one-dimensional diffusion is a reflection-symmetric minimal toy case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Used as a toy illustration; the scalar two-drift case collapses the general high-dimensional process and is reflection-symmetric."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Random sparse graph Max-Cut and the SK ground-state constant",
+   "note": "The Max-Cut asymptotic for growing-degree random graphs illustrates how the SK model appears as a universal limiting object in related random combinatorial optimization problems.",
+   "first_introduced_sec": 1646,
+   "spans": [
+    {
+     "start_sec": 1646,
+     "end_sec": 1810
+    }
+   ],
+   "total_seconds": 164,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker states the sparse-graph Max-Cut asymptotic connection to the SK ground-state constant without deriving it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Max-Cut and the SK ground state are optimization/ground-state values, cited as a related positive occurrence of the SK constant."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Max-Cut and the SK ground state are extremal optimization quantities used to illustrate related models, not to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Max-Cut and the SK ground state are optimization maxima/minima used to illustrate universality of the SK constant."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Max-Cut and the SK ground state are extremal optimization quantities used as a related-model illustration."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Max-Cut and the SK ground state are by definition optimal cut/energy quantities cited as a related asymptotic."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Max-Cut and the SK ground state are optimization optima, used here to relate sparse random graphs to the SK constant."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Max-Cut and the SK ground-state constant are optimization/ground-state quantities, hence extremal, and are cited as related motivation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Max-Cut and the SK ground-state constant are intrinsically optimization or ground-state quantities"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Max-Cut and the SK ground-state constant are optimization/zero-temperature extremal quantities used as a related-model illustration"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Max-Cut and the SK ground state are optimization or zero-temperature extreme values cited as a related universality example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Max-Cut and the SK ground state are optimization/zero-temperature extremal values used as a related-model example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as a related-model illustration; Max-Cut and the SK ground state are extremal optimization quantities."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Belief propagation and non-backtracking interpretation of the Onsager term",
+   "note": "The belief-propagation analogy explains the TAP/AMP correction term as enforcing a non-backtracking effect when reusing the same interaction matrix.",
+   "first_introduced_sec": 2717,
+   "spans": [
+    {
+     "start_sec": 2717,
+     "end_sec": 2759
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker invokes belief propagation and non-backtracking only as an interpretation of the Onsager correction, without running BP on an instance",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Belief propagation and the non-backtracking Onsager correction are standard systematic algorithmic interpretations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Belief propagation with the non-backtracking Onsager correction is used as a standard algorithmic interpretation of AMP."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Belief propagation and the non-backtracking Onsager correction are invoked as an explanatory algorithmic analogy."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Belief propagation/non-backtracking is invoked as an ordinary interpretation of the Onsager correction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Belief propagation and the Onsager non-backtracking view are standard algorithmic interpretations, not special classified objects."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The non-backtracking belief-propagation view of the Onsager term is explanatory algorithmic intuition, not a special object or obstruction."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Belief propagation and the non-backtracking Onsager correction are explanatory algorithmic analogies, not structurally exceptional or adversarial."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "belief propagation and the non-backtracking Onsager interpretation are used as an explanatory analogy for AMP"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "belief propagation/non-backtracking is invoked to explain the Onsager correction, not as a structurally exceptional or adversarial object"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Belief propagation with a non-backtracking Onsager correction is a standard algorithmic interpretation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Belief propagation/non-backtracking is used as an explanatory algorithmic analogy for the Onsager correction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used to explain the Onsager correction; belief propagation/non-backtracking is a standard systematic mechanism."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Diffusion models for image generation",
+   "note": "Image-generation diffusion models are used as an analogy for the denoise-and-reverse-diffusion structure of the stochastic-localization sampler, without entering the SK proof.",
+   "first_introduced_sec": 3187,
+   "spans": [
+    {
+     "start_sec": 3187,
+     "end_sec": 3418
+    }
+   ],
+   "total_seconds": 231,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explains the image-generation diffusion procedure by noising images, learning the reverse SDE, and reversing Gaussian noise into new images",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Diffusion image generators are invoked as an analogous denoising-based sampling methodology."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Image-generation diffusion models form a broad modern algorithmic family used as an analogy, not a special or adversarial case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Diffusion image generators are cited as a real-world positive analogue of denoising by posterior means."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Diffusion image generators are cited as a real-world analogue of denoising-based sampling."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Diffusion image generators are mentioned as an analogous algorithmic family rather than a structurally atypical object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Diffusion models for images are cited as an analogous generative procedure, not as a structural exception or failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Diffusion image models are invoked as a real-algorithm analogy to denoising/localization, with no extremal or exceptional structure at issue."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "diffusion image generators are cited as a related practical denoising method, not as a structurally special object"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "diffusion image generators are cited as a real-algorithm analogue of denoising, with no counterexample role or special classification structure"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Image diffusion models are cited as analogous denoising generative algorithms, with no special structural role."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Diffusion image generators are cited as a real-world analogue of denoising diffusion sampling, not as a structural exception."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as an analogy to real generative algorithms; diffusion models form a systematic non-extremal family."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Spherical and tensor p-spin models with shattering or overlap gaps",
+   "note": "The p-spin variants illustrate why the same localization-plus-AMP approach may not give a sharp threshold in all spin-glass models, because replica-symmetric phases can still contain shattering barriers.",
+   "first_introduced_sec": 3437,
+   "spans": [
+    {
+     "start_sec": 3437,
+     "end_sec": 3527
+    },
+    {
+     "start_sec": 3614,
+     "end_sec": 3691
+    }
+   ],
+   "total_seconds": 167,
+   "attaches_to": [
+    "s4",
+    "s7"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker names spherical/tensor p-spin models and states shattering or overlap-gap phenomena without working through them",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Spherical/tensor p-spin models are isotropic spin-glass families used as an obstruction to naively extending the SK threshold story."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Spherical/tensor p-spin models are rotationally regular examples invoked as obstructions to simply extending the SK threshold because of shattering or overlap gaps."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Spherical/tensor p-spin models with shattering or overlap gaps are used as obstructions to simply extending the SK threshold argument."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Spherical/tensor p-spin models are rotationally symmetric models used as obstruction cases where shattering or overlap gaps limit naive extension."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Spherical/tensor p-spin models form symmetric mean-field families, and their shattering or overlap gaps are used as an obstruction to naive extension."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Rotationally invariant spherical/tensor p-spin models with shattering or overlap gaps are presented as obstructions to a naive sharp extension of the method."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "P-spin models with shattering or overlap gaps are used as obstructions to a sharp copy-paste extension of the method, while the spherical Gaussian version is rotationally symmetric."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "spherical or tensor p-spin models with shattering or overlap gaps are presented as obstructions to directly extending the SK threshold story"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "spherical/tensor p-spin models with shattering or overlap gaps are presented as obstructions to naively extending the sharp SK sampling picture"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Spherical or tensor p-spin models are rotationally invariant and used as shattering/overlap-gap obstructions to naïve extension."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Isotropic spherical/tensor p-spin models with shattering or OGP serve as an obstruction to simply extending the sharp SK sampling story."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as an obstruction to naive extension of the SK argument; spherical Gaussian p-spin models are rotationally symmetric systematic families."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Ising model on trees and factor-of-IID sampling",
+   "note": "The tree Ising example is mentioned in response to a question as another setting where related localization-flavored sampling ideas may work.",
+   "first_introduced_sec": 3527,
+   "spans": [
+    {
+     "start_sec": 3527,
+     "end_sec": 3561
+    }
+   ],
+   "total_seconds": 34,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only cites Ising models on trees and factor-of-IID sampling as related work",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 10,
+    "extremal": 5,
+    "symmetric": 6,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The tree Ising/factor-of-IID setting is the acyclic minimum-edge graphical case, cited as a related positive model."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Ising models on trees use the acyclic minimal graph setting as a positive related factor-of-IID sampling example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Tree Ising models live on acyclic minimally connected graphs and are mentioned as a positive related sampling setting."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "An Ising model on a tree has an acyclic minimally connected factor graph, used as a positive related sampling setting."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The tree factor-of-IID Ising setting is a highly homogeneous related model, not a counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "An Ising model on a tree has an acyclic minimal connected interaction graph and is cited as a related positive example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Ising models on trees are cited as another setting for such sampling ideas, and the tree case is acyclic/minimally structured rather than adversarial."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "tree Ising models are positive related examples on acyclic minimal-connected graph geometry, often in a regular factor-of-IID setting"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Ising models on trees are cited as a related positive case, with the acyclic tree setting acting as a simpler base graph class"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Tree Ising factor-of-IID sampling is a homogeneous acyclic tree setting used as a related solvable case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The regular-tree/factor-of-IID setting is automorphism-invariant and is cited as a positive related case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Used as a positive related example; tree Ising/factor-of-IID lives on an acyclic minimal and often highly symmetric setting."
+    }
+   ]
+  }
+ ]
+}

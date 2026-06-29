@@ -1,0 +1,1209 @@
+{
+ "key": "a9e7ba64f98fb44cff1f7a87f600a96e",
+ "title": "Efficient Batch Verification: Recent Progress and Challenges",
+ "speaker": "Ron Rothblum",
+ "affiliation": "Technion",
+ "date": "2024-12-09T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3956.0,
+ "abstract": "Suppose Alice wants to convince Bob of the correctness of k NP statements. Alice could send the k witnesses to Bob, but as k grows the communication becomes prohibitive. Is it possible to convince Bob using smaller communication? This is the question of batch verification for NP statements.\nIn the talk, I will discuss recent progress on this question, showing different settings in which we can (and cannot) perform batch verification.",
+ "youtube_url": "https://youtu.be/yKanpQcbYeY",
+ "page_url": "https://www.ias.edu/video/efficient-batch-verification-recent-progress-and-challenges",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Batch-verification problem and desiderata",
+   "summary": "The talk formulates batch verification for k NP statements and contrasts witness-sending and the generic IP=PSPACE solution with the desired short communication, efficient honest prover, and zero-knowledge properties.",
+   "spans": [
+    {
+     "start_sec": 43,
+     "end_sec": 480
+    },
+    {
+     "start_sec": 506,
+     "end_sec": 632
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Prior doubly efficient batching for UP",
+   "summary": "Existing work gives near-optimal, polynomial-time-prover batch interactive proofs for UP relations, making the main open question whether such doubly efficient batching can extend from UP to all NP.",
+   "spans": [
+    {
+     "start_sec": 632,
+     "end_sec": 895
+    },
+    {
+     "start_sec": 926,
+     "end_sec": 981
+    },
+    {
+     "start_sec": 1381,
+     "end_sec": 1438
+    },
+    {
+     "start_sec": 3695,
+     "end_sec": 3715
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Batch proofs force statistical witness indistinguishability",
+   "summary": "A new theorem says that efficient public-coin batch proofs imply a statistical witness-indistinguishable proof for the same relation, with inverse-polynomial hiding error and a nonuniform honest prover, giving evidence against analogous batching for all NP.",
+   "spans": [
+    {
+     "start_sec": 895,
+     "end_sec": 1557
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Reduction proof via distributional hiding and min–max",
+   "summary": "The proof first obtains distributional SWI by hiding the real instance among random samples and applying a compression lemma, then uses a sparse min–max theorem plus standard transformations to obtain worst-case SWI for interactive protocols.",
+   "spans": [
+    {
+     "start_sec": 1557,
+     "end_sec": 2377
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Zero-knowledge batching target for SZK and NISZK",
+   "summary": "The second half asks whether statistical zero-knowledge proofs can be batched without revealing witnesses, defines the common-randomness noninteractive SZK model, and states that every NISZK language has a short NISZK batch proof.",
+   "spans": [
+    {
+     "start_sec": 2377,
+     "end_sec": 2817
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Complete-problem strategy for NISZK batching",
+   "summary": "The construction moves from an easy permutation warm-up to an injectivity-type NISZK-complete problem, where naive composition must be replaced by composing the circuits with intervening random hashes.",
+   "spans": [
+    {
+     "start_sec": 2817,
+     "end_sec": 3215
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Entropy gap and derandomized hashing",
+   "summary": "The proof handles hash collisions by showing entropy loss stabilizes, measures the yes/no gap through Rényi entropy and collision probability, and derandomizes the many hash functions using bounded-space pseudorandom generators.",
+   "spans": [
+    {
+     "start_sec": 3215,
+     "end_sec": 3695
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Combining efficiency and zero knowledge; open challenges",
+   "summary": "The talk closes by comparing the UP protocol and the NISZK protocol, noting recent work combining their advantages in some regimes, and listing open problems on NP obstructions, interactive SZK batching, overhead, and characterization.",
+   "spans": [
+    {
+     "start_sec": 3695,
+     "end_sec": 3955
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Batch verification of products of two primes",
+   "note": "The speaker repeatedly uses RSA-like integers that should factor as products of two primes to make the abstract batch-verification, UP, and zero-knowledge questions concrete; it motivates the setting but does not supply the proof idea.",
+   "first_introduced_sec": 166,
+   "spans": [
+    {
+     "start_sec": 166,
+     "end_sec": 241
+    },
+    {
+     "start_sec": 456,
+     "end_sec": 480
+    },
+    {
+     "start_sec": 677,
+     "end_sec": 692
+    },
+    {
+     "start_sec": 2390,
+     "end_sec": 2439
+    },
+    {
+     "start_sec": 2527,
+     "end_sec": 2582
+    },
+    {
+     "start_sec": 2712,
+     "end_sec": 2736
+    }
+   ],
+   "total_seconds": 242,
+   "attaches_to": [
+    "s1",
+    "s2",
+    "s5"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses the two-prime-product batching problem as the running instance, analyzes witnesses/factorizations and k·m communication, and applies the UP/SZK batching discussion to it",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 9,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Semiprime instances have a unique canonical factorization/minimal composite witness and are used only as the motivating batch-verification problem."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the semiprime batch relation has a canonical unique factorization witness tuple, giving a collapsed/minimal witness structure, and is used as a motivating positive case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Semiprime batch verification is used as a motivating UP-style case with canonical unique factorization witnesses, not to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Semiprime verification has a canonical unique factorization witness, a minimal-witness UP-type case used motivically."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Semiprime batch verification is used as a standard motivating UP/SZK-type problem, not as a structurally sporadic or adversarial case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the semiprime batch relation has a canonical singleton factorization witness for each instance, but is used only as motivating positive terrain"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "used as the motivating batch-verification task; semiprime instances have a canonical unique factorization witness, i.e. minimal nonzero witness multiplicity."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Semiprime verification is used as the motivating batch problem, and its canonical prime factorization gives a unique-witness UP-style boundary case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as the motivating semiprime batch-verification problem, with canonical factorization giving the minimal one-witness UP structure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as the motivating batch-verification task, and semiprime instances have a canonical unique/minimal nontrivial factorization witness."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used as the motivating semiprime batch-verification task, not as a refutation or sporadic/boundary object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as the motivating semiprime batch-verification problem, not to refute a claim, and semiprimes form a standard infinite family."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Unique-SAT as a UP example",
+   "note": "Unique-SAT is cited as the canonical NP relation with a unique accepting witness, illustrating what the UP restriction means without driving the later argument.",
+   "first_introduced_sec": 649,
+   "spans": [
+    {
+     "start_sec": 649,
+     "end_sec": 677
+    }
+   ],
+   "total_seconds": 28,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Unique-SAT is only cited as a canonical UP relation with one satisfying assignment versus none",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Unique-SAT has the minimum positive number of satisfying witnesses and is used as a canonical UP example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Unique-SAT yes-instances have exactly one satisfying assignment, the minimal nonzero/collapsed witness set, and are used only to illustrate UP"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Unique-SAT is presented as the canonical UP case because yes instances have the minimum nonzero number of satisfying witnesses."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Unique-SAT yes-instances have exactly one satisfying assignment, the minimal nonzero witness count."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Unique-SAT is a satisfiability promise problem with exactly one satisfying assignment, the minimum nonzero witness count."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "yes-instances have exactly one satisfying assignment, collapsing the SAT witness set to the minimum nonzero size"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "used as a canonical UP example; a yes-instance has exactly one satisfying assignment, the minimum possible nonempty witness set."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Unique-SAT is cited as a canonical UP example, with exactly one satisfying assignment in the yes case, the minimum positive number of witnesses."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as the canonical UP example, where yes-instances have exactly the minimal nonzero number of satisfying assignments."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as a canonical UP example, with exactly one satisfying assignment, the minimum nonzero number of witnesses."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Cited as a canonical UP language, with yes-instances having the minimum positive number of witnesses: one."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Cited as a canonical UP example, with yes-instances having the minimal nonzero number of satisfying assignments: exactly one."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Cryptographic problems in SZK",
+   "note": "Factoring, discrete logarithm, and lattice-type problems are listed to illustrate the breadth and cryptographic relevance of SZK/NISZK classes.",
+   "first_introduced_sec": 2527,
+   "spans": [
+    {
+     "start_sec": 2527,
+     "end_sec": 2545
+    }
+   ],
+   "total_seconds": 18,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "factoring, discrete log, lattices, and related cryptographic problems are only listed as problems captured by SZK/NISZK",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Factoring, discrete-log, and lattice-type SZK examples form a standard illustrative crypto family."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the cryptographic SZK examples are ordinary infinite problem families cited to illustrate the scope of SZK"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Factoring, discrete log, and lattice-type cryptographic problems are cited as natural members of SZK rather than structurally sporadic or adversarial examples."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Factoring, discrete log, and lattice problems are cited as standard SZK crypto examples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Factoring, discrete log, and lattice problems are cited as typical cryptographic members of SZK rather than special structural exceptions."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "factoring, discrete-log, and lattice-type SZK problems are cited as representative cryptographic applications, not structural exceptions or refutations"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "cited only to illustrate the richness of SZK via standard cryptographic problem families, not as structurally sporadic or extreme objects."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Factoring, discrete-log, and lattice-type problems are invoked as standard SZK-relevant cryptographic examples rather than as structural outliers or obstructions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used to illustrate the richness of SZK, and the cited cryptographic problems are ordinary infinite problem families."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Listed as representative SZK-relevant cryptographic problems rather than as refutations or structurally sporadic objects."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Factoring, discrete log, lattice-type problems are cited only to illustrate that SZK contains rich cryptographic examples."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Factoring, discrete-log, lattice-type SZK examples are invoked to show the richness of SZK, not as obstructions, and are standard problem families."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Graph non-isomorphism question",
+   "note": "An audience question raises graph non-isomorphism to compare familiar SZK-style protocols with the public-randomness NISZK setting under discussion.",
+   "first_introduced_sec": 2736,
+   "spans": [
+    {
+     "start_sec": 2736,
+     "end_sec": 2792
+    }
+   ],
+   "total_seconds": 56,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "graph non-isomorphism arises only in a brief question about whether it fits the noninteractive SZK setting, without any construction or verification worked out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Graph non-isomorphism is raised as a standard SZK/NISZK query rather than as a refuting case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "graph non-isomorphism is raised as a membership/protocol question rather than as a structurally special object or disproof"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Graph non-isomorphism is raised as a standard SZK-related problem in a question, not as a counterexample or a structurally exceptional object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Graph non-isomorphism is raised as a standard SZK-style membership example rather than a structurally special object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Graph non-isomorphism is raised as a standard complexity-theoretic problem/question, not as a counterexample or exceptional object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "graph non-isomorphism is merely raised as an inclusion query around NISZK/SZK, not deployed as a counterexample"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "raised as a membership/query example around NISZK/SZK, with graph non-isomorphism otherwise a standard computational problem."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Graph non-isomorphism is raised as a standard SZK/NISZK-related problem, not as a counterexample or sporadic structural exception."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Raised as a membership/example question for SZK/NISZK rather than as a refutation, with no structurally special graph singled out."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Raised as a membership/protocol question around NISZK/SZK, not deployed to disprove a claim, and generic graph non-isomorphism is structurally ordinary."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Graph non-isomorphism is raised as a membership/protocol test case, not as an obstruction; generic graph pairs are structurally ordinary."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Graph non-isomorphism is raised as a membership/protocol question rather than as a disproof, and no structurally special graph is specified."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Permutation-checking warm-up",
+   "note": "Working through the easy case where k permutation tests batch by composing the functions visibly produces the compression strategy that is then adapted to the NISZK-complete injectivity setting using hashing.",
+   "first_introduced_sec": 2834,
+   "spans": [
+    {
+     "start_sec": 2834,
+     "end_sec": 3037
+    }
+   ],
+   "total_seconds": 203,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker develops the permutation-checking warm-up in detail, giving the CRS/inverse proof, checking completeness/soundness/zero knowledge, and batching it by composing functions",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Permutation checking uses bijections, the maximum-image/no-collision regular maps, as an easy warm-up."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "permutation checking uses bijections, which are collision-free finite maps with maximal image size and minimal fiber size, as a positive warm-up"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The warm-up uses the permutation-versus-two-to-one promise, where the permutation case has maximal image size and injectivity among same-size finite functions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A permutation attains maximal image size and injectivity among maps on the finite domain."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The warm-up centers on permutation circuits, i.e. bijections with maximal image size and minimal collision among maps on the domain."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the permutation case is the maximum-image and minimum-collision case for a self-map, used as a positive warm-up"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "used as a warm-up positive example; the permutation case is the boundary of zero collisions/maximum image size for functions on the same finite set."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The permutation-checking warm-up uses bijections versus two-to-one maps, placing the yes case at the maximal-image/minimal-collision boundary for functions on a finite set."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as an easy warm-up, and permutation checking tests the maximal-image/no-collision boundary among maps on a finite set."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as an easy warm-up construction, whose permutation case is maximally injective with full image and no collisions."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The warm-up uses permutations, which are the bijective/maximal-image boundary case among functions on the finite space."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The warm-up uses permutation functions, whose yes-case is bijective with maximum image size and no collisions among finite functions."
+    }
+   ]
+  }
+ ]
+}

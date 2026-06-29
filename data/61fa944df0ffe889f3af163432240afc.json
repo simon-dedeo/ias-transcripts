@@ -1,0 +1,1210 @@
+{
+ "key": "61fa944df0ffe889f3af163432240afc",
+ "title": "Random Geometric Graphs",
+ "speaker": "Aleksa Milojević",
+ "affiliation": "ETH Zurich",
+ "date": "2026-06-08T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 3774.0,
+ "abstract": "The random geometric graph Geo_d(n,p) is a probability distribution over graphs, constructed by placing n points uniformly on a d-dimensional sphere and connecting two points whenever they are sufficiently close — where the proximity threshold is chosen so that each edge appears with probability p. Recently, Ma, Shen, and Xie used this model to obtain improved constructions for the Ramsey numbers R(k,Ck), where C>1 is a fixed constant. In this talk, I will present a simplification of their approach that allows for a sharper quantitative analysis and gives improved lower bounds.I will also discuss how the same ideas can be used to make progress on a conjecture of Bubeck, Ding, Eldan, and Rácz. They observed that when the dimension d is sufficiently large as a function of n and p, the distribution Geo_d(n,p) converges to the classical Erdős–Rényi random graph G(n,p) in total variation distance, and conjectured that the precise threshold for this convergence is d=(np)^3polylog(p). Until now, this conjecture had been verified only in the extremal regimes p=Θ(1) and p=Θ(1/n). I will outline a proof of the conjecture in the intermediate regime n^{-1/5}<p<1.This talk is based on the joint work with Zach Hunter and Benny Sudakov.",
+ "youtube_url": "https://youtu.be/qgRiuxl-Glo",
+ "page_url": "https://www.ias.edu/video/random-geometric-graphs",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Random-geometric graph models",
+   "summary": "The talk contrasts the binomial random graph with random geometric graphs, fixes the high-dimensional spherical model, and then switches to a Gaussian inner-product version whose red and blue edge probabilities match p and 1-p.",
+   "spans": [
+    {
+     "start_sec": 84,
+     "end_sec": 543
+    },
+    {
+     "start_sec": 1260,
+     "end_sec": 1516
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Erdos Ramsey lower-bound benchmark",
+   "summary": "Ramsey numbers are defined and the classical probabilistic lower bound is derived by coloring a G(n,p) graph red, bounding expected red and blue cliques, and optimizing the critical edge probability.",
+   "spans": [
+    {
+     "start_sec": 543,
+     "end_sec": 1086
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Geometric off-diagonal Ramsey target",
+   "summary": "The speaker states the recent off-diagonal improvement obtained by replacing the Erdos-Renyi coloring with a spherical random geometric coloring, situating it relative to later improvements and the unchanged diagonal case.",
+   "spans": [
+    {
+     "start_sec": 1086,
+     "end_sec": 1260
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Cap-conditioning mechanism for red cliques",
+   "summary": "The key intuition is that once several vertices are constrained to be red-neighbors of an earlier vertex, they lie in a smaller geometric region and are therefore less likely to be mutually far apart, lowering red clique probabilities.",
+   "spans": [
+    {
+     "start_sec": 1516,
+     "end_sec": 1736
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Gram-Schmidt Gaussian coordinates",
+   "summary": "A Gram-Schmidt change of coordinates triangularizes the sampled Gaussian vectors so that the off-diagonal coordinates are independent one-dimensional Gaussians and inner products become explicitly computable.",
+   "spans": [
+    {
+     "start_sec": 1736,
+     "end_sec": 1953
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Per-triangle clique corrections",
+   "summary": "Using truncated-Gaussian estimates, the red triangle probability is computed to be smaller than p^3 by a first-order 1/sqrt(d) correction, which extends to one correction per triangle in red and blue cliques and yields a net off-diagonal Ramsey gain when p<1/2.",
+   "spans": [
+    {
+     "start_sec": 1953,
+     "end_sec": 2823
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Signed-triangle testing threshold",
+   "summary": "The talk formulates the total-variation testing problem between spherical random geometric graphs and G(n,p), explains the centered signed triangle count that distinguishes them below the conjectured dimension threshold, and reviews prior partial progress.",
+   "spans": [
+    {
+     "start_sec": 2823,
+     "end_sec": 3440
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Typical-graph expansion for indistinguishability",
+   "summary": "For not-too-sparse graphs and dimension above the signed-triangle threshold, the probability of each graph under the geometric model is expanded as its Erdos-Renyi probability times a factor governed by its signed triangle count, and typical concentration makes this factor 1+o(1), forcing total variation to vanish.",
+   "spans": [
+    {
+     "start_sec": 3440,
+     "end_sec": 3681
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Social acquaintance network",
+   "note": "The speaker uses acquaintances being more likely among nearby people as a motivating illustration for replacing independent-edge graphs by geometric models.",
+   "first_introduced_sec": 139,
+   "spans": [
+    {
+     "start_sec": 139,
+     "end_sec": 172
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The social acquaintance network is only used as a motivating analogy for dependence between edges, with no analysis carried out on it.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a generic social graph is used to show the independent-edge G(n,p) assumption is unrealistic."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary social graph is invoked to show that independent-edge Erdős–Rényi modeling can fail for acquaintance networks."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A social acquaintance graph is an ordinary network used to show that independent-edge random graphs can model applications poorly."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a social acquaintance network is used to show the independent-edge assumption of Erdős–Rényi graphs can fail in applications"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a social acquaintance graph is used to show the independent-edge assumption of Erdős–Rényi graphs can fail in applications."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to illustrate that independent-edge random graphs fail to model acquaintance relations with geographic/social dependence."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A social acquaintance graph is an ordinary network, used to show the independent-edge assumption of G(n,p) can fail in applications."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It is used to show the independent-edge assumption of G(n,p) can fail for applications, while being an ordinary network."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show the independent-edge assumption of Erdős–Rényi graphs is unrealistic for acquaintance networks."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show the independent-edge assumption of Erdős–Rényi graphs is unrealistic for acquaintances"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show the independent-edge assumption of G(n,p) can fail for realistic networks; structurally an ordinary social graph."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show the edge-independence assumption of Erdős–Rényi graphs fails for acquaintances, while the network itself is structurally ordinary"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Euclidean-cube random geometric graph",
+   "note": "The standard model with points uniformly sampled in a Euclidean cube and radius tending to zero makes the general metric-space definition concrete.",
+   "first_introduced_sec": 264,
+   "spans": [
+    {
+     "start_sec": 264,
+     "end_sec": 325
+    }
+   ],
+   "total_seconds": 61,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The Euclidean-cube random geometric graph is described as a classical instance with uniform points in a cube and shrinking radius, but no concrete computation is done for it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the uniform random geometric graph on a Euclidean cube is a standard representative model, introduced illustratively."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The uniform random geometric graph in a Euclidean cube is presented as a standard representative model, not a boundary or sporadic case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The random geometric graph on a uniform Euclidean cube is a standard representative geometric graph model, introduced as a classical case rather than to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the uniform random geometric graph in a Euclidean cube is a standard representative model, not a limiting or exceptional object here"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the random geometric graph on a Euclidean cube with uniform measure is presented as a standard representative model."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A random geometric graph on a Euclidean cube with uniform measure is a standard representative instance of the model."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The uniform random geometric graph on a Euclidean cube is presented as a standard representative model, not as a failure case or structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The uniform random geometric graph on a Euclidean cube is presented as a standard representative model."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard random geometric graph model on a Euclidean cube is given as a representative classical instance."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "presented as a standard random geometric graph model on a uniform Euclidean cube"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Presented as a standard random geometric graph on a Euclidean cube with uniform measure, not as a structurally special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard random geometric graph on a Euclidean cube with a uniform measure, serving as a typical model example"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Diagonal Ramsey case",
+   "note": "The case c=1 is used to illustrate why the geometric improvement is off-diagonal: at p=1/2 the red gain and blue loss balance rather than giving an improvement.",
+   "first_introduced_sec": 1220,
+   "spans": [
+    {
+     "start_sec": 1220,
+     "end_sec": 1260
+    },
+    {
+     "start_sec": 2651,
+     "end_sec": 2686
+    }
+   ],
+   "total_seconds": 75,
+   "attaches_to": [
+    "s3",
+    "s6"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 2,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The diagonal Ramsey case is specialized in the bounds, with the speaker noting the square-root-two lower bound and checking that at c=1 the critical probability is 1/2 so the geometric gain does not improve it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the diagonal case c=1 is the color-symmetric boundary where the off-diagonal geometric-graph improvement cancels out."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The diagonal Ramsey problem is the color-symmetric boundary case c=1 and is used as the case where the geometric improvement does not work."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The diagonal Ramsey case is the color-symmetric boundary case c=1 and is used as the case where the off-diagonal geometric improvement fails."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the diagonal Ramsey regime l=k is the symmetric boundary case c=1 where the off-diagonal geometric improvement mechanism stops working"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the diagonal Ramsey case l=k is the color-symmetric c=1 boundary where the off-diagonal geometric improvement disappears."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The diagonal Ramsey regime is the color-symmetric boundary case where the geometric-graph improvement breaks down."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The diagonal Ramsey case c=1 is the red/blue-symmetric boundary case where the geometric improvement breaks down."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The diagonal case c=1 is the color-symmetric boundary where the off-diagonal improvement mechanism fails."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The diagonal case l=k is the symmetric boundary case c=1 where the geometric Ramsey improvement fails."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the color-symmetric boundary case c=1 is used to explain why the off-diagonal Ramsey improvement fails there"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as the c=1 boundary where the method gives no Ramsey improvement; it is symmetric under swapping the two Ramsey colors."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the diagonal case l=k is the symmetric boundary c=1 where the geometric-graph Ramsey improvement does not work"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Three-vertex signed-count patterns",
+   "note": "Triangles, cherries, one-edge triples, and empty triples are worked out to show how the centered signed triangle statistic records all induced patterns on three vertices.",
+   "first_introduced_sec": 3017,
+   "spans": [
+    {
+     "start_sec": 3017,
+     "end_sec": 3104
+    }
+   ],
+   "total_seconds": 87,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The three-vertex signed-count patterns are explicitly evaluated by assigning signed weights to triangles, cherries, one-edge patterns, and empty triples.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 1,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the signed statistic is illustrated through minimal three-vertex local motifs, including missing-edge and empty patterns."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The signed three-vertex patterns include the empty and complete boundary graphs, used only to define the statistic rather than to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The signed counts of the four three-vertex patterns are a routine centered triangle-statistic decomposition used illustratively, not as an obstruction."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the three-vertex signed-count motifs are ordinary local graph patterns used to form a statistic distinguishing the models"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the three-vertex signed-count patterns are used as ordinary bookkeeping terms for the centered triangle statistic."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The three-vertex induced patterns are ordinary configurations used as weighted terms in the signed triangle statistic."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The three-vertex signed-count patterns are ordinary local graph motifs used to illustrate the centered triangle statistic."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The three-vertex motifs are ordinary local configurations used to explain the signed triangle statistic."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The three-vertex induced patterns are ordinary local configurations used to explain the signed triangle count."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the three-vertex motifs are ordinary local configurations used to illustrate the signed triangle statistic"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The induced three-vertex configurations are ordinary local graph patterns used to define the signed triangle statistic."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the three-vertex induced patterns are used as ordinary components of the signed triangle statistic rather than as obstructions"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Box as an alternative geometric space",
+   "note": "In the Q&A, a box is discussed as a possible underlying space, illustrating the speaker's view that lack of homogeneity makes it less promising for the Ramsey construction.",
+   "first_introduced_sec": 3710,
+   "spans": [
+    {
+     "start_sec": 3694,
+     "end_sec": 3760
+    }
+   ],
+   "total_seconds": 66,
+   "attaches_to": [
+    "s1",
+    "s3"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "The box is only briefly discussed in the Q&A as an alternative space that did not seem useful, without any worked calculation or construction.",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the box is cited as a non-homogeneous alternative space where the Ramsey construction did not yield improvement."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The box is an ordinary nonhomogeneous geometric domain cited as an alternative space that failed to give the desired Ramsey improvement."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A box is an ordinary geometric domain, invoked as an alternative space that did not seem to yield the desired Ramsey improvement."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the box is mentioned as an alternative geometric space that did not yield the desired Ramsey improvement, illustrating failure of a naive extension"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the box is cited as an alternative geometric space that did not seem to yield the desired Ramsey construction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The box is cited as a geometric space where the Ramsey construction did not yield the desired improvement because of nonuniformity."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The box is mentioned as an alternative space where their Ramsey-graph construction did not yield improvement, so it functions as an obstruction example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The box is cited as an alternative space that did not yield the desired Ramsey improvement because of boundary non-homogeneity."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The box is cited as an alternative space where the Ramsey construction did not yield an improvement because of non-homogeneity."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the box is cited as an alternative space where the Ramsey construction did not seem to yield improvement"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cited as a bounded nonhomogeneous space where the authors did not see a Ramsey improvement, an obstruction to that geometric construction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the box is cited as a non-homogeneous alternative space that did not yield the desired Ramsey improvement"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1870 @@
+{
+ "key": "ee49585f535f4dbe9ac9b433e45b9fe3",
+ "title": "Extractor-based Approach to Proving Memory-Sample Lower Bounds for Learning",
+ "speaker": "Sumegha Garg",
+ "affiliation": "Harvard University",
+ "date": "2020-12-07T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4219.0,
+ "abstract": "A recent line of work has focused on the following question: Can one prove strong unconditional lower bounds on the number of samples needed for learning under memory constraints? We study an extractor-based approach to proving such bounds for a large class of learning problems as follows.",
+ "youtube_url": "https://youtu.be/3VYZKQ-oWQo",
+ "page_url": "https://www.ias.edu/video/extractor-based-approach-proving-memory-sample-lower-bounds-learning-0",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Streaming learning under memory constraints",
+   "summary": "The talk frames the problem of proving unconditional sample lower bounds for bounded-memory streaming learners, using parity learning and previous memory-sample tradeoff results as the benchmark setting.",
+   "spans": [
+    {
+     "start_sec": 32,
+     "end_sec": 884
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Matrix extractor formulation of learning",
+   "summary": "A learning problem is encoded as a sign matrix with rows as samples and columns as concepts, and a low-bias large-submatrix extractor property is stated as implying that every learner needs either Ω(k l) memory or 2^{Ω(r)} samples.",
+   "spans": [
+    {
+     "start_sec": 884,
+     "end_sec": 1240
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Polynomial-learning consequences",
+   "summary": "The extractor theorem is applied to learning low-degree polynomials over F_2 and to the transposed problem of learning from low-degree equations, yielding larger polynomial memory lower bounds paired with exponential sample lower bounds.",
+   "spans": [
+    {
+     "start_sec": 1240,
+     "end_sec": 1456
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Branching-program reduction and significant beliefs",
+   "summary": "A bounded-memory learner is modeled as a layered branching program, with each vertex carrying a posterior distribution on the hidden concept, and high-L2 posterior vertices are identified as significant states whose reachability controls success.",
+   "spans": [
+    {
+     "start_sec": 1456,
+     "end_sec": 2010
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Truncated paths and bad edges",
+   "summary": "The proof replaces true computation paths by truncated paths that stop on atypical events, especially samples whose label is too predictable from the current belief and would therefore reveal too much information.",
+   "spans": [
+    {
+     "start_sec": 2010,
+     "end_sec": 2150
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Progress-function bound for one-pass learners",
+   "summary": "For each significant vertex a progress function measures closeness to reaching it, and the extractor property shows this quantity grows slowly enough that any fixed significant vertex is reached with probability exponentially small in k l, allowing a union bound over low-memory programs.",
+   "spans": [
+    {
+     "start_sec": 2150,
+     "end_sec": 2680
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Two-pass reduction via product branching programs",
+   "summary": "In the two-pass setting, reused samples destroy the uniformity assumptions behind bad-edge and progress arguments, so the proof uses a read-once product of the first- and second-pass branching programs together with new high-probability-edge stopping rules and a one-pass subroutine to obtain the weaker two-pass lower bound.",
+   "spans": [
+    {
+     "start_sec": 2680,
+     "end_sec": 3619
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Limits and open directions beyond the extractor method",
+   "summary": "The closing discussion asks for methods beyond the present extractor framework, including tighter noisy-parity bounds, possible communication-complexity perspectives, and extensions to more passes or read-twice branching programs.",
+   "spans": [
+    {
+     "start_sec": 3642,
+     "end_sec": 4193
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Parity learning toy model",
+   "note": "Random linear equations over F_2 make the streaming learning model, the memory/sample tradeoff, and the extractor-matrix viewpoint concrete; the talk does not derive the extractor method from this example alone.",
+   "first_introduced_sec": 149,
+   "spans": [
+    {
+     "start_sec": 149,
+     "end_sec": 533
+    },
+    {
+     "start_sec": 1048,
+     "end_sec": 1134
+    },
+    {
+     "start_sec": 2723,
+     "end_sec": 2780
+    }
+   ],
+   "total_seconds": 527,
+   "attaches_to": [
+    "s1",
+    "s2",
+    "s7"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker defines the parity learning problem, tries a small five-bit instance with equations, analyzes concrete learner strategies, and later runs the two-pass branching-program framework on parity.",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 8,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 3,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The parity problem is the Hadamard/character-table learning model, highly regular and used as a motivating toy example rather than to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Walsh-Hadamard parity is a maximally regular orthogonal benchmark with tight lower-bound behavior, used as a toy model rather than to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the parity/Hadamard learning problem is a maximally regular F_2-linear hard instance ruling out simultaneous small memory and few samples"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity learning is the Walsh-Hadamard linear-character case, maximally regular and tight for the quadratic-memory/exponential-sample toy tradeoff."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Parity learning is the uniform F_2-linear/Hadamard case used as a motivating toy model."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "parity learning is the highly symmetric Hadamard/vector-space learning family used as the basic toy model"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The parity/Hadamard learning problem is used as the canonical hard toy model with a tight tradeoff and highly symmetric linear-character structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as the hard lower-bound toy problem; its parity evaluation matrix is the maximally orthogonal, highly regular Hadamard matrix."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity learning is the Hadamard/linear toy model, maximally regular and realizing the tight quadratic-memory versus exponential-sample tradeoff."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Walsh-Hadamard parity learning is a highly regular linear-character benchmark with a tight one-pass tradeoff."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The parity problem is the Walsh-Hadamard/linear-character family with maximal orthogonality, used as the motivating lower-bound toy model."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as the canonical hard lower-bound case; its parity/Hadamard evaluation matrix is maximally regular and gives the tight memory-sample dichotomy."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Bounded-storage cryptographic scheme from parity lower bounds",
+   "note": "The parity lower bound is described as yielding unconditional security against bounded-memory attackers, illustrating why memory-sample lower bounds matter beyond learning theory.",
+   "first_introduced_sec": 533,
+   "spans": [
+    {
+     "start_sec": 533,
+     "end_sec": 611
+    }
+   ],
+   "total_seconds": 78,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The bounded-storage cryptographic scheme is cited as an application of the parity lower bound with stated parameters, but no construction or proof is worked through.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The bounded-storage scheme is a standard application of the parity lower bound, not a sporadic, limiting, or adversarial object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The bounded-storage protocol is presented only as an application of the parity lower bound with no special intrinsic structure specified."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the bounded-storage scheme is presented as a derived cryptographic application rather than as a structurally special or refuting example"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The bounded-storage cryptographic scheme is presented as a standard application of the parity lower bound rather than a structurally special object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The bounded-storage crypto scheme is presented as an application of the parity lower bound, not as a structurally sporadic or limiting object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the parity-based bounded-storage cryptographic protocol is cited as an application rather than as a structurally exceptional object"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The bounded-storage scheme is presented as an application of the parity lower bound, not as a structurally special or refuting example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Presented as an application of the parity lower bound, not as a failure case; the scheme is not described as structurally special."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The bounded-storage cryptographic scheme is cited as an application of the parity lower bound, not as a structurally special object or refutation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The bounded-storage cryptographic scheme is presented as an application of the parity lower bound."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The bounded-storage cryptographic protocol is cited as an application of the parity lower bound, with no intrinsic sporadic or boundary structure singled out."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Presented as a constructive bounded-storage cryptographic application of the parity lower bound, with no special intrinsic structure specified."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Streaming linear regression over the reals",
+   "note": "A related continuous-optimization lower bound is used to contrast the finite-field learning results with a real-valued setting; it is contextual rather than a source of the proof idea here.",
+   "first_introduced_sec": 663,
+   "spans": [
+    {
+     "start_sec": 663,
+     "end_sec": 782
+    }
+   ],
+   "total_seconds": 119,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Streaming linear regression over the reals is summarized as a later result and contrasted with finite-field learning, without any calculation or detailed application.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 3,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Streaming linear regression over the reals is cited as an ordinary continuous-optimization extension of the lower-bound program."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Streaming linear regression over the reals is a standard continuous optimization learning problem used as a generalization."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "streaming linear regression is cited as a lower-bound case where memory-bounded algorithms cannot match unconstrained convergence"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Streaming real linear regression is a standard continuous optimization learning problem cited as a generalization of the framework."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Streaming linear regression over the reals is cited as a standard continuous-optimization extension of the lower-bound program."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "streaming linear regression over the reals is a standard continuous optimization learning problem used as an extension of the setting"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Streaming linear regression over the reals is cited as a standard continuous-optimization extension of the framework."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cited as a lower-bound example where memory-constrained streaming algorithms cannot match the unconstrained convergence rate; linear regression itself is standard."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Streaming linear regression over the reals is presented as a continuous-optimization case with a tight quadratic-memory tradeoff."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Streaming real linear regression is cited as a standard continuous-optimization extension."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Streaming linear regression over the reals is presented as a continuous-optimization extension and is structurally a standard regression problem."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cited as a lower-bound extension showing fast low-memory streaming regression cannot generally hold, while linear regression itself is a standard problem."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Learning low-degree polynomials over F_2",
+   "note": "This is presented as a new application of the extractor theorem giving an n^{d+1}-memory versus exponential-samples tradeoff, not as a proof ingredient for the general theorem.",
+   "first_introduced_sec": 1240,
+   "spans": [
+    {
+     "start_sec": 1240,
+     "end_sec": 1307
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Learning low-degree polynomials over F_2 is described and its lower bound is stated, but the extractor property or parameters are not verified on this example.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 3,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Low-degree F_2 polynomials form an affine-invariant Reed–Muller-type family used as a new lower-bound application."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Degree-d F2 polynomial learning is the affine-invariant Reed-Muller evaluation setting used as a lower-bound application."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the degree-d F_2 polynomial/Reed-Muller class is affine-regular and used as a hard memory-sample lower-bound example"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Low-degree polynomials over F2 form the affine-invariant Reed-Muller algebraic family, used here as a new lower-bound instance."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Low-degree F_2 polynomials form a highly regular affine-invariant Reed–Muller-type family used for a new lower bound."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "low-degree F2 polynomial learning is the affine-invariant Reed--Muller-type family used for a new lower bound"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Low-degree polynomial learning over F2 is an algebraically regular Reed-Muller-type family used to realize the product-size memory lower bound."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as a new hard learning problem requiring large memory or exponentially many samples; the low-degree polynomial/Reed-Muller structure is algebraically regular."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Low-degree polynomials over F2 form the affine-invariant Reed–Muller family and are used to attain the product-size memory lower bound."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Low-degree F_2 polynomial learning is the affine-invariant Reed-Muller family used as a systematic lower-bound example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Degree-bounded polynomials over F2 form an affine-invariant Reed-Muller-type family used as a new lower-bound instance."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as a hard lower-bound instance; the low-degree polynomial/Reed-Muller class is affine-regular and realizes the tight product-size tradeoff."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Learning from low-degree equations",
+   "note": "The transpose of the polynomial-learning matrix gives a second application where the learner recovers an n-bit vector from random low-degree polynomial equations.",
+   "first_introduced_sec": 1307,
+   "spans": [
+    {
+     "start_sec": 1307,
+     "end_sec": 1397
+    }
+   ],
+   "total_seconds": 90,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Learning from low-degree equations is presented as the transpose consequence of the polynomial example with the same lower bound, without a concrete derivation.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 3,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Learning from low-degree equations is the transpose/dual Reed–Muller evaluation problem, again used constructively for a lower bound."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The low-degree-equation version is the transpose Reed-Muller-style algebraic setting used as a lower-bound application."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the transposed low-degree-equation problem inherits the affine Reed-Muller regularity and is presented as another hard lower-bound case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The transpose problem with low-degree equations inherits the same Reed-Muller-style affine regularity."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Learning from low-degree equations is the transpose low-degree finite-field model with the same regular algebraic structure."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "learning from low-degree equations is the transpose Reed--Muller-style problem and is used as another lower-bound instance"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Learning from low-degree equations is the transpose Reed-Muller-style problem, structurally regular and used as another tight lower-bound instance."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as the transposed hard learning problem with the same lower-bound obstruction; low-degree equations inherit the same affine algebraic regularity."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Learning from low-degree equations is the transpose algebraic/Reed–Muller-type problem with the same tight hard tradeoff."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Learning from low-degree equations is the transpose Reed-Muller-style problem with the same regular affine structure."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Learning from low-degree equations is the transposed Reed-Muller-style setup, again used as a lower-bound example rather than a refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as the transposed hard lower-bound instance; low-degree equations inherit Reed-Muller regularity and the same tight product tradeoff."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Noisy random linear equations",
+   "note": "The noisy parity problem is offered as a benchmark open problem whose tight lower bound would require techniques beyond the current extractor framework.",
+   "first_introduced_sec": 3679,
+   "spans": [
+    {
+     "start_sec": 3679,
+     "end_sec": 3728
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Noisy random linear equations appear only as an open problem with desired and current bounds stated, not analyzed in detail.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 4,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Noisy random linear equations are the noisy parity/LPN variant with uniform linear symmetry, posed as an open benchmark rather than a refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Noisy parity equations retain the linear GL-invariant structure and sit near the half-noise no-information boundary as an open target."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the noisy random linear-equation problem retains vector-space symmetry but is posed as an open benchmark rather than a proved refutation"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Noisy random linear equations retain parity’s linear symmetry and sit near the 1/2-noise boundary, posed as an enemy case for current techniques."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Noisy random linear equations retain the uniform F_2-linear symmetry and are posed as an open benchmark for tighter bounds."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "noisy random linear equations retain the symmetric parity structure but are posed as a challenge where current techniques give only weaker bounds"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Noisy random linear equations retain parity’s linear symmetry and are posed near the information-theoretic noise boundary at correctness 1/2+epsilon."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Posed as a hard noisy-parity benchmark beyond current techniques, with linear symmetry and signal just above the random-noise boundary."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Noisy random linear equations are a uniformly linear, invariant noisy-parity benchmark posed as an open problem rather than a counterexample."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Noisy random linear equations form the symmetric parity-with-noise benchmark posed as an open target."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Noisy random linear equations are the GL(n,2)-invariant LPN-type parity problem posed as an open challenge for sharper techniques."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Posed as a noisy-parity obstruction to current extractor techniques; the half-plus-epsilon signal is near the no-information boundary and remains linearly symmetric."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Number-on-forehead communication-complexity analogy",
+   "note": "An audience question proposes multiparty communication lower-bound techniques as an analogy, but the discussion emphasizes differences rather than extracting a new proof step.",
+   "first_introduced_sec": 3735,
+   "spans": [
+    {
+     "start_sec": 3735,
+     "end_sec": 4114
+    }
+   ],
+   "total_seconds": 379,
+   "attaches_to": [
+    "s8",
+    "s6"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "The number-on-forehead communication-complexity connection is raised as an analogy in questions, and the speaker only discusses at a high level why it may not directly apply.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 8,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The number-on-forehead model is the maximally shared, player-symmetric multiparty communication model invoked only as an analogy."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Number-on-forehead communication has a regular player-symmetric all-but-one information pattern and is used only as an analogy."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the number-on-forehead model is invoked only as a possible communication-complexity analogy"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The number-on-forehead model is invoked only as a standard communication-complexity analogy."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The number-on-forehead model is invoked only as an analogy for possible multipass lower-bound techniques."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "number-on-forehead communication is a symmetric maximal-information multiparty model invoked only as an analogy"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The number-on-forehead model is invoked only as a possible communication-complexity analogy, though its player/input access pattern is highly regular."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Invoked only as an analogy to possible multiparty communication reductions; the number-on-forehead model is player-symmetric."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The number-on-forehead model is player-symmetric and extremal in giving each party maximal side information, but is only raised as an analogy."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The number-on-forehead model is used only as a possible communication-complexity analogy."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The number-on-forehead model is a player-symmetric multiparty communication framework invoked only as a possible analogy."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Invoked only as an analogy or possible technique, and the number-on-forehead model has symmetric player roles."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Three-pass and read-twice branching-program variants",
+   "note": "Audience questions about more passes and read-twice programs illustrate the technical limits of the two-pass product construction.",
+   "first_introduced_sec": 4114,
+   "spans": [
+    {
+     "start_sec": 4114,
+     "end_sec": 4193
+    }
+   ],
+   "total_seconds": 79,
+   "attaches_to": [
+    "s7",
+    "s8"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "For three-pass and read-twice variants, the speaker reasons through why the two-pass product/path-independence argument fails and why the current method does not extend.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Three-pass and read-twice branching programs are cited as variants where the two-pass product/independence argument breaks down."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Three-pass and read-twice branching programs are raised as variants where the two-pass product argument no longer works."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the three-pass and read-twice variants are raised as standard generalizations where the two-pass product argument no longer works"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Three-pass and read-twice variants are ordinary branching-program models used to show where the two-pass product argument breaks down."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Three-pass and read-twice variants are raised as cases where the two-pass product-of-programs argument breaks down."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "three-pass and read-twice branching programs are raised as variants where the two-pass product argument breaks down"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Three-pass and read-twice branching programs are raised as minimal next variants where the two-pass/read-once proof technique breaks down."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Raised as variants where the two-pass/product proof does not extend, serving as obstructions to the current technique rather than special branching programs."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Three-pass and read-twice branching programs are boundary low-read variants cited as obstacles to extending the two-pass product argument."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Three-pass and read-twice variants are raised as obstruction cases where the two-pass product proof no longer applies."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Three-pass and read-twice branching programs are raised as natural variants where the two-pass product/independence argument breaks down."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Raised as boundary variants where the two-pass/read-once product proof breaks, serving as obstruction cases to that generalization."
+    }
+   ]
+  }
+ ]
+}

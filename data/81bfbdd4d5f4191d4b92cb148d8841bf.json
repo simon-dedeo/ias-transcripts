@@ -1,0 +1,1323 @@
+{
+ "key": "81bfbdd4d5f4191d4b92cb148d8841bf",
+ "title": "Colouring graphs with no odd holes",
+ "speaker": "Paul Seymour",
+ "affiliation": "Princeton University",
+ "date": "2014-09-22T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 3613.0,
+ "abstract": "The chromatic number \\(k(G)\\) of a graph \\(G\\) is always at least the size of its largest clique (denoted by \\(w(G)\\)), and there are graphs with \\(w(G)=2\\) and \\(k(G)\\) arbitrarily large. On the other hand, the perfect graph theorem asserts that if neither \\(G\\) nor its complement has an odd hole, then \\(k(G)=w(G)\\). (An ``odd hole\" is an induced cycle of odd length at least five.) What happens in between?",
+ "youtube_url": "https://www.youtube.com/watch?v=3Aldr6ZSZFs",
+ "page_url": "https://www.ias.edu/video/csdm/2014/0922-PaulSeymour",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Odd-hole chi-boundedness theorem and context",
+   "summary": "The talk motivates the problem through chi versus omega, recalls odd holes and perfect-graph background, states the Gyárfás odd-hole conjecture as a theorem with bound roughly 2^(3^omega), and announces a proof by reductions.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 747
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Cograph parity-splitting lemma",
+   "summary": "An auxiliary lemma is proved: when a stable upper set has a cograph recording the parity of induced paths through a lower set and every lower vertex has an upper neighbor, the lower set can be bipartitioned so that every maximum clique lying there meets both parts.",
+   "spans": [
+    {
+     "start_sec": 747,
+     "end_sec": 1295
+    },
+    {
+     "start_sec": 3553,
+     "end_sec": 3575
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Induction and leveling reductions",
+   "summary": "The proof proceeds by induction on clique number, reduces to bounding one level in a leveling by 24n^3 colors, and obtains the single-parent and parity properties for induced paths between vertices in a level.",
+   "spans": [
+    {
+     "start_sec": 1295,
+     "end_sec": 1796
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Spine and homogeneous attachment reduction",
+   "summary": "Using the single-parent property, a spine is chosen, vertices are classified into six attachment types relative to it, and the bottom level is split by type so that it suffices to handle a leveling with a spine whose attachments have one acceptable type.",
+   "spans": [
+    {
+     "start_sec": 1796,
+     "end_sec": 2393
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Parent rule from spine parity",
+   "summary": "The spine and parity properties are used to prove the parent rule: adjacent vertices in each relevant level have exactly the same parents; after this, the spine and single-parent hypotheses can be discarded.",
+   "spans": [
+    {
+     "start_sec": 2393,
+     "end_sec": 3023
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Stability reductions to the last two levels",
+   "summary": "The parent rule implies level L_{k-2} has no maximum clique, so it is n-colorable and the argument reduces first to L_{k-2} stable with a 4n^2 target, then to L_{k-1} stable with a 2n target.",
+   "spans": [
+    {
+     "start_sec": 3023,
+     "end_sec": 3225
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Cograph of jumps",
+   "summary": "With L_{k-1} stable, the graph whose edges are pairs joined by odd induced upper paths is well-defined by the parity property and is shown, using the parent rule, to contain no induced four-vertex path, hence to be a cograph.",
+   "spans": [
+    {
+     "start_sec": 3225,
+     "end_sec": 3484
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Final two-color split and induction closure",
+   "summary": "The cograph of jumps also controls parities of lower induced paths, so the cograph lemma partitions L_k into two parts meeting every maximum clique; each part has smaller clique number and is n-colorable, giving the required 2n bound and closing the induction.",
+   "spans": [
+    {
+     "start_sec": 3484,
+     "end_sec": 3597
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Triangle-free graphs with arbitrarily large chromatic number",
+   "note": "This standard family shows concretely that clique number alone cannot bound chromatic number, motivating extra induced-subgraph restrictions.",
+   "first_introduced_sec": 45,
+   "spans": [
+    {
+     "start_sec": 45,
+     "end_sec": 79
+    }
+   ],
+   "total_seconds": 34,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He invokes clique-number-two/triangle-free graphs with arbitrarily large chromatic number as a known counterexample to any reverse chi-omega bound, without constructing or analyzing them.",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "They refute any reverse bound of chi by omega, with omega fixed at the minimum nontrivial value 2 while chromatic number is unbounded."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "They push chromatic number arbitrarily high while keeping clique number at the triangle-free minimum, refuting a reverse chi–omega bound."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "They realize unbounded chromatic number at the minimal possible clique number 2 and are used to refute any reverse chi-omega bound."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Clique-number-two graphs with unbounded chromatic number sit at the minimal-clique extreme and are used to refute any reverse chi--omega bound."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "They witness unbounded chromatic number at clique number two, refuting any general reverse bound of chi by omega."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "clique number is held at the minimal nontrivial value 2 while chromatic number is unbounded, refuting any reverse bound by omega alone"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "They are used to refute any reverse bound of chromatic number by clique number, with clique number 2 the minimal setting for unbounded chromatic number."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "They refute any reverse bound of chromatic number by clique number, with extreme unbounded chi at fixed omega=2."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Refutes any general reverse bound of chromatic number by clique number, with extremal separation at fixed clique number 2."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used to refute any reverse bound of chi by omega, with unbounded chi at the minimal nontrivial clique number omega=2."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used to refute any general reverse bound from clique number to chromatic number, with the extremal feature that omega stays 2 while chi is unbounded."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "used to refute any general reverse bound of chromatic number by clique number, with clique number forced down to the minimal nontrivial value 2 while chromatic number is unbounded"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Odd cycles longer than triangles",
+   "note": "Odd cycles are presented as the basic obstruction with chi greater than omega, leading directly to the focus on odd holes.",
+   "first_introduced_sec": 107,
+   "spans": [
+    {
+     "start_sec": 107,
+     "end_sec": 156
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He uses odd cycles longer than triangles to define odd holes and then argues that in the triangle-free case any odd cycle yields an induced shortest odd cycle, so no odd holes implies no odd cycles.",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Odd cycles C_{2k+1}, k>=2, are symmetric 3-critical minimal non-bipartite obstructions with chi 3 and omega 2, used to show chi can exceed omega."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Odd holes are symmetric cycle graphs and minimal 3-critical obstructions with chi greater than omega."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Odd holes are highly regular minimally imperfect cycles with chi 3 greater than omega 2, used as the basic obstruction to chi equaling omega."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Odd holes are symmetric cycle graphs and minimal critical cases with chi 3 greater than omega 2, used as the basic failure of chi=omega."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Odd holes are highly symmetric 3-critical cycles with chi 3 greater than omega 2, used as the basic failure of chi=omega."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "non-triangular odd cycles are dihedrally symmetric 3-critical graphs with chi 3 greater than omega 2, used as the basic obstruction to chi=omega"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Odd cycles longer than triangles are the basic chi>omega examples, and as chordless odd cycles they are dihedrally symmetric 3-critical graphs."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Odd holes give the basic chi>omega obstruction, and chordless odd cycles are critical highly regular minimal non-bipartite examples."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Odd holes are the basic χ=3>ω=2 obstruction, and cycle graphs are dihedrally symmetric minimal non-bipartite graphs."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Odd holes are the basic obstruction to chi=omega/perfection, and cycles are highly symmetric minimal non-bipartite graphs."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Odd cycles longer than triangles are symmetric 3-critical holes with chi=3>omega=2, serving as the basic obstruction to chi=omega."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used as the basic obstruction where chi exceeds omega; odd holes are minimal 3-critical non-bipartite cycles"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Large-girth high-chromatic graphs",
+   "note": "In response to a proposed stronger conjecture, these graphs explain why a single forbidden induced graph would have to be a forest.",
+   "first_introduced_sec": 496,
+   "spans": [
+    {
+     "start_sec": 496,
+     "end_sec": 534
+    }
+   ],
+   "total_seconds": 38,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "He cites large-girth high-chromatic clique-number-two graphs only as a known obstruction showing a single excluded non-forest cannot suffice.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Erdos-type large-girth high-chromatic graphs are extremal sparse/high-chi families, used to show a single forbidden induced subgraph would have to be a forest."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Erdos-type large-girth high-chromatic graphs push girth and chi simultaneously high and obstruct forcing any fixed non-forest induced subgraph."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Large-girth high-chromatic graphs are extremal sparse high-chromatic constructions used to show forbidding one nonforest cannot suffice."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Erdos-type large-girth high-chromatic graphs push girth and chromatic parameters simultaneously and obstruct forcing any single non-forest induced graph."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Large-girth high-chromatic graphs are sparse extremal witnesses used to show non-forests cannot be forced as induced subgraphs."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "large-girth high-chromatic graphs are locally tree-like yet keep omega 2 and high chi, showing a fixed nonforest need not occur"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "They are invoked to show that forbidding one non-forest cannot force bounded chromatic number, and their simultaneous large girth and high chromatic number is an extremal sparse-coloring phenomenon."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "They obstruct forcing any fixed nonforest by bounded omega and large chi, while exhibiting extreme high chromatic number despite large girth."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used to show a single forbidden induced graph must be a forest, via the extremal coexistence of arbitrarily large girth and chromatic number."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used to show forbidding one non-forest cannot force bounded chromatic number, via graphs combining arbitrarily large girth with high chi."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used to show that excluding a single nonforest cannot force bounded chromatic number, via sparse high-girth graphs with arbitrarily large chi."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "used to show a single forbidden induced subgraph must be a forest, since high-girth high-chromatic triangle-free graphs avoid any fixed cyclic graph"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "The complement of C7 in the omega-three case",
+   "note": "The C7-complement illustrates the only possible odd antihole obstruction when clique number is three, giving context for the previously known case.",
+   "first_introduced_sec": 610,
+   "spans": [
+    {
+     "start_sec": 585,
+     "end_sec": 639
+    }
+   ],
+   "total_seconds": 54,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He identifies the complement of C7 as the only possible odd antihole when omega is three and says one can analyze attachments to it, but does not carry out that analysis in the transcript.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The vertex-transitive graph complement C7 is the boundary odd antihole compatible with omega 3, and it obstructs treating the no-odd-hole omega-three case as simply perfect."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The circulant graph complement C7 is the unique omega-3 odd-antihole obstruction to perfection in this case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The complement of C7 is a highly regular boundary odd antihole with omega 3 and chi 4, serving as the obstruction in the omega-three case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complement of C7 is a symmetric boundary case, the only odd antihole compatible with omega=3, used for structural analysis rather than refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The vertex-transitive C7 complement is the boundary odd antihole possible when omega=3 and obstructs perfection with no odd holes."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the C7 complement is a vertex-transitive boundary case, the only odd antihole possible when omega is 3, and serves as the nonperfect obstruction"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The complement of C7 is the odd-antihole obstruction to perfectness when omega=3, and it is the unique boundary antihole there and a vertex-transitive 4-critical graph."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The C7 complement is the unique odd-antihole obstruction when omega=3, a vertex-transitive critical graph with chi=4 and omega=3."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Acts as the ω=3 odd-antihole obstruction to perfection, and C7 complement is dihedrally symmetric and boundary-minimal with clique number 3."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The C7 complement is the sole omega-three odd-antihole obstruction to perfection, and is a symmetric boundary case with clique number 3 and chromatic number 4."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The complement of C7 is the symmetric minimally imperfect odd antihole that is the unique omega-3 obstruction to perfection in this case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used as the unique odd-antihole obstruction in the omega-3 case; it is the boundary antihole with clique number 3 and has the dihedral symmetry of C7"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Iterated C7-complement substitution lower bound",
+   "note": "This audience-prompted construction illustrates that the chromatic number can grow superlinearly in the clique number even with no odd holes.",
+   "first_introduced_sec": 660,
+   "spans": [
+    {
+     "start_sec": 660,
+     "end_sec": 715
+    }
+   ],
+   "total_seconds": 55,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "He explicitly runs the iterated C7-complement substitution construction and computes that the clique number grows like 3^n while the chromatic number grows like 4^n.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The iterated lexicographic substitution of complement C7 is a highly regular lower-bound family with omega=3^n and chi=4^n, ruling out a linear chi-bound."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Uniform iterated substitution of the symmetric C7-complement gives the lower-bound family with omega 3^n and chi 4^n, ruling out a linear bound."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The iterated C7-complement substitution is a symmetric lower-bound construction with omega 3^n and chi 4^n, ruling out a linear chi-bound."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular self-similar iterated C7-complement substitution gives chi=4^n versus omega=3^n, serving as a lower-bound enemy to linear or too-small chi-bounds."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The uniform iterated C7-complement substitution is a symmetric lower-bound family with omega 3^n and chi 4^n, ruling out a linear chi-bound."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "iterated C7-complement substitutions give self-similar lower-bound graphs with omega 3^n and chi 4^n, ruling out linear chi-bounds"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The iterated C7-complement substitution is presented as a lower-bound construction rather than a disproof, with a highly regular self-similar structure giving clique number 3^n and chromatic number 4^n."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The iterated substitution gives a superlinear lower bound chi=4^n versus omega=3^n, ruling out linear bounds and retaining self-similar symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Provides a lower-bound obstruction to linear χ–ω bounds, using a symmetric self-similar substitution family with ω=3^n and χ=4^n."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The iterated uniform C7-complement substitution gives a lower-bound family ruling out a linear chi-bound, with a regular self-similar extremal separation chi=4^n versus omega=3^n."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The iterated C7-complement substitution gives a symmetric lower-bound construction with omega=3^n and chi=4^n, ruling out much smaller bounds such as linear ones."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used as a lower-bound construction ruling out a linear chi-bound, via uniform iterated substitution with omega growing as 3^n and chi as 4^n"
+    }
+   ]
+  }
+ ]
+}

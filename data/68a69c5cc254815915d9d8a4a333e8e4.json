@@ -1,0 +1,1898 @@
+{
+ "key": "68a69c5cc254815915d9d8a4a333e8e4",
+ "title": "Optimization Landscape and Two-Layer Neural Networks",
+ "speaker": "Rong Ge",
+ "affiliation": "Duke University; Member, School of Mathematics",
+ "date": "2019-10-23T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3507.0,
+ "abstract": "Modern machine learning often optimizes a nonconvex objective using simple algorithm such as gradient descent. One way of explaining the success of such simple algorithms is by analyzing the optimization landscape and show that all local minima are also globally optimal. However, even for two-layer neural networks, the optimization landscape is hard to analyze and have many different regimes, depending on the size of a student network compared to the teacher network or the size of training set.",
+ "youtube_url": "https://www.youtube.com/watch?v=dmfyYXl0xUY",
+ "page_url": "https://www.ias.edu/video/machinelearning/2019/1023-RongGe",
+ "tags": [
+  "School of Mathematics",
+  "Seminar on Theoretical Machine Learning"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Symmetry obstructions to convex landscapes",
+   "summary": "The talk motivates landscape analysis as the missing explanation for simple gradient methods and shows that parameter symmetries in multi-component models make natural objectives nonconvex and saddle-rich.",
+   "spans": [
+    {
+     "start_sec": 14,
+     "end_sec": 553
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Locally optimizable template and neural-network limitations",
+   "summary": "The speaker defines locally optimizable functions as having only symmetric global local minima and only strict saddles, recalls successes in low-rank settings, and then explains why standard two-layer neural-network losses violate this hope and motivate exact-parameter and mildly overparameterized alternatives.",
+   "spans": [
+    {
+     "start_sec": 553,
+     "end_sec": 1029
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Symmetric-input one-ReLU moment identity",
+   "summary": "For the first result, the input law is assumed symmetric and a one-neuron warm-up proves the identity E[yx]=1/2 E[xx^T]w, yielding a method-of-moments recovery algorithm for a single ReLU neuron.",
+   "spans": [
+    {
+     "start_sec": 1029,
+     "end_sec": 1704
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Pure-neuron detector for hidden-layer inversion",
+   "summary": "A multi-output two-layer network is reduced to one-neuron problems by seeking directions u for which u^T A is a basis vector, and a higher-order moment equation is built whose vanishing detects exactly such pure neurons under general-position assumptions.",
+   "spans": [
+    {
+     "start_sec": 1704,
+     "end_sec": 2171
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Polynomial-time recovery via linearized equations",
+   "summary": "The detector is estimated from samples, its quadratic system is solved by linearization and simultaneous diagonalization, and each recovered direction is fed into the one-neuron estimator, with empirical behavior and limitations discussed.",
+   "spans": [
+    {
+     "start_sec": 2171,
+     "end_sec": 2554
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Quadratic-activation interpolation landscape",
+   "summary": "For the memorization result, quadratic activations show that about d neurons can fit about d^2 general-position samples, and when r>2d+2 all local minima of the squared loss interpolate the data.",
+   "spans": [
+    {
+     "start_sec": 2554,
+     "end_sec": 2938
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Random polynomial lifting for mildly overparameterized memorization",
+   "summary": "A fixed random polynomial first layer maps n samples to a roughly sqrt(n)-dimensional well-conditioned representation so the quadratic-layer landscape theorem gives gradient-descent interpolation with far fewer neurons than NTK, followed by empirical checks and open problems.",
+   "spans": [
+    {
+     "start_sec": 2938,
+     "end_sec": 3459
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Permutation symmetry in k-center clustering",
+   "note": "The k-center clustering picture shows that permuting indistinguishable components gives multiple equivalent optima whose convex average is not a valid optimum, producing the idea that symmetry obstructs convex reformulations.",
+   "first_introduced_sec": 234,
+   "spans": [
+    {
+     "start_sec": 234,
+     "end_sec": 422
+    }
+   ],
+   "total_seconds": 188,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reasons through the k-center solution, permutes centers, and uses the convex combination to show why a convex objective would create a bad two-center-like solution.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 1,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Unordered k-centers have full label-permutation symmetry and are used to obstruct convexity via permuted optima."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The unordered k-center parameterization has full label-permutation symmetry and is used as an obstruction to convexifying the objective."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The full center-label permutation symmetry is used to force a convex midpoint where two centers collapse, obstructing convexity."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The example uses permuted globally optimal k-center solutions with S_k symmetry to obstruct a convex objective formulation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Full permutation symmetry of unlabeled centers is used to obstruct a convex formulation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Unordered centers give permutation-symmetric optima whose convex average collapses two centers, obstructing convexity."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "unordered k-centers have permutation symmetry and are used as an obstruction to convexity"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Uses the S_k permutation symmetry of unordered centers whose convex average collapses two centers, obstructing convexity."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Unordered k-center solutions have full permutation symmetry and are used as an obstruction to convex parameter-space objectives."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Full permutation symmetry of the unordered centers is used as an obstruction to a natural convex parameter objective."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the unordered k-center parameterization has full permutation symmetry and is used as an obstruction to convex objectives"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the full permutation symmetry of unordered centers is used as an obstruction to convexifying the objective"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Sign-flip symmetric polynomial objective",
+   "note": "The even-power polynomial objective illustrates how sign symmetries create several equivalent minima and force saddle points along suitable connecting paths, motivating the strict-saddle part of the landscape template.",
+   "first_introduced_sec": 467,
+   "spans": [
+    {
+     "start_sec": 467,
+     "end_sec": 553
+    }
+   ],
+   "total_seconds": 86,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker analyzes the sign-flip symmetry of the polynomial objective, identifies the four symmetric minima, and reasons that saddle points arise along paths between them.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The even-power polynomial is invariant under coordinate sign flips and only illustrates symmetry-induced saddles."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The polynomial objective is invariant under coordinate sign flips and is used only to illustrate symmetry-induced saddles."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The even polynomial objective is invariant under independent coordinate sign flips and is used only to illustrate symmetry-induced saddles."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The polynomial objective is intrinsically invariant under coordinate sign flips and is used illustratively to exhibit saddles from symmetry."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The even-polynomial objective is sign-flip symmetric and illustrates saddle formation rather than refuting a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The even-power polynomial is invariant under coordinate sign flips and is used to illustrate symmetry-induced saddles."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the polynomial objective is built to be invariant under coordinate sign flips and illustrates saddle formation"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The even-power polynomial objective is invariant under coordinate sign flips and illustrates symmetry-induced saddles."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The even-power polynomial is invariant under coordinate sign flips and is used to illustrate symmetry-induced saddle points."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The even-polynomial objective has coordinate sign-flip symmetry and is used illustratively to show symmetry-induced saddles."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the even-power polynomial is invariant under coordinate sign flips and is used to illustrate saddles between symmetric minima"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the even-power polynomial is invariant under coordinate sign flips and is used illustratively to show symmetry-induced saddles"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Low-rank matrix and tensor recovery",
+   "note": "Low-rank matrix and tensor problems are cited as established settings where the locally optimizable landscape paradigm has succeeded, serving as background rather than producing a new idea in the talk.",
+   "first_introduced_sec": 609,
+   "spans": [
+    {
+     "start_sec": 609,
+     "end_sec": 665
+    }
+   ],
+   "total_seconds": 56,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Low-rank matrix and tensor recovery are cited only as contexts where locally optimizable landscape results have succeeded.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Low-rank matrices and tensors are rank-deficient relative to generic full-rank objects and are cited as positive landscape examples."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Low-rank matrices or tensors are rank-deficient/collapsed relative to generic full-rank objects, and they are cited as positive landscape successes."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Low-rank matrices and tensors are rank-deficient, lower-dimensional objects cited as successful locally optimizable cases."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Low-rank matrices and tensors are rank-deficient special members of the ambient matrix/tensor classes and are cited as positive landscape examples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Low-rank matrices and tensors are rank-deficient structured cases cited as positive locally-optimizable examples."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Low-rank matrices and tensors are rank-deficient relative to generic full-rank objects and are cited as positive locally-optimizable cases."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "low-rank matrices and tensors are rank-deficient members of their ambient matrix or tensor classes"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Low-rank matrices and tensors are rank-deficient lower-dimensional objects used as positive landscape examples."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Low-rank matrices and tensors are rank-deficient objects with fewer degrees of freedom, cited as positive success cases for benign landscapes."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Low-rank matrices and tensors are rank-deficient objects cited as positive locally-optimizable recovery cases."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "low-rank matrices and tensors are rank-deficient structured objects cited as positive locally optimizable cases"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "low-rank matrices and tensors are rank-deficient objects cited as positive locally optimizable recovery cases"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Gaussian teacher network with bad local minima",
+   "note": "A simple two-layer teacher network with Gaussian inputs and orthogonal hidden weights is used as a counterexample showing that standard neural-network losses need not be locally optimizable, forcing the talk toward other algorithms or overparameterization.",
+   "first_introduced_sec": 681,
+   "spans": [
+    {
+     "start_sec": 681,
+     "end_sec": 809
+    },
+    {
+     "start_sec": 870,
+     "end_sec": 967
+    }
+   ],
+   "total_seconds": 225,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The Gaussian teacher-network example is cited as a known setting with bad local minima, with facts stated but no derivation or construction carried out.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 6,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Gaussian/orthogonal teacher setup is highly regular and is used to refute the hope that all local minima are good."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The isotropic Gaussian teacher-network setting is symmetric and is invoked to refute the hope that such neural-network losses are locally optimizable."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Gaussian teacher setting has strong Gaussian symmetry and is used to exhibit bad local minima, refuting local optimizability for such networks."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A Gaussian teacher-network population loss has bad local minima, giving a symmetric-distribution counterexample to local optimizability."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A highly regular Gaussian teacher-network setting is used to refute the hope that all local minima are good."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Gaussian teacher setup is highly regular and its suboptimal local minima are extrema refuting the hope that all local minima are global."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "a Gaussian teacher-network instance with bad local minima refutes the hope that all local minima are global"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A Gaussian teacher-network landscape has a bad local minimum, a local extremum refuting local-optimizability."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A Gaussian teacher-network setting is highly symmetric and is invoked to refute the hope that simple two-layer networks are locally optimizable."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Gaussian teacher-network setting supplies bad suboptimal local minima, refuting the hoped-for locally-optimizable landscape."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "a Gaussian teacher setup has non-global local-minimal critical points, refuting the hoped-for locally optimizable landscape"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the rotationally symmetric Gaussian teacher setting is used to refute the hope that all such neural-network local minima are global"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "MNIST sign-flip augmentation for symmetric inputs",
+   "note": "The speaker uses black/white pixel flipping in MNIST to make the assumption of a symmetric input distribution concrete and less restrictive than Gaussianity.",
+   "first_introduced_sec": 1121,
+   "spans": [
+    {
+     "start_sec": 1121,
+     "end_sec": 1284
+    }
+   ],
+   "total_seconds": 163,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker concretely applies the sign-flip augmentation idea to MNIST pixels and checks that adding flipped images can make the input distribution symmetric.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The augmentation enforces central sign-flip symmetry on MNIST and serves only as motivation for symmetric inputs."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The sign-flip augmentation makes the input distribution centrally symmetric, serving as a motivating example rather than a disproof."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Adding both x and -x makes the MNIST input distribution centrally symmetric, serving as an illustrative augmentation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The MNIST augmentation is constructed to be invariant under the global sign flip x↦−x and motivates the symmetric-input assumption."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The augmented MNIST distribution is explicitly invariant under global sign flip and is used as motivation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The sign-flip augmentation explicitly makes the MNIST input distribution centrally symmetric."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the sign-flip augmentation makes the MNIST input distribution centrally symmetric"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Adding both x and -x makes the MNIST input distribution centrally symmetric as a motivating case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The sign-flipped MNIST augmentation is constructed to be invariant under x↦−x and motivates the symmetric-distribution assumption."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The sign-flip augmentation makes the MNIST input distribution centrally symmetric and motivates the symmetric-distribution assumption."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "sign-flip augmentation makes the MNIST input distribution centrally symmetric as a motivating example"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the sign-flip augmentation makes the input distribution centrally symmetric and serves as a motivating construction"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Gaussian single-neuron gradient-flow plot",
+   "note": "The plotted gradient flow for one ReLU neuron under Gaussian inputs illustrates that even the simplest population landscape can have delicate behavior near zero.",
+   "first_introduced_sec": 1368,
+   "spans": [
+    {
+     "start_sec": 1368,
+     "end_sec": 1531
+    }
+   ],
+   "total_seconds": 163,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker interprets the Gaussian single-neuron gradient-flow plot, locating w*, tracking arrow directions, and analyzing the small or undefined gradient near zero.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A single neuron is a minimal network and the standard Gaussian input is highly symmetric, with the plot used illustratively."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A single-neuron network is a minimal base-case architecture, and the Gaussian input gives a highly symmetric population landscape."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The Gaussian single-neuron landscape is a minimal base case with Gaussian symmetry, used to visualize gradient flow."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The plotted case is the minimal one-neuron warm-up under a Gaussian, hence a symmetric but base-case network example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The Gaussian one-neuron case is a symmetric minimal base case used diagnostically, not adversarially."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A single neuron is the minimal base case, and the Gaussian input gives a symmetric warm-up landscape."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the single-neuron Gaussian landscape is the minimal base case with a rotationally symmetric input distribution"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "It is the one-neuron base case under a rotationally symmetric Gaussian input, shown illustratively."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The Gaussian single-neuron plot studies the minimal one-neuron base case under a symmetric Gaussian input, as a warm-up rather than a disproof."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The maximally symmetric Gaussian input is paired with the one-neuron minimal base case to illustrate tricky gradient flow."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the Gaussian one-neuron model is a minimal base-case landscape with Gaussian symmetry, used as a warm-up"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the Gaussian input is highly symmetric and the single-neuron model is the minimal warm-up case"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Gaussian and symmetric-mixture recovery simulations",
+   "note": "Simulations on square two-layer networks, with and without label noise and with Gaussian or symmetric Gaussian-mixture inputs, illustrate that the moment-based recovery algorithm behaves as predicted.",
+   "first_introduced_sec": 2404,
+   "spans": [
+    {
+     "start_sec": 2404,
+     "end_sec": 2484
+    }
+   ],
+   "total_seconds": 80,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reports running the recovery algorithm in simulations with Gaussian and symmetric Gaussian-mixture inputs, varying size and noise and interpreting the errors.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Gaussian and centrally symmetric mixture inputs are symmetric distributional families used as positive recovery simulations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The simulations use Gaussian and explicitly symmetric-mixture distributions to verify the recovery algorithm, not to defeat a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The simulations use Gaussian and centrally symmetric mixture inputs to validate recovery rather than to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The simulations use Gaussian or sign-symmetric mixture input distributions to support the recovery algorithm."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Gaussian and sign-symmetric mixture inputs are regular symmetric simulation cases validating recovery."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The simulations use Gaussian or centrally symmetric mixture inputs to support the recovery algorithm."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the simulations use Gaussian and sign-symmetric mixture distributions as positive recovery tests"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The simulations use Gaussian or x-to-minus-x symmetric mixture inputs as positive recovery tests."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Gaussian and sign-symmetric Gaussian-mixture simulations use symmetric input distributions to demonstrate recovery performance."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Gaussian and centrally symmetric Gaussian-mixture inputs are used as positive recovery simulations."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the simulations use Gaussian or centrally symmetric mixture inputs to positively validate recovery"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Gaussian and centrally symmetric Gaussian-mixture inputs are used as positive recovery simulations"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "MNIST and PCA-MNIST memorization experiments",
+   "note": "Experiments on MNIST and on its top PCA directions illustrate the interpolation theorem and suggest that similar-sized ReLU networks also memorize despite the absence of a proof.",
+   "first_introduced_sec": 3197,
+   "spans": [
+    {
+     "start_sec": 3197,
+     "end_sec": 3309
+    }
+   ],
+   "total_seconds": 112,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker describes MNIST and PCA-MNIST memorization experiments, including loss curves, comparison with ReLU networks, and observed generalization behavior.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 9,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The experiments place small near-parameter-counting networks at the interpolation boundary by achieving zero training loss."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "MNIST/PCA-MNIST memorization experiments are ordinary empirical test cases for interpolation behavior, with no intrinsic special structure singled out."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The experiments exhibit interpolating zero-training-loss solutions, an optimal extreme for the empirical loss."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The MNIST/PCA-MNIST experiments exhibit interpolation at zero training loss, a global optimum of the empirical loss."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "MNIST and PCA-MNIST runs are ordinary empirical memorization tests rather than structural exceptions or counterexamples."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The experiments exhibit interpolating networks reaching zero training loss, a global-minimum endpoint, without serving as a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the experiments exhibit interpolating networks attaining the zero-training-loss global minimum"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The experiments exhibit zero-training-loss interpolation, i.e. global-minimum memorizing fits."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "MNIST and PCA-MNIST are used as empirical memorization tests, with no intrinsic sporadic, extremal, degenerate, or maximal-symmetry structure central to the example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The MNIST and PCA-MNIST trials exhibit zero-training-loss interpolating solutions rather than serving as a disproof."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the experiments reach the zero-loss interpolation extreme, with PCA-MNIST a low-dimensional projection"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the experiments exhibit interpolation at zero training loss with small networks rather than serving as a refutation"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1421 @@
+{
+ "key": "7d917e77db1f51976d3253a965edd879",
+ "title": "Random Perturbation of Toeplitz Matrices",
+ "speaker": "Charles Bordenave",
+ "affiliation": "Institute for Advanced Study",
+ "date": "2025-10-20T12:00:00Z",
+ "field_msc": "60 Probability theory and stochastic processes",
+ "duration_sec": 3576.0,
+ "abstract": "In 1947 John Von Neumann and Herman Goldstine, while developing the IAS computing machines, wrote a seminal paper on numerical errors in matrix computations. They suggested modeling the \"computing noise\" (coming from rounding errors, transcendental operations,...) by \"probabilistic noise\".  Nearly 80 years later, this pioneering idea remains an insightful paradigm in mathematical programming and numerical analysis. \nIn this lecture, we will explain how this perspective of Von Neumann and Goldstine can help us to understand outrageous numerical errors made by our current computers when computing eigenvalues of badly conditioned matrices. \nWe will take the example of Toeplitz matrices. These matrices form a rich class of matrices which appear in many areas of mathematics, physics and engineering. Toeplitz matrices are notoriously highly sensitive to small perturbations. They also come with a century-old rich theory that allows for a remarkably precise description of their spectral behavior under random perturbations.\nThe talk is based on a joint work with Mireille Capitaine and François Chapon.",
+ "youtube_url": "https://youtu.be/L1vV6YQNCak",
+ "page_url": "https://www.ias.edu/video/random-perturbation-toeplitz-matrices",
+ "tags": [
+  "Members’ Colloquium",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Toeplitz symbols and smoothed random model",
+   "summary": "The talk defines finite-band Toeplitz matrices through their Laurent-polynomial symbols and sets up the random perturbation model T_N(a)+sigma_N Y_N with iid noise in a chosen unitary basis, allowing sigma_N to tend to zero but not exponentially fast.",
+   "spans": [
+    {
+     "start_sec": 79,
+     "end_sec": 138
+    },
+    {
+     "start_sec": 619,
+     "end_sec": 801
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Global spectral regularization and limiting support",
+   "summary": "Known results are recalled: circulant matrices are diagonalized by Fourier transform, the empirical eigenvalue measures of Toeplitz plus noise converge to the same deterministic beta_sigma as the noisy circulant model, and the support of beta_sigma is explicitly described by an integral inequality.",
+   "spans": [
+    {
+     "start_sec": 801,
+     "end_sec": 1172
+    },
+    {
+     "start_sec": 1193,
+     "end_sec": 1382
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Outlier problem and winding-number dichotomy",
+   "summary": "The speaker formulates the local point process of eigenvalues in a domain outside the limiting support and identifies the winding number of a-z around the domain as the conditioning invariant: zero winding gives no outliers, while nonzero winding leads to zeros of a random analytic function.",
+   "spans": [
+    {
+     "start_sec": 1172,
+     "end_sec": 1193
+    },
+    {
+     "start_sec": 1382,
+     "end_sec": 1739
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Finite-rank reduction to a stable noisy circulant",
+   "summary": "A Toeplitz matrix is rewritten as a circulant matrix minus a finite-rank term PQ, so the problem becomes a finite-rank perturbation of the stable matrix S=C+sigma_N Y_N, whose resolvent fluctuations against fixed vectors are encoded in a renormalized matrix-valued master field.",
+   "spans": [
+    {
+     "start_sec": 1739,
+     "end_sec": 2252
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Sylvester determinant reduction of eigenvalues",
+   "summary": "Using Sylvester’s identity det(I+AB)=det(I+BA), zeros of the large characteristic determinant of S-PQ are reduced to zeros of the small determinant det(I-Q(S-z)^{-1}P).",
+   "spans": [
+    {
+     "start_sec": 2274,
+     "end_sec": 2442
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Szegő asymptotics and the zero-winding regime",
+   "summary": "The small determinant is expanded around the circulant resolvent, and the deterministic leading factor is identified as a Toeplitz/circulant determinant ratio whose nonzero limit in winding number zero follows from the strong Szegő theorem, proving absence of outliers there.",
+   "spans": [
+    {
+     "start_sec": 2456,
+     "end_sec": 2724
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Higher adjugates and nonzero-winding zero process",
+   "summary": "For nonzero winding, the rank of the limiting deterministic matrix has kernel dimension equal to the absolute winding number, so the first nonvanishing term in the determinant expansion is the corresponding higher-adjugate term applied to the limiting master field, giving the announced random analytic function whose zeros describe outliers.",
+   "spans": [
+    {
+     "start_sec": 2724,
+     "end_sec": 3232
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Hadamard/Fourier-basis numerical eigenvalues of a nilpotent Toeplitz matrix",
+   "note": "The speaker shows that a matrix whose true eigenvalues should be zero can numerically produce roots of unity and interior outliers, motivating the replacement of roundoff error by small random perturbations.",
+   "first_introduced_sec": 153,
+   "spans": [
+    {
+     "start_sec": 153,
+     "end_sec": 322
+    },
+    {
+     "start_sec": 346,
+     "end_sec": 490
+    }
+   ],
+   "total_seconds": 313,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He actually runs/quotes numerical eigenvalue computations for the nilpotent Toeplitz matrix in Hadamard and Fourier bases, describing the roots-of-unity circle and outliers.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 4,
+    "symmetric": 9,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the underlying finite shift is nilpotent with collapsed true spectrum, and the spurious root-of-unity numerics are used to exhibit nonnormal eigensolver instability"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the nilpotent Toeplitz shift has collapsed all-zero true spectrum while the spurious roots-of-unity numerics illustrate failure of eigenvalue stability"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The nilpotent shift has collapsed true spectrum at 0, while the displayed roots-of-unity numerical spectrum is highly regular and used to expose eigenvalue-computation instability."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the nilpotent Toeplitz/Jordan shift has a maximally collapsed zero spectrum and is used to expose failure of numerical eigenvalue computation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the underlying Toeplitz shift is nilpotent with collapsed exact spectrum, and the computation is used to show numerical eigenvalue output can be badly wrong"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the underlying nilpotent Toeplitz shift has collapsed true spectrum at 0 while the computed root-of-unity pattern is used to show numerical eigensolver failure"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Hadamard/Fourier-conjugated nilpotent Toeplitz shift is a maximally defective Jordan-type matrix with collapsed true spectrum and a highly regular root-of-unity numerical pattern, used to demonstrate failure of computed eigenvalues."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to demonstrate failure of numerical eigenvalue computation; the underlying shift is a collapsed-spectrum nilpotent of maximal nilpotency index with a highly regular Fourier/root-of-unity setup."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the nilpotent Toeplitz shift has collapsed spectrum at 0 and is used to show numerical eigenvalue routines can give spurious unit-circle eigenvalues"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "It is used to expose failure of numerical eigenvalue computation, while the nilpotent shift has its exact spectrum collapsed to zero."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The nilpotent Toeplitz/Jordan shift has its spectrum collapsed at 0 and is used to demonstrate catastrophic numerical eigenvalue instability."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the nilpotent Toeplitz shift has collapsed true spectrum and maximal Jordan-block pathology, while the spurious root-of-unity numerics demonstrate failure of naive eigenvalue computation"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Wilkinson-type instability of polynomial roots",
+   "note": "An audience comparison with Wilkinson instability illustrates that small coefficient or computational errors can drastically move roots/eigenvalues, but it is not used in the proof.",
+   "first_introduced_sec": 408,
+   "spans": [
+    {
+     "start_sec": 408,
+     "end_sec": 454
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Wilkinson instability is invoked as an analogy for polynomial-root ill-conditioning, with only general comments about flat characteristic polynomials and fluctuations.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson-type polynomials are invoked to show that tiny coefficient perturbations can make root locations unstable"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson-type root instability is invoked to show naive numerical stability of polynomial roots fails, without the polynomial being structurally exceptional"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson-type root sensitivity is an otherwise ordinary polynomial example deployed to show tiny perturbations can destroy root locations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson-type polynomials are ordinary polynomials deployed to show root-finding can be wildly ill-conditioned"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson-type polynomials are ordinary polynomials used here to demonstrate failure of stable root-finding under tiny perturbations"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson-type root sensitivity is invoked as the standard failure of stability under tiny polynomial coefficient perturbations"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson-type polynomials are invoked as ordinary simple-root polynomials whose roots can move wildly under tiny perturbations, refuting numerical stability."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson-type polynomials are invoked to show root-finding stability can fail, but the polynomial itself is not a classification-exception or extremal object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson root instability is invoked as a standard failure case for stability of polynomial roots under tiny coefficient perturbations"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson-type polynomials are invoked to show root-finding instability under tiny perturbations, but they are not classification-exceptional or structurally extremal here."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson-type polynomials are invoked to show that polynomial roots can be wildly ill-conditioned under tiny coefficient perturbations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Wilkinson-type polynomials are invoked as adversarial examples showing that polynomial roots can be wildly unstable under tiny perturbations"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Sample support picture for a chosen symbol and noise level",
+   "note": "A plotted support of beta_sigma for one symbol and one sigma makes concrete the formula describing the enlarged limiting spectral support.",
+   "first_introduced_sec": 1138,
+   "spans": [
+    {
+     "start_sec": 1138,
+     "end_sec": 1157
+    }
+   ],
+   "total_seconds": 19,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He shows a support plot for some symbol and noise level after giving the general support formula, but does not visibly compute or analyze that specific plotted instance.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the support plot for a chosen symbol and noise level is a representative illustration of the limiting support formula"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the plotted support for one chosen symbol and noise level is just a representative illustration of the limiting-support formula"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The plotted support for one chosen symbol and noise level is a representative illustration of the support formula."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the plotted support for one symbol and noise level is a representative illustration of the limiting spectral support formula"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the chosen symbol and noise-level support picture is a generic illustration of the limiting support formula"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the plotted support for a chosen symbol and noise strength is just an illustrative generic instance of the limiting support formula"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The plotted support for a chosen symbol and noise level is a generic illustration of the limiting spectral-support formula."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The support plot for a selected symbol and noise level is a representative illustration of the limiting-support formula."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the plotted support for one symbol and noise level is just a representative illustration of the limiting-support formula"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The support plot for a selected symbol and noise level is only an illustrative generic sample of the limiting spectral support."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The plotted support for a chosen symbol and noise strength is just a representative illustration of the limiting support formula."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the plotted support for a chosen symbol and noise level is used as a representative illustration of the limiting spectral support"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Blue symbol curve with winding-number regions",
+   "note": "The speaker uses a curve a(S^1) and points in complementary regions to visualize winding numbers such as 0 and -1 and their connection to conditioning and absence/presence of outliers.",
+   "first_introduced_sec": 1417,
+   "spans": [
+    {
+     "start_sec": 1417,
+     "end_sec": 1460
+    },
+    {
+     "start_sec": 1552,
+     "end_sec": 1576
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s3",
+    "s6"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He uses the blue symbol curve to identify winding-number regions such as 0 and -1 and connects those regions to conditioning and absence/presence of outliers.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the blue image curve with winding-number regions is a generic explanatory picture for the Toeplitz conditioning regimes"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the blue symbol curve with labeled winding regions is used to explain the winding-number criterion rather than to refute a claim"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The blue Laurent-symbol curve is used as a generic picture for winding-number regions, not as a structurally special object."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the symbol curve with winding regions is a generic explanatory picture for the winding-number criterion"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the symbol curve with winding regions is used to explain the winding-number criterion, not to refute a claim"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the blue symbol curve with winding-number regions is used to illustrate the winding-number criterion, not to refute a claim"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The blue symbol curve with labeled winding-number regions is a generic illustrative Laurent-symbol curve for explaining conditioning regimes."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The blue symbol curve and its winding-number regions are used to explain the theorem’s conditioning/outlier regimes, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the blue symbol curve with labeled winding regions is used pedagogically to explain the winding-number criterion"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The blue symbol curve with winding regions is used to explain winding numbers and conditioning, with no intrinsic special structure singled out."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The blue symbol curve with labeled winding-number domains is an ordinary explanatory picture of the winding-number decomposition."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the blue symbol curve and its winding-number regions are an ordinary schematic for explaining the winding-number criterion"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Winding-one Gaussian case and nilpotent shift/Bergman kernel",
+   "note": "For winding number one with Gaussian noise, and especially for the shift symbol a(omega)=omega, the limiting random analytic function has an explicit covariance kernel, illustrating the general zero-process theorem and the rank-one determinant reduction.",
+   "first_introduced_sec": 1644,
+   "spans": [
+    {
+     "start_sec": 1644,
+     "end_sec": 1739
+    },
+    {
+     "start_sec": 2393,
+     "end_sec": 2408
+    },
+    {
+     "start_sec": 3496,
+     "end_sec": 3564
+    }
+   ],
+   "total_seconds": 178,
+   "attaches_to": [
+    "s3",
+    "s5",
+    "s7"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "For the winding-one Gaussian/nilpotent-shift case he specializes the limit field and explicitly gives the covariance kernel, noting the Bergman-kernel limit as noise goes to zero.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 5,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the example uses the nilpotent shift with collapsed spectrum, while the Gaussian/Bergman-kernel limit is a highly regular disk-invariant case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the winding-one nilpotent-shift case is the minimal nonzero-index case with a collapsed nilpotent spectrum and a highly regular Bergman-kernel limit"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The explicit case uses the nilpotent one-step shift with collapsed spectrum and the canonical highly regular disk Bergman/Gaussian kernel to illustrate the limit law."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the winding-one Gaussian example uses the minimal nonzero winding case and the nilpotent shift with collapsed spectrum, yielding the highly symmetric disk Bergman kernel"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the nilpotent shift has collapsed spectrum and the Bergman-kernel unit-disc case is a highly regular explicit model of the theorem"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the monomial nilpotent-shift case has collapsed spectrum and yields the highly regular disk Bergman kernel as a simplest positive example"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The winding-one Gaussian nilpotent-shift case is the minimal nontrivial/maximally defective shift with collapsed spectrum and the highly symmetric unit-disk Bergman kernel, offered as an explicit model case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "This is an explicit illustrative winding-one Gaussian model; the nilpotent shift has collapsed spectrum and maximal nilpotency, while the Gaussian/Bergman unit-disk case is highly symmetric."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the solvable winding-one Gaussian nilpotent-shift case uses a collapsed nilpotent spectrum and the canonical disk Bergman kernel to illustrate the outlier limit"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "It is a simplest illustrative case; the nilpotent shift has collapsed spectrum and the unit-disc Bergman/Gaussian kernel is highly symmetric."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The Gaussian winding-one nilpotent-shift case is an explicit model whose shift has collapsed nilpotent spectrum and whose Bergman kernel gives the limiting covariance."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the winding-one Gaussian nilpotent-shift case is the simplest nonzero-winding/maximal-Jordan example, with the unit-disk Bergman kernel giving a highly regular symmetric limit"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Faraday-cage analogy for fixed-vector resolvents",
+   "note": "The electromagnetic analogy explains why deterministic test vectors outside the spectral support do not feel the random noise to first order, motivating the name of the resolvent cancellation effect.",
+   "first_introduced_sec": 2042,
+   "spans": [
+    {
+     "start_sec": 2042,
+     "end_sec": 2182
+    }
+   ],
+   "total_seconds": 140,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "Beyond naming the Faraday-cage analogy, he formulates the fixed-vector resolvent comparison between noisy circulant and noiseless circulant matrices and explains the vanishing first-order effect and renormalized master field.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "fixed deterministic vector resolvent probes are ordinary test objects used to explain the vanishing noise effect rather than to refute a claim"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the Faraday-cage fixed-vector resolvent comparison is an analogy for noise invisibility in scalar resolvent tests, not a structurally special object or counterexample"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Fixed deterministic test-vector resolvents are a generic probe, and the Faraday-cage comparison explains noise screening rather than refuting a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the Faraday-cage comparison is a typical fixed-vector resolvent test illustrating invisibility of the noise rather than refuting a claim"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the fixed-vector resolvent effect is an illustrative analogy for invisibility of noise in scalar matrix elements"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the Faraday-cage fixed-vector resolvent comparison is an explanatory analogy for a typical positive asymptotic invisibility effect"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The fixed-vector resolvent comparison is an ordinary scalar probe used to illustrate the Faraday-cage effect, not to disprove a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Faraday-cage comparison is an analogy for a typical fixed-vector resolvent effect rather than a counterexample or special classified object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the Faraday-cage comparison of fixed-vector resolvents is an explanatory analogy for a vanishing-noise effect, not a disproof example"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Faraday-cage comparison is an analogy for fixed-vector resolvent invisibility of noise, not a counterexample or a structurally special object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Faraday-cage comparison of fixed-vector resolvents is an analogy for a typical resolvent insensitivity phenomenon, not an obstruction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the Faraday-cage fixed-vector resolvent is an explanatory analogy for a typical finite test-vector phenomenon rather than a special obstruction"
+    }
+   ]
+  }
+ ]
+}

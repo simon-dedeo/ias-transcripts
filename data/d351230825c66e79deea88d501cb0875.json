@@ -1,0 +1,973 @@
+{
+ "key": "d351230825c66e79deea88d501cb0875",
+ "title": "Solution to the Paulsen problem (via operator scaling)",
+ "speaker": "Lap Chi Lau",
+ "affiliation": "University of Waterloo",
+ "date": "2018-06-07T12:00:00Z",
+ "field_msc": "15 Linear and multilinear algebra; matrix theory",
+ "duration_sec": 4288.0,
+ "abstract": "This workshop aims to explore connections between complexity and optimization with algebra and analysis, which have emerged from the works on operator scaling. The hope is to inform participants from different communities of both basic tools and new developments, and set out new challenges and directions for this exciting interdisciplinary research.",
+ "youtube_url": "https://www.youtube.com/watch?v=RIlhTbaJ9e8",
+ "page_url": "https://www.ias.edu/video/OCIT/2018/0606-LapChiLau",
+ "tags": [
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Paulsen problem and target bound",
+   "summary": "The talk defines equal-norm Parseval frames, formulates the Paulsen problem as bounding the movement from an approximately equal-norm Parseval frame to an exact one, reviews earlier n-dependent bounds, and states the main n-independent O(d^7 epsilon) result.",
+   "spans": [
+    {
+     "start_sec": 92,
+     "end_sec": 608
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Operator-scaling reformulation",
+   "summary": "Alternating frame normalizations are embedded into operator scaling by replacing each vector with a one-column matrix, leading to a generalized operator Paulsen problem whose first goal is an O(m^2 n epsilon) movement bound.",
+   "spans": [
+    {
+     "start_sec": 608,
+     "end_sec": 1224
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Continuous operator-scaling flow",
+   "summary": "Because the discrete alternating algorithm can fail by cycling or zigzagging, the proof introduces an infinitesimal left-and-right scaling ODE, derived by Taylor expanding the usual scaling steps and later identified as a gradient flow.",
+   "spans": [
+    {
+     "start_sec": 1224,
+     "end_sec": 1589
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Delta identities and path-length reduction",
+   "summary": "Using Gurvits's Frobenius-norm error delta, the analysis proves the identities dS/dt=-delta and ddelta/dt=-4 times the local movement, giving convergence to a balanced operator and reducing total movement to bounding the halving time of delta.",
+   "spans": [
+    {
+     "start_sec": 1589,
+     "end_sec": 2219
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Capacity control of the halving time",
+   "summary": "Capacity is shown to be invariant under the trace-zero flow and bounded between size and size minus mn sqrt(delta), which bounds the delta-halving time and yields the general operator movement estimate O(mn sqrt(delta)), hence O(m^2 n epsilon).",
+   "spans": [
+    {
+     "start_sec": 2219,
+     "end_sec": 2842
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Smoothed-analysis perturbation for frames",
+   "summary": "To remove the dependence on n in the original frame problem, the proof perturbs the input by small constrained Gaussian noise, controlling the perturbation movement while making the first-order change in delta vanish.",
+   "spans": [
+    {
+     "start_sec": 2842,
+     "end_sec": 3371
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Perturbed capacity lower bound via matrix reduction",
+   "summary": "The frame capacity bound is reduced to a matrix capacity bound, where the perturbation gives a pseudorandom matrix condition that implies fast delta decay, an n-improved capacity lower bound, and finally the stated polynomial-in-d movement bound independent of n.",
+   "spans": [
+    {
+     "start_sec": 3371,
+     "end_sec": 4109
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Consequences and open directions",
+   "summary": "The speaker explains that the same scaling-analysis ideas give condition-number and Brascamp-Lieb bounds under pseudorandom hypotheses and lists open questions on the tight d epsilon bound, efficient algorithms, and smoothed operator-scaling analysis.",
+   "spans": [
+    {
+     "start_sec": 4109,
+     "end_sec": 4283
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Overcomplete frame as an erasure-code representation",
+   "note": "The speaker compares the n=d case with an orthonormal basis and the n≫d case with redundant code coefficients that allow recovery after erasures, making equal-norm Parseval frames concrete without entering the proof.",
+   "first_introduced_sec": 120,
+   "spans": [
+    {
+     "start_sec": 120,
+     "end_sec": 174
+    }
+   ],
+   "total_seconds": 54,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The speaker uses overcomplete frames to motivate erasure-code representations, but only describes the application idea without carrying out a construction or calculation on an instance.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 4,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The erasure-code example is an equal-norm Parseval/tight overcomplete frame, used constructively rather than adversarially."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An overcomplete frame used for erasure coding is a standard redundant frame/application rather than a structurally special or adversarial case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An overcomplete Parseval/equal-norm frame is used as a representative redundant encoding device, not to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "An equal-norm Parseval overcomplete frame is structurally tight, and is used as coding motivation rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An overcomplete Parseval/equal-norm frame used for erasure coding is a standard redundant frame construction, not a sporadic, limiting, maximally symmetric, or adversarial case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An overcomplete frame used for erasure coding is a standard redundant frame, not a structural classification exception or adversarial case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as motivation/application, and the equal-norm Parseval frame is a tight, optimally conditioned frame."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An overcomplete Parseval/equal-norm frame is used as a motivating coding representation, not to refute a claim, and it is not intrinsically sporadic, extremal, degenerate, or maximally symmetric."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "used as a standard motivating application of redundant frames to erasure coding, with no intrinsic extremal or sporadic structure singled out"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An overcomplete equal-norm Parseval frame is used illustratively for redundant erasure-code representation, not to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as motivational encoding/application of frames, and an overcomplete frame is not intrinsically maximal-symmetric, extremal, exceptional, or collapsed."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "an equal-norm Parseval frame is an overcomplete tight/isotropic frame used as an application rather than a refutation"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Random unit vectors as approximate frames",
+   "note": "Random unit vectors are cited as an easy source of approximate equal-norm Parseval frames via matrix concentration, motivating why one asks for a nearby exact frame but not supplying a proof step.",
+   "first_introduced_sec": 266,
+   "spans": [
+    {
+     "start_sec": 266,
+     "end_sec": 304
+    }
+   ],
+   "total_seconds": 38,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Random unit vectors are cited as easy approximate frames via matrix concentration, with no concrete random frame analyzed or concentration estimate derived.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Random unit vectors are generic approximate frames used to show approximate solutions are easy to obtain."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Random unit vectors are invoked as generic approximate frames supplied by concentration, not as a failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Random unit vectors are generic approximate frame instances used to motivate the problem."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A sample of random unit vectors is a generic approximate frame supplied by concentration, not a failure case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Random unit vectors are presented as a generic source of approximate frames satisfying concentration bounds, not as a structurally special object or a failure case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Random unit vectors are presented as generic approximate frames supplying easy starting examples, not as failures of a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Random unit vectors are offered as generic approximate solutions, not as an obstruction or special classified object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Random unit vectors are presented as generic approximate frames obtained by concentration, serving as a source of examples rather than an obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "generic random unit vectors are presented as ordinary approximate frames obtained by concentration, not as an obstruction"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Random unit vectors are presented as a generic approximate-frame construction with no special intrinsic structure."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as an easy source of approximate frames, with random unit vectors being generic rather than structurally special."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "random unit vectors are generic approximate frames offered as easy starting examples"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Three-vector alternating-scaling cycle",
+   "note": "A small frame is described for which alternating normalization returns to the starting point, visibly forcing the move from the discrete alternating algorithm to a continuous simultaneous scaling flow.",
+   "first_introduced_sec": 1224,
+   "spans": [
+    {
+     "start_sec": 1224,
+     "end_sec": 1312
+    }
+   ],
+   "total_seconds": 88,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker runs the alternating scaling procedure on a three-vector example, explaining that one scaling step enforces the Parseval constraint and the next returns to the original input, producing a cycle.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The three-vector configuration is a collapsed/repeated-direction frame used to show the discrete alternating scaling algorithm can cycle and fail to converge."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The three-vector cycling configuration is a collapsed/non-scalable boundary example used to show the discrete alternating scaling algorithm need not converge."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The three-vector configuration is a nongeneric repeated/collinear frame instance producing a cycle, used to show the discrete alternating scaling algorithm need not converge."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The special three-vector cyclic/nonscalable configuration is a degenerate case used to show alternating scaling need not converge."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The three-vector configuration is a non-scalable boundary/imbalanced frame that enters a two-cycle, used to show the discrete alternating scaling algorithm need not converge."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The three-vector configuration is a support-degenerate frame causing the discrete alternating scaling algorithm to cycle rather than converge."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The three-vector configuration is used to show alternating scaling can cycle rather than converge, and its repeated/collapsed directions make it degenerate."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The three-vector configuration is used to show the discrete alternating scaling algorithm can fail to converge by cycling, and such a nongeneric scalability-obstructed configuration has deficient directional structure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a collapsed three-vector frame with repeated/collinear support is used to show the discrete alternating scaling algorithm can enter a nonconvergent cycle"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The three-vector configuration with repeated or collinear directions produces a two-step alternating-scaling loop, obstructing convergence."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "used to show the discrete alternating-scaling algorithm can fail to converge, and the small non-scalable cycling frame is a collapsed/degenerate configuration."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a collapsed/collinear three-vector configuration is used to show discrete alternating scaling can cycle instead of converge"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Matrix-scaling support/KL-divergence intuition",
+   "note": "In matrix scaling, capacity can be viewed through KL divergence to the doubly stochastic matrices, and increasing support by perturbation is presented as the intuition for why smoothed instances should have better capacity bounds.",
+   "first_introduced_sec": 3045,
+   "spans": [
+    {
+     "start_sec": 3045,
+     "end_sec": 3082
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The matrix-scaling support/KL-divergence point is presented as intuition for why perturbation helps, not as a worked calculation of capacity or KL divergence for a specific matrix.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 2,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The sparse-support matrix-scaling case is a boundary/low-support instance invoked as the bad KL-divergence obstruction that perturbation removes."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The matrix-scaling intuition concerns sparse/small-support matrices, which are boundary-degenerate cases explaining large KL divergence rather than a direct counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The matrix-scaling support example concerns sparse/zero-support matrices on the boundary of the positive matrix setting, used only as intuition for perturbation reducing KL divergence."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The matrix-scaling instance with restricted support is support-deficient and serves as perturbation intuition, not as a counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The matrix-scaling intuition concerns sparse or fixed-support matrices on the boundary of full support, used heuristically to explain large KL/capacity rather than to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The matrix-scaling intuition concerns sparse or support-restricted matrices, which are boundary cases with less support than a typical full matrix, used only heuristically."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The matrix-scaling analogy is explanatory, with sparse/fixed support acting as a lower-support degenerate case causing large KL divergence."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The matrix-scaling support/KL-divergence case is used as heuristic intuition for smoothing, and its sparse/fixed support is structurally degenerate relative to a typical dense matrix."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the sparse-support matrix-scaling picture is a boundary/zero-pattern case used heuristically to explain large KL divergence, not to refute a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Sparse fixed-support matrix-scaling instances are invoked as bad cases where KL divergence/capacity gap can be large."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "used as intuition for why perturbation helps in matrix scaling, with sparse or stuck support being a degenerate boundary-type matrix structure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "a sparse-support matrix-scaling instance is a degenerate support pattern used heuristically to explain large KL distance and the effect of perturbation"
+    }
+   ]
+  }
+ ]
+}

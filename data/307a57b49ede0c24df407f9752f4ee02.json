@@ -1,0 +1,1795 @@
+{
+ "key": "307a57b49ede0c24df407f9752f4ee02",
+ "title": "Mechanizing the Odd Order Theorem: Local Analysis",
+ "speaker": "Georges Gonthier",
+ "affiliation": "INRIA, France",
+ "date": "2011-01-20T12:00:00Z",
+ "field_msc": "20 Group theory and generalizations",
+ "duration_sec": 3860.0,
+ "abstract": "Abstract: In addition to formal definitions and theorems, mathematical theories also contain clever, context-sensitive notations, usage conventions, and proof methods. To mechanize advanced mathematical results it is essential to capture these more informal elements. This can be difficult, requiring an array of techniques closer to software engineering than formal logic, but it is essential to obtaining formal proofs of graduate-level mathematics, and can give new insight as well.",
+ "youtube_url": "https://www.youtube.com/watch?v=TczaUx0B92M",
+ "page_url": "https://www.ias.edu/video/special-seminar/gonthier",
+ "tags": [
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Formalization goal and Coq infrastructure",
+   "summary": "The talk motivates the Odd Order Theorem as a feasible first peak toward mechanizing the classification of finite simple groups and identifies typed logic, reflection, dependent types, canonical structures, type inference, and notation as the needed infrastructure.",
+   "spans": [
+    {
+     "start_sec": 59,
+     "end_sec": 564
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Global minimal-counterexample roadmap",
+   "summary": "The speaker outlines the Feit-Thompson strategy: a minimal odd-order simple counterexample is constrained by local analysis, character theory then produces an impossible norm inequality except for a finite-field case, and Galois theory eliminates that case by symmetric inequalities between two primes.",
+   "spans": [
+    {
+     "start_sec": 564,
+     "end_sec": 643
+    },
+    {
+     "start_sec": 888,
+     "end_sec": 1375
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Local analysis through uniqueness, transitivity, and p-stability",
+   "summary": "The local part analyzes Sylow subgroups and their normalizers, showing that the relevant maximal subgroups are mostly of Frobenius type and that the key uniqueness theorem follows from Thompson transitivity and a p-stability consequence valid for odd groups.",
+   "spans": [
+    {
+     "start_sec": 643,
+     "end_sec": 888
+    },
+    {
+     "start_sec": 1375,
+     "end_sec": 1678
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Coq statements and readable proof scripts for local theorems",
+   "summary": "The speaker displays Coq formalizations of p-stability, uniqueness, and transitivity and argues that a structured proof language can keep long human-written proof scripts close to the mathematical source while the system fills routine details.",
+   "spans": [
+    {
+     "start_sec": 1678,
+     "end_sec": 2394
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Large local-analysis theorem for exceptional maximal subgroups",
+   "summary": "The actual local analysis requires a large theorem packaging many properties of the non-Frobenius exceptional case, including the existence of a dual exception and the fact that all other maximal subgroups are conjugate to one of the two.",
+   "spans": [
+    {
+     "start_sec": 2394,
+     "end_sec": 2725
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Formal idioms for long and non-structural reasoning",
+   "summary": "To make large theorems usable, the formalization supports standard mathematical idioms such as without-loss-of-generality reductions, overloaded notation for direct sums and presentations, and circular inequality chaining with equality-condition extraction.",
+   "spans": [
+    {
+     "start_sec": 2725,
+     "end_sec": 2858
+    },
+    {
+     "start_sec": 2902,
+     "end_sec": 3539
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Methodological lesson for mechanizing big mathematics",
+   "summary": "The concluding lesson is that large-scale formalization must preserve established notation and proof methods where possible, while using machine support to experiment with and improve proof organization under controlled changes to traditional mathematical style.",
+   "spans": [
+    {
+     "start_sec": 3539,
+     "end_sec": 3852
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Four Color Theorem formalization",
+   "note": "The earlier machine proof of the Four Color Theorem is used as a motivating comparison for why the speaker now tests the same formalization tools on the larger Odd Order Theorem project.",
+   "first_introduced_sec": 59,
+   "spans": [
+    {
+     "start_sec": 59,
+     "end_sec": 93
+    },
+    {
+     "start_sec": 241,
+     "end_sec": 279
+    }
+   ],
+   "total_seconds": 72,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He cites the Four Color Theorem formalization as a previous project but does no work on it.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Cited as a previous formalization project, not as a structurally special object or a counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is cited as a prior formalization project, not as a structurally special object or failure case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A prior formalization project is cited for context, with no intrinsic special object-structure or refuting role at issue."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the Four Color Theorem gives the sharp maximum chromatic bound for planar graphs and is cited only as a prior formalization project"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "It is cited as a prior mechanization project, with no intrinsic exceptional or extremal structure being used."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Four Color Theorem formalization is cited as prior formalization work, not as a structural exception or failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "mentioned as a previous proof-formalization project, not as an obstruction or structurally special mathematical object here"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used only as a prior formalization project, with no special mathematical object structure invoked."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Four Color Theorem formalization is cited as prior mechanization work, not as an intrinsically special object or refutation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Four Color Theorem formalization is cited as a prior mechanization project, not as an adversarial object or a structurally special mathematical example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cited as an earlier formalization project rather than as a special mathematical object or refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is cited as a prior formalization project, not as a sporadic object, limiting case, extremal object, or refutation."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Matrix dimensions as dependent-type indices",
+   "note": "Matrices with dimensions recorded in their types make dependent types concrete without being part of the group-theoretic proof.",
+   "first_introduced_sec": 326,
+   "spans": [
+    {
+     "start_sec": 326,
+     "end_sec": 372
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He uses matrix dimensions as an illustration of dependent types indexing objects by values, without working through a matrix example.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Matrix dimensions are used as ordinary dependent-type indices, with no atypical matrix structure involved."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Matrix dimensions used as dependent-type indices are generic size parameters."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Arbitrary matrix dimensions are used as ordinary dependent-type indices, not as a special size case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "matrix sizes used as dependent-type indices are ordinary structural parameters, introduced only to illustrate Coq typing"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Matrix sizes are ordinary dependent-type parameters used to illustrate indexing by values."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Using matrix dimensions as dependent-type indices is an ordinary way to type rectangular matrices, with no special extreme or exceptional structure."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary matrix dimensions are used as a typical illustration of dependent-type indexing"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Matrix dimensions are ordinary indices for a matrix type, not a structurally atypical matrix object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Matrix dimensions used as dependent-type indices are an ordinary illustration of dependent typing, with no special mathematical structure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Matrix dimensions are used as ordinary dependent-type indices illustrating Coq's type system."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An m-by-n matrix indexed by its dimensions is an ordinary typed matrix example used to explain dependent types."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Matrix dimensions used as dependent-type indices are an ordinary illustrative use of typing, with no special structural status."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "One-generator cyclic subgroup",
+   "note": "The speaker explains the rank bound in the uniqueness theorem by noting that rank one would mean a cyclic subgroup, so the actual bound of two is only slightly more complicated.",
+   "first_introduced_sec": 1425,
+   "spans": [
+    {
+     "start_sec": 1425,
+     "end_sec": 1444
+    }
+   ],
+   "total_seconds": 19,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He states that a one-generator case would be cyclic while explaining rank bounds, but does not analyze a specific subgroup.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A one-generator cyclic subgroup is the minimal-generator/rank-one case, mentioned only as a simpler contrast."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A one-generator subgroup is the minimum-rank cyclic base case among nontrivial generated subgroups."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A one-generator cyclic subgroup is the minimal rank-one case, used only to contrast with the rank-two bound."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a one-generator subgroup is the minimal generator-rank case and hence cyclic, used only as a contrast with the rank-two bound"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A one-generator cyclic subgroup is the rank-one minimal-generator boundary case being contrasted with rank two."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A one-generator cyclic subgroup is the minimal-rank/simple base case among generated subgroups, mentioned only for comparison with the rank-two bound."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "a one-generator subgroup is the minimal-rank cyclic boundary case, used only as a comparison"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A one-generator cyclic subgroup is the rank-one/minimum-generator boundary case among subgroups."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A one-generator cyclic subgroup is the minimal rank-one generated case, mentioned only to explain the rank bound."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A one-generator cyclic subgroup is the minimal-rank subgroup case, used only as a comparison for the rank-two bound."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A one-generator subgroup is the rank-one cyclic/minimal generated case used only for comparison with the rank-two bound."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A one-generator cyclic subgroup is the minimal-rank generated case, used only as a comparison rather than to refute a claim."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Upper-left quadrant without loss of generality",
+   "note": "The quadrant example illustrates why formal proofs need a WLOG mechanism for symmetric situations rather than repeating the same proof several times.",
+   "first_introduced_sec": 2788,
+   "spans": [
+    {
+     "start_sec": 2788,
+     "end_sec": 2858
+    }
+   ],
+   "total_seconds": 70,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He invokes the upper-left quadrant as an analogy for without-loss-of-generality symmetry reductions, without carrying out the reduction.",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The upper-left quadrant is an arbitrary representative chosen by symmetry for a WLOG argument, not structurally special itself."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The upper-left quadrant is just a representative quadrant chosen for a WLOG argument."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The upper-left quadrant is just one representative symmetric case chosen for a WLOG argument."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the upper-left quadrant is just an arbitrary representative chosen under symmetry for a WLOG proof step"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The upper-left quadrant is only an arbitrary representative chosen by symmetry for a WLOG argument."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The upper-left quadrant is just a representative case chosen by symmetry in a WLOG argument, not itself an exceptional or extremal object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the upper-left quadrant is just a representative case chosen without loss of generality"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The upper-left quadrant is just an arbitrary representative chosen by symmetry for a WLOG argument."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The upper-left quadrant is just a representative case chosen by symmetry for a WLOG proof step."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The upper-left quadrant is a representative case in a WLOG symmetry argument, not a counterexample or special extreme object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The upper-left quadrant is just a representative WLOG case selected by ambient symmetry, not itself a special or adversarial object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The upper-left quadrant is just a representative case chosen by symmetry for a WLOG argument."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Eigenspace direct-sum notation",
+   "note": "A Feit-Thompson proof excerpt about eigenspaces covering a vector space is used to show how Coq notation and type inference recover the family underlying a displayed sum.",
+   "first_introduced_sec": 2902,
+   "spans": [
+    {
+     "start_sec": 2902,
+     "end_sec": 3203
+    }
+   ],
+   "total_seconds": 301,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He parses the eigenspace sum notation, explains the subspace-sum interpretation and directness predicate, and reasons through how type inference recovers the family.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A direct sum of eigenspaces is the independent/equality case where the subspaces decompose the whole space."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A direct eigenspace sum is the maximal-dimension equality case for summing subspaces."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A direct-sum eigenspace decomposition is the independent equality case for a subspace-sum decomposition, used to illustrate notation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a direct eigenspace decomposition is an equality/maximal-independence case for the dimension of a sum, used to discuss notation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A direct-sum eigenspace decomposition is the no-overlap equality case for the summed space."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A direct-sum decomposition of eigenspaces is the tight independent-sum case where the component dimensions add without overlap."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a direct eigenspace decomposition is the maximal-dimension equality case for a sum of subspaces"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A direct sum of eigenspaces is the no-overlap equality case for a subspace decomposition."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A direct sum of eigenspaces is the zero-overlap/maximal-rank decomposition, used to illustrate notation and inference."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A direct sum of eigenspaces is the independent/equality case for dimension additivity, illustrated as notation rather than as a failure case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The direct eigenspace sum is an equality/decomposition case where the subspaces cover without overlap, used to illustrate notation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "A direct-sum eigenspace decomposition is the zero-overlap, rank-additive equality case for sums of subspaces."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Group presentation notation",
+   "note": "The group-presentation display is mentioned chiefly to demonstrate that overloading and notation can make formal code resemble ordinary group-theoretic mathematics.",
+   "first_introduced_sec": 3203,
+   "spans": [
+    {
+     "start_sec": 3203,
+     "end_sec": 3239
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He briefly identifies group presentation notation as an overloading example and then says he will skip presentations.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Group presentation notation is used as standard notation for presentations, not for a special presentation or obstruction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Only generic group-presentation notation is mentioned, with no special presented group identified."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Generic group presentation notation is an ordinary way to specify groups and is not used adversarially."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "group presentation notation is a standard way to specify groups and is shown only as a notation example"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Group presentation notation is a standard way to specify groups by generators and relations."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Group presentation notation is used as a standard notational example, not as a special presentation or adversarial case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "generic group-presentation syntax is used to illustrate notation overloading"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The group-presentation example concerns general notation for presentations, not a special group."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Group presentation notation is presented as ordinary mathematical syntax supported by overloading."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Group presentation notation is presented as a standard notational device for generators and relations."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Generic group-presentation notation is used as an ordinary notation-overloading example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Group presentation notation denotes a generic generators-and-relations presentation rather than a special presentation."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Arithmetic-geometric mean equality condition",
+   "note": "The AGM inequality is cited as a familiar case where a chained inequality also carries an equality condition, motivating the circular-inequality toolkit.",
+   "first_introduced_sec": 3272,
+   "spans": [
+    {
+     "start_sec": 3272,
+     "end_sec": 3312
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He names the arithmetic-geometric mean equality condition as a typical chained-inequality case, without deriving or applying it.",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AM-GM equality condition is the sharp equality case, occurring when all entries are equal."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "AM-GM equality is the tight all-equal, collapsed, permutation-symmetric case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "AM-GM equality occurs at the all-equal symmetric point, the tight case of the inequality."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the AM-GM equality case is the tight case of the inequality, occurring at the fully equal symmetric configuration"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AGM equality case occurs at the fully equal configuration, giving the tight equality case of the inequality."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AM-GM equality condition is the tight equality case of the inequality, occurring in the regular all-equal configuration."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the all-equal AM-GM equality condition is the symmetric tight case of the inequality"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AGM equality condition is the tight all-terms-equal case, which is permutation-symmetric."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AM-GM equality condition is the sharp equality case, occurring at the symmetric all-equal configuration."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AM-GM equality condition is the sharp equality case, occurring at the symmetric point where all quantities are equal."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AGM equality case where all entries are equal is permutation-symmetric and the tight case of the inequality."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AGM equality case is the sharp case of the inequality, occurring at the fully regular all-equal tuple."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Rank of a sum of subspaces",
+   "note": "The inequality that the rank of a sum is at most the sum of the ranks, with equality exactly for a direct sum, exemplifies the formal chaining mechanism used to extract equality consequences.",
+   "first_introduced_sec": 3361,
+   "spans": [
+    {
+     "start_sec": 3361,
+     "end_sec": 3539
+    }
+   ],
+   "total_seconds": 178,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He states and applies the rank-of-a-sum inequality with equality iff direct, explaining how it chains inequalities and yields later properties.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The rank inequality for a sum of subspaces is tight exactly in the direct-sum case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The rank inequality for a sum of subspaces is tight exactly in the direct-sum maximal-rank case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The rank equality for a sum of subspaces is attained exactly in the direct-sum, maximal-rank case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the rank inequality for a sum of subspaces is tight exactly when the sum is direct, so it is used as an extremal equality lemma"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The rank inequality is tight exactly for a direct sum, the maximal-rank no-intersection case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The rank inequality for a sum of subspaces is discussed through its equality case, where a direct sum attains the maximal possible rank."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the rank bound for a sum of subspaces is tight exactly in the direct-sum maximal-rank case"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The rank inequality for a sum of subspaces is sharp exactly at the direct-sum equality case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The rank inequality for sums of subspaces is tight exactly for direct sums, a maximal-rank equality case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The rank inequality for a sum of subspaces is invoked with its equality case, namely a direct sum with maximal possible dimension."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The rank-sum equality/direct-sum case realizes the maximal possible rank of a subspace sum."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The rank inequality for a sum of subspaces is tight exactly in the direct-sum case, where rank is maximized additively."
+    }
+   ]
+  }
+ ]
+}

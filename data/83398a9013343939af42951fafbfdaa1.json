@@ -1,0 +1,588 @@
+{
+ "key": "83398a9013343939af42951fafbfdaa1",
+ "title": "Bipartite perfect matching is in quasi-NC",
+ "speaker": "Stephen Fenner",
+ "affiliation": "University of South Carolina",
+ "date": "2016-02-08T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3710.0,
+ "abstract": "We show that the bipartite perfect matching problem is in $\\textrm{quasi-}\\textsf{NC}^2$. That is, it has uniform circuits of quasi-polynomial size and $O(\\log^2 n)$ depth. Previously, only an exponential upper bound was known on the size of such circuits with poly-logarithmic depth. We obtain our result by an almost complete derandomization of the Isolation Lemma of Mulmuley, Vazirani, & Vazirani, used to yield an efficient randomized parallel algorithm for the bipartite perfect matching problem.",
+ "youtube_url": "https://www.youtube.com/watch?v=VWCCzPZjEfI",
+ "page_url": "https://www.ias.edu/video/csdm/2016/0208-Fenner",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "problem context and quasi-NC theorem",
+   "summary": "The talk defines matching and perfect matching, reviews randomized and special-case parallel algorithms, and states the joint result that bipartite perfect matching decision and search have uniform quasi-NC circuits of depth O(log^2 n) and size 2^{O(log^2 n)}.",
+   "spans": [
+    {
+     "start_sec": 43,
+     "end_sec": 396
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "determinant reduction using isolating weights",
+   "summary": "For a weighted bipartite graph, the speaker encodes edges by entries 2^{w(e)} in a biadjacency matrix so that an isolating weight function makes the determinant nonzero exactly when a perfect matching exists, recalling the randomized isolation lemma as the standard RNC route.",
+   "spans": [
+    {
+     "start_sec": 396,
+     "end_sec": 656
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "modular candidate weights and circulation obstruction",
+   "summary": "The proof replaces the exponentially large powers-of-two isolating weights by their residues modulo small integers and introduces cycle circulation, because two distinct minimum-weight perfect matchings can differ only along zero-circulation alternating cycles.",
+   "spans": [
+    {
+     "start_sec": 656,
+     "end_sec": 1097
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "small family forcing nonzero circulation",
+   "summary": "The first key lemma asserts that for any set of s cycles, one residue-modulo-j weight function with j at most n^2s gives nonzero circulation to all of them, so polynomially many short cycles can be handled using only O(log n)-bit weights.",
+   "spans": [
+    {
+     "start_sec": 1097,
+     "end_sec": 1249
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "derived-graph zero-circulation lemma",
+   "summary": "The derived graph, defined as the union of all minimum-weight perfect matchings for a given weight, is shown in the bipartite case to have only zero-circulation cycles and no extra nonminimum perfect matchings, with a later proof via the bipartite perfect-matching polytope.",
+   "spans": [
+    {
+     "start_sec": 1249,
+     "end_sec": 1530
+    },
+    {
+     "start_sec": 2759,
+     "end_sec": 3560
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "iterated elimination of short cycles",
+   "summary": "Using the fact that a graph with no cycles up to length r has at most n^4 cycles up to length 2r, the algorithmic proof conceptually forms successive derived graphs whose girth doubles until all cycles disappear, leaving a single perfect matching.",
+   "spans": [
+    {
+     "start_sec": 1530,
+     "end_sec": 2087
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "lexicographic gluing into one isolating weight",
+   "summary": "The stage-wise weights are combined as base-B digits in a master weight function, so the first stage at which any other perfect matching drops out gives a lexicographic weight comparison proving that the remaining matching is uniquely minimum in the original graph.",
+   "spans": [
+    {
+     "start_sec": 2087,
+     "end_sec": 2362
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "parallel exhaustive search and consequences",
+   "summary": "Since the correct sequence of modular weights is not known, all O(log n)-round choices are tried in parallel and each resulting determinant is tested, with Chinese-remainder implementation details preserving O(log^2 n) depth; the same framework also gives an RNC algorithm using O(log^2 n) random bits and several quasi-NC corollaries via known reductions.",
+   "spans": [
+    {
+     "start_sec": 2362,
+     "end_sec": 2744
+    },
+    {
+     "start_sec": 3560,
+     "end_sec": 3697
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "alternating blue-red octagon",
+   "note": "The pictured octagon in the symmetric difference of two matchings illustrates how a nonzero-circulation alternating cycle would allow a swap that lowers one of two supposed minimum-weight matchings.",
+   "first_introduced_sec": 935,
+   "spans": [
+    {
+     "start_sec": 935,
+     "end_sec": 998
+    }
+   ],
+   "total_seconds": 63,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker uses the blue-red octagon cycle to reason through nonzero circulation, swapping blue and red matching edges and deriving a contradiction to minimality.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "an ordinary 8-cycle with alternating matching colors, structurally regular/symmetric but used only to illustrate the circulation-swap argument, not to refute a claim"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "An alternatingly colored 8-cycle is a highly regular symmetric cycle used illustratively for swapping matching edges, not to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A regular alternating 8-cycle is a symmetric illustrative symmetric-difference cycle, not a refutation of a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "An alternatingly colored 8-cycle is a regular symmetric illustrative cycle in the matching-symmetric-difference argument, not used to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an ordinary even cycle with alternating matching edges used to illustrate the circulation-swapping argument, not to refute a claim"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "An alternately blue-red 8-cycle is a regular illustrative cycle in the symmetric-difference argument, not used to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "An alternating 8-cycle is used only to illustrate the matching-swap/circulation argument, and its regular alternating pattern gives it dihedral-type symmetry."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A regular alternating 8-cycle illustrating a symmetric-difference cycle, not used to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "an alternating 8-cycle used illustratively in the matching-swap argument, with regular cyclic symmetry but not to refute a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A regular alternating 8-cycle is used only to illustrate the matching-swap argument, not to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "It is an illustrative alternating 8-cycle in the symmetric difference of two matchings, with dihedral-type regularity but not used to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "An ordinary even cycle with alternating matching colors used illustratively to explain circulation, not to refute a claim."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "non-bipartite prism counterexample",
+   "note": "In response to a question, the speaker gives a weighted non-bipartite prism-like graph whose derived graph contains all edges and hence a nonminimum perfect matching, showing why the derived-graph lemma is genuinely bipartite.",
+   "first_introduced_sec": 3036,
+   "spans": [
+    {
+     "start_sec": 3036,
+     "end_sec": 3123
+    }
+   ],
+   "total_seconds": 87,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker constructs the prism counterexample with specified edge weights, identifies minimum perfect matchings and a weight-three nonminimum matching, and checks how the derived graph violates the bipartite corollary.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the triangular-prism weighted graph is a regular symmetric non-bipartite graph explicitly given to show the bipartite derived-graph lemma/corollary fails outside the bipartite case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The weighted triangular-prism graph has rotational prism symmetry and is explicitly given as a non-bipartite counterexample to the derived-graph zero-circulation/corollary."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The weighted triangular-prism graph is symmetric and is explicitly used to show the derived-graph zero-circulation/corollary fails outside the bipartite case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The weighted non-bipartite prism is a rotationally symmetric prism graph used explicitly to show the bipartite derived-graph lemma/corollary fails outside the bipartite case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the triangular-prism-type non-bipartite graph is explicitly used to show the derived-graph zero-circulation/corollary statement fails beyond bipartite graphs"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The weighted non-bipartite triangular-prism graph is used explicitly to show the bipartite derived-graph/circulation lemma fails outside the bipartite case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The weighted non-bipartite triangular prism is explicitly used to show the derived-graph zero-circulation corollary fails outside bipartite graphs, while retaining prism rotational symmetry."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A rotationally symmetric weighted triangular-prism graph is explicitly used to show the derived-graph circulation claim fails without bipartiteness."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the weighted triangular-prism graph is used to show the derived-graph zero-circulation corollary fails outside the bipartite case, and the prism is a regular symmetric graph"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The rotationally symmetric weighted triangular prism shows the derived-graph zero-circulation/corollary fails for non-bipartite graphs."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The weighted triangular-prism graph is explicitly used to show the derived-graph zero-circulation corollary fails outside the bipartite case, and the prism is a highly regular symmetric graph."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The weighted non-bipartite prism is explicitly used to show the derived-graph zero-circulation/corollary fails beyond bipartite graphs."
+    }
+   ]
+  }
+ ]
+}

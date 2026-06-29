@@ -1,0 +1,1926 @@
+{
+ "key": "feaf5fe43e259d973b59ac36c6f31b64",
+ "title": "Linear cover time is exponentially unlikely",
+ "speaker": "Quentin Dubroff",
+ "affiliation": "Rutgers University",
+ "date": "2022-03-28T12:00:00Z",
+ "field_msc": "60 Probability theory and stochastic processes",
+ "duration_sec": 3835.0,
+ "abstract": "Proving a 2009 conjecture of Itai Benjamini, we show:  For any C, there is a greater than 0 such that for any simple random walk on an n-vertex graph G, the probability that the first Cn steps of the walk hit every vertex of G is at most exp[-an].  A first ingredient of the proof is a similar statement for Markov chains in which all transition probabilities are less than a suitable function of C.  Joint with Jeff Kahn.",
+ "youtube_url": "https://youtu.be/RRvk2yFEI7w",
+ "page_url": "https://www.ias.edu/video/linear-cover-time-exponentially-unlikely",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Cover-time problem and linear-tail conjecture",
+   "summary": "The talk defines simple random walk and cover time on an n-vertex graph, recalls that expected cover time is at least about n log n, and motivates the conjecture that covering in only cn steps should have probability at most exponentially small in n.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 638
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Known local cases and the reentry obstruction",
+   "summary": "Previous results for bounded-degree graphs, trees, and expanders are reviewed, and the key difficulty is identified as controlling how a walk can reenter still-uncovered regions in ways that accelerate covering.",
+   "spans": [
+    {
+     "start_sec": 667,
+     "end_sec": 1084
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Bounded-transition Markov-chain theorem",
+   "summary": "The main graph theorem is reduced in spirit to a general finite Markov-chain theorem asserting exponential unlikelihood of linear cover time when transition probabilities are uniformly bounded by a small delta, with examples showing why such a nondeterminism condition is needed.",
+   "spans": [
+    {
+     "start_sec": 1116,
+     "end_sec": 1456
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Induced-chain smoothing and partition corollary",
+   "summary": "To handle graph vertices of small degree, the proof passes to induced chains on subsets of vertices, states a robust Markov-chain theorem for hitting a large subset with small incoming probabilities, and derives a partition corollary by applying the theorem to each part and taking a union bound.",
+   "spans": [
+    {
+     "start_sec": 1489,
+     "end_sec": 2128
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Finding partitions or proving slowness directly",
+   "summary": "The graph proof is completed at a high level by showing that suitable large partitions exist under spreading assumptions on the walk, while if those assumptions fail then the walk moves slowly enough that the desired linear-cover tail bound follows by easier means.",
+   "spans": [
+    {
+     "start_sec": 2128,
+     "end_sec": 2454
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Hard-to-hit vertices in the regular Markov-chain proof",
+   "summary": "For the Markov-chain theorem in the high-degree regular case, the proof introduces hitting times H_v, neighborhood-visit times R_v, and events Q_v saying v is hit only after many neighborhood visits, then shows that the set Z of such hard-to-hit vertices has linear expectation and strong concentration throughout the walk.",
+   "spans": [
+    {
+     "start_sec": 2454,
+     "end_sec": 3009
+    },
+    {
+     "start_sec": 3584,
+     "end_sec": 3678
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Negative correlation and failure of the naive union bound",
+   "summary": "A negative-correlation lemma bounds the probability that all Q_v hold on a set I by p^{|I|}, but an unrestricted union bound over all large possible I is too large, so additional structure of the fast-cover event is required.",
+   "spans": [
+    {
+     "start_sec": 3009,
+     "end_sec": 3209
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Structural compression and final union bound",
+   "summary": "Assuming both fast cover and large Z, the proof finds a small set Y' whose neighborhood captures many vertices of Z, enumerates only such structured choices of I, and chooses k and the degree d large enough that this enumeration times the negative-correlation probability is exponentially small.",
+   "spans": [
+    {
+     "start_sec": 3209,
+     "end_sec": 3555
+    },
+    {
+     "start_sec": 3678,
+     "end_sec": 3747
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Complete graph coupon-collector cover time",
+   "note": "The complete graph is worked out by the coupon-collector calculation to show that after cn steps linearly many vertices are still typically missing, motivating the exponential linear-cover conjecture.",
+   "first_introduced_sec": 135,
+   "spans": [
+    {
+     "start_sec": 135,
+     "end_sec": 220
+    },
+    {
+     "start_sec": 330,
+     "end_sec": 546
+    }
+   ],
+   "total_seconds": 301,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker computes the complete graph cover-time scale via coupon collector and then calculates the expected number of missing vertices after cn steps and uses concentration to get an exponential bound.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Complete graphs are maximally connected and vertex-transitive, used as the motivating low-cover-time coupon-collector case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally connected and highly symmetric, used as the coupon-collector benchmark rather than to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally symmetric and edge-maximal/minimal-diameter, and it is used as the motivating coupon-collector case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally symmetric and essentially minimizes cover time via the coupon-collector bound, serving as the motivating positive case."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the complete graph is maximally symmetric and dense, and is used as the motivating near-minimal cover-time case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally symmetric and essentially attains the lower extreme for expected cover time, serving as motivation rather than a disproof."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is the maximally symmetric coupon-collector model and is presented as essentially minimizing expected cover time, not as a refutation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is used as a motivating positive case and is edge-maximal/near-minimal for cover time."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally symmetric and asymptotically minimal for expected cover time, and is used as a motivating positive coupon-collector case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the complete graph is the maximally symmetric coupon-collector benchmark essentially attaining the minimum expected cover-time order"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph is maximally symmetric and essentially extremal for minimal cover time, and is used as a motivating positive case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as a motivating positive case, with K_n maximally symmetric and essentially extremal for minimal cover time."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Path-like graphs",
+   "note": "Paths and graphs roughly arranged like paths are cited as cases where standard Hoeffding or Chernoff-type estimates already imply the desired bound.",
+   "first_introduced_sec": 546,
+   "spans": [
+    {
+     "start_sec": 546,
+     "end_sec": 588
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Paths and path-like graphs are cited as cases where standard Hoeffding/Chernoff arguments apply, but no argument is carried out on them.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Paths are one-dimensional sparse/max-diameter boundary cases, used only as easy positive cases for the bound."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Path/path-like graphs are boundary connected graphs with linear diameter, used as easy special cases supporting the theorem."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Path-like graphs are sparse one-dimensional, near maximum-diameter boundary cases among connected graphs, used as standard positive cases."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Paths/path-like graphs are sparse one-dimensional boundary cases such as the max-diameter path, used as standard positive cases for the conjecture."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "path-like graphs are one-dimensional sparse graphs near the maximal-diameter end, cited only as easy positive cases"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Paths and path-like graphs are one-dimensional maximum-diameter connected graphs used as supporting cases for the bound."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Path-like graphs are sparse one-dimensional, minimal-connected boundary cases where standard concentration proves the desired bound."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Path-like graphs are cited as standard positive cases and are boundary sparse/large-diameter connected graphs."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Path-like graphs are sparse one-dimensional, maximal-diameter boundary cases used as easy positive cases for the theorem."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "path-like graphs are sparse one-dimensional, maximal-diameter-type cases used as easy supporting cases"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Path-like graphs are sparse one-dimensional/max-diameter examples used as easy positive cases for the bound."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as another positive case, and path-like graphs sit at the one-dimensional/maximal-diameter sparse end of connected graphs."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Expander graphs",
+   "note": "Expanders are mentioned as a previously understood case via Chernoff bounds for expander walks and later as graphs where far-apart vertex sets can furnish the desired partition intuition.",
+   "first_introduced_sec": 699,
+   "spans": [
+    {
+     "start_sec": 699,
+     "end_sec": 811
+    },
+    {
+     "start_sec": 2378,
+     "end_sec": 2400
+    }
+   ],
+   "total_seconds": 134,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Expanders are cited as covered by known Chernoff bounds and later as allowing far-apart vertex choices, without a concrete calculation or verification.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Expander graphs are a systematic high-connectivity family cited as a known positive case, not as an exceptional or adversarial object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Expanders are a standard graph family here cited as a known special case via Chernoff bounds."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Generic expander graphs are a systematic family with good expansion, not sporadic or necessarily optimal, and are cited as covered by existing Chernoff bounds."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Expanders are a systematic high-connectivity family, cited as a known positive case from Chernoff bounds rather than as a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "expanders lie at the high-connectivity/spectral-gap end of sparse graph behavior and are cited as a known positive case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Expanders are a systematic high-connectivity family cited as a previously covered case, not as a sporadic or adversarial object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Expanders are cited as a standard positive known case via Chernoff bounds, with no sporadic or maximal structure singled out."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Expanders are mentioned as a known positive case, and generic expanders are a systematic family not inherently maximally symmetric or sporadic."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Expander graphs are cited as a standard positive special case via random-walk Chernoff bounds, not as a sporadic or maximally symmetric object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "expanders are cited as a known special class covered by existing Chernoff bounds, not as sporadic or optimal objects in general"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Expanders have extremal spectral expansion/rapid mixing among sparse graphs and are cited as known positive cases."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as a known positive case, and expanders lie at the high-expansion/rapid-mixing end of sparse graph families."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Loosely connected graph portions",
+   "note": "A graph drawn as several weakly connected portions illustrates the reentry problem: after some parts remain uncovered, the walk may reenter them at favorable places and cover faster than expected.",
+   "first_introduced_sec": 811,
+   "spans": [
+    {
+     "start_sec": 811,
+     "end_sec": 909
+    }
+   ],
+   "total_seconds": 98,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reasons through a schematic graph made of loosely connected portions, discussing partial coverage, reentry into uncovered regions, and why that creates a difficulty.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Weakly connected portions are presented as an enemy configuration where uncontrolled reentry can obstruct naive/local arguments."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Weakly connected portions form a near-disconnected bottleneck configuration used as an obstruction to naive local/reentry arguments."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The loosely connected portions are schematic bottleneck graphs used as an adversarial reentry obstruction to naive/local proof ideas."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Loosely connected portions are near-decomposed low-connectivity configurations used as an enemy case for controlling reentry between regions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "loosely connected portions are presented as an adversarial bottleneck/reentry scenario obstructing naive arguments"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Nearly separated graph portions are near-disconnected bottleneck configurations used to illustrate an obstruction to controlling reentry."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Weakly connected graph portions are used as an enemy case for controlling reentry, and their near-disconnection is structurally degenerate."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Loosely connected portions are used as an adversarial obstruction to naive control of reentry, and they are near-decomposed low-connectivity graphs."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Loosely connected graph portions are an enemy case for controlling reentry, with unusually weak interconnection between pieces."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "loosely connected portions are a near-decomposed enemy case obstructing naive control of reentry"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Loosely connected portions form a near-disconnected bottleneck enemy case for controlling reentry into uncovered regions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used as an adversarial bottleneck/reentry obstruction to naive local arguments, with low-conductance portions at an extreme of connectivity."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Biased walk on a cycle",
+   "note": "A nearly deterministic Markov chain that moves around a cycle with probabilities 1/2+eta and 1/2-eta shows why the Markov-chain theorem needs a nondeterminism or bounded-transition-probability hypothesis.",
+   "first_introduced_sec": 1216,
+   "spans": [
+    {
+     "start_sec": 1216,
+     "end_sec": 1245
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The biased walk on a cycle is given as a simple Markov-chain example showing the need for a nondeterminism hypothesis, with only its behavior stated.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 5,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The biased cycle is a highly homogeneous near-deterministic chain used to show that a Markov-chain theorem needs a nondeterminism bound."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The biased cycle walk is near a deterministic cyclic chain and is used to show the Markov-chain theorem needs a nondeterminism/transition-probability hypothesis."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The biased cycle chain is a highly regular near-deterministic drift chain with near-minimal linear cover time, used to show a Markov-chain theorem needs a nondeterminism hypothesis."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The biased walk on a cycle is near a deterministic directed cycle and is used to show that a Markov-chain theorem without a transition-probability hypothesis would fail."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the homogeneous biased walk on a cycle is used to show a Markov-chain statement fails without a nondeterminism or transition-bound hypothesis"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The translation-invariant biased cycle can approach a deterministic directed cycle and is used to show an unqualified Markov-chain statement would fail."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The drifted walk on a cycle shows a Markov-chain statement without a nondeterminism bound would fail, while retaining cyclic translation symmetry."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The biased cycle walk is used to show a Markov-chain theorem needs a nondeterminism bound, and it is a near-deterministic boundary case with cyclic regularity."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The near-deterministic translationally invariant biased cycle covers in linear, minimal-order time, showing the Markov-chain statement needs a transition-probability hypothesis."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the biased cycle is a translation-regular near-deterministic chain with linear cover time showing a nondeterminism hypothesis is needed"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The biased cycle is a near-deterministic boundary chain with order-minimal linear cover time, used to show a nondeterminism hypothesis is necessary."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used to show that a Markov-chain theorem without a nondeterminism bound can fail, while the homogeneous cycle chain is rotationally symmetric."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Hamming cube",
+   "note": "The hypercube is cited as a nontrivial high-minimum-degree application and then as a setting where passing to parity classes smooths transition probabilities.",
+   "first_introduced_sec": 1312,
+   "spans": [
+    {
+     "start_sec": 1312,
+     "end_sec": 1352
+    },
+    {
+     "start_sec": 1631,
+     "end_sec": 1651
+    }
+   ],
+   "total_seconds": 60,
+   "attaches_to": [
+    "s3",
+    "s4"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The Hamming cube is named as a test case and as an application of the corollary, with no direct computation or detailed argument on the cube.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hamming cube is a highly regular vertex-transitive graph used as a test case for the positive theorem."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hamming cube is a highly symmetric standard graph family used as a test case, not as a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hamming cube is a highly symmetric distance-regular graph used as a difficult test case rather than a disproof."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hamming cube is a highly regular vertex-transitive graph family, used as a difficult positive test case rather than a counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the Hamming cube is a highly symmetric distance-regular graph used as a test case, not as a refutation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hamming cube is a highly vertex-transitive distance-regular graph used only as a test case for the corollary."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hamming cube is used as a highly symmetric distance-regular test case rather than as a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hamming cube is presented as a positive test case/application and is a highly regular vertex-transitive graph family."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hamming cube is a highly regular vertex-transitive test case where the corollary applies, not a counterexample."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the Hamming cube is used as a highly regular test case for the corollary, not as a refutation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hamming cube is a highly vertex-transitive distance-regular test case, not used to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a test case for the corollary, and the Hamming cube is highly regular and vertex-transitive."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Blowing up vertices into small cliques",
+   "note": "An audience question proposes replacing each vertex by a small complete graph to test the transition-probability condition, and the discussion explains that the induced laziness interacts with the c-dependent delta.",
+   "first_introduced_sec": 1352,
+   "spans": [
+    {
+     "start_sec": 1352,
+     "end_sec": 1407
+    }
+   ],
+   "total_seconds": 55,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "In response to the clique blow-up construction, the speaker analyzes how it makes the walk lazy and how the dependence of delta on c affects the proposed comparison.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The clique blow-up is a systematic construction raised as a would-be reduction and dismissed because laziness changes the time scale."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Clique blow-ups are raised as a possible reduction that fails because the induced laziness changes the time scale."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Blowing up vertices into small cliques is a standard graph construction raised as a possible modification, not as a refuting example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Uniformly blowing up vertices into cliques is a standard construction raised as a failed reduction because the induced laziness changes the time scale."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the clique blow-up is raised as an obstruction to a naive blow-up/laziness reduction, not as a structurally exceptional graph"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The clique blow-up is raised and rejected as a way to bypass the transition-probability issue because the induced laziness changes the time scale."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The clique blow-up is discussed as a naive degree-smoothing reduction that fails because it makes the walk lazy, and its clone cliques collapse to the original quotient."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Clique blow-ups are raised as a possible reduction/lazification idea, not as a refutation, and the construction is not intrinsically extremal without assumptions on the base graph."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Blowing up vertices into small cliques is discussed as a would-be reduction that fails because the added laziness changes the time and delta dependence."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "clique blow-ups are raised as a failed workaround to naively lower transition probabilities because laziness changes the time scale"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Blowing vertices into small cliques creates redundant twin-state clusters collapsing to a lazy quotient, raised as a possible workaround rather than a refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Raised as a possible blow-up construction rather than as a disproof, and a clique blow-up of an arbitrary graph has no sporadic, degenerate, extremal, or maximal-symmetry status."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Star graph induced on leaves",
+   "note": "Passing from a star to the induced chain on its leaves makes the next recorded leaf essentially uniform, illustrating how induced chains can smooth large transition probabilities.",
+   "first_introduced_sec": 1570,
+   "spans": [
+    {
+     "start_sec": 1570,
+     "end_sec": 1631
+    }
+   ],
+   "total_seconds": 61,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker explicitly runs the induced-chain construction on a star, explaining that from a leaf the walk goes through the center and returns uniformly to the leaves, yielding a complete graph.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A star with the induced chain on leaves yields a complete uniform chain, an extreme highly symmetric smoothing example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A star/its leaf-induced chain gives an extreme smoothing case, essentially a complete graph on leaves, with strong symmetry."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The star has all leaves interchangeable and is extremal among trees for maximum degree and minimum diameter, here illustrating maximal smoothing of the induced chain."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The star induced chain on the leaves becomes a complete graph, an extreme smoothing example with high symmetry."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "inducing the walk on the leaves of a star gives a complete-graph-like chain, a maximally symmetric and extreme smoothing example"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "For a star, the induced chain on the leaves is the complete uniform chain, an extreme smoothing illustration rather than a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The minimal-tree star induced on its leaves gives a complete induced chain, an extremal smoothing example with high leaf symmetry."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The star-induced chain on leaves is a positive illustration of maximal smoothing, with the leaf chain becoming a complete graph."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The star induced on its leaves gives a complete-graph induced chain, a highly symmetric and extremal smoothing illustration."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the star induced on its leaves gives a complete-graph induced chain, an extreme smoothing example with high symmetry"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The star induced on its leaves gives a complete uniform induced chain, a maximally symmetric and smoothing-extreme example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used to illustrate maximal smoothing of an induced chain, since a star on its leaves yields a complete, highly symmetric chain."
+    }
+   ]
+  }
+ ]
+}

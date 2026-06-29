@@ -1,0 +1,1048 @@
+{
+ "key": "97cbcc5bc32bdf662498daf006c76b35",
+ "title": "Shuffling is Universal: Statistical Additive Randomized Encodings for All Functions",
+ "speaker": "Nir Bitansky",
+ "affiliation": "New York University",
+ "date": "2026-05-18T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4240.0,
+ "abstract": "The shuffle model is a widely used abstraction for non-interactive anonymous communication. It allows n parties holding private inputs x1,…,xn to simultaneously send messages to an evaluator, so that the messages are received in a random order. The evaluator can then compute a joint function f(x1,…,xn), ideally while learning nothing else about the private inputs. The model has become increasingly popular both in cryptography, as an alternative to non-interactive secure computation in trusted setup models, and even more so in differential privacy, as an intermediate between the high-privacy, little-utility {\\em local model} and the little-privacy, high-utility {\\em central curator model}.\nThe main open question in this context is which functions f can be computed in the shuffle model with {\\em statistical security.} While general feasibility results were obtained using public-key cryptography, the question of statistical security has remained elusive. The common conjecture has been that even relatively simple functions cannot be computed with statistical security in the shuffle model.\nWe refute this conjecture, showing that {\\em all} functions can be computed in the shuffle model with statistical security. In particular, any differentially private mechanism in the central curator model can also be realized in the shuffle model with essentially the same utility, and while the evaluator learns nothing beyond the central model result.\nThis feasibility result is obtained by constructing a statistically secure {\\em additive randomized encoding} (ARE) for any function. An ARE randomly maps individual inputs to group elements whose sum only reveals the function output.\nSimilarly to other types of randomized encoding of functions,  our statistical ARE is efficient for functions in NC1 or NL. Alternatively, we get computationally secure ARE for all polynomial-time functions using a one-way function. More generally, we can convert any (information-theoretic or computational) ``garbling scheme'' to an ARE with a constant-factor size overhead.\nJoint work with Saroja Erabelli, Rachit Garg, and Yuval Ishai.",
+ "youtube_url": "https://youtu.be/FYV3iPLvomg",
+ "page_url": "https://www.ias.edu/video/shuffling-universal-statistical-additive-randomized-encodings-all-functions",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Shuffle MPC model and the shuffled-addition primitive",
+   "summary": "The talk sets up noninteractive multiparty computation, explains why one message per party cannot hide inputs, introduces anonymous shuffling with many messages per party, and recalls that additive functions can be computed statistically by secret-sharing into many shuffled shares.",
+   "spans": [
+    {
+     "start_sec": 110,
+     "end_sec": 750
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Universality question and main statistical theorem",
+   "summary": "After motivating the shuffle model through differential privacy and reviewing computational versus statistical security and previous conjectured barriers, the speaker states the main result: statistically secure shuffle MPC exists for all functions.",
+   "spans": [
+    {
+     "start_sec": 750,
+     "end_sec": 1627
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Additive randomized encodings as the target abstraction",
+   "summary": "The speaker defines additive randomized encodings, in which local randomized encodings are summed in an abelian group and simulatable from the output, gives the basic OR construction, and explains that an additive randomized encoding combined with shuffled addition yields shuffle MPC.",
+   "spans": [
+    {
+     "start_sec": 1627,
+     "end_sec": 2163
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Two-party reduction roadmap and leaky encodings",
+   "summary": "The proof is reduced to the two-party case via an intermediate leaky additive randomized encoding, whose allowed leakage is the left input only on zero-output instances and no extra information on one-output instances.",
+   "spans": [
+    {
+     "start_sec": 2163,
+     "end_sec": 2477
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Amplifying leaky encodings to full encodings for inner product",
+   "summary": "For inner product mod two, the left input is secret-shared across many leaky instances and the outputs are randomized with shares of zero, so with exponentially small error at least one instance hides the left input while the right input is not leaked.",
+   "spans": [
+    {
+     "start_sec": 2477,
+     "end_sec": 3007
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Inner product universality for arbitrary two-party functions",
+   "summary": "Any two-party Boolean function is reduced to inner product by having one party encode its input as a standard basis vector and the other as the corresponding truth-table slice, so a full encoding for inner product gives one for general functions.",
+   "spans": [
+    {
+     "start_sec": 3007,
+     "end_sec": 3074
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Constructing leaky encodings from bitwise OR",
+   "summary": "A leaky encoding for an arbitrary function is built from bitwise OR by masking all positions except the left input index and OR-ing with the right party's truth table; parallel copies of the OR additive encoding implement the required bitwise OR, completing the unconditional existence proof.",
+   "spans": [
+    {
+     "start_sec": 3117,
+     "end_sec": 3420
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4",
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Efficiency and robustness frontiers",
+   "summary": "The speaker explains how efficient variants would use decomposable randomized encodings and constant-size OT encodings, identifies decomposable encodings as the bottleneck beyond NC1 or computational assumptions, and ends with an open collusion-resistant extension connected to obfuscation.",
+   "spans": [
+    {
+     "start_sec": 3434,
+     "end_sec": 4205
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Single-message addition attack",
+   "note": "Addition of private inputs is used to show that, without shuffling or multiple messages, an evaluator can drop other messages and simulate zeros to recover an individual input, directly motivating the stronger shuffle model.",
+   "first_introduced_sec": 299,
+   "spans": [
+    {
+     "start_sec": 299,
+     "end_sec": 339
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explicitly runs the one-message attack for addition by dropping other messages, simulating zeros, and recovering an input",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 10,
+    "extremal": 7,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "It is the minimal one-message communication case used to demonstrate that privacy for addition fails by dropping/simulating messages."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The minimal one-message MPC setting for the symmetric addition function is used to show privacy is impossible."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the minimal one-message addition setting is a permutation-symmetric additive boundary case used to show noninteractive privacy fails"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Minimal one-message addition is a linear permutation-symmetric boundary case used to show the naive noninteractive MPC model leaks inputs."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "addition is a highly regular commutative aggregate in the minimal one-message setting, used to show privacy fails by dropping/simulating messages."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the one-message sum setting is the minimal communication boundary for a symmetric addition function and is used to show privacy fails."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the minimal one-message/no-interaction addition setting is used as an attack showing privacy failure by dropping other messages."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The one-message addition setting is a minimal-communication boundary case used to show privacy is impossible by dropping/simulating messages."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The one-message addition setting is used to show noninteractive MPC privacy fails, and the single-message case is the minimal collapsed communication regime."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The sum/addition function is a highly regular permutation-symmetric function, and the one-message attack is used to show plain noninteractive MPC privacy is impossible."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Symmetric finite-group addition in the minimal one-message setting, used to show the evaluator can recover inputs."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the minimal one-message addition setting, with addition permutation-symmetric, is used as the attack showing privacy cannot hold"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Random email addresses and Tor as anonymity mechanisms",
+   "note": "Random email accounts, Tor, and Google's shuffle-model motivation are mentioned only to make the anonymous shuffler assumption operationally concrete.",
+   "first_introduced_sec": 773,
+   "spans": [
+    {
+     "start_sec": 773,
+     "end_sec": 813
+    },
+    {
+     "start_sec": 952,
+     "end_sec": 992
+    }
+   ],
+   "total_seconds": 80,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "random email addresses and Tor are only cited as possible ways to realize anonymous communication, with no construction analyzed",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "They are ordinary illustrative anonymity mechanisms, not used to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "These are ordinary anonymity mechanisms cited only as implementations or analogies for shuffling."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "random email addresses and Tor are ordinary motivating anonymity mechanisms, not structural exceptions or refutations"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Random email addresses and Tor are ordinary motivating anonymity mechanisms, not structural outliers or disproof examples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "random email accounts and Tor are ordinary anonymity mechanisms used as implementation intuition, not as a refuting example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "random email accounts and Tor are ordinary anonymity mechanisms used only as implementation examples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "random email addresses and Tor are ordinary implementation examples for anonymous communication, not obstructions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Random email accounts and Tor are cited only as ordinary mechanisms for approximating anonymous communication."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Random email accounts and Tor are ordinary illustrative anonymity mechanisms, not used to refute a mathematical claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Random email accounts and Tor are ordinary illustrative anonymity mechanisms, not deployed to refute a mathematical claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary anonymity mechanisms cited only as possible implementations of anonymous communication."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "random email accounts and Tor are ordinary anonymity mechanisms used only to motivate the shuffle assumption"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Differential privacy central, local, and shuffle models",
+   "note": "Differential privacy is used as a motivating application where shuffle MPC universality would let central-model algorithms be compiled to the shuffle model without losing utility.",
+   "first_introduced_sec": 773,
+   "spans": [
+    {
+     "start_sec": 773,
+     "end_sec": 1058
+    },
+    {
+     "start_sec": 1227,
+     "end_sec": 1259
+    },
+    {
+     "start_sec": 1580,
+     "end_sec": 1627
+    }
+   ],
+   "total_seconds": 364,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the central, local, and shuffle DP models are described and compared as motivation, but no concrete DP protocol or task is worked through",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 10,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The central/local/shuffle differential-privacy models are used as standard contextual comparison models rather than as a failing case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The central and local DP models are endpoint models with the shuffle model presented as an intermediate motivation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the central and local DP models are endpoint trust models with shuffle presented as the intermediate, not as a disproof"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The central and local DP models are opposite endpoint trust regimes with the shuffle model presented as an intermediate, used for motivation rather than refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the central and local DP models are endpoint trust models with shuffle as an intermediate comparison, used for motivation rather than disproof."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the central and local differential-privacy models are opposite endpoints of the trust/randomization spectrum, with shuffle presented as an intermediate model."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the central and local DP models are endpoint cases of the trust/privacy spectrum, with shuffle presented as the intermediate model."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The central and local DP models are presented as opposite endpoints of a trust/privacy spectrum with shuffle as an intermediate model."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The central, local, and shuffle DP models are standard contextual models used to frame the question rather than as an obstruction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The DP discussion uses the central and local models as opposite endpoint trust models with the shuffle model between them, not as a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Central and local differential-privacy models are endpoint trust models with shuffle as an intermediate comparison."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "central and local DP are endpoint trust models, with shuffle presented as the permutation-symmetric intermediate"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Equality over a three-element domain",
+   "note": "In response to a question, equality on domain size three is cited as the simple function previously conjectured to separate statistical shuffle MPC from full universality, illustrating why the theorem is surprising.",
+   "first_introduced_sec": 1359,
+   "spans": [
+    {
+     "start_sec": 1359,
+     "end_sec": 1467
+    },
+    {
+     "start_sec": 1552,
+     "end_sec": 1580
+    }
+   ],
+   "total_seconds": 136,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker and audience examine equality on a three-element domain by testing addition/subtraction-style approaches and noting why they leak more than equality",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 9,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Equality on a three-element set is a highly symmetric simple function used as the conjectured hard/enemy case and as an obstruction to perfect security."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Equality on a three-element domain is the symmetric smallest hard case invoked as an obstruction/candidate separation for perfect or shuffle security."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "equality on a three-element set is invariant under relabeling and party swap and is invoked as the hard/impossibility case for perfect security"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Equality on three elements is the first non-Boolean highly domain-symmetric equality case and is cited as the conjectured obstruction/perfect-security impossibility example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "equality on a three-element domain is a highly domain-symmetric predicate used as the conjectured hard/enemy case and as an obstruction for perfect security."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "equality on a three-element domain is a highly symmetric minimal non-Boolean hard case used as a conjectured/known obstruction to stronger security."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "equality on a three-element domain is the highly symmetric minimal non-binary case cited as a candidate obstruction to perfect/statistical shuffle security."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Equality on a three-element domain is the minimal hard equality case cited as an obstruction to perfect security and a conjectured separation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Equality on a three-element domain is presented as a minimal hard enemy case for perfect/statistical shuffle security, and the equality relation is highly invariant under domain permutations."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Equality on a three-element domain is a maximally relabeling-symmetric minimal nonbinary equality case, cited as an obstruction to perfect security and a conjectured separating example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Permutation-symmetric equality on the minimal non-Boolean domain, cited as a conjectured/perfect-security obstruction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "equality on a three-element domain is the minimal nonbinary symmetric equality case used as a conjectured obstruction and perfect-security counterexample"
+    }
+   ]
+  }
+ ]
+}

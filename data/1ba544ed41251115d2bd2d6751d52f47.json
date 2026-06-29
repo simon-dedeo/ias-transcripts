@@ -1,0 +1,1712 @@
+{
+ "key": "1ba544ed41251115d2bd2d6751d52f47",
+ "title": "Mathematical Theories of Interaction with Oracles: Active Property Testing and New Models for Learning Boolean Functions",
+ "speaker": "Liu Yang",
+ "affiliation": "School of Computer Science, Carnegie Mellon University",
+ "date": "2013-02-11T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3872.0,
+ "abstract": "With the notion of interaction with oracles as a unifying theme of much of my dissertation work, I discuss novel models and results for property testing and computational learning, with the use of Fourier analytic and probabilistic methods.",
+ "youtube_url": "https://www.youtube.com/watch?v=w0sN8z7HTe8",
+ "page_url": "https://www.ias.edu/video/csdm/1213/0211-LiuYang",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Property-testing framework and membership-query motivation",
+   "summary": "The talk defines Boolean-function property testing, its distance promise, and its role as a preprocessing step before learning, then argues that classical membership queries are often unrealistic for machine-learning labelers.",
+   "spans": [
+    {
+     "start_sec": 104,
+     "end_sec": 660
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Active testing model and headline separations",
+   "summary": "Pool-based active learning is imported into property testing by allowing many cheap unlabeled samples but only a few label queries, yielding an active-testing model positioned between passive sampling and membership-query testing and summarized by query-complexity separations.",
+   "spans": [
+    {
+     "start_sec": 660,
+     "end_sec": 1119
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Noise-sensitivity tester for unions of intervals",
+   "summary": "For unions of d intervals, a local noise-sensitivity characterization shows that true interval unions have low noise sensitivity and functions far from them have noticeably higher noise sensitivity, giving a constant-label active tester and extending to general distributions via a CDF transform.",
+   "spans": [
+    {
+     "start_sec": 1119,
+     "end_sec": 1702
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "LTF testing via pairwise correlation statistics",
+   "summary": "For linear threshold functions, the upper bound is obtained by estimating a label-angle correlation expectation, replacing a naive linear-sample estimator with all pairwise statistics from about sqrt(n) samples and applying U-statistic concentration.",
+   "spans": [
+    {
+     "start_sec": 1702,
+     "end_sec": 2142
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Testing dimension and lower-bound consequences",
+   "summary": "A minimax, distribution-specific testing dimension is defined through priors and total-variation distances between induced label distributions, shown to characterize passive and active query complexity, and used to derive dictator and LTF lower bounds together with remaining active-testing gaps.",
+   "spans": [
+    {
+     "start_sec": 2142,
+     "end_sec": 3064
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Pairwise-similarity oracle model for DNF learning",
+   "summary": "The talk introduces Boolean and numerical pairwise queries for positive examples of a DNF, then uses the extra similarity information to learn disjoint and weakly disjoint DNF formulas by graphing shared-term relations and extracting conjunctions.",
+   "spans": [
+    {
+     "start_sec": 3064,
+     "end_sec": 3391
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Hardness via group-learning reduction",
+   "summary": "A reduction from group learning shows that, under arbitrary distributions, Boolean pair queries and even approximate numerical pair queries do not make general DNF learning easier than standard DNF learning.",
+   "spans": [
+    {
+     "start_sec": 3391,
+     "end_sec": 3564
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Exact numerical DNF learning under the uniform distribution",
+   "summary": "With exact numerical pair queries under the uniform distribution, landmark positive examples reduce learning to sums of monotone terms, which are learned efficiently by a Fourier-coefficient greedy procedure, leaving open the remaining combinations of query type and distribution.",
+   "spans": [
+    {
+     "start_sec": 3564,
+     "end_sec": 3848
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Testing linearity of Boolean functions",
+   "note": "The familiar linearity-testing promise is used to make the accept/reject/gray-zone definition of property testing concrete, but it is not used in the later arguments.",
+   "first_introduced_sec": 209,
+   "spans": [
+    {
+     "start_sec": 209,
+     "end_sec": 279
+    }
+   ],
+   "total_seconds": 70,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He uses linearity testing only to illustrate the accept/reject definition for property testing, without carrying out a linearity test or computation.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 7,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard linearity testing is used as a representative property-testing task, not as a structural exception or obstruction"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Highly regular algebraic Boolean-function property used as a standard positive illustration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Linearity is used as a standard illustrative Boolean-function testing property, not to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "linearity is used as a standard property-testing benchmark, with the linear/parity class being highly regular rather than adversarial."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "linear Boolean functions are highly algebraically regular characters, used here as a standard positive testing example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard Boolean linearity testing is used as an illustrative property-testing task, not as a special or adversarial object"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "linear Boolean functions form a highly regular algebraic class used as a standard testing example"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Canonical linearity-testing task used only to illustrate property-testing definitions, with no special structural status singled out here."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a standard positive property-testing example; linear Boolean functions form a highly regular algebraic class."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Linearity is a highly regular algebraic Boolean-function property used as a standard tester example, not to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "linearity is used as a standard illustrative property-testing problem, with the linear Boolean functions forming a highly regular algebraic class"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard linear/parity-function testing problem is used as a baseline illustration."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Artificial cat-versus-dog image query",
+   "note": "A computer-generated image in a cat/dog classifier illustrates why arbitrary membership queries may fall off the natural data manifold and be meaningless for a human labeler.",
+   "first_introduced_sec": 415,
+   "spans": [
+    {
+     "start_sec": 415,
+     "end_sec": 466
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The artificial cat-versus-dog image is invoked as an unrealistic membership query that humans cannot label, with no further analysis.",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the artificial cat/dog query is used to show membership queries can produce unlabelable out-of-distribution inputs"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Off-manifold synthetic image query used to show membership queries can be unlabelable for humans."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The artificial cat/dog query is an off-distribution query vector used to show membership queries can be unanswerable by humans."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the artificial cat/dog query is used to show that arbitrary membership queries can be nonsensical for human labelers."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the artificial cat/dog image is used to show arbitrary membership queries can produce human-unlabelable off-distribution inputs."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the artificial cat-versus-dog query is used to show membership queries can produce human-unanswerable out-of-distribution instances"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the artificial cat-dog query is used to show membership queries can produce unnatural unlabelable inputs"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Off-manifold artificial image vector lacking natural cat/dog image structure, used to show membership queries can be nonsensical."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A nonsensical artificial image query is used to show membership queries can fail because they lack natural image structure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The artificial cat/dog query lacks the structure of a natural image and is used to show membership queries can be meaningless for humans."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the artificial cat/dog query is used to show membership queries can be nonsensical, and the image lacks the coherent structure of natural images"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An unnatural constructed image is used as an obstruction to arbitrary membership queries."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Synthetic medical-record query",
+   "note": "A fabricated lab-file or medical-record instance illustrates that even formally valid feature vectors may not correspond to a real patient whom a physician can diagnose.",
+   "first_introduced_sec": 466,
+   "spans": [
+    {
+     "start_sec": 466,
+     "end_sec": 510
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The synthetic medical-record case is described as another unrealistic generated query for a physician, but no construction or calculation is performed on it.",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the synthetic medical record is used as an impossible/unrealistic query obstructing human oracle labeling"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Physiologically inconsistent synthetic record used to obstruct the realism of membership queries."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The synthetic medical record is used as an obstruction to realistic membership queries because no real patient need correspond to it."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the synthetic medical record is an obstruction example to the realism of membership-query labeling."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the synthetic medical record is used to show membership queries may generate medically incoherent cases with no real patient to label."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the synthetic medical record is used as an obstruction to the realism of arbitrary membership queries"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the synthetic medical record is used as an incoherent non-realistic input obstructing human membership-query labels"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Inconsistent synthetic medical record lacking real-patient structure, used as an obstruction to human-answerable membership queries."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A synthetic inconsistent medical record is used as an obstruction to human-answerable membership queries."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The synthetic medical record is an incoherent non-patient case used to show constructed membership queries can fail in practice."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the synthetic medical record is an obstruction to membership queries because it may not correspond to any real patient and lacks real-record consistency"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A synthetic nonexistent-patient record is used to show that membership queries can be unlabelable."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Movie-review bag-of-words representation",
+   "note": "Sentiment classification with bag-of-words vectors illustrates how a learner’s internal representation can discard structure that humans need in order to label examples reliably.",
+   "first_introduced_sec": 535,
+   "spans": [
+    {
+     "start_sec": 535,
+     "end_sec": 660
+    }
+   ],
+   "total_seconds": 125,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He takes the movie-review example, explains its bag-of-words Boolean-vector representation, and reasons through why that representation loses structure needed for human labeling.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "bag-of-words collapses sentence order and syntax and is used to show feature-vector queries may be hard for humans to label"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Order-forgetting bag-of-words vector used to show internal representations can be unlabelable despite valid source text."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The bag-of-words vector collapses sentence order and syntax and is used to show internal representations can make membership queries hard to label."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the bag-of-words vector collapses sentence order and syntax and is used to show membership queries can be hard even on valid data."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "bag-of-words collapses the sentence’s order and syntax, and is used to show valid internal representations can still defeat human labeling."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the bag-of-words vector collapses a review by discarding order and syntax, illustrating why internal representations can make membership queries hard for humans"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the bag-of-words vector is a collapsed text representation used to show internal feature queries may be hard for humans to label"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Orderless bag-of-words vector collapses sentence syntax and is used to show valid internal queries may still be hard to label."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The bag-of-words vector forgets word order and syntax and is used to show even in-support membership queries may be unlabelable."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Bag-of-words discards sentence order and syntax and is used to show internal representations may not be human-labelable."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the bag-of-words movie-review vector is used to expose a failure mode of membership queries and is a collapsed representation with word-order structure removed"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The order-forgetting bag-of-words vector is a collapsed representation used to expose a labeling failure mode."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Birthday-paradox close-pair analogy",
+   "note": "The birthday-paradox intuition explains why passive sampling needs many labeled examples before seeing nearby pairs, while active testing can search a cheap unlabeled pool for such pairs.",
+   "first_introduced_sec": 977,
+   "spans": [
+    {
+     "start_sec": 977,
+     "end_sec": 1027
+    },
+    {
+     "start_sec": 1516,
+     "end_sec": 1549
+    }
+   ],
+   "total_seconds": 83,
+   "attaches_to": [
+    "s2",
+    "s3"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The birthday paradox is cited only as an analogy for needing about square-root-many passive samples to see a close pair.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the birthday-paradox threshold is a critical collision bound used as an obstruction to passive close-pair sampling"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Critical birthday-threshold close-pair phenomenon used as the passive-model obstruction to few-sample local comparisons."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The birthday-paradox close-pair phenomenon is invoked as the obstruction forcing many passive samples before local comparisons are possible."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the birthday-paradox close-pair threshold is a critical square-root sampling phenomenon used to obstruct passive close-pair testing."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the birthday-paradox close-pair threshold is the critical sqrt-size collision scale and is used as an obstruction to passive local testing."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the birthday-paradox close-pair threshold is a critical square-root boundary used to obstruct low-query passive testing"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the birthday-paradox close-pair phenomenon is invoked as a sharp sampling-threshold analogy rather than a refuting example"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Critical birthday-paradox close-pair threshold supplies the passive-testing obstruction to getting local pairs with few labels."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The birthday-paradox close-pair threshold is a critical sample-size boundary used to argue passive testing cannot cheaply find close pairs."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The birthday-paradox close-pair threshold is invoked as the tight obstruction showing passive samples need about sqrt(d) before nearby pairs appear."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the birthday-paradox close-pair phenomenon is invoked as a lower-bound obstruction for passive sampling and concerns the critical collision threshold around square-root sample size"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The birthday-paradox phenomenon gives the critical square-root close-pair threshold obstructing passive testing."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Dictator functions as a testing-dimension lower-bound case",
+   "note": "Uniform random dictators versus random Boolean functions illustrate how the testing-dimension framework proves that small samples induce nearly indistinguishable label distributions.",
+   "first_introduced_sec": 2671,
+   "spans": [
+    {
+     "start_sec": 2671,
+     "end_sec": 2791
+    }
+   ],
+   "total_seconds": 120,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He uses dictator functions in the testing-dimension framework, chooses explicit priors, and reasons why their induced label distributions remain close up to order log n samples.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "dictators are minimal one-coordinate Boolean functions used as a lower-bound enemy case for testing dimension"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Minimal one-coordinate Boolean functions used as adversarial testing-dimension lower-bound instances."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Dictator functions are minimal one-coordinate Boolean functions used as an adversarial lower-bound case for testing dimension."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "dictators are minimal one-coordinate Boolean functions used as an adversarial lower-bound family for testing dimension."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "dictators are minimal one-coordinate Boolean functions, used as a hard lower-bound case requiring logarithmically many queries."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "dictator functions are one-coordinate projection base cases used to force a logarithmic active/passive testing lower bound"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "dictator functions are minimal one-coordinate Boolean functions used as an adversarial lower-bound case for testing dimension"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "One-coordinate minimal junta is used as an adversarial testing-dimension lower-bound instance requiring logarithmic queries."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Dictator functions are minimal one-coordinate Boolean functions used as a lower-bound obstruction to too-few active or passive queries."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Dictators are minimal nonconstant one-coordinate Boolean functions used as an adversarial lower-bound family requiring logarithmically many queries."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "dictator functions are used as a lower-bound case for testing dimension and are the minimal one-coordinate nonconstant functions in the junta hierarchy"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Dictators are minimal one-coordinate Boolean functions used as the adversarial lower-bound family."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Disjoint DNF warm-up",
+   "note": "The disjoint-DNF special case reveals the key pairwise-query idea—partition positive examples by the term they satisfy, learn each conjunction, and OR the results—which motivates the weakly disjoint algorithm.",
+   "first_introduced_sec": 3217,
+   "spans": [
+    {
+     "start_sec": 3217,
+     "end_sec": 3279
+    }
+   ],
+   "total_seconds": 62,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He runs the similarity-query learning idea on disjoint DNF by partitioning positives by term, learning each conjunction by intersection, and OR-ing the results.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "disjoint DNF is the zero-overlap boundary case used only as an easy positive warm-up"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Zero-overlap DNF base case used as an easy positive warm-up for the new queries."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Disjoint DNF is the zero-overlap boundary case with no term interactions, used only as an easy positive warm-up."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "disjoint DNF is the zero-overlap boundary case of DNF formulas, used only as an easy positive warm-up."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "disjoint DNF is the zero-overlap base case of DNF learning, used as an easy positive warm-up rather than a refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "disjoint DNF removes overlap between terms, making it a simplified warm-up positive case rather than an adversarial example"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "disjoint DNF is the zero-overlap boundary case of DNF formulas used only as an easy warm-up"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Zero-overlap DNF case is a limiting easiest boundary subclass used as a positive warm-up algorithm."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Disjoint DNF is the zero-overlap boundary case of DNF formulas, used only as an easy warm-up positive case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Disjoint DNF is the zero-overlap easy boundary subclass used as a warm-up positive case rather than a refutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "disjoint DNF is a warm-up positive case, with zero term-overlap as a simplified boundary case of general DNF formulas"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Disjoint DNFs have zero term-overlap, a simplified boundary subclass used as a positive warm-up."
+    }
+   ]
+  }
+ ]
+}

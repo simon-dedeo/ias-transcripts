@@ -1,0 +1,2150 @@
+{
+ "key": "0f04451f7cd06bf45c82b32c9248cf3d",
+ "title": "Computing Homology Cycles with Certified Geometry",
+ "speaker": "Tamal Dey",
+ "affiliation": "Ohio State University",
+ "date": "2012-03-07T12:00:00Z",
+ "field_msc": "55 Algebraic topology",
+ "duration_sec": 3293.0,
+ "abstract": "Does not exist",
+ "youtube_url": "https://www.youtube.com/watch?v=476fwLONR64",
+ "page_url": "https://www.ias.edu/video/topology/dey",
+ "tags": [
+  "School of Mathematics",
+  "Topology"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Optimization problems for certified homology cycles",
+   "summary": "The talk motivates feature localization, fixes mostly Z/2 coefficients, distinguishes computing homology ranks from computing geometrically good generators, defines weighted smallest bases, and states three target results: optimal H1 bases, point-cloud approximation, and optimal homologous cycles.",
+   "spans": [
+    {
+     "start_sec": 16,
+     "end_sec": 863
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Greedy shortest-basis algorithm from canonical cycles",
+   "summary": "For H1 over Z/2, the homology classes form a vector space, so a greedy independent selection from any cycle set containing an optimal basis is optimal; shortest-path-tree canonical cycles over all roots provide such a set, yielding an initial polynomial-time algorithm whose bottleneck is independence testing.",
+   "spans": [
+    {
+     "start_sec": 863,
+     "end_sec": 1233
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Cohomological annotations for fast independence tests",
+   "summary": "The speaker defines simplex annotations as bit vectors whose cycle sums classify homology classes, explains their cohomological meaning, states they can be computed in matrix-multiplication time, and uses them to reduce the shortest-basis complexity substantially.",
+   "spans": [
+    {
+     "start_sec": 1233,
+     "end_sec": 1644
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Rips-complex approximation from point samples",
+   "summary": "For an epsilon-sample of a smooth closed manifold embedded in Euclidean space, a Rips complex at a suitable scale is built and the shortest-basis algorithm is applied, with reach and convexity-radius hypotheses giving length bounds that converge to the true shortest H1 basis as sampling densifies.",
+   "spans": [
+    {
+     "start_sec": 1644,
+     "end_sec": 2109
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Integer and linear programming formulation of homologous-chain localization",
+   "summary": "The talk switches to the optimal homologous cycle/chain problem, notes NP-hardness over Z/2, formulates the Z-coefficient version as an integer linear program using the boundary matrix and sign-splitting, and identifies total unimodularity as the condition allowing relaxation to an ordinary LP.",
+   "spans": [
+    {
+     "start_sec": 2109,
+     "end_sec": 2703
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Topological criteria for total unimodularity",
+   "summary": "Polynomial-time solvability follows when the relevant boundary matrix is totally unimodular, and the speaker gives topological sufficient and equivalent conditions: orientable compact manifolds, a torsion-free relative-homology characterization over pure subcomplexes, and a useful R3/Alexander-duality case.",
+   "spans": [
+    {
+     "start_sec": 2703,
+     "end_sec": 3024
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Implementations and open algorithmic directions",
+   "summary": "The talk shows experimental localizations, discusses practical LP bottlenecks and available shortest-basis code, and closes with questions about improving the asymptotic bounds and supporting efficient updates under changing complexes.",
+   "spans": [
+    {
+     "start_sec": 3024,
+     "end_sec": 3269
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3",
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Molecular cavity or tunnel",
+   "note": "A molecular-modeling picture is used to illustrate that holes and cavities to be localized are naturally homological features, not to derive the algorithm.",
+   "first_introduced_sec": 97,
+   "spans": [
+    {
+     "start_sec": 97,
+     "end_sec": 127
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He cites molecular cavities or tunnels as application features corresponding to homology, without computing or checking anything on the molecular example.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A molecular tunnel or cavity is an ordinary homological feature used as an application example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A molecular cavity or tunnel is an ordinary motivating homological feature, not a structurally special object or a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary molecular holes/tunnels are used as motivating homological features, not as structurally special objects"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A molecular tunnel or cavity is an ordinary applied homological feature motivating localization."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A molecular cavity or tunnel is used as an ordinary motivating homological feature."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary cavity/tunnel homological feature used as application motivation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A molecular cavity or tunnel is an ordinary homological feature used as application motivation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A molecular cavity or tunnel is used as a motivating ordinary homological feature, not as a failure case or structurally special object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A molecular cavity or tunnel is used as an ordinary motivating homological feature in data."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A molecular cavity or tunnel is used only as a motivating homological feature to detect."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Molecular cavities/tunnels are ordinary homological features used as motivation, not to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary molecular cavity/tunnel used as an application homological feature, not as a failure case or structurally special object"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Brain aneurysm anomaly",
+   "note": "A processed aneurysm image illustrates feature recognition by homological cycles in medical data.",
+   "first_introduced_sec": 127,
+   "spans": [
+    {
+     "start_sec": 127,
+     "end_sec": 157
+    }
+   ],
+   "total_seconds": 30,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He shows a processed brain aneurysm anomaly as an application image, but only describes it as joined-up/anomalous homological feature.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The aneurysm anomaly is an application-motivating topological feature, not a structurally special mathematical object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The brain aneurysm anomaly is used as an application example of feature detection, not as a mathematical counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the aneurysm anomaly is an application feature detected by cycles, not a mathematical counterexample or classification exception"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The aneurysm anomaly is an applied topological feature, not a structurally special mathematical object or refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The aneurysm anomaly is a motivating application feature rather than a structurally special mathematical object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A medical topological anomaly used as an application example, not a mathematical classification exception."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The aneurysm defect is an application-motivating anomalous feature rather than a structurally exceptional mathematical object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The brain aneurysm anomaly is an application example of feature detection rather than a mathematical counterexample or special classified structure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The aneurysm anomaly is an application-motivating feature, not a mathematical disproof case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The brain aneurysm anomaly is an application example of feature detection, not a mathematical obstruction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The aneurysm anomaly is a motivating feature-detection case, not a structural classification exception or counterexample."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "aneurysm connection anomaly motivates feature detection but is not a mathematical counterexample or a classified special object"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "CAD holes to be filled",
+   "note": "Machine-part holes in CAD are used as an application where localized homological features guide model editing.",
+   "first_introduced_sec": 157,
+   "spans": [
+    {
+     "start_sec": 157,
+     "end_sec": 206
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He uses CAD holes as an application scenario for recognizing and filling features, without carrying out a construction on a CAD model.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The small CAD holes are typical localized homological features to be detected and filled."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The CAD holes are ordinary holes to be localized and filled, with no intrinsic extremal or exceptional structure."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "small CAD holes are routine geometric-topological features to localize and fill"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The CAD holes are ordinary homological features targeted for recognition and filling."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The CAD holes are ordinary local topological features to be detected and filled."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Ordinary small CAD holes are used as features to localize and fill."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The CAD holes are ordinary localized homological features to detect and fill."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The CAD holes are ordinary localized homological features to be found and filled, with no intrinsic extremal or exceptional structure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The CAD holes are ordinary localized homological features to be detected and filled."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The small CAD holes are ordinary localized homological features to be recognized and filled."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The CAD holes are ordinary holes to be localized and filled, with no optimal or sporadic structure asserted."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "small CAD holes are ordinary homological features to locate and fill, with no optimal or exceptional structure asserted"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Surface parameterization by cutting cycles",
+   "note": "Computer-graphics flattening of a surface illustrates why one wants short nontrivial cycles before parameterization.",
+   "first_introduced_sec": 206,
+   "spans": [
+    {
+     "start_sec": 206,
+     "end_sec": 242
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He mentions surface parameterization requires cutting along nontrivial cycles and preferably short ones, but does not work through a parameterization example.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Cutting a surface along homology cycles for parameterization is a standard use of cycles, with no special intrinsic structure specified."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The cutting cycles for surface parameterization are standard nontrivial homology cycles used constructively."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "surface cut cycles for parameterization are ordinary nontrivial cycles, though the application motivates making them short"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cutting cycles for surface flattening are ordinary nontrivial cycles here, with shortness only a desideratum rather than a displayed optimum."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cutting cycles for surface parameterization are presented as standard nontrivial cycles, not a singled-out optimum."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Nontrivial surface cutting cycles are a standard parameterization device, though later one may optimize their length."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The cut cycles are standard nontrivial surface cycles used for flattening, with no optimality asserted in the example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cutting cycles for surface parameterization motivate why arbitrary topology is insufficient for flattening, but the cycles themselves are ordinary nontrivial cycles."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cutting cycles for surface parameterization are presented as a standard use case rather than as intrinsically special objects."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cutting cycles for surface parameterization are presented as a standard application of homology cycles."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cutting cycles for surface parameterization are presented as a standard application of homology cycles, not a special object by themselves."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "cutting cycles for surface flattening are standard nontrivial cycles, with shortness desired but no certified extremality in the example"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Double torus good versus bad basis",
+   "note": "A double torus with long generators contrasted against short handle loops makes the optimal-basis objective concrete.",
+   "first_introduced_sec": 311,
+   "spans": [
+    {
+     "start_sec": 311,
+     "end_sec": 357
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He uses the double torus picture to contrast undesirable generators with smaller desired ones, but does not derive or compute the basis on it.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The desired basis on the ordinary genus-two surface is selected for being shortest/minimal among homology bases."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The double-torus picture contrasts a geometrically bad generating basis with the desired shortest basis, showing arbitrary generators are inadequate."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the desired double-torus basis is the smallest-weight homology basis among generating cycle bases"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The double-torus example contrasts a bad arbitrary basis with the desired shortest basis, using the bad basis as an enemy case against arbitrary generators."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The double-torus picture contrasts a bad arbitrary basis with a shortest basis, showing arbitrary generators are insufficient."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The bad double-torus basis shows arbitrary generators can fail geometrically, while the desired good basis is minimal-weight."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The long basis is a bad case showing arbitrary generators can fail geometrically, while the preferred basis is shortest among homology bases."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The double-torus comparison shows a generating basis can be geometrically bad while the desired basis is shortest among bases."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The bad double-torus basis shows arbitrary generators can fail geometrically, while the desired basis is shortest."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The desired double-torus basis is singled out as the smallest/optimal homology basis rather than an arbitrary one."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The double-torus illustration contrasts arbitrary generators with the desired shortest homology basis, which is extremal by minimality."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the bad double-torus basis is an enemy case to arbitrary generators while the desired basis is shortest among generating bases"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Red cycle shortened within its homology class",
+   "note": "A given surface cycle is shown being replaced by the shortest representative in the same class, illustrating the optimal homologous cycle problem.",
+   "first_introduced_sec": 470,
+   "spans": [
+    {
+     "start_sec": 470,
+     "end_sec": 530
+    }
+   ],
+   "total_seconds": 60,
+   "attaches_to": [
+    "s1",
+    "s5"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He describes the red cycle as an input to be replaced by the shortest homologous representative, but only as a problem illustration.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The illustrated replacement cycle is the shortest representative within the given homology class."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The red cycle is replaced by the shortest representative in its homology class, an optimization/extremal object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the red cycle is replaced by a shortest representative within its fixed homology class"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The replacement cycle is the shortest representative within a fixed homology class."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The target cycle is the shortest representative within the red cycle's homology class."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "It illustrates replacing an arbitrary red representative by the shortest representative in its homology class."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The output representative is defined as the shortest cycle in the given homology class."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The red cycle is replaced by the shortest representative in its homology class, making the output cycle extremal but not a counterexample."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The shortened cycle is the minimum-weight representative within the red cycle’s homology class."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The shortened cycle is the minimum representative within the red cycle’s homology class."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The red cycle is replaced by the shortest representative in its homology class, an extremal homologous cycle."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the red representative illustrates failure of an arbitrary cycle to be localized while the replacement is shortest in its homology class"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Point-cloud surface cycles",
+   "note": "Implemented computations on sampled 3-dimensional surface point clouds demonstrate the point-cloud approximation theorem rather than supply its proof.",
+   "first_introduced_sec": 817,
+   "spans": [
+    {
+     "start_sec": 817,
+     "end_sec": 847
+    },
+    {
+     "start_sec": 1787,
+     "end_sec": 1805
+    }
+   ],
+   "total_seconds": 48,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He applies the point-cloud algorithm to displayed sampled surfaces, saying they build a complex and compute cycles approximating the manifold’s shortest basis.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The point-cloud cycles are computed to approximate the smallest homology basis of the underlying manifold."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The point-cloud examples display cycles computed as shortest bases in a Rips complex approximating the manifold’s shortest basis."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the displayed point-cloud cycles are computed to approximate the manifold’s shortest homology basis"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The displayed point-cloud cycles are computed as a shortest basis of the constructed complex approximating the manifold optimum."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The displayed point-cloud cycles are computed as shortest or approximated-shortest homology-basis representatives."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The displayed point-cloud cycles are computed shortest-basis cycles approximating the manifold’s optimum."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The displayed loops are computed shortest-basis cycles in the Rips complex approximating the manifold’s optimal basis."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The point-cloud surface cycles are computed as shortest-basis cycles in a Rips complex approximating the manifold’s optimal basis."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The point-cloud cycles are computed as a shortest basis of the built complex approximating the manifold optimum."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The point-cloud cycles are computed as shortest-basis cycles in the constructed complex, approximating the manifold optimum."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The point-cloud output cycles are computed as shortest-basis approximations to the underlying manifold’s optimal basis."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "point-cloud output cycles are presented as approximations to the manifold’s shortest homology basis, not as a refutation"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Two-hole annotated complex",
+   "note": "A small complex with two holes and bit-vector edge annotations illustrates how summing annotations detects trivial and nontrivial cycles.",
+   "first_introduced_sec": 1376,
+   "spans": [
+    {
+     "start_sec": 1376,
+     "end_sec": 1449
+    }
+   ],
+   "total_seconds": 73,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He explicitly annotates a two-hole complex with bit vectors and checks example cycles by summing annotations to get trivial or nontrivial classes.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-hole annotated simplicial complex is a small ordinary complex illustrating annotations and homology classes."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-hole annotated complex is a small ordinary complex illustrating annotations and homology classes."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the two-hole annotated simplicial complex is a toy ordinary complex illustrating annotation vectors"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The two-hole annotated complex is a small ordinary example for illustrating homology annotations."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-hole annotated simplicial complex is a toy but otherwise typical complex illustrating annotations."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary finite simplicial complex with two H1 generators is used to illustrate annotations."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The annotated two-hole complex is a small ordinary complex illustrating cohomological annotations."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-hole annotated complex is a small illustrative complex with ordinary first homology and no classification-exceptional or extremal status."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-hole annotated complex is a small illustrative complex with ordinary nontrivial H1."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The two-hole annotated complex is a small illustrative complex for explaining annotations, with no special classification status."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The two-hole annotated complex is a small illustrative simplicial complex, not maximal, limiting, or sporadic."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the two-hole annotated complex is a small illustrative complex for annotations, not structurally sporadic or extremal"
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Gaussian-noisy samples",
+   "note": "In response to a question, Gaussian noise is mentioned only to clarify that the stated theorem assumes samples lie on the manifold.",
+   "first_introduced_sec": 2024,
+   "spans": [
+    {
+     "start_sec": 2024,
+     "end_sec": 2056
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Gaussian noise is only raised as a possible extension to point-cloud sampling, which he says they have not done.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are mentioned as a possible extension outside the stated sampling assumption, not as a special or refuting object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are mentioned as a possible extension beyond current assumptions, not as a counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are mentioned as a possible extension beyond the current assumptions, not as an adversarial failure case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are mentioned as a possible extension beyond the current assumptions, not as a counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are mentioned as a standard possible extension outside the current exact-sampling setup."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are an ordinary hypothetical extension outside the theorem’s stated on-manifold setting."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are mentioned as a standard perturbative data model outside the exact-sampling theorem."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are mentioned as a possible extension beyond the current exact-sampling assumption, not as a demonstrated counterexample."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are mentioned as a possible extension outside the exact-sampling theorem, not as a refutation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are mentioned as an ordinary possible extension of the sampling model."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are mentioned as a possible extension beyond the theorem’s assumptions, not as a constructed failure case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Gaussian-noisy samples are mentioned as a possible extension beyond the on-manifold theorem, not as a mathematical counterexample"
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "LP localization visualizations",
+   "note": "Displayed mesh examples, including a pig-like model, validate that the linear-programming method can shorten an input cycle to localized representatives.",
+   "first_introduced_sec": 3049,
+   "spans": [
+    {
+     "start_sec": 3049,
+     "end_sec": 3146
+    }
+   ],
+   "total_seconds": 97,
+   "attaches_to": [
+    "s5",
+    "s7"
+   ],
+   "primary_stage": "s5",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He discusses actual LP localization outputs, including a given cycle localized to a shorter representative and a case where one cycle localizes to two components in its class.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The LP visualizations show minimum-weight homologous localized cycles produced by the optimization."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The LP visualizations show localized minimum-weight homologous cycles or chains produced by the optimization."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the LP visualizations show cycles localized to minimum-weight homologous chains"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The LP visualizations show optimal localized chains in the given homology class."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The LP visualizations show optimal localized representatives in the given homology class."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The LP pictures show minimum-weight homologous chains or cycles produced by the localization algorithm."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The LP visualizations show minimum-weight homologous chains produced by the localization algorithm."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The LP visualizations display shortest homologous localizations produced by the optimization, so the shown cycles are extremal representatives."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The LP pictures show localized minimum-weight homologous chains or cycles."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The LP visualizations show cycles localized to minimum-weight homologous representatives."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The LP visualizations show localized cycles/chains minimizing weighted length in a fixed homology class."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the LP visualizations show computed minimum-weight homologous chains or cycles, used as validation rather than disproof"
+    }
+   ]
+  }
+ ]
+}

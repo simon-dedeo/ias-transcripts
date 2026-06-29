@@ -1,0 +1,2007 @@
+{
+ "key": "35df790cfa546fa3386b1d01bec32aaa",
+ "title": "The communication complexity of distributed subgraph detection",
+ "speaker": "Rotem Oshman",
+ "affiliation": "Tel Aviv University",
+ "date": "2014-10-06T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3469.0,
+ "abstract": "In distributed systems, communication between the participants in the computation is usually the most expensive part of the computation. Theoretical models of distributed systems usually reflect this by neglecting the cost of local computation, and charging only for messages sent between the participants; in particular, we usually assume that the computation proceeds in rounds, and in each round each participant can send only a limited number of bits.",
+ "youtube_url": "https://www.youtube.com/watch?v=mu_RhRCpooQ",
+ "page_url": "https://www.ias.edu/video/csdm/2014/1006-RotemOshman",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Communication as the resource and communication-complexity viewpoint",
+   "summary": "The talk motivates distributed computing as a setting where local computation is free and communication is costly, then recalls two-party communication complexity and explains why its bit lower bounds are useful but not identical to distributed round lower bounds.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 401
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Shared-blackboard subgraph-detection model and hard source problems",
+   "summary": "The speaker defines the broadcast blackboard model with one graph vertex per player, b bits per player per round, adjacent-edge input sharing, and fixed-subgraph detection, then identifies set disjointness and gap Hamming distance as the communication problems used for reductions.",
+   "spans": [
+    {
+     "start_sec": 401,
+     "end_sec": 713
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Two-party reductions for cycle detection",
+   "summary": "A two-party simulation template encodes disjointness instances into possible cycles, yielding a tight n/b lower bound for C5 detection, an approximation lower bound via gap Hamming distance, and—after replacing a complete bipartite core by a C4-free extremal graph—a tight Turán-scale lower bound for C4 detection.",
+   "spans": [
+    {
+     "start_sec": 713,
+     "end_sec": 1339
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Number-on-forehead reduction for triangles",
+   "summary": "Because two-party black-box reductions cannot capture triangle detection under edge input sharing, the argument switches to three-party number-on-forehead disjointness and a tripartite graph with many edge-disjoint triangles to obtain a near-tight deterministic triangle lower bound while leaving the randomized case open.",
+   "spans": [
+    {
+     "start_sec": 1339,
+     "end_sec": 1739
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Turán-number peeling upper bound for general subgraphs",
+   "summary": "Using the fact that an H-free graph has at most ex(n,H) edges, the algorithm repeatedly has many low-degree vertices reveal all incident edges and recurses, giving an upper bound of Turán-number-over-nb up to logarithmic factors and matching the known cycle cases.",
+   "spans": [
+    {
+     "start_sec": 1739,
+     "end_sec": 2237
+    },
+    {
+     "start_sec": 2262,
+     "end_sec": 2374
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Congested-clique unicast model and circuit lower-bound barrier",
+   "summary": "For the model where each node may send different b-bit messages to different neighbors, the talk shows that strong lower bounds would imply new bounded-depth circuit wire lower bounds by simulating ACC/related circuits layer-by-layer with balanced gate assignments and short summaries for heavy gates.",
+   "spans": [
+    {
+     "start_sec": 2237,
+     "end_sec": 2262
+    },
+    {
+     "start_sec": 2374,
+     "end_sec": 3053
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Open problems and broader distributed lower-bound directions",
+   "summary": "The talk closes by emphasizing open lower-bound constructions for general subgraphs, true graph-property testing questions such as connectivity, and the harder setting where communication occurs over an arbitrary network graph rather than a complete graph.",
+   "spans": [
+    {
+     "start_sec": 3053,
+     "end_sec": 3377
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Threads, radio networks, LANs, and mobile robots",
+   "note": "These systems illustrate the breadth of distributed computing and why communication, rather than local computation, is the bottleneck being modeled.",
+   "first_introduced_sec": 15,
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 104
+    }
+   ],
+   "total_seconds": 89,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The systems are listed to illustrate the breadth of distributed computing, with only brief descriptions of what communication means in each.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "representative distributed-system settings used only to illustrate the breadth of the model"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "They are broad illustrative distributed-system instances, not structurally special and not used to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "They are ordinary illustrative distributed-system settings, not used adversarially."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary examples illustrating the breadth of distributed systems and the communication bottleneck"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary distributed-system settings cited only to motivate the breadth of the model."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary examples of distributed-system settings used to motivate communication cost"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "They are representative distributed-system settings used to motivate communication as the common bottleneck."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary distributed-system settings used only to illustrate the scope of the field"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "representative distributed-system settings used only to illustrate the field's breadth"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "representative distributed-system settings used only to illustrate the field’s scope"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary distributed-system settings used to illustrate the field’s breadth and shared communication bottleneck"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "They are representative distributed-system settings used to motivate communication as the bottleneck."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "State-flooding Byzantine consensus protocol",
+   "note": "The early malicious-fault consensus protocol that sends an entire growing state tree illustrates the historical all-or-nothing attitude toward message size and motivates bit complexity.",
+   "first_introduced_sec": 129,
+   "spans": [
+    {
+     "start_sec": 129,
+     "end_sec": 221
+    }
+   ],
+   "total_seconds": 92,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The consensus protocol is cited as an early state-flooding example and its message growth is described, but no execution or analysis is carried out on it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 6,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the full-state flooding protocol is an extreme maximal-information communication protocol, not a refutation case"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The protocol is cited as an early full-state flooding protocol illustrating coarse bit-cost accounting, not as a structural exception or refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The state-flooding consensus protocol is cited as an early full-information protocol rather than to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a brute-force early Byzantine-consensus protocol used to illustrate state flooding rather than to refute a claim"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an early full-state flooding consensus protocol used illustratively for communication cost, not as a structural exception or refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a full-information flooding protocol sends the entire accumulated state, a maximal-communication extreme among protocols"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The protocol is cited as an early whole-state flooding method illustrating coarse communication accounting, not as an obstruction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a full-information flooding protocol at the maximal-communication extreme, used as historical illustration"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the full-information flooding protocol sends maximal local state each round but is cited as historical illustration"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a full-information flooding protocol that sends the entire growing state tree each round"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a full-information flooding protocol that sends the entire state, a maximal-communication boundary case"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The state-flooding Byzantine consensus protocol is cited as an early verbose protocol, not as a refutation or structurally sporadic object."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Leader election and spanning-tree search",
+   "note": "These are named as typical distributed search tasks to contrast the distributed-computing focus on search and rounds with communication complexity's frequent focus on decision and total bits.",
+   "first_introduced_sec": 339,
+   "spans": [
+    {
+     "start_sec": 339,
+     "end_sec": 372
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Leader election and spanning-tree search are named as typical distributed search problems without being solved or analyzed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard distributed search tasks cited as ordinary examples rather than adversarial cases"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Leader election and spanning-tree construction are standard distributed search problems used illustratively."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Leader election and spanning-tree search are standard examples of distributed search problems."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard distributed search tasks mentioned as typical examples of non-decision problems"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard distributed search problems mentioned as representative contrasts to decision problems."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard distributed search problems used illustratively"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Leader election and spanning-tree search are ordinary distributed search tasks used as examples of problem type."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard distributed search tasks used as representative examples"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard distributed search tasks used as ordinary examples"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard distributed search tasks used to contrast search with decision problems"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "canonical distributed search problems used as representative examples"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Leader election and spanning-tree construction are ordinary distributed search-problem examples."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Radio broadcast as shared blackboard communication",
+   "note": "A radio network is used to make concrete the shared-blackboard/broadcast assumption that one transmitted message is visible to all players.",
+   "first_introduced_sec": 419,
+   "spans": [
+    {
+     "start_sec": 419,
+     "end_sec": 442
+    }
+   ],
+   "total_seconds": 23,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Radio broadcast is used as an analogy for the shared-blackboard model, not worked through as a concrete network example.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 3,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "shared blackboard broadcast gives every player the same maximally public message stream"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The shared-blackboard/radio-broadcast model makes every message public to all players, giving a maximally all-to-all, permutation-symmetric communication channel."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The shared blackboard/radio broadcast model is a maximally uniform broadcast medium used as a modeling example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a fully shared broadcast/blackboard communication model with uniform visibility to all players"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the shared blackboard is a maximally shared all-to-all broadcast communication model."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the shared blackboard/broadcast model is globally public and treats receivers uniformly"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The shared blackboard/broadcast model is used as a modeling analogy and is uniformly visible to all players."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a broadcast/blackboard model treating receivers uniformly, used to motivate the communication setting"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a shared broadcast blackboard treats all receivers uniformly and is used as a modeling example"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "a globally shared broadcast medium treating all receivers uniformly"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the shared blackboard broadcast model makes every transmission globally and uniformly visible"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Shared blackboard/radio broadcast is used as a modeling example, and its all-receive-the-same-message form is highly symmetric."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Complete bipartite graph as an odd-cycle-free Turán example",
+   "note": "The complete bipartite graph is cited to make the Turán number concrete for triangles and other odd cycles, explaining why the upper bound specializes to order n/b there.",
+   "first_introduced_sec": 1769,
+   "spans": [
+    {
+     "start_sec": 1769,
+     "end_sec": 1794
+    },
+    {
+     "start_sec": 2098,
+     "end_sec": 2124
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reasons concretely about complete bipartite gadgets, noting that they create four-cycle rectangles inside one player’s side and later invoking their Turán behavior for odd cycles.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the balanced complete bipartite graph is the highly regular Turán extremal construction avoiding odd cycles"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The balanced complete bipartite Turán graph is the highly regular extremal odd-cycle-free construction with n^2/4 edges."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The balanced complete bipartite graph is the highly regular Turán extremal construction for forbidding odd cycles."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the balanced complete bipartite Turán graph attains the maximum edge count while avoiding odd cycles"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the balanced complete bipartite graph is a highly regular Turán extremal graph for forbidding odd cycles."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the balanced complete bipartite graph is highly regular and attains the Turán maximum while avoiding odd cycles"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The balanced complete bipartite graph attains the Turán maximum for avoiding odd cycles and is highly regular."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the balanced complete bipartite graph is the symmetric Turán extremal graph avoiding odd cycles"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the balanced complete bipartite graph is highly regular and Turán-extremal for avoiding odd cycles"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the balanced complete bipartite Turán graph is highly regular and maximizes edges while avoiding odd cycles"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the balanced complete bipartite graph is highly regular and attains the Turán extremum for avoiding odd cycles"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The balanced complete bipartite graph is the Turán extremal odd-cycle-free construction and is highly regular, not a counterexample merely by attaining the bound."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Fast congested-clique tasks: sorting, MST, and triangle detection",
+   "note": "Known fast algorithms for sorting, minimum spanning tree, and triangle detection illustrate how much more powerful the unicast congested-clique model is than the broadcast model.",
+   "first_introduced_sec": 2406,
+   "spans": [
+    {
+     "start_sec": 2406,
+     "end_sec": 2455
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Sorting, MST, and congested-clique triangle detection are cited as known fast tasks, with no algorithm for them run in the talk.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "MST is an optimization task and fast triangle detection is cited to defeat its candidacy as a hard lower-bound example"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The fast algorithms, especially for triangle detection, are cited against the hoped-for use of such tasks as congested-clique lower-bound candidates."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "MST is a minimum optimization task, and the fast triangle-detection algorithm defeats the proposed congested-clique hardness candidate."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "fast congested-clique algorithms, especially for triangle detection, are used to undercut hoped-for hardness examples in that model"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "fast congested-clique algorithms, especially for triangle detection, are used to defeat that task as a hoped-for hardness target."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "these are standard congested-clique tasks, with the MST component seeking a minimum-weight spanning tree"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "They are cited as fast congested-clique benchmark tasks, with MST intrinsically selecting a minimum spanning tree."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "fast algorithms, especially for triangle detection, undercut its proposed role as a hard congested-clique lower-bound target"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard tasks are cited as positive fast examples in the congested clique"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "fast congested-clique algorithms rule these tasks out as hoped-for hard lower-bound candidates"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "fast congested-clique algorithms, especially for triangle detection, undercut the proposed hardness target, with MST intrinsically minimizing weight"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Sorting, MST, and triangle detection are cited as standard tasks with fast congested-clique algorithms illustrating the model’s power."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Random function as a non-explicit lower-bound example",
+   "note": "A random Boolean function is mentioned as the standard easy non-explicit source of circuit and distributed lower bounds, contrasting with the explicit lower bounds that would be needed for real progress.",
+   "first_introduced_sec": 2917,
+   "spans": [
+    {
+     "start_sec": 2917,
+     "end_sec": 3023
+    }
+   ],
+   "total_seconds": 106,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "A random function is invoked as a standard non-explicit hard function example, with only the resulting lower-bound scale stated.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 6,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a random Boolean function is structurally generic but serves as a non-explicit hard case for small circuits or protocols"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A random Boolean function is a generic non-explicit hard function from counting, used only to illustrate existence of lower bounds."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random function is a generic hard case used non-explicitly to rule out uniformly small protocols/circuits."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a random Boolean function is a generic non-explicit hard instance rather than a structurally special object"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a random Boolean function is a typical function invoked as a hard non-explicit enemy for small circuits or protocols."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a random Boolean function is a generic non-explicit hard function rather than a structural exception"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A random function is a generic non-explicit hard function example rather than a structured exception or adversarial counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a generic Boolean function is used as a nonexplicit hard instance ruling out small computations"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a typical random Boolean function is used as a non-explicit hard instance for lower bounds"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a generic random Boolean function is used as a non-explicit hard instance rather than a structured special object"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a random function is a generic non-explicit hard example rather than a structural exception"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random Boolean function is used as a non-explicit hard case giving lower bounds, while being structurally typical of Boolean functions."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Connectivity testing as a beyond-subgraph problem",
+   "note": "Connectivity is offered as a natural distributed property-testing problem where standard fixed-party number-in-hand reductions do not yield the desired lower bounds.",
+   "first_introduced_sec": 3206,
+   "spans": [
+    {
+     "start_sec": 3206,
+     "end_sec": 3250
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Connectivity testing is named as an interesting beyond-subgraph problem and possible project, but no construction or lower bound is developed.",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "connectivity testing is used as a problem where standard k-party number-in-hand reductions cannot give the desired lower bound"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Connectivity is a standard global property used as an obstruction to any fixed-k number-in-hand lower-bound reduction."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Connectivity testing is presented as a problem for which the usual k-party number-in-hand reductions cannot give the desired lower bound."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "connectivity testing is cited as a problem for which any fixed k-party number-in-hand reduction cannot yield the desired lower bound"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "connectivity testing is used as an obstruction to obtaining lower bounds by any fixed k-party number-in-hand reduction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "connectivity testing is used as an obstruction to getting lower bounds by any fixed k-party number-in-hand reduction"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Connectivity testing is used to show that any fixed k-party number-in-hand reduction cannot give the desired lower bound."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "connectivity testing is cited as an obstruction to obtaining lower bounds via any fixed k-party number-in-hand reduction"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "connectivity testing is used as an obstruction to k-party number-in-hand lower-bound reductions"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "connectivity testing is cited as a problem where any fixed k-party number-in-hand reduction cannot yield the desired lower bound"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "connectivity testing is used as an obstruction to obtaining lower bounds by any fixed k-party number-in-hand reduction"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Connectivity testing is presented as an obstruction to k-party number-in-hand lower-bound reductions, though the property itself is ordinary."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "All-pairs exact shortest paths on the communication graph",
+   "note": "In response to discussion of arbitrary communication graphs, exact all-pairs shortest paths is proposed as a candidate problem for proving stronger topology-dependent lower bounds.",
+   "first_introduced_sec": 3353,
+   "spans": [
+    {
+     "start_sec": 3353,
+     "end_sec": 3377
+    }
+   ],
+   "total_seconds": 24,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "All-pairs exact shortest paths is proposed as a candidate hard problem on the communication graph, with its output requirement described but no analysis performed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 8,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "shortest paths are minimum-distance objects, here proposed only as a candidate hard problem"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Exact APSP on the communication graph is a standard global graph problem proposed as a lower-bound candidate, not an established special case or refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "All-pairs exact shortest paths asks for minimum path distances and is only proposed as a candidate lower-bound problem."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "all-pairs exact shortest paths asks for minimum-distance paths and is offered as a candidate hard network-graph problem"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "all-pairs exact shortest paths is proposed as a candidate hard network-graph problem rather than used to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "all-pairs shortest paths asks for minimum distances over all paths and is posed as a candidate problem"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "All-pairs exact shortest paths is proposed as a candidate problem and asks for minimum-distance paths for every pair."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "all-pairs exact shortest paths is proposed only as a candidate hard distributed problem"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "exact all-pairs shortest paths is the maximal global shortest-path variant and is only proposed as a hard candidate"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "exact APSP asks for the full distance information from every node to every other node"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "all-pairs shortest paths ask for distance-minimizing paths and are posed as a candidate hard graph problem"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "All-pairs exact shortest paths is proposed as a candidate hard distributed graph problem, not yet used to prove a failure or lower bound."
+    }
+   ]
+  }
+ ]
+}

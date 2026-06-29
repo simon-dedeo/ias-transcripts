@@ -1,0 +1,1182 @@
+{
+ "key": "dcc3f33a0a3c2444e3748ccf543cf12e",
+ "title": "Communication and Query Complexity of Bipartite Perfect Matching",
+ "speaker": "Yuval Efron",
+ "affiliation": "Columbia University",
+ "date": "2022-11-14T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3471.0,
+ "abstract": "In this talk, I'll discuss a recent result where we settle the complexities of the maximum-cardinality bipartite matching problem (BMM) up to poly-logarithmic factors in five models of computation:  The two-party communication, AND query, OR query, XOR query, and quantum edge query models.  Our results answer open problems that have been raised repeatedly since at least three decades ago [Hajnal, Maass, and Turan STOC’88; Ivanyos, Klauck, Lee, Santha, and de Wolf FSTTCS’12; Dobzinski, Nisan, and Oren STOC’14; Nisan SODA’21] and tighten the lower bounds shown by Beniamini and Nisan",
+ "youtube_url": "https://youtu.be/jO5QKaXoGkQ",
+ "page_url": "https://www.ias.edu/video/communication-and-query-complexity-bipartite-perfect-matching",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Perfect matching problem and complexity models",
+   "summary": "The talk fixes the decision version of bipartite perfect matching and defines the two-party edge-partition communication model together with OR/AND/XOR query variants.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 342
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Prior bounds and announced target results",
+   "summary": "Known randomized and deterministic lower bounds and augmenting-path upper bounds leave a gap, and the speaker announces a deterministic O(n log^2 n)-bit protocol plus query-model consequences.",
+   "spans": [
+    {
+     "start_sec": 342,
+     "end_sec": 604
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Center-of-gravity cutting template for polytope emptiness",
+   "summary": "A general promise problem asks whether a cube intersected with half-spaces is empty or has volume at least f, and the centroid-cut method solves it in O(log(1/f)) iterations by using violated half-spaces to shrink volume by a constant factor.",
+   "spans": [
+    {
+     "start_sec": 624,
+     "end_sec": 1050
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Primal matching LP attempt and its failure",
+   "summary": "The edge-variable LP relaxation is shown, via Hall's theorem, to detect nonexistence of perfect matchings, but even after adding slack to obtain positive volume its dimension and distributed edge variables make the resulting cutting protocol too expensive and hard to implement.",
+   "spans": [
+    {
+     "start_sec": 1050,
+     "end_sec": 1515
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Dual vertex-cover polytope and low-dimensional volume gap",
+   "summary": "Taking the LP dual gives a vertex-cover polytope with only 2n variables, whose emptiness is reversed relative to perfect matching and whose nonempty case has enough volume for only O(n log n) centroid iterations.",
+   "spans": [
+    {
+     "start_sec": 1515,
+     "end_sec": 1700
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Deterministic edge-communication protocol",
+   "summary": "Alice and Bob maintain a mutually known graph and centroid polytope; at each step they locally search for an edge constraint violated by the centroid, communicate one such edge using O(log n) bits, and after O(n log n) iterations decide—and in fact find—a perfect matching if it exists.",
+   "spans": [
+    {
+     "start_sec": 1700,
+     "end_sec": 2000
+    },
+    {
+     "start_sec": 2060,
+     "end_sec": 2200
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Query and related model consequences",
+   "summary": "The same violating-edge search is simulated by an OR query, randomized XOR queries can simulate the OR-query protocol, quantum edge protocols and AND-query lower bounds are placed in context, and the Q&A expands the AND lower bound through an intersection/set-disjointness communication formulation.",
+   "spans": [
+    {
+     "start_sec": 542,
+     "end_sec": 604
+    },
+    {
+     "start_sec": 2000,
+     "end_sec": 2060
+    },
+    {
+     "start_sec": 2200,
+     "end_sec": 2263
+    },
+    {
+     "start_sec": 2913,
+     "end_sec": 3318
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Open directions and barriers beyond the protocol",
+   "summary": "The speaker surveys unresolved questions about demand queries, round complexity, general graph matching, max flow, monotone circuit complexity, and hypergraph matching, emphasizing where the centroid/LP approach stops applying or where current bounds are far apart.",
+   "spans": [
+    {
+     "start_sec": 2263,
+     "end_sec": 2897
+    },
+    {
+     "start_sec": 3318,
+     "end_sec": 3449
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Toy bipartite graph with purple matching edges",
+   "note": "A small displayed bipartite graph is used to show concretely which purple edges form a matching, which proposed edges fail by sharing a vertex, and what it means for a matching to be maximum or perfect.",
+   "first_introduced_sec": 104,
+   "spans": [
+    {
+     "start_sec": 104,
+     "end_sec": 162
+    }
+   ],
+   "total_seconds": 58,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker points to the toy graph, checks which purple edges form a matching versus intersecting edges, and identifies the maximum/perfect matching behavior.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the purple edges are presented as a maximum matching in the toy bipartite graph, only to illustrate definitions"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the highlighted purple edge set is presented as the graph’s maximum matching, an optimal matching rather than a failure case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an ordinary toy bipartite graph used only to illustrate matchings and perfect matchings"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the purple edge set is presented as a maximum matching in the toy graph, only to illustrate the definition"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the highlighted purple edge set is presented as a maximum matching in the toy graph, hence optimal among matchings there."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the highlighted purple edges are presented as a maximum matching in the toy graph"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the highlighted purple edge set is used illustratively and is described as a maximum matching in the toy graph."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the highlighted purple edges are used illustratively as a maximum matching in the toy graph, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the toy graph is definitional and the highlighted purple matching is presented as a maximum matching in that graph"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the purple edges are used only to illustrate a matching, apparently a maximum/perfect one in the toy graph"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the toy instance is used illustratively and its highlighted matching is maximum in the graph."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the purple edges illustrate a matching that is stated to be maximum in the toy bipartite graph."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Red/green edge partition between Alice and Bob",
+   "note": "The colored graph illustrates the two-party input distribution, with Alice knowing the red edges and Bob the green edges, before the abstract communication model is used in the protocol.",
+   "first_introduced_sec": 202,
+   "spans": [
+    {
+     "start_sec": 202,
+     "end_sec": 265
+    }
+   ],
+   "total_seconds": 63,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The red and green edges are used only to illustrate Alice’s and Bob’s input partition, without running a protocol or checking matching properties on that specific picture.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the red/green split is an ordinary arbitrary edge partition used to explain the communication model"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the red/green coloring is just an arbitrary communication partition of edges between Alice and Bob"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an arbitrary red/green edge partition is a standard communication-complexity input split"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the red/green split is an arbitrary edge partition used to illustrate the communication model"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the red/green split is just an arbitrary edge partition illustrating the two-party input model."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the red/green split is just an arbitrary edge partition for the communication model"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the red/green Alice–Bob edge split is an arbitrary representative input partition for the communication model."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the red/green split is a generic illustration of Alice and Bob receiving an arbitrary edge partition."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the red/green split is an arbitrary standard edge partition for the two-party model"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the red/green split is an arbitrary distributed edge partition used to define the communication model"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the red/green split is just an arbitrary communication-input partition."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the red/green coloring is just an arbitrary communication-input partition of edges."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Low-dimensional half-space picture for polytope emptiness",
+   "note": "A pictured cube cut by half-spaces makes the promise problem of deciding emptiness versus volume at least f visually concrete, without being a special case needed by the proof.",
+   "first_introduced_sec": 637,
+   "spans": [
+    {
+     "start_sec": 637,
+     "end_sec": 794
+    }
+   ],
+   "total_seconds": 157,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker uses the low-dimensional half-space picture to trace the center-of-gravity iteration, adding violating halfspaces and arguing about volume reduction.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the half-space diagram is a typical low-dimensional visualization of polytope emptiness"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the low-dimensional cube-and-half-spaces picture is a generic illustration of polytope emptiness"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a generic low-dimensional cube-and-halfspaces picture illustrates polytope emptiness"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the half-space picture is a generic low-dimensional illustration of a polytope-emptiness procedure"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the low-dimensional cube-and-half-spaces diagram is a generic visualization of polytope emptiness."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the half-space diagram is a generic low-dimensional illustration of cube-intersection polytope emptiness"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the half-space/cube intersection is a generic low-dimensional illustration of the polytope-emptiness framework."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the low-dimensional half-space diagram is a standard visualization of polytope emptiness."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the low-dimensional cube-and-half-spaces picture is a schematic ordinary polytope-emptiness instance"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the low-dimensional half-space intersection is a generic picture illustrating polytope emptiness and volume testing"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the half-space drawing is a generic visualization of the polytope-emptiness setup."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the half-space diagram is a schematic ordinary polytope-intersection example used for explanation."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Unique perfect matching gives zero volume",
+   "note": "The speaker points out that a graph with only one perfect matching makes the primal matching polytope just a point of zero volume, motivating the slackened n-1/3 constraint used to create positive volume.",
+   "first_introduced_sec": 1292,
+   "spans": [
+    {
+     "start_sec": 1292,
+     "end_sec": 1340
+    }
+   ],
+   "total_seconds": 48,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker analyzes the unique-perfect-matching case as making the LP polytope a single point of zero volume and then uses that to motivate the relaxed constraint fix.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 10,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a unique perfect matching collapses the LP polytope to a single zero-volume point, obstructing the naive volume approach"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a graph with a unique perfect matching makes the feasible polytope collapse to a zero-volume point, showing the first volume-based approach fails"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a unique perfect matching makes the feasible polytope collapse to a zero-volume point, obstructing the naive volume approach"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a graph with a unique perfect matching collapses the relaxation to a zero-volume point, obstructing the first volume approach"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a unique perfect matching collapses the feasible matching polytope to a single zero-volume point, obstructing the naive volume-gap approach."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a unique perfect matching collapses the feasible polytope to a zero-volume point, obstructing the first volume approach"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a graph with a unique perfect matching is used to show the first polytope approach can fail because the nonempty feasible region collapses to a zero-volume singleton."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the unique-perfect-matching case is used to show the primal polytope may be nonempty but collapsed to zero volume."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the unique-perfect-matching case collapses the feasible polytope to a zero-volume point, obstructing the first volume-based approach"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a graph with a unique perfect matching makes the matching polytope a single zero-volume point, obstructing the naive volume approach"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a graph with a unique perfect matching collapses the feasible polytope to a zero-volume point, obstructing the naive volume approach."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a unique-perfect-matching instance collapses the LP polytope to a zero-volume point, obstructing the direct volume approach."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Transshipment and b-matching extensions",
+   "note": "Transshipment and b-matching are cited as representative vertex-capacitated problems to which the same edge-communicating protocol framework can be extended.",
+   "first_introduced_sec": 2173,
+   "spans": [
+    {
+     "start_sec": 2173,
+     "end_sec": 2200
+    }
+   ],
+   "total_seconds": 27,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Transshipment and b-matching are only named as extensions of the protocol, with no concrete construction or calculation shown for them.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are standard vertex-capacitated generalizations cited to show the protocol's scope"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are standard vertex-capacitated extensions used to indicate the protocol’s broader applicability"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are systematic vertex-capacitated extensions of the protocol rather than adversarial examples"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are ordinary vertex-capacitated extensions of the protocol rather than adversarial cases"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are standard vertex-capacitated problem families cited as positive extensions of the protocol."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are standard vertex-capacitated extensions of the matching framework"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are ordinary vertex-capacitated problem classes cited as extensions of the protocol."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are ordinary vertex-capacitated problems cited as extensions of the protocol."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are standard vertex-capacitated problem families cited as applications of the protocol"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are standard vertex-capacitated extensions mentioned as positive applications of the protocol"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are standard systematic extensions used to show the protocol’s scope."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "transshipment and b-matching are ordinary vertex-capacitated optimization problems cited as positive extensions of the protocol."
+    }
+   ]
+  }
+ ]
+}

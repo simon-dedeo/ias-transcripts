@@ -1,0 +1,2065 @@
+{
+ "key": "80f4c6e355487a5a36cd223237e00ca4",
+ "title": "Lower bounds on the size of semidefinite programming relaxations",
+ "speaker": "David Steurer",
+ "affiliation": "Cornell University",
+ "date": "2015-11-30T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3638.0,
+ "abstract": "We introduce a method for proving lower bounds on the efficacy of semidefinite programming (SDP) relaxations for combinatorial problems. In particular, we show that the cut, TSP, and stable set polytopes on $n$-vertex graphs are not the linear image of the feasible region of any SDP (i.e., any spectrahedron) of dimension less than $2^{n^{\\delta}}$, for some constant $\\delta > 0$. This result yields the first super-polynomial lower bounds on the semidefinite extension complexity of any explicit family of polytopes.",
+ "youtube_url": "https://www.youtube.com/watch?v=TVoqDrAJh0I",
+ "page_url": "https://www.ias.edu/video/csdm/2015/1130-Steurer",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Lower-bound goal and SOS-universality strategy",
+   "summary": "The talk states the aim of proving unconditional super-polynomial lower bounds for LP/SDP relaxation algorithms by showing that the concrete sum-of-squares/Lasserre hierarchy is optimal in the general Yannakakis-style model and then transferring known SOS integrality gaps.",
+   "spans": [
+    {
+     "start_sec": 14,
+     "end_sec": 280
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Mathematical-programming relaxation landscape",
+   "summary": "The speaker motivates the model by comparing linear, spectral, and semidefinite relaxations, emphasizing that SDP methods unify LP and spectral methods while remaining structured enough to hope for unconditional lower bounds.",
+   "spans": [
+    {
+     "start_sec": 280,
+     "end_sec": 701
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Yannakakis lift model via MaxCut",
+   "summary": "MaxCut is formulated as quadratic optimization on the hypercube and as linear optimization over the cut polytope, leading to the definition of small LP formulations as higher-dimensional polytopes projecting to the cut polytope, with a discussion of size, auxiliary variables, exactness, and approximation.",
+   "spans": [
+    {
+     "start_sec": 701,
+     "end_sec": 1239
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "From LP lower bounds to SDP formulation lower bounds",
+   "summary": "Known Fiorini-type LP lower bounds are recalled, the SDP extension of the lift model is described by replacing polytopes with spectrahedra, and the new theorem is stated as super-polynomial or exponential SDP lower bounds matching the guarantees of sum-of-squares and current CSP hardness results.",
+   "spans": [
+    {
+     "start_sec": 1239,
+     "end_sec": 1282
+    },
+    {
+     "start_sec": 1368,
+     "end_sec": 1609
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Certificate and pseudo-distribution viewpoint",
+   "summary": "The geometric formulation is replaced by a certificate view: approximation algorithms certify near-optimal upper bounds, degree-d SOS certificates express nonnegativity as sums of squares of low-degree functions, and failure of such certificates yields separating hyperplanes interpretable as pseudo-distributions with PSD moment matrices.",
+   "spans": [
+    {
+     "start_sec": 1609,
+     "end_sec": 2396
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "General SDP certificates from a matrix-valued slack function",
+   "summary": "An arbitrary SDP relaxation is encoded by a PSD matrix-valued function q(x), obtained as the slack of the spectrahedral constraint at true solutions, and SDP duality shows that all certificates available to the relaxation are generated as traces against PSD matrices.",
+   "spans": [
+    {
+     "start_sec": 2396,
+     "end_sec": 2568
+    },
+    {
+     "start_sec": 2742,
+     "end_sec": 2923
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Low-degree square-root criterion and approximation target",
+   "summary": "The key reduction is that if the matrix square root of q has low polynomial degree then its certificates are SOS-certifiable, so it suffices to replace any small SDP q by a q′ preserving correlations with low-degree tests while making sqrt(q′) low-degree.",
+   "spans": [
+    {
+     "start_sec": 2568,
+     "end_sec": 2742
+    },
+    {
+     "start_sec": 2923,
+     "end_sec": 3097
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Maximum-entropy approximation and Taylor degree control",
+   "summary": "The approximating q′ is chosen as the maximum von Neumann entropy solution matching the test correlations, yielding the closed form q′=exp(TF); because sqrt(q′)=exp(TF/2), Taylor truncation bounds its degree in terms of T and deg(F), and a later bootstrapping step removes the remaining logarithmic loss.",
+   "spans": [
+    {
+     "start_sec": 3097,
+     "end_sec": 3551
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Metric Traveling Salesman as a target and open extension",
+   "note": "Traveling Salesman is cited first as part of the motivating class of combinatorial optimization problems and later as an example where the desired strong SDP lower bounds remain open.",
+   "first_introduced_sec": 14,
+   "spans": [
+    {
+     "start_sec": 14,
+     "end_sec": 76
+    },
+    {
+     "start_sec": 3584,
+     "end_sec": 3625
+    }
+   ],
+   "total_seconds": 103,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Metric Traveling Salesman is presented as an open target for extending the lower-bound method, with no concrete formulation or analysis performed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "metric TSP is a standard optimization problem mentioned as an open target for extending the lower-bound method"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Metric TSP is an ordinary optimization problem posed as an open target for extending the method, not as a counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Metric Traveling Salesman is a standard optimization problem posed as an open target for extending the lower-bound method."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Metric TSP is a standard optimization target for possible extension, posed as open rather than as a counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "metric TSP is cited as a standard open target for extending the method"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Metric TSP is a standard NP-hard optimization target posed as an open extension rather than an adversarial example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Metric Traveling Salesman is posed as a standard open target for extending the lower-bound method, not as a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "metric TSP is posed as an open target for extending the lower-bound method, not as a counterexample"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Metric TSP is raised as a typical open target for extending the lower-bound method, not as a disproof example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Metric TSP is a standard target for a possible extension and is left as open rather than used to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "metric TSP is posed as a standard open target for extending the lower-bound method"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Metric TSP is an ordinary open target for extending the lower-bound method."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Edge expansion as a spectral-success case",
+   "note": "Certifying edge expansion is cited only to illustrate that spectral methods can outperform linear-programming relaxations in some optimization problems.",
+   "first_introduced_sec": 330,
+   "spans": [
+    {
+     "start_sec": 330,
+     "end_sec": 381
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Edge expansion is only cited as a case where spectral techniques beat LP techniques, with no calculation or construction carried out.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 7,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "edge expansion is an ordinary graph-optimization/certification problem used as a positive case where spectral methods help"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Edge-expansion certification is an ordinary graph-optimization setting used to separate spectral methods from purely LP methods."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Certifying edge expansion is a standard optimization problem used as a positive illustration of spectral methods outperforming LP."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Edge expansion is a standard optimization setting used to show LP methods can be strictly weaker than spectral ones."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to witness that LP-only relaxations can be outperformed by spectral methods"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Edge-expansion certification is a standard optimization setting used here to separate spectral methods from LP-only relaxations."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Edge expansion is invoked to show LP methods can be strictly weaker than spectral methods, while the problem itself is structurally ordinary."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "edge expansion is used to show spectral methods can beat LP methods, while the problem itself is structurally standard"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to separate spectral methods from LP methods by giving a problem where spectral techniques do strictly better."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Certifying edge expansion is used as a standard positive case where spectral methods outperform LP methods."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as a positive case where spectral methods outperform LP, while edge expansion is a standard graph-optimization problem"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is used as a positive illustration of spectral methods outperforming LP, not as a structurally special object."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Unique Games hardness reductions from relaxation failure",
+   "note": "The Unique Games setting is used as a prominent illustration of the broader phenomenon that integrality gaps for mathematical-programming algorithms can often be converted into hardness reductions.",
+   "first_introduced_sec": 503,
+   "spans": [
+    {
+     "start_sec": 503,
+     "end_sec": 566
+    }
+   ],
+   "total_seconds": 63,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Unique Games hardness reductions are described as arising from failures of relaxations, but no specific reduction is run or analyzed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unique Games hardness reductions are invoked as obstructions arising from relaxation failures"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unique Games hardness reductions are a systematic reduction paradigm used here as hardness obstructions arising from relaxation failure."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unique Games relaxation failures are integrality-gap obstructions that feed hardness reductions, with no special structural object involved."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unique Games reductions are cited as hardness/relaxation-failure obstructions rather than as structurally special objects."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "relaxation failures are invoked as adversarial instances feeding Unique Games hardness reductions"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unique-Games reductions are standard systematic hardness constructions used to turn relaxation failure into impossibility evidence."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Relaxation failures/integrality gaps are used as adversarial inputs that yield Unique Games hardness reductions, with no special sporadic structure in the reductions themselves."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unique Games reductions from relaxation failure serve as adversarial hardness obstructions, not as structurally exceptional objects"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a hardness mechanism arising from failures of relaxation algorithms, i.e. adversarial integrality-gap behavior."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Relaxation failures or integrality gaps are adversarial cases used to generate Unique Games hardness reductions."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "hardness reductions are invoked as adversarial obstructions arising from relaxation failures"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Hardness reductions from failed relaxations are adversarial witnesses that stronger approximation guarantees cannot be obtained."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Shortest-path and matching separation-oracle cases",
+   "note": "In response to questions, shortest paths, matching, and finite-field linear-equation phenomena are used to clarify which polynomial-time separation-oracle algorithms are not captured by the Yannakakis formulation model.",
+   "first_introduced_sec": 1050,
+   "spans": [
+    {
+     "start_sec": 1050,
+     "end_sec": 1170
+    }
+   ],
+   "total_seconds": 120,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Shortest path and matching are discussed as separation-oracle phenomena with stated facts about small LPs and matching, but no oracle or formulation is worked through.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the matching separation-oracle case is used to show the LP-extension model does not capture all polynomial-time algorithms"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Shortest path and matching are ordinary graph problems, with matching serving to show that general separation-oracle algorithms need not be captured by small LP formulations."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The shortest-path and matching separation-oracle cases are ordinary combinatorial cases, with matching used to show the model misses some polynomial-time algorithms."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Shortest path and matching are ordinary combinatorial problems, with matching used to expose a limitation of small-LP/separation-oracle capture."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the matching/separation-oracle discussion illustrates that the model does not capture all polynomial-time algorithms"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Shortest path and matching are ordinary combinatorial problems, with matching serving as an obstruction to capturing all polynomial-time separation-oracle algorithms by small LPs."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The matching separation-oracle discussion illustrates a limitation of small explicit LP/Yannakakis formulations, while shortest path and matching are standard combinatorial cases."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the separation-oracle discussion, especially matching, shows a limitation of small explicit LP formulations, though the problems are ordinary combinatorial ones"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show the Yanakakis model does not capture arbitrary polynomial-time separation-oracle algorithms, especially matching."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The matching case is invoked to show polynomial-time separation or optimization can evade small LP formulations."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "matching is cited as a polynomial-time separation-oracle case not captured by small LPs, with shortest path as the ordinary contrast"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The matching/separation-oracle discussion shows a polynomial-time case outside small-LP/Yannakakis capture."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "L1 unit ball extended formulation",
+   "note": "The L1 unit ball, which has exponentially many direct facet inequalities but a linear-size lift using auxiliary absolute-value variables, illustrates why extension formulations can be exponentially smaller than direct descriptions.",
+   "first_introduced_sec": 1282,
+   "spans": [
+    {
+     "start_sec": 1282,
+     "end_sec": 1368
+    }
+   ],
+   "total_seconds": 86,
+   "attaches_to": [
+    "s3",
+    "s4"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The L1 unit ball is explicitly analyzed: the speaker counts its exponential direct inequalities and constructs a smaller extended formulation using auxiliary variables for absolute values.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 10,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the L1 unit ball is the cross-polytope, a highly sign-and-coordinate symmetric polytope used to illustrate small extended formulations"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The L1 unit ball is the highly regular cross-polytope, used to refute the naive inference that exponentially many facets preclude a small extended formulation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The L1 unit ball is the highly symmetric cross-polytope, used to refute the naive inference that exponentially many facets preclude a small lift."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The L1 ball is the highly symmetric cross-polytope at an endpoint of the Lp family, used to refute naive facet-count lower-bound intuition."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the highly regular cross-polytope counters the naive inference from exponentially many facets to no small extension"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The L1 unit ball is the highly symmetric cross-polytope, used to refute the naive idea that exponentially many facets force large extended formulations."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The L1 unit ball/cross-polytope refutes the naive inference from exponentially many facets to high extension complexity, and it is a highly regular signed-permutation-symmetric polytope."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the L1 ball refutes the naive facet-count obstruction to small extended formulations and is the highly symmetric cross-polytope"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cross-polytope is used to refute the naive inference that exponentially many facets preclude a small extended formulation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The L1 ball is the highly symmetric cross-polytope and refutes the naive inference from exponentially many facets to no small lift."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the L1 ball is the highly symmetric cross-polytope, used positively to illustrate a compact lift despite many facets"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The L1 ball cross-polytope refutes facet count as a lower-bound method via a small extension and is highly regular."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Goemans-Williamson as degree-one sum-of-squares",
+   "note": "The Goemans-Williamson MaxCut approximation is used to make the SOS certificate viewpoint concrete by saying its 0.878 guarantee can be expressed through sums of squares of linear functions.",
+   "first_introduced_sec": 1816,
+   "spans": [
+    {
+     "start_sec": 1816,
+     "end_sec": 1880
+    }
+   ],
+   "total_seconds": 64,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Goemans-Williamson is stated to be captured by degree-one SOS via a sum-of-squares identity, but the speaker explicitly declines to prove or derive it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the Goemans-Williamson SDP is presented as a first-level degree-one SOS certificate"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Goemans-Williamson is presented positively as captured by the first nontrivial, degree-one SOS level."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Goemans-Williamson is presented via the first SOS level, a minimal hierarchy case used as a positive capture result."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Goemans-Williamson is presented positively as a certificate at the minimal degree-one boundary of the SoS hierarchy."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Goemans-Williamson is presented as the first-level degree-one SOS base case, not as a refutation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Degree-one SOS is the minimal nontrivial SOS level, presented positively as capturing the Goemans-Williamson certificate."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Goemans-Williamson is presented as a positive degree-one SOS capture, and degree one is the minimal base level of the SOS hierarchy."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Goemans-Williamson is presented positively as the first-level SOS/SDP achieving the optimal-best-known MaxCut constant"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Goemans-Williamson is presented positively as the first-level SOS relaxation attaining the tight/best-known MaxCut constant."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Goemans-Williamson is presented as the base first-level SOS/SDP certificate for MaxCut, not as a refutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Goemans-Williamson is presented as a first-level SOS/base-case algorithm attaining the tight famous MaxCut constant"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Goemans-Williamson is presented as the first SOS level and as the record/tight MaxCut SDP approximation, used positively."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Spectral MaxCut relaxation as an SOS certificate",
+   "note": "A simpler eigenvalue upper bound for the MaxCut quadratic form is worked out to show explicitly how a spectral relaxation becomes a degree-one SOS certificate.",
+   "first_introduced_sec": 1880,
+   "spans": [
+    {
+     "start_sec": 1880,
+     "end_sec": 1934
+    }
+   ],
+   "total_seconds": 54,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The spectral MaxCut relaxation is worked through by bounding the quadratic form with the largest eigenvalue and rewriting the resulting certificate as a sum of squares of linear functions.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the spectral MaxCut bound is encoded at the minimal nontrivial degree-one SOS level"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The spectral MaxCut relaxation is shown as a basic degree-one SOS certificate rather than as an adversarial instance."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The spectral MaxCut relaxation is written as a base-level linear SOS certificate, used positively to show spectral methods are captured."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The spectral MaxCut certificate uses an extremal eigenvalue and is realized at the bottom degree-one SoS level."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the certificate is a first-level SOS relaxation based on the top eigenvalue bound"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The spectral MaxCut bound is expressed as a degree-one linear SOS certificate, a minimal-level positive simulation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The spectral MaxCut bound is used as a successful SOS certificate, and its linear-function SOS form lies at the minimal degree-one level."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the spectral MaxCut certificate is a minimal degree-one SOS base case used to illustrate capture by SOS"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The spectral MaxCut certificate is a positive minimal-degree SOS example based on the largest-eigenvalue extremal bound."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The spectral MaxCut relaxation is shown as another first-level SOS certificate rather than an adversarial example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the spectral MaxCut relaxation is a minimal degree-one SOS certificate built from the top eigenvalue bound"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The spectral MaxCut certificate is a first-level SOS using the tight largest-eigenvalue upper bound."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Degree-n SOS completeness on the hypercube",
+   "note": "Interpolating the square root of a nonnegative Boolean function shows illustratively that sufficiently high-degree SOS certificates prove all nonnegativity statements, though at exponential SDP size.",
+   "first_introduced_sec": 2004,
+   "spans": [
+    {
+     "start_sec": 2004,
+     "end_sec": 2054
+    }
+   ],
+   "total_seconds": 50,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "Degree-n SOS completeness on the hypercube is justified by constructing a polynomial interpolating the square root of a nonnegative function and noting its degree and SDP size.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "degree n is the top SOS degree on the highly symmetric n-dimensional hypercube and gives completeness"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Degree-n SOS is the terminal complete level on the highly symmetric n-dimensional hypercube."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The hypercube is a highly regular symmetric domain and degree n is the top complete SOS level, not an adversarial example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Degree n is the full maximum Fourier/SoS degree on the highly symmetric hypercube, giving completeness rather than a failure example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "degree n is the complete top level for functions on the highly symmetric hypercube"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The hypercube is maximally symmetric and degree n is the terminal complete level of the SOS hierarchy."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Degree n SOS on the n-cube is the full terminal level that certifies all nonnegative functions, on the maximally symmetric hypercube."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "degree n is the full top SOS level on the regular hypercube, certifying all nonnegative functions"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Degree n is the top complete SOS level on the hypercube, and the hypercube domain is highly regular."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Degree n on the highly symmetric hypercube is the full top level of the SOS hierarchy and is complete."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "degree n is the top complete level of SOS on the highly symmetric hypercube"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Degree n is the full top SOS level certifying all nonnegative functions on the highly symmetric hypercube."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Matrix multiplicative weights analogy",
+   "note": "Matrix multiplicative weights is mentioned as another place where the same maximum-entropy or matrix-exponential optimization form arises.",
+   "first_introduced_sec": 3334,
+   "spans": [
+    {
+     "start_sec": 3334,
+     "end_sec": 3376
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Matrix multiplicative weights is only invoked as an analogous optimization process related to the maximum-entropy step, without running the algorithm.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "matrix multiplicative weights is a standard SDP/entropy algorithmic analogy rather than a structurally special object"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Matrix multiplicative weights is invoked only as a standard algorithmic analogy for the entropy/exponential form."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Matrix multiplicative weights is a standard algorithmic analogy for the maximum-entropy step."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Matrix multiplicative weights is invoked only as a standard algorithmic analogy for the entropy update."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "matrix multiplicative weights is only an ordinary algorithmic analogy for the entropy argument"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Matrix multiplicative weights is invoked only as a standard algorithmic analogy for the entropy optimization."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Matrix multiplicative weights is only cited as an analogous standard algorithmic procedure, not as a failure case or structurally exceptional object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "matrix multiplicative weights is invoked only as an analogy for the entropy optimization procedure"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Matrix multiplicative weights is only cited as an analogy for the maximum-entropy construction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Matrix multiplicative weights is used only as an analogy to a standard SDP-solving update."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "matrix multiplicative weights is used only as an analogy for the entropy/matrix-exponential construction"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Matrix multiplicative weights is cited only as a standard analogy for the entropy and matrix-exponential update."
+    }
+   ]
+  }
+ ]
+}

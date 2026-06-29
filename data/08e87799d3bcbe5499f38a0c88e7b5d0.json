@@ -1,0 +1,1209 @@
+{
+ "key": "08e87799d3bcbe5499f38a0c88e7b5d0",
+ "title": "Graph Vertex Expansion",
+ "speaker": "Theo McKenzie",
+ "affiliation": "Harvard University",
+ "date": "2023-05-08T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 3221.0,
+ "abstract": "In a vertex expanding graph, every small subset of vertices neighbors many different vertices. Random graphs are near-optimal vertex expanders; however, it has proven difficult to create families of deterministic near-optimal vertex expanders, as the connection between vertex and spectral expansion is limited. We discuss successful attempts to create unique neighbor expanders (a weak version of vertex expansion), as well as limitations in using common combinatorial methods to create stronger expanders.",
+ "youtube_url": "https://youtu.be/1Q2uXjHTUOM",
+ "page_url": "https://www.ias.edu/video/graph-vertex-expansion",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Expansion notions and deterministic lossless problem",
+   "summary": "The talk sets up d-regular graphs, adjacency spectra, spectral/edge/vertex expansion, explains that random regular graphs are near-optimal, and poses the deterministic two-sided lossless vertex-expander problem beyond known spectral, edge, and one-sided constructions.",
+   "spans": [
+    {
+     "start_sec": 21,
+     "end_sec": 566
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Kahale barrier to spectral-to-vertex expansion",
+   "summary": "Kahale’s construction shows that almost-Ramanujan spectral expansion can coexist with vertex expansion only about d/2; adding high girth is motivated, but the first result states that even almost-Ramanujan high-girth graphs can have polynomial-size poorly vertex-expanding sets.",
+   "spans": [
+    {
+     "start_sec": 566,
+     "end_sec": 1123
+    },
+    {
+     "start_sec": 1850,
+     "end_sec": 1903
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Local surgery using a high-girth connectivity gadget",
+   "summary": "The construction modifies Kahale-type surgery by deleting a neighborhood and implanting the incidence/connectivity graph of a small high-girth graph, thereby creating a lossy-expansion gadget while arranging preservation of girth and the almost-Ramanujan property.",
+   "spans": [
+    {
+     "start_sec": 1123,
+     "end_sec": 1431
+    },
+    {
+     "start_sec": 1914,
+     "end_sec": 2046
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Spectral preservation via nonbacktracking walk counts",
+   "summary": "To show the surgery does not create large new eigenvalues, the proof bounds the spectral radius of the gadget with infinite trees attached using nonbacktracking-walk counting, then argues that any eigenvector above the Ramanujan threshold cannot concentrate significantly on the implanted part.",
+   "spans": [
+    {
+     "start_sec": 1431,
+     "end_sec": 1850
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Unique-neighbor relaxation and target theorem",
+   "summary": "The second part relaxes lossless vertex expansion to unique-neighbor expansion, reviews prior low-degree, Cayley, and one-sided constructions, and states the new existence theorem for sufficiently large constant-degree regular and biregular families.",
+   "spans": [
+    {
+     "start_sec": 2056,
+     "end_sec": 2297
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Line-product transfer of edge expansion",
+   "summary": "Following Alon–Capalbo, the argument turns edges of a spectrally expanding base graph into vertices via a sparsified line product and shows that unique-neighbor expansion of a small graph h transfers to the product when the base graph has few internal edges in small induced subgraphs.",
+   "spans": [
+    {
+     "start_sec": 2297,
+     "end_sec": 2676
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Random finite gadget for large degrees",
+   "summary": "A constant-size random regular, and more generally biregular, graph with degree about the square root of its order is shown—via comparison with an independent-edge model—to have enough unique neighbors to serve as the fixed gadget h for large d.",
+   "spans": [
+    {
+     "start_sec": 2676,
+     "end_sec": 2804
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Limitations and eigenvector-expansion outlook",
+   "summary": "The line-product method is shown to be intrinsically unable to beat the d/2 vertex-expansion barrier, leading to open questions about better graph products and about whether strong eigenvector delocalization can force vertex expansion.",
+   "spans": [
+    {
+     "start_sec": 2804,
+     "end_sec": 3033
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Edge-versus-vertex expansion cartoon",
+   "note": "A pictured subset with outgoing blue edges and an internal red edge makes the definitions of edge expansion and vertex expansion concrete, without driving the later constructions.",
+   "first_introduced_sec": 185,
+   "spans": [
+    {
+     "start_sec": 185,
+     "end_sec": 244
+    }
+   ],
+   "total_seconds": 59,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses the cartoon to illustrate the definitions by counting/comparing edges leaving a subset versus edges staying inside, and then analogously vertices adjacent to the subset.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "generic schematic subset used only to illustrate edge versus vertex expansion counts"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an ordinary schematic graph subset used only to illustrate edge versus vertex expansion definitions"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A schematic ordinary graph subset is used only to illustrate the definitions of edge and vertex expansion."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A generic cartoon subset illustrating edge versus vertex expansion, with no special intrinsic graph structure or refutational role."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a generic subset-and-boundary diagram used only to illustrate edge versus vertex expansion definitions"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A generic cartoon illustrating edge and vertex expansion, with no structurally special graph or adversarial use."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a generic cartoon is used only to illustrate the definitions of edge and vertex expansion."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A generic schematic graph subset is used only to illustrate the definitions of edge and vertex expansion."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "generic cartoon illustrating the definitions of edge and vertex expansion, with no special intrinsic structure"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A generic schematic graph/subset used only to illustrate the definitions of edge and vertex expansion."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a generic schematic graph subset is used only to illustrate edge versus vertex expansion definitions"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is only a generic cartoon illustrating the definitions of edge and vertex expansion."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Neighbor set of a single vertex",
+   "note": "Taking S to be all neighbors of one vertex illustrates why vertex expansion cannot generally exceed about d-1, motivating the lossless target.",
+   "first_introduced_sec": 403,
+   "spans": [
+    {
+     "start_sec": 403,
+     "end_sec": 445
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker checks the neighbor set of one vertex as an adversarial set, explaining that it fails to expand back to the original vertex and thereby gives the optimal d−1 lossless bound.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the neighborhood of one vertex is the tight adversarial obstruction showing vertex expansion cannot exceed about d−1"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the set of all neighbors of one vertex is the tight adversarial case showing vertex expansion cannot exceed the d-1 bound"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The neighborhood of one vertex is used as the adversarial tight obstruction showing vertex expansion cannot exceed the d−1 scale."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The full neighbor set of one vertex is a tight adversarial case showing vertex expansion beyond about d-1 cannot be guaranteed."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the neighbor set N(v) is the tight adversarial witness forcing the d−1 upper limit on vertex expansion"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The set of all neighbors of one vertex is used as the enemy case showing the vertex-expansion factor cannot exceed the tight d−1 bound."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the neighbor set N(v) is an adversarial tight case showing the d−1 vertex-expansion bound is optimal."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The neighbor set of one vertex is used as the tight adversarial obstruction showing vertex expansion cannot exceed the d−1 scale."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the neighborhood of one vertex is used as the adversarial set showing the lossless vertex-expansion bound cannot exceed about d-1"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The set of neighbors of one vertex is used as an adversarial tight local obstruction showing expansion beyond the d-1 bound cannot hold."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the neighbor set of one vertex is the adversarial tight case showing vertex expansion cannot generally exceed the d−1 bound"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The neighbor set of one vertex is used as the adversarial case showing the d−1 vertex-expansion bound is tight."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Four-cycle sparsification of a line graph clique",
+   "note": "The speaker uses a 4-regular graph and replaces each line-graph clique by a copy of C4 to visualize the line-product construction after it has been defined.",
+   "first_introduced_sec": 2427,
+   "spans": [
+    {
+     "start_sec": 2427,
+     "end_sec": 2452
+    }
+   ],
+   "total_seconds": 25,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker concretely runs the line-product sparsification idea by replacing each clique in a line graph with a four-cycle and identifying a specific four-cycle copy corresponding to a vertex.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "C4 is used as a regular highly symmetric gadget replacing each line-graph clique, not to refute a claim"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the C4 gadget is a highly regular square used constructively to sparsify line-graph cliques"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The C4 gadget replacing a line-graph clique is a highly regular cycle used constructively in the line-product illustration."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The four-cycle is used as a regular sparsifying gadget for a line-graph clique, not to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the four-cycle is a highly regular cycle used as a line-graph sparsifying gadget rather than to refute a claim"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The C4 gadget replacing a line-graph clique is a regular symmetric sparsifier used constructively, not to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the C4 gadget is used constructively to sparsify line-graph cliques and is dihedrally symmetric."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The C4 gadget is an illustrative sparsifier for line-graph cliques, and as a cycle it is a highly regular symmetric graph."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the C4 gadget is a regular highly symmetric cycle used illustratively to sparsify each line-graph clique"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The C4 replacement is a highly symmetric regular cycle gadget used to illustrate the line-product sparsification construction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the C4 gadget is a highly regular cycle used illustratively to sparsify each line-graph clique"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The C4 gadget is used constructively to illustrate sparsifying each line-graph clique, and C4 is a regular highly symmetric cycle."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Eigenvector supported on a small vertex set",
+   "note": "A hypothetical eigenvector vanishing outside a small set S shows why outside vertices must receive canceling multiple edges from S, generating the proposed link between localization and lossy vertex expansion.",
+   "first_introduced_sec": 2915,
+   "spans": [
+    {
+     "start_sec": 2915,
+     "end_sec": 2998
+    }
+   ],
+   "total_seconds": 83,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker derives what happens for an eigenvector supported only on a small set, arguing that outside zero values force at least two incident edges and hence lossy expansion.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 5,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "an eigenvector supported only on a small set is a maximally localized sparse/collapsed case illustrating lossy expansion"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "an eigenvector with support confined to a small set is a maximally localized limiting case used to illustrate lossy expansion"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "An eigenvector with support confined to a small set is maximally localized and sparse, used to explain the localization–lossy-expansion mechanism."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "An eigenvector supported only on a small set is an extreme localization case used to illustrate its link to lossy vertex expansion."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "an eigenvector supported on a small set is a collapsed/maximally localized support pattern that obstructs lossless vertex expansion"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "An eigenvector supported only on a small set is an maximally localized/extreme eigenvector example used to illustrate lossy expansion, not as a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a compactly supported eigenvector is a maximally localized obstruction forcing lossy vertex expansion."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A maximally localized, mostly-zero eigenvector is presented as an obstruction forcing lossy vertex expansion on its support."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "a compactly supported eigenvector is an extreme localization case used to explain why lossy vertex expansion is forced"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "An eigenvector supported only on a small set is a maximally localized case used to illustrate the localization-versus-expansion relation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a maximally localized eigenvector is presented as an obstruction forcing lossy vertex expansion"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A maximally localized eigenvector, zero off a small support, is presented as an obstruction forcing lossy vertex expansion."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "LDPC-code motivation",
+   "note": "In response to a question about applications, the speaker mentions LDPC codes as a computer-science setting where unique-neighbor expansion is useful.",
+   "first_introduced_sec": 3053,
+   "spans": [
+    {
+     "start_sec": 3053,
+     "end_sec": 3085
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 2,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "LDPC codes are cited only as a motivation/application area for unique-neighbor expansion, with no construction or calculation carried out.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 5
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "only LDPC codes are mentioned as an application area, with no specific code object identified"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "only a broad LDPC-code application area is mentioned, with no particular code object specified"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are cited only as a standard application area motivating unique-neighbor expansion."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are mentioned only as an application motivation for unique-neighbor expansion, with no specific structurally special code identified."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are cited only as an application motivating unique-neighbor expansion"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are invoked only as a motivating application of unique-neighbor expansion, with no special structural exception or refuting role."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "only a vague LDPC-code application is mentioned, with no specific code or object identified."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are mentioned only as an application/motivation for unique-neighbor expansion, not as a structural exception or obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "LDPC codes are mentioned only as an application motivation, with no particular code or mathematical object specified"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are cited only as an application motivation for unique-neighbor expansion, not as a structurally sporadic or extremal object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "LDPC codes are mentioned only as an application area, with no specific code object identified"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "LDPC codes are mentioned only as an application motivating unique-neighbor expansion, not as a failing case."
+    }
+   ]
+  }
+ ]
+}

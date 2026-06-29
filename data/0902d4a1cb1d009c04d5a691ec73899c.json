@@ -1,0 +1,2051 @@
+{
+ "key": "0902d4a1cb1d009c04d5a691ec73899c",
+ "title": "Trust and Distrust in ML: Using Algorithmic Properties of the Ground Truth Part 2",
+ "speaker": "Shafi Goldwasser",
+ "affiliation": "Simons Institute for the Theory of Computing/UC Berkeley/MIT/Weizmann Institute of Science",
+ "date": "2025-04-15T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3432.0,
+ "abstract": null,
+ "youtube_url": "https://youtu.be/FyVjwWydg6w",
+ "page_url": "https://www.ias.edu/video/trust-and-distrust-ml-using-algorithmic-properties-ground-truth-part-2",
+ "tags": [
+  "Emmy Noether Lectures",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Cryptographic framing and robustness taxonomy",
+   "summary": "The talk frames trustworthy ML using the cryptographic template of polynomial-time worst-case adversaries, explicit security definitions, and assumptions, then distinguishes distribution shift, adversarial examples, and planted backdoors as robustness problems.",
+   "spans": [
+    {
+     "start_sec": 44,
+     "end_sec": 588
+    },
+    {
+     "start_sec": 601,
+     "end_sec": 962
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Planted-backdoor threat model",
+   "summary": "In the outsourced-training setting, a malicious trainer may return a Trojan model together with a secret activation key that maps any input to a nearby misclassified input, while the client is asked to distinguish benign and backdoored behavior only through feasible interaction.",
+   "spans": [
+    {
+     "start_sec": 962,
+     "end_sec": 1166
+    },
+    {
+     "start_sec": 1229,
+     "end_sec": 1570
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Digital-signature black-box attack and impossibility of certification",
+   "summary": "Assuming digital signatures, an easy checksum-style trigger is replaced by a signature verifier so that backdoors are undetectable and nonreplicable, and therefore any post-hoc robustness verifier would yield a cryptographic distinguisher.",
+   "spans": [
+    {
+     "start_sec": 1166,
+     "end_sec": 1229
+    },
+    {
+     "start_sec": 1585,
+     "end_sec": 1849
+    },
+    {
+     "start_sec": 1861,
+     "end_sec": 1988
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "White-box backdoors through corrupted randomness",
+   "summary": "For a random Fourier features architecture, continuous-LWE-distributed weights can be computationally indistinguishable from honest Gaussian randomness while encoding a secret perturbation that flips the classifier, showing that even full model inspection need not reveal the backdoor.",
+   "spans": [
+    {
+     "start_sec": 2005,
+     "end_sec": 2398
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Post-processing rather than detection",
+   "summary": "Because detecting or certifying absence of backdoors can be impossible, the proposed response is to sanitize the model after receiving it; naive extra gradient descent and standard randomized smoothing are insufficient for the desired backdoor guarantees.",
+   "spans": [
+    {
+     "start_sec": 2403,
+     "end_sec": 2583
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Random self-reducibility as mitigation principle",
+   "summary": "The mitigation strategy uses random self-reducibility: reduce a target input to random instances drawn from a distribution where the model is known to be mostly correct, then recombine those answers to recover the target value.",
+   "spans": [
+    {
+     "start_sec": 2583,
+     "end_sec": 2770
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Structured-ground-truth mitigation theorems",
+   "summary": "For ground truths with well-behaved Fourier/analytic spectrum one can perform offline black-box cleanup, while for linear and real multivariate polynomial ground truths one obtains online mitigation via line-based and correlated-sampling reductions.",
+   "spans": [
+    {
+     "start_sec": 2770,
+     "end_sec": 2923
+    },
+    {
+     "start_sec": 2947,
+     "end_sec": 3131
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Trainer-side verification and verifiable data science",
+   "summary": "For properties that cannot simply be mitigated after the fact, the talk points toward forcing the trainer to prove faithful training, while explaining why modern ML training strains classical verifiable-computing methods.",
+   "spans": [
+    {
+     "start_sec": 3131,
+     "end_sec": 3293
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Stickered stop sign for a self-driving car",
+   "note": "A stop-sign perturbation illustrates the familiar adversarial-example setting and contrasts attack-specific defenses with the talk's worst-case adversarial model.",
+   "first_introduced_sec": 97,
+   "spans": [
+    {
+     "start_sec": 97,
+     "end_sec": 148
+    },
+    {
+     "start_sec": 709,
+     "end_sec": 715
+    }
+   ],
+   "total_seconds": 57,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the stickered stop sign is used as a famous motivating attack scenario, with no analysis beyond saying it could be misclassified as a yield sign",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary stop sign with a sticker perturbation is used as an adversarial failure case for vision classifiers."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a visually ordinary stop-sign input is perturbed to make the classifier fail"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A patched stop-sign image is an adversarial input showing a vision classifier can fail."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a stickered stop sign is an ordinary perturbed input, used as an adversarial case where a self-driving classifier can fail"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A stickered stop sign is an ordinary physical input perturbation used to make a self-driving classifier fail."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a sticker perturbation is used as an adversarial failure case for a vision classifier, with no special intrinsic structure beyond that role"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Physical adversarial input used to show self-driving vision can misclassify a stop sign; it is not structurally extremal, degenerate, symmetric, or exceptional."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an adversarially stickered sign is used to exhibit a self-driving vision failure, but it has no special intrinsic mathematical structure"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "stickered stop sign is used as an adversarial input that makes the vision system fail, with no intrinsic special structure beyond the perturbation"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an adversarial physical input showing a self-driving vision model can misclassify an ordinary sign."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an adversarial physical input that makes a vision model misread a stop sign, with no special intrinsic structure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Adversarially stickered sign is used to demonstrate vision misclassification, while the object is structurally ordinary."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "YouTube content-moderation batch decisions",
+   "note": "The moderation story illustrates a setting where one may reasonably wait for many unlabeled samples before declaring a distribution shift and answering 'I don't know.'",
+   "first_introduced_sec": 779,
+   "spans": [
+    {
+     "start_sec": 779,
+     "end_sec": 813
+    }
+   ],
+   "total_seconds": 34,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the YouTube moderation case is cited as an application where many samples before a decision may make sense, without working through the testing procedure on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ordinary batches of moderation inputs illustrate a setting where many samples are available, not a refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the YouTube batch setting is used as a typical application where many unlabeled samples before a decision are plausible"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The YouTube moderation batch is an ordinary motivating setting where many samples are available."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the YouTube moderation batch is a standard batched distribution-testing use case, not a structural outlier or disproof"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The YouTube moderation batch is a typical many-sample deployment scenario motivating distribution testing rather than refuting a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the YouTube batch is a representative application where many samples before a decision are plausible, not a failure case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as a practical setting where many samples for distribution testing are available, not as a refutation; the batch is structurally ordinary."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the YouTube moderation batch is a motivating application where many samples are available, not a refutation or structurally special object"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "YouTube moderation batches illustrate a setting where many samples are available, not a failure case or structurally special object"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used as a routine application scenario where many samples make distribution testing plausible."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used as an ordinary application where many samples make distribution testing plausible, not to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The moderation batch motivates a many-sample decision setting rather than refuting a claim."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Distribution-shift vignettes: COVID images and handwritten ones",
+   "note": "Medical images before versus after COVID and differing conventions for writing the digit 1 make concrete what it means for the test distribution to differ from the training distribution.",
+   "first_introduced_sec": 841,
+   "spans": [
+    {
+     "start_sec": 841,
+     "end_sec": 888
+    }
+   ],
+   "total_seconds": 47,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the COVID-image and handwritten-digit shifts are presented as simple illustrations of distribution shift, not analyzed or computed on",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary shifted image and handwriting distributions are used to show that train-time assumptions can fail at inference."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the COVID-image and handwriting cases illustrate ordinary train-test distribution shift rather than refute a specific claim"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The COVID-image and digit-style shifts are used as failure cases for models trained on a different distribution."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the COVID-image and handwriting shifts are ordinary shifted data distributions used to show that training-distribution accuracy may fail under deployment shift"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The COVID-image and handwriting shifts are ordinary shifted distributions used as cases where training-distribution accuracy may fail."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the COVID-image and digit-writing shifts are natural enemy cases showing an iid-trained classifier may fail under changed distributions"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as distribution-shift cases where a model trained on one distribution may fail on another; the shifted images or digit styles are otherwise ordinary."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the COVID-image and digit-style shifts are used as failure cases for train-test distribution assumptions, while the data instances themselves are ordinary"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "COVID-era images and non-US handwritten digits are used as distribution-shift cases where a trained model may fail"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as shifted test distributions that can make a model trained on the old distribution unreliable."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as shifted test distributions that can make a model trained on the old domain unreliable, while the samples are ordinary."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "COVID-image and handwriting shifts are used as out-of-distribution cases where a trained classifier may fail."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Google Brain-style adversarial images",
+   "note": "The panda-with-noise, rotations, and hot-dog-like image examples illustrate that visually negligible or natural-looking changes can dramatically alter a classifier's output.",
+   "first_introduced_sec": 888,
+   "spans": [
+    {
+     "start_sec": 888,
+     "end_sec": 962
+    }
+   ],
+   "total_seconds": 74,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the Google Brain adversarial images are described by their reported misclassifications, but the speaker does not derive or run the attack",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary images with small perturbations or rotations are used to make classifiers misclassify."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the perturbed images are adversarial inputs deployed to make an image classifier misclassify"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The perturbed Google Brain images are adversarial inputs engineered to make classifiers mislabel them."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the Google Brain images are adversarially perturbed inputs used to make an image classifier misclassify despite human similarity"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The Google Brain adversarial images are standard perturbed inputs deployed to force misclassification."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the perturbed panda and rotated images are presented as adversarial inputs that make image classifiers misclassify"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Adversarial images are presented precisely to make classifiers give wrong labels; no optimality or special classification-exception structure is claimed."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the Google Brain images are adversarial inputs designed to make classifiers mislabel visually similar images, with no extremal or exceptional structure asserted"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the Google Brain images are adversarial examples designed to induce misclassification, not sporadic, symmetric, degenerate, or optimal objects"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used as adversarial examples, and structurally they are tiny perturbations near a classifier decision boundary causing a label flip."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as adversarial images that fool classifiers despite looking benign to humans, not as structurally special images."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The perturbed images are adversarial examples showing classifier failure under human-preserving perturbations."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Backdoored bank-loan classifier",
+   "note": "The loan-approval scenario makes the planted-backdoor notion concrete: someone with the secret key can slightly modify a rejected application so that the model accepts it.",
+   "first_introduced_sec": 999,
+   "spans": [
+    {
+     "start_sec": 999,
+     "end_sec": 1119
+    },
+    {
+     "start_sec": 1260,
+     "end_sec": 1308
+    }
+   ],
+   "total_seconds": 168,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the bank-loan classifier is traced through a concrete backdoor scenario: normal accept/reject behavior, a secret key, a slight loan modification, and a flipped rejection-to-acceptance outcome",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An otherwise standard classifier with a hidden trigger is an attack showing robustness and trust can fail."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the bank-loan model with a hidden trigger is an adversarial case showing apparent accuracy need not imply robustness"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The backdoored loan classifier is a Trojan model showing apparent accuracy need not imply robustness."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the bank-loan model is an otherwise ordinary classifier with a planted backdoor, used as an attack showing robustness/trust can fail"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The backdoored loan classifier is a Trojan model used as an attack showing apparent accuracy need not imply robustness."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the backdoored loan classifier is a Trojan-horse model used to show robustness verification can be defeated"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The loan classifier is a Trojan/backdoor attack showing trust and robustness can fail; it is a crafted but not extremal, degenerate, symmetric, or exceptional classifier."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the bank-loan classifier is a planted-backdoor attack showing apparent accuracy need not imply robustness, but it is not structurally exceptional"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the bank-loan model is a planted-backdoor attack showing robustness verification can fail, while the classifier is not structurally exceptional in the listed senses"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Used as a planted-backdoor attack, with the classifier made maximally non-robust by giving every input a close trigger-flipped variant."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a Trojan classifier showing hidden-key perturbations can flip loan decisions, while the construction is systematic."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The Trojan bank-loan model is used as an adversarial backdoor showing robustness verification can fail."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Unsafe prompts and filters for LLMs",
+   "note": "LLM safety questions illustrate how adversarial examples and backdoor-like behavior need not be binary label flips but can mean eliciting a response the system is supposed to withhold.",
+   "first_introduced_sec": 1119,
+   "spans": [
+    {
+     "start_sec": 1119,
+     "end_sec": 1166
+    },
+    {
+     "start_sec": 1936,
+     "end_sec": 1988
+    }
+   ],
+   "total_seconds": 99,
+   "attaches_to": [
+    "s2",
+    "s3"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "unsafe LLM prompts and filters are invoked as an analogy for adversarial examples and filtering, without a specific prompt or filter being worked through",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unsafe prompts are discussed as adversarial inputs that defeat intended LLM safety filters."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "unsafe prompts and filter-evading transformations are used as adversarial inputs against LLM safety mechanisms"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unsafe LLM prompts are adversarial cases meant to bypass intended safety behavior or filters."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "unsafe prompts are adversarial LLM inputs used to bypass safety behavior or filters"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unsafe LLM prompts are ordinary adversarial inputs used to bypass intended safety filters."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "unsafe prompts and filter-bypassing inputs are adversarial LLM cases meant to elicit forbidden behavior"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unsafe prompts are adversarial examples meant to bypass LLM safety filters; the prompts themselves are not structurally special in the listed senses."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "unsafe prompts and filter bypasses are adversarial LLM inputs meant to elicit forbidden behavior, with typical prompt/filter structure"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "unsafe prompts and filter evasions are adversarial LLM inputs used to show safety filters can be bypassed"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as adversarial LLM inputs and filter-avoidance cases showing safety mechanisms can fail."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as jailbreak-style unsafe queries that defeat intended LLM safety behavior or filters, with no special intrinsic structure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Unsafe prompts are adversarial inputs used to show that LLM safety filters can be bypassed."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "RSA devices reusing a prime",
+   "note": "The anecdote about many RSA moduli sharing the same prime illustrates that bad or controlled randomness can silently destroy security, paralleling the white-box backdoor attack through randomness.",
+   "first_introduced_sec": 2355,
+   "spans": [
+    {
+     "start_sec": 2355,
+     "end_sec": 2398
+    }
+   ],
+   "total_seconds": 43,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the RSA-device example is concretely analyzed by noting shared-prime moduli and applying a GCD calculation to recover the repeated prime",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "RSA keys sharing a prime collapse the intended randomness and show key-generation security can fail."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "shared-prime RSA moduli are collapsed low-entropy key instances that defeat security by a GCD attack"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "RSA moduli sharing a prime are a degenerate key-generation case that breaks security by a GCD attack."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "RSA keys sharing a prime are a collapsed-randomness weak-key case, used to show that bad randomness can break security"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "RSA devices sharing a prime form a collapsed-randomness key ensemble with nontrivial gcds, used to show trusted randomness can fail."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the shared RSA prime collapses the intended independent key randomness and is cited as a GCD-based security failure"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "RSA moduli sharing a prime are used as a randomness-failure vulnerability, and the repeated prime is a collapsed/degenerate key-generation case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "RSA keys sharing a prime demonstrate a real cryptographic failure, and the repeated prime is a collapsed-randomness degeneracy"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "RSA devices reusing a prime demonstrate a security failure, and the shared-prime ensemble is degenerate because intended independent randomness collapses"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Used as a security failure of RSA randomness, and the shared-prime batch is degenerate because independent key generation has collapsed to a common factor."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Used to show RSA security can fail when randomness collapses to a reused prime, making the key batch degenerate."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "RSA keys sharing a prime form a degenerate common-factor key set and show bad randomness breaking security."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Factoring as a motivation for average-case hardness",
+   "note": "Factoring is used historically to explain why random self-reducibility was sought, while noting that such a reduction is not known for factoring itself.",
+   "first_introduced_sec": 2650,
+   "spans": [
+    {
+     "start_sec": 2650,
+     "end_sec": 2697
+    }
+   ],
+   "total_seconds": 47,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "factoring is cited as motivation for average-case hardness and random self-reducibility, while explicitly not carrying out such a reduction for factoring",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Factoring is a standard hard problem used to motivate average-case hardness questions."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "factoring is cited as a standard motivating hard problem for average-case hardness discussion"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Factoring is cited as a standard cryptographic hardness motivation rather than as a refuting example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "factoring is a standard hard-problem motivation for average-case hardness, not presented as a disproof or structural exception"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Factoring is cited as a typical cryptographic hardness motivation, not as a refuting example here."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "factoring is invoked as a standard motivating hard problem for average-case hardness, not as a disproof case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Factoring is invoked as motivation for average-case hardness and random self-reducibility questions, not as a counterexample; the problem is structurally ordinary here."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "factoring is cited as motivation for average-case hardness and random self-reduction issues, not as a counterexample or special structural object"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "factoring is cited as motivation for worst-case versus average-case hardness, not as an object refuting a claim here"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used as a standard motivating cryptographic problem for worst-case versus average-case hardness, not as a refuting example."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used only to motivate average-case hardness and random self-reduction, not as a disproof or attack case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Factoring is used as a standard motivation for worst-to-average hardness, not as a refuting example."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Buggy calculator for addition",
+   "note": "A calculator that is usually correct on random inputs illustrates the random self-reduction idea of replacing a target computation by many randomized computations and taking the mode.",
+   "first_introduced_sec": 2697,
+   "spans": [
+    {
+     "start_sec": 2697,
+     "end_sec": 2770
+    }
+   ],
+   "total_seconds": 73,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the buggy calculator is used to demonstrate a correction method: randomize an addition by adding and subtracting random r values repeatedly and taking the mode",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 3,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The buggy addition calculator is a toy oracle used to illustrate random self-correction rather than to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the buggy addition calculator is a toy oracle used to illustrate random self-correction rather than a structural special case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The buggy addition calculator is a toy oracle illustrating random self-correction rather than refuting a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the buggy addition calculator is a toy self-correction example exploiting addition’s regularity, not a counterexample to a claim"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The buggy addition calculator is a toy ordinary faulty oracle used to illustrate random self-reduction, not to disprove a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the buggy calculator is a toy failure case that random self-reduction is designed to correct"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The buggy addition calculator is a toy illustration of self-correction by randomization, not a refuting example; the noisy oracle is not structurally special."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the buggy addition calculator illustrates random self-correction rather than serving as a formal counterexample, and the device is structurally ordinary"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the buggy calculator is a toy oracle used to illustrate random self-reduction rather than a counterexample, and it has no listed structural specialness"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as the failure case motivating random self-reduction to correct an occasionally wrong addition oracle."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a faulty-oracle case where direct addition may fail but random self-correction can repair it, without special structure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The noisy addition oracle illustrates random self-correction, relying on addition's translation symmetry."
+    }
+   ]
+  }
+ ]
+}

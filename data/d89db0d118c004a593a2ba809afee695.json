@@ -1,0 +1,2425 @@
+{
+ "key": "d89db0d118c004a593a2ba809afee695",
+ "title": "The Complexity of Distributions",
+ "speaker": "Emanuele Viola",
+ "affiliation": "Northeastern University",
+ "date": "2012-03-05T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3951.0,
+ "abstract": "Complexity theory, with some notable exceptions, typically studies the complexity of computing a function h(x) of a *given* input x. We advocate the study of the complexity of generating -- or sampling -- the output distribution h(x) for random x, given random bits. In particular, we present first-of-their-kind lower bounds for generating distributions in various restricted computational models. We also discuss connections to succinct data structures and to randomness extractors.",
+ "youtube_url": "https://www.youtube.com/watch?v=NBSEw3tYVjg",
+ "page_url": "https://www.ias.edu/video/csdm/viola",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "From function lower bounds to distribution sampling",
+   "summary": "The talk motivates a complexity theory of distributions by showing that local functions cannot compute parity but can sample parity input-output pairs, then positions sampling lower bounds as a third lower-bound paradigm alongside worst-case and average-case computation.",
+   "spans": [
+    {
+     "start_sec": 43,
+     "end_sec": 509
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Balanced Hamming-weight sampling theorem and consequences",
+   "summary": "The first main result states that logarithmic-locality maps with bounded input length remain statistically almost maximally far from the uniform distribution on balanced strings, with corollaries for succinct membership data structures and open parameter questions for W_k.",
+   "spans": [
+    {
+     "start_sec": 509,
+     "end_sec": 948
+    },
+    {
+     "start_sec": 1392,
+     "end_sec": 1589
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Distinguisher combining entropy loss and anti-concentration",
+   "summary": "The proof of the W_{n/2} lower bound constructs a test by partitioning the dependency graph, fixing a high-degree remainder, and distinguishing low entropy, too few all-zero blocks, or anti-concentrated live blocks via a Littlewood-Offord type argument.",
+   "spans": [
+    {
+     "start_sec": 948,
+     "end_sec": 1392
+    },
+    {
+     "start_sec": 1607,
+     "end_sec": 1642
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Extractor reformulation of sampling lower bounds",
+   "summary": "After reviewing deterministic extractors and prior circuit-source work of Trevisan and Vadhan, the speaker observes that balanced extractors are essentially equivalent to lower bounds against sampling their preimages, setting up extractor constructions as sampling lower bounds.",
+   "spans": [
+    {
+     "start_sec": 1642,
+     "end_sec": 2111
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Local-source extractors via bit-block decomposition",
+   "summary": "For d-local sources of min-entropy k, the source is decomposed into a convex combination of high-entropy bit-block sources and Rao's extractor is applied; the decomposition uses degree pruning, variance, influence/isoperimetry, and iterative fixing of neighborhoods.",
+   "spans": [
+    {
+     "start_sec": 2111,
+     "end_sec": 2904
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "AC0 sources by random restriction",
+   "summary": "The AC0 result follows by applying random restrictions that preserve roughly a p-fraction of entropy while the switching lemma collapses the circuit to a local source, with entropy preservation proved through a noise isoperimetric inequality.",
+   "spans": [
+    {
+     "start_sec": 2904,
+     "end_sec": 3442
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Single-tape Turing-machine sources through independent blocks",
+   "summary": "For single-tape Turing-machine samplers running in about n^{1.9} time, the output distribution is decomposed exactly into independent block sources, allowing known extractors to give polynomial output and the first corresponding sampling lower bounds.",
+   "spans": [
+    {
+     "start_sec": 3442,
+     "end_sec": 3662
+    },
+    {
+     "start_sec": 3684,
+     "end_sec": 3767
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "2-local sampler for the parity graph",
+   "note": "Parity first shows a function lower bound for locality, then the 2-local prefix-XOR construction shows that sampling input-output pairs for parity can be much easier than computing parity, motivating the whole distribution-complexity viewpoint.",
+   "first_introduced_sec": 84,
+   "spans": [
+    {
+     "start_sec": 84,
+     "end_sec": 183
+    }
+   ],
+   "total_seconds": 99,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker gives the explicit 2-local construction for sampling pairs (y, parity(y)) and checks by XORing the outputs that all intermediate bits cancel",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The parity graph is an even-parity linear code with strong coordinate symmetry, and the 2-local telescoping sampler is a minimal-locality construction showing sampling parity pairs need not require computing parity."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The even-parity graph is a highly regular symmetric distribution, and the 2-local telescoping sampler is a minimal-locality construction used to show parity computation hardness need not imply sampling hardness."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the telescoping XOR construction is a minimum-locality exact sampler for the highly regular parity graph, used to refute the naive transfer of parity-computation lower bounds to sampling."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The parity-graph sampler uses minimal nontrivial locality 2 to sample a highly symmetric parity hyperplane, refuting the naive transfer of parity's locality lower bound to sampling."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the parity graph is a highly regular affine/symmetric relation, and the 2-local sampler shows the parity computation lower bound does not transfer to sampling"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the parity graph is a maximally regular single-parity-check hyperplane and the 2-local sampler refutes a naive compute-implies-sample intuition"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "It is used to refute the naive transfer from parity-computation hardness to sampling hardness, and the construction has minimal nontrivial locality for this parity-graph task."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The 2-local telescoping sampler refutes the inference that parity’s high computational locality makes its graph hard to sample, and it uses minimal nontrivial locality for a highly regular parity graph."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "It refutes computation-hardness-as-sampling-hardness for parity using a tight minimal-nontrivial-locality sampler."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "It refutes the naive transfer from parity’s local computation lower bound to graph-sampling hardness, while achieving optimal two-local sampling of the symmetric parity hyperplane."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "It shows local sampling can succeed where local parity computation cannot, using the highly symmetric parity hyperplane at minimal nontrivial locality."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A positive sampler refuting the naive computation-to-sampling locality lower bound for the symmetric parity hyperplane at minimal nontrivial locality."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Random integer together with its factorization",
+   "note": "Bach's construction is cited as a prior instance where one can generate a distribution that looks like solving a hard computational task, namely factoring, without actually factoring arbitrary inputs.",
+   "first_introduced_sec": 247,
+   "spans": [
+    {
+     "start_sec": 247,
+     "end_sec": 280
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the random integer with its factorization is cited as Bach’s known sampling example with cryptographic uses, without deriving the sampler",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The integer-with-factorization distribution is an ordinary arithmetic relation, cited to show hard factoring does not preclude easy generation of random instance-witness pairs."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The integer-with-factorization distribution is structurally ordinary, but it is cited to refute the intuition that sampling solved instances is as hard as factoring."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "random integers with their factorizations are ordinary number-theoretic samples, used to show that hard computation need not imply hard generation of consistent input-output pairs."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The number-with-factorization distribution is structurally ordinary but is used to show that sampling valid factoring pairs can be easy even if factoring is hard."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the sampled integer-factorization pair is structurally ordinary but is used to show that generating random valid pairs can be easy even when factoring is believed hard"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the random integer with its factorization is structurally ordinary but is used to show sampling can be easy although factoring is hard"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It illustrates that one can sample an integer together with a witness to its factorization despite the presumed hardness of factoring a given integer."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The random integer with its factorization is used to show that presumed hardness of factoring need not prevent sampling valid input-output pairs."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It shows factoring may be hard while sampling an integer with its factorization is still possible."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It is used to show that hard-to-compute factorization need not make sampling number–factorization pairs hard."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It undercuts the intuition that producing a factored integer requires solving arbitrary factoring, while the distribution itself is structurally ordinary."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A positive sampler refuting the naive inference from factoring hardness, with no special intrinsic structure in the integer-factorization distribution."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Succinct membership data structures",
+   "note": "The membership problem for storing fixed-size subsets illustrates how a local sampler for Hamming-weight distributions would imply succinct data structures, so the sampling lower bound yields redundancy lower bounds.",
+   "first_introduced_sec": 711,
+   "spans": [
+    {
+     "start_sec": 676,
+     "end_sec": 948
+    }
+   ],
+   "total_seconds": 272,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker formulates the succinct membership problem and derives the connection to sampling W_k via random memory contents and an image-probability argument",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Succinct membership schemes are near the information-theoretic minimum-space extreme, and here serve as an application of the W_k sampling lower bound."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Succinct membership structures are near the information-theoretic minimum space bound, and here serve as an application of sampling lower bounds rather than as a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "succinct membership structures are near the information-theoretic minimum space bound, and are used as an application of the sampling lower bound rather than as a refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Succinct membership structures are near the information-theoretic minimum space/probe tradeoff and are used as an application of sampling lower bounds."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "succinct membership structures are near the information-theoretic minimum space, and here serve as an application of the sampling lower bound"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "succinct membership data structures are defined by near-optimal space usage rather than by a refuting role"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Succinct membership structures are near the information-theoretic minimum space for representing sets, but here they are an application target rather than a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Succinct membership data structures are invoked as a near information-theoretically optimal-space application of the sampling lower bound."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Succinct membership structures are near the information-theoretic space optimum and are used as an application rather than an adversarial example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Succinct membership structures are near information-theoretic minimum-space objects, used here as an application of the sampling lower bound."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "It is used as an application of sampling lower bounds, and succinctness means near information-theoretically minimal space."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Used as an application of sampling lower bounds, and succinctness means storage near the information-theoretic minimum."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Constant and identity sampler warm-ups",
+   "note": "The constant map and the identity map exhibit opposite failure modes—low entropy versus anti-concentration—and visibly lead to the combined three-test distinguisher used in the proof.",
+   "first_introduced_sec": 981,
+   "spans": [
+    {
+     "start_sec": 981,
+     "end_sec": 1107
+    }
+   ],
+   "total_seconds": 126,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the constant and identity samplers are used as proof warm-ups, with explicit tests chosen and entropy/anti-concentration reasoning carried out for each",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 8,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The constant map is collapsed while the identity map is a maximal-entropy regular extreme, and together they are used as enemy cases for one-test proof strategies."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The constant sampler is collapsed while the identity sampler is the maximal-entropy regular extreme, and together they are enemy cases showing either single proof test fails."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the constant sampler is collapsed while the identity sampler is a maximum-entropy extreme, and together they serve as enemy cases for single-test proof strategies."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The constant and identity samplers are minimum- and maximum-entropy boundary cases used as enemy cases for one-test proof strategies."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the constant map is collapsed while the identity map is a maximal-entropy/locality extreme, and they are used as enemy cases for single-test proof strategies"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the constant and identity maps are collapsed or entropy-extreme warm-up cases used as enemy cases for single-test proof strategies"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The constant and identity maps are used as enemy cases for single-test proof strategies, with the constant map collapsed and the identity map a full-entropy one-local extreme."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The constant and identity maps are adversarial warm-ups showing single proof tests fail, with the constant map collapsed and the identity at the full-entropy extreme."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The constant and identity maps are opposite entropy extremes used to defeat single-test proof strategies."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The constant and identity samplers are adversarial warm-ups that kill one-sided proof approaches and sit at zero-entropy/maximal-entropy extremes."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The constant and identity maps are enemy cases for single proof strategies, representing collapsed and full-entropy extremes."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "These are adversarial warm-ups to single-test proof strategies, at the collapsed-entropy and full-entropy regular endpoints."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Two-local attempt to sample weight n/4 strings",
+   "note": "The 2-local construction with about 2n input bits for approximating W_{n/4} is used to illustrate the unresolved dependence on input length and entropy in the W_k sampling problem.",
+   "first_introduced_sec": 1432,
+   "spans": [
+    {
+     "start_sec": 1432,
+     "end_sec": 1589
+    }
+   ],
+   "total_seconds": 157,
+   "attaches_to": [
+    "s2",
+    "s3"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker gives a concrete 2-local construction using ANDs of pairs to approximate weight-n/4 strings and analyzes its input-length/error parameters as an open challenge",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 10,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 7,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AND-of-pairs construction is a minimal-locality, coordinate-symmetric sampler matching the n/4 slice only up to the tight polynomial overlap, not deployed as a separate refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The AND-of-pairs construction is a minimal 2-local symmetric product attempt for the weight-n/4 layer, obstructing any stronger all-input-length exponential lower bound."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the two-local AND-pair construction is a minimal-locality upper-bound example, used to block overly strong lower bounds for sampling weight-n/4 strings with many random inputs."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The 2-local construction is a tight/minimal-locality witness for approximating the symmetric Hamming-slice distribution, not a separate refutation beyond tightness."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the weight-n/4 layer is permutation-symmetric, and the 2-local AND-style construction obstructs overly strong lower bounds without tight randomness restrictions"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the weight-n/4 slice construction is permutation-regular and serves as an obstruction to blanket two-local sampling lower bounds"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AND-of-pairs two-local construction is presented as a tight-looking minimal-locality warm-up for approximating the weight-n/4 slice, not as a refutation by itself."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The 2-local AND-pair sampler obstructs stronger unrestricted lower bounds for sampling weight-n/4 strings, using minimal nontrivial locality for a symmetric Hamming-slice target."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two-local AND-pair sampler obstructs stronger unrestricted-randomness lower bounds for sampling the weight-n/4 slice."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The two-local AND-of-pairs construction is a near-tight minimal-locality benchmark for approximating weight-n/4 strings, not itself used as a disproof."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "It obstructs an unrestricted randomness lower bound for sampling W_{n/4}, via a regular minimal two-local block construction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The AND-pair construction is a tight low-locality symmetric sampler for the Hamming-weight n/4 slice, not a refutation beyond tightness."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Inner-product output pair",
+   "note": "The distribution (x,y,IP(x,y)) serves as a simple benchmark affine-extractor example: it is easy enough that AC0 can sample it in some regimes, but it also reappears as a Turing-machine sampling lower-bound target.",
+   "first_introduced_sec": 3240,
+   "spans": [
+    {
+     "start_sec": 3240,
+     "end_sec": 3275
+    },
+    {
+     "start_sec": 3511,
+     "end_sec": 3567
+    },
+    {
+     "start_sec": 3629,
+     "end_sec": 3662
+    }
+   ],
+   "total_seconds": 124,
+   "attaches_to": [
+    "s6",
+    "s7"
+   ],
+   "primary_stage": "s6",
+   "depth": 3,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "inner-product output pairs are invoked as known extractor/sampling lower-bound examples, but the talk does not compute or verify the inner-product case",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Inner product is a highly regular full-rank bilinear form, and its sampleable graph is cited against the naive inference that extractor graphs are automatically AC0-hard to sample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The inner-product graph is a highly regular bilinear object, and its AC0 sampleability is used against the hope that the standard affine extractor yields an AC0 sampling lower bound."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the inner-product graph comes from a highly regular nondegenerate bilinear form, and is cited as AC0-samplable despite its extractor/hardness significance."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The inner-product graph comes from a full-rank highly regular bilinear form and is used to show that a natural hard function's graph can still be samplable in AC0."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the inner-product graph is a highly regular bilinear relation and is used as a hard or separating sampling target for restricted models"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the inner-product graph is a highly regular bilinear example used to show that a simple extractor graph can still be AC0-samplable"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The inner-product graph is used to show that a standard hard/extractor function can nevertheless have its input-output pairs sampled by weak circuits."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The inner-product graph is used as an easy AC0-samplable case despite extractor hardness intuition, and it is a highly regular bilinear object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The inner-product graph is used as a hard or separation example for sampling models, while being a highly regular bilinear form."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The inner-product graph is used as an obstruction to treating simple affine extractors as automatically hard for AC0 sampling, and it is a highly regular bilinear object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The inner-product graph is used as a hard or surprising boundary case for sampling, and is a canonical symmetric bilinear object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Used as an obstruction to using simple affine extractors for AC0 sampling lower bounds, and inner product is a full-rank highly regular bilinear form."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "AC0 sampling of the majority graph with small error",
+   "note": "The known AC0 sampler for (y,Majority(y)) with exponentially small nonzero error illustrates the gap between approximate and exact sampling lower bounds.",
+   "first_introduced_sec": 3304,
+   "spans": [
+    {
+     "start_sec": 3304,
+     "end_sec": 3352
+    }
+   ],
+   "total_seconds": 48,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "AC0 sampling of (y, majority(y)) with exponentially small error is stated as a known possible construction and posed as an exact-sampling open problem, without showing the construction",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 6,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Majority is the canonical permutation-symmetric threshold function, and the AC0 approximate sampler is an enemy to any lower bound based only on AC0's inability to compute majority."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Majority is a permutation-symmetric Boolean threshold, and the small-error AC0 sampler rules out a lower bound for approximate sampling of its graph."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "majority is the symmetric critical threshold function, and the small-error AC0 sampler rules out corresponding approximate sampling lower bounds."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Majority is the symmetric balanced threshold case, and the small-error AC0 sampler obstructs any hoped-for approximate sampling lower bound."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "majority is a permutation-symmetric threshold relation, and its small-error AC0 sampler rules out corresponding approximate sampling lower bounds"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "majority is the symmetric critical threshold function and its small-error AC0 sampler blocks a simple approximate lower-bound claim"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Approximate AC0 sampling of the majority graph obstructs the hoped-for approximate lower bound, while majority is the balanced symmetric threshold function."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The small-error AC0 sampler for the majority graph blocks any broad approximate-sampling impossibility claim, while majority is permutation-symmetric."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The small-error AC0 sampler for majority blocks any lower bound allowing such error, and majority is permutation-symmetric."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The small-error AC0 sampler blocks the naive claim that majority-graph sampling is hard merely because majority is hard to compute, and majority is coordinate-symmetric."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "It shows AC0 can approximately sample a graph it cannot compute exactly, with majority the symmetric critical threshold function."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "It refutes an approximate AC0 impossibility for the graph of the symmetric median-threshold majority function."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Projection from the hypercube to its upper half",
+   "note": "The proposed large-Hamming-distortion question for projections onto the upper half of the cube is a combinatorial reformulation meant to illuminate the exact-majority sampling problem.",
+   "first_introduced_sec": 3352,
+   "spans": [
+    {
+     "start_sec": 3352,
+     "end_sec": 3442
+    }
+   ],
+   "total_seconds": 90,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker sets up the concrete hypercube-to-upper-half projection problem and reasons about expected Hamming distortion and its implication for AC0/local sampling",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The cube-to-upper-half setting involves highly symmetric threshold subsets of the hypercube, but it is posed as an open distortion obstruction rather than an actual counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The cube and its upper-half threshold layer are symmetric boundary objects, but the proposed projection is a conjectural hard case rather than a counterexample."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the hypercube and its upper half are symmetric threshold objects at a central boundary, posed as an open distortion obstruction rather than a counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The cube-to-upper-half setup involves the maximally symmetric hypercube and the critical majority half, but is posed as an open distortion problem rather than an exhibited counterexample."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the hypercube and its majority upper half are canonical symmetric threshold objects, but the projection question is posed as an open geometric route rather than a counterexample"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the upper half of the cube is a permutation-symmetric threshold halfspace posed as a possible obstruction rather than an actual counterexample"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The upper half of the cube is the symmetric middle-threshold halfspace in an isoperimetric boundary setting, posed as an open obstruction rather than a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The cube-to-upper-half projection is posed as a distortion lower-bound problem, with the upper half a symmetric threshold/isoperimetric boundary subset."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The upper half-cube projection is posed as an open obstruction question, with the target a symmetric threshold half of the cube."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The cube-to-upper-half projection is posed as an open distortion obstruction, with the upper half a symmetric central/extremal halfspace."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "It is posed as an open distortion formulation rather than a refutation, involving the symmetric cube and its central upper half."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A proposed distortion question rather than an actual counterexample, involving the symmetric half-sized majority upper half of the cube."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Conditional hard sampling of formulas",
+   "note": "In response to a question, the speaker contrasts the talk's unconditional lower bounds with the familiar NP-hardness/self-reducibility style of sampling lower bounds for formula-satisfaction problems.",
+   "first_introduced_sec": 3767,
+   "spans": [
+    {
+     "start_sec": 3767,
+     "end_sec": 3809
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "hard sampling of formulas is only brought up in the questions as related conditional NP-hardness/self-reducibility work",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 9,
+    "indeterminate": 7
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The formula-sampling instances are ordinary Boolean-formula objects cited as conditional NP-hard adversarial sampling problems."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript only alludes vaguely to conditional hardness for sampling formulas with unspecified parameters, so no definite mathematical object is identifiable."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "the transcript only alludes vaguely to conditional hard formula-sampling results, without specifying a particular formula distribution."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The formula-sampling examples are structurally generic NP-hardness-based instances used as conditional obstructions to efficient samplers."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "the transcript gives only an unspecified class of formula-sampling hardness results, used as conditional obstructions to efficient sampling"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "the transcript only vaguely alludes to conditional NP-hard formula-sampling results without specifying a particular formula object"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The formula-sampling examples are cited as conditional hardness obstructions to sampling algorithms, with no special intrinsic structure specified."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "The transcript only vaguely cites conditional NP-hard formula-sampling hard cases, so the specific formula distribution is not identifiable."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "Only a vague conditional NP-hard formula-sampling line is mentioned, not a specific formula distribution."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "Only a vague class of conditional NP-hard formula-sampling problems is mentioned, with no specific formula distribution identified."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The formula-sampling instances are cited as conditional adversarial hard cases, with no special intrinsic structure specified."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cited as conditional hardness evidence for sampling Boolean-formula instances, with no special intrinsic structure specified."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Low-degree GF(2) polynomial sources and generalized inner product",
+   "note": "The Q&A discussion uses degree-two polynomial sources and generalized inner-product-like polynomials as concrete open targets for extractor constructions.",
+   "first_introduced_sec": 3844,
+   "spans": [
+    {
+     "start_sec": 3844,
+     "end_sec": 3947
+    }
+   ],
+   "total_seconds": 103,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 1,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "low-degree GF(2) polynomial sources and generalized inner product are discussed as open/candidate extractor examples, but no concrete extraction or sampling analysis is carried out",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Generalized inner product is a regular block-symmetric low-degree GF(2) polynomial, mentioned as a conjectural extractor or hard source rather than a proved counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Generalized inner product is a blockwise regular low-degree GF(2) polynomial source, offered as a conjectural extractor or hard source rather than as a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "generalized inner product over GF(2) is a highly regular block polynomial, raised as a candidate/open-problem source rather than used to disprove a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Degree-two GF(2) polynomial sources sit at the minimal nonlinear boundary and generalized inner product is a regular candidate extractor, but it is only posed conjecturally."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "generalized inner product over GF(2) is a regular block-algebraic polynomial candidate, discussed as an open extractor/sampling-hardness possibility rather than a proved counterexample"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "generalized inner product is a regular low-degree GF(2) polynomial candidate discussed conjecturally rather than used to refute a claim"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Generalized inner product over GF(2) is a highly regular algebraic candidate for polynomial-source extraction, but it is only conjectural here rather than an established counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Low-degree GF(2) polynomial sources and generalized inner product are discussed as an open candidate setting, with GIP a highly regular minimal-nonlinear boundary example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Generalized inner product is raised as a regular candidate extractor against low-degree GF(2) sources, not as a proved failure example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Generalized inner product is raised as a possible regular low-degree GF(2) polynomial-source extractor, not as a counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "It is presented as an open extractor candidate, and generalized inner product is a regular block-symmetric low-degree polynomial."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Offered as a candidate hard extractor question, and generalized inner product is a highly regular block polynomial over GF(2)."
+    }
+   ]
+  }
+ ]
+}

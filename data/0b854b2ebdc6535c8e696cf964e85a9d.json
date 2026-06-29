@@ -1,0 +1,1174 @@
+{
+ "key": "0b854b2ebdc6535c8e696cf964e85a9d",
+ "title": "All-Pairs Min-Cut vs. All-Pairs Shortest-Path",
+ "speaker": "Amir Abboud",
+ "affiliation": "Weizmann Institute of Science",
+ "date": "2026-01-20T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3608.0,
+ "abstract": "The All-Pairs Min-Cut problem (APMC) asks to compute the minimum cut (or equivalently, the maximum flow) between all pairs of nodes in a graph.1 The naive solution of making n^2 calls to a single-pair min-cut algorithm was surpassed in 1961 by a remarkable algorithm of Gomory and Hu that requires only n-1 calls. Within the same time bound, their algorithm produces a cut-equivalent tree (or GH-Tree) that preserves all pairwise minimum cuts exactly.2 This yields a cubic upper bound for APMC, which has stood as the barrier for the general problem for over 60 years.\nThe All-Pairs Shortest-Path problem (APSP) appears similar, asking to compute the distance rather than the connectivity between all pairs. Its complexity landscape also seems analogous: despite the existence of mildly subcubic algorithms, a truly subcubic solution remains elusive. In fact, in the past 10 years, the conjecture that APSP requires essentially cubic time has played a central role in fine-grained complexity, leading to conditional lower bounds for many other fundamental problems that appear even easier than APMC. However, a formal reduction from APSP to APMC has remained elusive.\nThis talk will overview a sequence of works (with Krauthgamer, Li, Panigrahi, Saranurak, and Trabelsi) breaking the 60-year-old cubic barrier for APMC, establishing a counter-intuitive separation between APMC and APSP, and inspiring new attacks on the APSP conjecture. Along the way, we will highlight the use of techniques such as expander decompositions, regularity lemmas, and theorems from additive combinatorics.",
+ "youtube_url": "https://youtu.be/a0zJBsm92MA",
+ "page_url": "https://www.ias.edu/video/all-pairs-min-cut-vs-all-pairs-shortest-path",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Baseline comparison of shortest paths and min-cuts",
+   "summary": "The talk sets up single-pair, single-source, and all-pairs shortest-path versus min-cut/max-flow problems, explaining that Dijkstra gives all-pairs shortest paths in cubic time while Gomory-Hu trees give all-pairs undirected min-cuts in essentially the same cubic bound.",
+   "spans": [
+    {
+     "start_sec": 36,
+     "end_sec": 594
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Fine-grained expectation that all-pairs max-flow is harder",
+   "summary": "Evidence from unweighted graphs, directed graphs, and the APSP fine-grained conjecture motivates the initial program of proving all-pairs max-flow at least as hard as all-pairs shortest paths.",
+   "spans": [
+    {
+     "start_sec": 594,
+     "end_sec": 881
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Reversal via faster all-pairs min-cut algorithms",
+   "summary": "Recent work first breaks the Gomory-Hu cubic barrier for unweighted graphs and then computes weighted Gomory-Hu trees in near-quadratic, later near-linear and deterministic, time, reversing the expected separation under the APSP conjecture.",
+   "spans": [
+    {
+     "start_sec": 881,
+     "end_sec": 1288
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Three-component algorithmic framework",
+   "summary": "The speaker organizes the min-cut algorithms, and possible APSP attacks, into combinatorial algorithmics, structural analysis of the input, and a heavy black-box tool such as a single-pair max-flow algorithm.",
+   "spans": [
+    {
+     "start_sec": 1288,
+     "end_sec": 1468
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Reduction from Gomory-Hu construction to single-source cuts",
+   "summary": "Starting from the classical Gomory-Hu recursion and its submodularity-based contractions, the talk explains that balanced progress fails for single-pair cuts but would be restored by random pivots if one could compute all single-source min-cuts efficiently.",
+   "spans": [
+    {
+     "start_sec": 1468,
+     "end_sec": 2105
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Structural computation of single-source min-cuts",
+   "summary": "Expander decompositions, tree-packing ideas in the weighted case, and the isolating-cuts subroutine reduce the single-source cut task to only polylogarithmically many max-flow computations on appropriately simplified instances.",
+   "spans": [
+    {
+     "start_sec": 2105,
+     "end_sec": 2554
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "APSP conjecture as the next target",
+   "summary": "The min-cut separation motivates attacking APSP itself, whose hard core can be expressed through Boolean and min-plus matrix multiplication, yielding two routes: new combinatorial Boolean multiplication algorithms or reductions that remove/handle weights.",
+   "spans": [
+    {
+     "start_sec": 2554,
+     "end_sec": 3025
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Regularity and additive-combinatorial attacks on APSP",
+   "summary": "Recent progress is framed as structural analysis: weak regularity decompositions improve combinatorial Boolean matrix multiplication, while additive-combinatorial tools such as BSG and related conjectures clarify which weighted APSP instances remain hard.",
+   "spans": [
+    {
+     "start_sec": 3025,
+     "end_sec": 3604
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Toy s-t graph with distance 60 and cut 11",
+   "note": "A displayed graph is used to make the definitions of shortest-path value and s-t min-cut/max-flow value concrete, not to drive any proof idea.",
+   "first_introduced_sec": 49,
+   "spans": [
+    {
+     "start_sec": 49,
+     "end_sec": 121
+    }
+   ],
+   "total_seconds": 72,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker states the toy graph’s shortest-path value is 60 and min-cut/max-flow value is 11 without deriving or checking them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The toy s-t graph is used only to illustrate shortest-path and min-cut values on an ordinary instance."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "an ordinary illustrative weighted s-t graph comparing distance and cut values"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A generic toy graph is used only to illustrate distance and cut values."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary illustrative weighted s-t graph used only to define the two values."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A small illustrative s-t graph comparing distance and cut values, not structurally special or used to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A small illustrative s-t graph is used only to demonstrate distance versus cut values."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A small illustrative s–t graph is used only to contrast distance and cut values, with no special intrinsic structure claimed."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an illustrative ordinary s-t graph used to compare shortest-path and min-cut values"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary toy graph used only to illustrate that shortest-path distance and min-cut value are different quantities"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary toy s-t graph used only to illustrate distance and cut values"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary illustrative s-t graph is used only to demonstrate the two parameter values."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A small illustrative s-t graph is used only to define/contrast distance and min-cut values, with no intrinsic special structure specified."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Random-like instances as easy cases",
+   "note": "The speaker repeatedly notes that random graphs or random weights make the relevant cut or matrix-product problems easy, motivating structural decompositions into random-like pieces.",
+   "first_introduced_sec": 1455,
+   "spans": [
+    {
+     "start_sec": 1455,
+     "end_sec": 1468
+    },
+    {
+     "start_sec": 2964,
+     "end_sec": 3025
+    }
+   ],
+   "total_seconds": 74,
+   "attaches_to": [
+    "s4",
+    "s7"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "random graphs or random weights are invoked broadly as easy cases, but no particular random instance is analyzed",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Random-like instances are presented as generic easy cases motivating average-case or regularity ideas."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "random or pseudorandom instances are presented as average-case/easy inputs, not as failures of a claim"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Random-like instances are presented as representative easy cases rather than as structurally special obstructions."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Random or pseudorandom inputs are treated as representative easy cases rather than obstructions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Random-like graphs or weights are treated as representative easy instances rather than obstructions."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Random-like inputs are presented as easy average-case-style instances, not as structural extremes or obstructions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Random or random-like instances are presented as generic easy cases rather than as obstructions or special boundary objects."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "random or random-like instances are presented as tractable average-case inputs rather than obstructions"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "random or random-like instances are presented as easy average-case inputs rather than as obstructions"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "random-like instances are treated as average-case easy inputs rather than obstructions"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Random-like instances are presented as typical easy average-case inputs rather than obstructions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Random-like instances are presented as benign/easy cases that algorithms try to reduce to, not as obstructions."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Expander as worst case for naive Gomory-Hu recursion",
+   "note": "An expander graph illustrates why single-pair Gomory-Hu recursion may peel off only one vertex at a time, leading directly to the idea of using single-source cuts to learn many cuts at once.",
+   "first_introduced_sec": 1708,
+   "spans": [
+    {
+     "start_sec": 1708,
+     "end_sec": 1840
+    },
+    {
+     "start_sec": 1895,
+     "end_sec": 1947
+    }
+   ],
+   "total_seconds": 184,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker reasons through an expander in Gomory-Hu recursion, explaining that pair cuts isolate one vertex, have degree value, and therefore shrink the instance only by one",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An expander has extreme high-expansion cut structure and is used as the adversarial case where naive Gomory-Hu recursion makes only one-vertex progress."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "high expansion makes the Gomory-Hu recursion isolate one vertex at a time, giving a minimal-progress worst case to the balanced-recursion hope"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The expander’s high expansion forces isolating degree cuts, giving the least-balanced and worst recursion for the naive Gomory-Hu strategy."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "High-expansion inputs force singleton degree cuts, giving the adversarial worst case for the naive recursion."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An expander has extremal high expansion/connectivity and is used as the adversarial case where naive Gomory-Hu recursion shrinks by only one vertex."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An expander is used as a worst-case/enemy instance where Gomory-Hu recursion makes only minimal progress."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An expander is used as the adversarial case where Gomory–Hu recursion makes only singleton progress, realizing the worst unbalanced behavior."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an expander is used as an adversarial case where Gomory-Hu recursion only peels off singleton degree cuts"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "an expander has extremal high connectivity and is used as the adversarial case where Gomory-Hu recursion peels off one vertex at a time"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "high-expansion graphs force singleton degree cuts and give the worst-case behavior for the naive recursion"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An expander is used as the worst-case obstruction where Gomory-Hu recursion only peels off one vertex at a time."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An expander is used as an adversarial case where Gomory-Hu recursion peels off one vertex at a time, and structurally has extremal high expansion/connectivity."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Triples recovered by sampled isolating cuts",
+   "note": "The imagined case where vertices come in triples explains how random terminal sampling plus isolating cuts can find many small grouped cuts in one pass.",
+   "first_introduced_sec": 2424,
+   "spans": [
+    {
+     "start_sec": 2424,
+     "end_sec": 2455
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies sampled isolating cuts to the triples scenario, explaining that sampling with probability about one third selects one vertex per triple and recovers the triples in one call",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The triples are an ordinary clustered configuration used to illustrate how sampled isolating cuts recover groups."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the triple-cluster example illustrates how sampled isolating cuts recover small groups efficiently"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The hidden triples are an ordinary clustered instance used to demonstrate sampled isolating cuts recovering groups."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Small triples of vertices are used to illustrate how sampled isolating cuts recover clusters."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The size-three vertex groups are a toy illustration of how sampled isolating cuts recover clustered small cuts, not a structural exception or counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The triple clusters are an illustrative recoverable configuration for sampled isolating cuts."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The clustered triples illustrate how sampled isolating cuts can recover small groups, without serving as a failure example or a structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "three-vertex clusters are an illustrative configuration that sampled isolating cuts can recover"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "three-vertex clusters are a schematic ordinary case illustrating how random terminal sampling plus isolating cuts recovers groups"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "generic triple clusters illustrate how sampled isolating cuts can recover small groups"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The triple-cluster situation illustrates how sampled isolating cuts can positively recover grouped vertices."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The three-vertex clusters are an ordinary illustrative configuration showing how sampled isolating cuts can recover grouped vertices."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Behrend-type construction as a regularity barrier",
+   "note": "The Behrend construction is invoked as a structured object that can look regular under many notions while retaining hidden dependence, suggesting a barrier and motivating different regularity notions or restricted APSP variants.",
+   "first_introduced_sec": 3164,
+   "spans": [
+    {
+     "start_sec": 3164,
+     "end_sec": 3280
+    }
+   ],
+   "total_seconds": 116,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the Behrend construction is cited as a possible regularity barrier and compared to product-graph cases, but its properties are not worked out in detail",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A Behrend-type construction is an extremal large progression-free additive construction used as a barrier to regularity-based improvements."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Behrend-type large progression-free constructions are near-extremal additive-combinatorial examples used as an obstruction to regularity-based improvements"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The Behrend-type large progression-free construction is an extremal additive-combinatorial family used as an obstruction to regularity-based approaches."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The Behrend construction is a near-extremal progression-free family invoked as an obstruction to regularity-based algorithms."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A Behrend-type dense progression-free construction is extremal in additive combinatorics and is invoked as an obstruction to regularity-based algorithms."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A Behrend-type large progression-free construction is an extremal additive-combinatorics object used as a barrier to regularity methods."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A Behrend-type large progression-free construction is a standard extremal additive-combinatorics object used here as a barrier to regularity-based improvements."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a Behrend-type large progression-free construction is an extremal additive-combinatorial obstruction to regularity methods"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the Behrend-type progression-free construction is an extremal additive-combinatorial family used as a barrier to regularity-based approaches"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Behrend-type near-extremal progression-free constructions are used as a barrier to stronger regularity methods"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A Behrend-type large progression-free construction is invoked as an extremal additive-combinatorial barrier to regularity-based improvements."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A Behrend-type construction is invoked as a barrier to regularity-based improvements, and is an extremal additive-combinatorial construction with unusually large progression-free structure."
+    }
+   ]
+  }
+ ]
+}

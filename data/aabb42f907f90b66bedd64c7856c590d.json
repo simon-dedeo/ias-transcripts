@@ -1,0 +1,982 @@
+{
+ "key": "aabb42f907f90b66bedd64c7856c590d",
+ "title": "Self-Correction, Distance Estimation and Local Testing of Codes",
+ "speaker": "Dana Moshkovitz",
+ "affiliation": "Massachusetts Institute of Technology",
+ "date": "2010-11-29T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 3763.0,
+ "abstract": "We construct linear codes of almost-linear length and linear distance that can be locally self-corrected on average from a constant number of queries:1. Given oracle access to a word $w\\in\\Sigma^n$ that is at least $\\varepsilon$-close to a codeword $c$, and an index $i\\in [n]$ to correct, with high probability over $i$ and over the internal randomness, the local algorithm returns a list of possible corrections that contains $c_i$.",
+ "youtube_url": "https://www.youtube.com/watch?v=ayzqMnfJgfQ",
+ "page_url": "https://www.ias.edu/video/csdm/moshkovitz",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Coding-theoretic setup and target parameters",
+   "summary": "The talk fixes notation for error-correcting codes, relative distance, rate, agreement, and the desired nearly linear length, near-one distance, and alphabet polynomial in 1/epsilon.",
+   "spans": [
+    {
+     "start_sec": 22,
+     "end_sec": 339
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Local-code tasks and self-correction hierarchy",
+   "summary": "The speaker defines local testing, distance estimation, local decoding, and self-correction, then strengthens self-correction to a two-sided/list-decoding and l-tuple formulation that implies distance estimation and local testing.",
+   "spans": [
+    {
+     "start_sec": 339,
+     "end_sec": 1221
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Reed-Muller baseline and its parameter obstruction",
+   "summary": "Reed-Muller codes are reviewed as the classical source of local correction via random low-dimensional restrictions and low-degree testing, but their length/query/alphabet tradeoffs fail to achieve the desired simultaneous parameters, and worst-case local decoding faces known lower bounds.",
+   "spans": [
+    {
+     "start_sec": 1221,
+     "end_sec": 2114
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Average-case self-correction as the achievable relaxation",
+   "summary": "The problem is relaxed from correcting every coordinate with high probability to correcting a random coordinate with high probability, which avoids the worst-case local-decoding barriers while still sufficing for distance estimation and local testing.",
+   "spans": [
+    {
+     "start_sec": 2114,
+     "end_sec": 2599
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "PCP viewpoint and constrained-code hierarchy",
+   "summary": "The construction is motivated by PCP query reduction: by adding a constraint phi and correcting only codewords whose messages satisfy phi, PCPs sit at the bottom of a hierarchy beneath local testing, distance estimation, and self-correction.",
+   "spans": [
+    {
+     "start_sec": 2599,
+     "end_sec": 2917
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Composed outer-inner code with sampler neighborhoods",
+   "summary": "The new code is built by taking a Reed-Muller-type outer code, reducing the degree of its query graph to polynomial in 1/epsilon, and replacing each outer-symbol neighborhood by inner encodings of the corresponding query views, with a sampler/expander property preserving distance.",
+   "spans": [
+    {
+     "start_sec": 2917,
+     "end_sec": 3424
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Self-correction analysis of the composed code",
+   "summary": "The proof of average-case self-correction has an easy completeness direction for close codewords and a harder soundness direction, implemented by correcting layers from multiple occurrences, retaining repeated list corrections, comparing shared block symbols, and using PCP-style inner constraints to force global consistency.",
+   "spans": [
+    {
+     "start_sec": 3424,
+     "end_sec": 3759
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Word split between two nearby codewords and garbage",
+   "note": "The speaker sketches a received word that agrees on different regions with codewords c1 and c2 and is garbage elsewhere to make concrete the list-decoding regime with multiple close codewords.",
+   "first_introduced_sec": 950,
+   "spans": [
+    {
+     "start_sec": 950,
+     "end_sec": 968
+    }
+   ],
+   "total_seconds": 18,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "The speaker only sketches a possible received word lying partly near c1, partly near c2, and partly garbage to illustrate list decoding, without analyzing it further.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an ordinary adversarial-looking received word used to illustrate list-decoding with multiple close codewords, not to refute a claim"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A hybrid received word with parts near multiple codewords is an adversarial case showing that list decoding cannot rely on a unique nearby codeword."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ambiguous received word agreeing with multiple codewords plus garbage is an adversarial list-decoding case showing uniqueness cannot be assumed"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an ordinary mixed received word, used as an adversarial list-decoding case showing there need not be a unique nearby codeword"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A received word patched from regions near two codewords plus garbage is an ordinary adversarial word used to show uniqueness of the nearby codeword can fail in the list-decoding regime."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a hybrid received word is used to exhibit the list-decoding obstruction to unique recovery"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "it is used as an ambiguous received word with several close codewords, obstructing unique correction, while structurally it is just a mixed received word"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A hybrid received word agreeing with different codewords on different parts is used as an adversarial ambiguity showing why list decoding/self-correction cannot assume a unique nearby codeword."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a hybrid received word with multiple close codewords is an adversarial ambiguity for unique decoding but not structurally special"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the split received word is an adversarial multi-close-codeword case motivating list decoding, but is not intrinsically special structurally"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a mixed received word agreeing with multiple codewords and garbage is used as an adversarial list-decoding case where unique correction cannot be assumed."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as an adversarial received word showing why unique decoding/single close codeword assumptions fail in the list-decoding setting."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Binary alphabet trivial output list",
+   "note": "The observation that over a binary alphabet one could trivially output both 0 and 1 motivates moving from single-symbol self-correction to self-correction of l-tuples.",
+   "first_introduced_sec": 1048,
+   "spans": [
+    {
+     "start_sec": 1048,
+     "end_sec": 1116
+    }
+   ],
+   "total_seconds": 68,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker applies the self-correction/list-output definition to the binary alphabet case, observing that returning both 0 and 1 makes one-symbol correction vacuous and motivating l-tuple correction.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 9,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the exhaustive list {0,1} over the minimal nontrivial alphabet makes one-symbol list self-correction vacuous"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The full binary list {0,1} is a vacuous output used to show that single-symbol list correction over a tiny alphabet would be uninformative."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the list returning both binary symbols is a vacuous maximal output that makes one-symbol list correction trivial"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the full list {0,1} over the minimal nontrivial alphabet is a maximal but vacuous output, showing naive one-symbol list correction can trivialize"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Returning the exhaustive binary list {0,1} is a vacuous maximal output list, used to show that one-symbol list self-correction over a tiny alphabet would be trivial."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the full binary output list is a vacuous maximal answer used to show one-symbol list correction over a small alphabet is trivial"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "returning the full binary list {0,1} shows the one-symbol list notion can be vacuous, and the list is the maximal trivial output"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Returning the full binary list {0,1} is a trivial maximal-output case used to show that single-symbol list correction over a tiny alphabet can be vacuous."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the exhaustive output list {0,1} over a binary alphabet makes one-symbol list correction vacuous"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "returning the full binary list {0,1} is a vacuous maximal output list used to show the one-symbol task is trivial over small alphabets"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "returning the full binary list {0,1} is a vacuous trivial output used to show one-symbol list correction over a binary alphabet is uninformative."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The full binary list {0,1} is a vacuous maximal output used to show one-symbol list correction over a small alphabet can be trivial."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Slightly corrupted word in the unique-decoding regime",
+   "note": "A word corrupted on only a small fraction of coordinates is used to illustrate why a naive average-case self-correction notion is not meaningful in the unique-decoding setting.",
+   "first_introduced_sec": 2254,
+   "spans": [
+    {
+     "start_sec": 2254,
+     "end_sec": 2298
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "The speaker reasons through the unique-decoding/slight-corruption case, noting that if only about 1% is corrupted then reading the received word itself is correct with about 99% probability.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a standard small-error received word is used to show the proposed average-case notion is trivial in the unique-decoding regime"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A slightly corrupted received word is used to show that the proposed average-case notion is trivial in the unique-decoding regime by simply reading the received symbol."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a lightly corrupted near-codeword is used to show the average-case notion becomes vacuous in the unique-decoding regime"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a standard near-codeword received word, used to show the average-case notion becomes uninformative in the unique-decoding regime"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A word with only a small fraction of corruptions is a standard unique-decoding input, used to show average-case correction can become trivial there."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a lightly corrupted word is used to show the average-case notion becomes too weak in the unique-decoding regime"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a lightly corrupted unique-decoding word is invoked to show average-case correction would be trivially satisfied by the received symbol itself"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A received word with only a few corruptions is used to show that average-case correction in the unique-decoding regime becomes nearly trivial by just reading the word itself."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a near-codeword with few corruptions shows the average-case unique-decoding notion can be satisfied trivially by reading the word itself"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a lightly corrupted word is used to show the average-case notion becomes vacuous in the unique-decoding regime, while the word itself is ordinary"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "a lightly corrupted received word is used to show the average-case notion becomes essentially trivial in the unique-decoding regime."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The low-noise received word is used to show the average-case notion becomes uninformative in the unique-decoding regime."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Standard code concatenation analogy",
+   "note": "Classical outer/inner concatenation for alphabet reduction is presented as an analogy for the new composition construction.",
+   "first_introduced_sec": 2917,
+   "spans": [
+    {
+     "start_sec": 2917,
+     "end_sec": 2971
+    }
+   ],
+   "total_seconds": 54,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "The speaker traces the standard concatenation construction by encoding each outer alphabet symbol with an inner code and discusses how this reduces alphabet size and can be iterated.",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard code concatenation is a routine construction invoked only as an explanatory analogy for composition"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Standard concatenation is an ordinary code construction used only as an analogy for PCP-style composition."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary inner/outer code concatenation is used only as an explanatory analogy"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard concatenation is a typical coding construction used only as an analogy for composition"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Standard concatenation of an outer code with inner encodings is a typical coding construction used only as an explanatory analogy for composition."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary concatenation of outer and inner codes is used constructively as an analogy, not to refute a claim"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard code concatenation is used only as an explanatory analogy and has no special extremal, degenerate, symmetric, or sporadic structure here"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ordinary inner/outer code concatenation is used as a constructive analogy for composition, not as a failure case or a structurally special object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary concatenation with an outer and inner code is used as a constructive analogy rather than to refute a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard outer-inner code concatenation is used as an analogy/construction template, not to refute a claim, and is structurally typical"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary outer-inner code concatenation is used only as a standard construction analogy for composition, not as a failure case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Standard outer/inner code concatenation is a representative construction used only as an analogy for composition."
+    }
+   ]
+  }
+ ]
+}

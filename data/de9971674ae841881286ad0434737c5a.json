@@ -1,0 +1,1801 @@
+{
+ "key": "de9971674ae841881286ad0434737c5a",
+ "title": "Generalized Energy-Based Models",
+ "speaker": "Arthur Gretton",
+ "affiliation": "University College London",
+ "date": "2020-07-28T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3954.0,
+ "abstract": "I will introduce Generalized Energy Based Models (GEBM) for generative modelling. These models combine two trained components: a base distribution (generally an implicit model), which can learn the support of data with low intrinsic dimension in a high dimensional space; and an energy function, to refine the probability mass on the learned support. Both the energy function and base jointly constitute the final model, unlike GANs, which retain only the base distribution (the \"generator\").",
+ "youtube_url": "https://www.youtube.com/watch?v=et6Kgh6mWmc",
+ "page_url": "https://www.ias.edu/video/machinelearning/2020/0728-ArthurGretton",
+ "tags": [
+  "School of Mathematics",
+  "Seminar on Theoretical Machine Learning"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Critic-based implicit generative modeling",
+   "summary": "The talk sets up implicit generative modeling as matching samples from an unknown target distribution by training a generator with a critic, and divides possible critics into integral probability metrics based on differences of measures and phi-divergences based on density ratios.",
+   "spans": [
+    {
+     "start_sec": 85,
+     "end_sec": 399
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Variational phi-divergence critics",
+   "summary": "Raw phi-divergences such as KL or Jensen-Shannon are unusable when high-dimensional model and data supports are disjoint, but Fenchel duality gives a restricted smooth variational lower bound, with the KL lower bound becoming the practical critic used in GAN-like training.",
+   "spans": [
+    {
+     "start_sec": 399,
+     "end_sec": 857
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Topology and failure modes of the KL lower bound",
+   "summary": "Under density, symmetry, scaling, and Lipschitz assumptions on the critic class, the KL lower-bound critic is nonnegative and metrizes weak convergence, yet the same smoothness can make it under-penalize departures such as mode collapse.",
+   "spans": [
+    {
+     "start_sec": 857,
+     "end_sec": 1342
+    },
+    {
+     "start_sec": 3754,
+     "end_sec": 3942
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Generalized energy-based model definition",
+   "summary": "Motivated by the fact that a trained GAN discards a still-informative critic, the speaker defines a generalized energy-based model by reweighting the implicit generator base measure with an energy-derived Radon-Nikodym derivative, even when the model lives on a low-dimensional or singular support.",
+   "spans": [
+    {
+     "start_sec": 1342,
+     "end_sec": 1791
+    },
+    {
+     "start_sec": 3079,
+     "end_sec": 3155
+    },
+    {
+     "start_sec": 3315,
+     "end_sec": 3511
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Energy learning by generalized likelihood",
+   "summary": "The energy function is fit by maximizing a generalized log likelihood whose log-partition term is handled by a tangent lower bound, yielding an objective resembling the earlier variational KL critic but with an additional learned normalizing constant.",
+   "spans": [
+    {
+     "start_sec": 1791,
+     "end_sec": 2178
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Generator learning and smoothness assumptions",
+   "summary": "After profiling over the optimal energy, a theorem gives an almost-everywhere gradient for the generator parameters under Lipschitz and smoothness assumptions on both the energy and generator classes, while the Q&A stresses that finite neural-network capacity limits exact approximation to the data law.",
+   "spans": [
+    {
+     "start_sec": 2178,
+     "end_sec": 2369
+    },
+    {
+     "start_sec": 2595,
+     "end_sec": 2874
+    },
+    {
+     "start_sec": 3558,
+     "end_sec": 3728
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Latent-space sampling and empirical behavior",
+   "summary": "Once the energy and generator are learned, samples are drawn by MCMC from the energy-weighted posterior over latent variables and pushed through the generator, with empirical examples and questions addressing improved image quality, multimodality, temperature, and memorization risk.",
+   "spans": [
+    {
+     "start_sec": 2369,
+     "end_sec": 2595
+    },
+    {
+     "start_sec": 2888,
+     "end_sec": 3079
+    },
+    {
+     "start_sec": 3155,
+     "end_sec": 3315
+    },
+    {
+     "start_sec": 3728,
+     "end_sec": 3754
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Bedroom-image generator",
+   "note": "Bedroom images make concrete the basic setup in which samples from an unknown target distribution are to be matched by a neural generator, after the need for a critic has already been stated.",
+   "first_introduced_sec": 85,
+   "spans": [
+    {
+     "start_sec": 85,
+     "end_sec": 159
+    }
+   ],
+   "total_seconds": 74,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the bedroom images are used as a motivating illustration of real versus generated samples, with no concrete computation on that dataset",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary neural image-generation setup used as motivating illustration"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary image-generating model is used only to introduce the learning task."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Ordinary high-dimensional image-generation task used to motivate the need for a critic."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary image-generation task used to introduce critic-based training, not to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary implicit generator for bedroom images used as motivation, not as a failure case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary image-generating model used as the motivating setup for critic functions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard image-generator setup used as the motivating representative case."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary image-generation setup used to introduce the need for a critic, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary neural image generator used to motivate the generative-modeling task"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard image-generation task is used only as the motivating setup."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary implicit bedroom-image generator used to motivate the need for a critic function."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary motivating image-generation setup comparing real bedrooms with generated samples"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Two Gaussians with different means",
+   "note": "The Gaussian pair illustrates that the optimal KL variational critic is the negative log density ratio, here appearing as a simple straight line.",
+   "first_introduced_sec": 791,
+   "spans": [
+    {
+     "start_sec": 791,
+     "end_sec": 831
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the different-mean Gaussians are invoked to state that the log-ratio/optimal critic is a straight line, without working through the calculation",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary pair of Gaussian laws illustrating the linear optimal KL-bound critic"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard pair of Gaussian distributions is used to illustrate the optimal variational critic."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Nondegenerate Gaussian toy pair used to illustrate that the optimal log-ratio critic is linear."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Standard Gaussian location-pair toy example illustrating the KL log-ratio critic."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "noncollapsed Gaussian pair used as a simple calculation where the optimal critic is linear"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary Gaussian pair used to illustrate the KL variational optimizer having a linear log-ratio."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Shifted Gaussians are used illustratively to show the optimal log-ratio critic, with Gaussian regularity but no adversarial role."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "highly regular Gaussian toy pair used only to illustrate that the optimal KL critic can be affine."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "translated Gaussian laws give a highly regular linear log-ratio but only illustrate the optimal critic"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The highly regular Gaussian pair illustrates that the optimal log-ratio critic is linear."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "regular Gaussian pair used only to illustrate that the optimal KL variational critic is linear."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard Gaussian pair used only to illustrate that the optimal KL critic is a straight line"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "RKHS-penalized “KL smoothie”",
+   "note": "An RKHS norm penalty is used as a concrete smooth function class showing that the variational KL critic remains finite and decreases as disjoint supports approach.",
+   "first_introduced_sec": 1128,
+   "spans": [
+    {
+     "start_sec": 1128,
+     "end_sec": 1196
+    }
+   ],
+   "total_seconds": 68,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the RKHS-penalized KL smoothie is applied to disjoint supports and its finite, decreasing behavior as supports approach is analyzed",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard smooth RKHS-regularized variational KL critic used as a positive example"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The RKHS-regularized KL lower bound is a standard smooth critic used as a positive illustration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Smooth RKHS-regularized variational KL critic used as a positive well-behaved estimator."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Regularized RKHS KL lower-bound critic is used as a positive smooth construction for disjoint supports."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "RKHS-regularized KL lower-bound critic is a smooth illustrative construction showing useful behavior"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "regularized RKHS lower-bound estimator used as a positive smooth critic example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The RKHS-regularized KL lower bound is a constructive smooth critic example showing useful convergence behavior."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard RKHS-smoothed variational KL critic used as a positive demonstration of useful feedback under disjoint support."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "smooth RKHS-regularized KL lower-bound critic is presented as a well-behaved positive illustration"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The RKHS-regularized KL lower bound is presented as a well-behaved illustrative critic."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "RKHS-penalized variational KL critic is presented as a well-behaved constructive example on disjoint supports."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "regularized RKHS variational KL estimator used as a positive well-behaved critic example"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Same-mean Gaussians and mode collapse",
+   "note": "The narrowing Gaussian example functions as a counterexample-style diagnostic showing that a smooth KL lower-bound critic can severely under-penalize mode collapse.",
+   "first_introduced_sec": 1196,
+   "spans": [
+    {
+     "start_sec": 1196,
+     "end_sec": 1342
+    },
+    {
+     "start_sec": 3754,
+     "end_sec": 3942
+    }
+   ],
+   "total_seconds": 334,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the same-mean different-variance Gaussian case is used to trace mode collapse and compare how KL and the variational lower bound behave",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 9,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "collapsed narrow Gaussian case is used as a failure mode for the variational KL lower bound"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The collapsing same-mean Gaussian approaches the zero-variance boundary and is used to show the KL lower bound can under-penalize mode collapse."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The generated Gaussian is in a collapsed low-variance mode and is used to show the variational KL critic under-penalizes mode collapse."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The variance-collapse Gaussian pair is a boundary/collapsed case used to show the variational KL can under-penalize mode collapse."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "variance-collapse toward a near-Dirac Gaussian is a boundary degenerate case used to show the KL lower bound under-penalizes mode collapse"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "variance-collapse Gaussian limit is used to show the smooth KL lower bound can badly under-penalize mode collapse."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The concentric Gaussian variance-collapse case is used to show the variational KL critic can fail to penalize mode collapse adequately."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "concentric Gaussian variance-collapse is a symmetric boundary/collapsed case used to show the KL lower bound can miss mode collapse."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "centrally symmetric Gaussians with q collapsing to a vanishing-variance boundary case expose failure to penalize mode collapse"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The concentric Gaussian variance-collapse limit is used to show the variational KL critic can under-penalize mode collapse."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "concentric Gaussian collapse toward the zero-variance boundary is used to show the KL lower bound can under-penalize mode collapse."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "used to show the variational KL critic under-penalizes mode collapse, with q collapsing toward a lower-variance distribution"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Dog-painting GAN teacher and student",
+   "note": "The fake-versus-real dog cartoon motivates the central move from ordinary GAN training to retaining the critic as part of the generative model.",
+   "first_introduced_sec": 1383,
+   "spans": [
+    {
+     "start_sec": 1383,
+     "end_sec": 1493
+    }
+   ],
+   "total_seconds": 110,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the dog-painting teacher/student GAN is a cartoon analogy for generator-critic training and discarding the critic, not a worked example",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard GAN teacher-student analogy used to motivate retaining the critic"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The dog-painting teacher–student GAN is a generic cartoon of GAN training."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Standard GAN teacher-student schematic used to explain training, not to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Generic teacher-student dog GAN analogy explaining training and critic disposal."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard GAN generator-critic cartoon with dog images used to explain the setup"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard GAN teacher-student dog example used to motivate retaining critic information."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The dog-painting teacher-student GAN is an ordinary analogy for standard GAN training."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary GAN teacher-student metaphor used to explain the training loop and discarded critic."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard GAN teacher-student cartoon explains the training setup rather than refuting a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The dog-painting teacher-student GAN is an ordinary cartoon of GAN training."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard GAN teacher-student dog-painting analogy used to explain the training setup."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "generic GAN teacher-student cartoon used to explain the training architecture and discarded critic"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "One-dimensional wiggly support with wrong mass",
+   "note": "A distribution supported on a curve in the plane illustrates how an energy function can reweight a generator that has roughly learned the support but not the mass along it.",
+   "first_introduced_sec": 1846,
+   "spans": [
+    {
+     "start_sec": 1846,
+     "end_sec": 1969
+    }
+   ],
+   "total_seconds": 123,
+   "attaches_to": [
+    "s4",
+    "s5"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the one-dimensional wiggly support example is walked through by assigning target mass, wrong generator mass, and showing energy reweighting to a closer distribution",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "singular lower-dimensional support distribution illustrates energy reweighting of incorrect mass"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The distribution is singular on a one-dimensional submanifold of a two-dimensional space, but is used constructively to motivate energy reweighting."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Singular distribution supported on a one-dimensional curve in a two-dimensional ambient space, used to illustrate energy reweighting."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The target lies on a lower-dimensional one-dimensional submanifold and is used to illustrate energy reweighting."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "distribution supported on a one-dimensional submanifold in the plane is lower-dimensional, used to illustrate energy reweighting of wrong mass"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "singular one-dimensional support in a two-dimensional ambient space illustrates energy reweighting of wrong mass."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The toy distribution is singular on a one-dimensional submanifold and is used to illustrate energy reweighting, not to refute a theorem."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "singular distribution on a one-dimensional submanifold of the plane used to illustrate energy-based reweighting of mass."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "toy distribution lives on a lower-dimensional one-dimensional submanifold and illustrates energy reweighting"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The distribution is singular on a one-dimensional submanifold and illustrates energy reweighting of wrong mass."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "singular distribution on a one-dimensional submanifold is used positively to show energy reweighting corrects mass."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "used as a failure case for an unreweighted generator that matches a singular one-dimensional support but assigns the wrong mass"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "CIFAR latent-chain samples",
+   "note": "CIFAR image chains illustrate the sampling procedure: latent MCMC samples evolve from blurry images toward recognizable samples after energy reweighting.",
+   "first_introduced_sec": 2489,
+   "spans": [
+    {
+     "start_sec": 2489,
+     "end_sec": 2595
+    }
+   ],
+   "total_seconds": 106,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the CIFAR latent-chain samples are produced by running Monte Carlo in latent space and interpreting the progression from blurry to recognizable outputs",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary CIFAR latent-posterior sampling chain demonstrates improved generated samples"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The CIFAR latent-chain outputs are ordinary empirical samples illustrating the trained model."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Ordinary empirical CIFAR samples from a latent MCMC chain illustrating sample improvement."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary CIFAR latent-chain outputs are used as empirical samples from the generalized energy model."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary CIFAR latent-space sampling trajectory used as empirical demonstration"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary CIFAR latent-chain samples demonstrate the trained generalized energy model empirically."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The CIFAR latent-chain outputs are empirical sample trajectories demonstrating the sampler’s behavior."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary CIFAR latent-space sampling chain used as empirical evidence that the generalized EBM improves samples."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary CIFAR latent-chain samples demonstrate the generalized energy-based sampler improving images"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The CIFAR latent-chain images are ordinary empirical samples demonstrating posterior sampling."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary CIFAR latent-chain samples illustrate the trained generalized energy model's sampling behavior."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary CIFAR sampling chain used as empirical evidence that latent-space energy sampling improves images"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "HMC jumps between CIFAR modes",
+   "note": "In response to questions, the speaker describes HMC trajectories that can move between visual modes such as horses and vehicles when temperature and sampler settings are adjusted.",
+   "first_introduced_sec": 2888,
+   "spans": [
+    {
+     "start_sec": 2888,
+     "end_sec": 2974
+    },
+    {
+     "start_sec": 3155,
+     "end_sec": 3315
+    },
+    {
+     "start_sec": 3728,
+     "end_sec": 3754
+    }
+   ],
+   "total_seconds": 272,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the HMC mode-jumping example is discussed in terms of sampler settings, temperature, and observed transitions such as horse to vehicle modes",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 10,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary HMC trajectory is cited to rebut the worry that sampling must stay stuck in one mode"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The observed HMC transitions between CIFAR modes are used to rebut the concern that the sampler must remain stuck in one mode."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary HMC latent trajectory used to refute the worry that the sampler must stay stuck in one CIFAR mode."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Mode-hopping HMC trajectories are cited to rebut the concern that the latent sampler must stay stuck in one CIFAR mode."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "HMC trajectories jumping from horse-like to vehicle-like CIFAR modes rebut the concern that the sampler must remain stuck in one mode"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "mode-jumping HMC run is cited to refute the concern that the sampler must get stuck in one CIFAR mode."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The HMC mode jumps are reported as a positive empirical capability of the latent sampler rather than a structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "mode-switching HMC trajectory is used to rebut the worry that the latent sampler must remain trapped in one CIFAR mode."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "HMC trajectories jumping between CIFAR modes show the sampler need not be trapped in one mode"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The HMC mode jumps are used as a positive demonstration that the sampler can explore multiple CIFAR modes."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "HMC mode-jumping trajectories are cited to refute the worry that the latent sampler must remain stuck in one CIFAR mode."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to refute the concern that HMC cannot move between separated CIFAR modes"
+    }
+   ]
+  }
+ ]
+}

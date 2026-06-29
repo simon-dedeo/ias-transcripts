@@ -1,0 +1,2073 @@
+{
+ "key": "b758a38743e36d966f41ffbef9b6a4e5",
+ "title": "QMA vs. QCMA and Pseudorandomness",
+ "speaker": "Henry Yuen",
+ "affiliation": "Columbia University",
+ "date": "2024-12-02T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3927.0,
+ "abstract": "In quantum complexity theory, QMA and QCMA represent two different generalizations of NP. Both are defined as sets of languages whose Yes instances can be efficiently checked by a quantum verifier that is given a witness. With QMA the witness can be a quantum state, whereas with QCMA the witness must be a classical string. It is clear that QMA contains QCMA, but could there be a separation? In other words, can a quantum state prove more to a polynomial-time quantum verifier than a polynomial-length classical string?\nIn 2007, Aaronson and Kuperberg asked whether there is a (classical) oracle separation between QMA and QCMA. We show that such an oracle exists if a certain quantum pseudorandomness conjecture holds. Roughly speaking, the conjecture posits that quantum algorithms cannot, by making few queries, distinguish between the uniform distribution over permutations versus permutations drawn from so-called \"dense\" distributions. It turns out that this pseudorandomness conjecture is deeply related to another, seemingly-unrelated, question in theoretical computer science known as the Aaronson-Ambainis conjecture.\nOur result can be viewed as establishing a \"win-win\" scenario: either there is a classical oracle separation of QMA from QCMA, or there is quantum advantage in distinguishing pseudorandom distributions on permutations.\nThis is joint work with Jiahui Liu and Saachi Mutreja. No special knowledge about quantum computation will be assumed for this talk.",
+ "youtube_url": "https://youtu.be/d29dV0raamA",
+ "page_url": "https://www.ias.edu/video/qma-vs-qcma-and-pseudorandomness",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "QMA/QCMA setup and motivation",
+   "summary": "The talk states the conditional separation goal, defines QMA and QCMA as quantum verification classes with quantum versus classical witnesses, and motivates why separating them would show that quantum proofs certify more complex statements than classical proofs.",
+   "spans": [
+    {
+     "start_sec": 51,
+     "end_sec": 1436
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Oracle-separation framework",
+   "summary": "The speaker reformulates QMA versus QCMA in a query/oracle model, recalls previous quantum-oracle and restricted classical-oracle separations, and identifies the graph components problem as the classical-oracle candidate.",
+   "spans": [
+    {
+     "start_sec": 1436,
+     "end_sec": 2022
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Components problem and QMA protocol",
+   "summary": "A graph oracle is defined as a union of colored matchings, with yes instances having two equal disconnected components and no instances being expanders, and a QMA verifier is given via a signed uniform superposition plus balancedness and edge-invariance tests.",
+   "spans": [
+    {
+     "start_sec": 2022,
+     "end_sec": 2389
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Dense-permutation pseudorandomness conjecture",
+   "summary": "The needed pseudorandomness assumption is developed from dense distributions on bit strings to dense random permutations, with motivation from classical dense-oracle results, no-quantum-speedup conjectures, the Aaronson-Ambainis influence conjecture, and a low-degree partial bound.",
+   "spans": [
+    {
+     "start_sec": 2389,
+     "end_sec": 3219
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Hard-coding the best classical witness",
+   "summary": "Assuming a small-query, small-witness QCMA verifier, the yes oracles are partitioned by classical witnesses, a largest witness class is selected, and that witness is hard-coded to obtain a proofless quantum query algorithm accepting many yes instances and rejecting no instances.",
+   "spans": [
+    {
+     "start_sec": 3219,
+     "end_sec": 3391
+    },
+    {
+     "start_sec": 3878,
+     "end_sec": 3926
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Permutation parametrization and entropy decomposition",
+   "summary": "Yes graphs are parametrized by permutations specifying the vertex partition and matchings inside each component, the accepted yes region is pulled back to a high-min-entropy distribution over these permutations, and a decomposition lemma expresses it as mixtures with few fixed coordinates and dense remainders.",
+   "spans": [
+    {
+     "start_sec": 3391,
+     "end_sec": 3655
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Pseudorandom replacement and planted-structure lower bound",
+   "summary": "The dense parts of the permutation distribution are replaced by uniform ones using the conjecture, yielding graphs with only small planted structures, and a known lower-bound/reduction shows such structures do not help distinguish two components from one expander with subexponential queries.",
+   "spans": [
+    {
+     "start_sec": 3655,
+     "end_sec": 3878
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Local Hamiltonian problem",
+   "note": "The QMA-complete minimum-energy problem for succinct quantum many-body Hamiltonians is used to make QMA concrete and to motivate the physical significance of quantum witnesses.",
+   "first_introduced_sec": 292,
+   "spans": [
+    {
+     "start_sec": 292,
+     "end_sec": 368
+    },
+    {
+     "start_sec": 385,
+     "end_sec": 399
+    }
+   ],
+   "total_seconds": 90,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he defines the Local Hamiltonian problem and states its QMA-completeness/physical relevance without working through a particular Hamiltonian or verification",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The local Hamiltonian problem is used as the canonical QMA-complete, hence hardest, problem in QMA."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the local Hamiltonian problem is cited as a canonical QMA-complete, hence hardest-in-class, problem"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "QMA-complete Local Hamiltonian is a hardest/complete representative of QMA, used as a canonical positive example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "QMA-complete, hence a maximal-hardness problem used as a standard QMA example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the Local Hamiltonian problem is QMA-complete, hence maximal under reductions among QMA problems, and is used illustratively"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Local Hamiltonian problem is cited as QMA-complete, hence hardest/complete within that verification class, not as a refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The local Hamiltonian problem is used as the quintessential QMA-complete, hence hardest, problem rather than to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The local Hamiltonian problem is cited as the quintessential QMA-complete problem."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The local Hamiltonian problem is used as a canonical QMA example and is QMA-complete, hence extremal as a hardest problem in the class."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the local Hamiltonian problem is used as a standard QMA example and is QMA-complete, i.e. maximal for QMA under reductions"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The local Hamiltonian problem is presented as a QMA-complete canonical hardest problem, not as a refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the local Hamiltonian problem is used as a canonical QMA example and is QMA-complete, hence extremal within QMA problems"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Quantum circuit inequivalence",
+   "note": "Two different-looking quantum circuits that may differ on some input state illustrate how a quantum witness can certify non-equivalence.",
+   "first_introduced_sec": 368,
+   "spans": [
+    {
+     "start_sec": 368,
+     "end_sec": 385
+    },
+    {
+     "start_sec": 399,
+     "end_sec": 423
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he explains the QMA verification method for circuit inequivalence by having the prover supply a state on which the two circuits differ and checking it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Quantum circuit inequivalence/non-identity is presented as a QMA problem and is a QMA-complete hardest-case problem."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "quantum circuit inequivalence is used as a QMA-complete circuit-distinguishability example, not to refute a claim"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Quantum circuit inequivalence is treated as QMA-complete, hence hardness-extremal, not as a disproof case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Quantum circuit inequivalence is QMA-complete, so it is extremal by hardness but only illustrative here."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "quantum circuit inequivalence is treated as a QMA-complete verification problem, not as a refuting example"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Quantum circuit inequivalence is treated as a QMA-complete circuit problem, so structurally extremal by hardness rather than adversarial in the argument."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Quantum circuit inequivalence is presented as a QMA-complete verification problem, so it is extremal in complexity-theoretic hardness."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Quantum circuit inequivalence is used as a QMA-complete verification problem, not as a refutation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Quantum circuit inequivalence is used illustratively as a QMA-verifiable/QMA-complete problem, not to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "quantum circuit inequivalence is cited as a natural QMA problem and later as QMA-complete, not as a refutation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Quantum circuit inequivalence is used as a QMA-complete verification problem rather than to disprove a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "quantum circuit inequivalence is presented as a QMA-verifiable/QMA-complete problem, placing it at the hard end of QMA"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Black-box group nonmembership",
+   "note": "The subgroup nonmembership problem illustrates a case where a quantum superposition over subgroup elements can serve as a succinct QMA witness, with later discussion of possible QCMA witnesses under group-theoretic assumptions.",
+   "first_introduced_sec": 423,
+   "spans": [
+    {
+     "start_sec": 423,
+     "end_sec": 605
+    },
+    {
+     "start_sec": 1011,
+     "end_sec": 1189
+    }
+   ],
+   "total_seconds": 360,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he describes the black-box group nonmembership setup and the quantum-witness construction as a uniform superposition over subgroup elements, with discussion of how it supports verification",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Black-box group nonmembership is a natural oracle decision problem illustrating a QMA protocol, not a structural exception or refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "black-box group nonmembership is an ordinary oracle group decision problem used to illustrate possible quantum-witness utility"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Black-box group nonmembership is an ordinary oracle decision problem used to illustrate a QMA witness protocol."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard black-box group promise problem used to illustrate a quantum-witness protocol."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "black-box group nonmembership is an ordinary oracle/group decision problem used as an example where quantum witnesses can be useful"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Black-box group nonmembership is used as a standard problem where a quantum witness can help, with no sporadic, symmetric, or extremal structure asserted."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Black-box group nonmembership is used as an illustrative QMA oracle problem where a quantum witness helps, with no structural extremality or sporadic status invoked."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Black-box group nonmembership is presented as a natural QMA example where a quantum witness is useful."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Black-box group nonmembership is presented as an interesting QMA problem where a quantum witness is useful, with no intrinsic sporadic or extremal structure invoked."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "black-box group nonmembership is presented as an illustrative problem where a quantum witness is useful, with no intrinsic sporadic or extremal structure asserted"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Black-box group nonmembership is an illustrative QMA example with a subgroup-state witness, not a structurally sporadic or extremal object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "black-box group nonmembership is used as a natural problem where a quantum witness is useful, with no intrinsic sporadic, limiting, optimal, or maximal-symmetry structure singled out"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Ground-state connectivity",
+   "note": "This QCMA-complete Hamiltonian reconfiguration problem illustrates how a classical proof can be a short sequence of local gates connecting two low-energy states.",
+   "first_introduced_sec": 686,
+   "spans": [
+    {
+     "start_sec": 686,
+     "end_sec": 1011
+    }
+   ],
+   "total_seconds": 325,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he works through ground-state connectivity in detail, unpacking ground states/energy as eigenvectors/quadratic forms and explaining the QCMA path witness and verifier checks",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Polynomial-length ground-state connectivity is described as QCMA-complete, placing it at the hard end of QCMA."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "polynomial-length ground-state connectivity is presented as QCMA-complete, hence extremal within QCMA problems"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Polynomial-length ground-state connectivity is QCMA-complete and concerns ground/minimum-energy states."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "With polynomial-length paths it is QCMA-complete, hence maximal-hardness within QCMA."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "polynomial-length ground-state connectivity is QCMA-complete, so it is extremal within QCMA under reductions"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Polynomial-length ground-state connectivity is described as QCMA-complete, making it extremal by completeness in QCMA."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Ground-state connectivity is described as QCMA-complete for polynomial-length paths, making it extremal among QCMA problems."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Polynomial-length ground-state connectivity is described as a QCMA-complete problem."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Ground-state connectivity is given as a QCMA example and, for polynomial paths, a QCMA-complete problem."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "ground-state connectivity is used as a QCMA example and is stated complete for QCMA in the polynomial-path version"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Polynomial-length ground-state connectivity is cited as a QCMA-complete problem, hence extremal in complexity, not adversarially."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "ground-state connectivity is used as a QCMA example and, for polynomial paths, a QCMA-complete problem"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "SAT-assignment reconfiguration analogy",
+   "note": "In response to questions about ground-state connectivity, the speaker compares it to moving between satisfying assignments by local bit flips while staying satisfying.",
+   "first_introduced_sec": 929,
+   "spans": [
+    {
+     "start_sec": 929,
+     "end_sec": 987
+    }
+   ],
+   "total_seconds": 58,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "he uses SAT-assignment reconfiguration only as a classical analogy for local moves preserving satisfiability",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 10,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "SAT-assignment reconfiguration is invoked to rebut the idea that connectivity under local moves is automatic."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "SAT-assignment reconfiguration is invoked as a standard discrete analogy for constrained connectivity"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "SAT-assignment reconfiguration is invoked to rebut the idea that feasible states are automatically connected by local moves."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The SAT local-flip reconfiguration analogy is invoked to show local-move connectivity need not hold."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "SAT-assignment reconfiguration is a typical discrete reconfiguration problem invoked to show local-step connectivity can fail"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "SAT-assignment reconfiguration is invoked to rebut automatic connectedness by noting satisfying assignments need not be connected by local flips."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The SAT-assignment reconfiguration analogy is invoked to show that local moves need not connect two satisfying assignments."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "SAT-assignment reconfiguration is a standard PSPACE-complete local-connectivity problem invoked to show local paths need not exist."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The SAT-assignment reconfiguration problem is used only as a familiar discrete analogy for local-move connectivity."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the SAT-assignment reconfiguration analogy is invoked to show that local-move connectivity need not be automatic"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "SAT-assignment reconfiguration is a PSPACE-complete local-move connectivity problem used to show such connectivity need not be automatic."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "SAT-assignment reconfiguration is invoked to show that local-move connectivity need not be automatic"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Problems where quantum proofs do not help",
+   "note": "Approximating set size, proving formula unsatisfiability, and distinguishing one-to-one from two-to-one black-box functions are cited as contrasts where quantum witnesses appear not to improve one-way verification.",
+   "first_introduced_sec": 1249,
+   "spans": [
+    {
+     "start_sec": 1249,
+     "end_sec": 1287
+    }
+   ],
+   "total_seconds": 38,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he lists tasks such as set-size approximation, unsatisfiability, and one-to-one versus two-to-one functions as cases where quantum proofs do not help without analyzing them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These tasks are cited precisely as cases where quantum witnesses fail to give extra verification power."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "these ordinary tasks are cited to show the naive expectation that quantum proofs generally help can fail"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These no-help tasks are used as adversarial cases against any blanket claim that quantum proofs always help."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The listed no-advantage problems counter the naive expectation that quantum proofs generally help."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the cited no-help tasks are ordinary verification/query problems used against any blanket claim that quantum proofs always help"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These tasks are cited as limitations/counterinstances to the idea that quantum proofs universally help."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These tasks are cited as countercases to the idea that quantum proofs generally provide extra verification power."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These tasks are invoked as cases where quantum proofs fail to add verification power."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These tasks are deployed to show that quantum proofs do not universally help over classical information."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "these tasks are explicitly negative cases where quantum proofs fail or appear not to help"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These tasks are invoked as cases where the general usefulness of quantum proofs fails."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "these tasks are cited to show that quantum proofs do not always help, countering any blanket usefulness claim"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Aaronson-Kuperberg reflection oracle separation",
+   "note": "The known quantum-oracle separation using a hidden reflected state illustrates what an oracle separation can look like and why a classical-oracle version would be more compelling.",
+   "first_introduced_sec": 1626,
+   "spans": [
+    {
+     "start_sec": 1626,
+     "end_sec": 1839
+    }
+   ],
+   "total_seconds": 213,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he works through the Aaronson-Kuperberg reflection oracle separation, describing the identity-versus-reflection oracle, the QMA witness/check, and the QCMA lower-bound intuition",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 7,
+    "symmetric": 8,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The oracle separates QMA from QCMA using the identity versus a rank-one reflection, a minimal nontrivial unitary promise."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the identity-versus-rank-one-reflection unitary oracle has a collapsed highly regular spectrum and is used to separate QMA from QCMA relative to an oracle"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The identity-vs-rank-one-reflection oracle is a highly degenerate unitary promise used to separate QMA from QCMA relative to a quantum oracle."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The identity-versus-rank-one-reflection oracle is a minimal highly regular near-identity unitary used to separate QMA from QCMA relative to a quantum oracle."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the promise uses the trivial identity unitary versus a rank-one reflection and serves as a quantum-oracle separation of QMA from QCMA"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The identity-versus-rank-one-reflection oracle is a collapsed highly special unitary case used as an oracle separation against QCMA."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Aaronson-Kuperberg oracle uses a rank-one reflection, a minimal nontrivial perturbation of the identity, to separate QMA from QCMA relative to a quantum oracle."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The oracle contrasts the identity with a rank-one reflection, a minimal nontrivial perturbation used to separate QMA from QCMA."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The Aaronson–Kuperberg rank-one reflection oracle gives an oracle separation against QCMA, with a one-query QMA versus exponential QCMA gap."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the Aaronson-Kuperberg oracle is a separating counterexample built from identity versus a minimal rank-one reflection with a highly degenerate spectrum"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The identity-versus-rank-one-reflection oracle is a highly minimal quantum oracle used to separate QMA from QCMA relativizedly."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the reflection oracle gives a relativized QMA-vs-QCMA separation, and the unitary is identity except for a one-dimensional phase flip"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Even-parity dense distribution",
+   "note": "The uniform distribution over even-parity strings makes the definition of delta-denseness concrete: the full string loses one bit of entropy while every proper coordinate subset is uniform.",
+   "first_introduced_sec": 2471,
+   "spans": [
+    {
+     "start_sec": 2471,
+     "end_sec": 2493
+    }
+   ],
+   "total_seconds": 22,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he computes why the uniform distribution on even-parity strings is 1/n-dense by noting the one-bit entropy loss globally and uniformity on smaller subsets",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The even-parity distribution is a codimension-one parity hyperplane with exactly one global entropy deficit and full coordinate symmetry."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the even-parity distribution is a highly symmetric codimension-one parity subspace that exactly attains the 1/n dense entropy deficit"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The even-parity distribution is uniform on a coordinate-symmetric index-two subspace and saturates the 1/n density bound."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Uniform even parity is a symmetric codimension-one half-cube that tightly realizes a one-bit entropy deficit."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the even-parity distribution is highly permutation-symmetric and is a boundary nonuniform distribution with all proper marginals uniform"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The even-parity distribution is a highly regular codimension-one parity distribution that exactly attains the 1/n dense entropy deficit."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The even-parity distribution is uniform on a codimension-one highly symmetric parity subspace and saturates the one-bit entropy-deficit example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The even-parity distribution is a codimension-one uniform parity subspace attaining the stated 1/n density bound."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The even-parity distribution is a highly regular codimension-one parity hyperplane attaining 1/n density with all proper marginals uniform."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the even-parity distribution is a highly symmetric index-two parity subspace with only one bit of entropy deficit, a boundary dense example"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The even-parity distribution is a symmetric codimension-one boundary case with all proper marginals uniform, used only as a dense-distribution example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the even-parity distribution is a highly regular codimension-one parity example with all proper marginals uniform and exactly one bit of entropy deficit"
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Decision-tree analogue of the influence conjecture",
+   "note": "An audience comment notes that a decision-tree version of the Aaronson-Ambainis influence statement is known, serving as an optional comparison with the polynomial/quantum-query setting.",
+   "first_introduced_sec": 2914,
+   "spans": [
+    {
+     "start_sec": 2914,
+     "end_sec": 2949
+    }
+   ],
+   "total_seconds": 35,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the decision-tree analogue is only raised in a brief comment that replacing polynomials by decision trees gives a known theorem",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The decision-tree analogue is mentioned as a standard positive theorem contrasting with the polynomial conjecture."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the decision-tree version of the influence statement is cited as a known classical analogue rather than as a special object or refutation"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The decision-tree analogue is a restricted classical comparison where the influence statement is known, not a failure example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The decision-tree analogue is cited as a standard known theorem rather than as a structurally special object or refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the decision-tree influence analogue is a standard known comparison theorem used for context rather than refutation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The decision-tree analogue is mentioned as a known theorem parallel to the influence conjecture, not as a structurally special object or refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The decision-tree analogue is mentioned as a known restricted theorem contrasting with the polynomial conjecture, not as a counterexample or special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The decision-tree analogue is cited only as a known classical analogue of the influence conjecture."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The decision-tree version is mentioned only as a known analogue of the influence statement in a more restrictive model."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the decision-tree analogue is mentioned as a known related theorem rather than as a structurally special object or refutation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The decision-tree analogue is a standard comparison theorem for the influence conjecture, not a special object or counterexample."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the decision-tree analogue is mentioned as a known comparison theorem rather than as a structurally special object or counterexample"
+    }
+   ]
+  }
+ ]
+}

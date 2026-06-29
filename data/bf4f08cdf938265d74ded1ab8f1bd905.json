@@ -1,0 +1,1884 @@
+{
+ "key": "bf4f08cdf938265d74ded1ab8f1bd905",
+ "title": "Subgroup Tests and the Aldous--Lyons Conjecture",
+ "speaker": "Michael Chapman",
+ "affiliation": "New York University",
+ "date": "2024-10-07T12:00:00Z",
+ "field_msc": "60 Probability theory and stochastic processes",
+ "duration_sec": 4418.0,
+ "abstract": "A common theme in mathematics is that limits of finite objects are well behaved. This allows one to prove many theorems about finitely approximable objects, while leaving the general case open --- examples for this are Gottschalk's conjecture, Kaplansky's direct finiteness conjecture, and many more. When the topology of the space is somewhat coarse, it becomes very hard to decide whether every object is approximable by finite ones, or whether there exist non-approximable objects. Some of the more famous problems in various fields of mathematics can be framed this way; this includes Connes' embedding problem (CEP) in functional analysis, the Aldous--Lyons conjecture in probability theory, the soficity problem of Gromov--Weiss in group theory, and more. \nIn 2019, Ji--Natarajan--Vidick--Wright--Yuen resolved CEP in the negative, namely, they showed that there are non-approximable characters of the free group. The amazing thing about their result is that it is deduced from complexity theory, and specifically from undecidability in certain (quantum) interactive proof systems. Inspired by their work, we suggest a novel interactive proof system which is related to the Aldous--Lyons conjecture in the following way: If the Aldous--Lyons conjecture was true, then every language in this interactive proof system is decidable. A key concept we introduce for this purpose is that of a Subgroup Test, which is our analogue of a Non-local Game. By providing a reduction from the Halting Problem to this new proof system, we refute the Aldous-Lyons conjecture.\nIn this first talk we introduce the main concepts, motivate the conjecture and give a high level description of the proof strategy. No special mathematical background will be assumed.\nThis talk is based on a joint work with Lewis Bowen, Alex Lubotzky and Thomas Vidick.",
+ "youtube_url": "https://youtu.be/1z_JArp9uI8",
+ "page_url": "https://www.ias.edu/video/subgroup-tests-and-aldous-lyons-conjecture",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Refutation claim and route",
+   "summary": "The talk states the joint refutation of the Aldous-Lyons conjecture and lays out a route through graph limits, invariant random subgroups, characters, and an interactive-proof/complexity-theoretic decision problem.",
+   "spans": [
+    {
+     "start_sec": 54,
+     "end_sec": 214
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Cellular-automaton motivation for soficity",
+   "summary": "Local recoloring rules and Gottschalk's injective-implies-surjective question motivate why Benjamini-Schramm limits of finite graphs, or sofic networks/groups, are a natural class: finite graphs satisfy the property trivially and Gromov-Weiss extend it to these limits.",
+   "spans": [
+    {
+     "start_sec": 214,
+     "end_sec": 1057
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Benjamini-Schramm convergence formalism",
+   "summary": "Rooted bounded-degree graphs are topologized by agreement of finite balls, random rooted graphs are probability measures on this compact space, and convergence is defined by convergence of all finite-radius ball distributions, with finite graphs viewed via a uniform random root.",
+   "spans": [
+    {
+     "start_sec": 1057,
+     "end_sec": 1769
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Unimodular networks and the Aldous-Lyons target",
+   "summary": "After recalling results such as recurrence of planar limits and sofic networks being unimodular, the Aldous-Lyons question is formulated as whether every unimodular network is sofic, and the desired refutation is framed as a strict separation of the sofic and unimodular convex sets.",
+   "spans": [
+    {
+     "start_sec": 1779,
+     "end_sec": 2592
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Invariant random subgroups and finite describability",
+   "summary": "The subgroup space of a group is equipped with the conjugation action, IRSs are its invariant probability measures, finite actions produce finitely describable IRSs via stabilizers, and the corresponding closure question is posed, especially for the free group.",
+   "spans": [
+    {
+     "start_sec": 2602,
+     "end_sec": 3225
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Schreier-graph bridge to the free-group case",
+   "summary": "Group actions and subgroup coset actions are converted into rooted Schreier graphs, and Bowen's theorem is used to identify IRSs with unimodular networks and finite-describable IRS limits with sofic networks, making the free-group IRS approximation problem a special case of Aldous-Lyons.",
+   "spans": [
+    {
+     "start_sec": 3248,
+     "end_sec": 3518
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Character/Connes-embedding analogy and subgroup-test strategy",
+   "summary": "Characters and finite-dimensional characters provide a parallel closure problem whose negative solution follows from the MIP* undecidability route to Connes embedding, motivating the promised subgroup-test complexity class in which Aldous-Lyons would imply decidability but the class is shown undecidable.",
+   "spans": [
+    {
+     "start_sec": 3518,
+     "end_sec": 3846
+    },
+    {
+     "start_sec": 3880,
+     "end_sec": 4410
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Conway's Game of Life",
+   "note": "The Game of Life is used as a concrete local recoloring system on the two-dimensional grid, with its video, gliders, and all-alive/all-dead configurations illustrating locality, complex behavior, and non-injectivity rather than generating the proof idea.",
+   "first_introduced_sec": 302,
+   "spans": [
+    {
+     "start_sec": 302,
+     "end_sec": 660
+    }
+   ],
+   "total_seconds": 358,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He specifies the grid, neighborhood, colors, update rules, shows the evolution, and checks non-injectivity using all-live versus all-dead initial states.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 8,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard noninjective cellular automaton used illustratively, not a classification exception or a refuting instance."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Conway's Life is an isotropic two-state local cellular automaton used as a motivating example, not to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Conway’s Life is used as a standard cellular-automaton example, with an isotropic rule on the square grid."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "It is an isotropic cellular automaton on the regular square lattice, used only as motivation rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a familiar cellular-automaton example; its Life rule is not a sporadic, degenerate, or extremal object here."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard non-injective cellular automaton used illustratively rather than as a failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a standard cellular automaton example, with a direction-independent rule on the highly regular square lattice."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Conway's Game of Life is used as an illustrative non-injective cellular automaton, not as a refutation of the later injective case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as an illustrative cellular automaton, with a count-based rule on the square lattice giving strong lattice symmetry."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "an isotropic totalistic cellular automaton on the square grid used as a motivating example, not as a refutation"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Life is used as a canonical cellular automaton with an isotropic grid-neighborhood rule, not as an obstruction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as an illustrative cellular automaton rather than to refute a claim; its outer-totalistic square-grid rule has full lattice/dihedral symmetry."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Finite grids converging to the infinite two-dimensional grid",
+   "note": "The sequence of n-by-n grids is given to make Benjamini-Schramm convergence concrete and to show how most finite-grid vertices eventually see the same local neighborhoods as in the infinite grid.",
+   "first_introduced_sec": 1589,
+   "spans": [
+    {
+     "start_sec": 1589,
+     "end_sec": 1646
+    }
+   ],
+   "total_seconds": 57,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He states that n-by-n grids Benjamini–Schramm converge to the infinite two-dimensional grid, but does not work through the boundary/neighborhood calculation.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Finite grid boxes approximate the highly regular infinite lattice, serving as a basic Benjamini--Schramm convergence example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The finite square grids approximate the highly regular infinite lattice in a standard Benjamini--Schramm convergence example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The finite square grids illustrate positive Benjamini--Schramm convergence to the highly regular two-dimensional lattice."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The finite square grids and their Z^2 limit are highly regular lattice objects illustrating Benjamini--Schramm convergence."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The finite grids approximate the highly regular square lattice Z^2 and serve as a standard convergence example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The square-grid approximants and limit are regular lattice examples of Benjamini--Schramm convergence."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used to illustrate Benjamini--Schramm convergence to the regular lattice grid."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Finite grids are used as a positive Benjamini--Schramm approximation of the regular two-dimensional lattice."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used as a positive Benjamini--Schramm convergence example, and grids are highly regular lattice objects."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the limiting two-dimensional lattice grid is a highly regular vertex-transitive graph used to illustrate Benjamini--Schramm convergence"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The finite-grid approximation is a standard positive Benjamini--Schramm limit of a highly regular lattice."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A standard Følner/local-convergence family approximating the highly regular two-dimensional lattice, not a negative example."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Large-girth regular graphs converging to the regular tree",
+   "note": "The regular tree example contrasts finite balls, which fail because of boundary leaves, with high-girth regular graphs, whose fixed-radius neighborhoods become tree-like.",
+   "first_introduced_sec": 1646,
+   "spans": [
+    {
+     "start_sec": 1646,
+     "end_sec": 1769
+    }
+   ],
+   "total_seconds": 123,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He explains why balls in the regular tree fail as finite approximants and then checks that large-girth regular graphs have the correct radius-r balls eventually.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The large-girth sequence tends to the regular tree, a maximally regular cycle-free boundary case among regular graphs."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Large-girth regular graphs converge to the regular tree, the maximally cycle-free and highly homogeneous regular graph."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Large-girth regular graphs converge to the regular tree, the maximally locally acyclic highly symmetric d-regular limit."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Girth tending to infinity is the local acyclic boundary case, and the limit is the maximally homogeneous regular tree."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Large-girth regular graphs have the maximally homogeneous infinite-girth d-regular tree as their local limit."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The regular tree is maximally homogeneous and has infinite girth as the locally acyclic extreme of regular graphs."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as a convergence example whose limit is the highly symmetric regular tree, the infinite-girth/local-acyclic extreme of regular graphs."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Large-girth regular graphs are locally as cycle-free as possible and converge to the infinite-girth regular tree."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as a convergence example; the regular tree is maximally symmetric and has extremal infinite girth/local acyclicity."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "large-girth regular graphs approximate the maximally homogeneous infinite-girth regular tree rather than contradicting a claim"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Large-girth regular graphs have the maximally symmetric infinite-girth regular tree as their local limiting case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as a standard convergence example; the regular tree is the infinite-girth boundary case of regular graphs and is maximally homogeneous."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Two- versus three-dimensional lattice recurrence",
+   "note": "The speaker recalls that simple random walk on Z^2 is recurrent while on Z^3 it is not, using the drunk-man/drunk-bird joke to clarify the recurrence conclusion in Benjamini-Schramm's planar-limit theorem.",
+   "first_introduced_sec": 1830,
+   "spans": [
+    {
+     "start_sec": 1830,
+     "end_sec": 1874
+    }
+   ],
+   "total_seconds": 44,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He cites the known recurrence of the two-dimensional grid and transience of the three-dimensional grid only as illustrative facts.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The symmetric lattices sit at the critical recurrence/transience dimension threshold, with the three-dimensional case showing recurrence fails."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The 2D/3D lattice contrast uses the critical recurrence dimension and the 3D lattice to show recurrence fails beyond the planar case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Z^2/Z^3 comparison uses symmetric lattices at the critical recurrence threshold, with Z^3 showing recurrence fails beyond dimension two."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The homogeneous lattices straddle the critical recurrence dimension, with Z^3 used to show recurrence fails beyond dimension two."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The homogeneous lattices sit at the recurrence threshold, with Z^3 used as the nonrecurrent contrast showing return a.s. can fail."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The standard lattices are highly regular, and dimension two is the critical recurrence threshold while dimension three is used as the transient failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-dimensional lattice is contrasted with the critical recurrent two-dimensional lattice to show recurrence fails in higher dimension."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-dimensional lattice is invoked as the negative contrast where recurrence fails, while dimensions two and three straddle the critical recurrence threshold."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-dimensional lattice is invoked to show recurrence fails beyond the planar/two-dimensional case, at the recurrence-transience threshold for lattices."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the transitive lattices sit at the recurrence threshold, with the three-dimensional lattice used to show recurrence fails beyond dimension two"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-dimensional lattice is cited as the nonrecurrent contrast to the critical recurrent two-dimensional lattice."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The three-dimensional lattice is invoked as the first failure of almost-sure return, while dimensions two and three straddle the critical recurrence threshold for lattices."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Normal subgroup as a Dirac invariant random subgroup",
+   "note": "A normal subgroup gives a conjugation-invariant point mass on the subgroup space, and it later reappears in the question of whether a normal-subgroup IRS outside the finite-describable closure would produce a non-sofic quotient.",
+   "first_introduced_sec": 2795,
+   "spans": [
+    {
+     "start_sec": 2795,
+     "end_sec": 2835
+    },
+    {
+     "start_sec": 4135,
+     "end_sec": 4159
+    }
+   ],
+   "total_seconds": 64,
+   "attaches_to": [
+    "s5",
+    "s7"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He verifies that the Dirac measure on a normal subgroup is invariant because conjugation leaves the subgroup fixed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 4,
+    "symmetric": 10,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A Dirac IRS is a collapsed point-mass distribution at a conjugation-fixed normal subgroup."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A normal subgroup gives a Dirac IRS, the zero-randomness singleton conjugacy-orbit extreme case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A Dirac IRS at a normal subgroup is deterministic and fixed under all conjugations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A Dirac mass at a normal subgroup is a deterministic IRS fixed by conjugation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A Dirac IRS at a normal subgroup is deterministic and fixed pointwise under conjugation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A Dirac IRS at a normal subgroup is deterministic and an extreme concentrated invariant measure."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Used as the simplest IRS example, a deterministic Dirac measure fixed pointwise by conjugation because the subgroup is normal."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A normal subgroup gives a deterministic point-mass IRS fixed by conjugation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Used as a basic IRS example; a Dirac measure at a normal subgroup is deterministic and an extreme atomic invariant measure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "a Dirac measure on a normal subgroup is deterministic and a conjugation-fixed extreme invariant measure used as the simplest IRS example"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A Dirac measure on a normal subgroup is a deterministic point-mass IRS fixed under all conjugations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A Dirac IRS is deterministic/collapsed to one conjugation-fixed normal subgroup, and is presented only as a basic positive example."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Uniform distribution on finitely many conjugates",
+   "note": "A subgroup with finitely many conjugates yields an IRS by putting the uniform measure on its conjugacy orbit, illustrating conjugation invariance beyond normal subgroups.",
+   "first_introduced_sec": 2835,
+   "spans": [
+    {
+     "start_sec": 2835,
+     "end_sec": 2855
+    }
+   ],
+   "total_seconds": 20,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He checks that the uniform measure on finitely many conjugates is invariant since conjugation merely permutes those conjugates.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 3,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform measure on a finite conjugacy orbit is an orbit-symmetric elementary IRS example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform measure on a finite conjugacy orbit is symmetric under conjugation and is presented as a basic IRS construction."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform measure on a finite conjugacy orbit is an orbit-averaged conjugation-symmetric IRS construction."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The uniform measure on a finite conjugacy orbit is a finite-supported elementary IRS with orbit symmetry."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A uniform measure on finitely many conjugates is a standard finite-orbit IRS construction, not a sporadic or obstructing case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The uniform measure on one finite conjugacy orbit is the canonical symmetric ergodic finite-orbit invariant measure."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Used as an IRS example supported on a finite conjugacy orbit with the uniform invariant measure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform measure on a finite conjugacy orbit is the natural conjugation-invariant finite-orbit IRS."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Used as another IRS example; the uniform finite conjugacy-orbit measure is an ergodic finite-orbit extreme invariant measure."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the uniform measure on a finite conjugacy orbit is a conjugation-symmetric ergodic extreme IRS used as a standard construction"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The uniform measure on a finite conjugacy orbit is a homogeneous finite-orbit IRS example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The uniform measure on a finite conjugacy orbit is an atomic finite-support IRS, symmetrized by equally weighting the conjugates."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Amenable upper-triangular matrix groups with negative IRS approximation",
+   "note": "In response to a question, the speaker mentions solvable or upper-triangular matrix groups over rings such as Z[1/p] as known amenable cases where the finite-describable IRS closure question can fail.",
+   "first_introduced_sec": 3185,
+   "spans": [
+    {
+     "start_sec": 3172,
+     "end_sec": 3225
+    }
+   ],
+   "total_seconds": 53,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "He only cites amenable upper-triangular matrix groups as known counterexamples, with no construction or verification.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These solvable amenable upper-triangular matrix groups are cited as cases where finite IRS approximation fails."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These amenable upper-triangular matrix groups are cited as known cases where finite-describable IRS approximation fails."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These amenable upper-triangular matrix groups are cited as known cases where finitely describable IRSs are not dense."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These amenable triangular matrix groups are cited to show finite-describable IRSs need not be dense."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These solvable amenable upper-triangular matrix groups are cited as known cases where finite-describable IRSs are not dense."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These solvable amenable matrix-group examples are cited as negative instances of finite-IRS approximation density."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Cited as amenable solvable matrix-group examples where finite IRS approximation is known to fail."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These amenable upper-triangular matrix groups are cited as known cases where finite IRS approximation fails."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Deployed as known amenable groups for which finite IRS approximation fails, but the solvable upper-triangular groups are structurally ordinary."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "these solvable amenable upper-triangular matrix groups are cited as known cases where finite IRS approximation fails"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These solvable amenable matrix groups are invoked as known cases where finite-IRS approximation fails."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "These solvable amenable upper-triangular matrix groups are cited precisely as cases where finite IRS approximation fails."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Random graph from a pair of permutations",
+   "note": "The reference to sampling a graph from permutations in a previous talk serves as a familiar instance of turning group actions into labeled directed graphs, preparing the Schreier-graph bridge.",
+   "first_introduced_sec": 3284,
+   "spans": [
+    {
+     "start_sec": 3284,
+     "end_sec": 3303
+    }
+   ],
+   "total_seconds": 19,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He describes the permutation/action construction concretely by drawing labeled directed edges according to how a generator sends one vertex to another.",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A graph generated by two permutations is a generic Schreier/random regular-graph construction used for illustration."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A graph generated by a pair of permutations is a standard random Schreier/random regular graph construction used illustratively."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A graph generated from a random pair of permutations is a standard generic Schreier/random-regular graph model."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A graph generated from random permutations is the standard random Schreier/random-regular construction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A pair of permutations is used as the ordinary random Schreier/random regular graph construction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A permutation-generated random Schreier graph is a standard random regular graph construction used illustratively."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Used as the ordinary permutation model for producing random Schreier or regular graphs."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A graph generated from a pair of permutations is used as a standard random Schreier-graph construction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used constructively to explain random Schreier/regular graphs from permutations, and such random graphs are typical rather than symmetric or exceptional."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a graph generated by a random pair of permutations is a typical random Schreier-graph construction used illustratively"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A graph generated by a pair of permutations is presented as an ordinary random Schreier-graph construction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The permutation-pair construction is a generic random regular/Schreier graph model used illustratively, with no special extremal or sporadic structure."
+    }
+   ]
+  }
+ ]
+}

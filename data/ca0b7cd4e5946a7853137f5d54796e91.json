@@ -1,0 +1,1512 @@
+{
+ "key": "ca0b7cd4e5946a7853137f5d54796e91",
+ "title": "How to Sketch a Learning Algorithm",
+ "speaker": "Sam Gunn",
+ "affiliation": "University of California, Berkeley",
+ "date": "2026-05-28T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3652.0,
+ "abstract": "How does the choice of training data influence an AI model? This question is of central importance to interpretability, privacy, and basic science.  At its core is the data deletion problem: after a reasonable amount of precomputation, quickly predict how the model would behave if a given subset of training data had been deleted.\nI will present a data deletion scheme capable of predicting model outputs with arbitrarily small error ε and failure probability δ in the deep learning setting.  The precomputation and prediction algorithms are only Õ(log(1/δ)/ε^2) factors slower than regular training and inference, respectively. The storage requirements are those of Õ(log(1/δ)/ε^2) models. \nThe proof is based on a simple assumption about the stability of training. In contrast to the assumptions made by prior work, stability appears to be fully compatible with learning powerful AI models.  At a technical level, our work is based on a new method for locally sketching an arithmetic circuit by computing higher-order derivatives in random complex directions.\nBased on my recent work: https://arxiv.org/pdf/2604.07328.",
+ "youtube_url": "https://youtu.be/MMZYVLJmwgQ",
+ "page_url": "https://www.ias.edu/video/how-sketch-learning-algorithm",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Retraining bottleneck behind deletion, attribution, and selection",
+   "summary": "The talk identifies a common obstacle in AI workflows: changing training data, unlike changing an inference query, normally requires slow retraining, which underlies machine unlearning, data attribution, data selection, poisoning defense, and influence-function questions.",
+   "spans": [
+    {
+     "start_sec": 36,
+     "end_sec": 444
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Data deletion scheme and target guarantee",
+   "summary": "The desired object is defined as a slow precomputation phase that may store auxiliary information and a fast prediction phase that, after seeing the data to delete, approximates the outcome of actual retraining with error epsilon and roughly a one-over-epsilon-squared overhead.",
+   "spans": [
+    {
+     "start_sec": 444,
+     "end_sec": 807
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Reduction to preprocessing an arithmetic-circuit data model",
+   "summary": "After fixing the dataset, randomness, scalar test function, and deletion weights, the learning-and-testing process is modeled as an arithmetic circuit f from deletion vectors to outcomes, so the mathematical task becomes compressing f for fast evaluation on indicator vectors.",
+   "spans": [
+    {
+     "start_sec": 940,
+     "end_sec": 1405
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Stability as exponential Taylor-coefficient decay",
+   "summary": "The key assumption is that the norms of the multivariate Taylor tensors of f decay exponentially with order, an assumption motivated by derivative-norm experiments, interpreted as low-complexity higher-order data interactions, and partially testable by estimating low-order tensor norms.",
+   "spans": [
+    {
+     "start_sec": 1417,
+     "end_sec": 1824
+    },
+    {
+     "start_sec": 3185,
+     "end_sec": 3384
+    },
+    {
+     "start_sec": 3449,
+     "end_sec": 3651
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Taylor truncation and the infeasible coefficient-table scheme",
+   "summary": "Stability suggests truncating the Taylor expansion at logarithmic order in one over epsilon, but the naive precomputation that stores all Taylor tensors is impossible because an order-r tensor has size n to the r.",
+   "spans": [
+    {
+     "start_sec": 1857,
+     "end_sec": 1960
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Random-projection sketches of Taylor contractions",
+   "summary": "The tensor contraction needed for evaluation is replaced by an unbiased random-projection estimator whose variance is dimension-independent under stability, and then by a symmetric complex rank-one projection so that the random vector itself has only length n.",
+   "spans": [
+    {
+     "start_sec": 1977,
+     "end_sec": 2294
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Polynomial-ring evaluation computes the sketches implicitly",
+   "summary": "To avoid materializing Taylor tensors, f is evaluated on z times the random projection vector over a truncated complex polynomial ring, whose coefficients are exactly the desired projected Taylor terms, yielding the final repeated sketching precomputation and fast prediction algorithm.",
+   "spans": [
+    {
+     "start_sec": 807,
+     "end_sec": 940
+    },
+    {
+     "start_sec": 2294,
+     "end_sec": 2634
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Removing the fixed-query simplification",
+   "summary": "The scheme is extended from a hard-coded test function to later-chosen queries by running only the slow training part over the polynomial ring during precomputation, storing polynomial-valued model parameters, and letting prediction finish the fast inference computation.",
+   "spans": [
+    {
+     "start_sec": 2907,
+     "end_sec": 3174
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Jackson Pollock unlearning request",
+   "note": "A stylized artist asks that all of his data be removed from training, illustrating why fast prediction of the retrained-without-that-data model is needed; the later audience question clarifies that the deletion scheme should match the retraining outcome, not preserve the original output.",
+   "first_introduced_sec": 115,
+   "spans": [
+    {
+     "start_sec": 115,
+     "end_sec": 155
+    },
+    {
+     "start_sec": 571,
+     "end_sec": 598
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the Pollock deletion request is used as a motivating scenario for unlearning, with no concrete computation or algorithm run on Pollock’s data",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard user-data deletion/unlearning scenario used to motivate the retraining-cost problem."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary hypothetical data-deletion request used to motivate machine unlearning."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard user-data deletion request used to motivate machine unlearning, not to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary hypothetical machine-unlearning request used to motivate retraining cost."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a representative machine-unlearning request illustrating deletion after training, with no special mathematical structure or refuting role"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary user-data deletion scenario motivating machine unlearning, not a structural special case or refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard motivating machine-unlearning deletion request, not used to refute a claim and with no special structural feature."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard motivating machine-unlearning deletion request, not used to refute a claim and not structurally special."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary motivating unlearning request showing the retraining burden, not refuting a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard illustrative user-deletion request motivating machine unlearning, not used to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as an adversarial deletion request exposing the infeasibility of naive retraining"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a motivating machine-unlearning scenario with an ordinary user deletion request, not a refutation example"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Jackson Pollock data-attribution probability drop",
+   "note": "The speaker imagines comparing the probability of a Pollock-like output before and after deleting Pollock's training data, illustrating data attribution as another instance of the retraining bottleneck.",
+   "first_introduced_sec": 167,
+   "spans": [
+    {
+     "start_sec": 167,
+     "end_sec": 246
+    }
+   ],
+   "total_seconds": 79,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the probability drop after deleting Pollock’s data is described hypothetically as a data-attribution test, but no probability is actually computed",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A typical data-attribution comparison of output probability before and after deletion, used as evidence rather than refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard data-attribution query comparing output probabilities before and after deletion."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A typical data-attribution test comparing model behavior before and after deletion, used illustratively rather than adversarially."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A hypothetical data-attribution signal illustrating causal influence rather than refuting a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a typical data-attribution thought experiment using a probability change as evidence of influence rather than to disprove a claim"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An illustrative data-attribution probability comparison showing causal evidence, not a classification exception or counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A typical illustrative data-attribution scenario comparing model probabilities before and after deletion, not an obstruction or classification exception."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An illustrative data-attribution scenario where retraining changes an output probability, not a counterexample or special object."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "illustrative data-attribution scenario where deletion changes an output probability, not a counterexample"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A typical hypothetical data-attribution influence test via probability change, used illustratively rather than adversarially."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the post-deletion output probability is described as dropping to an astronomically small near-boundary value"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an illustrative data-attribution test via a probability change, not structurally special or used to disprove a claim"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Benchmark-based data selection",
+   "note": "Deleting candidate subsets and checking whether a benchmark score improves exemplifies data selection as a third application of the same fast-retraining question.",
+   "first_introduced_sec": 276,
+   "spans": [
+    {
+     "start_sec": 276,
+     "end_sec": 322
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "benchmark-based data selection is sketched as an application where deletion might change a score, without working through a specific benchmark calculation",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A standard data-selection use case where benchmark-score changes indicate good or bad data sources."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A representative data-selection application based on benchmark performance changes."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A standard benchmark-driven data-selection scenario, used as an application of the retraining problem."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard benchmark-driven data-selection scenario used as an application example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard data-selection application where benchmark changes guide source quality, not an extremal or adversarial case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard benchmark-score data-selection setup used as an application example, with no intrinsic extremal or degenerate structure."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary data-selection application using benchmark scores to assess deleted subsets, not deployed against a false claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A typical benchmark-driven data-selection workflow used as an application example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard benchmark-driven data-selection use case, with no special intrinsic structure"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A routine benchmark-score scenario for data selection, not a special structure or counterexample."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard benchmark-score comparison is used as a motivating data-selection application"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard benchmark-driven data-selection scenario used as an application, not an adversarial or extremal object"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Neural-network Taylor-coefficient decay experiments",
+   "note": "Derivative-norm plots for ResNet, with a brief comparison to micro-GPT experiments, give empirical evidence that exponential Taylor-coefficient decay can occur in real learning systems, motivating but not proving the stability assumption.",
+   "first_introduced_sec": 1533,
+   "spans": [
+    {
+     "start_sec": 1533,
+     "end_sec": 1809
+    }
+   ],
+   "total_seconds": 276,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker discusses actual Taylor-derivative norm experiments, interprets the decay plot, runs, orders, and relation to the stability assumption",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Empirical neural-network runs with decaying Taylor-coefficient norms illustrate the stability assumption without being a classification exception."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Taylor-coefficient decay experiments illustrate the stability assumption rather than an extremal or sporadic object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The observed Taylor-coefficient decay is evidence for the stability assumption, not a sporadic, limiting, or refuting example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Empirical Taylor-coefficient decay in neural networks is presented as evidence for the stability assumption."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the Taylor-coefficient decay experiments are used as positive evidence that the stability assumption can occur in neural networks"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The observed Taylor-coefficient decay is a positive stability example for neural-network data models, not a sporadic or extremal object."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Empirical Taylor-coefficient decay is presented as supporting evidence for the stability assumption, not as a counterexample or an intrinsically extremal object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Experiments showing Taylor-coefficient decay support the stability assumption rather than defeat a claim, and the model/function is not one of the listed structural special types."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "empirical example supporting the Taylor-coefficient decay assumption, not an obstruction or sporadic object"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Taylor-coefficient decay experiments are favorable evidence for the stability assumption, not a sporadic or extremal object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the coefficient-decay plots serve as empirical support for the stability assumption rather than as a structural extreme"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "experiments showing Taylor-coefficient decay motivate the stability assumption, but the models are not sporadic, degenerate, extremal, or maximally symmetric"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "ResNet deletion-prediction curve",
+   "note": "An implementation plot compares retraining losses with low-order polynomial sketch predictions as a fixed class-related subset is fractionally deleted, illustrating how higher sketch order improves prediction.",
+   "first_introduced_sec": 2640,
+   "spans": [
+    {
+     "start_sec": 2640,
+     "end_sec": 2907
+    }
+   ],
+   "total_seconds": 267,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 0,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker explains the ResNet deletion curve in detail, including retraining dots, polynomial-order predictions, deletion weight, loss values, and the chosen deletion set",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A favorable ResNet deletion curve compares retraining with Taylor-order predictions rather than disproving a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The ResNet curve is a typical favorable empirical demonstration of the polynomial deletion predictor."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The ResNet deletion curve is a representative experimental demonstration of the approximation scheme."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A ResNet deletion experiment is a representative favorable demonstration of the prediction scheme."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the ResNet curve is a favorable empirical illustration of the deletion-prediction scheme matching retraining"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The ResNet deletion-prediction curve is an ordinary empirical validation of the approximation scheme rather than an adversarial case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The ResNet deletion-prediction curve is a favorable illustrative experiment showing approximation quality, with no sporadic, symmetric, or extremal structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A favorable ResNet deletion curve illustrating the proposed approximation scheme, not an adversarial or extremal case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "representative ResNet experiment illustrating the deletion-prediction method in a favorable case"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The ResNet deletion-prediction curve is a representative experimental validation case, not deployed to show failure."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "the ResNet loss-versus-deletion curve is an ordinary experimental demonstration of the prediction scheme"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a ResNet deletion curve demonstrates the approximation scheme in a favorable ordinary case rather than contradicting anything"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Cat-picture and dog-picture interactions",
+   "note": "In response to a question, the speaker uses cat and dog data interactions to make higher-order Taylor terms and the low-rank interpretation of stability more concrete.",
+   "first_introduced_sec": 3302,
+   "spans": [
+    {
+     "start_sec": 3302,
+     "end_sec": 3384
+    }
+   ],
+   "total_seconds": 82,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "cat-picture and dog-picture interactions are only an intuitive illustration of higher-order data interactions, not analyzed concretely",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ordinary cat/dog data interactions illustrate higher-order influence terms in the model."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cat-picture and dog-picture interactions are a generic illustration of higher-order data interactions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cat/dog data interactions are ordinary higher-order interaction examples used for intuition about Taylor terms."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cat-picture and dog-picture interactions are an illustrative ordinary higher-order data interaction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "cat-picture and dog-picture interactions are a generic illustration of higher-order data interactions, not a special classified object"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Cat–dog data interactions are a typical illustration of higher-order terms in the data model, not structurally special."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Cat-picture and dog-picture interactions are a generic example of higher-order data interactions, not an adversarial case or structurally special object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A hypothetical ordinary higher-order interaction between data categories used to explain the stability intuition."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "generic example of higher-order training-data interactions between classes"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Cat/dog picture interactions are an ordinary example of higher-order data interactions, not structurally special."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "cat and dog image interactions are a generic illustration of higher-order data dependencies"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "cat/dog picture interactions are a heuristic illustration of higher-order data effects, with no special structural status"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "User-level rather than example-level deletion coordinates",
+   "note": "An audience question leads to the variant where coordinates index users instead of individual data points, illustrating how restrictions on allowable deletion sets can reduce dimension and improve efficiency.",
+   "first_introduced_sec": 3384,
+   "spans": [
+    {
+     "start_sec": 3384,
+     "end_sec": 3449
+    }
+   ],
+   "total_seconds": 65,
+   "attaches_to": [
+    "s2",
+    "s8"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker concretely applies the coordinate setup to users instead of examples and reasons that this lowers n and improves efficiency and stability",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 9,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The user-level coordinates coarsen and collapse many per-example deletion variables into fewer user variables."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Using user-level coordinates collapses many example-level deletion variables into a coarser lower-dimensional model."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "User-level deletion coordinates collapse many example-level coordinates into coarser variables, reducing structure rather than refuting anything."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "User-level deletion coordinates are a routine coarser modeling choice, not a pathological or refuting example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "user-level deletion coordinates are an ordinary coarser modeling choice proposed for efficiency rather than a degenerate or counterexample case"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Using one coordinate per user coarsens and collapses the example-level deletion coordinates, and is proposed as an efficiency variant rather than a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Using one deletion coordinate per user is a coarse-grained collapse of the finer example-level coordinate system, offered as an efficiency variant rather than a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The user-level coordinate choice deliberately collapses many per-example deletion coordinates into coarser user coordinates."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "coarser deletion parameterization collapsing many example-level coordinates into user-level coordinates"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "User-level coordinates collapse many example-level coordinates into coarser deletion variables, reducing structure but not refuting anything."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "user-level coordinates coarsen and collapse many example-level deletion variables into fewer coordinates"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "using user-level deletion coordinates is a coarser ordinary modeling choice, not a degenerate collapse or counterexample"
+    }
+   ]
+  }
+ ]
+}

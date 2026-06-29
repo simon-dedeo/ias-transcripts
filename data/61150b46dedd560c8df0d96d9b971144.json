@@ -1,0 +1,1575 @@
+{
+ "key": "61150b46dedd560c8df0d96d9b971144",
+ "title": "Polynomial Methods in Learning and Statistics",
+ "speaker": "Ankur Moitra",
+ "affiliation": "Institute for Advanced Study",
+ "date": "2012-03-19T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3966.0,
+ "abstract": "My goal in this talk is to survey some of the emerging applications of polynomial methods in both learning and in statistics. I will give two examples from my own work in which the solution to well-studied problems in learning and statistics can be best understood through the language of algebraic geometry.",
+ "youtube_url": "https://www.youtube.com/watch?v=k498nzkkH40",
+ "page_url": "https://www.ias.edu/video/members/moitra",
+ "tags": [
+  "Members Seminar",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Pearson moment formulation and learning goal",
+   "summary": "The talk sets up mixtures of two Gaussians, Pearson's empirical moment equations, the modern polynomial-time/sample-complexity learning question, and the result that the first six moments robustly support learning in one dimension.",
+   "spans": [
+    {
+     "start_sec": 19,
+     "end_sec": 936
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Exact identifiability reduced to sign changes",
+   "summary": "To show that six exact moments identify a two-Gaussian mixture up to relabeling, the speaker reduces the problem to proving that the signed difference of two distinct mixture densities has at most six zero crossings, since then a degree-six sign polynomial forces some moment difference to be nonzero.",
+   "spans": [
+    {
+     "start_sec": 936,
+     "end_sec": 1170
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Zero-crossing bound for linear combinations of Gaussians",
+   "summary": "A proposition that any nonzero linear combination of k Gaussians has at most 2k-2 zero crossings is proved by induction using the Hummel-Gidas theorem that Gaussian convolution cannot increase zero crossings and the fact that convolution of Gaussians adds variances.",
+   "spans": [
+    {
+     "start_sec": 1170,
+     "end_sec": 1440
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Robust six-moment conditioning and univariate algorithm",
+   "summary": "The exact six-moment statement is recast as a polynomial system in the parameters, and a stability theorem asserts that sufficiently close first six moments imply componentwise-close parameters, yielding a sample-based method-of-moments algorithm.",
+   "spans": [
+    {
+     "start_sec": 1440,
+     "end_sec": 1800
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Belkin-Sinha polynomial-family generalization",
+   "summary": "For general polynomial families of distributions, Noetherian stabilization of moment-difference ideals supplies a finite identifying number of moments, while semialgebraic projection gives polynomial stability and hence a general, though ineffective, method-of-moments learning algorithm.",
+   "spans": [
+    {
+     "start_sec": 1800,
+     "end_sec": 2431
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Nonnegative rank as polynomial feasibility",
+   "summary": "After defining nonnegative rank and motivating nonnegative matrix factorization, the speaker expresses the question of rank at most r as a semialgebraic feasibility problem and identifies the exponential dependence on the number of variables in Renegar-style algorithms as the main bottleneck.",
+   "spans": [
+    {
+     "start_sec": 2431,
+     "end_sec": 3444
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Full-rank variable reduction by pseudoinverses",
+   "summary": "In the special case where the two factors have full column and row rank, pseudoinverses and basis changes reduce the feasibility formulation to linear and quadratic constraints in only 2r^2 transformation variables.",
+   "spans": [
+    {
+     "start_sec": 3444,
+     "end_sec": 3647
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Rank-deficient reduction and complexity consequences",
+   "summary": "For general factorizations, maximal independent subsets define finitely many local pseudoinverse transformations plus a polynomially encodable choice function, giving exact polynomial-time algorithms for fixed r, improved singly exponential dependence on r, and near-matching hardness under standard complexity assumptions.",
+   "spans": [
+    {
+     "start_sec": 3647,
+     "end_sec": 3940
+    }
+   ],
+   "depends_on": [
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Pearson's Naples crab measurements",
+   "note": "The crab-measurement data illustrates how a visibly non-Gaussian empirical density led Pearson to posit a mixture of two Gaussians and motivates the moment-method setup, but the later proof does not depend on this data set.",
+   "first_introduced_sec": 30,
+   "spans": [
+    {
+     "start_sec": 30,
+     "end_sec": 135
+    }
+   ],
+   "total_seconds": 105,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "used Pearson’s Naples crab data as historical motivation for Gaussian mixtures, without computing actual crab moments or parameters",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 10,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Ordinary historical data set used to motivate Gaussian mixtures, not a structural classification exception or adversarial example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pearson's crab histogram is used because the single-Gaussian expectation fails."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the crab data are used to show that a single Gaussian/symmetric model of the measurements fails"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the crab measurements are used to show that a single Gaussian/symmetric model fails"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "empirical asymmetric data are used to defeat a single-Gaussian explanation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the asymmetric crab data are used to show a single-Gaussian model is inadequate"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the skew crab-measurement density is used to show a single Gaussian/symmetric model fails, but the dataset is not structurally special"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as non-Gaussian empirical data motivating mixtures rather than a single Gaussian"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show a single Gaussian model did not fit Pearson’s asymmetric crab-measurement data"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as empirical failure of a single-Gaussian/symmetric model, while the dataset itself is not structurally special."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pearson’s crab data are used to show a single Gaussian/symmetric model fails, while the dataset itself is an ordinary empirical sample."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Pearson’s crab measurements are used as a motivating data set for Gaussian mixtures, not as a structural classification exception."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Heat diffusion on a one-dimensional rod",
+   "note": "The heat-profile analogy makes the Hummel-Gidas zero-crossing theorem intuitive by identifying Gaussian convolution with diffusion, which smooths without creating new sign changes.",
+   "first_introduced_sec": 1261,
+   "spans": [
+    {
+     "start_sec": 1261,
+     "end_sec": 1310
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "runs the heat-profile example through Gaussian convolution and reasons that diffusion cannot create new extrema or zero crossings",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Standard one-dimensional heat-flow model used to explain Gaussian convolution and zero crossings."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "This is a standard heat-flow model used to give intuition for Gaussian convolution."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "heat flow on a rod is used as an explanatory analogy for Gaussian smoothing, not as a structurally special object"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary one-dimensional heat diffusion is used only as an analogy for Gaussian convolution smoothing"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard heat-flow analogy for Gaussian convolution smoothing zero crossings"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the one-dimensional heat-flow picture is a standard model illustrating Gaussian convolution"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "heat diffusion on a rod is used as a standard analogy for Gaussian convolution smoothing, not as a failure case or special object"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "used as a standard smoothing analogy for Gaussian convolution, not a failure case"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary one-dimensional heat diffusion is used only as an intuition for Gaussian convolution reducing zero crossings"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used only as an explanatory model for Gaussian convolution/zero crossings, with no special intrinsic structure singled out."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The one-dimensional heat-diffusion picture is only an explanatory model for Gaussian convolution not increasing zero crossings."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Heat diffusion on a one-dimensional rod is an illustrative ordinary heat-equation example explaining Gaussian convolution."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "A univariate degree-d polynomial near a root",
+   "note": "An audience comment uses the familiar x^d behavior near a one-variable polynomial root as an analogy for the multivariate Łojasiewicz-type stability behind the semialgebraic argument.",
+   "first_introduced_sec": 2318,
+   "spans": [
+    {
+     "start_sec": 2286,
+     "end_sec": 2353
+    }
+   ],
+   "total_seconds": 67,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "uses a degree-d univariate polynomial near a root to reason quantitatively that values can linger near zero only like x^d",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 5,
+    "extremal": 6,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Standard local one-variable polynomial model used as an analogy for stability near roots."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary local univariate polynomial model illustrating stability near roots."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the relevant local model is the worst-case x^d behavior, a maximally multiple root of a degree-d polynomial"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the cited x^d local behavior is the maximally flat d-fold-root case for a degree-d polynomial"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "generic one-variable local model for polynomial root stability"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the degree-d univariate polynomial is used as an ordinary local model for stability near roots"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the x^d-type local model has a d-fold root, the maximal possible vanishing order for a degree-d polynomial"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the relevant x^d worst case has a d-fold root, the maximal possible vanishing order for degree d"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a standard local polynomial-at-a-root picture is used as an analogy for stability near zeros"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Invoked via the x^d worst-case behavior, the maximal possible order of vanishing for a degree-d polynomial."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The degree-d polynomial near a root is used as a standard one-variable analogy for stability, with no special polynomial specified."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The degree-d polynomial behaving like x^d near a root represents a maximally flat multiple-root case."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Term-by-document matrix and topic modeling",
+   "note": "The information-retrieval matrix illustrates why nonnegative factorizations are useful: columns become distributions on words, factors become topics and document mixtures of topics.",
+   "first_introduced_sec": 2555,
+   "spans": [
+    {
+     "start_sec": 2555,
+     "end_sec": 2716
+    }
+   ],
+   "total_seconds": 161,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "constructs the term-by-document matrix, normalizes/interprets its columns, and traces how nonnegative factorization gives topics and document mixtures",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Typical nonnegative data matrix used as a motivating application for topic modeling."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The term-document matrix is a standard nonnegative data matrix for topic-modeling motivation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the term-document matrix is a standard nonnegative data matrix used to motivate topic modeling"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a term-document matrix is a standard nonnegative data matrix used as an application of topic modeling"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary nonnegative data matrix used as a positive NMF application"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the nonnegative term-by-document matrix is a standard topic-modeling instance"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the term-by-document matrix is a representative nonnegative data matrix used to motivate topic modeling"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "a standard nonnegative data-matrix application of topic modeling, not a special matrix"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a typical nonnegative term-document matrix is used as a motivating application of NMF"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard representative nonnegative data matrix used to motivate topic modeling, not to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The term-by-document matrix is a canonical application of nonnegative factorization to topic models, not a failure case or special matrix."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A term-by-document matrix is a standard nonnegative data matrix used to motivate topic-model factorization."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Politics, weather, and the missing word elephant in SVD",
+   "note": "In response to a question, the speaker contrasts SVD with nonnegative factorization by noting that unrelated documents can appear correlated through jointly omitted words, illustrating the interpretability loss from negative coordinates.",
+   "first_introduced_sec": 2716,
+   "spans": [
+    {
+     "start_sec": 2716,
+     "end_sec": 2795
+    }
+   ],
+   "total_seconds": 79,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "reasons through politics and weather documents omitting 'elephant' to show how SVD’s negative correlations create a misleading similarity",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary document-topic scenario deployed to show how SVD can give spurious similarity through shared omissions."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The politics/weather/elephant scenario shows SVD can create spurious similarity from shared omissions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the politics/weather/elephant toy case is used to show a failure mode of SVD similarities based on shared omitted words"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the politics/weather/elephant scenario is used to show an undesirable failure mode of SVD semantics"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "toy document pair shows SVD similarities can be driven by shared absent words"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the politics/weather documents both omitting elephant are used to show SVD similarities can be spurious"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the politics/weather documents both omitting elephant are used to show SVD can create spurious similarity from negative coordinates"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show SVD can spuriously correlate documents through shared negative association with an omitted word"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the shared absence of “elephant” is used to exhibit a spurious similarity failure of SVD"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show a failure mode of SVD, where shared omitted words create spurious similarity."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The politics/weather documents both omitting “elephant” are used to expose a failure mode of SVD-based similarity."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The politics/weather/elephant scenario is used to show how SVD can give spurious similarity from shared missing words."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Extended formulations of polytopes",
+   "note": "The polytope extension-formulation application illustrates that nonnegative rank is also a combinatorial/geometric parameter, not only a machine-learning model-selection quantity.",
+   "first_introduced_sec": 2795,
+   "spans": [
+    {
+     "start_sec": 2795,
+     "end_sec": 2832
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "cites extended formulations only as an application where nonnegative rank equals the needed number of facets, with no construction carried out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "General polytope-lift framework cited as an application of nonnegative rank."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Extended formulations are cited as a general application of nonnegative rank, not as a special object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "extended formulations are cited as an ordinary application of nonnegative rank to facet counts"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "extended formulations are mentioned as a standard application of nonnegative rank"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard application connecting nonnegative rank to facet counts of lifts"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "extended formulations are cited as a standard application of nonnegative rank"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "extended formulations are mentioned as a general application of nonnegative rank, with no special polytope or obstruction singled out"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "cited as a standard application linking nonnegative rank to extension complexity, with no special polytope singled out"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "extended formulations are cited as a standard application of nonnegative rank rather than as an adversarial object"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Mentioned as a general application of nonnegative rank to extension complexity, not as a structurally special polytope."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Extended formulations are cited as a standard application of nonnegative rank rather than as a structurally special polytope."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Extended formulations are cited as a typical application of nonnegative rank and extension complexity."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Cross-polytope-type obstruction to few simplex charts",
+   "note": "In an audience exchange, the speaker invokes a polytope with many facets to illustrate why many local linear transformations and a compatibility choice function may be needed in the rank-deficient nonnegative-rank algorithm.",
+   "first_introduced_sec": 3852,
+   "spans": [
+    {
+     "start_sec": 3852,
+     "end_sec": 3940
+    }
+   ],
+   "total_seconds": 88,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "uses the cross-polytope-type case to reason about needing many simplex/convex-hull charts and the resulting compatibility problem for choosing transformations",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 7,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular cross-polytope is highly symmetric and is used as an obstruction requiring many simplex/linear-transformation pieces."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular cross-polytope is a highly symmetric minimal-vertex centrally symmetric polytope used as a many-facet obstruction to few simplex charts."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the cross-polytope obstruction is a highly regular extremal polytope used as an enemy case requiring many simplex charts"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the cross-polytope is a highly regular centrally symmetric polytope used as an obstruction to few simplex charts"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "regular cross-polytope is an enemy case forcing many simplex or linear-transformation charts"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the regular cross-polytope is highly symmetric and is used as an obstruction to covering with few simplex charts"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the cross-polytope is invoked as an obstruction needing many simplex charts, and it is a regular highly symmetric extremal centrally symmetric polytope"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the regular cross-polytope is highly symmetric and is used as an obstruction requiring many simplex covers"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the highly regular cross-polytope gives a worst-case obstruction requiring many simplex charts"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The regular cross-polytope is highly symmetric and facet-rich, and is used as an obstruction requiring many simplex charts."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cross-polytope-type example is a highly regular hard case with exponentially many simplex charts needed, obstructing a small-cover approach."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cross-polytope is a highly regular polytope with exponentially many facets used as an obstruction to few simplex-chart covers."
+    }
+   ]
+  }
+ ]
+}

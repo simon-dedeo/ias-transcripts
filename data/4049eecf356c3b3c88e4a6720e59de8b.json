@@ -1,0 +1,1013 @@
+{
+ "key": "4049eecf356c3b3c88e4a6720e59de8b",
+ "title": "Tight Cell-Probe Lower Bounds for Dynamic Succinct Dictionaries",
+ "speaker": "Huacheng Yu",
+ "affiliation": "Princeton University",
+ "date": "2024-04-01T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4158.0,
+ "abstract": "A dictionary data structure maintains a set of at most n� keys from the universe [U][�] under key insertions and deletions, such that given a query x∈[U]�∈[�], it returns if x� is in the set. Some variants also store values associated to the keys such that given a query x�, the value associated to x� is returned when x� is in the set.",
+ "youtube_url": "https://youtu.be/tFMXbPstnzk",
+ "page_url": "https://www.ias.edu/video/tight-cell-probe-lower-bounds-dynamic-succinct-dictionaries",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Dynamic succinct dictionary theorem and parameters",
+   "summary": "The talk defines dynamic dictionaries, the information-theoretic optimum space opt = log binomial(|U|,n)+n log |V|, the known iterated-log redundancy/time upper bound, and the claimed matching cell-probe lower bounds under polynomial universe assumptions.",
+   "spans": [
+    {
+     "start_sec": 14,
+     "end_sec": 881
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Cell-probe and slot-model formalization",
+   "summary": "The cell-probe model is recalled, and a cleaner slot model is introduced in which a succinct key/mapping memory determines where values live in n slots, while only accesses or moves of slots are charged.",
+   "spans": [
+    {
+     "start_sec": 954,
+     "end_sec": 1647
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Yao hard distribution",
+   "summary": "By Yao’s minimax principle, the lower bound is reduced to deterministic data structures on a random update sequence: insert n random keys, then repeatedly delete a random current key and insert a fresh random key for n meta-operations.",
+   "spans": [
+    {
+     "start_sec": 1647,
+     "end_sec": 1791
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Hierarchical lazy-sorting upper-bound heuristic",
+   "summary": "A simple slot-model strategy is described that stores newly out-of-order keys lazily, then periodically sorts batches within themselves at successive iterated-log scales, explaining why log* n operations per update is the natural threshold.",
+   "spans": [
+    {
+     "start_sec": 1791,
+     "end_sec": 2412
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Multiscale repeated-slot-access claims",
+   "summary": "The lower-bound target is reformulated as showing that, at every level of the same hierarchy, any sufficiently long interval partitioned into smaller segments must contain linearly many slot accesses whose previous access to the same slot occurred in an earlier segment.",
+   "spans": [
+    {
+     "start_sec": 2412,
+     "end_sec": 2976
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Tree/LCA charging to obtain the log-star bound",
+   "summary": "Operations are grouped into a hierarchy of intervals, each access is charged to the lowest common ancestor of it and the previous access to the same slot, and the multiscale claims sum over levels to force Ω(n log* n) total slot accesses.",
+   "spans": [
+    {
+     "start_sec": 2976,
+     "end_sec": 3331
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Communication-encoding proof at the first scale",
+   "summary": "For a first-level interval, assuming too few repeated slot accesses lets Alice send Bob a succinct encoding of the final memory state from which Bob recovers the random insertion order, contradicting its entropy.",
+   "spans": [
+    {
+     "start_sec": 3331,
+     "end_sec": 3982
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Higher-level and cell-probe extensions",
+   "summary": "The same communication recovery is said to extend from exact insertion order to identifying which segment each insertion belongs to, while the full cell-probe adaptation requires additional modifications and uses query bounds in the stated theorem.",
+   "spans": [
+    {
+     "start_sec": 3982,
+     "end_sec": 4006
+    },
+    {
+     "start_sec": 4021,
+     "end_sec": 4067
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Value-free membership dictionary",
+   "note": "Setting the value universe size to one turns the dictionary into dynamic set membership, making the basic problem definition concrete without affecting the lower-bound proof.",
+   "first_introduced_sec": 182,
+   "spans": [
+    {
+     "start_sec": 182,
+     "end_sec": 216
+    }
+   ],
+   "total_seconds": 34,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only identifies the v=1 no-values special case as membership with insert/delete/query operations",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 11,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the v=1 case collapses the value component to the minimal one-point boundary of the dictionary problem, and is used as a special case rather than a refutation"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The value universe V=1 collapses the dictionary to the minimal membership-only case, used as a special case not a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The value universe is the one-point no-value collapse of the dictionary problem, used only as a special case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "value space of size one is the minimal/trivial boundary case of a key-value dictionary, introduced as a special membership variant rather than to refute a claim"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the value universe has size one, removing all values and giving the minimal boundary case of dictionaries"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "Value space V=1 collapses key-value dictionaries to the minimal membership boundary case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The value space v=1 is the minimal collapsed dictionary case, used as a special case rather than to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The value space is collapsed to the singleton v=1, the minimal no-values dictionary case, and it is used only as a special case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The value space is the singleton v=1, so the general key-value dictionary collapses to plain membership."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "v=1 collapses a key-value dictionary to pure membership at the minimal value-space boundary."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The membership case has singleton value space, the minimal/degenerate boundary of dictionaries, and is introduced as a special case rather than to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The value space V=1 collapses the general key-value dictionary to the minimal membership-only case, used as a special case rather than to refute a claim."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Pairwise-independent hash table baseline",
+   "note": "Standard hashing with collision resolution is recalled as a familiar constant-expected-time dictionary solution, serving only as context for the later succinct-space tradeoff.",
+   "first_introduced_sec": 216,
+   "spans": [
+    {
+     "start_sec": 216,
+     "end_sec": 319
+    }
+   ],
+   "total_seconds": 103,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker outlines the pairwise-independent hashing construction and analyzes collisions, space, and expected constant operation time",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "pairwise-independent hashing is a standard representative randomized dictionary baseline, not an adversarial example"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A pairwise-independent hash table is a standard representative baseline construction, not used to disprove a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is the standard randomized hashing baseline, not a structurally special object or a refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a pairwise-independent hash table is a standard baseline construction with no sporadic, degenerate, extremal, or maximal-regular structure, and it is not used adversarially"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "it is a standard randomized hashing baseline rather than a structurally special object"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A pairwise-independent hash table is a standard representative baseline, not a structurally special or adversarial example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A pairwise-independent hash table is a standard baseline construction, not structurally sporadic, limiting, or adversarial here."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A pairwise-independent hash table is a standard generic randomized baseline rather than a structurally special or refuting example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A pairwise-independent hash table is presented as the standard representative baseline construction, not as a structurally special object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a standard randomized hash-table construction used as a baseline positive solution."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The pairwise-independent hash table is used as an ordinary standard baseline construction, not as a structurally special object or a refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A pairwise-independent hash table is a standard baseline randomized dictionary construction, not structurally sporadic or adversarial here."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Lexicographic key-to-slot order",
+   "note": "Mapping the smallest key to the first slot, the next smallest to the second, and so on illustrates that the slot mapping can be described succinctly but may be costly to maintain dynamically.",
+   "first_introduced_sec": 1339,
+   "spans": [
+    {
+     "start_sec": 1339,
+     "end_sec": 1394
+    }
+   ],
+   "total_seconds": 55,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker traces the lexicographic slot mapping and explains concretely how deletions and insertions force shifting many slots",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 9,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 5,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the lexicographic assignment is the zero-inversion/order-preserving endpoint and is highly regular, used to illustrate a costly canonical mapping"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The lexicographic assignment is a highly regular canonical key-to-slot order, used to illustrate cheap description but costly maintenance."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The lexicographic rank-to-slot map is the maximally ordered zero-inversion bijection and is cited to refute the need for extra bits merely to define a mapping."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the lexicographic slot assignment is a highly regular canonical mapping, used to show that extra bits are not needed merely to determine some key-to-slot mapping"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the rank-order map is a maximally regular zero-redundancy mapping used to refute that extra bits are needed merely to define a slot assignment"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The order-preserving lexicographic slot map is maximally regular and is used to refute the need for extra bits merely to specify a mapping."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The lexicographic rank mapping is a zero-redundancy, highly regular key-to-slot order, used illustratively despite costly updates."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The lexicographic slot assignment is the unique zero-inversion/order-preserving boundary mapping and is maximally regular, used as a simple construction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The lexicographic rank-to-slot map is the zero-extra-description, highly canonical boundary case, though too costly to update."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the lexicographic slot assignment is a canonical zero-mapping-entropy ordering, but is used only illustratively."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The lexicographic slot assignment is the canonical order-preserving/zero-extra-description mapping, used to rebut the idea that extra bits are needed merely to define a key-to-slot map."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The lexicographic key-to-slot map is the order-preserving/zero-extra-description extreme used to illustrate a costly canonical mapping."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Arbitrary mapping with n log n extra bits",
+   "note": "Allowing enough space to encode any key-slot mapping makes the slot-model problem trivial, highlighting why the o(n)-redundancy regime is difficult.",
+   "first_introduced_sec": 1564,
+   "spans": [
+    {
+     "start_sec": 1564,
+     "end_sec": 1605
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the n log n-bit arbitrary-mapping idea by explaining how to encode the mapping and update it by placing insertions in empty slots",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 9,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 5,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "n log n extra bits give the full explicit high-space endpoint able to encode an arbitrary key-to-slot map, serving as a trivial upper-bound baseline"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The n log n-bit arbitrary mapping is the explicit-encoding threshold that trivializes the problem, showing the lower-bound phenomenon cannot extend to that space regime."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A generic fully encoded mapping is structurally typical, but it shows the lower-bound difficulty disappears with n log n extra bits."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "an explicitly stored arbitrary mapping is structurally generic, but it is used to show that with n log n extra bits the intended nontrivial lower-bound phenomenon disappears"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the n log n-bit representation is the full-information high-redundancy threshold that can encode an arbitrary key-to-slot mapping"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The n log n-bit explicit arbitrary map is the full-space boundary where the succinct lower-bound difficulty disappears."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Encoding an arbitrary key-to-slot map with n log n extra bits is the full-information high-space boundary where the slot problem becomes trivial."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Encoding an arbitrary key-slot mapping with n log n extra bits is the high-redundancy information-theoretic boundary where all mappings become explicit."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Allowing n log n extra bits is the large-space extreme where an arbitrary key-to-slot map can be stored and updates become trivial."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "storing an arbitrary key-to-slot map with n log n bits is the full-information high-redundancy regime that trivializes the slot problem."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The fully explicit n log n-bit arbitrary mapping is the high-redundancy boundary that trivializes the slot problem, ruling out any space-unrestricted lower bound."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A fully encoded arbitrary mapping with n log n extra bits is a generic high-space baseline that makes updates trivial, not a sporadic or adversarial object."
+    }
+   ]
+  }
+ ]
+}

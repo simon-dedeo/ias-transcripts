@@ -1,0 +1,1845 @@
+{
+ "key": "e175b6cdc4523c96513b67611b6d5c72",
+ "title": "Algorithmic Thresholds for Mean-Field Spin Glasses",
+ "speaker": "Mark Sellke",
+ "affiliation": "Member, School of Mathematics",
+ "date": "2022-09-23T12:00:00Z",
+ "field_msc": "82 Statistical mechanics, structure of matter",
+ "duration_sec": 3968.0,
+ "abstract": "I will explain recent progress on computing approximate ground states of mean-field spin glass Hamiltonians, which are certain random functions in high dimension. While the asymptotic ground state energy OPT is given by the famous Parisi formula, these functions often have many bad local optima which are believed to impede simple algorithms such as gradient descent. In the positive direction, I will discuss algorithms based on approximate message passing which asymptotically achieve a value ALG given by an extended Parisi formula.",
+ "youtube_url": "https://youtu.be/yjAz7WCeSGU",
+ "page_url": "https://www.ias.edu/video/algorithmic-thresholds-mean-field-spin-glasses",
+ "tags": [
+  "Probability Seminar",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Mixed p-spin Hamiltonians and random-optimization framing",
+   "summary": "The speaker defines mixed mean-field spin glass Hamiltonians as high-dimensional Gaussian polynomial processes specified by a mixture covariance, restricts them to cube or sphere state spaces, and frames their ground states as average-case random optimization problems.",
+   "spans": [
+    {
+     "start_sec": 59,
+     "end_sec": 570
+    },
+    {
+     "start_sec": 3755,
+     "end_sec": 3956
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Parisi optimum and the algorithmic problem",
+   "summary": "The zero-temperature Parisi variational formula gives the limiting optimum OPT, but its nonconstructive nature and the rugged low-temperature landscape motivate asking for efficient algorithms reaching OPT or a precise threshold below it.",
+   "spans": [
+    {
+     "start_sec": 570,
+     "end_sec": 917
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Ultrametric tree and no-overlap-gap heuristic",
+   "summary": "Ultrametricity of Gibbs samples suggests a hierarchical tree of near-optimal states, where full branching/no overlap gap permits descent by small local steps while gaps force macroscopic jumps that should cause algorithmic loss.",
+   "spans": [
+    {
+     "start_sec": 917,
+     "end_sec": 1268
+    },
+    {
+     "start_sec": 3646,
+     "end_sec": 3678
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Spherical Hessian-walk algorithm and ALG value",
+   "summary": "For spherical spin glasses, the Hessian top-eigenvector walk takes small approximately orthogonal steps whose accumulated GOE eigenvalue gains give an explicit ALG threshold, matching OPT exactly in the concave/no-overlap-gap regimes.",
+   "spans": [
+    {
+     "start_sec": 1268,
+     "end_sec": 1786
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Nonmonotone Parisi relaxation and AMP attainment on the cube",
+   "summary": "For Ising/cube models, ALG is defined by minimizing the Parisi functional over a relaxed nonmonotone class, and an approximate-message-passing/martingale algorithm driven by the associated PDE and stochastic control problem attains that value.",
+   "spans": [
+    {
+     "start_sec": 1786,
+     "end_sec": 2636
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Stable-algorithm obstruction from the overlap gap property",
+   "summary": "The classical OGP interpolation argument shows that stable algorithms cannot reach asymptotic optimality unless ALG already equals OPT, because continuity of outputs along correlated Hamiltonian paths forces a forbidden overlap.",
+   "spans": [
+    {
+     "start_sec": 2636,
+     "end_sec": 2958
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Branching OGP and Lipschitz hardness at ALG",
+   "summary": "The strengthened branching OGP plus overlap concentration for Lipschitz algorithms builds arbitrary ultrametric solution trees from correlated Hamiltonian trees, and a Parisi-type upper-bound argument shows such trees are impossible above ALG, making ALG the sharp Lipschitz algorithmic threshold.",
+   "spans": [
+    {
+     "start_sec": 2958,
+     "end_sec": 3646
+    },
+    {
+     "start_sec": 3678,
+     "end_sec": 3755
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Random cubic and pure p-spin Hamiltonians",
+   "note": "The random cubic and four-tensor/pure p-spin cases make the mixture-function covariance definition concrete without serving as a special case through which the proof runs.",
+   "first_introduced_sec": 59,
+   "spans": [
+    {
+     "start_sec": 59,
+     "end_sec": 120
+    },
+    {
+     "start_sec": 321,
+     "end_sec": 352
+    }
+   ],
+   "total_seconds": 92,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker defines the random cubic/p-spin Hamiltonians concretely via Gaussian tensors and covariance mixtures and uses their specific xi functions in later threshold checks",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 6,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Standard Gaussian mean-field cubic/pure p-spin Hamiltonians are used to introduce the model."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard homogeneous Gaussian p-spin examples used to instantiate the model, not as an obstruction"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "pure Gaussian p-spin Hamiltonians have an overlap-only covariance, giving a highly isotropic mean-field law used here as a representative model."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Pure p-spin/random cubic Hamiltonians use a single homogeneous interaction degree, an extreme ray of the mixed-p-spin family, and are introduced as basic model examples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard mean-field Gaussian Hamiltonian examples used to introduce the model, not as failures of a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Gaussian pure p-spin Hamiltonians have covariance depending only on overlap, giving rotational or exchangeable symmetry in law."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "pure p-spin random polynomials are homogeneous isotropic extreme-ray mixtures used as basic model examples"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard Gaussian cubic/pure p-spin Hamiltonians are introduced as representative mean-field models, not as failures of a claim"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Pure cubic/p-spin Hamiltonians are isotropic single-degree Gaussian boundary cases used as basic model instances."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The pure homogeneous Gaussian p-spin examples are rotationally invariant in law and sit on extreme rays of the mixed-p-spin family, but are introduced as basic model cases."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Pure cubic/p-spin Hamiltonians are homogeneous single-degree boundary cases of mixed p-spin ensembles, used as baseline models."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "pure cubic/p-spin Hamiltonians are standard single-degree boundary cases of the mixed p-spin family used to introduce the model"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Random graph bisection and max cut/max sat",
+   "note": "Random graph bisection and max-cut-type problems illustrate why mixed spin glass ground states encode average-case random optimization values.",
+   "first_introduced_sec": 421,
+   "spans": [
+    {
+     "start_sec": 421,
+     "end_sec": 497
+    },
+    {
+     "start_sec": 3755,
+     "end_sec": 3956
+    }
+   ],
+   "total_seconds": 277,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "random bisection, max cut, and max sat are cited as related random optimization problems with known asymptotic facts but not analyzed in the talk",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 7,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Random bisection, max-cut, and max-sat are ordinary average-case optimization motivations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "minimum bisection, max-cut, and max-sat are optimal values over cuts or assignments, used as motivating random optimization problems"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "minimum bisection, max cut, and max sat are intrinsically optimization problems defined by min/max values, cited as applications rather than refutations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Random bisection, max-cut, and max-sat are standard average-case optimization models used only as motivation for spin-glass connections."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary random combinatorial optimization problems used as motivations and connections."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Minimum bisection and max-cut/max-SAT are min/max optimization examples motivating the spin-glass model."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "minimum bisection and max-cut/max-sat are extremal random CSP objectives used for motivation"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "random bisection, max cut, and max sat are cited as ordinary related random optimization problems"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Minimum bisection and max-cut/max-SAT are extremal combinatorial optimization objectives cited as motivating connections."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Minimum bisection and max-cut/max-sat are extremal random optimization problems used as motivations rather than refutations."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Random bisection, max-cut, and max-sat are standard average-case optimization motivations, not used to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "minimum bisection and max-cut/max-SAT are extremal random optimization objectives cited as motivation"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Tensor PCA/statistical inference motivation",
+   "note": "Tensor PCA is cited as a statistical-inference setting where random tensor Hamiltonians naturally appear, serving only as motivation for the model class.",
+   "first_introduced_sec": 497,
+   "spans": [
+    {
+     "start_sec": 497,
+     "end_sec": 529
+    }
+   ],
+   "total_seconds": 32,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "tensor PCA and statistical inference appear only as motivations for the model",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 4,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Tensor PCA and inference are cited as standard motivating applications."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard tensor-PCA/statistical-inference motivation with no special structural or adversarial role in the talk"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "tensor PCA seeks a leading/principal tensor direction, an extremal spectral-type object, and is mentioned only as motivation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Tensor PCA and statistical inference are cited as ordinary motivating application areas, not as structurally special or adversarial cases."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "tensor PCA and inference are mentioned only as standard motivating applications."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Tensor PCA is cited only as a standard statistical-inference motivation, not as a structurally special object or refutation."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "tensor PCA and statistical inference are mentioned only as standard motivating related problems"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "tensor PCA/statistical inference is only a motivating application area"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Tensor PCA seeks a leading/principal component, an extremal spectral-inference target, but is only motivational here."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Tensor PCA/statistical inference is cited only as a standard motivating application."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Tensor PCA is cited as a motivation, with its rank-one or low-rank signal giving an extremal low-rank structure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "tensor PCA is a standard low-rank/principal-component inference model mentioned only as motivation"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Ferromagnetic Ising comparison",
+   "note": "Positive-coupling ferromagnets are contrasted with spin glasses to make the frustration and low-temperature difficulty of the model visible.",
+   "first_introduced_sec": 529,
+   "spans": [
+    {
+     "start_sec": 529,
+     "end_sec": 570
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the ferromagnetic Ising model is only used as a qualitative comparison about positive couplings and alignment",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 2,
+    "symmetric": 8,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The ferromagnetic Ising model is a highly regular all-alignment baseline used only for comparison."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "ferromagnetic Ising has sign-coherent couplings leading to fully aligned regular states, used only as a comparison"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the ferromagnetic Ising comparison removes frustration so the low-temperature structure collapses to aligned states, rather than serving as a counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The ferromagnetic Ising model has sign-aligned unfrustrated couplings, a regular comparison case rather than a failure example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the ferromagnetic Ising model is used as a simple contrast with frustration, not as a counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The ferromagnetic Ising model is used as an unfrustrated regular comparison in which positive couplings favor aligned spins."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the ferromagnetic Ising model is the regular unfrustrated all-positive-coupling comparison case"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the ferromagnetic Ising model is the unfrustrated all-aligning extreme used as a foil to spin glasses"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The ferromagnetic Ising model has regular positive couplings and ordered alignment, used only as a comparison for frustration."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The ferromagnetic Ising model is a highly ordered spin-flip-symmetric comparison showing alignment rather than frustration."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The ferromagnetic Ising model has all-positive couplings giving a fully unfrustrated aligned extreme used only for contrast."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the ferromagnetic Ising model is a highly ordered positive-coupling foil for frustrated spin glasses"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "High-temperature Langevin mixing in the SK model",
+   "note": "In response to a question, the SK-model beta-threshold discussion illustrates the distinction between high-temperature rapid mixing and low-temperature optimization difficulty.",
+   "first_introduced_sec": 827,
+   "spans": [
+    {
+     "start_sec": 827,
+     "end_sec": 893
+    }
+   ],
+   "total_seconds": 66,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "high-temperature Langevin mixing for SK is recalled as a known result with beta ranges but no argument is carried out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 5,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 3,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "High-temperature SK mixing is the small-beta end of the dynamical regime, cited as a positive contrast."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary high-temperature SK fast-mixing regime, cited as a positive caveat rather than a failure case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the SK model is the highly symmetric mean-field Gaussian quadratic spin glass, with high-temperature mixing cited as a known regime."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "High-temperature SK Langevin lies at the weak-coupling end of the temperature parameter and is cited as a positive rapid-mixing regime."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "high-temperature SK Langevin mixing is cited as a positive known regime of rapid mixing."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "High-temperature SK is the small-beta paramagnetic end of the symmetric mean-field model and serves as a caveat to blanket slow-mixing claims."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the high-temperature SK example is a known rapid-mixing regime for the fully connected exchangeable quadratic spin glass"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "high-temperature SK Langevin rapid mixing is mentioned as a standard benign regime rather than an obstruction"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Very-high-temperature SK rapid mixing is a symmetric mean-field boundary regime used to rule out a blanket slow-mixing claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "High-temperature rapid Langevin mixing in the symmetric SK model is used to rule out a blanket slow-mixing claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "High-temperature SK is near the beta-zero product-measure limit and is cited to discuss rapid mixing."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "high-temperature SK is the weak-coupling end of the temperature regime used as a comparison for fast mixing"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Quadratic/near-quadratic mixtures versus pure p-spin models",
+   "note": "The quadratic and near-quadratic cases illustrate when the spherical ALG value equals OPT, while pure p-spin models with p>2 illustrate failure of the concavity/no-overlap-gap condition.",
+   "first_introduced_sec": 1649,
+   "spans": [
+    {
+     "start_sec": 1649,
+     "end_sec": 1736
+    }
+   ],
+   "total_seconds": 87,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the concavity/ALG-equals-OPT criterion to quadratic, near-quadratic, and pure p-spin mixtures and reasons through the different outcomes",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 9,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The quadratic p=2 case is the minimal/base endpoint, while pure p>2 models show the ALG=OPT concavity picture can fail."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the quadratic case is the minimal p=2 base case, while pure p>2 models are used to show the ALG=OPT condition can fail"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the quadratic case is the minimal p=2 base case of the p-spin hierarchy, while pure p>2 models are used to show the ALG=OPT condition can fail."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Quadratic p=2 is the minimal/base interaction while pure p>2 is a boundary pure mixture used to show the ALG=OPT concavity conclusion can fail."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the quadratic case is the minimal nontrivial spin-glass base case, while pure p-spin models with p>2 are used to show the ALG=OPT/concavity picture can fail."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The quadratic case is the minimal solvable p=2 base, while pure p>2 boundary models are used to show ALG=OPT can fail."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "pure p-spin and quadratic mixtures are homogeneous boundary cases, with p>2 pure models showing ALG need not equal OPT"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the pure p>2 side is used to show the concavity/equality ALG=OPT can fail, while the quadratic case is a boundary easy case"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Quadratic and pure p-spin mixtures are regular boundary cases, and pure p>2 is used to show the ALG=OPT/concavity condition can fail."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Quadratic and pure p-spin cases mark boundary/extreme mixture regimes, with pure p>2 showing that ALG=OPT/concavity is not universal."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Pure p>2 models are the failure side for the concavity and ALG=OPT condition, while quadratic cases are boundary lowest-degree mixtures."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "pure p>2 models are contrasted with the minimal quadratic/near-quadratic cases to show the ALG=OPT concavity condition can fail"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Lattice and sparse-graph spin glass extensions",
+   "note": "A question about Edwards-Anderson lattice models and random sparse graphs probes how far the mean-field branching-OGP picture might extend beyond the presented setting.",
+   "first_introduced_sec": 3576,
+   "spans": [
+    {
+     "start_sec": 3576,
+     "end_sec": 3646
+    }
+   ],
+   "total_seconds": 70,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "lattice and sparse-graph extensions arise only in a final speculative question about possible generalizations",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 4,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Lattice and sparse-graph spin glasses are standard possible extensions rather than classification exceptions or obstructions."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary finite-dimensional or sparse spin-glass variants are raised as possible extensions, not as classified exceptions or obstructions"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "lattice/sparse-graph spin glasses are proposed extension settings, with the lattice giving regular underlying geometry but not an obstruction in the argument."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Lattice and sparse-graph spin glasses are standard systematic extensions mentioned speculatively, not proven obstructions or sporadic objects."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "lattice and sparse-graph variants are raised as possible extensions outside the main mean-field setting."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Lattice and sparse-graph spin glasses are posed as systematic possible extensions rather than sporadic or adversarial examples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "lattice spin glasses have regular local geometry but are raised only as possible extensions"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "lattice and sparse-graph spin glasses are discussed as possible extensions or limits of the method, not as established counterexamples"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Lattice and sparse-graph spin glasses are raised as possible scope extensions rather than established structural exceptions."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Lattice and sparse-graph extensions are raised as likely non-mean-field obstructions, with the lattice component structurally regular."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The lattice and sparse-graph cases are proposed extension targets, with the lattice having regular translation-symmetric geometry."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "lattice and sparse-graph spin glasses are systematic extension families raised as possible domains"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Algorithms that may fail Lipschitzness",
+   "note": "Brute-force ground-state search, exact top-eigenvector choices, and long-time dynamics are mentioned as instances that need not satisfy the Lipschitz/overlap-concentration hypothesis.",
+   "first_introduced_sec": 3678,
+   "spans": [
+    {
+     "start_sec": 3678,
+     "end_sec": 3755
+    }
+   ],
+   "total_seconds": 77,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "non-Lipschitz algorithms such as brute-force search, top-eigenvector methods, and long dynamics are listed as examples without a detailed verification",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Brute-force search, exact top-eigenvector steps, and long-time dynamics are cited as algorithms that need not satisfy Lipschitzness."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "brute-force search, chaotic top-eigenvector selection, and long dynamics are cited as cases where the Lipschitz hypothesis can fail"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "brute-force search, exact top-eigenvector steps, or long dynamics are cited as cases where the Lipschitz hypothesis can fail."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Brute-force ground-state search, chaotic top-eigenvector steps, or long dynamics are given as examples violating the Lipschitz/stability hypothesis."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "brute-force, chaotic top-eigenvector, or long-time dynamics are given precisely as algorithms that may violate the Lipschitz hypothesis."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Brute-force ground-state search and chaotic top-eigenvector-style methods are cited as algorithms that violate the Lipschitz hypothesis."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "brute-force ground-state search and top-eigenvector selection are extremal-selection algorithms cited as non-Lipschitz"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "brute-force ground-state search and top-eigenvector choices are examples outside the Lipschitz class, with exact or spectral-extreme selection"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Brute-force search, chaotic top-eigenvector steps, and long dynamics are cited as algorithms that violate Lipschitzness."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Brute-force ground-state search and top-eigenvector based methods are extremal algorithms cited as cases that can fall outside Lipschitz assumptions."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Brute-force exact search and top-eigenvector choices are excluded non-Lipschitz cases based on extremal optima or eigenvectors."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "brute-force ground-state search and exact top-eigenvector choices are outside the Lipschitz class and rely on exact optima or spectral extremes"
+    }
+   ]
+  }
+ ]
+}

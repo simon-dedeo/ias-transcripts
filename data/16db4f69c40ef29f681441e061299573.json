@@ -1,0 +1,921 @@
+{
+ "key": "16db4f69c40ef29f681441e061299573",
+ "title": "A Little Advice Can Be Very Helpful",
+ "speaker": "Arkadev Chattopadhyay",
+ "affiliation": "University of Toronto",
+ "date": "2011-10-10T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4186.0,
+ "abstract": "Proving superpolylogarithmic lower bounds for dynamic data structures has remained an open problem despite years of research. Recently, Patrascu proposed an exciting new approach for breaking this barrier via a two player communication model in which one player gets private advice at the beginning of the protocol. He gave reductions from the problem of solving an asymmetric version of set-disjointness in his model to a diverse collection of natural dynamic data structure problems in the cell probe model.",
+ "youtube_url": "https://www.youtube.com/watch?v=-cZ85_W6cyI",
+ "page_url": "https://www.ias.edu/video/csdm/arkadev",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Dynamic shortest-path data-structure bottleneck",
+   "summary": "The talk sets up dynamic graph data structures for edge insertions, deletions, and shortest-path queries, then isolates a three-phase bipartite instance whose query answers encode set-intersection or set-disjointness information.",
+   "spans": [
+    {
+     "start_sec": 14,
+     "end_sec": 376
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Two-party communication-complexity baseline",
+   "summary": "The speaker reviews the classical Alice-Bob communication model, the effect of randomization, and the fundamental randomized lower bound for set disjointness that will serve as the benchmark for the advice model.",
+   "spans": [
+    {
+     "start_sec": 376,
+     "end_sec": 799
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Patrascu asymmetric advice model and data-structure reduction",
+   "summary": "An asymmetric three-player function F is defined from a two-party function f by giving Alice k inputs, Bob one input, and Charlie the index-free ability to send private advice, and the dynamic data-structure problem is reduced to finding efficient protocols in this model.",
+   "spans": [
+    {
+     "start_sec": 799,
+     "end_sec": 1361
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Strong advice-elimination conjecture and equality counterexample",
+   "summary": "The stronger conjecture that short Charlie advice can always be eliminated is motivated and then refuted deterministically by the equality function, where Charlie can cheaply identify whether some x_j equals the common y and thereby teach Bob about y.",
+   "spans": [
+    {
+     "start_sec": 1361,
+     "end_sec": 1717
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Quadratic-saving protocol for asymmetric set disjointness",
+   "summary": "Adapting the equality insight, the speaker gives a deterministic protocol for asymmetric set disjointness in which Charlie recursively shrinks Bob's uncertainty about y using large rows with sparse intersection, yielding about sqrt(n) log n communication.",
+   "spans": [
+    {
+     "start_sec": 1717,
+     "end_sec": 2445
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Learning-theoretic collapse for some hard functions",
+   "summary": "Using concept-class learnability induced by the communication matrix of f, the speaker proves that some functions with linear randomized two-party complexity nevertheless have polylogarithmic-cost three-player advice protocols, via Charlie supplying random labeled examples and Bob learning the relevant column function.",
+   "spans": [
+    {
+     "start_sec": 2565,
+     "end_sec": 3426
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Derandomization, restricted lower bounds, and remaining barriers",
+   "summary": "The talk closes by explaining that randomness gives essentially no extra power in this advice model, giving tight lower bounds for short-advice or restricted 1.5-round protocols, and discussing in Q&A why these protocols do not directly yield dynamic data-structure algorithms and what full-model lower bounds remain open.",
+   "spans": [
+    {
+     "start_sec": 3426,
+     "end_sec": 4161
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Toy dynamic shortest-path updates",
+   "note": "The specific updates such as adding an edge between vertices 1 and 7 and watching a shortest-path distance change from 2 to 3 make the add/delete/query data-structure problem concrete, but the later reduction uses the general problem rather than this toy graph.",
+   "first_introduced_sec": 29,
+   "spans": [
+    {
+     "start_sec": 29,
+     "end_sec": 109
+    }
+   ],
+   "total_seconds": 80,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker traces concrete edge insertions/deletions and shortest-path queries, giving changing path lengths such as 2 and then 3.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A small illustrative dynamic shortest-path instance is an ordinary graph/data-structure example used for motivation, not to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary illustrative dynamic graph update/query instance used to motivate the data-structure problem, not to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "An ordinary small dynamic graph instance is used only to motivate shortest-path data-structure queries."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A small dynamic graph/update sequence is used only to illustrate the shortest-path data-structure problem."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an ordinary dynamic graph update/query instance used to motivate the data-structure problem"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary illustrative dynamic graph update/query sequence is used to motivate the data-structure problem, not to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A small dynamic graph is used only to illustrate shortest-path updates, with no special intrinsic structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A small dynamic graph update/query sequence is used only to motivate the data-structure problem, and is structurally an ordinary instance."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative dynamic graph update sequence motivating the dynamic shortest-path problem"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "An ordinary illustrative dynamic graph update/query scenario used to introduce the data-structure problem."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A small illustrative update/query sequence motivates dynamic shortest paths without serving as an obstruction or having special structure."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A small dynamic graph update/query sequence is used only to illustrate the data-structure problem and has no intrinsic sporadic, limiting, extremal, or maximal-symmetry structure."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Parity and symmetric functions as easy communication tasks",
+   "note": "Parity, majority, and more generally symmetric functions illustrate how structural properties of a Boolean function can make two-party communication much smaller than sending the whole input.",
+   "first_introduced_sec": 518,
+   "spans": [
+    {
+     "start_sec": 518,
+     "end_sec": 564
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker gives an explicit low-communication protocol for parity, with Alice sending one parity bit and Bob combining it, and cites symmetric functions as similarly easy.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Parity and symmetric Boolean functions are structurally permutation-invariant and are used as easy communication examples, not counterexamples."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Parity and symmetric Boolean functions are highly permutation-invariant and are used as easy communication examples rather than counterexamples."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Parity and symmetric Boolean functions are highlighted as highly permutation-invariant easy communication tasks."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Parity and symmetric Boolean functions are invariant under permutations of input coordinates and are used as easy tasks, not refutations."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "parity and symmetric Boolean functions are coordinate-permutation-invariant easy cases, not refutations"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Parity and symmetric Boolean functions are permutation-invariant communication tasks used as easy positive examples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Parity and symmetric functions are presented as easy communication tasks, and their coordinate-permutation invariance makes them structurally symmetric."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Parity and symmetric Boolean functions are offered as easy communication tasks, with their defining feature being permutation symmetry of the inputs."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "parity and symmetric Boolean functions are used as easy examples and are structurally permutation-invariant"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Parity and symmetric Boolean functions are used as easy examples and are structurally invariant under coordinate permutations."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Parity and symmetric Boolean functions are highly permutation-invariant and are presented at the very low-communication end, not as a refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Parity, majority, and symmetric Boolean functions are presented as easy communication tasks, and their defining feature is invariance under permutations of input coordinates."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Decision lists and conjunctions as learnable concept classes",
+   "note": "Decision lists and conjunctions are mentioned only to illustrate the learning-theoretic notion of concept classes learnable from few examples before that notion is connected to communication protocols.",
+   "first_introduced_sec": 2847,
+   "spans": [
+    {
+     "start_sec": 2847,
+     "end_sec": 2880
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "decision lists and conjunctions are only named as concept classes with efficient learning procedures, without running or deriving such a procedure.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Decision lists and conjunctions are standard restricted learnable concept classes cited as examples of efficient learning, with no exceptional or adversarial role."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Decision lists and conjunctions are standard structured learnable concept classes, but not degenerate, extremal, symmetric, or sporadic exceptions here."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Decision lists and conjunctions are standard systematic concept classes cited as learnable examples."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Decision lists and conjunctions are ordinary structured concept classes cited as learnable examples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard concept classes cited as learnable examples rather than structurally exceptional objects"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Decision lists and conjunctions are standard systematic concept classes cited as efficiently learnable examples."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Decision lists and conjunctions are standard learnable concept classes, not sporadic, limiting, extremal, or maximally symmetric objects."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Decision lists and conjunctions are cited as standard learnable concept classes rather than as obstructions or classification exceptions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard learnable concept classes cited as routine examples of efficient learning"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Decision lists and conjunctions are standard systematic learnable concept classes used illustratively, not sporadic or boundary cases."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Decision lists and conjunctions are standard systematic concept classes cited as learnable examples."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Decision lists and conjunctions are standard systematic learnable concept classes, cited as positive examples rather than obstructions or special classification exceptions."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Random base functions as a hardness test case",
+   "note": "In the Q&A the speaker suggests random choices of the base function f as a natural test case for proving hardness in the full advice model, illustrating how little is known beyond the restricted lower bounds.",
+   "first_introduced_sec": 3839,
+   "spans": [
+    {
+     "start_sec": 3839,
+     "end_sec": 4077
+    }
+   ],
+   "total_seconds": 238,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "random base functions are raised speculatively as a possible hardness test, but no concrete hardness calculation or argument is carried out.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 4,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A random base Boolean function is a typical generic test object proposed for hardness, not an established counterexample in the transcript."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A random base Boolean function is a typical unstructured member used as a possible hardness test case, not as an established counterexample in the talk."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A random base Boolean function is proposed as a generic hardness test rather than a proven refuting example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random Boolean base function is a generic object raised as a possible hard enemy case for protocols in the full model."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "generic random Boolean base functions are proposed as possible hardness test cases, not used to disprove a claim"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A generic random base function is proposed as a hard enemy test case for efficient protocols in the full advice model."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Random base functions are proposed as generic hardness sanity checks for the model rather than as a specific refutation, and are structurally typical random Boolean functions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A random base Boolean function is proposed as a generic hardness test for the model, not as an established counterexample, and is structurally typical."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "generic random Boolean base functions are proposed as a possible hardness test, not used to refute a claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Random base functions are proposed as generic enemy instances for proving hardness in the full advice model, and are structurally typical."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A random base function is floated as a generic adversarial hard test case for the full model while being structurally typical."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Random base functions are proposed as generic hardness test cases for the communication model, not as a constructed failure of a claim or a structurally special object."
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,2568 @@
+{
+ "key": "bdba9b72ef0afc294b7869fbf5ed7e7b",
+ "title": "From Matroids to Moduli Spaces",
+ "speaker": "Lukas Kühne",
+ "affiliation": "Institute for Advanced Study",
+ "date": "2024-10-21T12:00:00Z",
+ "field_msc": "05 Combinatorics",
+ "duration_sec": 3346.0,
+ "abstract": "Abstract: After a gentle introduction to matroids, I will present parts of a new OSCAR software module for matroids through several examples. I will focus on computing the moduli space of a matroid which is the space of all arrangements of hyperplanes with that matroid as their intersection lattice.\nIn the second part, I will discuss applications of this module in the fields of particle physics, algebraic geometry, and theoretical computer science.",
+ "youtube_url": "https://youtu.be/O7dZ0-zkAaQ",
+ "page_url": "https://www.ias.edu/video/matroids-moduli-spaces",
+ "tags": [
+  "Geometry of Matroid Workshop",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Classical realization spaces of matroids",
+   "summary": "The talk defines linear realizations of matroids, packages all realizations as matroid strata in Grassmannians modulo the column-scaling torus, and recalls universality and singularity phenomena for these spaces.",
+   "spans": [
+    {
+     "start_sec": 36,
+     "end_sec": 426
+    },
+    {
+     "start_sec": 446,
+     "end_sec": 483
+    },
+    {
+     "start_sec": 2997,
+     "end_sec": 3031
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Computing realization schemes in OSCAR",
+   "summary": "An OSCAR implementation computes realization-space equations over the integers, tests realizability in specified characteristics or finite fields, extracts sample realizations, and searches databases for phenomena such as singular spaces.",
+   "spans": [
+    {
+     "start_sec": 483,
+     "end_sec": 1072
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Lambda operators on line arrangements",
+   "summary": "The speaker introduces Roulleau's operators that send a line arrangement to a new arrangement determined by multiplicity conditions on intersection points, emphasizing that the operation depends on geometric realization data rather than only on the underlying matroid.",
+   "spans": [
+    {
+     "start_sec": 1072,
+     "end_sec": 1397
+    },
+    {
+     "start_sec": 3180,
+     "end_sec": 3272
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Polygon matroids and elliptic modular surfaces",
+   "summary": "For deformed regular k-gon matroids, the realization spaces carry lambda dynamics and are related by a commutative diagram to elliptic modular surfaces, yielding birational singular models and connecting to elliptic modular curves.",
+   "spans": [
+    {
+     "start_sec": 1397,
+     "end_sec": 1721
+    },
+    {
+     "start_sec": 3272,
+     "end_sec": 3303
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Multilinear representations by block matrices",
+   "summary": "Classical matrices are generalized to block matrices, or c-arrangements of higher-codimensional subspaces, whose block-minor ranks recover the matroid rank function and can realize matroids not realizable over fields.",
+   "spans": [
+    {
+     "start_sec": 1721,
+     "end_sec": 2100
+    },
+    {
+     "start_sec": 2838,
+     "end_sec": 2939
+    },
+    {
+     "start_sec": 3044,
+     "end_sec": 3172
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Partition-representable and entropic matroids",
+   "summary": "Matoušek's partition representations are introduced, linear and multilinear representations are shown to give such partitions, and for connected matroids this is identified with entropicity of the rank function.",
+   "spans": [
+    {
+     "start_sec": 2100,
+     "end_sec": 2504
+    },
+    {
+     "start_sec": 2939,
+     "end_sec": 2997
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Undecidability via generalized Dowling geometries",
+   "summary": "The speaker proves undecidability of entropic, partition, and multilinear representability by reducing the uniform word problem for finite groups to entropicity of generalized Dowling-type matroids, with conditional-independence implication undecidability as a corollary.",
+   "spans": [
+    {
+     "start_sec": 2504,
+     "end_sec": 2838
+    },
+    {
+     "start_sec": 2910,
+     "end_sec": 2939
+    },
+    {
+     "start_sec": 3114,
+     "end_sec": 3172
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Non-Fano matroid from seven planes",
+   "note": "The seven-plane arrangement and its incidence drawing make the passage from hyperplane arrangements to matroids concrete, and later illustrate a characteristic restriction in computation.",
+   "first_introduced_sec": 36,
+   "spans": [
+    {
+     "start_sec": 36,
+     "end_sec": 121
+    },
+    {
+     "start_sec": 726,
+     "end_sec": 751
+    }
+   ],
+   "total_seconds": 110,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker constructs the matroid from the seven-plane arrangement by tracing incidences, e.g. checking that three colored planes meet in a line and become a line in the non-Fano incidence picture",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Standard non-Fano rank-three matroid used to introduce hyperplane-arrangement realizations, not as a failure case here."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the non-Fano matroid is introduced as a standard realizable rank-three matroid from an arrangement, not as a failure case"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "introduced as a standard realizable non-Fano matroid from a seven-plane arrangement"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The non-Fano matroid is used here as a realizable motivating hyperplane-arrangement matroid, not as the characteristic obstruction later."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The non-Fano matroid is used as a standard realizable rank-three example from a plane arrangement, not as a sporadic or limiting object."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "introduced as a standard realizable seven-element non-Fano matroid from a plane arrangement, not as a refutation here"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The non-Fano matroid is used as an introductory realizable arrangement and is a characteristic-critical relaxation of the Fano plane."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used as an opening realizable matroid from an arrangement, with no intrinsic degeneracy or sporadic/extermal status singled out."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Used as a standard realizable seven-element matroid from a plane arrangement, not as a failure case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "used as an introductory realizable seven-plane matroid rather than as an obstruction"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "It is an opening illustration of a realizable non-Fano matroid from a plane arrangement, not used adversarially."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "introduced as a standard realizable non-Fano matroid from a seven-plane arrangement, not as a refutation."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Graphic matroid of K4",
+   "note": "The six-edge graphic matroid is used to show what a realization matrix means and then to demonstrate that the software can reduce its realization space to a single point.",
+   "first_introduced_sec": 121,
+   "spans": [
+    {
+     "start_sec": 121,
+     "end_sec": 187
+    },
+    {
+     "start_sec": 558,
+     "end_sec": 600
+    }
+   ],
+   "total_seconds": 108,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker checks a concrete realization matrix for the graphic matroid of K4 by examining columns for a cycle and later computes its realization space as a single point",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The cycle matroid of the complete graph K4 is a highly symmetric graphic matroid used as a basic realizable example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the graphic matroid of K4 inherits the complete graph's tetrahedral S4 symmetry and is used only to illustrate realization matrices"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the cycle matroid of complete K4 is highly symmetric and maximal among simple rank-three graphic matroids"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "M(K4) comes from the complete rank-3 simple graph, giving a maximally connected and highly symmetric graphic matroid used as a positive realization example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The graphic matroid comes from the complete graph K4, whose complete tetrahedral structure gives it maximal symmetry."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the cycle matroid of the complete graph K4 is a maximally symmetric and maximal simple graphic rank-three example used just to illustrate realizations"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The graphic matroid of the highly symmetric complete graph K4 is used only as a basic realization example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The graphic matroid comes from the complete graph K4, a maximum-edge highly symmetric graph, and is used only as a realization example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The complete graph K4 gives a highly symmetric graphic matroid used to illustrate realizability over every field."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the cycle matroid inherits the high symmetry of the complete graph K4 and is used as a basic realization example"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The complete graph K4 is maximally symmetric and edge-maximal on four vertices, used as a positive realization example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used as a basic realizable graphic matroid example, with symmetry inherited from the complete graph K4."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Non-Pappus matroid",
+   "note": "The non-Pappus configuration first exhibits non-realizability over fields and later shows why allowing noncommuting block matrices or skew-field-like behavior can realize more matroids.",
+   "first_introduced_sec": 187,
+   "spans": [
+    {
+     "start_sec": 187,
+     "end_sec": 214
+    },
+    {
+     "start_sec": 751,
+     "end_sec": 767
+    },
+    {
+     "start_sec": 1981,
+     "end_sec": 2083
+    }
+   ],
+   "total_seconds": 145,
+   "attaches_to": [
+    "s1",
+    "s2",
+    "s5"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "beyond saying it is nonrealizable, the speaker later gives a 2-by-2 multilinear realization of the non-Pappus matroid and checks a specific block minor using noncommuting matrices",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The non-Pappus matroid is used to show that not every matroid is linearly realizable over a field."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the non-Pappus matroid is the tight Pappus-forbidden incidence pattern used to show that not every matroid is realizable"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show not every matroid is field-realizable, since a realization would violate Pappus's theorem"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The non-Pappus matroid is invoked precisely because any realization would contradict Pappus' theorem, so it obstructs universal realizability."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The non-Pappus matroid is invoked because any linear realization would contradict Pappus's theorem, so it refutes universal matroid realizability."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show that not every matroid is linearly realizable, since a realization would contradict Pappus's theorem"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The non-Pappus matroid is presented as a minimal Pappus-theorem obstruction to matroid realizability."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The non-Pappus matroid is used to show that not every matroid is linearly realizable, since a realization would violate Pappus' theorem."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The non-Pappus matroid is invoked because any linear realization would contradict Pappus's theorem."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to show that not every matroid is realizable since a realization would contradict Pappus's theorem"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It is used to show that not every matroid is realizable, since a realization would contradict Pappus' theorem."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "deployed to show that not every matroid is realizable, since a realization would contradict Pappus's theorem."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Rank-three 12-element matroid with singular realization space",
+   "note": "The smallest known singular realization-space example, with components resembling a conic and two lines, illustrates both Murphy-law phenomena and the software's primary-decomposition computations.",
+   "first_introduced_sec": 387,
+   "spans": [
+    {
+     "start_sec": 387,
+     "end_sec": 426
+    },
+    {
+     "start_sec": 1009,
+     "end_sec": 1118
+    },
+    {
+     "start_sec": 1232,
+     "end_sec": 1275
+    }
+   ],
+   "total_seconds": 191,
+   "attaches_to": [
+    "s1",
+    "s2",
+    "s3"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes the 12-element rank-three matroid’s realization space by decomposing the defining ideal into components, identifying two lines and a conic, and checking their intersections give singularities",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The 12-element rank-three matroid is presented as a smallest known singular realization-space example, refuting smoothness expectations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "this is explicitly the smallest rank-three matroid found with a singular realization space, refuting smoothness in general"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "identified as the smallest rank-three matroid found with a singular realization space, refuting smoothness expectations"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "This rank-three 12-element matroid is singled out as the smallest known case whose realization space is singular, hence a failure of smoothness."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "This otherwise ad hoc rank-three matroid is the smallest cited example with a singular realization space, disproving smoothness in that range."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "presented as the smallest known rank-three matroid whose realization space is singular, refuting smoothness in that range"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The rank-three 12-element matroid is cited as the smallest known case with a singular realization space, refuting smoothness in that range."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "This rank-three 12-element matroid is presented as the smallest known example with a singular realization space, refuting smoothness in general."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "This rank-three matroid is used as the smallest known/proved example with a singular realization space, refuting smoothness."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "chosen as the smallest rank-three example with a singular realization space, refuting smoothness in general"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "It is presented as the smallest rank-three matroid with a singular realization space, refuting smoothness in that range."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "presented as the smallest rank-three example with a singular realization space, refuting smoothness expectations."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Dual Hesse arrangement / affine geometry AG(2,3)",
+   "note": "Raised in response to a question about disconnected realization spaces, this nine-element rank-three matroid has a two-point realization space cut out by x^2 - x + 1.",
+   "first_introduced_sec": 446,
+   "spans": [
+    {
+     "start_sec": 446,
+     "end_sec": 483
+    },
+    {
+     "start_sec": 902,
+     "end_sec": 942
+    }
+   ],
+   "total_seconds": 77,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker computes the dual Hesse/AG(2,3) realization space by deriving the equation x^2-x+1 and interpreting its roots as the two realization points",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 6,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AG(2,3)/dual Hesse is a highly symmetric affine geometry cited as a smallest two-point disconnected realization-space example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AG(2,3)/the dual Hesse arrangement is a highly symmetric affine-plane configuration whose two-point realization space is cited as disconnected"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AG(2,3) is a highly regular affine plane and is invoked as a two-point realization space witnessing disconnectedness"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AG(2,3)/the dual Hesse configuration is a highly symmetric complete affine plane, cited as a two-point realization-space witness to disconnectedness."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AG(2,3) is a highly symmetric affine plane and is cited as a size-nine two-point, hence disconnected, realization-space example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AG(2,3)/dual Hesse is a highly regular affine-plane matroid cited as a disconnected two-point realization-space example"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The dual Hesse/AG(2,3) matroid is a highly symmetric small witness to a two-point, hence disconnected, realization space."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AG(2,3)/the dual Hesse arrangement is a highly symmetric affine-plane configuration whose two-point realization space witnesses disconnectedness."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The highly symmetric AG(2,3)/dual Hesse matroid is cited as a smallest small case whose two-point realization space defeats connectedness."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to exhibit a two-point disconnected realization space, while AG(2,3) has the full affine-plane symmetry"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "AG(2,3)/dual Hesse is a highly symmetric affine-plane configuration attaining the Steiner triple bound and cited as a two-point disconnected realization-space example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "cited as a two-point, hence disconnected, realization-space example, and AG(2,3) is a highly symmetric affine plane."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Fano versus non-Fano characteristic test",
+   "note": "The Fano matroid's equation forcing characteristic two and the dual non-Fano's exclusion of characteristic two illustrate how realization-space equations over the integers encode field characteristics.",
+   "first_introduced_sec": 600,
+   "spans": [
+    {
+     "start_sec": 600,
+     "end_sec": 630
+    },
+    {
+     "start_sec": 726,
+     "end_sec": 751
+    }
+   ],
+   "total_seconds": 55,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker runs the realization-space computation for Fano and non-Fano cases and interprets the equations as characteristic-two versus characteristic-not-two realizability tests",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 4,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Fano/non-Fano pair uses the symmetric Fano plane to demonstrate characteristic-dependent failure of realizability."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the Fano side is the highly symmetric projective plane PG(2,2), and the pair is used to show characteristic-independent representability fails"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the Fano plane is maximally symmetric, and the Fano/non-Fano pair is used as opposite characteristic-obstruction tests"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Fano/non-Fano pair uses the smallest projective-plane characteristic dichotomy to show realizability can fail in the wrong characteristic."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Fano side is the highly symmetric projective plane PG(2,2), and the pair is used to show representability can fail in specified characteristics."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the Fano/non-Fano comparison is used to show characteristic-dependent failure of realizability, with the Fano plane contributing the highly symmetric finite-projective-plane structure"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Fano/non-Fano pair witnesses characteristic-dependent realizability, with the Fano plane maximally regular among order-two projective geometries."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Fano plane is the minimal highly symmetric projective-plane matroid, and the Fano/non-Fano pair shows realizability can fail in the wrong characteristic."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Fano/non-Fano pair is used as a canonical characteristic obstruction to realization, with the Fano plane highly symmetric."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the Fano/non-Fano pair is used to exhibit characteristic-dependent nonrealizability, with the Fano side a maximally symmetric finite projective plane"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The Fano/non-Fano pair is used as a characteristic-2 obstruction test, with the Fano member the smallest maximally regular projective plane."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "used to show field-characteristic independence fails, with the Fano plane giving the highly symmetric projective-plane case."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Pappus configuration with a two-dimensional realization space",
+   "note": "Adding the missing Pappus line gives a realizable configuration whose computed realization space is described as an affine plane with several curves removed.",
+   "first_introduced_sec": 767,
+   "spans": [
+    {
+     "start_sec": 767,
+     "end_sec": 902
+    }
+   ],
+   "total_seconds": 135,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker computes the realization space after adding the Pappus line as an affine two-space with excluded curves and discusses finding concrete realization points over fields",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Pappus configuration is a classical regular incidence configuration used to illustrate a two-parameter realization space."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the Pappus configuration is used as a positive example with a two-dimensional realization space, not as an obstruction"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the Pappus configuration is a regular classical incidence configuration used to illustrate a nontrivial two-dimensional realization space"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Pappus configuration is a classical regular 9-point incidence configuration used to illustrate a two-parameter realization space."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Pappus configuration is a regular classical 9_3 incidence configuration, used here to illustrate a two-parameter realization space."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the Pappus configuration is a regular classical incidence configuration used to exhibit a two-dimensional realization space, not to disprove a claim"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Pappus configuration is a classical regular 9_3 incidence configuration used to illustrate a two-parameter realization space."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Pappus configuration is a regular classical 9_3 configuration used to illustrate a positive-dimensional realization space, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Pappus incidence configuration is a regular symmetric configuration used to exhibit a two-parameter realization space."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used to illustrate a positive-dimensional realization space, and the Pappus configuration is a highly regular incidence configuration"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Pappus configuration is a regular 9_3 incidence configuration used to illustrate a two-parameter realization space."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "used to exhibit a positive-dimensional realization space for the regular self-dual Pappus incidence configuration."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Generic arrangement of five lines",
+   "note": "A five-line generic arrangement is used to compute the outputs of the operators lambda_{2,2}, lambda_{2,3}, and lambda_{2,4} explicitly.",
+   "first_introduced_sec": 1149,
+   "spans": [
+    {
+     "start_sec": 1149,
+     "end_sec": 1232
+    }
+   ],
+   "total_seconds": 83,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the lambda operators to a generic five-line arrangement, counting the resulting 15 lines, the empty case, and the invariant case",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A generic five-line arrangement is an ordinary general-position example for the lambda-operator computation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a generic five-line arrangement is an ordinary open-dense case used to illustrate the lambda operators"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "used as an ordinary generic five-line arrangement to demonstrate the lambda operators"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A generic five-line arrangement is the ordinary open-dense no-triple-incidence case used to demonstrate the lambda operators."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A generic five-line arrangement is the ordinary general-position case used to illustrate the lambda operators."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a generic five-line arrangement is an ordinary general-position example for demonstrating the lambda operators"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A generic arrangement of five lines is an open-dense ordinary arrangement used just to demonstrate the lambda operators."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A generic five-line arrangement is an ordinary general-position example used to demonstrate the lambda operators."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A generic five-line arrangement is an ordinary uniform-arrangement test case for the lambda operators."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a generic five-line arrangement is the ordinary open-dense case used to demonstrate the lambda operators"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary general-position five-line arrangement used to demonstrate the lambda operators."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "used as a generic five-line arrangement to illustrate the lambda operators, so structurally it is typical."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Roulleau six-line arrangement",
+   "note": "This proof-of-concept example produced a known prominent free arrangement and is presented as the motivation for searching for further matroids with nontrivial lambda-operator dynamics.",
+   "first_introduced_sec": 1308,
+   "spans": [
+    {
+     "start_sec": 1308,
+     "end_sec": 1397
+    }
+   ],
+   "total_seconds": 89,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker states properties of Roulleau’s six-line arrangement and its relation to a known 15-line arrangement but does not carry out a concrete computation on it",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 1,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 8,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Roulleau’s arrangement is invoked through the lambda construction as producing a free but non-recursively-free arrangement."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the Roulleau construction is used to produce a free but not recursively free arrangement"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "used as a special proof-of-concept arrangement for Roulleau's lambda dynamics rather than as a direct obstruction"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Roulleau's six-line construction is used because the associated arrangement gives a free but not recursively free example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The special six-line uniform arrangement is used as a proof of concept for nontrivial lambda dynamics, not itself as a refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the Roulleau construction is noted for producing a free but not recursively free arrangement, showing that freeness need not imply recursive freeness"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Roulleau's special six-line arrangement has highlighted A3 symmetry and leads to a free but non-recursively-free arrangement."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The six-line Roulleau example is used as a proof of concept for the operator dynamics rather than as a structural exception or obstruction."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Roulleau-related six-line arrangement is used as an operator-dynamics proof of concept rather than to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "cited through the Roulleau construction as producing a free but not recursively free arrangement"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "It is invoked as the known free but not recursively free Roulleau arrangement produced by the operator."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "its lambda-produced arrangement is cited as free but not recursively free, a negative example in arrangement theory."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Secret-sharing scheme for a company PIN",
+   "note": "The distribution of shares of a secret PIN illustrates why partition-representable matroids arise naturally in access structures and coding-theoretic contexts.",
+   "first_introduced_sec": 2312,
+   "spans": [
+    {
+     "start_sec": 2312,
+     "end_sec": 2388
+    }
+   ],
+   "total_seconds": 76,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the company PIN secret-sharing scenario is used only as motivation for partition-representable matroids, with no explicit scheme constructed",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 8
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No particular access structure or concrete secret-sharing matroid is specified, only the general PIN-sharing application."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "the relevant ideal secret-sharing setup is the optimal-efficiency case motivating partition representations"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "a motivating application scenario for partition-representable matroids rather than a structurally special object"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No specific access structure or matroid for the company PIN secret-sharing scenario is specified."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The company PIN secret-sharing scenario is a standard motivating access-structure example for partition-representable matroids."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "only a generic secret-sharing scenario is described, with no particular access matroid or scheme specified"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The company-PIN secret-sharing discussion gives no concrete access matroid or scheme to classify."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "Only a generic company PIN secret-sharing scenario is described, with no specific access matroid or scheme to classify."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "Only a generic PIN-sharing scenario is described, with no particular access structure, matroid, or scheme specified."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "no particular access matroid or secret-sharing scheme is specified beyond the motivating scenario"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript gives only a hypothetical secret-sharing application, not a specific access matroid or scheme."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "used only as a generic application of partition-representable matroids to access structures for a PIN."
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "Entropic versus algebraic matroid comparison examples",
+   "note": "In response to a question, the speaker mentions matroids separating algebraic and entropic behavior to illustrate that these generalized representation classes are not simply nested.",
+   "first_introduced_sec": 2939,
+   "spans": [
+    {
+     "start_sec": 2939,
+     "end_sec": 2997
+    }
+   ],
+   "total_seconds": 58,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the entropic-versus-algebraic examples are cited in discussion as known separations or noncomparability facts, without working through any particular construction",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 12
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "The precise matroids are unnamed, but they are cited as counterexamples to comparability of entropic and algebraic matroid classes."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "the specific matroids are not named, but the comparison examples are invoked to refute inclusions between entropic and algebraic matroids"
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "the exact witness matroids are not identified, but they are invoked to refute inclusions between entropic and algebraic matroids"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "The cited entropic-versus-algebraic examples are unnamed, but their role is to separate the two classes and refute inclusions."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "The precise matroids are not named, but the examples are invoked to show that entropic or partition matroids and algebraic matroids do not contain one another."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "the referenced examples are not identified concretely, but they are invoked to refute comparability between entropic and algebraic matroids"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "The algebraic-versus-entropic comparison invokes unnamed non-inclusion witnesses, so their structure is not identifiable from the transcript."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "The cited comparison examples are unnamed, but they are invoked to show non-containment between entropic and algebraic matroid classes."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "Unnamed entropic/algebraic comparison examples are invoked to show that neither class contains the other."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "the precise matroids are only sketched, but they are invoked to show non-comparability of entropic and algebraic classes"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "The exact matroids are unnamed, but they are cited to refute inclusions between entropic and algebraic classes."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase",
+      "indeterminate"
+     ],
+     "reason": "the exact matroids are not specified, but they are invoked as witnesses that entropic and algebraic matroids are incomparable."
+    }
+   ]
+  }
+ ]
+}

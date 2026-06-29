@@ -1,0 +1,372 @@
+{
+ "key": "6f7acd78aa799486a05136787b42e107",
+ "title": "Quantum Locally Testable Codes and Codes with Transversal Gates",
+ "speaker": "David (Ting-Chun) Lin",
+ "affiliation": "University of California San Diego",
+ "date": "2024-11-11T12:00:00Z",
+ "field_msc": "94 Information and communication, circuits",
+ "duration_sec": 4040.0,
+ "abstract": "Recent advancements in quantum error correction have led to breakthroughs in good quantum low-density parity-check (qLDPC) codes, which offer asymptotically optimal code rates and distances. However, several open questions remain, including the construction of quantum locally testable codes (qLTCs) and the construction of qLDPC codes with transversal gates. Interestingly, both questions can be approached through a higher-dimensional analog of the existing qLDPC code construction.\nIn this talk, I will review the constructions of good qLDPC codes and explain how to generalize them to higher dimensions. I will discuss methods for analyzing the code distance and local testability, as well as how the cup product structure on these codes enables transversal gates.\nBased on joint work with Irit Dinur, Thomas Vidick, and Louis Golowich.",
+ "youtube_url": "https://youtu.be/FfGQ5toAraI",
+ "page_url": "https://www.ias.edu/video/quantum-locally-testable-codes-and-codes-transversal-gates",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "CSS quantum codes as chain complexes",
+   "summary": "The talk translates quantum stabilizer/CSS codes into two sparse parity-check matrices forming a chain complex, with logical operators given by homology and cohomology classes and parameters n, k, distance, and LDPC weight read combinatorially.",
+   "spans": [
+    {
+     "start_sec": 34,
+     "end_sec": 364
+    },
+    {
+     "start_sec": 394,
+     "end_sec": 594
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Good qLDPC targets and why they are hard",
+   "summary": "The speaker identifies the central goal of constructing constant-weight quantum LDPC codes with linear dimension and distance, reviews the historical square-root-distance barrier, explains why random sparse matrices do not directly work quantumly, and situates the new work among quantum LTCs, PCP, and transversal-gate codes.",
+   "spans": [
+    {
+     "start_sec": 364,
+     "end_sec": 394
+    },
+    {
+     "start_sec": 594,
+     "end_sec": 1084
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Topological products and the square-root barrier",
+   "summary": "The first construction schemes are developed from topological chain complexes, tensor/hypergraph products of classical codes, and then fiber-bundle or twisted-product constructions that are locally product-like but globally avoid the product-induced square-root-distance obstruction.",
+   "spans": [
+    {
+     "start_sec": 1084,
+     "end_sec": 1756
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Left-right Cayley complexes with Tanner local codes",
+   "summary": "The main qLDPC construction is built from a left-right Cayley square complex of a group with two generator sets, then enhanced by Tanner-code local coefficients so that suitable local codes on spectrally expanding complexes produce good quantum LDPC chain complexes.",
+   "spans": [
+    {
+     "start_sec": 1774,
+     "end_sec": 2497
+    },
+    {
+     "start_sec": 2540,
+     "end_sec": 2578
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Distance proof by expansion and dual reduction",
+   "summary": "The distance analysis follows the expander-code paradigm: one direction is proved from spectral expansion of the underlying complex together with coboundary expansion of local codes, while the reverse direction is reduced to the first after passing to dual local codes.",
+   "spans": [
+    {
+     "start_sec": 2650,
+     "end_sec": 2840
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Quantum locally testable-code extension",
+   "summary": "The quantum LTC result is sketched by adding layers encoding relations among checks, analogous to recent classical LTC constructions, thereby replacing the three-term complex by a longer complex realized by a higher-dimensional Tanner-code construction.",
+   "spans": [
+    {
+     "start_sec": 2840,
+     "end_sec": 2942
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Transversal gates as sparse trilinear cohomology operations",
+   "summary": "For transversal gates, the talk translates logical CCZ operations into sparse trilinear functions that are well-defined on homology/cohomology classes and whose sparsity corresponds to constant-depth implementation on physical qubits.",
+   "spans": [
+    {
+     "start_sec": 2942,
+     "end_sec": 3485
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Triple-intersection Tanner-code construction for transversal gates",
+   "summary": "The speaker generalizes the topological triple-intersection mechanism to Tanner-code settings by representing logical operators as surface configurations, imposing local multiplicity-type constraints on local codes, constructing codes with transversal gates via tensor products of classical LDPC codes, and ending with rate and local-code obstacles.",
+   "spans": [
+    {
+     "start_sec": 3485,
+     "end_sec": 3983
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Three-dimensional toric code and triple intersection",
+   "note": "The 3D toric code is used to make the abstract sparse trilinear-function condition concrete: three noncontractible planes in a 3-torus intersect in one point, revealing why triple intersections can define logical CCZ/transversal gates.",
+   "first_introduced_sec": 3485,
+   "spans": [
+    {
+     "start_sec": 3485,
+     "end_sec": 3606
+    }
+   ],
+   "total_seconds": 121,
+   "attaches_to": [
+    "s7",
+    "s8"
+   ],
+   "primary_stage": "s7",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes the 3D toric code on a 3-torus by identifying the three nontrivial plane logical operators, explaining their single triple intersection and its invariance under deformation, and using it to produce the trilinear function/transversal CCZ gate",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "A 3D toric code is a standard regular/translationally symmetric topological-code family, used positively to illustrate CCZ gates from a topological triple intersection rather than to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The standard 3D toric code on a cubical 3-torus is a highly regular translation-invariant topological code used positively to illustrate how triple intersection yields a trilinear form and transversal CCZ gate."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The standard 3D toric code on a cubic 3-torus is a highly regular symmetric topological code, used here as a positive motivating example of triple intersection inducing a transversal CCZ gate, not to refute a claim."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The 3D toric code on a torus is a standard highly regular translationally symmetric topological code, used constructively to illustrate how triple intersection yields a transversal CCZ gate rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The 3D toric code on a torus is a standard highly regular topological code used illustratively to realize a CCZ gate via invariant triple intersection, not to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The 3D toric code is a regular product-torus topological code, and here the three coordinate logical surfaces give the critical minimal-dimensional nonzero triple intersection used constructively to realize a transversal CCZ gate."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The 3D toric code on the regular 3-torus is used as a positive illustrative construction of a transversal CCZ gate via invariant triple intersection, not to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Used positively to illustrate how the regular 3D toric code’s coordinate planes have an invariant triple intersection giving a transversal CCZ/CZZ gate, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "It is used as a positive canonical, highly regular toric-code example where three coordinate planes in the 3-torus have an invariant triple intersection inducing a transversal CCZ gate."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The 3D toric code on a cubical three-torus with coordinate planes is a highly regular translation-symmetric topological code used positively to illustrate a transversal CCZ gate via triple intersection, not to refute a claim."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The 3D toric code is used illustratively to show how the invariant triple intersection of three noncontractible coordinate planes yields a transversal CCZ-type logical gate, and it is a highly regular toroidal lattice code rather than a sporadic, degenerate, or optimal object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The 3D toric code on a 3-torus is used constructively to illustrate transversal CCZ gates via the topological invariant that three coordinate planes have a single triple intersection; it is a regular translationally symmetric toric-code family, not a sporadic, degenerate, or optimal boundary case."
+    }
+   ]
+  }
+ ]
+}

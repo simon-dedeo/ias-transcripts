@@ -1,0 +1,1782 @@
+{
+ "key": "311493728a196a98b03e0f01b5ae48af",
+ "title": "Online Omniprediction",
+ "speaker": "Sumegha Garg",
+ "affiliation": "Rutgers University",
+ "date": "2023-12-11T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3844.0,
+ "abstract": "A recent line of work has shown a surprising connection between multicalibration, a multi-group fairness notion, and omniprediction, a learning paradigm that provides simultaneous loss minimization guarantees for a large family of loss functions [GKR+22, GHK+23 , GKR23 , GHHK+23]. Prior work studies omniprediction in the batch setting. Our work initiates the study of omniprediction in the online adversarial setting. In the talk, we will briefly see the definitions and motivations for these theoretic notions, and then survey the new results for online omniprediction.",
+ "youtube_url": "https://youtu.be/4KC2dqxe-FE",
+ "page_url": "https://www.ias.edu/video/online-omniprediction",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Batch prediction and loss-minimization benchmark",
+   "summary": "The talk sets up binary-outcome supervised prediction, the Bayes-optimal conditional-probability predictor, and standard loss minimization over a restricted hypothesis class F.",
+   "spans": [
+    {
+     "start_sec": 14,
+     "end_sec": 277
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Omniprediction with loss-dependent postprocessing",
+   "summary": "Omniprediction is formulated as learning one probabilistic predictor whose loss-specific Bayes-action postprocessing competes with the best hypothesis in F for every loss in a class, with p* serving as the ideal omnipredictor and agnostic learning as the efficiency benchmark.",
+   "spans": [
+    {
+     "start_sec": 277,
+     "end_sec": 929
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Multicalibration as a sufficient batch condition",
+   "summary": "Calibration is strengthened to multicalibration over computationally identifiable groups or functions, and the known theorem is stated that multicalibration with respect to F implies omniprediction for bounded Lipschitz convex losses.",
+   "spans": [
+    {
+     "start_sec": 929,
+     "end_sec": 1520
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Proof sketch of multicalibration implying omniprediction",
+   "summary": "Under simplifying assumptions of perfect multicalibration and Boolean p*, the proof works level-set by level-set, applies convexity to average each competitor f, uses multicalibration to equate label-conditional averages, and then invokes the optimal postprocessed action.",
+   "spans": [
+    {
+     "start_sec": 1520,
+     "end_sec": 1936
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Online adversarial omniprediction and regret",
+   "summary": "The paper’s online setting replaces iid samples by an adversarial sequence, defines the forecaster–adversary–learner protocol, and asks for one forecast sequence whose loss-specific postprocessings have sublinear regret against F for every loss.",
+   "spans": [
+    {
+     "start_sec": 1936,
+     "end_sec": 2806
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Online multicalibration norms and the limits of the l1 route",
+   "summary": "Online multicalibration errors are measured in l-infinity, l1, and l2 forms; prior l-infinity algorithms can be adapted to l1 rates sufficient for omniprediction, but lower bounds for l1 calibration rule out obtaining square-root regret through this route.",
+   "spans": [
+    {
+     "start_sec": 2816,
+     "end_sec": 3226
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Real-valued classes via l2 multicalibration and swap regret",
+   "summary": "For real-valued or infinite hypothesis classes, the paper obtains sublinear online omniprediction by reducing l2 multicalibration to squared-loss minimization on each forecast level set and implementing this through a swap-regret-style algorithm.",
+   "spans": [
+    {
+     "start_sec": 3226,
+     "end_sec": 3490
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Square-root Boolean-class rates and separation from multicalibration",
+   "summary": "Using a finite characterization of bounded losses by d-losses, Boolean hypothesis classes admit square-root-regret online omniprediction, yielding a separation from l1 multicalibration and leading to open questions about optimal rates for real-valued classes.",
+   "spans": [
+    {
+     "start_sec": 3490,
+     "end_sec": 3723
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Squared loss versus absolute loss actions",
+   "note": "The contrast between squared loss, whose Bayes action is the conditional probability, and absolute loss, whose Bayes action is thresholding at 1/2, shows why omniprediction needs loss-dependent postprocessing rather than using the raw predictor as the action.",
+   "first_introduced_sec": 216,
+   "spans": [
+    {
+     "start_sec": 216,
+     "end_sec": 250
+    },
+    {
+     "start_sec": 595,
+     "end_sec": 679
+    }
+   ],
+   "total_seconds": 118,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker computes the loss-minimizing action for squared loss as p*(x) and contrasts it with the L1/absolute-loss rounding rule at 0.5",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary convex losses used to show the naive no-postprocessing omniprediction definition fails because L2 wants the mean while L1 wants rounding"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Standard L2/L1 losses are used to refute direct omniprediction without loss-dependent postprocessing."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "standard convex losses are contrasted to show the naive omniprediction definition fails without loss-dependent postprocessing"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "standard squared and absolute losses whose different Bernoulli-optimal actions are used to refute the naive no-postprocessing omniprediction definition"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "L2 and L1 losses give different optimal postprocessings, refuting the naive single-action omnipredictor definition"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The squared- and absolute-loss Bayes actions are respective risk minimizers, and their disagreement refutes the no-postprocessing definition."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The squared-vs-absolute-loss Bayes actions are used to show the naive no-postprocessing omniprediction definition fails."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "squared and absolute loss give different Bayes actions, refuting the naive no-postprocessing omniprediction definition"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Standard convex-loss actions are contrasted to show the naive no-postprocessing omniprediction definition fails across losses."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Squared and absolute loss are used to show the naive no-postprocessing omniprediction definition fails because their optimal actions differ."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "standard squared and absolute losses are used to show the naive no-postprocessing omniprediction definition fails because they require different optimal actions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "standard convex losses whose Bayes actions differ, refuting the naive no-postprocessing omniprediction definition"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Linear regression as a hypothesis class",
+   "note": "Linear regression is mentioned as a familiar case where hypotheses output real values, making the abstract loss-minimization setup more concrete.",
+   "first_introduced_sec": 250,
+   "spans": [
+    {
+     "start_sec": 250,
+     "end_sec": 267
+    },
+    {
+     "start_sec": 486,
+     "end_sec": 511
+    }
+   ],
+   "total_seconds": 42,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "linear regression is only cited as a possible hypothesis class with f(x)=<w,x>, without working through a regression instance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "linear regression is a standard representative real-valued hypothesis class used illustratively"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The usual linear-function class is offered as an ordinary real-valued hypothesis class."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "linear regression is used as an ordinary hypothesis-class example with real-valued predictions"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "linear predictors form a standard hypothesis class used only as an illustrative model"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Linear regression is used as a standard real-valued hypothesis class"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Linear regression is used as a standard real-valued hypothesis class example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Linear regression is invoked as a standard representative real-valued hypothesis class."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "linear regression is used as an ordinary real-valued hypothesis class example"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The linear class is an ordinary parametric hypothesis class used only as an illustration."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Linear regression is a standard hypothesis class offered as an ordinary example of real-valued predictors."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "linear regression is cited as an ordinary real-valued hypothesis class rather than as an obstruction or special classified object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary linear real-valued hypothesis class used as a representative model"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Loan repayment and credit scores",
+   "note": "Credit scoring for loan repayment illustrates binary outcomes and the meaning of calibration within a subpopulation.",
+   "first_introduced_sec": 473,
+   "spans": [
+    {
+     "start_sec": 473,
+     "end_sec": 486
+    },
+    {
+     "start_sec": 1099,
+     "end_sec": 1165
+    },
+    {
+     "start_sec": 1248,
+     "end_sec": 1293
+    }
+   ],
+   "total_seconds": 124,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies calibration to credit scores by considering borrowers scored 0.1 and checking that their repayment frequency should be 0.1",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "loan repayment and credit scores are a typical applied binary-prediction/calibration example rather than a formal obstruction"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary credit-score prediction is cited as a case where repayment probabilities can be misestimated on subpopulations."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "loan repayment and credit scores serve as a typical applied binary-outcome calibration illustration"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "loan repayment with credit scores is an ordinary binary prediction/calibration scenario used for motivation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Loan repayment with credit scores is used as an ordinary motivating binary-prediction and calibration scenario"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Loan repayment and credit scores are used as an ordinary binary-outcome calibration scenario."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Loan repayment and credit scores serve as an applied illustration of binary outcomes and calibration."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "loan repayment and credit scores mainly illustrate binary outcomes and calibration in a standard prediction task"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Loan repayment and credit scores are used as an ordinary applied example of Boolean outcomes and calibration."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Loan repayment and credit scores illustrate binary outcomes and calibration in an applied setting."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "loan repayment and credit scores are used as a motivating binary-outcome calibration scenario."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary lending-score scenario used to illustrate binary outcomes and calibration"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Constant mean predictor",
+   "note": "Predicting the overall mean for everyone is used as a simple counterexample showing that ordinary calibration alone can be uninformative, motivating stronger group-conditional notions.",
+   "first_introduced_sec": 1165,
+   "spans": [
+    {
+     "start_sec": 1165,
+     "end_sec": 1248
+    }
+   ],
+   "total_seconds": 83,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the constant mean predictor is only asserted to satisfy calibration easily, without deriving or analyzing it",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 8,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the input-independent mean predictor is a collapsed maximally invariant predictor used to show calibration alone can be uninformative"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The constant mean predictor collapses all features to one invariant value and shows calibration can be uninformative."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the constant mean predictor ignores all features and is used to show calibration alone need not imply usefulness"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the feature-independent base-rate predictor is a collapsed predictor used to show calibration alone can be uninformative"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The constant mean predictor ignores features and shows calibration alone can be uninformative"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The global-mean predictor collapses all feature distinctions and is used to show calibration alone can be useless."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The constant mean predictor shows calibration alone can be uninformative, and it ignores all feature structure."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "predicting the global mean is a collapsed predictor used to show calibration alone can be uninformative"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The feature-independent mean predictor is a collapsed, fully invariant predictor used to show calibration can be uninformative."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The constant mean predictor is a trivial feature-independent predictor used to show ordinary calibration can be uninformative."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the feature-ignoring constant mean predictor is a collapsed predictor used to show calibration alone can be vacuous."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the feature-constant mean predictor shows calibration alone can be uninformative"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Intersectional demographic groups",
+   "note": "The possibility that a predictor is calibrated on gender and race separately but not on their intersections motivates calibrating over all computationally identifiable groups.",
+   "first_introduced_sec": 1293,
+   "spans": [
+    {
+     "start_sec": 1293,
+     "end_sec": 1343
+    }
+   ],
+   "total_seconds": 50,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "intersectional demographic groups are invoked as fairness motivation for multicalibration, without a concrete calculation or check on a specific group",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary subgroup intersections are used to show calibration on marginal demographic groups need not imply calibration on their intersections"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinary subgroup intersections are invoked as cases where calibration on marginal demographic groups can fail."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary subgroup intersections are used to show marginal group calibration can miss intersectional miscalibration"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary intersections of demographic groups are used to show calibration on coarse groups need not imply calibration on intersections"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Intersectional groups are invoked to show calibration on coarse groups need not persist under intersections"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Intersectional groups are used to show that calibration on marginal demographic groups can still fail on intersections."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Intersectional demographic groups are used to show calibration on coarser groups may fail on intersections."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "intersectional groups are used to show calibration on coarse demographic groups can still fail on their intersections"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Intersectional demographic groups are ordinary subgroup intersections used as an enemy case where coarse calibration can miss miscalibration."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Intersectional demographic groups are invoked to show calibration on coarser groups can fail on their intersections."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "intersectional groups are invoked as the case where calibration on coarser demographic groups can still fail."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "intersectional groups are used to show calibration on separate demographic groups may fail on their intersections"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Daily rain forecasting for multiple users",
+   "note": "Rain forecasts used by farmers, fisherwomen, and commuters illustrate the online setting and why one forecast should support different loss functions or decision thresholds.",
+   "first_introduced_sec": 2007,
+   "spans": [
+    {
+     "start_sec": 2007,
+     "end_sec": 2056
+    },
+    {
+     "start_sec": 2130,
+     "end_sec": 2179
+    },
+    {
+     "start_sec": 2358,
+     "end_sec": 2388
+    }
+   ],
+   "total_seconds": 128,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "daily rain forecasting with farmers, fishers, and commuters is used as a motivating scenario for online omniprediction, but no concrete forecast sequence or regret calculation is worked out",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "daily rain forecasting for users is a typical online binary-prediction scenario used as motivation"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Daily rain prediction is a representative online binary forecasting scenario for users with different losses."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "daily rain forecasts for users with different losses are a typical motivating online-prediction scenario"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "daily rain forecasting for heterogeneous users is a typical online binary prediction example motivating multiple losses"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Daily rain forecasting for users with different losses is a standard online prediction motivation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Daily rain forecasting for different users is a standard motivating online prediction setting."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Daily rain forecasting for users is a motivating ordinary online binary prediction setting with different losses."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "daily rain prediction for different users is a representative online forecasting motivation"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Daily rain forecasting for multiple users is a standard online binary-prediction application motivating multiple losses."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Daily rain forecasting for users with different losses is a motivating online omniprediction scenario."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "daily rain forecasting for multiple users is a standard online-prediction motivation with different user losses."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary online weather-forecasting application motivating multiple users with different losses"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Stock-investment portfolios",
+   "note": "An audience comment about portfolios serves only to make concrete the dependence of regret bounds on the size or complexity of the benchmark class.",
+   "first_introduced_sec": 3085,
+   "spans": [
+    {
+     "start_sec": 3085,
+     "end_sec": 3109
+    }
+   ],
+   "total_seconds": 24,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "stock-investment portfolios appear only as a passing analogy for the size of a hypothesis/action class",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "stock-investment portfolios are a standard finite expert or action-class example mentioned to interpret dependence on class size"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A finite set of investment portfolios is used only as a routine example of a comparator class size."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "stock-investment portfolios are mentioned as a typical finite decision or hypothesis set example"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "stock-investment portfolios are a standard finite action or expert class used only to illustrate dependence on the number of choices"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Stock-investment portfolios are mentioned as an ordinary finite decision class example"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Stock-investment portfolios are used as an ordinary finite benchmark or action-class example."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Stock-investment portfolios are mentioned as a routine finite decision or hypothesis class example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "stock-investment portfolios are mentioned as an ordinary finite action or hypothesis set example"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A finite collection of stock portfolios is a routine expert-class example for online learning rates."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Stock-investment portfolios serve as a routine example of a finite comparator/action class in online learning."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "stock-investment portfolios are mentioned only as an ordinary finite decision or hypothesis example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary finite action or hypothesis example for online investment portfolios"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "High-risk COVID patient detection",
+   "note": "In response to a question about real fairness applications, the speaker cites COVID risk prediction in Israel as an application where multicalibration-style groups were used.",
+   "first_introduced_sec": 3796,
+   "spans": [
+    {
+     "start_sec": 3796,
+     "end_sec": 3825
+    }
+   ],
+   "total_seconds": 29,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "high-risk COVID patient detection is cited as an application of multicalibration, without detailing or working through the method",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "high-risk COVID patient detection is a typical real-world use case for multicalibration, not a counterexample"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "High-risk COVID prediction is cited as a real-world deployment of multicalibration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "high-risk COVID patient detection is cited as a practical application of multicalibration rather than a failure case"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "high-risk COVID patient detection is a typical applied risk-prediction task cited as an application of multicalibration"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "High-risk COVID patient detection is cited as a practical application of multicalibration"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "High-risk COVID patient detection is cited as a normal applied use of multicalibration."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "High-risk COVID patient detection is cited as a real-world application of multicalibration rather than a refuting example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "high-risk COVID patient detection is cited as a practical application of multicalibration"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "High-risk COVID patient detection is a real deployment example of multicalibration, not a special mathematical object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "High-risk COVID patient detection is cited as a real-world application of multicalibration."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "high-risk COVID patient detection is cited as an applied use of multicalibration, not as a structural exception or refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary applied risk-prediction use case for multicalibration"
+    }
+   ]
+  }
+ ]
+}

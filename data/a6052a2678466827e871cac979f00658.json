@@ -1,0 +1,2796 @@
+{
+ "key": "a6052a2678466827e871cac979f00658",
+ "title": "Optimization-Friendly Generic Mechanisms Without Money",
+ "speaker": "Mark Braverman",
+ "affiliation": "Princeton University",
+ "date": "2022-12-12T12:00:00Z",
+ "field_msc": "91 Game theory, economics, social sciences",
+ "duration_sec": 3758.0,
+ "abstract": "Our goal is to develop a generic framework for converting modern gradient-descent based optimization algorithms into mechanisms where inputs come from self-interested agents.",
+ "youtube_url": "https://youtu.be/l7_VHBkMI_Q",
+ "page_url": "https://www.ias.edu/video/optimization-friendly-generic-mechanisms-without-money",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Algorithm-to-mechanism reduction agenda",
+   "summary": "The talk frames mechanism design as converting algorithms with given inputs into mechanisms that elicit strategic agents' inputs, with the target being an open-box reduction for iterative optimization heuristics without money.",
+   "spans": [
+    {
+     "start_sec": 27,
+     "end_sec": 449
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "VCG benchmark and fragility",
+   "summary": "VCG is presented as the classical reduction from exact welfare optimization to truthful mechanisms with money, followed by the reasons it is unsuitable for moneyless, approximate, or heuristic large-scale settings.",
+   "spans": [
+    {
+     "start_sec": 449,
+     "end_sec": 807
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Correlated-equilibrium and bandit-learning ingredients",
+   "summary": "The talk reviews correlated equilibria as price/signal-mediated outcomes reached by low-swap-regret play, and bandits with knapsacks as a learning primitive that becomes tractable once a per-agent bang-per-buck parameter is supplied.",
+   "spans": [
+    {
+     "start_sec": 833,
+     "end_sec": 1500
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Equal-token scaled VCG insight",
+   "summary": "A thought experiment with non-monetary token budgets shows that if VCG externality charges can be equalized, possibly after per-agent utility scaling, truthful reporting becomes a correlated equilibrium from equal endowments.",
+   "spans": [
+    {
+     "start_sec": 1500,
+     "end_sec": 1770
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "APEX local-pricing mechanism",
+   "summary": "The APEX algorithm is defined as an iterative optimization loop that maximizes locally regularized scaled utilities, charges local VCG externality prices in tokens, and lets agents learn their scaling parameters by bandits with knapsacks.",
+   "spans": [
+    {
+     "start_sec": 1770,
+     "end_sec": 2005
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Low-regret convergence implies equal-endowment correlated equilibrium",
+   "summary": "The main equilibrium theorem states that if the APEX execution converges with low regret for the players, then the trajectory induces a correlated equilibrium in which no player benefits by misreporting when the rest of the execution is frozen.",
+   "spans": [
+    {
+     "start_sec": 2005,
+     "end_sec": 2137
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Application tests: voting and one-sided matching",
+   "summary": "The framework is tested on simple auctions, cardinal voting, and one-sided matching, yielding a VCG-price characterization related to Hylland-Zeckhauser equilibria and showing why regularization is needed.",
+   "spans": [
+    {
+     "start_sec": 2137,
+     "end_sec": 3007
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Scope limits and research directions",
+   "summary": "The closing discussion identifies conceptual obstacles for two-sided matching, possible online and machine-learning extensions, and open questions about direct optimization and weaker equilibrium notions when the learning dynamics do not converge.",
+   "spans": [
+    {
+     "start_sec": 3007,
+     "end_sec": 3415
+    },
+    {
+     "start_sec": 3430,
+     "end_sec": 3754
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Single-item auction as VCG/second-price auction",
+   "note": "The one-item auction makes VCG externality pricing concrete by showing that the winner pays the second-highest value, illustrating rather than generating the VCG argument.",
+   "first_introduced_sec": 576,
+   "spans": [
+    {
+     "start_sec": 576,
+     "end_sec": 661
+    }
+   ],
+   "total_seconds": 85,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker instantiates VCG for a one-item auction, writes the utilities, maximizes welfare, and derives zero payments for losers and the second-highest bid for the winner",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 10,
+    "extremal": 0,
+    "symmetric": 4,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A single-item VCG auction is the minimal nontrivial auction case used positively to recover the second-price auction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "One-item VCG is the minimal allocation case and is used only to recover the second-price auction."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the single-item VCG case is a minimal auction setting used only to recover second-price truthfulness"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "minimal one-item VCG allocation used to recover second-price truthfulness"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "canonical single-item VCG instance recovering second-price auction as a positive sanity check"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard single-good VCG environment used positively to recover second-price truthfulness"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The single-item allocation is the minimal VCG auction case used to recover second-price truthfulness, not to refute anything."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Used as the minimal VCG auction case recovering the second-price auction, not to refute a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "A single homogeneous item with anonymous bidders is the minimal VCG auction and is used positively to recover second price."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "anonymous one-good VCG environment is a minimal auction case used only to recover the second-price rule"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Used to illustrate VCG reducing to the bidder-anonymous one-item base case of auctions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The one-item VCG case is the minimal bidder-anonymous auction model used only to recover second-price truthfulness."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Large-scale approximate VCG failure",
+   "note": "The billion-scale welfare numbers and thousand-scale externality difference illustrate why approximate optimization can destroy VCG payments in large mechanisms.",
+   "first_introduced_sec": 735,
+   "spans": [
+    {
+     "start_sec": 735,
+     "end_sec": 807
+    }
+   ],
+   "total_seconds": 72,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker gives a numerical scale argument with billion-sized welfare terms and million-sized approximation errors overwhelming thousand-sized externalities",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The large approximate-VCG setting is used to show VCG payments can fail when small externalities are computed as differences of huge approximate welfare values."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The large approximate-optimization VCG scenario is used to show payments can be swamped by heuristic error."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the large approximate-optimization scenario is used to show VCG payments can fail under small relative errors"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary large approximate-optimization setting used to show VCG payments are not robust to heuristic error"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "large approximate VCG is used to show payments can be swamped by optimization error"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "large approximate VCG calculation is used to show heuristic errors can swamp the intended externality payments"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Approximate optimization makes VCG externality payments unreliable by subtracting huge noisy optima, giving an obstruction to robust large-scale VCG."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The large approximate-optimization setting is used to show VCG payments can be swamped by approximation error."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The large approximate-optimization setting is used to show VCG payments can fail by subtracting huge noisy welfare estimates."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "large approximate VCG pricing is used as a failure mode where noisy huge welfare terms swamp small externalities"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used as a failure mode showing approximation error can swamp VCG externality payments in large systems."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The large approximate-optimization VCG scenario is presented as a failure mode where tiny welfare errors swamp externality prices."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Posted-price markets, supermarkets, and no-trade bargaining",
+   "note": "Markets with posted prices, contrasted with haggling/no-trade phenomena and oil-price price-taking, illustrate correlated-equilibrium price signals.",
+   "first_introduced_sec": 892,
+   "spans": [
+    {
+     "start_sec": 931,
+     "end_sec": 1070
+    }
+   ],
+   "total_seconds": 139,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker uses posted prices/supermarkets to check truthful best responses and correlated-equilibrium behavior, then contrasts this with haggling and no-trade failure",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 5,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "No-trade bargaining is invoked to show that efficient trade can fail without posted prices."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The one-good bargaining/no-trade case is a minimal market used to show price-free negotiation may fail despite gains from trade."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the one-good bargaining/no-trade case is a minimal market used to show unpriced negotiation can block efficient trade"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary market examples where the no-trade bargaining component shows mutually beneficial trade can fail without posted prices"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary posted-price and bargaining markets are contrasted with no-trade as a failure of negotiation without prices"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary posted-price markets are contrasted with no-trade bargaining as a failure of price-free negotiation"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The bilateral one-item no-trade subcase is a minimal bargaining market used to show price-free negotiation can fail despite gains from trade."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "No-trade bargaining is invoked to show that markets without posted prices can fail to trade despite gains from trade."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Posted prices illustrate correlated equilibrium, while the one-item no-trade bargaining subexample shows unpriced haggling can fail."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the no-trade part is a one-item bargaining obstruction contrasted with ordinary posted prices"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The no-trade bargaining contrast is used to show negotiation without posted prices can fail despite gains from trade."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Posted prices are illustrative, while the no-trade bargaining case is used to show that unpriced negotiation can yield inefficient no trade."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Coin-prediction and monkey stock-market regret",
+   "note": "The coin/monkey prediction story illustrates unavoidable information-theoretic regret in online learning.",
+   "first_introduced_sec": 1262,
+   "spans": [
+    {
+     "start_sec": 1262,
+     "end_sec": 1309
+    }
+   ],
+   "total_seconds": 47,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker reasons through coin prediction and monkey stock-market prediction to explain unavoidable root-T regret against the better hindsight strategy",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 10,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The fair coin or monkey-prediction example is a symmetric random benchmark showing unavoidable regret."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The binary fair-coin/two-expert setup is a symmetric minimal minimax-hard case used to show sqrt(T) regret is unavoidable."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the fair binary prediction/lucky-monkey instance is a symmetric minimal hard case forcing unavoidable sqrt(T) regret"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "unbiased coin and random-monkey prediction are symmetric hard cases used to show unavoidable regret"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "unbiased coin or monkey prediction is a symmetric minimax lower-bound case forcing Θ(√T) regret"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the two-expert fair-random coin/monkey setup is a minimal hard instance forcing the optimal sqrt-T regret barrier"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The fair binary two-expert monkey-prediction instance is a symmetric minimal hard case yielding the unavoidable sqrt(T) regret lower bound."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Fair coin prediction/two monkeys give a symmetric worst-case lower-bound instance forcing root-T regret."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The unbiased two-expert coin/monkey setup is a minimal symmetric hard instance giving the unavoidable sqrt-T regret scale."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "fair coin prediction is a maximally symmetric minimax-hard instance forcing sqrt(T) regret"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Fair coin or monkey prediction is a symmetric hardest-case lower-bound instance for unavoidable regret."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The fair binary prediction/two-monkey instance is a minimal symmetric hard case giving the information-theoretic regret obstruction."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Rocks, silver coins, and gold coins in bandits with knapsacks",
+   "note": "The two possible worlds show why bandits-with-knapsacks cannot have ordinary low regret without knowing a target bang-per-buck parameter, directly motivating that key ingredient.",
+   "first_introduced_sec": 1328,
+   "spans": [
+    {
+     "start_sec": 1328,
+     "end_sec": 1447
+    }
+   ],
+   "total_seconds": 119,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker constructs the two-world rocks/silver/gold knapsack example with costs and rewards and explains why either buying early or waiting causes linear regret",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 9,
+    "extremal": 11,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The rocks-silver-gold instance is a critical half-budget hard case showing a bandits-with-knapsacks information obstacle."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The balanced two-world half-budget bandits-with-knapsacks instance is a minimal symmetric worst-case obstruction to negligible regret."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the two-world rocks-versus-gold construction is a minimal hard bandits-with-knapsacks instance forcing linear regret without the target ratio"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "minimal two-world constant-cost knapsack instance used as an information-theoretic obstruction to low regret"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the silver-versus-rocks-or-gold knapsack instance is a worst-case information obstacle causing linear regret"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the two-world silver-versus-rocks/gold BwK construction is a stripped-down worst-case obstruction to negligible regret"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two-world silver-versus-rock/gold knapsack instance is a minimal hard instance that forces linear regret without the bang-per-buck parameter."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The rocks/silver/gold two-world BwK construction is a minimal critical-budget hard instance forcing linear regret without the right parameter."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The two-world one-resource BwK construction is a stripped-down hard instance forcing linear regret without the target bang-per-buck."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the stripped-down two-world knapsack instance is a worst-case information obstacle forcing linear regret"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The rocks-silver-gold two-world knapsack instance is a critical lower-bound construction forcing regret without the bang-per-buck parameter."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The rocks/silver/gold knapsack construction is a stripped-down lower-bound instance forcing linear regret without the target bang-per-buck parameter."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Gradient descent as regularized local optimization",
+   "note": "A gradient step viewed as maximizing a locally regularized objective illustrates how common iterative heuristics fit the APEX open-box format.",
+   "first_introduced_sec": 1804,
+   "spans": [
+    {
+     "start_sec": 1804,
+     "end_sec": 1899
+    }
+   ],
+   "total_seconds": 95,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker reformulates gradient descent steps as local optimization with a quadratic regularizer and discusses the resulting local VCG-price computation",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Gradient descent with a local regularizer is presented as a standard iterative optimization template."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Gradient descent is an ordinary iterative local-optimization heuristic used constructively to fit the framework."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "gradient descent with a quadratic local regularizer is presented as an ordinary representative local-optimization step"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard gradient descent is recast positively as local regularized optimization"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "gradient descent with a quadratic regularizer is a standard local-optimization template used constructively"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "gradient descent is used as an ordinary positive instance of regularized local optimization"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Gradient descent is used as an ordinary representative iterative heuristic captured by local regularized optimization."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Gradient descent is used as an ordinary positive instance of regularized local optimization."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Gradient descent with a local quadratic regularizer is used as an ordinary positive model of iterative local optimization."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "gradient descent with a quadratic regularizer is a standard iterative optimizer used as a positive modeling example"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Introduced as the ordinary local-quadratic view of iterative optimization rather than as a refuting case."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Gradient descent with a local regularizer is used as an ordinary representative iterated optimization heuristic."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Two-player repeated item auction",
+   "note": "First it illustrates APEX equalizing budgets via fluctuating second prices, and later its pathological unregularized execution shows why a concave regularizer is needed.",
+   "first_introduced_sec": 2137,
+   "spans": [
+    {
+     "start_sec": 2137,
+     "end_sec": 2235
+    },
+    {
+     "start_sec": 2894,
+     "end_sec": 3007
+    }
+   ],
+   "total_seconds": 211,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes the repeated item auction, deriving price fluctuation around 2, half allocations, and later a pathological 2/3–1/3 execution fixed by regularization",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 11,
+    "extremal": 0,
+    "symmetric": 4,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-player repeated item auction is a minimal toy allocation case used to illustrate price equalization."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-bidder one-real-item repeated auction is a minimal toy allocation setting used to illustrate equal-budget convergence."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the two-player repeated single-item auction is the minimal base case illustrating the APEX price dynamics"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "minimal repeated one-item two-player auction used as a toy positive instance of the framework"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the two-player repeated auction is a simple illustrative VCG/APEX instance rather than a refutation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the repeated second-price item auction is a minimal two-agent one-real-item illustration of APEX price equalization"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The two-player one-item repeated auction is a minimal symmetric test case illustrating the APEX dynamics and equal allocation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The two-player repeated auction is presented as the simplest base-case illustration of price equalization."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The repeated second-price item auction is a minimal two-player one-item test case for the framework."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "the two-bidder repeated item auction is the minimal symmetric allocation example illustrating equal-budget behavior"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Serves as the simplest symmetric one-item repeated-auction base case illustrating price equalization."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "The repeated one-item two-player auction is a minimal symmetric test case illustrating equalized externality prices."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Cardinal voting profile where runoff misses the best alternative",
+   "note": "The voting profile with alternatives including a socially best option D illustrates why the framework aims at cardinal aggregation rather than only ordinal voting rules.",
+   "first_introduced_sec": 2280,
+   "spans": [
+    {
+     "start_sec": 2280,
+     "end_sec": 2342
+    }
+   ],
+   "total_seconds": 62,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only states that in the displayed cardinal voting profile simple runoff can elect one of a,b,c although d is best, without working through the profile",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 3,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cardinal voting profile is used to show that simple runoff can miss the welfare-best alternative."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cardinal voting profile is used to show top-two runoff can miss the welfare-best alternative."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the cardinal compromise-candidate profile is used to refute simple top-two runoff welfare selection"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary cardinal preference profile used to show top-two runoff can miss the welfare-best alternative"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the cardinal voting profile is used to show top-two runoff can miss the socially best alternative"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the cardinal voting profile is used to show top-two runoff can eliminate the welfare-best alternative"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The cardinal voting profile is deployed to show that top-two runoff can miss the cardinally best compromise alternative."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cardinal voting profile is used to show that a top-two runoff can miss the utilitarian best alternative."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cardinal voting profile is deployed to show top-two runoff can miss the socially best alternative."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the balanced cardinal voting profile is used to show that top-two runoff can exclude the cardinally best compromise"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "A symmetric center-squeeze cardinal profile is used to refute top-two runoff selecting the cardinally best alternative."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The cardinal voting profile is deployed to show that simple runoff can miss the utilitarian-best alternative."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Four-player four-item Hylland-Zeckhauser equilibrium not supported by VCG prices",
+   "note": "The allocation with prices on items A, B, and C illustrates that some competitive equilibria exploit agents through non-oversubscribed goods and are not VCG-price equilibria.",
+   "first_introduced_sec": 2720,
+   "spans": [
+    {
+     "start_sec": 2720,
+     "end_sec": 2863
+    }
+   ],
+   "total_seconds": 143,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker details the four-player four-item utilities, allocation, prices, why they form a Hylland-Zeckhauser equilibrium, why not VCG-supported, and a VCG-supported alternative",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The four-by-four Hylland-Zeckhauser instance has a dummy unwanted item and is used to refute support by VCG prices."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The sparse four-by-four allocation with a dummy item is used to show some Hylland-Zeckhauser equilibria are not VCG-price-supported."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the four-player four-item HZ instance has a dummy/unwanted item and is used to show some HZ equilibria are not VCG-price-supported"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "assignment instance with dummy and underdemanded items used to show some HZ equilibria are not VCG-price-supported"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the HZ equilibrium has a dummy item nobody values and is used to refute support by VCG prices"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the HZ equilibrium uses a dummy/unwanted item and shows some competitive prices are not VCG-supported"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The four-by-four HZ equilibrium with an unwanted dummy item is constructed to show that some HZ prices are not VCG-supportable."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The four-by-four HZ instance, with a dummy/unwanted item and zero-demand structure, disproves support by VCG prices for all HZ equilibria."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The four-by-four HZ market with duplicate types and a dummy item is used to refute support by VCG prices."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the four-by-four HZ market with duplicate agents and an unwanted dummy item is used to refute support by VCG prices"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Uses an HZ market with a dummy unwanted item and non-VCG prices to refute that all HZ equilibria are VCG-supported."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The four-by-four Hylland-Zeckhauser utility matrix has dummy/single-minded structure and refutes support by VCG prices for all HZ equilibria."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Two hospitals and two doctors with universally agreed rankings",
+   "note": "This example exposes the normative ambiguity of whether positive externality belongs to the participant or to the commons, motivating the open problem in two-sided matching.",
+   "first_introduced_sec": 3058,
+   "spans": [
+    {
+     "start_sec": 3058,
+     "end_sec": 3153
+    }
+   ],
+   "total_seconds": 95,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker reasons through the two-hospital two-doctor agreed-ranking case to compare externality definitions and derive stable versus uniform outcomes",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 6,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The two-hospital two-doctor unanimous-ranking case is a minimal matching instance exposing ambiguity in defining externality."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two-by-two matching profile has minimal size and completely aligned rankings, and is used to expose ambiguity in defining externality."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the 2-by-2 matching market with perfectly agreed rankings is a minimal maximal-consensus case exposing ambiguity in defining externality"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "minimal common-ranking two-sided market used as an obstruction to a canonical externality definition"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the perfectly aligned 2x2 matching profile collapses total welfare and obstructs a unique externality definition"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the two-by-two unanimously ranked matching is a minimal perfectly aligned profile exposing ambiguity in externality definitions"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two-hospital two-doctor universally aligned market is a minimal regular matching instance exposing ambiguity in defining externality."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The minimal 2-by-2 matching with universally aligned rankings is a collapsed boundary case used to expose ambiguity in externality definitions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The minimal perfectly aligned two-doctor two-hospital market exposes an obstruction to defining externality canonically."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the minimal 2x2 matching with unanimous rankings is a maximally regular obstruction showing externality accounting is ambiguous"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The minimal 2-by-2 unanimity matching profile is an extreme-alignment base case exposing ambiguity in defining externality."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The two-hospital two-doctor unanimous-ranking profile is a minimal highly regular instance exposing the ambiguity of two-sided externality."
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "Online server-farm or processor resource allocation",
+   "note": "Changing demand functions in a server farm or processor illustrate how the framework could interleave with online mechanisms whose utilities vary over time.",
+   "first_introduced_sec": 3153,
+   "spans": [
+    {
+     "start_sec": 3153,
+     "end_sec": 3207
+    }
+   ],
+   "total_seconds": 54,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the speaker only cites server farms and processor resource allocation as online settings with changing demand functions",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Online server-farm or processor allocation is offered as a representative changing-demand application."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The server-farm or processor setting is an ordinary online changing-demand resource-allocation application."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "online server-farm or processor allocation is mentioned as a standard changing-demand application of the framework"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard online resource-allocation setting presented as a prospective application"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "online server-farm or processor allocation is a standard dynamic-resource application of the framework"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "online server-farm or processor allocation is a generic application setting with time-varying utilities"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The server-farm or processor allocation setting is used as a typical online resource-allocation application of changing utilities."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Online server-farm or processor allocation is offered as a generic application setting, not as a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Server-farm or processor allocation is presented as a typical online application with changing utilities."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "server-farm or processor allocation is an ordinary online application with changing resource demands"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Offered as an ordinary online resource-allocation application with changing utilities."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The online server-farm or processor allocation setting is an ordinary motivating application of changing utilities."
+    }
+   ]
+  },
+  {
+   "code": "E12",
+   "name": "Robust data aggregation, temperature reports, medians, and data poisoning",
+   "note": "In Q&A, statistical aggregation examples interpret equal externality as a possible one-person-one-vote robustness primitive for learning or data-poisoning settings.",
+   "first_introduced_sec": 3430,
+   "spans": [
+    {
+     "start_sec": 3430,
+     "end_sec": 3754
+    }
+   ],
+   "total_seconds": 324,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "in the questions the speaker works through temperature-report aggregation, extreme reports, least squares versus median behavior, and data-poisoning robustness",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 8,
+    "extremal": 6,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Poisoned or extreme temperature reports are adversarial cases motivating robust median-like aggregation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The scalar temperature-median setting is a one-dimensional base case with an extreme poisoned report used as an adversarial robustness test."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the one-dimensional median/outlier-poisoning scenario is a lower-dimensional robustness test showing naive aggregation can be manipulated"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "one-dimensional median temperature aggregation is a base case used against adversarial outlier or poisoning reports"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "poisoned or outlying temperature reports are adversarial cases motivating robust median-style aggregation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "median aggregation is a high-breakdown scalar robust rule motivated by adversarial poisoning or outlier reports"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The scalar temperature/median aggregation example is a one-dimensional base case used against adversarial outliers and data poisoning."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Outlier reports and data poisoning are used as adversarial cases motivating robust one-person-one-vote aggregation."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The one-dimensional median temperature example is the maximally robust base case motivating adversarial data-poisoning aggregation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the one-dimensional median/outlier setting is a minimal maximally robust benchmark and poisoning is the adversarial case"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Scalar median aggregation is the one-dimensional maximal-robustness base case invoked against poisoning attacks."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The scalar median aggregation example treats reporters symmetrically and has maximal robustness against the adversarial data-poisoning outlier case."
+    }
+   ]
+  }
+ ]
+}

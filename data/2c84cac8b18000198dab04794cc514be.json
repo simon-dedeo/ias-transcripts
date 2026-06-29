@@ -1,0 +1,1632 @@
+{
+ "key": "2c84cac8b18000198dab04794cc514be",
+ "title": "Metric and manifold repair for missing data",
+ "speaker": "Anna Gilbert",
+ "affiliation": "Yale University",
+ "date": "2020-09-11T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3348.0,
+ "abstract": "Does not exist",
+ "youtube_url": "https://www.youtube.com/watch?v=5PNmUVAtkow",
+ "page_url": "https://www.ias.edu/video/MissingDataWS/2020/0911-AnnaGilbert",
+ "tags": [
+  "School of Mathematics",
+  "Virtual Workshop on Missing Data Challenges in Computation Statistics and Applications"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "motivation from corrupted data geometry",
+   "summary": "The talk motivates metric repair by arguing that missing or corrupted data can distort pairwise distances and thereby damage downstream machine-learning and optimization tasks that rely on metric structure.",
+   "spans": [
+    {
+     "start_sec": 82,
+     "end_sec": 436
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "formal sparse metric repair problem",
+   "summary": "A distance matrix is encoded by triangle-inequality linear constraints, metric repair is formulated as finding a perturbation making a corrupted matrix metric, and the desired version is sparse repair minimizing the number of changed distances rather than a dense nearest-metric projection.",
+   "spans": [
+    {
+     "start_sec": 436,
+     "end_sec": 984
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "algorithmic barrier and APSP connection",
+   "summary": "Known conditional lower bounds of Williams and Williams indicate that even checking whether a matrix is metric is unlikely to beat cubic time, while also pointing to a structural connection with all-pairs shortest paths.",
+   "spans": [
+    {
+     "start_sec": 984,
+     "end_sec": 1146
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "decrease-only repair by Floyd-Warshall",
+   "summary": "After separating decrease-only, increase-only, and unrestricted perturbations, the decrease-only problem is solved exactly by running Floyd-Warshall/all-pairs shortest paths, and the resulting perturbation is shown to be sparsest and closest in every \u0000lp norm.",
+   "spans": [
+    {
+     "start_sec": 1146,
+     "end_sec": 1592
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "hardness and graph metric repair",
+   "summary": "The tractability of decrease-only repair is contrasted with the NP-completeness and approximation challenges of allowing positive increases, and the framework is generalized from complete-graph triangle inequalities to weighted graph cycle repair.",
+   "spans": [
+    {
+     "start_sec": 1705,
+     "end_sec": 1736
+    },
+    {
+     "start_sec": 1789,
+     "end_sec": 2331
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "manifold repair for missing-data embeddings",
+   "summary": "Sparse metric repair is inserted into the standard manifold-learning pipeline so that corrupted distance matrices from missing data are repaired before algorithms such as Isomap produce low-dimensional embeddings.",
+   "spans": [
+    {
+     "start_sec": 1736,
+     "end_sec": 1789
+    },
+    {
+     "start_sec": 2331,
+     "end_sec": 2957
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "metric-structure learning before embedding",
+   "summary": "The talk closes by advocating a two-step philosophy: first learn or repair the combinatorial metric/geometric structure of the data, then embed it, with remaining open questions about uniqueness, stability, Euclidean distance matrices, and rank behavior.",
+   "spans": [
+    {
+     "start_sec": 2968,
+     "end_sec": 3059
+    },
+    {
+     "start_sec": 3101,
+     "end_sec": 3334
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "single-cell RNA-seq sparse expression matrices",
+   "note": "Sparse cell-by-gene count matrices, with 90--95% zero entries, are presented as the motivating data source that led the speaker to ask how broken distance geometry affects downstream learning without directly imputing the data.",
+   "first_introduced_sec": 232,
+   "spans": [
+    {
+     "start_sec": 232,
+     "end_sec": 330
+    },
+    {
+     "start_sec": 387,
+     "end_sec": 436
+    }
+   ],
+   "total_seconds": 147,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "she uses single-cell RNA-seq matrices as motivation, describing their sparsity and distorted distances without repairing or computing on a specific dataset",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 6,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 6,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a motivating failure case where sparse expression data make naive cell distances unreliable"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary zero-inflated scRNA data matrices, cited as a setting where naive distance computation fails."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "scRNA-seq sparse expression matrices are standard application data here, used to motivate distorted distances rather than as a refuting gadget."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Standard sparse high-dimensional expression matrices are used as a motivating missing-data application, not as a refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used as a real-data failure mode where sparsity makes naive cell distances geometrically unreliable"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "sparse scRNA-seq matrices are used to show naive cell-distance computations can fail, but are not structurally sporadic or extremal"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "used as a motivating failure case for naive cell-cell distances, with a highly zero/missing matrix carrying reduced observed structure"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "They motivate metric repair as zero-inflated, highly sparse data matrices with much less observed structure than a dense matrix."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The zero-inflated sparse expression matrices have much less observed information than dense data matrices and are used as a motivating application, not to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The scRNA-seq matrices are zero-heavy missing-data arrays used as a motivating application, not as a refutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Used as a motivating sparse data source whose zero-dominated entries give information-poor distances"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "heavily zero sparse matrices are used to show naïvely computed cell distances can fail"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "metric-dependent optimization and learning tasks",
+   "note": "Clustering, TSP, minimum spanning tree, k-medians, and image retrieval illustrate why having true metric distances improves guarantees or practical behavior of downstream algorithms.",
+   "first_introduced_sec": 330,
+   "spans": [
+    {
+     "start_sec": 330,
+     "end_sec": 436
+    }
+   ],
+   "total_seconds": 106,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "she lists metric-dependent tasks such as clustering, TSP, MST, k-medians, and image retrieval as applications without working through any one of them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary metric-based algorithmic tasks are cited to motivate why valid metrics are useful"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "standard optimization and learning tasks are used as applications benefiting from metric structure."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "metric-dependent optimization and learning tasks are a generic class of applications where metrics help."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "These are ordinary metric-based optimization and learning tasks cited to motivate why valid metrics are useful."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "listed as ordinary downstream tasks that benefit from having a valid metric"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "these are ordinary metric-based algorithmic and learning tasks cited as applications where metrics help"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "ordinary metric-based tasks are cited as positive motivations for having a metric, not as failures"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "They are ordinary downstream tasks cited positively as applications that benefit from metric distances."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The optimization and learning tasks are ordinary downstream metric-based problems cited to motivate the need for valid distances."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "These are ordinary downstream tasks whose performance depends on having a metric."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Presented as representative downstream tasks that benefit from metric structure"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary downstream tasks are cited as positive applications of having a metric"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "the 1-2-7 broken triangle",
+   "note": "The triangle with edge lengths 1, 2, and 7 shows that decrease-only repair changes the long edge to 3 whereas increase-only repair changes a short edge to 5, visibly producing the sign-restricted case split and later illustrating lack of consistency between the two repairs.",
+   "first_introduced_sec": 1146,
+   "spans": [
+    {
+     "start_sec": 1146,
+     "end_sec": 1306
+    },
+    {
+     "start_sec": 1889,
+     "end_sec": 1946
+    },
+    {
+     "start_sec": 2225,
+     "end_sec": 2331
+    }
+   ],
+   "total_seconds": 323,
+   "attaches_to": [
+    "s4",
+    "s5"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "she explicitly analyzes the 1-2-7 triangle, decreasing 7 to 3 in one case and increasing 1 to 5 in another",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1-2-7 weighted triangle is used to show decrease-only and increase-only repairs need not agree"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a minimal three-point weighted triangle is used to show decrease-only and increase-only repairs disagree."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1-2-7 broken triangle is used to show increase-only and decrease-only metric repairs need not agree."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The nonmetric 1-2-7 side triple is used to show decrease-only and increase-only repairs can disagree."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1-2-7 triangle is used to show triangle-inequality failure and differing increase/decrease repairs"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1-2-7 triangle is a simple non-metric gadget used to show decrease-only and increase-only repairs need not agree"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1-2-7 triangle is used to show decrease-only and increase-only repairs need not agree"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The 1-2-7 weighted triangle is used to show decrease-only and increase-only repairs need not coincide."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The 1-2-7 triangle is a simple triangle-inequality violation used to show that decrease-only and increase-only repairs need not agree."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The 1-2-7 triangle is used to show that decrease-only and increase-only repairs need not agree."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to show decrease-only and increase-only metric repairs need not agree"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the three-point broken triangle is the minimal nonmetric obstruction showing increase-only and decrease-only repairs differ"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "long-edge and epsilon-edge broken cycles",
+   "note": "Weighted cycles with one very long edge, or with a tiny epsilon edge that must be increased, make concrete the passage from triangle inequalities to graph-cycle inequalities and the difficulty of choosing increase-only repairs.",
+   "first_introduced_sec": 1789,
+   "spans": [
+    {
+     "start_sec": 1789,
+     "end_sec": 1889
+    }
+   ],
+   "total_seconds": 100,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "she draws and reasons through broken graph cycles, including a long edge of 10 and an epsilon edge whose increase repairs the violation",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 10,
+    "extremal": 9,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the broken cycles use very long or epsilon-small edge weights as adversarial witnesses to graph-metric repair difficulty"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "broken-cycle gadgets with a dominating long edge or near-zero epsilon edge expose fragile increase-only repair choices."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the broken-cycle gadgets, especially the near-zero epsilon edge, are limiting adversarial cases showing increase-only repair choices can fail."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The broken cycles, especially the nearly collapsed epsilon edge, serve as adversarial obstructions for graph metric repair."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the cycles use a dominating long edge or arbitrarily small epsilon edge as adversarial broken-cycle cases"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the broken-cycle gadgets include a near-zero epsilon edge and are used as adversarial examples for increase-only repair"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the cycles with a dominating long edge or an epsilon edge illustrate adversarial broken-cycle behavior, with the epsilon/long edges forming limiting extreme weights"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The broken cycles, especially the almost-zero epsilon edge with a dominating violation, serve as limiting enemy cases for naive increase-only repair."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The broken cycles are adversarial metric-obstruction gadgets, with the epsilon-edge case giving a near-collapsed limiting edge."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The broken-cycle gadgets, especially the epsilon-edge case, are limiting/collapsed adversarial cases showing increase-only repair choices can fail."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Used as broken-cycle gadgets illustrating repair difficulty, with the epsilon edge nearly collapsed"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the broken cycles use a dominating long edge and an epsilon edge near the zero-length boundary as adversarial repair cases"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Swiss-roll Isomap repair experiment",
+   "note": "A Swiss-roll dataset with randomly missing coordinates demonstrates that Isomap on corrupted distances collapses the embedding, while repairing the distance matrix before Isomap recovers a much more plausible unrolling.",
+   "first_introduced_sec": 2358,
+   "spans": [
+    {
+     "start_sec": 2358,
+     "end_sec": 2678
+    }
+   ],
+   "total_seconds": 320,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "she describes running an Isomap experiment on a Swiss roll before corruption, after coordinate deletion, and after metric repair, comparing the resulting embeddings",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 6,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the Swiss-roll experiment shows the uncorrected Isomap pipeline can fail under missing-coordinate distance corruption"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the standard Swiss-roll manifold benchmark is used in corrupted form to show unrepaired Isomap can collapse."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the Swiss-roll experiment is a canonical manifold-learning test case used to demonstrate repair performance."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Swiss-roll is a standard manifold-learning benchmark used to demonstrate repair empirically."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the corrupted Swiss-roll experiment shows unrepaired Isomap can collapse or misrepresent the manifold"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the Swiss-roll benchmark is used to exhibit the failure of uncorrected Isomap under corrupted distances before repair"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the Swiss roll is a standard manifold-learning benchmark used to illustrate repair effectiveness rather than a structurally special object"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Swiss-roll experiment is a standard synthetic manifold example used to demonstrate that repair improves Isomap."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Swiss-roll experiment is a standard manifold-learning test case used to demonstrate repair improving Isomap, not as a structural exception."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The corrupted Swiss-roll experiment shows unrepaired Isomap can collapse the data and give the wrong embedding."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used as a standard positive benchmark showing repaired distances improve Isomap output"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the standard Swiss-roll benchmark is used to show un-repaired Isomap can collapse under corrupted distances"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "corrupted MNIST digits",
+   "note": "MNIST images with about 70% missing pixels are used to visually and quantitatively test whether distance repair preserves digit clusters and SVM classification, and to raise the comparison between repairing raw data and repairing inferred geometry.",
+   "first_introduced_sec": 2706,
+   "spans": [
+    {
+     "start_sec": 2706,
+     "end_sec": 2957
+    }
+   ],
+   "total_seconds": 251,
+   "attaches_to": [
+    "s6",
+    "s7"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "she describes corrupting MNIST pixels, correcting distances, embedding with Isomap, and evaluating digit classification with an SVM",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 7,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "corrupted MNIST digits are used as a standard empirical success test for repaired-distance embeddings"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "randomly corrupted MNIST images are used as a robustness demonstration for the repaired-distance pipeline."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the MNIST images are heavily corrupted by missing pixels, making them information-poor versions of ordinary digits, but they are used as a positive test of repair."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Corrupted MNIST images are used as an empirical missing-data test case rather than a structural exception or refutation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the corrupted MNIST digits are used mainly as a positive empirical demonstration that repair preserves clusters and classification"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "the corrupted MNIST digits are used as a standard empirical validation of distance repair rather than to refute a claim"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "the heavily pixel-deleted MNIST digits are used as a positive robustness experiment, while the corrupted images have reduced data structure"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The MNIST digits are positive application examples after heavy pixel deletion, making them structurally sparse or partially collapsed images."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The MNIST digits with most pixels removed are degraded low-information images used as an empirical test of the repair method."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "The MNIST images with most pixels removed are sparse corrupted data used to test the repair method positively."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Used as a corrupted-data experiment with most pixel values removed"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "digits with most pixels removed are a sparse corrupted-data stress test supporting the repair method"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "ordinal-comparison embeddings with jiggling freedom",
+   "note": "An audience question about nonmetric ordinal embeddings illustrates the broader uniqueness and stability issues for repaired metrics and point configurations.",
+   "first_introduced_sec": 3101,
+   "spans": [
+    {
+     "start_sec": 3101,
+     "end_sec": 3246
+    }
+   ],
+   "total_seconds": 145,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "ordinal-comparison embeddings with jiggling freedom are raised as a conceptual comparison in a question, but no construction or calculation is carried out on them",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 3,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinal-comparison embeddings with jiggling freedom are invoked to show uniqueness of an embedding can fail"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinal-comparison embeddings are invoked to show uniqueness of point embeddings can fail via jiggling freedom."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinal-comparison embeddings with jiggling freedom are cited to show uniqueness of a point embedding can fail under comparison-only data."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinal-comparison embeddings with jiggling freedom are invoked to show uniqueness of point embeddings can fail."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinal-comparison embeddings are invoked to show uniqueness of an embedding fails because points can still be jiggled"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinal-comparison embeddings with jiggling freedom are invoked to show uniqueness of an embedding can fail"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "ordinal-comparison embeddings are invoked to show uniqueness can fail, and the comparison-only data are underdetermined relative to full distances"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinal-comparison embeddings are invoked as a standard nonuniqueness case where feasible point sets can be jiggled while preserving inequalities."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "Ordinal-comparison embeddings with jiggling freedom demonstrate failure of uniqueness and are underdetermined relative to exact-distance embeddings."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Ordinal-comparison embeddings with jiggling freedom are invoked to show uniqueness of embeddings can fail."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Used to illustrate non-uniqueness of embeddings from ordinal comparison constraints"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "ordinal-comparison embeddings are underdetermined and are invoked to show uniqueness of embeddings need not hold"
+    }
+   ]
+  }
+ ]
+}

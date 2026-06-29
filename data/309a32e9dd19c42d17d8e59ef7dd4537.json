@@ -1,0 +1,1201 @@
+{
+ "key": "309a32e9dd19c42d17d8e59ef7dd4537",
+ "title": "Strong Average-Case Circuit Lower Bounds from Non-trivial Derandomization",
+ "speaker": "Lijie Chen",
+ "affiliation": "Massachusetts Institute of Technology",
+ "date": "2020-02-24T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4027.0,
+ "abstract": "We prove that, unconditionally, for all constants a, NQP = NTIME[n^polylog(n)] cannot be (1/2 + 2^(-log^a n) )-approximated by 2^(log^a n)-size ACC^0 circuits. Previously, it was even open whether E^NP can be (1/2+1/sqrt(n))-approximated by AC^0[2] circuits.",
+ "youtube_url": "https://www.youtube.com/watch?v=85XS9H_U4q0",
+ "page_url": "https://www.ias.edu/video/csdm/2020/0224-LijieChen",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "ACC lower-bound and PRG bottlenecks",
+   "summary": "The talk motivates the main target by tracing AC0-to-ACC0 circuit lower bounds, explaining why strong average-case lower bounds are needed for PRGs, and stating the new NQP average-case lower bound against polynomial-size ACC0-type circuits.",
+   "spans": [
+    {
+     "start_sec": 15,
+     "end_sec": 970
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "CAP implication and consequences",
+   "summary": "The speaker formulates the circuit acceptance probability problem and states the core implication that a nontrivial CAP algorithm for subexponential-size circuits in a class C yields strong average-case lower bounds for NQP, then derives consequences for ACC0-threshold circuits and white-box versus black-box derandomization.",
+   "spans": [
+    {
+     "start_sec": 970,
+     "end_sec": 1558
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Failure of naive average-case lifting",
+   "summary": "Known worst-case lower-bound proofs are shown not to extend directly because easy-witness lemmas require worst-case containment, while worst-case-to-average-case amplification is too expensive and needs majority decoders that are not available inside ACC0.",
+   "spans": [
+    {
+     "start_sec": 1709,
+     "end_sec": 2121
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "MA derandomization template and nondeterministic PRGs",
+   "summary": "The proof strategy is recast through MA lower bounds: derandomizing MA yields NTIME lower bounds, nondeterministic PRGs suffice for this derandomization, and conditional NPRGs under the assumed false containment are enough for contradiction.",
+   "spans": [
+    {
+     "start_sec": 2121,
+     "end_sec": 2600
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Bootstrapping and infinite-often alignment",
+   "summary": "Williams-style bootstrapping turns nontrivial CAP algorithms into polylog-seed NPRGs, and the infinite-often nature of the resulting generators is handled by replacing almost-everywhere MA hardness with sufficiently dense hard input lengths that intersect the generator’s working intervals.",
+   "spans": [
+    {
+     "start_sec": 2600,
+     "end_sec": 3172
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Average-case collapse obstruction for NC1",
+   "summary": "To run bootstrapping under an average-case assumption, one needs an NC1-to-ACC0-type collapse, but ordinary random self-reduction only handles constant advantage and near-half error correction appears to require majority, recreating the amplification barrier.",
+   "spans": [
+    {
+     "start_sec": 3172,
+     "end_sec": 3576
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Approximate linear sums and final contradiction",
+   "summary": "Approximate linear sums are introduced as a substitute for majority: special NC1 error correctors collapse NC1 to approximate sums of ACC0, these sums preserve nontrivial CAP/derandomization algorithms, and combining this with MA average-case hardness gives the desired NQP strong average-case lower bound and the stated conceptual takeaways.",
+   "spans": [
+    {
+     "start_sec": 3576,
+     "end_sec": 4024
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Parity for AC0",
+   "note": "Parity is recalled as the elementary Boolean function known to be hard for AC0, illustrating the historical strategy of strengthening circuit classes by adding a function they cannot compute.",
+   "first_introduced_sec": 131,
+   "spans": [
+    {
+     "start_sec": 131,
+     "end_sec": 177
+    }
+   ],
+   "total_seconds": 46,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "The speaker defines parity as odd Hamming weight and cites known AC0 lower bounds, but does not compute or prove anything with it.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a highly symmetric Boolean function used as the hard function showing AC0 cannot compute it efficiently."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a fully symmetric, maximally sensitive Boolean function used as the hard witness that AC0 cannot compute it."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a permutation-symmetric Boolean function used as the hard/enemy function showing AC0 lower bounds."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a highly symmetric Boolean function used as the hard function showing AC0 cannot compute everything."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a highly permutation-symmetric mod-2 Boolean function used as the hard/enemy function witnessing AC0 lower bounds."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is a fully symmetric Boolean function with maximal sensitivity, used as the hard function showing AC0 cannot compute it."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is the permutation-symmetric hard Boolean function used to show AC0 cannot compute everything simple."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is used as the hard Boolean function witnessing that AC0 cannot compute it, and it is permutation-symmetric."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is used as the hard/enemy Boolean function proving AC0 lower bounds, and intrinsically is fully symmetric with maximal sensitivity/full degree."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is used as the hard function showing AC0 lower bounds, and as a Boolean function it is permutation-symmetric in the input bits."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is used as the hard function against AC0, and it is permutation-symmetric with maximal sensitivity/real degree."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity is used as the hard function showing AC0 cannot compute it, and it is fully permutation-symmetric with maximal sensitivity/approximate degree."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Mod-3 for AC0 with parity",
+   "note": "The mod-3 function is used to illustrate the next step after parity gates, leading concretely to the difficulty of ACC0 such as AC0[6].",
+   "first_introduced_sec": 205,
+   "spans": [
+    {
+     "start_sec": 205,
+     "end_sec": 309
+    }
+   ],
+   "total_seconds": 104,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Mod-3 is identified as the hard function for AC0 with parity and related to mod-p gates, with no concrete derivation or checking on the example.",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "MOD-3 is a symmetric mod-counting Boolean function deployed as the hard function against AC0 with parity gates."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "MOD-3 is a permutation-invariant modular-counting function deployed as the hard function against AC0 with parity gates."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "MOD-3 is a permutation-symmetric modular-counting function used as the hard function against AC0 with parity gates."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "MOD-3 is a permutation-symmetric counting function deployed as the hard function against AC0 with parity gates."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Mod-3 is a symmetric modular counting function deployed as the hard function showing AC0 with parity still fails to compute everything."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "MOD-3 is a permutation-symmetric modular counting function, used as the hard function against AC0 with parity gates."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "MOD-3 is the permutation-symmetric modular-counting function used as a hard case for AC0 with parity gates."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Mod-3 is used as the hard function against AC0 with parity gates, and it depends only on Hamming weight modulo 3."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Mod-3 is used as the hard function against AC0 with parity gates, and it is a symmetric Hamming-weight-modulo predicate."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Mod-3 is used as the hard function against AC0 with parity gates, and it depends only on the Hamming weight modulo 3."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "MOD-3 is used as the hard function against AC0 with parity, and it depends only on Hamming weight modulo 3."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "MOD-3 is used as the hard function against AC0 with parity, and it is a highly symmetric modular-counting function with extremal high degree/sensitivity behavior."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Majority as a threshold gate",
+   "note": "Majority is presented as the polynomially bounded special case of a threshold gate, making the threshold-circuit applications more concrete.",
+   "first_introduced_sec": 1186,
+   "spans": [
+    {
+     "start_sec": 1186,
+     "end_sec": 1226
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Majority is only described as a special case of a threshold gate, without specifying weights or working through the representation.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the canonical fully symmetric threshold function, here used illustratively as a special case of a threshold gate."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the equal-weight symmetric threshold gate, introduced here as a defining special case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority has equal weights and a central threshold, making it a highly symmetric illustrative special case of a threshold gate."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the equal-weight, permutation-symmetric special case of a threshold gate used illustratively, not adversarially."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the fully symmetric equal-weight threshold gate, used only as an illustrative special case of threshold gates."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is the equal-weight, permutation-symmetric special case of a threshold gate, used only to illustrate the definition."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is presented only as a special threshold gate with equal weights, and it is invariant under all input permutations."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is presented as a special threshold gate with equal weights, making it highly permutation-symmetric rather than adversarial here."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is presented as a standard special case of a threshold gate, not to refute a claim, and it is symmetric under all input permutations."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is presented as a standard special case of a threshold gate, and it is invariant under all permutations of the input bits."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is used illustratively as a threshold gate with equal weights, making it a highly symmetric threshold function."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Majority is presented only as a special threshold gate, and its equal weights make it fully symmetric in the inputs."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Threshold-of-threshold as a depth-three neural network",
+   "note": "The speaker describes threshold-of-threshold circuits as a simple depth-three neural-network model to orient the audience to the frontier lower-bound question.",
+   "first_introduced_sec": 1226,
+   "spans": [
+    {
+     "start_sec": 1226,
+     "end_sec": 1250
+    }
+   ],
+   "total_seconds": 24,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Threshold-of-threshold is described as a two-layer threshold circuit and analogy to a depth-three neural network, but no particular network is analyzed.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A threshold-of-threshold circuit is an ordinary shallow threshold-circuit/neural-network architecture being described as a target class, not as a refuting example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Threshold-of-threshold is a standard two-layer threshold-circuit/depth-three network class serving as a target, not a failure witness."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Threshold-of-threshold is an ordinary shallow layered threshold-circuit/neural-network architecture used as a target class rather than a disproof example."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Threshold-of-threshold is an ordinary restricted circuit/neural-network architecture serving as a target class, not a refuting example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A threshold-of-threshold circuit is a standard shallow threshold-circuit architecture, cited as a model/frontier class rather than as an obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A threshold-of-threshold circuit is a standard shallow threshold-circuit/neural-network architecture, used as a target class rather than to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Threshold-of-threshold is introduced as a standard shallow threshold-circuit/neural-network class rather than as a refuting example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Threshold-of-threshold is introduced as an ordinary shallow threshold-circuit/neural-network architecture, not as a failing case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Threshold-of-threshold is introduced as an ordinary shallow threshold-circuit/neural-network architecture rather than as a failure example."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Threshold-of-threshold is used as a natural circuit/neural-network class under study, not as an obstruction or sporadic object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Threshold-of-threshold is used as a target shallow circuit/neural-network architecture, not as a sporadic or extremal object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Threshold-of-threshold is used as a standard circuit/neural-network architecture rather than as an obstruction or a structurally sporadic object."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Approximate degree as an approximate linear sum",
+   "note": "Approximate degree is given as a familiar special case of approximate linear sums, clarifying the new approximation notion without driving the proof itself.",
+   "first_introduced_sec": 3620,
+   "spans": [
+    {
+     "start_sec": 3620,
+     "end_sec": 3656
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Approximate degree is stated to be an instance of approximate linear sums, but the equivalence is not derived or used concretely as an example.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 8,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Approximate degree is presented as a standard special instance of the approximate-linear-sum framework, not as a structurally exceptional or adversarial object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Approximate degree is the minimum degree of an approximating polynomial, used here as a systematic instance of approximate linear sums."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Approximate degree is a minimum-degree approximation notion used here as a standard instance of approximate linear sums."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Approximate degree is the minimum degree of an approximating polynomial and is used only to illustrate approximate linear sums."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Approximate degree is presented as a representative instance of the approximate-linear-sum framework, not as a structurally special object or counterexample."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Approximate degree is defined by the minimum degree of an approximating polynomial, presented as a special case of approximate linear sums."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Approximate degree is used as an illustrative special case of approximate linear sums, with the degree defined by a minimum over approximating polynomials."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Approximate degree is given as a standard special case of approximate linear sums, with no intrinsic degeneracy or extremality invoked."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Approximate degree is used as a standard instance of the approximate-linear-sum framework, not as a counterexample or structurally sporadic object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Approximate degree is given as an instance of approximate linear sums, and it is intrinsically a minimum-degree approximating representation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Approximate degree is used to illustrate approximate linear sums, and it is defined by a minimum possible approximating degree."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Approximate degree is used illustratively as an instance of approximate linear sums, and it is intrinsically a minimum-degree approximation parameter."
+    }
+   ]
+  }
+ ]
+}

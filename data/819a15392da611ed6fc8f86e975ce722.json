@@ -1,0 +1,1623 @@
+{
+ "key": "819a15392da611ed6fc8f86e975ce722",
+ "title": "Near-Linear Time Approximation Algorithm for Balanced Separator",
+ "speaker": "Sushant Sachdeva",
+ "affiliation": "Institute for Advanced Study",
+ "date": "2012-04-16T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4083.0,
+ "abstract": "The goal of the Balanced Separator problem is to find a balanced cut in a given graph G(V,E), while minimizing the number of edges that cross the cut. It is a fundamental problem with applications in clustering, image segmentation, community detection, and as a primitive for divide-and-conquer on graphs.",
+ "youtube_url": "https://www.youtube.com/watch?v=3jlJGRZKLVc",
+ "page_url": "https://www.ias.edu/video/csdm/sachdeva",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "Princeton University",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Balanced separator target and spectral benchmark",
+   "summary": "The talk motivates near-linear graph algorithms, defines conductance and balanced separator, recalls Cheeger-style spectral approximation and prior flow/spectral algorithms, and states the goal of an m polylog n-time spectral approximation without polynomial dependence on 1/gamma.",
+   "spans": [
+    {
+     "start_sec": 14,
+     "end_sec": 902
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Random-walk-to-cut reduction framework",
+   "summary": "Random-walk mixing is related to graph cuts, a generic simulate-round-modify separator framework is described, heat-kernel walks are defined, and the main reduction to simulating O(log^2 n) continuous-time random walks at time about log n/gamma is stated.",
+   "spans": [
+    {
+     "start_sec": 1028,
+     "end_sec": 1739
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Heat-kernel separator iteration and potential drop",
+   "summary": "The separator algorithm embeds vertices by their heat-kernel distributions, uses an L2 potential measuring distance from stationarity, rounds long vectors to either find a balanced cut or identify unbalanced low-conductance ball cuts, and adds structured star edges so the potential drops by a constant factor over O(log n) rounds.",
+   "spans": [
+    {
+     "start_sec": 1739,
+     "end_sec": 2385
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Simulation objective and polynomial barrier",
+   "summary": "After reducing the graph problem to computing exp(-tau L)v, the talk explains why exact diagonalization and Taylor expansion are too slow, obtains a sqrt(tau)-degree polynomial approximation, and proves via Markov-type lower bounds that polynomial methods cannot remove this tau dependence.",
+   "spans": [
+    {
+     "start_sec": 2385,
+     "end_sec": 2766
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Rational approximation and SDD inverses",
+   "summary": "The Saff-Schonhage-Varga rational approximation expresses the exponential through a logarithmic-degree polynomial in (I+tau L/k)^(-1), so heat-kernel simulation is reduced to a small number of SDD linear-system solves that can be performed in near-linear time.",
+   "spans": [
+    {
+     "start_sec": 2766,
+     "end_sec": 3147
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Krylov/Lanczos implementation of the existential approximation",
+   "summary": "Lanczos is used on B=(I+tau L/k)^(-1) to build a small Krylov subspace, restrict B to a k-by-k matrix T, and compute V f(T) e_1 so that the returned vector is as accurate as the best degree-k polynomial approximation without needing explicit coefficients.",
+   "spans": [
+    {
+     "start_sec": 3147,
+     "end_sec": 3635
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Robust approximate solves and final assembly",
+   "summary": "The analysis is made robust to inexact Spielman-Teng solves and symmetrization errors, the SDD/structured-star updates are handled, and the fast heat-kernel simulator is combined with the separator iteration to yield the near-linear-time spectral balanced-separator algorithm and its open directions.",
+   "spans": [
+    {
+     "start_sec": 3635,
+     "end_sec": 4067
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Web and social graphs as trillion-node inputs",
+   "note": "The web graph and social graph motivate why polynomial-time graph algorithms may be impractical and why near-linear time is the target.",
+   "first_introduced_sec": 38,
+   "spans": [
+    {
+     "start_sec": 38,
+     "end_sec": 66
+    }
+   ],
+   "total_seconds": 28,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "web and social graphs are cited only as motivating trillion-node inputs where superlinear time is impractical",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Web and social graphs are ordinary motivating large-scale inputs, not structural classification exceptions."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Web and social graphs are ordinary large real-world graph inputs used to motivate near-linear time."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Web and social graphs are cited only as large motivating real-world inputs, not as structurally special graphs or refutations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Web and social graphs are ordinary large real-world graph instances used to motivate linear-time scale."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "large real-world graph inputs motivate linear time but are not structurally special graphs"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "large web/social graphs are ordinary real-world graph inputs used only to motivate near-linear time"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "used only to motivate near-linear algorithms by giving ordinary very large real-world graph inputs"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Used only as motivating large real-world graph inputs; their scale is practical motivation, not a mathematical extremal structure."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "trillion-node web/social graphs are used to show merely polynomial or superlinear algorithms fail in practice, but their graph structure is otherwise ordinary"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "web and social graphs are used only as motivating large real-world inputs, not as structurally special graphs"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Used only to motivate near-linear algorithms; web/social graphs are large real-world inputs but not structurally special in these categories."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Massive web and social graphs motivate near-linear time but are ordinary large inputs rather than adversarial cases."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Matching and flow as benchmark graph problems",
+   "note": "Maximum matching and flow are cited as familiar fundamental graph problems against which the linear-time approximation goal for separators is compared.",
+   "first_introduced_sec": 66,
+   "spans": [
+    {
+     "start_sec": 66,
+     "end_sec": 92
+    },
+    {
+     "start_sec": 392,
+     "end_sec": 428
+    }
+   ],
+   "total_seconds": 62,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "matching and flow are named as benchmark graph problems with known running-time facts, but no algorithm is run on a particular instance",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Matching and flow are standard benchmark graph problems used for comparison, not as refuting examples."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Matching and flow are standard graph optimization problems used as benchmarks for the algorithmic landscape."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Matching and flow are ordinary benchmark graph problems in the motivation for near-linear algorithms."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Maximum matching and max-flow are extremal optimization problems mentioned only as standard benchmarks."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "matching and flow are standard benchmark graph problems rather than structurally atypical objects or refutations"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "matching and flow are standard benchmark graph problems, not structurally special examples here"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "cited as standard benchmark graph problems rather than as structurally special objects or refutations"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Matching and flow are cited as standard benchmark graph problems for near-linear algorithms, not as adversarial instances or structurally special objects."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "matching and flow are cited as standard benchmark graph problems rather than as structurally special objects or refutations"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "matching and flow are invoked as standard benchmark graph problems rather than as adversarial examples"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Matching and flow are cited as standard benchmark graph problems, not as adversarial objects or structural exceptions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Matching and flow are standard benchmark graph problems used for comparison, not structurally special examples."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Clustering, image segmentation, and community detection",
+   "note": "These applications illustrate why balanced separator is a useful graph primitive beyond the theorem itself.",
+   "first_introduced_sec": 303,
+   "spans": [
+    {
+     "start_sec": 303,
+     "end_sec": 327
+    }
+   ],
+   "total_seconds": 24,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "clustering, image segmentation, and community detection are listed as applications of balanced separator without any concrete analysis",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "These are typical application domains for balanced separator rather than structurally special mathematical objects."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Clustering, image segmentation, and community detection are typical application domains for separator methods."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Clustering, image segmentation, and community detection are cited as standard application areas for graph partitioning."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Clustering, image segmentation, and community detection are standard application domains for separators."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "these are ordinary application domains for separator methods"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "clustering, image segmentation, and community detection are typical application areas for separators"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "listed as typical application areas for balanced separator methods"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "These are ordinary application domains motivating balanced separator rather than counterexamples or special mathematical structures."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "clustering, image segmentation, and community detection are ordinary application examples motivating balanced separator"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "clustering, image segmentation, and community detection are ordinary application areas motivating balanced separator"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "These are ordinary application domains for balanced separator, used illustratively rather than to refute a claim."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Clustering, image segmentation, and community detection are routine application domains for balanced separator."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Tiny dangling low-conductance cut",
+   "note": "A four-vertex set with one outgoing edge illustrates why a Cheeger cut may have low conductance yet fail to be balanced, motivating recursive or soft removal of small cuts.",
+   "first_introduced_sec": 345,
+   "spans": [
+    {
+     "start_sec": 345,
+     "end_sec": 379
+    }
+   ],
+   "total_seconds": 34,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the four-vertex dangling cut with one outgoing edge is used only to illustrate an unbalanced low-conductance obstruction, with no concrete conductance calculation or worked instance",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A tiny pendant low-conductance side is a collapsed unbalanced cut used to show Cheeger cuts need not solve balanced separator."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "A tiny dangling low-conductance cut is a trivial unbalanced obstruction showing that a Cheeger cut need not solve balanced separator."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The tiny dangling low-conductance cut is a degenerate unbalanced cut used to show a Cheeger/eigenvector cut need not solve balanced separator."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A tiny nearly isolated set is a degenerate low-conductance bottleneck used to show a Cheeger cut need not be balanced."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "a tiny nearly detached low-conductance side is a degenerate bottleneck used to show Cheeger cuts may be unbalanced"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a tiny almost-dangling cut is a trivial unbalanced obstruction to using one low-conductance Cheeger cut as a balanced separator"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the tiny dangling low-conductance set shows a Cheeger cut need not be balanced, and its small dangling form is degenerate"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The tiny dangling low-conductance side is used to show a Cheeger/eigenvector cut need not be balanced, and structurally it is a collapsed small appendage with an extreme sparse boundary."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "a tiny dangling low-conductance set is the enemy case showing a Cheeger cut need not be balanced, and it is a small trivial obstruction"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the tiny dangling low-conductance set is an unbalanced collapsed appendage used as an enemy case for naive Cheeger/eigenvector cutting"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The tiny pendant low-conductance side is an unbalanced boundary case used to show a Cheeger/eigenvector cut need not solve balanced separator."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A tiny bridge-like low-conductance side obstructs direct Cheeger rounding by yielding an unbalanced extreme bottleneck cut."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Hypercube soft conductance decay",
+   "note": "In response to a question, the hypercube is used to illustrate why small-set-expander style parameters may not sharply separate small bad cuts from balanced ones.",
+   "first_introduced_sec": 979,
+   "spans": [
+    {
+     "start_sec": 961,
+     "end_sec": 1019
+    }
+   ],
+   "total_seconds": 58,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 0,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the hypercube is invoked as an example where conductance decays softly, but the decay is not computed or analyzed in detail",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The hypercube is highly regular and vertex-symmetric, and is invoked against a sharp-threshold conductance picture."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The hypercube is a highly symmetric graph used to obstruct the hoped-for sharp small-set conductance threshold."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The highly symmetric hypercube is used as an obstruction to a sharp small-set-expansion threshold because its conductance profile decays softly."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The hypercube is a highly symmetric regular graph invoked to refute a sharp-threshold conductance intuition."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the highly regular hypercube is cited as an enemy case to a sharp conductance-threshold intuition"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the highly regular hypercube is cited as an obstruction to any sharp small-set-conductance threshold assumption"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the hypercube is invoked against a sharp conductance-threshold intuition, and hypercubes are highly regular symmetric graphs"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The hypercube is invoked against a sharp-threshold intuition for conductance profiles, and the hypercube is a highly regular symmetric graph family."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the hypercube is invoked to refute a sharp conductance-threshold intuition, and it is a highly regular symmetric graph"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the hypercube is a highly symmetric graph family used to obstruct a sharp-threshold intuition for small-set conductance"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The highly regular hypercube is invoked as an obstruction to any sharp small-set-expansion threshold because its conductance profile decays softly."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The highly symmetric hypercube is used to refute a sharp-threshold picture of conductance versus set size."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Quantum global search and Markov's theorem",
+   "note": "Optimality of quantum global search is mentioned as an analogy for how Markov's theorem can prove lower bounds on polynomial approximation degree.",
+   "first_introduced_sec": 2728,
+   "spans": [
+    {
+     "start_sec": 2728,
+     "end_sec": 2766
+    }
+   ],
+   "total_seconds": 38,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "quantum global search is cited only as an analogy for Markov's theorem, with no quantum-search argument carried out",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 8,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Unstructured quantum search is a permutation-symmetric tight lower-bound case invoked as a Markov-theorem obstruction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Unstructured quantum search is a symmetric tight query-complexity benchmark cited via Markov's theorem to rule out better polynomial dependence."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Permutation-symmetric quantum global search is cited via Markov's theorem as the same lower-bound obstruction to beating the square-root polynomial degree."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Unstructured quantum search is a symmetric tight lower-bound example invoked via Markov's theorem as an obstruction to better polynomial approximation."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "unstructured quantum search is permutation-symmetric and invoked via Markov's theorem as a lower-bound obstruction to better polynomial approximation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "permutation-symmetric quantum search is invoked as a lower-bound analogue showing better polynomial-degree dependence cannot hold"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Markov's theorem and the quantum search analogy are used as a lower-bound obstruction to better polynomial approximation, with unstructured search having full permutation symmetry"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Markov’s theorem and quantum search optimality are cited as a lower-bound obstruction to better polynomial approximation, with the search example representing a tight optimality phenomenon."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "quantum unstructured search is cited as a Markov-theorem lower-bound obstruction, with a tight optimal search bound"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "quantum global search is cited as the tight Markov-theorem lower-bound paradigm showing polynomial methods cannot beat the square-root dependence"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Unstructured quantum search is a permutation-symmetric tight lower-bound benchmark for Markov-type polynomial arguments, cited as an analogy rather than a counterexample here."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Markov’s inequality and quantum search optimality are invoked as an extremal lower-bound analogy ruling out better polynomial dependence."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Naive rational approximation to the exponential",
+   "note": "The approximation (1+x/k)^(-k) to exp(-x) is contrasted with the Saff-Schonhage-Varga rational approximation to emphasize the latter's geometric convergence.",
+   "first_introduced_sec": 2799,
+   "spans": [
+    {
+     "start_sec": 2799,
+     "end_sec": 2842
+    },
+    {
+     "start_sec": 2923,
+     "end_sec": 2972
+    }
+   ],
+   "total_seconds": 92,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the naive rational approximation to the exponential is named and its poor convergence is stated, but no error derivation or computation is performed",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 5,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The Euler-type rational approximation has its poles collapsed to a repeated simple form and is used to show the naive approach converges poorly."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The standard rational limit approximation to the exponential is used as a negative comparison because its convergence is only poor polynomial rate."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The collapsed Euler-type rational approximant to the exponential is used as the tempting naive method that fails, giving only 1/k convergence."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The elementary rational approximant is an ordinary systematic family member used as a failed slow-converging candidate."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the Euler rational approximation with a collapsed repeated-pole form is used as a poor-convergence foil to the desired geometric rational approximation"
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the standard limit rational approximation to exp is used as a foil because its convergence is too poor for the desired algorithm"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the usual rational limit formula for the exponential is presented as a failed naive approximation with only poor convergence"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The standard rational limit approximation is used to show the naive approach has poor convergence, and it is a collapsed repeated-pole subfamily of general rational approximants."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the naive formula \u001b[1/(1+x/k)]^k is used to show a simple rational approximation has poor convergence, while the approximant itself is structurally ordinary"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "the naive Euler rational approximant has collapsed repeated-pole structure and is used to show the simple construction has only poor 1/k convergence"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The standard formula-based rational approximation is used as a foil showing that the naive approach has only poor convergence."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The elementary rational approximation is a foil showing that the naive exponential limit has only poor convergence."
+    }
+   ]
+  }
+ ]
+}

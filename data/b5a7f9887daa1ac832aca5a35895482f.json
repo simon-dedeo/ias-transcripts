@@ -1,0 +1,1245 @@
+{
+ "key": "b5a7f9887daa1ac832aca5a35895482f",
+ "title": "An Improved Line-Point Low-Degree Test",
+ "speaker": "Prahladh Harsha",
+ "affiliation": "Tata Institute of Fundamental Research",
+ "date": "2024-09-23T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3539.0,
+ "abstract": "In this talk, I'll show that the most natural low-degree test for polynomials over finite fields is ``robust'' in the high-error regime for linear-sized fields. This settles a long-standing open question in the area of low-degree testing, yielding an O(d)-query robust test in the ``high-error'' regime. The previous results in this space either worked only in the \"low-error\" regime (Polishchuk & Spielman, STOC 1994), or required q=Ω(d4)",
+ "youtube_url": "https://youtu.be/4czXOFBsysY",
+ "page_url": "https://www.ias.edu/video/improved-line-point-low-degree-test",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Low-degree testing problem setup",
+   "summary": "The talk fixes a finite field F_q, degree d<q, and ambient dimension m, and formulates the sublinear-query problem of deciding whether a table f:F_q^m→F_q is the evaluation of a total-degree-d polynomial or is far from every such polynomial.",
+   "spans": [
+    {
+     "start_sec": 16,
+     "end_sec": 142
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Classical line-point test and low-error stability",
+   "summary": "The classical Rubinfeld-Sudan line-point test is introduced, its completeness is immediate, and prior low-error soundness/stability results are reviewed, including their role in PCP constructions and the improvement to q linear in d.",
+   "spans": [
+    {
+     "start_sec": 142,
+     "end_sec": 695
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "High-error regime and previous work",
+   "summary": "The speaker shifts to the regime where the line test accepts with small but non-random probability, reviews the Arora-Sudan line-test theorem with q polynomially large in d and the Raz-Safra plane-test theorem with q linear in d, and surveys later derandomized, small-field, and higher-dimensional variants.",
+   "spans": [
+    {
+     "start_sec": 695,
+     "end_sec": 1254
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Main line-point theorem and methodological gap",
+   "summary": "The main result is stated as the missing common strengthening: the high-error soundness theorem for the original line-point test with q=Ω(d), requiring a return to polynomial-method arguments because combinatorial plane-intersection methods do not apply to intersecting lines.",
+   "spans": [
+    {
+     "start_sec": 1254,
+     "end_sec": 1577
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Polishchuk-Spielman divisibility lemma",
+   "summary": "As the algebraic backbone of the earlier low-error analysis, the Polishchuk-Spielman lemma is recast as a local-to-global divisibility statement for a trivariate polynomial linear in z whose restrictions to many rows and columns have roots of the form z-c(t).",
+   "spans": [
+    {
+     "start_sec": 1577,
+     "end_sec": 2106
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "High-degree Polishchuk-Spielman generalization",
+   "summary": "The speaker formulates a new higher-z-degree analogue: if a polynomial A(x,y,z) has such roots on sufficiently many lines through sufficiently many centers and directions, then it has a global factor/root z-Q(x,y), and explains how this algebraic statement supplies the hidden low-degree polynomial in the line-test analysis.",
+   "spans": [
+    {
+     "start_sec": 2106,
+     "end_sec": 2761
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Proof via good centers, Hensel lifting, and Schwartz-Zippel",
+   "summary": "The proof sketch selects a center where A(α,β,z) has no repeated roots using a discriminant argument, moves it to the origin, uniquely lifts the chosen root by univariate and bivariate Newton/Hensel iteration, and upgrades the resulting modular identity to an exact identity using its agreement on many lines and a Schwartz-Zippel argument.",
+   "spans": [
+    {
+     "start_sec": 2778,
+     "end_sec": 3441
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Conclusion and relation to PCP applications",
+   "summary": "The talk concludes that the high-degree generalization yields the desired line-point soundness theorem and unifies the earlier low-error line-test and high-error plane-test results, while noting that no new PCP application is presently claimed because derandomized plane-test analyses already exist.",
+   "spans": [
+    {
+     "start_sec": 3441,
+     "end_sec": 3513
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "GF(2) small-field modification",
+   "note": "In response to a question, the speaker explains that over GF(2) a line contains too few points to test degree d, so one instead reads a d+1-dimensional subspace; this illustrates why the talk restricts to large fields.",
+   "first_introduced_sec": 542,
+   "spans": [
+    {
+     "start_sec": 542,
+     "end_sec": 594
+    }
+   ],
+   "total_seconds": 52,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he explains why ordinary line tests give no information over GF(2) and describes the concrete modified test using a d+1 dimensional subspace",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "GF(2) is the smallest finite-field case where line restrictions have too few points, obstructing the unmodified line-point test."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "GF(2) is the minimal finite field where a line has too few points, and it is used to show the usual line test needs modification."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "GF(2) is the minimal finite field and is used as the small-field obstruction where line queries are uninformative, forcing a modified test."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "GF(2) is the smallest finite-field boundary case, where lines have too few points and the usual line test collapses, forcing a modified subspace test."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "GF(2) is the minimal field where line restrictions collapse to two points, used to show the ordinary line test must be modified."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "GF(2) is the smallest finite-field case where a line has too few points, so it is a boundary/degenerate obstruction forcing the low-degree test to be modified."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Over GF(2) a line has only two points, so the usual line test is vacuous and must be replaced by the minimal small-field subspace test."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "GF(2) is the smallest finite field, where lines have too few points for the usual line test to be informative, forcing a modified subspace test."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "GF(2) is the smallest finite field, and its two-point lines are used to show the ordinary line test gives no information without modification."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "GF(2) is the minimal finite field, where lines have only two points and the usual line test loses degree information, forcing a subspace-test modification."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "GF(2) is the minimal finite-field case where line restrictions carry too little information, forcing a different subspace test."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "GF(2) is the smallest finite field, where line queries have too few points and force a modified subspace test."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Function high-degree in one axis",
+   "note": "A function that is low-degree in all but one coordinate direction would pass most axis-parallel line checks, illustrating why axis-parallel tests do not control total degree in high dimension.",
+   "first_introduced_sec": 622,
+   "spans": [
+    {
+     "start_sec": 622,
+     "end_sec": 665
+    }
+   ],
+   "total_seconds": 43,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he reasons through a function low-degree in all but one coordinate direction and estimates that an axis-parallel test passes with probability about 1-1/m",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 8,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A function low-degree in all but one coordinate is an ordinary adversarial input showing axis-parallel tests miss a total-degree violation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A function that is high-degree in only one coordinate is an ordinary anisotropic bad case used to show axis-parallel tests can miss total degree."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A function low-degree in all but one coordinate is an ordinary anisotropic construction used to show axis-parallel tests can miss high total degree."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A function with high degree hidden in one coordinate is used as an adversarial case showing axis-parallel tests can miss total degree."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The function has the minimal one-bad-axis defect maximizing acceptance by an axis-parallel test, so it is used as an enemy case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A function that is high-degree in exactly one axis is a minimal adversarial case passing most axis-parallel checks while defeating total-degree soundness."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A function high-degree in exactly one axis is a one-bad-direction boundary case that makes the axis-parallel test accept with probability about 1-1/m."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A function with only one high-degree axis is a worst-case obstruction to axis-parallel testing, passing all but a 1/m fraction of directions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A function bad in only one coordinate direction is a minimal obstruction that passes the axis-parallel test with maximal probability about 1-1/m."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A function with high degree in exactly one coordinate direction is an adversarial boundary case for axis-parallel tests, passing all but about a 1/m fraction of directions."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A function with exactly one high-degree axis is the minimal bad direction case that makes the axis-parallel test accept with high probability despite failure of total low degree."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A function bad in only one axis is a minimally bad adversarial case showing axis-parallel tests can miss total-degree failure."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Single-direction divisibility counterexample",
+   "note": "The polynomial xz-cy has a univariate root after fixing most x-values but no global bivariate root z-q(x,y), showing why the Polishchuk-Spielman local-to-global lemma needs more than one direction.",
+   "first_introduced_sec": 1957,
+   "spans": [
+    {
+     "start_sec": 1930,
+     "end_sec": 1994
+    }
+   ],
+   "total_seconds": 64,
+   "attaches_to": [
+    "s5"
+   ],
+   "primary_stage": "s5",
+   "depth": 4,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he gives the one-direction divisibility counterexample xz-cy and checks that restrictions in one direction have a root while no global bivariate root exists",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 5,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The polynomial such as xz-cy is used to show one direction of divisibility checks can have local roots without a global polynomial root."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The one-direction divisibility example is a simple polynomial witness that checking only one family of restrictions does not force global divisibility."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The polynomial such as xz-cy is a typical low-degree obstruction showing one direction of divisibility does not imply a global bivariate root."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The polynomial such as xz-cy shows that checking divisibility along only one family of lines does not force a global polynomial root."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The ordinary linear polynomial such as xz-cy has local one-direction divisibility but no global polynomial root, refuting a one-direction criterion."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The polynomial such as xz-cy is used to show that one family of restrictions can have local divisibility without any global polynomial root."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The polynomial like xz-cy has local roots after fixing one coordinate but no global polynomial root z-q(x,y), showing one direction is insufficient."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The polynomial such as xz-cy is a minimal linear-in-z example showing that checking only one direction does not force global divisibility."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The ordinary polynomial xz-cy is used to show that checking divisibility in only one direction does not force a global polynomial root."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The polynomial xz-cy has local polynomial roots on almost every specialization in one direction but no global polynomial root, showing one direction is not enough."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The polynomial like xz-cy is a minimal one-direction obstruction to inferring global divisibility from local restrictions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The linear polynomial xz-cy is a minimal one-direction obstruction with local divisibility but no global polynomial root."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Quadratic two-direction counterexample",
+   "note": "The product (xz-cy)(yz-rx) has appropriate roots on the two coordinate-direction families but no global root z-q(x,y), motivating the need for more direction families when the z-degree is larger than one.",
+   "first_introduced_sec": 2162,
+   "spans": [
+    {
+     "start_sec": 2162,
+     "end_sec": 2247
+    }
+   ],
+   "total_seconds": 85,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he constructs the quadratic-in-z example (xz-cy)(yz-rx) and verifies it fools two directions but has no global root z-q(x,y)",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 2,
+    "extremal": 8,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The quadratic product such as (xz-cy)(yz-rx) is used to refute the claim that two directions suffice in the higher-z-degree setting."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "countercase"
+     ],
+     "reason": "The quadratic example is a reducible product of linear factors and is explicitly used to refute the two-direction high-degree generalization."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The quadratic product (xz-cy)(yz-rx) is a split/reducible minimal z-degree-two obstruction showing two directions are insufficient."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The quadratic product example shows that two directions do not suffice for the higher-z-degree divisibility statement."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The quadratic product has roots on two line families but no global root z-q(x,y), refuting the two-direction high-degree generalization."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The quadratic product example has local roots in two directions but no global root, forming the critical z-degree-2 obstruction to a two-direction lemma."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The quadratic product like (xz-cy)(yz-rx) gives roots along two coordinate directions but no global root, the critical two-direction obstruction for z-degree two."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The quadratic product obstruction shows two directions are still insufficient for z-degree two, a critical boundary case for the proposed generalization."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The quadratic product (xz-cy)(yz-rx) is the boundary obstruction showing two directions need not suffice for z-degree two."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The quadratic-in-z product (xz-cy)(yz-rx) has roots along two direction families but no global polynomial root, giving the tight dz=2 obstruction to a two-direction lemma."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The quadratic product construction is the boundary z-degree-two obstruction showing two directions do not suffice for the proposed generalization."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The quadratic product (xz-cy)(yz-rx) is a minimal two-direction obstruction to the proposed higher-degree divisibility lemma."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Hilbert irreducibility analogy",
+   "note": "The speaker compares the desired specialization-to-global factorization statement with Hilbert irreducibility, while emphasizing that the proof needs much tighter finite-field parameter control.",
+   "first_introduced_sec": 2544,
+   "spans": [
+    {
+     "start_sec": 2544,
+     "end_sec": 2605
+    }
+   ],
+   "total_seconds": 61,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Hilbert irreducibility is invoked only as an analogy to factorization under restriction, without carrying out an argument on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 2
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Hilbert irreducibility is invoked only as a general analogy about specialization and factorization, not as an adversarial example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Hilbert irreducibility is invoked only as an analogy for specialization/factorization behavior, not as a counterexample or special object."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript invokes Hilbert irreducibility only as an analogy, not as a definite mathematical example object to classify."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Hilbert irreducibility is invoked only as an analogy for specialization preserving factorization, not as a failing case or special object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Hilbert irreducibility is invoked only as an analogy for specialization and factorization, not as a special object or refutation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Hilbert irreducibility is invoked only as an analogy for preservation under specialization, not as a structurally special object or a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "This is only an analogy to Hilbert irreducibility rather than a definite mathematical object being deployed."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Hilbert irreducibility is invoked only as an analogy for specialization/factorization behavior, not as a failing case or structurally special object here."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Hilbert irreducibility is invoked only as an analogy for specialization preserving factorization, not as a refuting object."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Hilbert irreducibility is invoked only as an analogy for factorization under specialization, not as an adversarial example or structurally special object."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Hilbert irreducibility is invoked only as an analogy for specialization and factorization, not as an adversarial or structurally special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Hilbert irreducibility is invoked only as a standard specialization analogy rather than as an opposing case."
+    }
+   ]
+  }
+ ]
+}

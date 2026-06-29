@@ -1,0 +1,1944 @@
+{
+ "key": "944da9c6dfde599147a2deed44c70922",
+ "title": "Compressing Bounded-Round Communication",
+ "speaker": "Mark Braverman",
+ "affiliation": "Microsoft Research New England",
+ "date": "2010-04-06T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3316.0,
+ "abstract": "In this talk we will present a near-optimal compression scheme for bounded-round randomized 2-party communication protocols. Previously, such a scheme was only known for protocols where the inputs to the parties are independent. The results yield a new optimal direct sum theorem for bounded-round communication. They also reveal a tight connection between the Information Cost of a problem and its amortized Communication Complexity. Joint work with Anup Rao.",
+ "youtube_url": "https://www.youtube.com/watch?v=Af3i6npUMCY",
+ "page_url": "https://www.ias.edu/video/csdm/compressingboundedround",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Communication and information-cost framework",
+   "summary": "The talk sets up two-party deterministic, randomized, public-coin, and distributional communication models, then identifies internal information cost—what the players learn—as the compression target.",
+   "spans": [
+    {
+     "start_sec": 45,
+     "end_sec": 423
+    },
+    {
+     "start_sec": 454,
+     "end_sec": 846
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "KL divergence and one-round reduction",
+   "summary": "Mutual information is expressed as expected KL divergence, and simulating a one-round message is reduced to a correlated sampling problem between Alice's distribution P_x and Bob's prior P_y.",
+   "spans": [
+    {
+     "start_sec": 863,
+     "end_sec": 1288
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Known-prior product-distribution baseline",
+   "summary": "When the listener's prior P_y is also known to the speaker, public randomness and rejection sampling give a known one-round simulation with communication governed by D(P_x||P_y).",
+   "spans": [
+    {
+     "start_sec": 1288,
+     "end_sec": 1557
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Unknown-prior interactive correlated sampling",
+   "summary": "For the non-product case where Alice does not know Bob's prior, the speaker presents an interactive protocol using universal public samples, scaled histograms, and hash tests to sample with error epsilon using essentially KL divergence plus log(1/epsilon) communication.",
+   "spans": [
+    {
+     "start_sec": 1557,
+     "end_sec": 2304
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Round, overhead, and error refinements",
+   "summary": "The discussion refines the sampling protocol's round complexity and overhead, noting tradeoffs between preserving the leading divergence constant, reducing rounds, and the open issue of zero-error simulation.",
+   "spans": [
+    {
+     "start_sec": 2304,
+     "end_sec": 2456
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Bounded-round protocol compression theorem",
+   "summary": "Iterating the sampling lemma over protocol rounds compresses a k-round protocol of information I_k to communication about I_k plus per-round logarithmic overhead, and the result is compared with previous compression bounds.",
+   "spans": [
+    {
+     "start_sec": 2456,
+     "end_sec": 2682
+    }
+   ],
+   "depends_on": [
+    "s4",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Direct-sum and amortized communication consequences",
+   "summary": "Using the direct-sum behavior of information complexity, the compression theorem yields bounded-round direct-sum consequences and shows that information complexity equals amortized communication in the many-copy limit.",
+   "spans": [
+    {
+     "start_sec": 2682,
+     "end_sec": 3061
+    }
+   ],
+   "depends_on": [
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Complete simulation problem and perfect-compression question",
+   "summary": "The talk formulates a protocol-simulation promise problem as complete for direct-sum compression and closes with the main open problem of whether information equals communication, i.e. whether perfect protocol compression is possible.",
+   "spans": [
+    {
+     "start_sec": 3061,
+     "end_sec": 3296
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Uniform random variable entropy",
+   "note": "The speaker uses a uniform point in a finite set to make the entropy formula concrete as log of the set size.",
+   "first_introduced_sec": 454,
+   "spans": [
+    {
+     "start_sec": 454,
+     "end_sec": 506
+    }
+   ],
+   "total_seconds": 52,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He gives the uniform random variable as the canonical entropy example and states that its entropy is log |S| without deriving it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "a uniform distribution on a finite set is permutation-invariant and maximizes entropy, and is used only to illustrate entropy"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A uniform law on a finite set is fully permutation-symmetric and maximizes entropy, used only to illustrate the entropy formula."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the uniform law is maximally permutation-regular and maximizes entropy on a fixed finite support"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A finite uniform distribution is maximally regular and maximizes entropy on its support, used only to illustrate H(X)=log|S|."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A uniform finite random variable is permutation-invariant and attains maximum entropy, and it is used as a canonical calculation."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "a uniform law is maximally regular and has maximal entropy on a fixed finite support"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "a uniform variable on a fixed finite set is the maximally entropic and maximally regular distribution used only to illustrate entropy"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A uniform law on a finite set is permutation-invariant and entropy-maximizing, used only as the canonical entropy example."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A uniform law on a finite set is permutation-symmetric and entropy-maximizing, used only as the canonical entropy computation."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The uniform distribution is permutation-invariant and maximizes entropy on a fixed finite support, and is used only as the canonical entropy computation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A finite uniform law is permutation-symmetric and maximizes entropy on its support, and is used only to illustrate entropy."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "A uniform finite random variable is maximally symmetric and entropy-maximizing, and is used only as the canonical entropy computation."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Equal inputs in observer versus player information",
+   "note": "The case where x is always equal to y illustrates why an outside observer may learn information from the transcript while the players learn nothing new about each other.",
+   "first_introduced_sec": 635,
+   "spans": [
+    {
+     "start_sec": 635,
+     "end_sec": 695
+    }
+   ],
+   "total_seconds": 60,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He uses the case x=y to reason through the observer/player information definitions, concluding players learn zero extra information while an observer may learn something.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 1,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the diagonal coupling X=Y is a collapsed maximally correlated case used to show observer and player information need not coincide"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The diagonal case X=Y is a collapsed perfect-dependence boundary case used to show observer and player information need not coincide."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the diagonal coupling X=Y is a collapsed maximally correlated boundary case witnessing strict separation between observer and player information"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The law X=Y is a collapsed perfect-correlation extreme, used to show observer and player information need not coincide."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The diagonal distribution X=Y collapses two inputs to one and is maximally correlated, and it shows observer and player information need not coincide."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the diagonal law X=Y is a collapsed perfect-correlation extreme used to show observer information can exceed player information"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "the perfectly correlated case X=Y collapses the joint input to the diagonal and shows observer and player information need not coincide"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The perfectly correlated case X=Y collapses the joint distribution to the diagonal and shows observer information need not equal player information."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The diagonal case X=Y is a collapsed, swap-symmetric perfect-correlation extreme used to show observer and player information need not coincide."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The diagonal coupling X=Y is a collapsed maximally correlated case used to show observer information can exceed player information."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The diagonal case X=Y collapses two inputs to one extreme-dependence case and is used to show observer and player information need not coincide."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The diagonal case X=Y collapses conditional uncertainty and shows observer information need not equal player information."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Uniform subset divergence",
+   "note": "Taking p uniform on a subset P of Q and q uniform on Q illustrates KL divergence as the logarithm of a size ratio.",
+   "first_introduced_sec": 883,
+   "spans": [
+    {
+     "start_sec": 883,
+     "end_sec": 932
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "He states that for p uniform on a subset of Q and q uniform on Q the divergence is the log size ratio, with only brief interpretation.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 2,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "nested uniform distributions are a flat regular KL-divergence computation, not a disproof"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Nested uniform distributions are structurally regular and are used only to compute KL divergence as a log ratio."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "nested uniform distributions are a maximally regular toy pair used only to compute KL divergence"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Uniform measures on nested sets are flat permutation-symmetric distributions, used just to compute the divergence as a log ratio."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The nested uniform distributions are structurally regular, and the example only illustrates the KL-divergence formula."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "nested uniform laws are maximally regular and attain the max-entropy/min-KL value for their fixed supports"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "nested uniform distributions are a highly regular max-entropy-on-support case used to compute KL divergence, not to refute a claim"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Uniform distributions on nested sets give a regular symmetric calculation of KL divergence, not a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Uniform measures on nested sets form a highly regular subset case used simply to illustrate KL divergence."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Uniform measures on nested sets form a highly regular illustrative KL-divergence case, not a refutation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The nested uniform distributions are flat and permutation-regular, used only to compute the divergence as a log-size ratio."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Uniform laws on nested sets are a regular illustrative divergence calculation, not an obstruction."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Equal priors require no communication",
+   "note": "When P_x and P_y are the same uniform distribution on Q, the players can use shared randomness to sample jointly without any communication, showing the usefulness of public randomness.",
+   "first_introduced_sec": 1288,
+   "spans": [
+    {
+     "start_sec": 1288,
+     "end_sec": 1329
+    }
+   ],
+   "total_seconds": 41,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He runs the zero-communication sampling construction for equal priors by having both parties use public randomness to output the first shared sample from Q.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "identical uniform priors give the minimal-divergence trivial sampling case with zero communication"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Identical uniform priors form a zero-divergence collapsed pair with full uniform symmetry, used as a positive no-communication case."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "identical uniform priors give the zero-divergence minimal case where shared randomness needs no communication"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Identical uniform priors give the zero-divergence minimal/base case with maximal regularity, illustrating zero communication."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Identical uniform priors are a zero-divergence boundary case with the two distributions collapsed together, used to illustrate zero communication."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "identical uniform priors are a zero-divergence, zero-communication boundary case with maximal regularity"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "identical uniform priors give the zero-divergence minimum case where shared randomness alone suffices"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Identical uniform priors give the minimum possible divergence and the trivial zero-communication case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Identical uniform priors are the zero-divergence/no-communication limiting case, used as a positive warm-up."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Identical uniform priors give the minimal divergence-zero case where the sampling task collapses to shared-randomness sampling with no communication."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Identical uniform priors form the zero-divergence, zero-communication endpoint of the sampling problem."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Identical uniform priors make the sampling task trivial with minimum divergence zero and no communication."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Known-prior subset rejection sampling",
+   "note": "With P_x uniform on P and P_y uniform on Q with known ratio, the first public-random element landing in P and its index reveal the rejection-sampling idea behind known-prior compression.",
+   "first_introduced_sec": 1396,
+   "spans": [
+    {
+     "start_sec": 1396,
+     "end_sec": 1485
+    }
+   ],
+   "total_seconds": 89,
+   "attaches_to": [
+    "s3"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He concretely describes rejection sampling when Q is known: sample public elements from Q, have x find the first one in P, send its index, and analyze the expected index length.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the known-prior half-subset sampling case is a regular uniform model illustrating rejection sampling"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The known-prior P subset Q uniform sampling setup is a regular nested-support family used as a positive rejection-sampling example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the known-prior subset model uses regular uniform nested supports as a constructive sampling illustration"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The known-prior P⊂Q rejection-sampling case uses regular uniform nested sets constructively, not to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The known-prior subset case uses regular uniform nested supports to illustrate rejection sampling, not to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the known-prior subset sampler uses nested uniform distributions, a regular max-entropy/min-KL support case, as a positive construction"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the known-prior subset rejection-sampling setup is a regular warm-up special case for the protocol, not a failure example"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The known-prior subset sampler is a regular uniform nested-support construction used constructively."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The known-prior nested-uniform sampling task is a regular rejection-sampling special case used constructively."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The known-prior subset example is a regular uniform nested-set sampling instance illustrating rejection sampling."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The known-prior P⊂Q uniform case is a regular flat rejection-sampling instance illustrating a positive protocol."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The known-prior subset case uses regular uniform distributions to illustrate rejection sampling."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Unknown-prior subset hashing toy model",
+   "note": "When Alice does not know Q, the toy model forces the shift to sampling from the whole universe and using hash tests to let Bob identify Alice's candidate.",
+   "first_introduced_sec": 1557,
+   "spans": [
+    {
+     "start_sec": 1557,
+     "end_sec": 1867
+    }
+   ],
+   "total_seconds": 310,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "He works through the unknown-prior toy model with universe samples, Alice’s first P-element, Bob’s candidate Q-elements, and hashes eliminating false candidates.",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 11,
+    "exceptional": 0,
+    "countercase": 11,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the same regular uniform subset setup with Q hidden from Alice is used as an obstruction to the known-prior rejection-sampling construction"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The unknown-prior uniform subset setup is regular, but is introduced as an obstruction to the known-prior common-ground rejection method."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the unknown-Q subset model remains a regular uniform toy instance but obstructs the previous common-prior rejection-sampling construction"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The unknown-prior uniform subset toy model is used as an obstruction to the common-prior rejection-sampling construction, motivating hashing."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The unknown-prior subset model is still a regular uniform-support sampling family and is used to motivate the hashing protocol."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the same regular nested-uniform low-divergence setup is used as an obstruction to the known-prior rejection-sampling construction when Q is unknown"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the unknown-prior subset case is presented as the obstruction to the earlier common-prior rejection-sampling construction"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The unknown-prior subset case is used as an obstruction to the known-prior rejection-sampling start and motivates hashing."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The unknown-prior nested-uniform toy model is regular but is used to expose the obstruction to the known-prior common-ground construction."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The unknown-prior subset instance is a regular uniform nested-set model used to expose the obstruction to the known-prior construction."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The same flat nested instance with Q hidden from Alice is used as an obstruction to the common-ground rejection sampler and motivates hashing."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The unknown-Q uniform subset case shows the known-prior rejection-sampling construction lacks a common ground and needs hashing."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Pointer chasing round gap",
+   "note": "Pointer chasing is cited as an example where limiting the number of rounds can increase communication complexity.",
+   "first_introduced_sec": 2621,
+   "spans": [
+    {
+     "start_sec": 2621,
+     "end_sec": 2645
+    }
+   ],
+   "total_seconds": 24,
+   "attaches_to": [
+    "s6"
+   ],
+   "primary_stage": "s6",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Pointer chasing is only cited as an example where there is a round gap, with no analysis of the problem itself.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 7,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "pointer chasing is invoked as the standard round-hierarchy witness showing a gap between bounded-round and unrestricted communication"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer chasing is a standard communication problem used to witness a strict bounded-round versus unbounded-round gap."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "pointer chasing is a round-critical problem used to witness a genuine gap between bounded-round and unbounded communication"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer chasing is invoked to witness that bounded-round communication can be strictly larger than unrestricted communication."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Pointer chasing is a canonical round-hierarchy hard problem with a sharp bounded-round gap, used to show C_k can exceed C."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "pointer chasing is invoked to show a bounded-round communication gap, refuting equality with the unbounded-round measure"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "pointer chasing is the canonical hard round-hierarchy problem showing bounded-round and unrestricted communication can differ"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Pointer chasing is the canonical round-sensitive communication problem witnessing a genuine bounded-round gap."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Pointer chasing is a standard extremal round-hierarchy problem used to show bounded-round communication can be strictly larger."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Pointer chasing is a standard round-hierarchy separator used to show bounded-round communication can be strictly larger than unrestricted communication."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Pointer chasing is the standard round-hierarchy hard family giving a gap between bounded- and unbounded-round communication."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Pointer chasing is a standard family cited to show bounded-round and unrestricted communication can differ."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Unique Games parallel-repetition analogy",
+   "note": "An audience question compares the proposed complete problem with direct parallel repetition for Unique Games, as an analogy rather than a step in the proof.",
+   "first_introduced_sec": 3226,
+   "spans": [
+    {
+     "start_sec": 3226,
+     "end_sec": 3259
+    }
+   ],
+   "total_seconds": 33,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "Unique Games parallel repetition is invoked only as an analogy to another result involving an integrality gap, without working through it.",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 4
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Unique Games parallel repetition is cited only as an analogous setting rather than as a structurally special object or disproof here"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Unique Games parallel repetition is cited only as an analogy with integrality-gap methods, not as a sporadic or counterexample object here."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "the transcript only gives a vague analogy to Unique Games parallel repetition or an integrality gap, not a specific object"
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Unique-Games parallel repetition is cited only as an analogy to an integrality-gap setting, not as a structural exception or counterexample here."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Unique Games parallel repetition is cited only as an analogy to another proof setting, with no specific special instance deployed here."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Unique Games parallel repetition is only cited as an analogy to an integrality-gap style result, not as a special object or counterexample here"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "the transcript only mentions an unspecified Unique Games parallel-repetition/integrality-gap analogy rather than a definite object"
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Unique Games parallel repetition is cited only as an external analogy rather than as a deployed counterexample here."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "The transcript gives only a vague analogy to Unique Games parallel repetition rather than a particular object or instance to classify."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "indeterminate"
+     ],
+     "reason": "No particular Unique Games instance is specified, only an analogy to parallel-repetition and integrality-gap work."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "The cited Unique Games integrality-gap/parallel-repetition example functions as an adversarial gap instance rather than a sporadic exception."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Unique Games parallel repetition is invoked only as a broad analogy to a systematic problem class."
+    }
+   ]
+  }
+ ]
+}

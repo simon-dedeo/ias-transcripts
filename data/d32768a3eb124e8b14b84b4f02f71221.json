@@ -1,0 +1,1648 @@
+{
+ "key": "d32768a3eb124e8b14b84b4f02f71221",
+ "title": "The Sample Complexity of Smooth Boosting and the Tightness of the Hardcore Theorem",
+ "speaker": "Guy Blanc",
+ "affiliation": "Stanford University",
+ "date": "2025-05-12T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3923.0,
+ "abstract": "This talk will be about two related results, one in complexity theory and one in learning.\nOn the learning side, we investigate the sample complexity of smooth boosters - These are boosting algorithms that do not place too much weight on any given example. They have a variety of applications including robustness, privacy, and reproducibility. We show that the sample complexity overhead of existing smooth boosters is optimal, separating smooth boosting from distribution-independent boosting.\nOn the complexity side, our work also sheds new light on Impagliazzo's hardcore theorem from complexity theory, all known proofs of which can be cast in the framework of smooth boosting. For a function f that is mildly hard against size-s circuits, the hardcore theorem provides a set of inputs on which f is extremely hard against size-s′ circuits. A downside of this important result is the loss in circuit size, i.e. that s′≪s. Answering a question of Trevisan, we show that this size loss is necessary and in fact, the parameters achieved by known proofs are the best possible.",
+ "youtube_url": "https://youtu.be/_TnM9Ud52AQ",
+ "page_url": "https://www.ias.edu/video/sample-complexity-smooth-boosting-and-tightness-hardcore-theorem",
+ "tags": [
+  "Computer Science/Discrete Mathematics Seminar I",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Smooth boosting sample-complexity problem",
+   "summary": "The speaker defines weak and strong learning, contrasts ordinary boosting with smooth boosting, and states the first main result that smooth boosting can require essentially an m/gamma^2 sample overhead for strong learning even when weak learning over smooth distributions uses m samples.",
+   "spans": [
+    {
+     "start_sec": 73,
+     "end_sec": 925
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Hardcore theorem and gamma-squared loss",
+   "summary": "Hardness amplification and Impagliazzo's hardcore theorem are introduced, related to smooth boosting by a contrapositive argument, and the second main result is stated: the gamma^2 circuit-size loss in the hardcore theorem is unconditionally necessary.",
+   "spans": [
+    {
+     "start_sec": 925,
+     "end_sec": 1676
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Random majority-of-functions construction",
+   "summary": "Using Shannon-style circuit-size bounds for random functions, the hard function is constructed as the majority of k independent random balanced n-bit functions, with the guiding intuition that weak approximation can compute one block while high accuracy requires many blocks.",
+   "spans": [
+    {
+     "start_sec": 1676,
+     "end_sec": 1934
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Junta and hierarchical-circuit reduction",
+   "summary": "The proof analyzes the majority function through junta complexity—one coordinate gives weak advantage on smooth distributions, but high constant accuracy needs linearly many coordinates—and translates this into upper and lower bounds for hierarchical circuits that compute selected inner blocks exactly.",
+   "spans": [
+    {
+     "start_sec": 1934,
+     "end_sec": 2306
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Lifting from juntas to arbitrary circuits",
+   "summary": "A lifting theorem is proved in the needed special case using soft juntas, correlation bounds for random balanced functions, hierarchically-valued circuits, and a triangle-inequality covering argument, thereby turning junta lower bounds into lower bounds against all small circuits.",
+   "spans": [
+    {
+     "start_sec": 2306,
+     "end_sec": 3286
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Tightness of the hardcore theorem",
+   "summary": "Applying the lifting theorem to the random majority construction yields a function that is weakly approximable on every large set by circuits of size about gamma^2 s but requires size s for 99% accuracy, proving tightness of the hardcore-theorem size loss.",
+   "spans": [
+    {
+     "start_sec": 3286,
+     "end_sec": 3406
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Transfer to smooth boosting and efficient-boosting question",
+   "summary": "The same majority-based concept class gives the smooth-boosting sample lower bound, with the hardcore lower-bound analysis transferring to sample complexity while the weak-learning upper bound incurs a logarithmic loss, and the talk closes with an open question about whether time-efficient standard boosting can achieve the optimal m/gamma sample overhead.",
+   "spans": [
+    {
+     "start_sec": 3417,
+     "end_sec": 3652
+    },
+    {
+     "start_sec": 3669,
+     "end_sec": 3916
+    }
+   ],
+   "depends_on": [
+    "s1",
+    "s5",
+    "s6"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Constant zero/one trivial learner",
+   "note": "The constant Boolean hypotheses are used to make concrete why 50% accuracy is the trivial baseline and why 51% is the first nontrivial weak-learning target.",
+   "first_introduced_sec": 166,
+   "spans": [
+    {
+     "start_sec": 166,
+     "end_sec": 187
+    }
+   ],
+   "total_seconds": 21,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the constant zero/one learner is only cited as giving the trivial 50% accuracy baseline",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 6,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Trivial constant hypotheses are fully input-invariant and serve only as the 50% baseline."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "All-zero/all-one hypotheses are trivial boundary Boolean functions invariant under all input changes, used only as the 50% baseline."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The all-zero/all-one learner is a trivial maximally biased Boolean hypothesis used only as the 50% baseline."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "constant Boolean learners are trivial maximally regular baseline classifiers used only to show 50% accuracy is vacuous"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "Constant Boolean learners are trivial maximally invariant functions used only as the 50% baseline."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "constant zero/one hypotheses ignore all features and give the fully invariant minimum-complexity 50% baseline"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "Constant Boolean learners are trivial zero-degree boundary cases, used only as the 50% baseline."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "constant Boolean hypotheses are collapsed domain-invariant trivial baselines for 50% accuracy"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "constant hypotheses ignore all inputs and sit at the trivial minimum-complexity baseline."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "constant hypotheses are maximally invariant trivial 50% baselines"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "constant Boolean learners are fully input-invariant zero-variable boundary cases used only as the trivial 50% baseline."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "symmetric"
+     ],
+     "reason": "constant Boolean learners ignore the input and serve only as the trivial 50% baseline"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "One-percent adversarial sample corruption",
+   "note": "The corruption scenario shows why ordinary boosting can destroy robustness by upweighting corrupted points, motivating the move to smooth boosting.",
+   "first_introduced_sec": 278,
+   "spans": [
+    {
+     "start_sec": 278,
+     "end_sec": 315
+    }
+   ],
+   "total_seconds": 37,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker traces how 1% adversarial corruptions get upweighted during boosting and can become a much larger effective corruption",
+   "generative": "illustrative",
+   "generative_score": 2,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An ordinary small-corruption model is used as the adversarial case showing standard boosting can lose robustness."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "A small adversarial corruption is used as the enemy case showing ordinary boosting can lose robustness."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The 1% adversarial corruption model is invoked as the enemy case showing ordinary boosting can destroy robustness."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1% adversarial corruption is an enemy case used to show ordinary boosting can lose robustness"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The 1% adversarial corruption is an enemy case showing ordinary boosting can lose robustness by upweighting corrupted samples."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1% adversarial corruption is an ordinary noise model used as an enemy case showing standard boosting can lose robustness"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The 1% adversarial corruption is the enemy case showing ordinary boosting can lose robustness."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1% adversarial corruption is used as an enemy case showing ordinary boosting can lose robustness"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1% corruption is used as an adversarial obstruction to robustness of standard boosting."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1% corruption is an adversarial obstruction to standard boosting robustness"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1% adversarial corruption is an enemy case illustrating why ordinary boosting can fail to preserve robustness."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "the 1% adversarial corruption is used as an enemy case showing ordinary boosting can lose robustness"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "All Boolean functions as a memorization class",
+   "note": "The class of all functions illustrates the easy 1/gamma sample lower bound for ordinary boosting because learning can only proceed by memorizing sampled labels.",
+   "first_introduced_sec": 525,
+   "spans": [
+    {
+     "start_sec": 525,
+     "end_sec": 543
+    },
+    {
+     "start_sec": 3560,
+     "end_sec": 3593
+    }
+   ],
+   "total_seconds": 51,
+   "attaches_to": [
+    "s1",
+    "s7"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "the class of all Boolean functions is invoked as a memorization lower-bound example, but the memorization/sample calculation is not carried out",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 0,
+    "G2": 0,
+    "I0": 1,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [
+    "extremal",
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 12,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 6,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The full permutation-invariant maximum-VC concept class is used as a memorization lower-bound obstruction."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The full concept class is the maximal, highly symmetric Boolean class and is used to rule out better general sample overheads by memorization."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The class of all Boolean functions is the maximal concept class, used as a tight memorization example rather than a refuting counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the class of all Boolean functions is the maximal concept class and is used as a memorization lower-bound obstruction"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The class of all Boolean functions is the maximal symmetric concept class and is used as a memorization lower-bound obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the class of all Boolean functions is the maximal fully invariant concept class and is used as a tight memorization witness"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The class of all Boolean functions is the maximal concept class, used as a tight memorization witness."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the class of all Boolean functions is the maximal unrestricted memorization class and is used as a tight lower-bound witness"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the class of all Boolean functions is the maximal concept class and is used as a tight memorization lower-bound witness."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the full concept class is a maximal memorization class witnessing a sample lower bound"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the class of all Boolean functions is the maximal highly invariant concept class and is used as a memorization/tightness witness rather than a refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "the class of all Boolean functions is the maximal memorization class and witnesses a sample-complexity lower bound"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Yao's XOR lemma",
+   "note": "Yao's XOR lemma is mentioned as a familiar instance of hardness amplification before the talk focuses on Impagliazzo's hardcore theorem.",
+   "first_introduced_sec": 978,
+   "spans": [
+    {
+     "start_sec": 978,
+     "end_sec": 1004
+    }
+   ],
+   "total_seconds": 26,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "Yao’s XOR lemma is named as an example of hardness amplification without analyzing it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 2,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Yao’s XOR lemma is cited as a standard hardness-amplification example rather than a refutation."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Yao's XOR lemma is cited as a standard hardness-amplification result, not as a refuting example."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Yao's XOR lemma is cited as a standard representative hardness-amplification result."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Yao's XOR lemma is cited as a standard illustrative hardness-amplification theorem, not as a failing case"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Yao’s XOR lemma is cited as a standard systematic example of hardness amplification, not as a failure witness."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Yao's XOR lemma is cited as a standard hardness-amplification theorem rather than as a structurally special obstruction"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Yao's XOR lemma is cited as a standard hardness-amplification example with the regular parity/XOR combiner."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Yao's XOR lemma is cited as a standard illustrative hardness-amplification result, not as a failure case"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Yao's XOR lemma is cited as a standard illustrative hardness-amplification result."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Yao’s XOR lemma is cited as a standard illustrative hardness-amplification result"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "Yao's XOR lemma is cited positively as a standard hardness-amplification example, not as an obstruction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Yao's XOR lemma is cited as a standard positive example of hardness amplification"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Juntas as feature selection",
+   "note": "The machine-learning interpretation of a junta as selecting a small number of relevant features makes the definition intuitive without entering the proof machinery.",
+   "first_introduced_sec": 2032,
+   "spans": [
+    {
+     "start_sec": 2032,
+     "end_sec": 2057
+    }
+   ],
+   "total_seconds": 25,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "juntas are defined and then used concretely to analyze majority via one-junta weak approximation and junta-size lower bounds",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "degenerate"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Juntas are low-dimensional Boolean functions depending on few coordinates and are used as a feature-selection model."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "An l-junta collapses dependence to a few selected variables and is introduced as a feature-selection model."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A junta is a collapsed low-dimensional Boolean function depending on only a few selected coordinates, used illustratively for feature selection."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "juntas depend on only a small selected set of coordinates and are used illustratively as feature-selection models"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Juntas are low-dimensional Boolean functions that ignore most coordinates, illustrating feature selection."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "an l-junta is a lower-dimensional Boolean function depending on only a few selected coordinates"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Juntas depend on only a few coordinates, making them sparse lower-structure Boolean functions used illustratively as feature selection."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "juntas depend on only a small selected set of variables, giving a lower-dimensional feature-selection model"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "juntas depend on only a small subset of coordinates, ignoring most features."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "juntas are low-dimensional functions ignoring most coordinates for feature selection"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "juntas depend on only a small selected set of variables, a low-dimensional simplification used illustratively as feature selection."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "juntas collapse a Boolean function to dependence on only a few selected coordinates"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Padding by parity with extra bits",
+   "note": "In the Q&A, parity padding is used as a cautionary example of how one can make a lower-bound construction look less like a junta while still morally cheating.",
+   "first_introduced_sec": 3745,
+   "spans": [
+    {
+     "start_sec": 3745,
+     "end_sec": 3762
+    }
+   ],
+   "total_seconds": 17,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "padding by taking parity with extra bits is only mentioned as a possible cheating construction, not developed",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 1,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity padding is a highly regular symmetric trick used to defeat a naive non-junta formalization."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "The parity padding has a regular symmetric parity factor and is used to defeat a naive non-junta/non-cheating formalization."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity padding is a highly regular artificial construction used as an obstruction to naive non-junta formalizations."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "parity padding is a highly regular symmetric trick used as a cheating obstruction to a naive non-junta formalization"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity padding is a highly regular way to evade a naive junta-based formalization, so it is raised as a cheating obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "parity padding uses a highly regular added parity dependence as a cheating obstruction to naive non-junta formalizations"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "Parity padding with extra bits is a symmetric cheating construction that obstructs a naive non-junta formalization."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "parity padding is raised as a cheating obstruction to a naive non-junta formalization"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "parity padding is raised as a cheating obstruction to formalizing a non-junta condition."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "parity padding is a regular trick that obstructs naive non-junta formalizations"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "parity padding is a highly regular maximally sensitive way to force dependence on added bits and is raised as a cheating obstruction to clean formalization."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric",
+      "countercase"
+     ],
+     "reason": "parity padding is offered as a cheating construction that defeats a naive non-junta formalization"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "Subsampling and reusing data in boosting",
+   "note": "An audience question proposes subsampling as a possible technique for the open efficient-boosting problem, and the speaker relates it to known PAC-learning sample-complexity tricks while noting that the needed analysis is unclear.",
+   "first_introduced_sec": 3802,
+   "spans": [
+    {
+     "start_sec": 3802,
+     "end_sec": 3916
+    }
+   ],
+   "total_seconds": 114,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "the speaker discusses the subsampling procedure—drawing subsamples, running learners, combining by majority, and comparing possible m and gamma sample scales",
+   "generative": "illustrative",
+   "generative_score": 1,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 1,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Subsampling and sample reuse are standard possible boosting techniques rather than special objects or refutations."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Subsampling and reuse is an ordinary possible boosting technique suggested for analysis, not an obstruction."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Subsampling and data reuse is mentioned as an ordinary possible boosting technique, not as a structurally special object or failure case."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "subsampling and sample reuse are ordinary algorithmic techniques mentioned as a possible approach rather than a refutation"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Subsampling and reusing data is a standard algorithmic tactic proposed as a possible approach rather than an obstruction."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "subsampling and sample reuse are ordinary algorithmic techniques proposed as possible tools rather than refutations"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Subsampling and sample reuse are ordinary algorithmic techniques suggested as a possible boosting approach."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "subsampling and sample reuse are proposed as ordinary possible boosting techniques for the open problem"
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "subsampling and sample reuse are proposed as ordinary possible boosting techniques rather than enemy cases."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "subsampling is mentioned as an ordinary possible boosting technique to try"
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "subsampling and reusing data is proposed as an ordinary possible boosting technique, not as a failing case or structurally special object."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "subsampling and data reuse are mentioned as a possible algorithmic technique rather than an obstruction"
+    }
+   ]
+  }
+ ]
+}

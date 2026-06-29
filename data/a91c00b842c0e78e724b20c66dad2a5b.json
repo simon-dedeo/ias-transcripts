@@ -1,0 +1,2405 @@
+{
+ "key": "a91c00b842c0e78e724b20c66dad2a5b",
+ "title": "Direct and dual Information Bottleneck frameworks for Deep Learning",
+ "speaker": "Tali Tishby",
+ "affiliation": "The Hebrew University of Jerusalem",
+ "date": "2020-02-24T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4202.0,
+ "abstract": "The Information Bottleneck (IB) is an information theoretic framework for optimal representation learning. It stems from the problem of finding minimal sufficient statistics in supervised learning, but has insightful implications for Deep Learning. In particular, its the only theory that gives concrete predictions on the different representations in each layer and their potential computational benefit.",
+ "youtube_url": "https://www.youtube.com/watch?v=TisObdHW8Wo",
+ "page_url": "https://www.ias.edu/video/members/2020/0224-TaliTishby",
+ "tags": [
+  "Members Seminar",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Generalization paradox of overparameterized deep networks",
+   "summary": "The talk motivates its problem by contrasting classical sample-complexity rules with the empirical success of deep networks whose number of parameters vastly exceeds the number of training examples.",
+   "spans": [
+    {
+     "start_sec": 94,
+     "end_sec": 906
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Information-flow formalism for network layers",
+   "summary": "The speaker replaces worst-case learning bounds by typical information-theoretic quantities, views layers as a Markov chain of representations, and introduces KL divergence, mutual information, data processing, and variational estimation of information.",
+   "spans": [
+    {
+     "start_sec": 906,
+     "end_sec": 1785
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Two-phase information-plane dynamics",
+   "summary": "Empirical information-plane trajectories show a fast fitting phase followed by a slow compression phase in which representations forget input information while retaining label information, with insufficient data causing over-compression.",
+   "spans": [
+    {
+     "start_sec": 1785,
+     "end_sec": 2134
+    },
+    {
+     "start_sec": 2408,
+     "end_sec": 2488
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Information coordinates as order and complexity parameters",
+   "summary": "Local factorization assumptions explain concentration of the mutual-information coordinates, while a counting argument shows that encoder information controls effective function-class size and hence sample complexity.",
+   "spans": [
+    {
+     "start_sec": 2134,
+     "end_sec": 2408
+    },
+    {
+     "start_sec": 2488,
+     "end_sec": 2765
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Gradient signal-to-noise transition",
+   "summary": "The onset of compression is tied to the point where training error saturates and gradients pass from high-SNR drift to low-SNR fluctuation-dominated diffusion.",
+   "spans": [
+    {
+     "start_sec": 2771,
+     "end_sec": 3105
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Information Bottleneck frontier and finite-sample pressure",
+   "summary": "The Information Bottleneck variational problem gives an architecture-independent optimal frontier for representations, and finite-sample deviations push the best attainable representation leftward toward compression.",
+   "spans": [
+    {
+     "start_sec": 3105,
+     "end_sec": 3504
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Diffusive SGD mechanism and depth-scaling prediction",
+   "summary": "Modeling low-SNR SGD as diffusion in irrelevant directions and bounding interlayer information by a noisy-channel calculation yields power-law predictions for convergence time versus depth, including an optimal finite depth.",
+   "spans": [
+    {
+     "start_sec": 3504,
+     "end_sec": 3899
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Critical slowing down and layer locations",
+   "summary": "Cusps and singularities along the Information Bottleneck curve act as critical points where convergence slows, explaining why layers settle at reproducible representation levels.",
+   "spans": [
+    {
+     "start_sec": 3899,
+     "end_sec": 4198
+    }
+   ],
+   "depends_on": [
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Noisy regression and over-flexible curve fitting",
+   "note": "Noisy data points, high-degree polynomials, high-frequency sinusoids, and the two-points lab warning make the classical overfitting/generalization problem concrete.",
+   "first_introduced_sec": 218,
+   "spans": [
+    {
+     "start_sec": 218,
+     "end_sec": 403
+    }
+   ],
+   "total_seconds": 185,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he uses noisy curve fitting and over-flexible functions as a generic motivation for overfitting, without computing on a particular regression example",
+   "generative": "generative",
+   "generative_score": 3,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [
+    "extremal"
+   ],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 9,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary over-flexible noisy regression used to show perfect training fit need not generalize"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An over-flexible fit to noisy data is used as the standard failure mode showing zero training error need not generalize."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An over-flexible interpolating fit attains essentially minimal training error while illustrating failure of training fit to guarantee generalization."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An over-flexible interpolating curve attains zero training error while illustrating failure of training fit to guarantee generalization."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An over-flexible interpolating fit attains zero training error and is used as the adversarial overfitting case showing training fit need not generalize."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "An over-flexible interpolating fit is used to show that zero training error need not generalize."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An over-flexible interpolating fit is used to show zero training error can fail to generalize, and it is structurally extremal in driving training error to zero."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An over-flexible interpolating regression curve has zero training error and is used to show that perfect sample fit need not generalize."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An over-flexible interpolating fit is used to show zero training error need not generalize and is structurally at the high-complexity/zero-error extreme."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An over-flexible interpolant attains zero training error on noisy data and is used to show unrestricted fitting need not generalize."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "used to show perfect empirical fitting can fail to generalize, with the over-flexible fit attaining zero training error."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "An over-flexible interpolating curve is used to show unrestricted fitting can fail to generalize, and it is extremal by achieving zero training error."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Dog/not-dog image classifier",
+   "note": "The image-classification task instantiates the variables x and y and makes the layerwise representation problem visible without being needed for the abstract argument.",
+   "first_introduced_sec": 589,
+   "spans": [
+    {
+     "start_sec": 589,
+     "end_sec": 680
+    },
+    {
+     "start_sec": 1074,
+     "end_sec": 1160
+    },
+    {
+     "start_sec": 1194,
+     "end_sec": 1230
+    },
+    {
+     "start_sec": 1275,
+     "end_sec": 1305
+    }
+   ],
+   "total_seconds": 243,
+   "attaches_to": [
+    "s1",
+    "s2"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he sets up dog/not-dog classification with pixels as x and a one-bit label y, then traces representations and information flow through the network",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard binary image-classification task used illustratively"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The dog/not-dog classifier is an ordinary binary supervised-learning illustration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The dog/not-dog network is an ordinary binary classifier used as a running illustration."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The dog/not-dog task is a standard binary supervised image-classification example."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The dog/not-dog classifier is an ordinary binary supervised-learning example used illustratively."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The dog/not-dog classifier is a standard binary classification illustration, not a failure case."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The dog/not-dog classifier is an ordinary binary supervised-learning example used illustratively."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The dog/not-dog task is an ordinary binary supervised image-classification example used illustratively."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The dog/not-dog classifier is an ordinary binary supervised-learning example used illustratively."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A standard binary image-classification task is used only to illustrate network inputs and labels."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "an ordinary binary image-classification task used as a representative supervised-learning example."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The dog/not-dog classifier is a standard supervised classification task used illustratively."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Speech, translation, control, and Go as deep-learning successes",
+   "note": "These benchmark tasks illustrate the empirical surprise that simple gradient-trained networks work extremely well.",
+   "first_introduced_sec": 714,
+   "spans": [
+    {
+     "start_sec": 714,
+     "end_sec": 754
+    }
+   ],
+   "total_seconds": 40,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "speech recognition, translation, control, and Go are listed as successes of gradient-trained deep learning, with no analysis of those tasks",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard application successes cited as positive evidence for deep learning"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Speech, translation, control, and Go are cited as ordinary application successes of deep learning rather than as adversarial cases."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "These are standard application successes cited as evidence for deep learning rather than as structurally special objects."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Speech, translation, control, and Go are cited as ordinary successful application domains for deep learning."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Speech, translation, control, and Go are cited as standard empirical successes of deep learning, not as structural outliers or failures."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "These are ordinary application successes cited as positive evidence for deep learning."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Speech recognition, translation, control, and Go are cited as empirical successes rather than as failures of a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Speech recognition, translation, control, and Go are cited as representative successes of deep learning rather than as failures of a claim."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Speech, translation, control, and Go are cited as representative deep-learning successes, not as obstructions or special structures."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary application successes are offered as evidence of deep-learning effectiveness, not as adversarial cases."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a list of standard application successes used as supporting illustration rather than as structurally special objects."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Speech, translation, control, and Go are cited as ordinary successful applications of deep learning."
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Brain synapses outnumber training examples",
+   "note": "Biological learning is used as a plausibility illustration that overparameterized systems can still generalize.",
+   "first_introduced_sec": 841,
+   "spans": [
+    {
+     "start_sec": 841,
+     "end_sec": 868
+    }
+   ],
+   "total_seconds": 27,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "brain synapses exceeding training examples is invoked as a biological analogy, not worked through",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary biological overparameterization used to refute a strict parameters-versus-samples rule"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The brain’s many-more-synapses-than-examples situation is used to rebut the naive parameter-count rule for learnability."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The brain’s many-synapse/limited-experience regime is used to refute the naive parameter-count rule for learning."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The brain is used to refute the heuristic that a learner cannot generalize with more parameters than examples."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The brain’s many-synapse/few-example situation is used to refute the naive necessity of having no more parameters than data."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The brain’s many-synapse regime is invoked against the usual parameter-count statistical rule."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The brain’s many-synapse regime is used to refute the naive rule that learnable models need no more parameters than examples."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The brain’s excess of synapses over training examples is used to refute the necessity of the classical data-points-exceed-parameters rule."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The brain is invoked to refute the supposed necessity that parameters not exceed training examples, while being an ordinary biological learning system structurally."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The brain’s many-more-synapses-than-examples regime is cited to refute the classical parameter-count rule."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "used to refute the parameter-count heuristic by pointing to a normal biological learning system."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "The brain is used to refute the naive rule that parameters must not outnumber training examples."
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Visual-cortex feature hierarchy",
+   "note": "In answer to a question about the displayed pictures, local Gabor-like features and high-level face/object cells illustrate the idea of hierarchical representations.",
+   "first_introduced_sec": 1305,
+   "spans": [
+    {
+     "start_sec": 1305,
+     "end_sec": 1341
+    }
+   ],
+   "total_seconds": 36,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "the visual-cortex hierarchy is described as local-to-global features, but no property is checked or derived on it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard hierarchical visual-system analogy for layered features"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The visual-cortex hierarchy is a representative layered feature hierarchy used as an analogy for network representations."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The visual-cortex hierarchy is a typical layered-feature analogy, not a counterexample or classification exception."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The visual-cortex hierarchy is used as a representative layered-feature analogy rather than a structurally special object."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The visual-cortex hierarchy is a normal layered-feature illustration for representations."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The visual-cortex hierarchy is used as a standard layered-representation analogy."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The visual-cortex hierarchy is a biological analogy for layered feature representations, not a structurally special mathematical object."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The visual-cortex hierarchy is a standard biological analogy for layered feature representations."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The visual-cortex feature hierarchy is used as a standard analogy for layered representations."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The visual-cortex feature hierarchy is a standard illustrative analogy for layered representations."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "a usual hierarchical feature organization in vision used to illustrate layered representations."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The visual-cortex hierarchy is used as a biological analogy for layered feature representations."
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Encrypted data with unchanged mutual information",
+   "note": "Encrypting images illustrates that mutual information is invariant under invertible transformations, motivating the need to account for computational/estimation complexity rather than information alone.",
+   "first_introduced_sec": 1462,
+   "spans": [
+    {
+     "start_sec": 1462,
+     "end_sec": 1533
+    },
+    {
+     "start_sec": 1697,
+     "end_sec": 1725
+    }
+   ],
+   "total_seconds": 99,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he applies mutual-information invariance under invertible maps to encrypted data and reasons that encryption leaves the information unchanged",
+   "generative": "generative",
+   "generative_score": 5,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 4,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "ordinary invertible-encryption example used to show mutual information does not capture computational complexity"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Encrypted data with invariant mutual information is used to show that mutual information alone fails to capture computational complexity."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Invertibly encrypted data preserves mutual information while defeating computational simplicity, so it counters information-as-complexity."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Invertibly encrypted data is used to show that unchanged mutual information need not capture computational complexity."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Encrypted data preserving mutual information is used as an adversarial case showing mutual information alone does not measure computational complexity."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Encrypted data with invariant mutual information shows that mutual information alone misses computational complexity."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Encrypted data with invariant mutual information is used to show mutual information alone does not capture computational complexity."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Invertibly encrypted data preserves mutual information at the lossless equality case and is used to show that information alone misses computational complexity."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "Invertible encrypted data is used to show mutual information can miss computational complexity, and the invertible map is a no-information-loss equality case."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "A lossless invertible encryption is a data-processing equality case preserving maximal mutual information and is used to show mutual information ignores computational complexity."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "countercase"
+     ],
+     "reason": "used to show mutual information misses computational complexity, with an invertible encryption preserving all information."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Encrypted data with unchanged mutual information is used to show mutual information alone does not capture computational complexity."
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "CIFAR, ImageNet, and MNIST corroborations",
+   "note": "Standard image datasets are mentioned as additional places where the same information-plane and depth-scaling phenomena are observed.",
+   "first_introduced_sec": 2110,
+   "spans": [
+    {
+     "start_sec": 2110,
+     "end_sec": 2134
+    },
+    {
+     "start_sec": 3062,
+     "end_sec": 3081
+    },
+    {
+     "start_sec": 3825,
+     "end_sec": 3841
+    }
+   ],
+   "total_seconds": 59,
+   "attaches_to": [
+    "s3",
+    "s7"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he reports checking the same information-plane behavior and depth-versus-convergence power laws on CIFAR, ImageNet, and especially MNIST",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard benchmark datasets cited as corroborating observations"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "CIFAR, ImageNet, and MNIST are standard benchmark datasets cited as empirical corroborations."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "CIFAR, ImageNet, and MNIST are benchmark corroborations of the observed behavior, not structurally exceptional datasets."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "CIFAR, ImageNet, and MNIST are standard benchmark datasets cited as corroborating evidence."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "CIFAR, ImageNet, and MNIST are benchmark datasets cited as corroborating instances of the observed dynamics."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The benchmark datasets are cited as empirical corroborations, not structurally special cases."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "CIFAR, ImageNet, and MNIST are standard benchmark datasets cited as corroborating evidence."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "CIFAR, ImageNet, and MNIST are benchmark datasets cited as corroborating empirical cases."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "CIFAR, ImageNet, and MNIST are standard benchmark datasets cited as empirical corroboration."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Standard benchmark datasets are cited as empirical corroborations of the same information-plane behavior."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard benchmark datasets are cited as corroborating evidence for the observed phenomenon."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "CIFAR, ImageNet, and MNIST are standard benchmark datasets cited as empirical corroborations."
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Room air dominated by energy and entropy",
+   "note": "The statistical-mechanics analogy illustrates why a huge system can be governed by a few order parameters.",
+   "first_introduced_sec": 2256,
+   "spans": [
+    {
+     "start_sec": 2256,
+     "end_sec": 2319
+    }
+   ],
+   "total_seconds": 63,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "room air being dominated by energy and entropy is used only as a statistical-mechanics analogy for concentration",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "ordinary thermodynamic-limit gas analogy for concentration in few macroscopic variables"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Room air is an ordinary thermodynamic system used to illustrate concentration by a few macroscopic parameters."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Room air is an ordinary thermodynamic analogy for concentration in a few macroscopic quantities."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Room air is an ordinary thermodynamic system used to illustrate macroscopic concentration by a few order parameters."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Room air is a typical many-particle thermodynamic analogy for macroscopic order parameters."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Room air is a typical thermodynamic analogy for concentration onto a few macroscopic quantities."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Room air is used as a standard statistical-mechanics analogy for macroscopic concentration by a few parameters."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Room air is used as a typical statistical-mechanics analogy where macroscopic order parameters dominate."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Room air is a typical thermodynamic many-particle system used to illustrate concentration onto a few macroscopic quantities."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Ordinary room air at thermodynamic scale is used as an analogy for concentration into a few order parameters."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary room air is used as a statistical-mechanics analogy for macroscopic order parameters."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Room air is an ordinary thermodynamic system used as an analogy for concentration onto a few order parameters."
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Pixel color predicted by a local image patch",
+   "note": "Local image dependence illustrates the locality/factorization assumption used to justify concentration of information quantities.",
+   "first_introduced_sec": 2319,
+   "spans": [
+    {
+     "start_sec": 2319,
+     "end_sec": 2383
+    }
+   ],
+   "total_seconds": 64,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "worked",
+   "engagement_reason": "he uses local-patch prediction of a pixel as a locality assumption and derives factorization/averaging leading to concentration",
+   "generative": "generative",
+   "generative_score": 4,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 0,
+    "I1": 1,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard locality assumption for images used to justify factorization"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A pixel being predictable from a nearby patch is a standard locality assumption for natural-image distributions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Local prediction of a pixel from its patch is a standard locality/Markov-type modeling assumption used to justify factorization."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Local prediction of a pixel from a surrounding patch is a typical locality assumption for natural images."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A pixel locally predicted by its image patch is a locality assumption for natural-image distributions, not a failure case."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Local patch predictability is a standard locality assumption for natural-image distributions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "A pixel predicted from a local patch is a typical locality assumption supporting factorization and concentration."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A pixel predicted from a local patch is a typical locality assumption for natural-image distributions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A pixel predicted from a local patch is a representative locality assumption for natural images."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Local patch prediction is a standard locality or factorization assumption for natural images."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "local image-patch prediction is used as a representative locality assumption for natural data."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A pixel predicted from its local patch is a typical locality example supporting factorization assumptions."
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Shannon coding theorem counting analogy",
+   "note": "The familiar typical-set counting proof is invoked to make the appearance of mutual information in the sample-complexity count intuitive.",
+   "first_introduced_sec": 2668,
+   "spans": [
+    {
+     "start_sec": 2668,
+     "end_sec": 2742
+    }
+   ],
+   "total_seconds": 74,
+   "attaches_to": [
+    "s4"
+   ],
+   "primary_stage": "s4",
+   "depth": 3,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he explicitly runs the Shannon-coding-style counting argument to obtain the 2^I factor in the sample-complexity bound",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 6,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Shannon coding is an optimal-rate counting bound invoked only as an analogy"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Shannon coding-theorem counting argument is invoked as a standard analogy for typical-set counting."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Shannon coding theorem proof is invoked only as a standard typical-set counting analogy."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Shannon’s coding theorem is invoked through its entropy-counting argument at the optimal coding-rate boundary."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Shannon coding-theorem counting argument is invoked as a standard analogy for entropy-style counting."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Shannon coding theorem counting idea is used as a positive analogy for entropy counting."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Shannon coding-theorem analogy invokes an optimal entropy/counting bound rather than serving as a counterexample."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "The Shannon coding theorem is invoked as a supporting analogy and concerns the tight entropy/capacity counting limit."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Shannon coding theorem counting argument is used as a standard analogy for typical-set counting."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Shannon coding supplies a tight entropy-counting capacity bound but is invoked only as an analogy for the information exponent."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal"
+     ],
+     "reason": "Shannon’s coding theorem is invoked through its tight optimal-rate counting argument."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Shannon coding theorem counting argument is invoked as a standard analogy for entropy-based counting."
+    }
+   ]
+  },
+  {
+   "code": "E11",
+   "name": "Canyon of good solutions",
+   "note": "The optimization-landscape canyon illustrates why noisy gradients diffuse mostly in irrelevant directions after fitting has saturated.",
+   "first_introduced_sec": 3504,
+   "spans": [
+    {
+     "start_sec": 3504,
+     "end_sec": 3596
+    }
+   ],
+   "total_seconds": 92,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 5,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he develops the canyon picture by analyzing Hessian directions, noise-driven diffusion, and its effect on compression and convergence",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "degenerate",
+    "extremal"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 12,
+    "extremal": 12,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "flat manifold of low-error solutions is minimizing and Hessian-degenerate in many directions"
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The canyon of good solutions is a flat manifold of near-minimizers with many Hessian-null or irrelevant directions."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The canyon is a flat critical manifold of low-loss solutions, with many zero/irrelevant Hessian directions at an extremum of the loss."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The canyon is a low-error solution set with many flat Hessian directions, hence a minimizing but degenerate valley."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The canyon is a low-error valley of solutions with many flat Hessian directions, so it is both minimising and degenerate."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The canyon is a flat low-loss manifold of solutions with many nearly irrelevant directions."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The canyon of good solutions is a flat manifold of near-minima, hence extremal for loss and degenerate through its many null directions."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The canyon of good solutions is a flat low-error manifold with many irrelevant directions, unlike a generic isolated minimum."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The canyon of good solutions is a low-loss region with many flat Hessian directions, hence both extremal and rank-degenerate."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The good-solution canyon is a flat manifold of low-loss minima, extremal as minimizers and degenerate through many zero-curvature directions."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "the canyon is a flat manifold of near-minimal-error solutions with many irrelevant directions."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "The canyon of good solutions is a flat minimum/low-error manifold, extremal in loss and degenerate through many nearly zero-curvature directions."
+    }
+   ]
+  }
+ ]
+}

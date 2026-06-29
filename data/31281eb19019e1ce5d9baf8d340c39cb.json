@@ -1,0 +1,2108 @@
+{
+ "key": "31281eb19019e1ce5d9baf8d340c39cb",
+ "title": "Meta-Learning: Why It’s Hard and What We Can Do",
+ "speaker": "Ke Li",
+ "affiliation": "Member, School of Mathematics",
+ "date": "2020-04-09T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 4137.0,
+ "abstract": "Meta-learning (or learning to learn) studies how to use machine learning to design machine learning methods themselves. We consider an optimization-based formulation of meta-learning that learns to design an optimization algorithm automatically, which we call Learning to Optimize. Surprisingly, it turns out that the most straightforward approach of learning such an algorithm, namely backpropagation, does not work.",
+ "youtube_url": "https://www.youtube.com/watch?v=xIwDqf8oN68",
+ "page_url": "https://www.ias.edu/video/machinelearning/2020/0409-KeLi",
+ "tags": [
+  "School of Mathematics",
+  "Seminar on Theoretical Machine Learning"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Unified taxonomy of meta-learning formulations",
+   "summary": "The speaker defines meta-learning as using machine learning to design machine-learning methods, distinguishes meta- and base-learning, and compares multitask learning, hyperparameter optimization, automatic model selection, and program induction by their search spaces and parameters.",
+   "spans": [
+    {
+     "start_sec": 51,
+     "end_sec": 929
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Design criteria for meta-learning problems",
+   "summary": "The talk extracts general design axes: what counts as a base-learning instance, what commonality exists across instances, whether meta-parameters can generalize, how large and parameterized the search space is, and whether it can be searched efficiently.",
+   "spans": [
+    {
+     "start_sec": 934,
+     "end_sec": 1206
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Optimization-based meta-learning as learning an optimizer",
+   "summary": "Using the premise that much of machine learning reduces to optimization, the speaker formulates a learned optimizer as a parametric update rule that maps gradients, histories, iterates, and objective values to parameter updates, with objective functions as training/test instances and cumulative optimization loss as the meta-loss.",
+   "spans": [
+    {
+     "start_sec": 1206,
+     "end_sec": 1602
+    }
+   ],
+   "depends_on": [
+    "s2"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Naive unrolled backpropagation and overfitting failure",
+   "summary": "The straightforward approach of differentiating through the unrolled optimization trajectory works on training objectives but can diverge on unseen objectives because a learned optimizer can memorize training optima and identify a finite training objective in logarithmically many queries, while simple fixes such as more objectives or short Markov histories are inadequate.",
+   "spans": [
+    {
+     "start_sec": 1602,
+     "end_sec": 1930
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Stochastic Markov forward-dynamics formulation",
+   "summary": "To reduce the train/test mismatch, the deterministic objective-specific forward dynamics are replaced during meta-training by stochastic Markov dynamics obtained by marginalizing over possible training objectives, so the optimizer trains under uncertainty similar to test time while the optimizer itself may still use long histories.",
+   "spans": [
+    {
+     "start_sec": 1930,
+     "end_sec": 2544
+    }
+   ],
+   "depends_on": [
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Reduction to reinforcement learning",
+   "summary": "Because the stochastic meta-objective contains an intractable expectation over exponentially many trajectories, the problem is mapped to reinforcement learning with iterates as states, updates as actions, the learned update rule as policy, and objective values as costs.",
+   "spans": [
+    {
+     "start_sec": 2544,
+     "end_sec": 2804
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Empirical behavior and transfer of learned optimizers",
+   "summary": "Experiments with a coordinate-wise LSTM optimizer trained on an MNIST neural-network objective and tested on unseen objectives show adaptive large steps, recovery from overshoot or noisy gradients, and stability over longer horizons, with comparisons to backprop-trained learned optimizers and classical optimizers.",
+   "spans": [
+    {
+     "start_sec": 2821,
+     "end_sec": 3771
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Open challenges in reliability and scaling",
+   "summary": "The speaker concludes that the method is limited by the high-variance, intractable reinforcement-learning objective and by the quadratic space needed to model general forward dynamics, leaving open how to scale beyond coordinate-wise assumptions while allowing interactions and variable dimension.",
+   "spans": [
+    {
+     "start_sec": 3771,
+     "end_sec": 4010
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Two-task multitask learner",
+   "note": "The two-task parameter split makes concrete the distinction between shared meta-parameters and task-specific base parameters in the multitask-learning formulation.",
+   "first_introduced_sec": 207,
+   "spans": [
+    {
+     "start_sec": 207,
+     "end_sec": 329
+    }
+   ],
+   "total_seconds": 122,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker sets up the two-task multitask learner with shared and task-specific parameters and traces the nested minimization/training structure for it",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 4,
+    "extremal": 2,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "An ordinary two-task parameter-sharing setup is used to illustrate multitask meta-learning."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "A two-task multitask learner is the minimum nontrivial multitask case, used illustratively rather than to refute a claim."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "It is the minimal nontrivial boundary case of multitask learning, used only to illustrate shared and task-specific parameters."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary illustrative multitask setup with two task-specific parameter blocks and shared meta-parameters"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "An ordinary two-task instance illustrates the multitask/meta-parameter decomposition."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "an ordinary multitask-learning toy instance used to illustrate shared and task-specific parameters"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "used as an ordinary illustrative multitask parameter-sharing setup rather than to refute anything."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate",
+      "extremal"
+     ],
+     "reason": "A two-task setup is the minimum nontrivial multitask case, used only to illustrate shared and task-specific parameters."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "used as a routine schematic for shared meta-parameters and task-specific base parameters"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A two-task multitask learner is used as a standard illustrative parameter-sharing setup."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "minimal nontrivial multitask setup illustrating shared and task-specific parameters, not refuting a claim"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "an ordinary minimal illustrative multitask setup used to explain parameter sharing, not to refute a claim"
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Regularization hyperparameters and validation meta-loss",
+   "note": "Regularization parameters and validation-set evaluation illustrate why hyperparameter optimization may use different base and meta losses.",
+   "first_introduced_sec": 373,
+   "spans": [
+    {
+     "start_sec": 373,
+     "end_sec": 450
+    },
+    {
+     "start_sec": 549,
+     "end_sec": 611
+    }
+   ],
+   "total_seconds": 139,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "regularization hyperparameters and validation-set meta-loss are given as illustrative instances of hyperparameter optimization without carrying out a concrete optimization on them",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Regularization hyperparameters with validation loss are a standard hyperparameter-optimization example."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Regularization hyperparameters chosen by validation loss are a standard hyperparameter-optimization setup."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "This is a standard hyperparameter-optimization setup illustrating different base and meta losses."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard hyperparameter-optimization example using regularization parameters and validation performance"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Regularization hyperparameters and validation loss are standard hyperparameter-optimization ingredients."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard hyperparameter optimization with regularization and validation loss used as a representative formulation"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "regularization hyperparameters with validation loss are a standard hyperparameter-optimization example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Regularization hyperparameters with validation loss are a standard hyperparameter-optimization illustration."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary hyperparameter-optimization setup used to distinguish base loss from validation meta-loss"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Regularization hyperparameters chosen by validation loss are ordinary ingredients of hyperparameter optimization."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard hyperparameter-optimization case with regularization parameters and validation-set meta-loss"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "standard hyperparameter optimization with regularization and validation loss is used as a representative formulation"
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Few-shot learning with different test classes",
+   "note": "An audience member uses few-shot learning to illustrate that meta-learning often evaluates on data classes different from those used in base training.",
+   "first_introduced_sec": 634,
+   "spans": [
+    {
+     "start_sec": 634,
+     "end_sec": 665
+    }
+   ],
+   "total_seconds": 31,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": true,
+   "engagement": "mentioned",
+   "engagement_reason": "few-shot learning with different test classes is briefly cited by an audience member as another setting with different evaluation sets",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 1,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Different test classes in few-shot learning are cited as a typical meta-learning evaluation split."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Few-shot learning with disjoint test classes is a normal meta-learning evaluation scenario, offered as an illustration."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Disjoint or different test classes are a typical few-shot/meta-learning evaluation condition."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard few-shot-learning situation illustrating train/test evaluation on different classes"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Different test classes in few-shot learning are cited as a normal example of train/test loss-set mismatch."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "typical few-shot/meta-learning train-test class shift used to clarify differing evaluation sets"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "few-shot evaluation on different test classes is cited as a typical setting with different evaluation sets."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "degenerate"
+     ],
+     "reason": "Few-shot learning is a data-poor low-shot regime, invoked as a standard example of differing train/test evaluation sets."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard few-shot scenario used to illustrate evaluation on different class sets"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Few-shot learning with distinct test classes is cited as a standard meta-learning evaluation split."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard few-shot train/test-class mismatch offered as another illustration of differing evaluation sets"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "few-shot evaluation on different test classes is cited as a normal meta-learning scenario with train/test separation"
+    }
+   ]
+  },
+  {
+   "code": "E4",
+   "name": "Classifier or architecture selection from dataset features",
+   "note": "Choosing among candidate classifiers or neural architectures illustrates the automatic-model-selection version of meta-learning.",
+   "first_introduced_sec": 665,
+   "spans": [
+    {
+     "start_sec": 665,
+     "end_sec": 845
+    }
+   ],
+   "total_seconds": 180,
+   "attaches_to": [
+    "s1"
+   ],
+   "primary_stage": "s1",
+   "depth": 0,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker works through the automatic model-selection setup where dataset features feed a meta-model that selects among trained classifiers or architectures",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Selecting classifiers or architectures from dataset features is a standard automatic model-selection setup."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Selecting classifiers or architectures from dataset features is an ordinary automatic model-selection formulation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "It is an ordinary automatic model-selection formulation using dataset features to choose a model."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary automatic model-selection setup choosing among classifiers or architectures from dataset features"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Selecting classifiers or architectures from dataset features is a typical automatic model-selection setup."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary automatic model-selection setup using dataset features to choose among candidate classifiers or architectures"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "dataset-feature-based classifier or architecture selection is presented as a standard automatic model-selection formulation."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Selecting classifiers or architectures from dataset features is presented as an ordinary automatic model-selection setup."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "ordinary automatic model-selection setup used to illustrate a meta-predictor over candidate models"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Selecting classifiers or architectures from dataset features is a routine automatic model-selection formulation."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary automatic model-selection scheme predicting a classifier or architecture from dataset features"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "automatic classifier or architecture selection from dataset features is presented as a typical model-selection formulation"
+    }
+   ]
+  },
+  {
+   "code": "E5",
+   "name": "Gradient descent and momentum update rules",
+   "note": "Standard optimizers such as gradient descent and momentum serve as reference update formulas for the learned optimizer and as baselines in later comparisons.",
+   "first_introduced_sec": 1253,
+   "spans": [
+    {
+     "start_sec": 1253,
+     "end_sec": 1308
+    },
+    {
+     "start_sec": 1907,
+     "end_sec": 1930
+    },
+    {
+     "start_sec": 2965,
+     "end_sec": 3015
+    },
+    {
+     "start_sec": 3528,
+     "end_sec": 3602
+    }
+   ],
+   "total_seconds": 202,
+   "attaches_to": [
+    "s3",
+    "s4",
+    "s7"
+   ],
+   "primary_stage": "s3",
+   "depth": 2,
+   "natt_talk": 3,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "gradient descent and momentum are identified as standard update formulas and later comparison baselines, but their updates are not concretely computed or derived",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 1,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Gradient descent and momentum are ordinary update-rule templates used to motivate learned optimizers."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Gradient descent and momentum are standard update rules, with momentum used to show that a short k-Markov restriction cannot represent even simple optimizers."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Gradient descent and momentum are cited as standard update-formula examples rather than as a refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "standard optimization update rules used as representative members of the update-formula search space"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Gradient descent and momentum are standard update-rule examples used to motivate learnable optimizers."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard optimization update rules cited as examples of the update-formula search space"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "gradient descent and momentum are used as standard examples of optimizer update rules."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Gradient descent and momentum are used as canonical update-rule examples in the optimizer search space."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "standard first-order optimizers used as examples of update formulas"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Gradient descent and momentum are used as standard examples of optimizer update rules."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "canonical optimizers used as representative update formulas in the learned-optimizer search space"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "gradient descent and momentum are standard update-rule examples illustrating the optimizer search space"
+    }
+   ]
+  },
+  {
+   "code": "E6",
+   "name": "Two-dimensional logistic-regression trajectory",
+   "note": "The convex two-dimensional logistic-regression visualization shows how the learned optimizer can take larger steps, overshoot, and then correct itself on unseen objectives.",
+   "first_introduced_sec": 2930,
+   "spans": [
+    {
+     "start_sec": 2930,
+     "end_sec": 3047
+    },
+    {
+     "start_sec": 3475,
+     "end_sec": 3528
+    }
+   ],
+   "total_seconds": 170,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker analyzes the two-dimensional logistic-regression trajectories, comparing arrows, step sizes, overshooting, turning around, and vanishing-gradient behavior",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-dimensional logistic-regression trajectory is a simple visualization of optimizer behavior."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-dimensional logistic-regression trajectory is an ordinary low-dimensional convex test problem used to visualize optimizer behavior."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The two-dimensional logistic-regression case is a simple visualization benchmark but not structurally singular."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary low-dimensional logistic-regression test trajectory used to visualize learned-optimizer behavior"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The two-dimensional logistic-regression run is a simple visualization of optimizer trajectories, not a structural exception."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a simple convex logistic-regression test trajectory used to visualize learned optimizer behavior"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the two-dimensional logistic-regression run is a simple visualization example of optimizer trajectories."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The two-dimensional logistic-regression trajectory is a toy visualization of learned-optimizer behavior, not a failure case."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "low-dimensional convex case used to visualize learned optimizer trajectories"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The two-dimensional logistic-regression trajectory is a toy visualization of optimizer behavior, not a structural exception."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary low-dimensional convex logistic-regression toy used to visualize learned-optimizer trajectories"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the two-dimensional logistic-regression trajectory is a simple visualization case for optimizer behavior"
+    }
+   ]
+  },
+  {
+   "code": "E7",
+   "name": "MNIST-trained optimizer applied to faces",
+   "note": "Training the optimizer on MNIST and applying it to a faces dataset illustrates transfer to an unseen objective function and recovery from divergence.",
+   "first_introduced_sec": 3528,
+   "spans": [
+    {
+     "start_sec": 3528,
+     "end_sec": 3602
+    }
+   ],
+   "total_seconds": 74,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker applies the MNIST-trained optimizer to the faces objective and discusses the resulting loss curves, recovery, and divergence behavior",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Applying an MNIST-trained optimizer to faces is an ordinary transfer test for generalization."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Applying an MNIST-trained optimizer to faces is a standard unseen-task transfer test presented mainly as positive evidence of generalization."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The MNIST-to-faces transfer is used as an ordinary unseen-task generalization demonstration."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary cross-dataset transfer test showing a learned optimizer trained on MNIST can be applied to an unseen faces objective"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Applying an MNIST-trained optimizer to faces is an ordinary unseen-test transfer demonstration."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a normal cross-dataset generalization test for a learned optimizer rather than a structural special case"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the MNIST-to-faces transfer experiment is used as evidence of generalization to an unseen objective."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Applying an MNIST-trained optimizer to faces is an out-of-distribution transfer test used to illustrate generalization."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "unseen transfer experiment used to demonstrate generalization of the learned optimizer"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Applying an MNIST-trained optimizer to faces is an ordinary unseen-task generalization test."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "cross-dataset transfer test showing the learned optimizer generalizes from MNIST to faces"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "the MNIST-to-faces transfer experiment is used as positive evidence of generalization to an unseen objective"
+    }
+   ]
+  },
+  {
+   "code": "E8",
+   "name": "Noisier gradients from smaller minibatches",
+   "note": "Reducing minibatch size at meta-test time illustrates robustness, or lack thereof, when gradient noise is higher than during meta-training.",
+   "first_introduced_sec": 3602,
+   "spans": [
+    {
+     "start_sec": 3602,
+     "end_sec": 3668
+    }
+   ],
+   "total_seconds": 66,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker changes the minibatch size to make gradients noisier and interprets how the learned optimizer and backprop-trained optimizer behave",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 3,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Smaller-minibatch noisy gradients are used as a robustness test rather than a structural special case."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Smaller minibatches create an adverse noisy-gradient test condition that exposes divergence of the backprop-trained baseline."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The smaller-minibatch noise condition is a robustness demonstration, not a structural special case or refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "smaller-minibatch noisy gradients are used as a stress case where the backprop-trained optimizer can diverge"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Smaller minibatches create a standard noisy-gradient stress condition rather than a classification-exception or disproof."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a noisy-minibatch robustness setting used to test recovery under gradient noise"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "smaller minibatches producing noisier gradients are used as a stress case where the backprop-trained optimizer can diverge."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "Smaller minibatches give a noisy robustness test, but the example is used mainly to show recovery rather than impossibility."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "smaller-minibatch noise condition used as a robustness test rather than an impossibility claim"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "Smaller minibatches giving noisier gradients are used as a robustness check rather than a structural special case."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "smaller minibatches create a noisy-gradient robustness test rather than a structural extreme"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "smaller minibatches give a noisy robustness test rather than an intrinsically special optimization object"
+    }
+   ]
+  },
+  {
+   "code": "E9",
+   "name": "Longer test-time optimization horizon",
+   "note": "Running the learned optimizer for 800 iterations after training it for 400 illustrates whether the method remains stable beyond its training horizon.",
+   "first_introduced_sec": 3668,
+   "spans": [
+    {
+     "start_sec": 3668,
+     "end_sec": 3703
+    }
+   ],
+   "total_seconds": 35,
+   "attaches_to": [
+    "s7"
+   ],
+   "primary_stage": "s7",
+   "depth": 6,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "the speaker extends the test-time horizon from 400 to 800 iterations and checks whether the learned optimizer diverges after the trained horizon",
+   "generative": "illustrative",
+   "generative_score": 0,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 0,
+    "G1": 0,
+    "G2": 0,
+    "I0": 0,
+    "I1": 0,
+    "I2": 0
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "A longer test-time horizon is a horizon-extrapolation stability test, not an intrinsic extremal object."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "Running for a longer test-time horizon is an ordinary extrapolation test, and the point is that the learned optimizer does not fail."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The longer test horizon is an extrapolation check showing stability rather than an extremal object or counterexample."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "ordinary extrapolation test to a longer optimization horizon, used to show robustness rather than failure"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "Running for a longer test horizon is a robustness/extrapolation check, not an extremal object in the mathematical sense."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "a longer-horizon robustness check used to show the optimizer does not diverge beyond its training horizon"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "the longer test-time horizon is an extrapolation test showing stability rather than a failure example."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The longer test-time horizon is a horizon-generalization stress test showing no divergence after the training horizon."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "longer-than-trained horizon used as an extrapolation test showing stability"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "A longer test-time horizon is a standard extrapolation check and not an intrinsic extreme or collapse."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "test horizon is extended beyond training to check stability, not to exhibit an intrinsic boundary object"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "running longer at test time is an extrapolation check, not a structural extremum of the optimizer class"
+    }
+   ]
+  },
+  {
+   "code": "E10",
+   "name": "Adaptive-gradient versus second-order methods",
+   "note": "Coordinate-wise adaptive-gradient methods illustrate when the coordinate-wise assumption is plausible, while second-order methods illustrate what that assumption excludes.",
+   "first_introduced_sec": 3961,
+   "spans": [
+    {
+     "start_sec": 3961,
+     "end_sec": 4010
+    }
+   ],
+   "total_seconds": 49,
+   "attaches_to": [
+    "s8"
+   ],
+   "primary_stage": "s8",
+   "depth": 7,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "adaptive-gradient and second-order methods are used as contrasting examples for the coordinate-wise modeling assumption without a concrete derivation or application",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": true,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 0,
+    "exceptional": 0,
+    "countercase": 12,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Second-order methods are invoked as an obstruction to the coordinatewise-independence assumption fitting adaptive-gradient methods."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Adaptive-gradient and second-order methods are standard optimizer families, with second-order behavior serving as an obstruction to the coordinate-wise independence assumption."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Second-order methods require coordinate interactions, so they obstruct the coordinate-wise adaptive-gradient assumption."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "second-order methods are invoked as an obstruction to the coordinate-wise independence assumption that fits adaptive-gradient methods"
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Second-order methods are invoked as an obstruction to the coordinate-wise assumption that suits adaptive-gradient methods."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "second-order methods are invoked as an obstruction to the coordinate-wise assumption suitable for adaptive-gradient methods"
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "second-order methods are invoked to show the limitation of a purely coordinate-wise adaptive-gradient assumption."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Second-order methods are invoked as an obstruction to the coordinate-wise independence assumption that suits adaptive-gradient methods."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "second-order methods are invoked to show the coordinate-wise adaptive-gradient assumption cannot capture coordinate interactions"
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "Second-order methods are invoked as an obstruction to the coordinate-wise assumption that fits adaptive-gradient methods."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "second-order methods are invoked as an obstruction to the coordinate-wise independence assumption that suits adaptive-gradient methods"
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "countercase"
+     ],
+     "reason": "second-order methods are invoked as an obstruction to the coordinate-wise independence assumption that fits adaptive-gradient methods"
+    }
+   ]
+  }
+ ]
+}

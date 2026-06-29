@@ -1,0 +1,780 @@
+{
+ "key": "5b364f6b2bd5bd223f2134544ce8490a",
+ "title": "The Complexity of the Non-commutative Determinant",
+ "speaker": "Srikanth Srinivasan",
+ "affiliation": "Institute for Advanced Study",
+ "date": "2010-10-11T12:00:00Z",
+ "field_msc": "68 Computer science",
+ "duration_sec": 3633.0,
+ "abstract": "I will talk about the computational complexity of computing the noncommutative determinant. In contrast to the case of commutative algebras, we know of (virtually) no efficient algorithms to compute the determinant over non-commutative domains. Our results show that the determinant in noncommutative settings can be as hard as the permanent.",
+ "youtube_url": "https://www.youtube.com/watch?v=8UTsAXylx6Q",
+ "page_url": "https://www.ias.edu/video/csdm/srinivasan",
+ "tags": [
+  "Computer Science and Discrete Mathematics (CSDM)",
+  "School of Mathematics"
+ ],
+ "proof_stages": [
+  {
+   "id": "s1",
+   "code": "S1",
+   "label": "Noncommutative determinant problem and two complexity viewpoints",
+   "summary": "The talk defines the determinant of an n by n matrix over a noncommutative algebra using a fixed order of multiplication, then separates the problem into generic arithmetic-circuit complexity and algorithms for specific noncommutative algebras.",
+   "spans": [
+    {
+     "start_sec": 16,
+     "end_sec": 167
+    }
+   ],
+   "depends_on": []
+  },
+  {
+   "id": "s2",
+   "code": "S2",
+   "label": "Algorithmic motivation from permanent approximation and matrix algebras",
+   "summary": "Determinant-based randomized estimators for the 0-1 permanent suggest computing determinants over richer noncommutative domains, but the speaker states hardness results showing that exact determinant computation over matrix algebras would imply exact permanent computation.",
+   "spans": [
+    {
+     "start_sec": 180,
+     "end_sec": 1052
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s3",
+   "code": "S3",
+   "label": "Noncommutative arithmetic models and the target theorem",
+   "summary": "Noncommutative circuits, formulas, and algebraic branching programs are defined and compared, known ABP lower bounds are reviewed, and the main circuit result is formulated: if the noncommutative determinant has small circuits, then so does the noncommutative permanent.",
+   "spans": [
+    {
+     "start_sec": 1082,
+     "end_sec": 1853
+    }
+   ],
+   "depends_on": [
+    "s1"
+   ]
+  },
+  {
+   "id": "s4",
+   "code": "S4",
+   "label": "Adjacency-matrix encoding of ABP coefficients",
+   "summary": "An ABP is encoded by a matrix of linear forms, decomposed into coefficient matrices, so that the coefficient of any monomial is recovered as a specified entry of the corresponding product of coefficient matrices.",
+   "spans": [
+    {
+     "start_sec": 1865,
+     "end_sec": 2140
+    }
+   ],
+   "depends_on": [
+    "s3"
+   ]
+  },
+  {
+   "id": "s5",
+   "code": "S5",
+   "label": "Hadamard-product closure via matrix substitution",
+   "summary": "By substituting the ABP coefficient matrices into a circuit for a polynomial f and taking the source-sink matrix entry, one obtains a circuit for the Hadamard product of f with the ABP-computed polynomial g.",
+   "spans": [
+    {
+     "start_sec": 2156,
+     "end_sec": 2563
+    },
+    {
+     "start_sec": 3294,
+     "end_sec": 3344
+    }
+   ],
+   "depends_on": [
+    "s3",
+    "s4"
+   ]
+  },
+  {
+   "id": "s6",
+   "code": "S6",
+   "label": "Low-complexity filter for equal-sign determinant monomials",
+   "summary": "Instead of using determinant itself as the second Hadamard factor, the proof constructs a simple ABP/formula filter selecting interleaved double-permutation monomials in a 2n by 2n determinant, all of which have the same sign.",
+   "spans": [
+    {
+     "start_sec": 2563,
+     "end_sec": 3243
+    }
+   ],
+   "depends_on": [
+    "s5"
+   ]
+  },
+  {
+   "id": "s7",
+   "code": "S7",
+   "label": "Reduction from noncommutative permanent to determinant circuits",
+   "summary": "After the filter leaves only the equal-sign degree-2n determinant monomials, substituting the even-position variables by 1 yields the n by n permanent, so a small determinant circuit would give a small permanent circuit.",
+   "spans": [
+    {
+     "start_sec": 3214,
+     "end_sec": 3374
+    }
+   ],
+   "depends_on": [
+    "s5",
+    "s6"
+   ]
+  },
+  {
+   "id": "s8",
+   "code": "S8",
+   "label": "Algorithmic hardness consequences for matrix-algebra determinants",
+   "summary": "The same substitution/Hadamard mechanism implies that efficient determinant algorithms over sufficiently large matrix algebras would compute the permanent, and a constant-size version is related to Valiant's gadget proof of permanent hardness.",
+   "spans": [
+    {
+     "start_sec": 3394,
+     "end_sec": 3623
+    }
+   ],
+   "depends_on": [
+    "s2",
+    "s5",
+    "s6",
+    "s7"
+   ]
+  }
+ ],
+ "examples": [
+  {
+   "code": "E1",
+   "name": "Godsil--Gutman random-sign determinant estimator",
+   "note": "Randomly multiplying the entries of a 0-1 matrix by signs gives a determinant whose squared value has expectation equal to the permanent, illustrating why determinant computation can be used as an estimator for the permanent, although with exponential variance.",
+   "first_introduced_sec": 394,
+   "spans": [
+    {
+     "start_sec": 394,
+     "end_sec": 541
+    }
+   ],
+   "total_seconds": 147,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he sets up the random sign matrix, forms its determinant as a random variable, explains averaging it to estimate the permanent, and discusses the variance/repetition count",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 4,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The Godsil--Gutman estimator is a standard unbiased randomized determinant-based estimator with no sporadic, collapsed, extremal, or maximal-symmetry structure, used as a motivating construction rather than to refute a claim."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Godsil--Gutman estimator is a standard iid random-sign determinant estimator used as motivating approximation method, not as a refutation."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The Godsil--Gutman random-sign determinant estimator is used as a standard randomized baseline for approximating the permanent, not as a structural extreme or refutation."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The Godsil--Gutman random-sign estimator is a standard unbiased determinant-based estimator with exponential variance, used as a positive approximation approach rather than to refute a claim."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The Godsil--Gutman random-sign estimator is a standard randomized determinant-based permanent estimator used as motivating evidence, not as a sporadic, limiting, optimal, or refuting example."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "A standard randomized determinant estimator used as a motivating baseline, not a degenerate/sporadic/extreme object or a disproof."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "It is the basic unbiased determinant estimator using uniform ±1 signs, a highly regular sign distribution used as motivation rather than as a disproof."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is used as the baseline unbiased randomized determinant estimator for the permanent, with exponential variance, not as a refutation; structurally it is an ordinary estimator."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "It is the uniform iid ±1 sign determinant estimator, a regular sign-symmetric baseline used as a positive unbiased approximation method rather than to refute a claim."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Godsil--Gutman estimator is used as a positive motivating baseline for approximating the permanent, not to refute a claim; its uniform random-sign construction is highly regular but not sporadic, extremal, or degenerate."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the uniform i.i.d. ±1 determinant estimator is used as a motivating approximation scheme, not as a refutation."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "It is the standard Bernoulli random-sign permanent estimator used as a motivating determinant-based approximation method, with no sporadic, limiting, optimal, or maximal-symmetry structure emphasized."
+    }
+   ]
+  },
+  {
+   "code": "E2",
+   "name": "Roots-of-unity and quaternion determinant estimators",
+   "note": "The complex-root and quaternion variants are presented as concrete later determinant-based estimators whose improving variances motivate asking what happens over still larger noncommutative algebras.",
+   "first_introduced_sec": 609,
+   "spans": [
+    {
+     "start_sec": 609,
+     "end_sec": 748
+    },
+    {
+     "start_sec": 764,
+     "end_sec": 802
+    }
+   ],
+   "total_seconds": 177,
+   "attaches_to": [
+    "s2"
+   ],
+   "primary_stage": "s2",
+   "depth": 1,
+   "natt_talk": 1,
+   "from_question": false,
+   "engagement": "mentioned",
+   "engagement_reason": "he summarizes the roots-of-unity and quaternion variants by stating their substitutions, norms, variances, and runtimes, but does not derive or analyze them in the talk",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 0,
+    "symmetric": 5,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The roots-of-unity and quaternion estimators are systematic variants over larger unit/normed algebras improving variance, not classification exceptions or adversarial examples in the argument."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The roots-of-unity and quaternion variants are systematic extensions of the sign estimator with improved variance, not sporadic exceptions or counterexamples."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [],
+     "reason": "The roots-of-unity and quaternion variants are systematic determinant-estimator extensions with improved variance, not sporadic exceptions or counterexamples."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [],
+     "reason": "The roots-of-unity and quaternion variants are systematic extensions of the determinant-estimator method with improved variance, not sporadic exceptions or adversarial cases."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "The roots-of-unity and quaternion variants are further determinant-estimator constructions with improved variance, not classification exceptions or counterexamples in the argument."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [],
+     "reason": "These are systematic determinant-estimator extensions over roots of unity and quaternions, used to show variance improvements rather than to refute a claim."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "These are systematic extensions using uniform roots of unity and quaternionic units, symmetric phase/unit choices used to improve variance rather than to refute a claim."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [],
+     "reason": "The roots-of-unity and quaternion variants are presented as systematic improvements in the same estimator family, not as obstructions or sporadic exceptions."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The roots-of-unity and quaternion variants use highly regular unit/norm algebra symmetries as systematic estimator extensions with better variance, not sporadic or adversarial cases."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The roots-of-unity and quaternion estimators are presented as systematic variance-improving extensions of the random-sign method, not as failures; they exploit regular unit/root symmetries but are not classification-exceptional or optimal boundary cases."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "the roots-of-unity and quaternion variants use regular norm/phase symmetries in a systematic estimator family, not as counterexamples."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "These are structured algebra-valued variants using regular roots of unity and quaternionic norm structure to reduce variance, serving as positive extensions rather than refutations."
+    }
+   ]
+  },
+  {
+   "code": "E3",
+   "name": "Hadamard square of the determinant",
+   "note": "The identity that the Hadamard product of the noncommutative determinant with itself is the permanent shows the desired sign-cancellation mechanism and motivates replacing the unavailable determinant ABP by a simpler filtering polynomial.",
+   "first_introduced_sec": 2375,
+   "spans": [
+    {
+     "start_sec": 2375,
+     "end_sec": 2466
+    },
+    {
+     "start_sec": 2475,
+     "end_sec": 2511
+    },
+    {
+     "start_sec": 2563,
+     "end_sec": 2582
+    }
+   ],
+   "total_seconds": 146,
+   "attaches_to": [
+    "s5",
+    "s6"
+   ],
+   "primary_stage": "s5",
+   "depth": 3,
+   "natt_talk": 2,
+   "from_question": false,
+   "engagement": "worked",
+   "engagement_reason": "he defines the Hadamard product and explicitly checks that the determinant Hadamard-squared gives the permanent by multiplying the ±1/0 coefficients termwise",
+   "generative": "generative",
+   "generative_score": 6,
+   "generative_n": 6,
+   "generative_votes": {
+    "G0": 1,
+    "G1": 1,
+    "G2": 1,
+    "I0": 1,
+    "I1": 1,
+    "I2": 1
+   },
+   "structure": [
+    "symmetric"
+   ],
+   "countercase": false,
+   "votes": {
+    "degenerate": 0,
+    "extremal": 6,
+    "symmetric": 12,
+    "exceptional": 0,
+    "countercase": 0,
+    "indeterminate": 0
+   },
+   "votes_n": 12,
+   "passes": [
+    {
+     "pass": 0,
+     "axis_first": "structure",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hadamard square of the determinant is the permanent, a highly regular polynomial with uniform coefficients on permutation monomials, used constructively in the reduction rather than as a counterexample."
+    },
+    {
+     "pass": 1,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Hadamard square of the determinant is the permanent, a highly symmetric and complexity-complete polynomial used constructively in the reduction."
+    },
+    {
+     "pass": 2,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "degenerate",
+      "extremal",
+      "exceptional"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hadamard square of the determinant is the permanent, with uniformly positive coefficients on the permutation monomials, and is used illustratively rather than adversarially."
+    },
+    {
+     "pass": 3,
+     "axis_first": "structure",
+     "struct_order": [
+      "extremal",
+      "symmetric",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Hadamard square of the determinant is the permanent, a highly regular all-positive permutation polynomial and extremal hard/complete object in algebraic complexity, used constructively in the reduction."
+    },
+    {
+     "pass": 4,
+     "axis_first": "structure",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hadamard square of the determinant is the highly regular coefficientwise square giving the permanent, used constructively in the reduction rather than to refute a claim."
+    },
+    {
+     "pass": 5,
+     "axis_first": "structure",
+     "struct_order": [
+      "degenerate",
+      "exceptional",
+      "symmetric",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Hadamard square is the permanent, a highly symmetric row-column polynomial and complexity-extremal complete object, used constructively rather than as a counterexample."
+    },
+    {
+     "pass": 6,
+     "axis_first": "role",
+     "struct_order": [
+      "extremal",
+      "degenerate",
+      "symmetric",
+      "exceptional"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Hadamard square of the determinant is the permanent, a highly regular permutation-sum polynomial that is complexity-theoretically complete/maximal, used constructively in the reduction."
+    },
+    {
+     "pass": 7,
+     "axis_first": "role",
+     "struct_order": [
+      "degenerate",
+      "extremal",
+      "exceptional",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hadamard square of the determinant is used constructively because it removes the determinant signs to give the permanent; the resulting polynomial has the highly regular permutation-monomial symmetry."
+    },
+    {
+     "pass": 8,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "degenerate",
+      "extremal"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "The Hadamard square of the determinant is the permanent, a highly row/column-symmetric and VNP/#P-complete polynomial used constructively in the reduction, not as a counterexample."
+    },
+    {
+     "pass": 9,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "exceptional",
+      "extremal",
+      "degenerate"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hadamard square of the determinant is used illustratively to show that coefficientwise squaring gives the permanent, not as a counterexample; the resulting permanent has the determinant support with all signs symmetrized."
+    },
+    {
+     "pass": 10,
+     "axis_first": "role",
+     "struct_order": [
+      "symmetric",
+      "extremal",
+      "exceptional",
+      "degenerate"
+     ],
+     "flags": [
+      "extremal",
+      "symmetric"
+     ],
+     "reason": "the Hadamard square is the permanent, a highly row/column-symmetric VNP-complete polynomial used constructively in the reduction."
+    },
+    {
+     "pass": 11,
+     "axis_first": "role",
+     "struct_order": [
+      "exceptional",
+      "degenerate",
+      "extremal",
+      "symmetric"
+     ],
+     "flags": [
+      "symmetric"
+     ],
+     "reason": "The Hadamard square of the determinant is the permanent, a highly regular row/column-symmetric polynomial used constructively to explain the Hadamard-product reduction."
+    }
+   ]
+  }
+ ]
+}
