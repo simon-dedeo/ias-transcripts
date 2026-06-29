@@ -36,8 +36,10 @@ scripts/prompts/           the four GPT-5.5 prompts (Stages A–D), verbatim
 ## `data/<key>.json` schema
 
 **Talk level.** `key`, `title`, `speaker`, `affiliation`, `date` (ISO 8601; empty for two
-talks whose date could not be recovered), `field_msc` (primary MSC subject), `duration_sec`,
-`abstract`, `youtube_url`, `page_url`, `tags`, plus `proof_stages` and `examples`.
+talks whose date could not be recovered), `field_msc` (primary MSC2020 2-digit class, taken
+as the majority of the three Stage-A runs; empty for two talks where the runs gave no
+2-of-3 majority), `duration_sec`, `abstract`, `youtube_url`, `page_url`, `tags`, plus
+`proof_stages` and `examples`.
 
 **`proof_stages[]`** — the logical skeleton of the talk's argument:
 | field | meaning |
